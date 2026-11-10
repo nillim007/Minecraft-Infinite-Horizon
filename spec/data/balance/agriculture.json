@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "entries": {
+    "sternenwerft:hydroponics_basin": {
+      "plant_slots": 1,
+      "ticks_per_growth_stage": 2000,
+      "ticks_per_growth_stage_fertilized": 1333,
+      "light_min": 9,
+      "requires_active_dome_in_mod_dimensions": true,
+      "accepts": "vanilla_seeds_and_saplings",
+      "harvest": "vanilla_loot_table",
+      "seeds_return_to_plant_slot": true,
+      "spec_ref": "17, 6.1",
+      "notes": "Etwa doppelt so schnell wie ideales Vanilla-Ackerland. Strom und Wasser in balance/machines.json."
+    },
+    "saplings": {
+      "growth_stages": 2,
+      "ticks_per_stage": 2000,
+      "yield": [
+        {
+          "id": "<log der Holzart>",
+          "count": 4
+        },
+        {
+          "id": "<Setzling der Holzart>",
+          "count": 1
+        }
+      ],
+      "sapling_returns_to_plant_slot": true,
+      "spec_ref": "17"
+    },
+    "sternenwerft:greenhouse": {
+      "plant_slots": 9,
+      "item_slots": {
+        "input": 9,
+        "output": 9
+      },
+      "behaves_like_basins": 9,
+      "energy_per_tick": 90,
+      "fluid_consumption": [
+        {
+          "fluid": "minecraft:water",
+          "amount": 9,
+          "per_ticks": 20
+        }
+      ],
+      "consumes": {
+        "item": "sternenwerft:dry_ice",
+        "count": 1,
+        "per_ticks": 6000
+      },
+      "accepts_fertilizer": true,
+      "location": {
+        "dimension_type": "orbit",
+        "dimensions": [],
+        "excluded_dimensions": []
+      },
+      "spec_ref": "14.2, 17",
+      "notes": "SPEC-GAP: Strom, Wasser und Ausgabeslots nicht angegeben; aus „verhält sich wie 9 Becken“ (17) als 9 × Beckenwerte abgeleitet."
+    },
+    "sternenwerft:ammonia_fertilizer": {
+      "growth_bonus": 0.5,
+      "duration_ticks": 24000,
+      "use": "right_click",
+      "applies_to": [
+        "sternenwerft:hydroponics_basin",
+        "sternenwerft:greenhouse"
+      ],
+      "spec_ref": "17, 14.2"
+    },
+    "sternenwerft:space_ration": {
+      "inputs": 3,
+      "nutrition": "sum_of_inputs",
+      "saturation": "sum_of_inputs",
+      "nutrition_max": 20,
+      "saturation_max": 20,
+      "max_stack": 16,
+      "data_component": "sternenwerft:nutrition",
+      "produced_by": "sternenwerft:food_packer",
+      "spec_ref": "17"
+    },
+    "sternenwerft:compost_soil": {
+      "hoe_result": "sternenwerft:compost_farmland",
+      "farmland_behavior": "minecraft:farmland",
+      "spec_ref": "17"
+    },
+    "plant_growth_rules": {
+      "planet_soil_plantable": false,
+      "requires_light": true,
+      "requires_active_dome_outside_earth": true,
+      "spec_ref": "17, 8.5"
+    }
+  }
+}

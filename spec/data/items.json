@@ -1,0 +1,5307 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "id": "sternenwerft:ceres_plains",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Ceres-Ebenen",
+      "name_en": "Ceres Plains",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension ceres"
+    },
+    {
+      "id": "sternenwerft:ceres_salt_flats",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Salzebenen",
+      "name_en": "Ceres Salt Flats",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension ceres"
+    },
+    {
+      "id": "sternenwerft:enceladus_snowfields",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Schneefelder",
+      "name_en": "Enceladus Snowfields",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension enceladus"
+    },
+    {
+      "id": "sternenwerft:enceladus_tiger_stripes",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Tigerstreifen",
+      "name_en": "Enceladus Tiger Stripes",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension enceladus"
+    },
+    {
+      "id": "sternenwerft:europa_ice_plains",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Eisebenen",
+      "name_en": "Europa Ice Plains",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension europa"
+    },
+    {
+      "id": "sternenwerft:europa_ocean",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Europa-Ozean",
+      "name_en": "Europa Ocean",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension europa"
+    },
+    {
+      "id": "sternenwerft:europa_rifts",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Eisspalten",
+      "name_en": "Europa Rifts",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension europa"
+    },
+    {
+      "id": "sternenwerft:europa_vents",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Hydrothermale Quellen",
+      "name_en": "Europa Vents",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension europa"
+    },
+    {
+      "id": "sternenwerft:io_lava_lakes",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Lavaseen",
+      "name_en": "Io Lava Lakes",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension io"
+    },
+    {
+      "id": "sternenwerft:io_sulfur_plains",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Schwefelebenen",
+      "name_en": "Io Sulfur Plains",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension io"
+    },
+    {
+      "id": "sternenwerft:io_volcanic_fields",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Vulkanfelder",
+      "name_en": "Io Volcanic Fields",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension io"
+    },
+    {
+      "id": "sternenwerft:mars_canyon",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Mars-Canyon",
+      "name_en": "Mars Canyon",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension mars"
+    },
+    {
+      "id": "sternenwerft:mars_dry_lake",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Ausgetrockneter See",
+      "name_en": "Mars Dry Lake",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension mars"
+    },
+    {
+      "id": "sternenwerft:mars_meteorite_field",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Mars-Meteoritenfeld",
+      "name_en": "Mars Meteorite Field",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension mars"
+    },
+    {
+      "id": "sternenwerft:mars_polar_cap",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Mars-Polkappe",
+      "name_en": "Mars Polar Cap",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension mars"
+    },
+    {
+      "id": "sternenwerft:mars_red_plains",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Rote Ebenen",
+      "name_en": "Mars Red Plains",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension mars"
+    },
+    {
+      "id": "sternenwerft:mars_volcanic_highlands",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Vulkanisches Hochland",
+      "name_en": "Mars Volcanic Highlands",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension mars"
+    },
+    {
+      "id": "sternenwerft:mercury_frost_plains",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Frostebenen",
+      "name_en": "Mercury Frost Plains",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension mercury"
+    },
+    {
+      "id": "sternenwerft:mercury_scorched_plains",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Glutebenen",
+      "name_en": "Mercury Scorched Plains",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension mercury"
+    },
+    {
+      "id": "sternenwerft:mercury_shadow_crater",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Schattenkrater",
+      "name_en": "Mercury Shadow Crater",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension mercury"
+    },
+    {
+      "id": "sternenwerft:mercury_twilight_belt",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Dämmerungsgürtel",
+      "name_en": "Mercury Twilight Belt",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension mercury"
+    },
+    {
+      "id": "sternenwerft:moon_great_crater",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Mond-Großkrater",
+      "name_en": "Moon Great Crater",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension moon"
+    },
+    {
+      "id": "sternenwerft:moon_highlands",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Mond-Hochland",
+      "name_en": "Moon Highlands",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension moon"
+    },
+    {
+      "id": "sternenwerft:moon_mare",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Mare",
+      "name_en": "Moon Mare",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension moon"
+    },
+    {
+      "id": "sternenwerft:moon_polar_crater",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Mond-Polarkrater",
+      "name_en": "Moon Polar Crater",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension moon"
+    },
+    {
+      "id": "sternenwerft:pluto_dark_highlands",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Dunkles Hochland",
+      "name_en": "Pluto Dark Highlands",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension pluto"
+    },
+    {
+      "id": "sternenwerft:pluto_heart_glacier",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Herzgletscher",
+      "name_en": "Pluto Heart Glacier",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension pluto"
+    },
+    {
+      "id": "sternenwerft:pluto_ice_mountains",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Pluto-Eisgebirge",
+      "name_en": "Pluto Ice Mountains",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension pluto"
+    },
+    {
+      "id": "sternenwerft:titan_dunes",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Titan-Dünen",
+      "name_en": "Titan Dunes",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension titan"
+    },
+    {
+      "id": "sternenwerft:titan_ice_mountains",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Titan-Eisgebirge",
+      "name_en": "Titan Ice Mountains",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension titan"
+    },
+    {
+      "id": "sternenwerft:titan_methane_lakes",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Methanseen",
+      "name_en": "Titan Methane Lakes",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension titan"
+    },
+    {
+      "id": "sternenwerft:triton_cantaloupe_terrain",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Cantaloupe-Terrain",
+      "name_en": "Triton Cantaloupe Terrain",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension triton"
+    },
+    {
+      "id": "sternenwerft:triton_geyser_fields",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Geysirfelder",
+      "name_en": "Triton Geyser Fields",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension triton"
+    },
+    {
+      "id": "sternenwerft:triton_polar_cap",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Triton-Polkappe",
+      "name_en": "Triton Polar Cap",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension triton"
+    },
+    {
+      "id": "sternenwerft:venus_lava_plains",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Lavaebenen",
+      "name_en": "Venus Lava Plains",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension venus"
+    },
+    {
+      "id": "sternenwerft:venus_plateau",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Venus-Hochebene",
+      "name_en": "Venus Plateau",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension venus"
+    },
+    {
+      "id": "sternenwerft:venus_volcanoes",
+      "kind": "biome",
+      "category": "world",
+      "name_de": "Venus-Vulkane",
+      "name_en": "Venus Volcanoes",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Dimension venus"
+    },
+    {
+      "id": "sternenwerft:aluminum_cable",
+      "kind": "block",
+      "category": "cable",
+      "name_de": "Aluminiumkabel",
+      "name_en": "Aluminum Cable",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "4.4",
+      "notes": "2.048 J/t"
+    },
+    {
+      "id": "sternenwerft:copper_cable",
+      "kind": "block",
+      "category": "cable",
+      "name_de": "Kupferkabel",
+      "name_en": "Copper Cable",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "4.4",
+      "notes": "256 J/t"
+    },
+    {
+      "id": "sternenwerft:superconductor_cable",
+      "kind": "block",
+      "category": "cable",
+      "name_de": "Supraleiterkabel",
+      "name_en": "Superconductor Cable",
+      "max_stack": 64,
+      "phase": 4,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "4.4",
+      "notes": "32.768 J/t"
+    },
+    {
+      "id": "sternenwerft:electric_lamp",
+      "kind": "block",
+      "category": "decorative",
+      "name_de": "Elektrische Lampe",
+      "name_en": "Electric Lamp",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "8.5",
+      "notes": "5 J/t, Licht 15, funktioniert überall"
+    },
+    {
+      "id": "sternenwerft:extinguished_torch",
+      "kind": "block",
+      "category": "decorative",
+      "name_de": "Erloschene Fackel",
+      "name_en": "Extinguished Torch",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "generated"
+      ],
+      "spec_ref": "8.5",
+      "notes": "entsteht aus Fackeln außerhalb aktiver Kuppeln in Mod-Dimensionen"
+    },
+    {
+      "id": "sternenwerft:sulfur_trail",
+      "kind": "block",
+      "category": "decorative",
+      "name_de": "Schwefelspur",
+      "name_en": "Sulfur Trail",
+      "max_stack": 64,
+      "phase": null,
+      "obtained_by": [
+        "not_obtainable"
+      ],
+      "spec_ref": "18",
+      "notes": "von sulfur_snail gelegt, nicht fest, droppt nichts, verschwindet nach 6.000 t"
+    },
+    {
+      "id": "sternenwerft:combustion_generator",
+      "kind": "block",
+      "category": "generator",
+      "name_de": "Verbrennungsgenerator",
+      "name_en": "Combustion Generator",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.3",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:fission_reactor",
+      "kind": "block",
+      "category": "generator",
+      "name_de": "Kernreaktor",
+      "name_en": "Fission Reactor",
+      "max_stack": 64,
+      "phase": 6,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.3",
+      "notes": "Controller des Multiblocks fission_reactor (5×5×5)"
+    },
+    {
+      "id": "sternenwerft:fuel_generator",
+      "kind": "block",
+      "category": "generator",
+      "name_de": "Treibstoffgenerator",
+      "name_en": "Fuel Generator",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.3",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:fusion_reactor",
+      "kind": "block",
+      "category": "generator",
+      "name_de": "Fusionsreaktor",
+      "name_en": "Fusion Reactor",
+      "max_stack": 64,
+      "phase": 4,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.3",
+      "notes": "Controller des Multiblocks fusion_reactor (5×5×5)"
+    },
+    {
+      "id": "sternenwerft:solar_panel",
+      "kind": "block",
+      "category": "generator",
+      "name_de": "Solarpanel",
+      "name_en": "Solar Panel",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.3",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:solar_wing",
+      "kind": "block",
+      "category": "generator",
+      "name_de": "Solarflügel",
+      "name_en": "Solar Wing",
+      "max_stack": 64,
+      "phase": 4,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.3",
+      "notes": "nur Orbit; Stationsmodul (14.2)"
+    },
+    {
+      "id": "sternenwerft:cargo_terminal",
+      "kind": "block",
+      "category": "logistics",
+      "name_de": "Frachtterminal",
+      "name_en": "Cargo Terminal",
+      "max_stack": 64,
+      "phase": 6,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "20.1",
+      "notes": "216 Slots, 8 Frachttanks, Treibstofftank 64.000 mB methane"
+    },
+    {
+      "id": "sternenwerft:logistics_computer",
+      "kind": "block",
+      "category": "logistics",
+      "name_de": "Logistik-Computer",
+      "name_en": "Logistics Computer",
+      "max_stack": 64,
+      "phase": 6,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "20.4",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:trading_post",
+      "kind": "block",
+      "category": "logistics",
+      "name_de": "Handelsposten",
+      "name_en": "Trading Post",
+      "max_stack": 64,
+      "phase": 6,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "23.3",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:analyzer",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Analysator",
+      "name_en": "Analyzer",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:assembly_table",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Montagetisch",
+      "name_en": "Assembly Table",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:clone_chamber",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Klon-Kammer",
+      "name_en": "Clone Chamber",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "14.4",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:crusher",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Zerkleinerer",
+      "name_en": "Crusher",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:cryo_liquefier",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Kryo-Verflüssiger",
+      "name_en": "Cryo Liquefier",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:dome_generator_t1",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Kuppelgenerator I",
+      "name_en": "Dome Generator I",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "10.1",
+      "notes": "Radius 8"
+    },
+    {
+      "id": "sternenwerft:dome_generator_t2",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Kuppelgenerator II",
+      "name_en": "Dome Generator II",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "10.1",
+      "notes": "Radius 16"
+    },
+    {
+      "id": "sternenwerft:dome_generator_t3",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Kuppelgenerator III",
+      "name_en": "Dome Generator III",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "10.1",
+      "notes": "Radius 32"
+    },
+    {
+      "id": "sternenwerft:drilling_rig",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Bohrturm",
+      "name_en": "Drilling Rig",
+      "max_stack": 64,
+      "phase": 6,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": "überall außer Erde"
+    },
+    {
+      "id": "sternenwerft:electric_furnace",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Elektroofen",
+      "name_en": "Electric Furnace",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:electrolyzer",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Elektrolyseur",
+      "name_en": "Electrolyzer",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:fluid_pump",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Pumpe",
+      "name_en": "Fluid Pump",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:food_packer",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Nahrungspacker",
+      "name_en": "Food Packer",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:gas_collector",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Gas-Sammler",
+      "name_en": "Gas Collector",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": "nur Orbits von Jupiter, Saturn, Uranus, Neptun"
+    },
+    {
+      "id": "sternenwerft:gravity_plate",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Schwerkraftplatte",
+      "name_en": "Gravity Plate",
+      "max_stack": 64,
+      "phase": 4,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:high_temperature_furnace",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Hochtemperaturofen",
+      "name_en": "High-Temperature Furnace",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:hydroponics_basin",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Hydrokultur-Becken",
+      "name_en": "Hydroponics Basin",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:magnetic_trap",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Magnetfalle",
+      "name_en": "Magnetic Trap",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": "nur jupiter_orbit"
+    },
+    {
+      "id": "sternenwerft:oxygen_generator",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Sauerstoffgenerator",
+      "name_en": "Oxygen Generator",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "10.2",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:press",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Presse",
+      "name_en": "Press",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:pump_station",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Pumpstation",
+      "name_en": "Pump Station",
+      "max_stack": 64,
+      "phase": 6,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:refinery_controller",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Raffinerie",
+      "name_en": "Refinery",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": "Controller des Multiblocks refinery (3×3×5)"
+    },
+    {
+      "id": "sternenwerft:regolith_heater",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Regolith-Erhitzer",
+      "name_en": "Regolith Heater",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": "nur moon"
+    },
+    {
+      "id": "sternenwerft:research_terminal",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Forschungsterminal",
+      "name_en": "Research Terminal",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "11.3",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:space_weather_station",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Weltraumwetter-Station",
+      "name_en": "Space Weather Station",
+      "max_stack": 64,
+      "phase": 4,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:zero_g_fabricator",
+      "kind": "block",
+      "category": "machine",
+      "name_de": "Schwerelos-Fertigung",
+      "name_en": "Zero-G Fabricator",
+      "max_stack": 64,
+      "phase": 4,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.1",
+      "notes": "nur Orbit-Dimensionen; Stationsmodul (14.2)"
+    },
+    {
+      "id": "sternenwerft:fission_casing",
+      "kind": "block",
+      "category": "multiblock_part",
+      "name_de": "Kernreaktor-Gehäuse",
+      "name_en": "Fission Casing",
+      "max_stack": 64,
+      "phase": 6,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "4.3",
+      "notes": "Gehäuse des Multiblocks fission_reactor"
+    },
+    {
+      "id": "sternenwerft:fuel_pump",
+      "kind": "block",
+      "category": "multiblock_part",
+      "name_de": "Treibstoffpumpe",
+      "name_en": "Fuel Pump",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "4.3",
+      "notes": "betankt Raketen (12.4)"
+    },
+    {
+      "id": "sternenwerft:fusion_casing",
+      "kind": "block",
+      "category": "multiblock_part",
+      "name_de": "Fusionsreaktor-Gehäuse",
+      "name_en": "Fusion Casing",
+      "max_stack": 64,
+      "phase": 4,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "4.3",
+      "notes": "Gehäuse des Multiblocks fusion_reactor"
+    },
+    {
+      "id": "sternenwerft:launch_control",
+      "kind": "block",
+      "category": "multiblock_part",
+      "name_de": "Startkontrolle",
+      "name_en": "Launch Control",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "4.3",
+      "notes": "Raketen-Computer, steuert die nächste gültige Rampe im Umkreis 8"
+    },
+    {
+      "id": "sternenwerft:launch_pad",
+      "kind": "block",
+      "category": "multiblock_part",
+      "name_de": "Startrampe",
+      "name_en": "Launch Pad",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "4.3",
+      "notes": "Plattformblock für launch_pad_t1 (25) und launch_pad_t2 (49)"
+    },
+    {
+      "id": "sternenwerft:launch_tower",
+      "kind": "block",
+      "category": "multiblock_part",
+      "name_de": "Startturm",
+      "name_en": "Launch Tower",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "4.3",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:refinery_casing",
+      "kind": "block",
+      "category": "multiblock_part",
+      "name_de": "Raffinerie-Gehäuse",
+      "name_en": "Refinery Casing",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "4.3",
+      "notes": "Gehäuse des Multiblocks refinery"
+    },
+    {
+      "id": "sternenwerft:asteroid_iridium_ore",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Asteroiden-Iridiumerz",
+      "name_en": "Asteroid Iridium Ore",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Asteroidengürtel; droppt 1 raw_iridium"
+    },
+    {
+      "id": "sternenwerft:asteroid_nickel_ore",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Asteroiden-Nickelerz",
+      "name_en": "Asteroid Nickel Ore",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Asteroidengürtel; droppt 1 raw_nickel"
+    },
+    {
+      "id": "sternenwerft:asteroid_platinum_ore",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Asteroiden-Platinerz",
+      "name_en": "Asteroid Platinum Ore",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Asteroidengürtel; droppt 1 raw_platinum"
+    },
+    {
+      "id": "sternenwerft:bauxite_ore",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Bauxiterz",
+      "name_en": "Bauxite Ore",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Erde; droppt 1 bauxite"
+    },
+    {
+      "id": "sternenwerft:deepslate_titanium_ore",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Tiefenschiefer-Titanerz",
+      "name_en": "Deepslate Titanium Ore",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Erde; droppt 1 raw_titanium"
+    },
+    {
+      "id": "sternenwerft:io_sulfur_ore",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Io-Schwefelerz",
+      "name_en": "Io Sulfur Ore",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Io; droppt 2–4 sulfur"
+    },
+    {
+      "id": "sternenwerft:iron_nickel_meteorite",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Eisen-Nickel-Meteorit",
+      "name_en": "Iron Nickel Meteorite",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Mars; droppt 1–2 raw_nickel, 50 % 1 minecraft:raw_iron"
+    },
+    {
+      "id": "sternenwerft:mars_iron_ore",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Mars-Eisenerz",
+      "name_en": "Mars Iron Ore",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Mars; droppt 1 minecraft:raw_iron"
+    },
+    {
+      "id": "sternenwerft:mars_magnesium_ore",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Mars-Magnesiumerz",
+      "name_en": "Mars Magnesium Ore",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Mars; droppt 1 raw_magnesium"
+    },
+    {
+      "id": "sternenwerft:mercury_iron_ore",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Merkur-Eisenerz",
+      "name_en": "Mercury Iron Ore",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Merkur; droppt 1 minecraft:raw_iron"
+    },
+    {
+      "id": "sternenwerft:mercury_lithium_salt",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Merkur-Lithiumsalz",
+      "name_en": "Mercury Lithium Salt",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Merkur; droppt 2 lithium_salt"
+    },
+    {
+      "id": "sternenwerft:mercury_titanium_ore",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Merkur-Titanerz",
+      "name_en": "Mercury Titanium Ore",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Merkur; droppt 1 raw_titanium"
+    },
+    {
+      "id": "sternenwerft:meteorite_ore",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Meteoritenerz",
+      "name_en": "Meteorite Ore",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "event"
+      ],
+      "spec_ref": "19",
+      "notes": "aus Meteoritenschauer; droppt sich selbst, Rohstoffe nur über Zerkleinerer"
+    },
+    {
+      "id": "sternenwerft:moon_aluminum_ore",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Mond-Aluminiumerz",
+      "name_en": "Moon Aluminum Ore",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Mond; droppt 1 bauxite"
+    },
+    {
+      "id": "sternenwerft:moon_titanium_ore",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Mond-Titanerz",
+      "name_en": "Moon Titanium Ore",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Mond; droppt 1 raw_titanium"
+    },
+    {
+      "id": "sternenwerft:pluto_uranium_ore",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Pluto-Uranerz",
+      "name_en": "Pluto Uranium Ore",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Pluto, nur pluto_dark_highlands; droppt 1 raw_uranium"
+    },
+    {
+      "id": "sternenwerft:quartz_sand",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Quarzsand",
+      "name_en": "Quartz Sand",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Erde, Strand und Flussufer; Rohstoff für silicon"
+    },
+    {
+      "id": "sternenwerft:titanium_ore",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Titanerz",
+      "name_en": "Titanium Ore",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Erde; droppt 1 raw_titanium"
+    },
+    {
+      "id": "sternenwerft:venus_sulfur_ore",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Venus-Schwefelerz",
+      "name_en": "Venus Sulfur Ore",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Venus; droppt 2–4 sulfur"
+    },
+    {
+      "id": "sternenwerft:venus_tungsten_ore",
+      "kind": "block",
+      "category": "ore",
+      "name_de": "Venus-Wolframerz",
+      "name_en": "Venus Tungsten Ore",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Venus; droppt 1 raw_tungsten"
+    },
+    {
+      "id": "sternenwerft:copper_pipe",
+      "kind": "block",
+      "category": "pipe",
+      "name_de": "Kupferrohr",
+      "name_en": "Copper Pipe",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "4.4",
+      "notes": "200 mB/t, Fluide und Gase"
+    },
+    {
+      "id": "sternenwerft:titanium_pipe",
+      "kind": "block",
+      "category": "pipe",
+      "name_de": "Titanrohr",
+      "name_en": "Titanium Pipe",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "4.4",
+      "notes": "1.000 mB/t"
+    },
+    {
+      "id": "sternenwerft:ammonia_geyser",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Ammoniak-Geysir",
+      "name_en": "Ammonia Geyser",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Enceladus; unzerstörbar"
+    },
+    {
+      "id": "sternenwerft:ancient_alloy",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Uralte Legierung",
+      "name_en": "Ancient Alloy",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Pluto, signal_transmitter; unzerstörbar"
+    },
+    {
+      "id": "sternenwerft:asteroid_rock",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Asteroidengestein",
+      "name_en": "Asteroid Rock",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Asteroidengürtel"
+    },
+    {
+      "id": "sternenwerft:ceres_rock",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Ceres-Gestein",
+      "name_en": "Ceres Rock",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Ceres"
+    },
+    {
+      "id": "sternenwerft:dry_ice_block",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Trockeneisblock",
+      "name_en": "Dry Ice Block",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Mars; droppt 4 dry_ice"
+    },
+    {
+      "id": "sternenwerft:enceladus_ice",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Enceladus-Eis",
+      "name_en": "Enceladus Ice",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Enceladus"
+    },
+    {
+      "id": "sternenwerft:enceladus_snow",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Enceladus-Schnee",
+      "name_en": "Enceladus Snow",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Enceladus"
+    },
+    {
+      "id": "sternenwerft:europa_ice",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Europa-Eis",
+      "name_en": "Europa Ice",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Europa; Härte 50, effizient nur mit ice_drill"
+    },
+    {
+      "id": "sternenwerft:europa_seabed",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Europa-Meeresboden",
+      "name_en": "Europa Seabed",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Europa"
+    },
+    {
+      "id": "sternenwerft:gypsum_block",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Gipsblock",
+      "name_en": "Gypsum Block",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Mars; droppt 4 gypsum"
+    },
+    {
+      "id": "sternenwerft:hydrothermal_vent",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Hydrothermale Quelle",
+      "name_en": "Hydrothermal Vent",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Europa; unzerstörbar; Glasflasche → microbe_culture"
+    },
+    {
+      "id": "sternenwerft:io_crust",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Io-Kruste",
+      "name_en": "Io Crust",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Io"
+    },
+    {
+      "id": "sternenwerft:mars_rock",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Marsgestein",
+      "name_en": "Mars Rock",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Mars; default_block"
+    },
+    {
+      "id": "sternenwerft:mars_sand",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Marssand",
+      "name_en": "Mars Sand",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Mars"
+    },
+    {
+      "id": "sternenwerft:mercury_rock",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Merkurgestein",
+      "name_en": "Mercury Rock",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Merkur"
+    },
+    {
+      "id": "sternenwerft:moon_basalt",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Mond-Basalt",
+      "name_en": "Moon Basalt",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Mond; im Tag sternenwerft:basalt"
+    },
+    {
+      "id": "sternenwerft:moon_ice",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Mondeis",
+      "name_en": "Moon Ice",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Mond; droppt minecraft:ice"
+    },
+    {
+      "id": "sternenwerft:moon_regolith",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Mond-Regolith",
+      "name_en": "Moon Regolith",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Mond; droppt sich selbst"
+    },
+    {
+      "id": "sternenwerft:moon_rock",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Mondgestein",
+      "name_en": "Moon Rock",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Mond; default_block"
+    },
+    {
+      "id": "sternenwerft:nitrogen_geyser",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Stickstoff-Geysir",
+      "name_en": "Nitrogen Geyser",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Triton; unzerstörbar"
+    },
+    {
+      "id": "sternenwerft:pluto_nitrogen_ice",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Pluto-Stickstoffeis",
+      "name_en": "Pluto Nitrogen Ice",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Pluto"
+    },
+    {
+      "id": "sternenwerft:pluto_tholin",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Pluto-Tholin",
+      "name_en": "Pluto Tholin",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Pluto"
+    },
+    {
+      "id": "sternenwerft:pluto_water_ice",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Pluto-Wassereis",
+      "name_en": "Pluto Water Ice",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Pluto"
+    },
+    {
+      "id": "sternenwerft:salt_crust",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Salzkruste",
+      "name_en": "Salt Crust",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Ceres; droppt sich selbst (*_crust)"
+    },
+    {
+      "id": "sternenwerft:titan_dune_sand",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Titan-Dünensand",
+      "name_en": "Titan Dune Sand",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Titan"
+    },
+    {
+      "id": "sternenwerft:titan_ice_rock",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Titan-Eisgestein",
+      "name_en": "Titan Ice Rock",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Titan"
+    },
+    {
+      "id": "sternenwerft:triton_ice",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Triton-Eis",
+      "name_en": "Triton Ice",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Triton"
+    },
+    {
+      "id": "sternenwerft:venus_rock",
+      "kind": "block",
+      "category": "planet_block",
+      "name_de": "Venusgestein",
+      "name_en": "Venus Rock",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Venus; default_block"
+    },
+    {
+      "id": "sternenwerft:energy_port",
+      "kind": "block",
+      "category": "port",
+      "name_de": "Energie-Port",
+      "name_en": "Energy Port",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "4.3",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:fluid_port",
+      "kind": "block",
+      "category": "port",
+      "name_de": "Fluid-Port",
+      "name_en": "Fluid Port",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "4.3",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:item_port",
+      "kind": "block",
+      "category": "port",
+      "name_de": "Item-Port",
+      "name_en": "Item Port",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "4.3",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:advanced_probe",
+      "kind": "block",
+      "category": "rocket_part",
+      "name_de": "Fortgeschrittene Sonde",
+      "name_en": "Advanced Probe",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "12.3",
+      "notes": "Ring 2"
+    },
+    {
+      "id": "sternenwerft:long_range_module",
+      "kind": "block",
+      "category": "rocket_part",
+      "name_de": "Fernflug-Modul",
+      "name_en": "Long-Range Module",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "12.4",
+      "notes": "nur T2, +128.000 mB je Komponente"
+    },
+    {
+      "id": "sternenwerft:probe",
+      "kind": "block",
+      "category": "rocket_part",
+      "name_de": "Sonde",
+      "name_en": "Probe",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "12.3",
+      "notes": "Ring 1; Block auf der Startplattform"
+    },
+    {
+      "id": "sternenwerft:rocket_capsule_t1",
+      "kind": "block",
+      "category": "rocket_part",
+      "name_de": "Raketenkapsel T1",
+      "name_en": "Rocket Capsule T1",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "12.4",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:rocket_capsule_t2",
+      "kind": "block",
+      "category": "rocket_part",
+      "name_de": "Raketenkapsel T2",
+      "name_en": "Rocket Capsule T2",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "12.4",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:rocket_cargo_bay",
+      "kind": "block",
+      "category": "rocket_part",
+      "name_de": "Raketen-Frachtraum",
+      "name_en": "Rocket Cargo Bay",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "12.4",
+      "notes": "27 Slots, T1 und T2"
+    },
+    {
+      "id": "sternenwerft:rocket_engine_t1",
+      "kind": "block",
+      "category": "rocket_part",
+      "name_de": "Raketentriebwerk T1",
+      "name_en": "Rocket Engine T1",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "12.4",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:rocket_engine_t2",
+      "kind": "block",
+      "category": "rocket_part",
+      "name_de": "Raketentriebwerk T2",
+      "name_en": "Rocket Engine T2",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "12.4",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:rocket_fin_t1",
+      "kind": "block",
+      "category": "rocket_part",
+      "name_de": "Raketenflosse T1",
+      "name_en": "Rocket Fin T1",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "12.4",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:rocket_fin_t2",
+      "kind": "block",
+      "category": "rocket_part",
+      "name_de": "Raketenflosse T2",
+      "name_en": "Rocket Fin T2",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "12.4",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:rocket_tank_t1",
+      "kind": "block",
+      "category": "rocket_part",
+      "name_de": "Raketentank T1",
+      "name_en": "Rocket Tank T1",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "12.4",
+      "notes": "16.000 mB je Komponente"
+    },
+    {
+      "id": "sternenwerft:rocket_tank_t2",
+      "kind": "block",
+      "category": "rocket_part",
+      "name_de": "Raketentank T2",
+      "name_en": "Rocket Tank T2",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "12.4",
+      "notes": "16.000 mB je Komponente"
+    },
+    {
+      "id": "sternenwerft:aerostat_platform",
+      "kind": "block",
+      "category": "special",
+      "name_de": "Aerostat-Plattform",
+      "name_en": "Aerostat Platform",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe",
+        "generated"
+      ],
+      "spec_ref": "12.8",
+      "notes": "5×5 bei erster Venus-Landung generiert"
+    },
+    {
+      "id": "sternenwerft:asteroid_anchor",
+      "kind": "block",
+      "category": "special",
+      "name_de": "Asteroiden-Anker",
+      "name_en": "Asteroid Anchor",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "13.4",
+      "notes": "1 g für Spieler im Radius 16"
+    },
+    {
+      "id": "sternenwerft:cloud_elevator",
+      "kind": "block",
+      "category": "special",
+      "name_de": "Wolkenaufzug",
+      "name_en": "Cloud Elevator",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe",
+        "generated"
+      ],
+      "spec_ref": "12.8",
+      "notes": "untere Station entsteht automatisch"
+    },
+    {
+      "id": "sternenwerft:compost_farmland",
+      "kind": "block",
+      "category": "special",
+      "name_de": "Kompost-Ackerland",
+      "name_en": "Compost Farmland",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "generated"
+      ],
+      "spec_ref": "17",
+      "notes": "entsteht mit der Hacke aus compost_soil, verhält sich wie Vanilla-Ackerland"
+    },
+    {
+      "id": "sternenwerft:compost_soil",
+      "kind": "block",
+      "category": "special",
+      "name_de": "Kompost-Boden",
+      "name_en": "Compost Soil",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "17",
+      "notes": "mit der Hacke → compost_farmland"
+    },
+    {
+      "id": "sternenwerft:landing_beacon",
+      "kind": "block",
+      "category": "special",
+      "name_de": "Landefeuer",
+      "name_en": "Landing Beacon",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "12.6",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:pontoon",
+      "kind": "block",
+      "category": "special",
+      "name_de": "Ponton",
+      "name_en": "Pontoon",
+      "max_stack": 64,
+      "phase": 6,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "18",
+      "notes": "wie Seerose auf Flüssigkeiten setzbar"
+    },
+    {
+      "id": "sternenwerft:transmitter_core",
+      "kind": "block",
+      "category": "special",
+      "name_de": "Senderkern",
+      "name_en": "Transmitter Core",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "13.4",
+      "notes": "Pluto, signal_transmitter; unzerstörbar; beschwört signal_sentinel"
+    },
+    {
+      "id": "sternenwerft:docking_bay",
+      "kind": "block",
+      "category": "station_module",
+      "name_de": "Andockbucht",
+      "name_en": "Docking Bay",
+      "max_stack": 64,
+      "phase": 4,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "14.2",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:greenhouse",
+      "kind": "block",
+      "category": "station_module",
+      "name_de": "Gewächshaus",
+      "name_en": "Greenhouse",
+      "max_stack": 64,
+      "phase": 4,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "14.2",
+      "notes": "9 Pflanzslots"
+    },
+    {
+      "id": "sternenwerft:habitation_module",
+      "kind": "block",
+      "category": "station_module",
+      "name_de": "Wohnmodul",
+      "name_en": "Habitation Module",
+      "max_stack": 64,
+      "phase": 4,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "14.2",
+      "notes": "Respawn + 27 Slots"
+    },
+    {
+      "id": "sternenwerft:research_lab",
+      "kind": "block",
+      "category": "station_module",
+      "name_de": "Forschungslabor",
+      "name_en": "Research Lab",
+      "max_stack": 64,
+      "phase": 4,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "14.2",
+      "notes": "+50 % FP für angrenzende Analysatoren"
+    },
+    {
+      "id": "sternenwerft:shipyard_dock",
+      "kind": "block",
+      "category": "station_module",
+      "name_de": "Werft-Andockbucht",
+      "name_en": "Shipyard Dock",
+      "max_stack": 64,
+      "phase": 6,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "21.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:shipyard_terminal",
+      "kind": "block",
+      "category": "station_module",
+      "name_de": "Werft-Terminal",
+      "name_en": "Shipyard Terminal",
+      "max_stack": 64,
+      "phase": 6,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "21.1",
+      "notes": "nur in einer Station im earth_orbit"
+    },
+    {
+      "id": "sternenwerft:station_core",
+      "kind": "block",
+      "category": "station_module",
+      "name_de": "Stationskern",
+      "name_en": "Station Core",
+      "max_stack": 64,
+      "phase": 4,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "14.1",
+      "notes": "nur Orbit-Dimensionen; eingebauter Kuppelgenerator T1"
+    },
+    {
+      "id": "sternenwerft:station_hull",
+      "kind": "block",
+      "category": "station_module",
+      "name_de": "Stationshülle",
+      "name_en": "Station Hull",
+      "max_stack": 64,
+      "phase": 4,
+      "obtained_by": [
+        "recipe",
+        "generated"
+      ],
+      "spec_ref": "14.1",
+      "notes": "5×5-Plattform beim Setzen des station_core (generated=true, droppt nichts)"
+    },
+    {
+      "id": "sternenwerft:station_window",
+      "kind": "block",
+      "category": "station_module",
+      "name_de": "Stationsfenster",
+      "name_en": "Station Window",
+      "max_stack": 64,
+      "phase": 4,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "14.2",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:battery",
+      "kind": "block",
+      "category": "storage",
+      "name_de": "Akku",
+      "name_en": "Battery",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.3",
+      "notes": "500.000 J, 1 Ladeslot"
+    },
+    {
+      "id": "sternenwerft:fluid_tank",
+      "kind": "block",
+      "category": "storage",
+      "name_de": "Tank",
+      "name_en": "Fluid Tank",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.3",
+      "notes": "16.000 mB, nur Flüssigkeiten"
+    },
+    {
+      "id": "sternenwerft:gas_tank",
+      "kind": "block",
+      "category": "storage",
+      "name_de": "Gastank",
+      "name_en": "Gas Tank",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.3",
+      "notes": "64.000 mB, nur Gase"
+    },
+    {
+      "id": "sternenwerft:lithium_battery_bank",
+      "kind": "block",
+      "category": "storage",
+      "name_de": "Lithium-Akkubank",
+      "name_en": "Lithium Battery Bank",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.3",
+      "notes": "4.000.000 J"
+    },
+    {
+      "id": "sternenwerft:pressure_bottle",
+      "kind": "block",
+      "category": "storage",
+      "name_de": "Druckflasche",
+      "name_en": "Pressure Bottle",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.3",
+      "notes": "8.000 mB, nur Gase"
+    },
+    {
+      "id": "sternenwerft:tank_depot",
+      "kind": "block",
+      "category": "storage",
+      "name_de": "Tankdepot",
+      "name_en": "Tank Depot",
+      "max_stack": 64,
+      "phase": 4,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "6.3",
+      "notes": "256.000 mB, alle Fluide; auch Stationsmodul (14.2)"
+    },
+    {
+      "id": "sternenwerft:charge",
+      "kind": "data_component",
+      "category": "special",
+      "name_de": "Ladung",
+      "name_en": "Charge",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "26",
+      "notes": "antimatter_cell leer 0 / gefüllt 1"
+    },
+    {
+      "id": "sternenwerft:chart_owner",
+      "kind": "data_component",
+      "category": "special",
+      "name_de": "Kartenbesitzer",
+      "name_en": "Chart Owner",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "26",
+      "notes": "star_chart: {agency, uuid}"
+    },
+    {
+      "id": "sternenwerft:drive",
+      "kind": "data_component",
+      "category": "special",
+      "name_de": "Antrieb",
+      "name_en": "Drive",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "26",
+      "notes": "Antrieb einer Frachtrakete"
+    },
+    {
+      "id": "sternenwerft:energy",
+      "kind": "data_component",
+      "category": "special",
+      "name_de": "Energie",
+      "name_en": "Energy",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "26",
+      "notes": "gespeicherte Energie (z. B. jetpack, ice_drill)"
+    },
+    {
+      "id": "sternenwerft:flights_left",
+      "kind": "data_component",
+      "category": "special",
+      "name_de": "Verbleibende Flüge",
+      "name_en": "Flights Left",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "26",
+      "notes": "heavy_freighter, 0–10"
+    },
+    {
+      "id": "sternenwerft:fluid",
+      "kind": "data_component",
+      "category": "special",
+      "name_de": "Fluid",
+      "name_en": "Fluid",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "26",
+      "notes": "Fluid + Menge (Behälter-Items)"
+    },
+    {
+      "id": "sternenwerft:linked_pos",
+      "kind": "data_component",
+      "category": "special",
+      "name_de": "Verknüpfte Position",
+      "name_en": "Linked Pos",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "26",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:nutrition",
+      "kind": "data_component",
+      "category": "special",
+      "name_de": "Nährwert",
+      "name_en": "Nutrition",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "26",
+      "notes": "space_ration"
+    },
+    {
+      "id": "sternenwerft:oxygen",
+      "kind": "data_component",
+      "category": "special",
+      "name_de": "Sauerstoffvorrat",
+      "name_en": "Oxygen",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "26",
+      "notes": "O₂-Vorrat der Anzug-Brustplatte; gleiche ID auch als Fluid"
+    },
+    {
+      "id": "sternenwerft:rover_data",
+      "kind": "data_component",
+      "category": "special",
+      "name_de": "Rover-Daten",
+      "name_en": "Rover Data",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "26",
+      "notes": "Fracht, Module und Energie eines abgebauten Rovers"
+    },
+    {
+      "id": "sternenwerft:sample",
+      "kind": "data_component",
+      "category": "special",
+      "name_de": "Probe",
+      "name_en": "Sample",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "26",
+      "notes": "block + dimension; gleiche ID auch als Item"
+    },
+    {
+      "id": "sternenwerft:suit_modules",
+      "kind": "data_component",
+      "category": "special",
+      "name_de": "Anzugmodule",
+      "name_en": "Suit Modules",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "26",
+      "notes": "2 Modulslots je Anzugteil"
+    },
+    {
+      "id": "sternenwerft:asteroid_belt",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Asteroidengürtel",
+      "name_en": "Asteroid Belt",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.2",
+      "notes": "Oberfläche"
+    },
+    {
+      "id": "sternenwerft:ceres",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Ceres",
+      "name_en": "Ceres",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.2",
+      "notes": "Oberfläche"
+    },
+    {
+      "id": "sternenwerft:earth_orbit",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Erdorbit",
+      "name_en": "Earth Orbit",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.1",
+      "notes": "Orbit-Dimension"
+    },
+    {
+      "id": "sternenwerft:enceladus",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Enceladus",
+      "name_en": "Enceladus",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.2",
+      "notes": "Oberfläche"
+    },
+    {
+      "id": "sternenwerft:europa",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Europa",
+      "name_en": "Europa",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.2",
+      "notes": "Oberfläche"
+    },
+    {
+      "id": "sternenwerft:io",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Io",
+      "name_en": "Io",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.2",
+      "notes": "Oberfläche"
+    },
+    {
+      "id": "sternenwerft:jupiter_orbit",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Jupiter-Orbit",
+      "name_en": "Jupiter Orbit",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.1",
+      "notes": "Orbit-Dimension"
+    },
+    {
+      "id": "sternenwerft:mars",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Mars",
+      "name_en": "Mars",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.2",
+      "notes": "Oberfläche"
+    },
+    {
+      "id": "sternenwerft:mars_orbit",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Mars-Orbit",
+      "name_en": "Mars Orbit",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.1",
+      "notes": "Orbit-Dimension"
+    },
+    {
+      "id": "sternenwerft:mercury",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Merkur",
+      "name_en": "Mercury",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.2",
+      "notes": "Oberfläche"
+    },
+    {
+      "id": "sternenwerft:mercury_orbit",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Merkur-Orbit",
+      "name_en": "Mercury Orbit",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.1",
+      "notes": "Orbit-Dimension"
+    },
+    {
+      "id": "sternenwerft:moon",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Mond",
+      "name_en": "Moon",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.2",
+      "notes": "Oberfläche"
+    },
+    {
+      "id": "sternenwerft:neptune_orbit",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Neptun-Orbit",
+      "name_en": "Neptune Orbit",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.1",
+      "notes": "Orbit-Dimension"
+    },
+    {
+      "id": "sternenwerft:pluto",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Pluto",
+      "name_en": "Pluto",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.2",
+      "notes": "Oberfläche"
+    },
+    {
+      "id": "sternenwerft:saturn_orbit",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Saturn-Orbit",
+      "name_en": "Saturn Orbit",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.1",
+      "notes": "Orbit-Dimension"
+    },
+    {
+      "id": "sternenwerft:titan",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Titan",
+      "name_en": "Titan",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.2",
+      "notes": "Oberfläche"
+    },
+    {
+      "id": "sternenwerft:triton",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Triton",
+      "name_en": "Triton",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.2",
+      "notes": "Oberfläche"
+    },
+    {
+      "id": "sternenwerft:uranus_orbit",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Uranus-Orbit",
+      "name_en": "Uranus Orbit",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.1",
+      "notes": "Orbit-Dimension"
+    },
+    {
+      "id": "sternenwerft:venus",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Venus",
+      "name_en": "Venus",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.2",
+      "notes": "Oberfläche"
+    },
+    {
+      "id": "sternenwerft:venus_orbit",
+      "kind": "dimension",
+      "category": "world",
+      "name_de": "Venus-Orbit",
+      "name_en": "Venus Orbit",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.1",
+      "notes": "Orbit-Dimension"
+    },
+    {
+      "id": "sternenwerft:cloud_ray",
+      "kind": "entity",
+      "category": "creature",
+      "name_de": "Wolkenrochen",
+      "name_en": "Cloud Ray",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "18",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:drift_mite",
+      "kind": "entity",
+      "category": "creature",
+      "name_de": "Schwebemilbe",
+      "name_en": "Drift Mite",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "18",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:dune_burrower",
+      "kind": "entity",
+      "category": "creature",
+      "name_de": "Dünenwühler",
+      "name_en": "Dune Burrower",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "18",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:dust_wraith",
+      "kind": "entity",
+      "category": "creature",
+      "name_de": "Staubgeist",
+      "name_en": "Dust Wraith",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "18",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:frost_lurker",
+      "kind": "entity",
+      "category": "creature",
+      "name_de": "Frostkriecher",
+      "name_en": "Frost Lurker",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "18",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:geyser_moth",
+      "kind": "entity",
+      "category": "creature",
+      "name_de": "Geysirmotte",
+      "name_en": "Geyser Moth",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "18",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:ice_jelly",
+      "kind": "entity",
+      "category": "creature",
+      "name_de": "Eisqualle",
+      "name_en": "Ice Jelly",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "18",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:methane_skimmer",
+      "kind": "entity",
+      "category": "creature",
+      "name_de": "Methanläufer",
+      "name_en": "Methane Skimmer",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "18",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:mirror_beetle",
+      "kind": "entity",
+      "category": "creature",
+      "name_de": "Spiegelkäfer",
+      "name_en": "Mirror Beetle",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "18",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:reef_keeper",
+      "kind": "entity",
+      "category": "creature",
+      "name_de": "Riffwächter",
+      "name_en": "Reef Keeper",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "18",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:rubble_crawler",
+      "kind": "entity",
+      "category": "creature",
+      "name_de": "Geröllkrabbler",
+      "name_en": "Rubble Crawler",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "18",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:shade_strider",
+      "kind": "entity",
+      "category": "creature",
+      "name_de": "Schattenläufer",
+      "name_en": "Shade Strider",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "18",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:signal_sentinel",
+      "kind": "entity",
+      "category": "creature",
+      "name_de": "Wächter des Senders",
+      "name_en": "Signal Sentinel",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "18",
+      "notes": "Boss"
+    },
+    {
+      "id": "sternenwerft:sulfur_salamander",
+      "kind": "entity",
+      "category": "creature",
+      "name_de": "Schwefelsalamander",
+      "name_en": "Sulfur Salamander",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "18",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:sulfur_snail",
+      "kind": "entity",
+      "category": "creature",
+      "name_de": "Schwefelschnecke",
+      "name_en": "Sulfur Snail",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "18",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:meteor",
+      "kind": "entity",
+      "category": "projectile",
+      "name_de": "Meteorit",
+      "name_en": "Meteor",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "19",
+      "notes": "Meteoritenschauer, Ringtrümmer"
+    },
+    {
+      "id": "sternenwerft:sulfur_glob",
+      "kind": "entity",
+      "category": "projectile",
+      "name_de": "Schwefelklumpen",
+      "name_en": "Sulfur Glob",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "18",
+      "notes": "Projektil des sulfur_salamander"
+    },
+    {
+      "id": "sternenwerft:probe_entity",
+      "kind": "entity",
+      "category": "special",
+      "name_de": "Sonde",
+      "name_en": "Probe Entity",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "12.3",
+      "notes": "fliegende Sonde nach dem Start"
+    },
+    {
+      "id": "sternenwerft:seat",
+      "kind": "entity",
+      "category": "special",
+      "name_de": "Sitz",
+      "name_en": "Seat",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "12.5",
+      "notes": "unsichtbarer Sitz in der Kapsel"
+    },
+    {
+      "id": "sternenwerft:lander",
+      "kind": "entity",
+      "category": "vehicle",
+      "name_de": "Landefähre",
+      "name_en": "Lander",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "12.7",
+      "notes": "2 Sitze; gleiche ID auch als Item"
+    },
+    {
+      "id": "sternenwerft:rocket",
+      "kind": "entity",
+      "category": "vehicle",
+      "name_de": "Rakete",
+      "name_en": "Rocket",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "12.5",
+      "notes": "entsteht aus Raketenblöcken beim Start"
+    },
+    {
+      "id": "sternenwerft:rover",
+      "kind": "entity",
+      "category": "vehicle",
+      "name_de": "Rover",
+      "name_en": "Rover",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "16",
+      "notes": "2 Sitze, aus rover_kit"
+    },
+    {
+      "id": "sternenwerft:rover_trailer",
+      "kind": "entity",
+      "category": "vehicle",
+      "name_de": "Rover-Anhänger",
+      "name_en": "Rover Trailer",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "16",
+      "notes": "Anhänger-Entity; gleiche ID auch als Item"
+    },
+    {
+      "id": "sternenwerft:starship",
+      "kind": "entity",
+      "category": "vehicle",
+      "name_de": "Sternenschiff",
+      "name_en": "Starship",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "21.3",
+      "notes": "Rakete T3, 8 Sitze"
+    },
+    {
+      "id": "sternenwerft:acid_rain",
+      "kind": "event",
+      "category": "world",
+      "name_de": "Säureregen",
+      "name_en": "Acid Rain",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "19",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:dust_storm",
+      "kind": "event",
+      "category": "world",
+      "name_de": "Staubsturm",
+      "name_en": "Dust Storm",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "19",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:meteor_shower",
+      "kind": "event",
+      "category": "world",
+      "name_de": "Meteoritenschauer",
+      "name_en": "Meteor Shower",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "19",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:methane_rain",
+      "kind": "event",
+      "category": "world",
+      "name_de": "Methanregen",
+      "name_en": "Methane Rain",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "19",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:ring_debris",
+      "kind": "event",
+      "category": "world",
+      "name_de": "Ringtrümmer",
+      "name_en": "Ring Debris",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "19",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:solar_storm",
+      "kind": "event",
+      "category": "world",
+      "name_de": "Sonnensturm",
+      "name_en": "Solar Storm",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "19",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:volcanic_eruption",
+      "kind": "event",
+      "category": "world",
+      "name_de": "Vulkanausbruch",
+      "name_en": "Volcanic Eruption",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "19",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:ammonia",
+      "kind": "fluid",
+      "category": "material",
+      "name_de": "Ammoniak",
+      "name_en": "Ammonia",
+      "max_stack": null,
+      "phase": 6,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.3",
+      "notes": "Pumpstation auf ammonia_geyser",
+      "fluid_type": "liquid",
+      "color": "#6FBF4A",
+      "has_source_block": false,
+      "has_bucket": false
+    },
+    {
+      "id": "sternenwerft:crude_oil",
+      "kind": "fluid",
+      "category": "material",
+      "name_de": "Erdöl",
+      "name_en": "Crude Oil",
+      "max_stack": null,
+      "phase": 1,
+      "obtained_by": [
+        "worldgen"
+      ],
+      "spec_ref": "5.3",
+      "notes": "Ölblasen auf der Erde (13.4), Pumpe",
+      "fluid_type": "liquid",
+      "color": "#1A1A1A",
+      "has_source_block": true,
+      "has_bucket": true
+    },
+    {
+      "id": "sternenwerft:helium",
+      "kind": "fluid",
+      "category": "material",
+      "name_de": "Helium",
+      "name_en": "Helium",
+      "max_stack": null,
+      "phase": 3,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.3",
+      "notes": "Regolith-Erhitzer, Gas-Sammler (Saturn)",
+      "fluid_type": "gas",
+      "color": "#F2A2C8",
+      "has_source_block": false,
+      "has_bucket": false
+    },
+    {
+      "id": "sternenwerft:hydrogen",
+      "kind": "fluid",
+      "category": "material",
+      "name_de": "Wasserstoff",
+      "name_en": "Hydrogen",
+      "max_stack": null,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.3",
+      "notes": "Elektrolyseur, Gas-Sammler",
+      "fluid_type": "gas",
+      "color": "#F5F5F5",
+      "has_source_block": false,
+      "has_bucket": false
+    },
+    {
+      "id": "sternenwerft:kerosene",
+      "kind": "fluid",
+      "category": "material",
+      "name_de": "Kerosin",
+      "name_en": "Kerosene",
+      "max_stack": null,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.3",
+      "notes": "Raffinerie; Eimer ohne Quellblock",
+      "fluid_type": "liquid",
+      "color": "#8B5A2B",
+      "has_source_block": false,
+      "has_bucket": true
+    },
+    {
+      "id": "sternenwerft:liquid_helium",
+      "kind": "fluid",
+      "category": "material",
+      "name_de": "Flüssiges Helium",
+      "name_en": "Liquid Helium",
+      "max_stack": null,
+      "phase": 3,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.3",
+      "notes": "Kryo-Verflüssiger",
+      "fluid_type": "liquid",
+      "color": "#F9D0E4",
+      "has_source_block": false,
+      "has_bucket": false
+    },
+    {
+      "id": "sternenwerft:liquid_nitrogen",
+      "kind": "fluid",
+      "category": "material",
+      "name_de": "Flüssiger Stickstoff",
+      "name_en": "Liquid Nitrogen",
+      "max_stack": null,
+      "phase": 6,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.3",
+      "notes": "Kryo-Verflüssiger",
+      "fluid_type": "liquid",
+      "color": "#BDBDBD",
+      "has_source_block": false,
+      "has_bucket": false
+    },
+    {
+      "id": "sternenwerft:methane",
+      "kind": "fluid",
+      "category": "material",
+      "name_de": "Methan",
+      "name_en": "Methane",
+      "max_stack": null,
+      "phase": 5,
+      "obtained_by": [
+        "worldgen",
+        "machine_output"
+      ],
+      "spec_ref": "5.3",
+      "notes": "Quellblöcke in Titan-Seen; Gas-Sammler (Uranus, Neptun)",
+      "fluid_type": "liquid",
+      "color": "#E8D44D",
+      "has_source_block": true,
+      "has_bucket": false
+    },
+    {
+      "id": "sternenwerft:nitrogen",
+      "kind": "fluid",
+      "category": "material",
+      "name_de": "Stickstoff",
+      "name_en": "Nitrogen",
+      "max_stack": null,
+      "phase": 6,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.3",
+      "notes": "Pumpstation auf nitrogen_geyser",
+      "fluid_type": "gas",
+      "color": "#8C8C8C",
+      "has_source_block": false,
+      "has_bucket": false
+    },
+    {
+      "id": "sternenwerft:oxygen",
+      "kind": "fluid",
+      "category": "material",
+      "name_de": "Sauerstoff",
+      "name_en": "Oxygen",
+      "max_stack": null,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.3",
+      "notes": "Elektrolyseur, Sauerstoffgenerator",
+      "fluid_type": "gas",
+      "color": "#9FD8F5",
+      "has_source_block": false,
+      "has_bucket": false
+    },
+    {
+      "id": "sternenwerft:deep_space_suit_boots",
+      "kind": "item",
+      "category": "armor",
+      "name_de": "Tiefraumanzug-Stiefel",
+      "name_en": "Deep Space Suit Boots",
+      "max_stack": 1,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:deep_space_suit_chestplate",
+      "kind": "item",
+      "category": "armor",
+      "name_de": "Tiefraumanzug-Brustplatte",
+      "name_en": "Deep Space Suit Chestplate",
+      "max_stack": 1,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.1",
+      "notes": "O₂-Vorrat (Data Component oxygen, max. 1.200 mB)"
+    },
+    {
+      "id": "sternenwerft:deep_space_suit_helmet",
+      "kind": "item",
+      "category": "armor",
+      "name_de": "Tiefraumanzug-Helm",
+      "name_en": "Deep Space Suit Helmet",
+      "max_stack": 1,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:deep_space_suit_leggings",
+      "kind": "item",
+      "category": "armor",
+      "name_de": "Tiefraumanzug-Hose",
+      "name_en": "Deep Space Suit Leggings",
+      "max_stack": 1,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:heat_suit_boots",
+      "kind": "item",
+      "category": "armor",
+      "name_de": "Hitzeanzug-Stiefel",
+      "name_en": "Heat Suit Boots",
+      "max_stack": 1,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:heat_suit_chestplate",
+      "kind": "item",
+      "category": "armor",
+      "name_de": "Hitzeanzug-Brustplatte",
+      "name_en": "Heat Suit Chestplate",
+      "max_stack": 1,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.1",
+      "notes": "O₂-Vorrat (Data Component oxygen, max. 1.200 mB)"
+    },
+    {
+      "id": "sternenwerft:heat_suit_helmet",
+      "kind": "item",
+      "category": "armor",
+      "name_de": "Hitzeanzug-Helm",
+      "name_en": "Heat Suit Helmet",
+      "max_stack": 1,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:heat_suit_leggings",
+      "kind": "item",
+      "category": "armor",
+      "name_de": "Hitzeanzug-Hose",
+      "name_en": "Heat Suit Leggings",
+      "max_stack": 1,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:pressure_suit_boots",
+      "kind": "item",
+      "category": "armor",
+      "name_de": "Druckanzug-Stiefel",
+      "name_en": "Pressure Suit Boots",
+      "max_stack": 1,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:pressure_suit_chestplate",
+      "kind": "item",
+      "category": "armor",
+      "name_de": "Druckanzug-Brustplatte",
+      "name_en": "Pressure Suit Chestplate",
+      "max_stack": 1,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.1",
+      "notes": "O₂-Vorrat (Data Component oxygen, max. 1.200 mB)"
+    },
+    {
+      "id": "sternenwerft:pressure_suit_helmet",
+      "kind": "item",
+      "category": "armor",
+      "name_de": "Druckanzug-Helm",
+      "name_en": "Pressure Suit Helmet",
+      "max_stack": 1,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:pressure_suit_leggings",
+      "kind": "item",
+      "category": "armor",
+      "name_de": "Druckanzug-Hose",
+      "name_en": "Pressure Suit Leggings",
+      "max_stack": 1,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:advanced_circuit",
+      "kind": "item",
+      "category": "component",
+      "name_de": "Fortgeschrittener Schaltkreis",
+      "name_en": "Advanced Circuit",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "5.2",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:antimatter_cell",
+      "kind": "item",
+      "category": "component",
+      "name_de": "Antimaterie-Zelle",
+      "name_en": "Antimatter Cell",
+      "max_stack": 16,
+      "phase": 5,
+      "obtained_by": [
+        "recipe",
+        "machine_output"
+      ],
+      "spec_ref": "5.2",
+      "notes": "leer/gefüllt per Data Component charge 0/1; gefüllt in magnetic_trap"
+    },
+    {
+      "id": "sternenwerft:circuit",
+      "kind": "item",
+      "category": "component",
+      "name_de": "Schaltkreis",
+      "name_en": "Circuit",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "5.2",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:cooling_system",
+      "kind": "item",
+      "category": "component",
+      "name_de": "Kühlsystem",
+      "name_en": "Cooling System",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "5.2",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:fuel_rod",
+      "kind": "item",
+      "category": "component",
+      "name_de": "Brennstab",
+      "name_en": "Fuel Rod",
+      "max_stack": 64,
+      "phase": 6,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "5.2",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:heat_shield",
+      "kind": "item",
+      "category": "component",
+      "name_de": "Hitzeschild",
+      "name_en": "Heat Shield",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "5.2",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:insulation_fabric",
+      "kind": "item",
+      "category": "component",
+      "name_de": "Isoliergewebe",
+      "name_en": "Insulation Fabric",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "recipe",
+        "mob_drop"
+      ],
+      "spec_ref": "5.2",
+      "notes": "Drop frost_lurker"
+    },
+    {
+      "id": "sternenwerft:iridium_chip",
+      "kind": "item",
+      "category": "component",
+      "name_de": "Iridium-Chip",
+      "name_en": "Iridium Chip",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.2",
+      "notes": "Schwerelos-Fertigung"
+    },
+    {
+      "id": "sternenwerft:lithium_battery",
+      "kind": "item",
+      "category": "component",
+      "name_de": "Lithium-Akku",
+      "name_en": "Lithium Battery",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "5.2",
+      "notes": "Bauteil"
+    },
+    {
+      "id": "sternenwerft:machine_frame",
+      "kind": "item",
+      "category": "component",
+      "name_de": "Maschinenrahmen",
+      "name_en": "Machine Frame",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "22.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:pressure_hull",
+      "kind": "item",
+      "category": "component",
+      "name_de": "Druckhülle",
+      "name_en": "Pressure Hull",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "5.2",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:superconductor_wire",
+      "kind": "item",
+      "category": "component",
+      "name_de": "Supraleiterdraht",
+      "name_en": "Superconductor Wire",
+      "max_stack": 64,
+      "phase": 4,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.2",
+      "notes": "Schwerelos-Fertigung"
+    },
+    {
+      "id": "sternenwerft:dome_efficiency_module",
+      "kind": "item",
+      "category": "dome_module",
+      "name_de": "Kuppel-Effizienzmodul",
+      "name_en": "Dome Efficiency Module",
+      "max_stack": 1,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "10.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:dome_range_module",
+      "kind": "item",
+      "category": "dome_module",
+      "name_de": "Kuppel-Reichweitenmodul",
+      "name_en": "Dome Range Module",
+      "max_stack": 1,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "10.1",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:dome_shield_module",
+      "kind": "item",
+      "category": "dome_module",
+      "name_de": "Kuppel-Schildmodul",
+      "name_en": "Dome Shield Module",
+      "max_stack": 1,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "10.1",
+      "notes": "fängt Meteoriten und Ringtrümmer ab"
+    },
+    {
+      "id": "sternenwerft:space_ration",
+      "kind": "item",
+      "category": "food",
+      "name_de": "Weltraumration",
+      "name_en": "Space Ration",
+      "max_stack": 16,
+      "phase": 2,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "17",
+      "notes": "Nahrungspacker; Data Component nutrition"
+    },
+    {
+      "id": "sternenwerft:antimatter_drive",
+      "kind": "item",
+      "category": "logistics",
+      "name_de": "Antimaterie-Antrieb",
+      "name_en": "Antimatter Drive",
+      "max_stack": 16,
+      "phase": 6,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "20.5",
+      "notes": "Flugzeit ÷ 10; Werftabschnitt 3"
+    },
+    {
+      "id": "sternenwerft:atomic_drive",
+      "kind": "item",
+      "category": "logistics",
+      "name_de": "Atomantrieb",
+      "name_en": "Atomic Drive",
+      "max_stack": 16,
+      "phase": 6,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "20.5",
+      "notes": "Flugzeit ÷ 2"
+    },
+    {
+      "id": "sternenwerft:cargo_rocket",
+      "kind": "item",
+      "category": "logistics",
+      "name_de": "Frachtrakete",
+      "name_en": "Cargo Rocket",
+      "max_stack": 1,
+      "phase": 6,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "20.3",
+      "notes": "Data Component drive"
+    },
+    {
+      "id": "sternenwerft:heavy_freighter",
+      "kind": "item",
+      "category": "logistics",
+      "name_de": "Schwerlast-Frachter",
+      "name_en": "Heavy Freighter",
+      "max_stack": 1,
+      "phase": 6,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "20.3",
+      "notes": "Data Component flights_left; atomic_drive eingebaut"
+    },
+    {
+      "id": "sternenwerft:transport_tank",
+      "kind": "item",
+      "category": "logistics",
+      "name_de": "Transporttank",
+      "name_en": "Transport Tank",
+      "max_stack": 1,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "5.2",
+      "notes": "16.000 mB, ein Fluid, Data Component fluid"
+    },
+    {
+      "id": "sternenwerft:efficiency_upgrade",
+      "kind": "item",
+      "category": "machine_upgrade",
+      "name_de": "Effizienz-Upgrade",
+      "name_en": "Efficiency Upgrade",
+      "max_stack": 16,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "4.2",
+      "notes": "Spec 4.2: max. 4 je Upgrade-Slot (Schema erlaubt nur 1/16/64)"
+    },
+    {
+      "id": "sternenwerft:speed_upgrade",
+      "kind": "item",
+      "category": "machine_upgrade",
+      "name_de": "Geschwindigkeits-Upgrade",
+      "name_en": "Speed Upgrade",
+      "max_stack": 16,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "4.2",
+      "notes": "Spec 4.2: max. 4 je Upgrade-Slot (Schema erlaubt nur 1/16/64)"
+    },
+    {
+      "id": "sternenwerft:aluminum_dust",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Aluminiumstaub",
+      "name_en": "Aluminum Dust",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Zerkleinerer"
+    },
+    {
+      "id": "sternenwerft:aluminum_ingot",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Aluminiumbarren",
+      "name_en": "Aluminum Ingot",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Ofen oder Elektroofen"
+    },
+    {
+      "id": "sternenwerft:aluminum_plate",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Aluminiumplatte",
+      "name_en": "Aluminum Plate",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Presse + press_mold_plate"
+    },
+    {
+      "id": "sternenwerft:aluminum_wire",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Aluminiumdraht",
+      "name_en": "Aluminum Wire",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Presse + press_mold_wire"
+    },
+    {
+      "id": "sternenwerft:armor_plate",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Panzerplatte",
+      "name_en": "Armor Plate",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "mob_drop"
+      ],
+      "spec_ref": "5.2",
+      "notes": "Drop dune_burrower"
+    },
+    {
+      "id": "sternenwerft:bauxite",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Bauxit",
+      "name_en": "Bauxite",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "block_drop"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Rohform von Aluminium; Drop von bauxite_ore und moon_aluminum_ore"
+    },
+    {
+      "id": "sternenwerft:ceramic_plate",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Keramikplatte",
+      "name_en": "Ceramic Plate",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.2",
+      "notes": "Hochtemperaturofen"
+    },
+    {
+      "id": "sternenwerft:compost",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Kompost",
+      "name_en": "Compost",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "5.2",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:copper_dust",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Kupferstaub",
+      "name_en": "Copper Dust",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Zerkleinerer"
+    },
+    {
+      "id": "sternenwerft:copper_wire",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Kupferdraht",
+      "name_en": "Copper Wire",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Presse + press_mold_wire"
+    },
+    {
+      "id": "sternenwerft:dry_ice",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Trockeneis",
+      "name_en": "Dry Ice",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "block_drop"
+      ],
+      "spec_ref": "5.2",
+      "notes": "dry_ice_block droppt 4"
+    },
+    {
+      "id": "sternenwerft:gold_dust",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Goldstaub",
+      "name_en": "Gold Dust",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Zerkleinerer"
+    },
+    {
+      "id": "sternenwerft:gold_wire",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Golddraht",
+      "name_en": "Gold Wire",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Presse + press_mold_wire"
+    },
+    {
+      "id": "sternenwerft:gypsum",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Gips",
+      "name_en": "Gypsum",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "block_drop"
+      ],
+      "spec_ref": "5.2",
+      "notes": "gypsum_block droppt 4"
+    },
+    {
+      "id": "sternenwerft:heat_scale",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Hitzeschuppe",
+      "name_en": "Heat Scale",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "mob_drop"
+      ],
+      "spec_ref": "5.2",
+      "notes": "Drop sulfur_salamander"
+    },
+    {
+      "id": "sternenwerft:iridium_dust",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Iridiumstaub",
+      "name_en": "Iridium Dust",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Zerkleinerer"
+    },
+    {
+      "id": "sternenwerft:iridium_ingot",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Iridiumbarren",
+      "name_en": "Iridium Ingot",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "nur Elektroofen"
+    },
+    {
+      "id": "sternenwerft:iron_dust",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Eisenstaub",
+      "name_en": "Iron Dust",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Zerkleinerer"
+    },
+    {
+      "id": "sternenwerft:iron_plate",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Eisenplatte",
+      "name_en": "Iron Plate",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Presse + press_mold_plate"
+    },
+    {
+      "id": "sternenwerft:iron_rod",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Eisenstange",
+      "name_en": "Iron Rod",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Presse + press_mold_rod"
+    },
+    {
+      "id": "sternenwerft:lightweight_plate",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Leichtbau-Platte",
+      "name_en": "Lightweight Plate",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.2",
+      "notes": "Presse aus magnesium_alloy"
+    },
+    {
+      "id": "sternenwerft:lithium_dust",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Lithiumstaub",
+      "name_en": "Lithium Dust",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Zerkleinerer"
+    },
+    {
+      "id": "sternenwerft:lithium_ingot",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Lithiumbarren",
+      "name_en": "Lithium Ingot",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "nur Elektroofen"
+    },
+    {
+      "id": "sternenwerft:lithium_salt",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Lithiumsalz",
+      "name_en": "Lithium Salt",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "block_drop"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Rohform von Lithium; mercury_lithium_salt droppt 2"
+    },
+    {
+      "id": "sternenwerft:magnesium_alloy",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Magnesium-Legierung",
+      "name_en": "Magnesium Alloy",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.2",
+      "notes": "Elektroofen, 2 Eingaben"
+    },
+    {
+      "id": "sternenwerft:magnesium_dust",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Magnesiumstaub",
+      "name_en": "Magnesium Dust",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Zerkleinerer"
+    },
+    {
+      "id": "sternenwerft:magnesium_ingot",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Magnesiumbarren",
+      "name_en": "Magnesium Ingot",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "nur Elektroofen"
+    },
+    {
+      "id": "sternenwerft:metal_concentrate",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Metallkonzentrat",
+      "name_en": "Metal Concentrate",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "mob_drop"
+      ],
+      "spec_ref": "5.2",
+      "notes": "Drop rubble_crawler"
+    },
+    {
+      "id": "sternenwerft:microbe_culture",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Mikrobenkultur",
+      "name_en": "Microbe Culture",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "block_drop"
+      ],
+      "spec_ref": "5.2",
+      "notes": "Rechtsklick mit Glasflasche auf hydrothermal_vent (13.4), Block bleibt"
+    },
+    {
+      "id": "sternenwerft:mirror_shell",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Spiegelpanzer",
+      "name_en": "Mirror Shell",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "mob_drop"
+      ],
+      "spec_ref": "5.2",
+      "notes": "Drop mirror_beetle"
+    },
+    {
+      "id": "sternenwerft:nickel_dust",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Nickelstaub",
+      "name_en": "Nickel Dust",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Zerkleinerer"
+    },
+    {
+      "id": "sternenwerft:nickel_ingot",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Nickelbarren",
+      "name_en": "Nickel Ingot",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "nur Elektroofen"
+    },
+    {
+      "id": "sternenwerft:nickel_plate",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Nickelplatte",
+      "name_en": "Nickel Plate",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Presse + press_mold_plate"
+    },
+    {
+      "id": "sternenwerft:plastic",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Kunststoff",
+      "name_en": "Plastic",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.2",
+      "notes": "Raffinerie"
+    },
+    {
+      "id": "sternenwerft:platinum_dust",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Platinstaub",
+      "name_en": "Platinum Dust",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Zerkleinerer"
+    },
+    {
+      "id": "sternenwerft:platinum_ingot",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Platinbarren",
+      "name_en": "Platinum Ingot",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "nur Elektroofen"
+    },
+    {
+      "id": "sternenwerft:raw_iridium",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Rohiridium",
+      "name_en": "Raw Iridium",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "block_drop",
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Drop von asteroid_iridium_ore; Zerkleinerer aus meteorite_ore (5 %)"
+    },
+    {
+      "id": "sternenwerft:raw_magnesium",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Rohmagnesium",
+      "name_en": "Raw Magnesium",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "block_drop"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Drop von mars_magnesium_ore"
+    },
+    {
+      "id": "sternenwerft:raw_nickel",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Rohnickel",
+      "name_en": "Raw Nickel",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "block_drop",
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Drop von iron_nickel_meteorite, asteroid_nickel_ore; Zerkleinerer aus meteorite_ore"
+    },
+    {
+      "id": "sternenwerft:raw_platinum",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Rohplatin",
+      "name_en": "Raw Platinum",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "block_drop",
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Drop von asteroid_platinum_ore; Zerkleinerer aus meteorite_ore (10 %)"
+    },
+    {
+      "id": "sternenwerft:raw_titanium",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Rohtitan",
+      "name_en": "Raw Titanium",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "block_drop"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Drop von titanium_ore, deepslate_titanium_ore, moon_titanium_ore, mercury_titanium_ore"
+    },
+    {
+      "id": "sternenwerft:raw_tungsten",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Rohwolfram",
+      "name_en": "Raw Tungsten",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "block_drop"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Drop von venus_tungsten_ore"
+    },
+    {
+      "id": "sternenwerft:raw_uranium",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Rohuran",
+      "name_en": "Raw Uranium",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "block_drop"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Drop von pluto_uranium_ore"
+    },
+    {
+      "id": "sternenwerft:silicon",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Silizium",
+      "name_en": "Silicon",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.2",
+      "notes": "quartz_sand im Elektroofen"
+    },
+    {
+      "id": "sternenwerft:skimmer_leg",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Läuferbein",
+      "name_en": "Skimmer Leg",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "mob_drop"
+      ],
+      "spec_ref": "5.2",
+      "notes": "Drop methane_skimmer"
+    },
+    {
+      "id": "sternenwerft:sulfur",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Schwefel",
+      "name_en": "Sulfur",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "block_drop",
+        "mob_drop"
+      ],
+      "spec_ref": "5.2",
+      "notes": "Venus, Io, sulfur_snail"
+    },
+    {
+      "id": "sternenwerft:titanium_dust",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Titanstaub",
+      "name_en": "Titanium Dust",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Zerkleinerer"
+    },
+    {
+      "id": "sternenwerft:titanium_ingot",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Titanbarren",
+      "name_en": "Titanium Ingot",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Ofen oder Elektroofen"
+    },
+    {
+      "id": "sternenwerft:titanium_plate",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Titanplatte",
+      "name_en": "Titanium Plate",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Presse + press_mold_plate"
+    },
+    {
+      "id": "sternenwerft:titanium_rod",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Titanstange",
+      "name_en": "Titanium Rod",
+      "max_stack": 64,
+      "phase": 1,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Presse + press_mold_rod"
+    },
+    {
+      "id": "sternenwerft:tungsten_dust",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Wolframstaub",
+      "name_en": "Tungsten Dust",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Zerkleinerer"
+    },
+    {
+      "id": "sternenwerft:tungsten_ingot",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Wolframbarren",
+      "name_en": "Tungsten Ingot",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Hochtemperaturofen"
+    },
+    {
+      "id": "sternenwerft:tungsten_plate",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Wolframplatte",
+      "name_en": "Tungsten Plate",
+      "max_stack": 64,
+      "phase": 3,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Presse + press_mold_plate"
+    },
+    {
+      "id": "sternenwerft:uranium_dust",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Uranstaub",
+      "name_en": "Uranium Dust",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "Zerkleinerer"
+    },
+    {
+      "id": "sternenwerft:uranium_ingot",
+      "kind": "item",
+      "category": "material",
+      "name_de": "Uranbarren",
+      "name_en": "Uranium Ingot",
+      "max_stack": 64,
+      "phase": 5,
+      "obtained_by": [
+        "machine_output"
+      ],
+      "spec_ref": "5.1",
+      "notes": "nur Elektroofen"
+    },
+    {
+      "id": "sternenwerft:rover_drill",
+      "kind": "item",
+      "category": "rover_module",
+      "name_de": "Rover-Bohrer",
+      "name_en": "Rover Drill",
+      "max_stack": 1,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "16",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:rover_headlight",
+      "kind": "item",
+      "category": "rover_module",
+      "name_de": "Rover-Scheinwerfer",
+      "name_en": "Rover Headlight",
+      "max_stack": 1,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "16",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:rover_lithium_pack",
+      "kind": "item",
+      "category": "rover_module",
+      "name_de": "Rover-Lithiumpaket",
+      "name_en": "Rover Lithium Pack",
+      "max_stack": 1,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "16",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:rover_pressure_cabin",
+      "kind": "item",
+      "category": "rover_module",
+      "name_de": "Rover-Druckkabine",
+      "name_en": "Rover Pressure Cabin",
+      "max_stack": 1,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "16",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:rover_scanner",
+      "kind": "item",
+      "category": "rover_module",
+      "name_de": "Rover-Scanner",
+      "name_en": "Rover Scanner",
+      "max_stack": 1,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "16",
+      "notes": null
+    },
+    {
+      "id": "sternenwerft:rover_trailer",
+      "kind": "item",
+      "category": "rover_module",
+      "name_de": "Rover-Anhänger",
+      "name_en": "Rover Trailer",
+      "max_stack": 1,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "16",
+      "notes": "+27 Slots; gleiche ID auch als Entity"
+    },
+    {
+      "id": "sternenwerft:ammonia_fertilizer",
+      "kind": "item",
+      "category": "special",
+      "name_de": "Ammoniak-Dünger",
+      "name_en": "Ammonia Fertilizer",
+      "max_stack": 64,
+      "phase": 6,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "17",
+      "notes": "Verbrauchsgut: Rechtsklick auf Hydrokultur-Becken oder Gewächshaus (17)"
+    },
+    {
+      "id": "sternenwerft:engineers_handbook",
+      "kind": "item",
+      "category": "special",
+      "name_de": "Ingenieurs-Handbuch",
+      "name_en": "Engineer's Handbook",
+      "max_stack": 1,
+      "phase": 1,
+      "obtained_by": [
+        "join_gift",
+        "recipe"
+      ],
+      "spec_ref": "24.1",
+      "notes": "beim ersten Join, Ersatz per Werkbank"
+    },
+    {
+      "id": "sternenwerft:planetary_atlas",
+      "kind": "item",
+      "category": "special",
+      "name_de": "Planetenatlas",
+      "name_en": "Planetary Atlas",
+      "max_stack": 1,
+      "phase": 1,
+      "obtained_by": [
+        "join_gift",
+        "recipe"
+      ],
+      "spec_ref": "24.2",
+      "notes": "beim ersten Join, Ersatz per Werkbank"
+    },
+    {
+      "id": "sternenwerft:sample",
+      "kind": "item",
+      "category": "special",
+      "name_de": "Probe",
+      "name_en": "Sample",
+      "max_stack": 64,
+      "phase": 2,
+      "obtained_by": [
+        "generated"
+      ],
+      "spec_ref": "11.2",
+      "notes": "erzeugt durch sample_tool; Data Component sample (block, dimension)"
+    },
+    {
+      "id": "sternenwerft:star_chart",
+      "kind": "item",
+      "category": "special",
+      "name_de": "Sternenkarte",
+      "name_en": "Star Chart",
+      "max_stack": 1,
+      "phase": 5,
+      "obtained_by": [
+        "mob_drop"
+      ],
+      "spec_ref": "5.2",
+      "notes": "Drop signal_sentinel; Data Component chart_owner; feuerfest, despawnt nie"
+    },
+    {
+      "id": "sternenwerft:armor_plating",
+      "kind": "item",
+      "category": "suit_module",
+      "name_de": "Panzerung",
+      "name_en": "Armor Plating",
+      "max_stack": 1,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.2",
+      "notes": "Teil: Hose/Stiefel"
+    },
+    {
+      "id": "sternenwerft:cooling_module",
+      "kind": "item",
+      "category": "suit_module",
+      "name_de": "Kühlmodul",
+      "name_en": "Cooling Module",
+      "max_stack": 1,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.2",
+      "notes": "Teil: Brust"
+    },
+    {
+      "id": "sternenwerft:diving_module",
+      "kind": "item",
+      "category": "suit_module",
+      "name_de": "Tauchmodul",
+      "name_en": "Diving Module",
+      "max_stack": 1,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.2",
+      "notes": "Teil: Hose"
+    },
+    {
+      "id": "sternenwerft:heat_reflector",
+      "kind": "item",
+      "category": "suit_module",
+      "name_de": "Hitzereflektor",
+      "name_en": "Heat Reflector",
+      "max_stack": 1,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.2",
+      "notes": "Teil: Brust"
+    },
+    {
+      "id": "sternenwerft:heating_module",
+      "kind": "item",
+      "category": "suit_module",
+      "name_de": "Heizmodul",
+      "name_en": "Heating Module",
+      "max_stack": 1,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.2",
+      "notes": "Teil: Brust"
+    },
+    {
+      "id": "sternenwerft:helmet_lamp",
+      "kind": "item",
+      "category": "suit_module",
+      "name_de": "Helmlampe",
+      "name_en": "Helmet Lamp",
+      "max_stack": 1,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.2",
+      "notes": "Teil: Helm"
+    },
+    {
+      "id": "sternenwerft:jetpack",
+      "kind": "item",
+      "category": "suit_module",
+      "name_de": "Jetpack",
+      "name_en": "Jetpack",
+      "max_stack": 1,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.2",
+      "notes": "Teil: Brust; Data Component energy, 200.000 J"
+    },
+    {
+      "id": "sternenwerft:magnet_boots",
+      "kind": "item",
+      "category": "suit_module",
+      "name_de": "Magnetstiefel",
+      "name_en": "Magnet Boots",
+      "max_stack": 1,
+      "phase": 4,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.2",
+      "notes": "Teil: Stiefel"
+    },
+    {
+      "id": "sternenwerft:radiation_shield",
+      "kind": "item",
+      "category": "suit_module",
+      "name_de": "Strahlenschild",
+      "name_en": "Radiation Shield",
+      "max_stack": 1,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "9.2",
+      "notes": "Teil: Helm"
+    },
+    {
+      "id": "sternenwerft:field_scanner",
+      "kind": "item",
+      "category": "tool",
+      "name_de": "Feldscanner",
+      "name_en": "Field Scanner",
+      "max_stack": 1,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "5.2",
+      "notes": "analysiert Kreaturen (+15 FP)"
+    },
+    {
+      "id": "sternenwerft:ice_drill",
+      "kind": "item",
+      "category": "tool",
+      "name_de": "Eisbohrer",
+      "name_en": "Ice Drill",
+      "max_stack": 1,
+      "phase": 5,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "13.4",
+      "notes": "interner Akku 100.000 J"
+    },
+    {
+      "id": "sternenwerft:large_oxygen_canister",
+      "kind": "item",
+      "category": "tool",
+      "name_de": "Große Sauerstoffflasche",
+      "name_en": "Large Oxygen Canister",
+      "max_stack": 1,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "5.2",
+      "notes": "1.200 mB, Data Component fluid"
+    },
+    {
+      "id": "sternenwerft:oxygen_canister",
+      "kind": "item",
+      "category": "tool",
+      "name_de": "Sauerstoffflasche",
+      "name_en": "Oxygen Canister",
+      "max_stack": 1,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "5.2",
+      "notes": "600 mB, Data Component fluid"
+    },
+    {
+      "id": "sternenwerft:press_mold_plate",
+      "kind": "item",
+      "category": "tool",
+      "name_de": "Pressform (Platte)",
+      "name_en": "Press Mold Plate",
+      "max_stack": 1,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "5.2",
+      "notes": "wird nicht verbraucht"
+    },
+    {
+      "id": "sternenwerft:press_mold_rod",
+      "kind": "item",
+      "category": "tool",
+      "name_de": "Pressform (Stange)",
+      "name_en": "Press Mold Rod",
+      "max_stack": 1,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "5.2",
+      "notes": "wird nicht verbraucht"
+    },
+    {
+      "id": "sternenwerft:press_mold_wire",
+      "kind": "item",
+      "category": "tool",
+      "name_de": "Pressform (Draht)",
+      "name_en": "Press Mold Wire",
+      "max_stack": 1,
+      "phase": 1,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "5.2",
+      "notes": "wird nicht verbraucht"
+    },
+    {
+      "id": "sternenwerft:sample_tool",
+      "kind": "item",
+      "category": "tool",
+      "name_de": "Probenzange",
+      "name_en": "Sample Tool",
+      "max_stack": 1,
+      "phase": 2,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "11.2",
+      "notes": "Abklingzeit 40 t"
+    },
+    {
+      "id": "sternenwerft:lander",
+      "kind": "item",
+      "category": "vehicle",
+      "name_de": "Landefähre",
+      "name_en": "Lander",
+      "max_stack": 1,
+      "phase": 4,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "12.7",
+      "notes": "setzt das gleichnamige Entity; nur in Orbit-Dimensionen oder auf docking_bay"
+    },
+    {
+      "id": "sternenwerft:rover_kit",
+      "kind": "item",
+      "category": "vehicle",
+      "name_de": "Rover-Bausatz",
+      "name_en": "Rover Kit",
+      "max_stack": 1,
+      "phase": 3,
+      "obtained_by": [
+        "recipe"
+      ],
+      "spec_ref": "16",
+      "notes": "setzt Entity rover; Data Component rover_data"
+    },
+    {
+      "id": "sternenwerft:giant_volcano",
+      "kind": "structure",
+      "category": "world",
+      "name_de": "Riesenvulkan",
+      "name_en": "Giant Volcano",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.1",
+      "notes": "mars; Radius 80"
+    },
+    {
+      "id": "sternenwerft:great_crater",
+      "kind": "structure",
+      "category": "world",
+      "name_de": "Großkrater",
+      "name_en": "Great Crater",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.1",
+      "notes": "moon; Erze ×2 innerhalb"
+    },
+    {
+      "id": "sternenwerft:hydrothermal_field",
+      "kind": "structure",
+      "category": "world",
+      "name_de": "Hydrothermalfeld",
+      "name_en": "Hydrothermal Field",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "europa; Erkundungsziel; 1 reef_keeper"
+    },
+    {
+      "id": "sternenwerft:ice_volcano",
+      "kind": "structure",
+      "category": "world",
+      "name_de": "Eisvulkan",
+      "name_en": "Ice Volcano",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "ceres; Erkundungsziel"
+    },
+    {
+      "id": "sternenwerft:large_asteroid",
+      "kind": "structure",
+      "category": "world",
+      "name_de": "Großer Asteroid",
+      "name_en": "Large Asteroid",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.1",
+      "notes": "asteroid_belt; Radius 13–20"
+    },
+    {
+      "id": "sternenwerft:lava_tube",
+      "kind": "structure",
+      "category": "world",
+      "name_de": "Lavaröhre",
+      "name_en": "Lava Tube",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "moon, mars; Erkundungsziel"
+    },
+    {
+      "id": "sternenwerft:meteorite_field",
+      "kind": "structure",
+      "category": "world",
+      "name_de": "Meteoritenfeld",
+      "name_en": "Meteorite Field",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "mars; Erkundungsziel"
+    },
+    {
+      "id": "sternenwerft:signal_transmitter",
+      "kind": "structure",
+      "category": "world",
+      "name_de": "Sender",
+      "name_en": "Signal Transmitter",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "pluto; genau eine; Erkundungsziel"
+    },
+    {
+      "id": "sternenwerft:volcanic_vent",
+      "kind": "structure",
+      "category": "world",
+      "name_de": "Vulkanschlot",
+      "name_en": "Volcanic Vent",
+      "max_stack": null,
+      "phase": null,
+      "obtained_by": [
+        "none"
+      ],
+      "spec_ref": "13.4",
+      "notes": "venus, io; Erkundungsziel"
+    }
+  ]
+}

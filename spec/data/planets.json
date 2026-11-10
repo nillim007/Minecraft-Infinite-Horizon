@@ -1,0 +1,3527 @@
+{
+  "schema_version": 1,
+  "dimension_defaults": {
+    "surface": {
+      "min_y": -64,
+      "height": 384,
+      "bed_works": true,
+      "respawn_anchor_works": false,
+      "has_raids": false,
+      "natural": false,
+      "piglin_safe": false,
+      "noise_settings_base": "minecraft:overworld",
+      "aquifers_enabled": false,
+      "ore_veins_enabled": false,
+      "spec_ref": "13.1"
+    },
+    "orbit": {
+      "min_y": 0,
+      "height": 256,
+      "bed_works": true,
+      "respawn_anchor_works": false,
+      "has_raids": false,
+      "natural": false,
+      "piglin_safe": false,
+      "generator": "minecraft:flat",
+      "flat_layers": [],
+      "spec_ref": "13.1",
+      "notes": "bed_works usw. aus 'Gemeinsame Dimensionswerte (alle Planeten)' übernommen"
+    }
+  },
+  "entries": [
+    {
+      "id": "minecraft:overworld",
+      "dimension": "minecraft:overworld",
+      "type": "surface",
+      "name_de": "Erde",
+      "name_en": "Earth",
+      "star_system": "sternenwerft:sol",
+      "ring": 0,
+      "distance_points": 0,
+      "gravity": 1.0,
+      "atmosphere": "breathable",
+      "pressure": "normal",
+      "temperature": {
+        "day": 20,
+        "night": 10
+      },
+      "radiation": 0,
+      "solar_factor": 1.0,
+      "water_behavior": "normal",
+      "landing_requires_fuel": false,
+      "launch_cost_override": null,
+      "required_rocket_tier": 1,
+      "requires_long_range": false,
+      "probe": null,
+      "orbit": "sternenwerft:earth_orbit",
+      "lander_connects_to": "sternenwerft:earth_orbit",
+      "gas_collector_output": null,
+      "default_block": null,
+      "default_fluid": null,
+      "sea_level": null,
+      "fixed_time": null,
+      "generator": null,
+      "sky": null,
+      "zones": [],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [],
+      "ores": [
+        {
+          "block": "sternenwerft:bauxite_ore",
+          "placement": "vein",
+          "y_min": 50,
+          "y_max": 120,
+          "vein_size": 12,
+          "per_chunk": 6,
+          "radius": null,
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "#minecraft:is_savanna",
+            "minecraft:desert",
+            "#minecraft:is_badlands"
+          ],
+          "drops": [
+            {
+              "id": "sternenwerft:bauxite",
+              "count": 1
+            }
+          ],
+          "deepslate_block": null,
+          "notes": null
+        },
+        {
+          "block": "sternenwerft:titanium_ore",
+          "placement": "vein",
+          "y_min": -64,
+          "y_max": 0,
+          "vein_size": 6,
+          "per_chunk": 4,
+          "radius": null,
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "#minecraft:is_overworld"
+          ],
+          "drops": [
+            {
+              "id": "sternenwerft:raw_titanium",
+              "count": 1
+            }
+          ],
+          "deepslate_block": "sternenwerft:deepslate_titanium_ore",
+          "notes": null
+        },
+        {
+          "block": "sternenwerft:quartz_sand",
+          "placement": "disk",
+          "y_min": null,
+          "y_max": null,
+          "vein_size": null,
+          "per_chunk": 2,
+          "radius": [
+            2,
+            4
+          ],
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "#minecraft:is_beach",
+            "#minecraft:is_river"
+          ],
+          "drops": "self",
+          "deepslate_block": null,
+          "notes": "Scheibe wie Ton (Strand und Flussufer)"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "sternenwerft:bauxite_ore",
+          "drops": [
+            {
+              "id": "sternenwerft:bauxite",
+              "count": 1
+            }
+          ],
+          "fortune": true,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:titanium_ore",
+          "drops": [
+            {
+              "id": "sternenwerft:raw_titanium",
+              "count": 1
+            }
+          ],
+          "fortune": true,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:deepslate_titanium_ore",
+          "drops": [
+            {
+              "id": "sternenwerft:raw_titanium",
+              "count": 1
+            }
+          ],
+          "fortune": true,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:quartz_sand",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        }
+      ],
+      "structures": [],
+      "features": [
+        {
+          "id": null,
+          "type": "fluid_sphere",
+          "block": null,
+          "fluid": "sternenwerft:crude_oil",
+          "biomes": [
+            "minecraft:desert",
+            "#minecraft:is_ocean"
+          ],
+          "params": {
+            "radius": [
+              3,
+              5
+            ],
+            "y_min": -20,
+            "y_max": 40,
+            "rarity_chunks": 8
+          },
+          "notes": "Ölblase: Kugel aus crude_oil-Quellblöcken, 1 je 8 Chunks (Wüste und Ozeanboden)"
+        }
+      ],
+      "vanilla_mobs": [],
+      "events": [],
+      "event_chance_multipliers": {},
+      "special": {},
+      "spec_ref": "13.4",
+      "notes": "Nur Ergänzungen der Mod; Temperatur 10/20 °C nur für die Kuppelprüfung (25.1). Erreichbar mit allen Stufen; Landung per Fallschirm."
+    },
+    {
+      "id": "sternenwerft:moon",
+      "dimension": "sternenwerft:moon",
+      "type": "surface",
+      "name_de": "Mond",
+      "name_en": "Moon",
+      "star_system": "sternenwerft:sol",
+      "ring": 1,
+      "distance_points": 0,
+      "gravity": 0.17,
+      "atmosphere": "none",
+      "pressure": "vacuum",
+      "temperature": {
+        "day": 120,
+        "night": -170
+      },
+      "radiation": 1,
+      "solar_factor": 1.0,
+      "water_behavior": "freeze",
+      "landing_requires_fuel": true,
+      "launch_cost_override": null,
+      "required_rocket_tier": 1,
+      "requires_long_range": false,
+      "probe": "sternenwerft:probe",
+      "orbit": "sternenwerft:earth_orbit",
+      "lander_connects_to": "sternenwerft:earth_orbit",
+      "gas_collector_output": null,
+      "default_block": "sternenwerft:moon_rock",
+      "default_fluid": "minecraft:air",
+      "sea_level": null,
+      "fixed_time": null,
+      "generator": {
+        "type": "noise",
+        "biome_source": {
+          "type": "multi_noise"
+        },
+        "air_above_y": null
+      },
+      "sky": {
+        "color": "#000000",
+        "fog_color": "#000000",
+        "fog_distance": null,
+        "stars_in_daylight": true,
+        "sun_scale": 1.0,
+        "sunset_color": null,
+        "celestial_bodies": [
+          {
+            "texture": "sternenwerft:textures/sky/earth.png",
+            "size": 30,
+            "azimuth": 60,
+            "elevation": 40
+          }
+        ]
+      },
+      "zones": [
+        {
+          "id": "polar_crater",
+          "y_min": -64,
+          "y_max": 400,
+          "biome": "sternenwerft:moon_polar_crater",
+          "near_block": null,
+          "temperature": -190,
+          "pressure": null,
+          "radiation": null,
+          "solar_factor": null,
+          "atmosphere": null,
+          "water_behavior": null,
+          "launch_cost_override": null
+        }
+      ],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {
+        "sternenwerft:moon_polar_crater": -190
+      },
+      "biomes": [
+        {
+          "id": "sternenwerft:moon_highlands",
+          "name_de": "Mond-Hochland",
+          "name_en": "Moon Highlands",
+          "surface": "sternenwerft:moon_regolith",
+          "surface_secondary": null,
+          "shape": "mountainous",
+          "rarity": "common",
+          "notes": "zerklüftet, höhere Berge"
+        },
+        {
+          "id": "sternenwerft:moon_mare",
+          "name_de": "Mare",
+          "name_en": "Moon Mare",
+          "surface": "sternenwerft:moon_basalt",
+          "surface_secondary": null,
+          "shape": "flat",
+          "rarity": "common",
+          "notes": "flach, dunkel"
+        },
+        {
+          "id": "sternenwerft:moon_great_crater",
+          "name_de": "Mond-Großkrater",
+          "name_en": "Moon Great Crater",
+          "surface": "sternenwerft:moon_regolith",
+          "surface_secondary": null,
+          "shape": "hilly",
+          "rarity": "common",
+          "notes": "Struktur great_crater erscheint bevorzugt hier"
+        },
+        {
+          "id": "sternenwerft:moon_polar_crater",
+          "name_de": "Mond-Polarkrater",
+          "name_en": "Moon Polar Crater",
+          "surface": "sternenwerft:moon_regolith",
+          "surface_secondary": "sternenwerft:moon_ice",
+          "shape": "rare",
+          "rarity": "rare",
+          "notes": "selten (5 %), Temperatur fest −190 °C, Licht 0"
+        }
+      ],
+      "ores": [
+        {
+          "block": "sternenwerft:moon_titanium_ore",
+          "placement": "vein",
+          "y_min": 0,
+          "y_max": 100,
+          "vein_size": 6,
+          "per_chunk": 3,
+          "radius": null,
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "sternenwerft:moon_highlands"
+          ],
+          "drops": [
+            {
+              "id": "sternenwerft:raw_titanium",
+              "count": 1
+            }
+          ],
+          "deepslate_block": null,
+          "notes": null
+        },
+        {
+          "block": "sternenwerft:moon_aluminum_ore",
+          "placement": "vein",
+          "y_min": 0,
+          "y_max": 80,
+          "vein_size": 8,
+          "per_chunk": 5,
+          "radius": null,
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "sternenwerft:moon_mare"
+          ],
+          "drops": [
+            {
+              "id": "sternenwerft:bauxite",
+              "count": 1
+            }
+          ],
+          "deepslate_block": null,
+          "notes": null
+        },
+        {
+          "block": "sternenwerft:moon_titanium_ore",
+          "placement": "vein",
+          "y_min": 0,
+          "y_max": 80,
+          "vein_size": 6,
+          "per_chunk": 4,
+          "radius": null,
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "sternenwerft:moon_mare"
+          ],
+          "drops": [
+            {
+              "id": "sternenwerft:raw_titanium",
+              "count": 1
+            }
+          ],
+          "deepslate_block": null,
+          "notes": null
+        },
+        {
+          "block": "sternenwerft:moon_ice",
+          "placement": "vein",
+          "y_min": null,
+          "y_max": null,
+          "vein_size": 16,
+          "per_chunk": null,
+          "radius": null,
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "sternenwerft:moon_polar_crater"
+          ],
+          "drops": [
+            {
+              "id": "minecraft:ice",
+              "count": 1
+            }
+          ],
+          "deepslate_block": null,
+          "notes": "SPEC-GAP: nur Adergröße 16 angegeben (y-Bereich, Adern je Chunk fehlen)"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "sternenwerft:moon_regolith",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": "Oberfläche, 3 Schichten"
+        },
+        {
+          "id": "sternenwerft:moon_rock",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:moon_basalt",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:moon_ice",
+          "drops": [
+            {
+              "id": "minecraft:ice",
+              "count": 1
+            }
+          ],
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": "ausdrücklich: droppt minecraft:ice (13.4)"
+        },
+        {
+          "id": "sternenwerft:moon_aluminum_ore",
+          "drops": [
+            {
+              "id": "sternenwerft:bauxite",
+              "count": 1
+            }
+          ],
+          "fortune": true,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:moon_titanium_ore",
+          "drops": [
+            {
+              "id": "sternenwerft:raw_titanium",
+              "count": 1
+            }
+          ],
+          "fortune": true,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        }
+      ],
+      "structures": [
+        {
+          "id": "sternenwerft:great_crater",
+          "exploration_target": false,
+          "biomes": [
+            "sternenwerft:moon_great_crater"
+          ],
+          "spacing_chunks": null,
+          "count_per_dimension": null,
+          "position": null,
+          "params": {
+            "radius": [
+              40,
+              60
+            ],
+            "central_peak": true,
+            "ore_multiplier": 2
+          },
+          "notes": "Radius 40–60, Zentralberg, Erze ×2 innerhalb der Struktur; SPEC-GAP: Abstand nicht angegeben"
+        },
+        {
+          "id": "sternenwerft:lava_tube",
+          "exploration_target": true,
+          "biomes": [
+            "sternenwerft:moon_mare"
+          ],
+          "spacing_chunks": 16,
+          "count_per_dimension": null,
+          "position": null,
+          "params": {
+            "cross_section": [
+              5,
+              5
+            ],
+            "length": [
+              60,
+              120
+            ],
+            "y_min": 30,
+            "y_max": 50
+          },
+          "notes": "Tunnel 5×5, Länge 60–120, y 30–50, 1 je 16 Chunks"
+        }
+      ],
+      "features": [
+        {
+          "id": null,
+          "type": "crater",
+          "block": null,
+          "fluid": null,
+          "biomes": [
+            "sternenwerft:moon_highlands",
+            "sternenwerft:moon_mare",
+            "sternenwerft:moon_great_crater",
+            "sternenwerft:moon_polar_crater"
+          ],
+          "params": {
+            "radius": [
+              4,
+              12
+            ]
+          },
+          "notes": "Kleine Krater in allen Biomen; SPEC-GAP: keine ID, keine Häufigkeit"
+        }
+      ],
+      "vanilla_mobs": [
+        {
+          "entity": "minecraft:zombie",
+          "rate": 0.5,
+          "y_max": null,
+          "event_rates": {}
+        },
+        {
+          "entity": "minecraft:skeleton",
+          "rate": 0.5,
+          "y_max": null,
+          "event_rates": {}
+        },
+        {
+          "entity": "minecraft:spider",
+          "rate": 0.5,
+          "y_max": null,
+          "event_rates": {}
+        },
+        {
+          "entity": "minecraft:creeper",
+          "rate": 0.5,
+          "y_max": null,
+          "event_rates": {}
+        }
+      ],
+      "events": [
+        "sternenwerft:solar_storm",
+        "sternenwerft:meteor_shower"
+      ],
+      "event_chance_multipliers": {},
+      "special": {},
+      "spec_ref": "13",
+      "notes": "Himmel schwarz, Sterne auch am Tag, Erde groß. Farben 24.5: Gestein #8C8C8C, Basalt #3A3A3A."
+    },
+    {
+      "id": "sternenwerft:mars",
+      "dimension": "sternenwerft:mars",
+      "type": "surface",
+      "name_de": "Mars",
+      "name_en": "Mars",
+      "star_system": "sternenwerft:sol",
+      "ring": 1,
+      "distance_points": 1.5,
+      "gravity": 0.38,
+      "atmosphere": "thin",
+      "pressure": "low",
+      "temperature": {
+        "day": 20,
+        "night": -120
+      },
+      "radiation": 1,
+      "solar_factor": 0.5,
+      "water_behavior": "freeze",
+      "landing_requires_fuel": true,
+      "launch_cost_override": null,
+      "required_rocket_tier": 1,
+      "requires_long_range": false,
+      "probe": "sternenwerft:probe",
+      "orbit": "sternenwerft:mars_orbit",
+      "lander_connects_to": "sternenwerft:mars_orbit",
+      "gas_collector_output": null,
+      "default_block": "sternenwerft:mars_rock",
+      "default_fluid": "minecraft:air",
+      "sea_level": null,
+      "fixed_time": null,
+      "generator": {
+        "type": "noise",
+        "biome_source": {
+          "type": "multi_noise"
+        },
+        "air_above_y": null
+      },
+      "sky": {
+        "color": "#C8A27A",
+        "fog_color": "#B5835A",
+        "fog_distance": null,
+        "stars_in_daylight": false,
+        "sun_scale": 1.0,
+        "sunset_color": "#4A7FC1",
+        "celestial_bodies": [
+          {
+            "texture": "sternenwerft:textures/sky/phobos.png",
+            "size": 6,
+            "azimuth": 120,
+            "elevation": 35
+          },
+          {
+            "texture": "sternenwerft:textures/sky/deimos.png",
+            "size": 3,
+            "azimuth": 250,
+            "elevation": 50
+          }
+        ]
+      },
+      "zones": [],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [
+        {
+          "id": "sternenwerft:mars_red_plains",
+          "name_de": "Rote Ebenen",
+          "name_en": "Mars Red Plains",
+          "surface": "sternenwerft:mars_sand",
+          "surface_secondary": null,
+          "shape": "flat",
+          "rarity": "common",
+          "notes": "flach bis hügelig"
+        },
+        {
+          "id": "sternenwerft:mars_canyon",
+          "name_de": "Mars-Canyon",
+          "name_en": "Mars Canyon",
+          "surface": "sternenwerft:mars_rock",
+          "surface_secondary": null,
+          "shape": "hilly",
+          "rarity": "common",
+          "notes": "tiefe Schluchten bis y 0, Erzschichten freiliegend, Erze ×2"
+        },
+        {
+          "id": "sternenwerft:mars_volcanic_highlands",
+          "name_de": "Vulkanisches Hochland",
+          "name_en": "Mars Volcanic Highlands",
+          "surface": "sternenwerft:mars_rock",
+          "surface_secondary": null,
+          "shape": "mountainous",
+          "rarity": "common",
+          "notes": "hohe Berge, Riesenvulkan-Struktur je 64 Chunks"
+        },
+        {
+          "id": "sternenwerft:mars_dry_lake",
+          "name_de": "Ausgetrockneter See",
+          "name_en": "Mars Dry Lake",
+          "surface": "sternenwerft:gypsum_block",
+          "surface_secondary": null,
+          "shape": "flat",
+          "rarity": "common",
+          "notes": "flache Senke"
+        },
+        {
+          "id": "sternenwerft:mars_polar_cap",
+          "name_de": "Mars-Polkappe",
+          "name_en": "Mars Polar Cap",
+          "surface": "sternenwerft:dry_ice_block",
+          "surface_secondary": null,
+          "shape": "rare",
+          "rarity": "rare",
+          "notes": "selten"
+        },
+        {
+          "id": "sternenwerft:mars_meteorite_field",
+          "name_de": "Mars-Meteoritenfeld",
+          "name_en": "Mars Meteorite Field",
+          "surface": "sternenwerft:mars_sand",
+          "surface_secondary": null,
+          "shape": "rare",
+          "rarity": "rare",
+          "notes": "kleine Krater mit iron_nickel_meteorite"
+        }
+      ],
+      "ores": [
+        {
+          "block": "sternenwerft:mars_magnesium_ore",
+          "placement": "vein",
+          "y_min": 0,
+          "y_max": 80,
+          "vein_size": 8,
+          "per_chunk": 5,
+          "radius": null,
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "sternenwerft:mars_red_plains"
+          ],
+          "drops": [
+            {
+              "id": "sternenwerft:raw_magnesium",
+              "count": 1
+            }
+          ],
+          "deepslate_block": null,
+          "notes": null
+        },
+        {
+          "block": "sternenwerft:mars_iron_ore",
+          "placement": "vein",
+          "y_min": 0,
+          "y_max": 80,
+          "vein_size": 8,
+          "per_chunk": 4,
+          "radius": null,
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "sternenwerft:mars_red_plains"
+          ],
+          "drops": [
+            {
+              "id": "minecraft:raw_iron",
+              "count": 1
+            }
+          ],
+          "deepslate_block": null,
+          "notes": null
+        },
+        {
+          "block": "sternenwerft:mars_magnesium_ore",
+          "placement": "vein",
+          "y_min": 0,
+          "y_max": 80,
+          "vein_size": 8,
+          "per_chunk": 10,
+          "radius": null,
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "sternenwerft:mars_canyon"
+          ],
+          "drops": [
+            {
+              "id": "sternenwerft:raw_magnesium",
+              "count": 1
+            }
+          ],
+          "deepslate_block": null,
+          "notes": "Canyon: Erze ×2 (Adern je Chunk verdoppelt)"
+        },
+        {
+          "block": "sternenwerft:mars_iron_ore",
+          "placement": "vein",
+          "y_min": 0,
+          "y_max": 80,
+          "vein_size": 8,
+          "per_chunk": 8,
+          "radius": null,
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "sternenwerft:mars_canyon"
+          ],
+          "drops": [
+            {
+              "id": "minecraft:raw_iron",
+              "count": 1
+            }
+          ],
+          "deepslate_block": null,
+          "notes": "Canyon: Erze ×2 (Adern je Chunk verdoppelt)"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "sternenwerft:mars_sand",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:mars_rock",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:mars_magnesium_ore",
+          "drops": [
+            {
+              "id": "sternenwerft:raw_magnesium",
+              "count": 1
+            }
+          ],
+          "fortune": true,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:mars_iron_ore",
+          "drops": [
+            {
+              "id": "minecraft:raw_iron",
+              "count": 1
+            }
+          ],
+          "fortune": true,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:gypsum_block",
+          "drops": [
+            {
+              "id": "sternenwerft:gypsum",
+              "count": 4
+            }
+          ],
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:dry_ice_block",
+          "drops": [
+            {
+              "id": "sternenwerft:dry_ice",
+              "count": 4
+            }
+          ],
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:iron_nickel_meteorite",
+          "drops": [
+            {
+              "id": "sternenwerft:raw_nickel",
+              "count": 1,
+              "count_max": 2
+            },
+            {
+              "id": "minecraft:raw_iron",
+              "count": 1,
+              "chance": 0.5
+            }
+          ],
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        }
+      ],
+      "structures": [
+        {
+          "id": "sternenwerft:giant_volcano",
+          "exploration_target": false,
+          "biomes": [
+            "sternenwerft:mars_volcanic_highlands"
+          ],
+          "spacing_chunks": 64,
+          "count_per_dimension": null,
+          "position": null,
+          "params": {
+            "radius": 80,
+            "max_y": 250
+          },
+          "notes": "Radius 80, Höhe bis y 250"
+        },
+        {
+          "id": "sternenwerft:lava_tube",
+          "exploration_target": true,
+          "biomes": [
+            "sternenwerft:mars_volcanic_highlands"
+          ],
+          "spacing_chunks": null,
+          "count_per_dimension": null,
+          "position": null,
+          "params": {
+            "cross_section": [
+              5,
+              5
+            ],
+            "length": [
+              60,
+              120
+            ],
+            "y_min": 30,
+            "y_max": 50
+          },
+          "notes": "Hochland; Maße wie Mond (5×5, Länge 60–120, y 30–50); SPEC-GAP: Häufigkeit auf dem Mars nicht angegeben"
+        },
+        {
+          "id": "sternenwerft:meteorite_field",
+          "exploration_target": true,
+          "biomes": [
+            "sternenwerft:mars_meteorite_field"
+          ],
+          "spacing_chunks": 8,
+          "count_per_dimension": null,
+          "position": null,
+          "params": {},
+          "notes": "1 je 8 Chunks"
+        }
+      ],
+      "features": [
+        {
+          "id": null,
+          "type": "canyon_carver",
+          "block": null,
+          "fluid": null,
+          "biomes": [
+            "sternenwerft:mars_canyon"
+          ],
+          "params": {
+            "min_y": 0,
+            "width_multiplier": 2.0
+          },
+          "notes": "Vanilla-Canyon-Carver, Tiefe bis y 0, doppelte Breite (13.1)"
+        },
+        {
+          "id": null,
+          "type": "meteorite_crater",
+          "block": "sternenwerft:iron_nickel_meteorite",
+          "fluid": null,
+          "biomes": [
+            "sternenwerft:mars_meteorite_field"
+          ],
+          "params": {},
+          "notes": "kleine Krater mit iron_nickel_meteorite; SPEC-GAP: keine ID, Radius, Häufigkeit"
+        }
+      ],
+      "vanilla_mobs": [
+        {
+          "entity": "minecraft:zombie",
+          "rate": 1.0,
+          "y_max": null,
+          "event_rates": {
+            "sternenwerft:dust_storm": 2.0
+          }
+        },
+        {
+          "entity": "minecraft:skeleton",
+          "rate": 1.0,
+          "y_max": null,
+          "event_rates": {
+            "sternenwerft:dust_storm": 2.0
+          }
+        },
+        {
+          "entity": "minecraft:spider",
+          "rate": 1.0,
+          "y_max": null,
+          "event_rates": {
+            "sternenwerft:dust_storm": 2.0
+          }
+        },
+        {
+          "entity": "minecraft:creeper",
+          "rate": 1.0,
+          "y_max": null,
+          "event_rates": {
+            "sternenwerft:dust_storm": 2.0
+          }
+        }
+      ],
+      "events": [
+        "sternenwerft:solar_storm",
+        "sternenwerft:meteor_shower",
+        "sternenwerft:dust_storm"
+      ],
+      "event_chance_multipliers": {},
+      "special": {},
+      "spec_ref": "13",
+      "notes": "Himmel gelblich-braun, Sonnenuntergang blau, Phobos und Deimos. Farben 24.5: Mars #B5502A, Gips #E6DFD0, Trockeneis #F0F4F8."
+    },
+    {
+      "id": "sternenwerft:venus",
+      "dimension": "sternenwerft:venus",
+      "type": "surface",
+      "name_de": "Venus",
+      "name_en": "Venus",
+      "star_system": "sternenwerft:sol",
+      "ring": 1,
+      "distance_points": 1,
+      "gravity": 0.9,
+      "atmosphere": "toxic",
+      "pressure": "high",
+      "temperature": {
+        "day": 465,
+        "night": 465
+      },
+      "radiation": 1,
+      "solar_factor": 0.1,
+      "water_behavior": "evaporate",
+      "landing_requires_fuel": false,
+      "launch_cost_override": null,
+      "required_rocket_tier": 1,
+      "requires_long_range": false,
+      "probe": "sternenwerft:probe",
+      "orbit": "sternenwerft:venus_orbit",
+      "lander_connects_to": "sternenwerft:venus_orbit",
+      "gas_collector_output": null,
+      "default_block": "sternenwerft:venus_rock",
+      "default_fluid": "minecraft:lava",
+      "sea_level": 40,
+      "fixed_time": null,
+      "generator": {
+        "type": "noise",
+        "biome_source": {
+          "type": "multi_noise"
+        },
+        "air_above_y": 176
+      },
+      "sky": {
+        "color": "#D9A441",
+        "fog_color": "#E0A040",
+        "fog_distance": 24,
+        "stars_in_daylight": false,
+        "sun_scale": 1.0,
+        "sunset_color": null,
+        "celestial_bodies": []
+      },
+      "zones": [
+        {
+          "id": "cloud_layer",
+          "y_min": 180,
+          "y_max": 240,
+          "biome": null,
+          "near_block": null,
+          "temperature": 20,
+          "pressure": "normal",
+          "radiation": null,
+          "solar_factor": 2.0,
+          "atmosphere": null,
+          "water_behavior": null,
+          "launch_cost_override": 16000
+        }
+      ],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [
+        {
+          "id": "sternenwerft:venus_lava_plains",
+          "name_de": "Lavaebenen",
+          "name_en": "Venus Lava Plains",
+          "surface": "minecraft:basalt",
+          "surface_secondary": null,
+          "shape": "flat",
+          "rarity": "common",
+          "notes": "Lavaseen"
+        },
+        {
+          "id": "sternenwerft:venus_volcanoes",
+          "name_de": "Venus-Vulkane",
+          "name_en": "Venus Volcanoes",
+          "surface": "sternenwerft:venus_rock",
+          "surface_secondary": "minecraft:magma_block",
+          "shape": "mountainous",
+          "rarity": "common",
+          "notes": "Vulkankegel mit Lavasee"
+        },
+        {
+          "id": "sternenwerft:venus_plateau",
+          "name_de": "Venus-Hochebene",
+          "name_en": "Venus Plateau",
+          "surface": "sternenwerft:venus_rock",
+          "surface_secondary": null,
+          "shape": "mountainous",
+          "rarity": "common",
+          "notes": "flache Hochebenen y 90–110 (Zielwert, keine Pflicht)"
+        }
+      ],
+      "ores": [
+        {
+          "block": "sternenwerft:venus_sulfur_ore",
+          "placement": "vein",
+          "y_min": 40,
+          "y_max": 100,
+          "vein_size": 8,
+          "per_chunk": 4,
+          "radius": null,
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "sternenwerft:venus_lava_plains"
+          ],
+          "drops": [
+            {
+              "id": "sternenwerft:sulfur",
+              "count": 2,
+              "count_max": 4
+            }
+          ],
+          "deepslate_block": null,
+          "notes": null
+        },
+        {
+          "block": "sternenwerft:venus_tungsten_ore",
+          "placement": "vein",
+          "y_min": 40,
+          "y_max": 140,
+          "vein_size": 6,
+          "per_chunk": 5,
+          "radius": null,
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "sternenwerft:venus_volcanoes"
+          ],
+          "drops": [
+            {
+              "id": "sternenwerft:raw_tungsten",
+              "count": 1
+            }
+          ],
+          "deepslate_block": null,
+          "notes": null
+        }
+      ],
+      "blocks": [
+        {
+          "id": "sternenwerft:venus_rock",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:venus_tungsten_ore",
+          "drops": [
+            {
+              "id": "sternenwerft:raw_tungsten",
+              "count": 1
+            }
+          ],
+          "fortune": true,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:venus_sulfur_ore",
+          "drops": [
+            {
+              "id": "sternenwerft:sulfur",
+              "count": 2,
+              "count_max": 4
+            }
+          ],
+          "fortune": true,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "minecraft:basalt",
+          "drops": "vanilla",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "minecraft:magma_block",
+          "drops": "vanilla",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        }
+      ],
+      "structures": [
+        {
+          "id": "sternenwerft:volcanic_vent",
+          "exploration_target": true,
+          "biomes": [
+            "sternenwerft:venus_volcanoes"
+          ],
+          "spacing_chunks": null,
+          "count_per_dimension": null,
+          "position": null,
+          "params": {},
+          "notes": "an Vulkanen; SPEC-GAP: Häufigkeit nicht angegeben"
+        }
+      ],
+      "features": [],
+      "vanilla_mobs": [
+        {
+          "entity": "minecraft:blaze",
+          "rate": 1.0,
+          "y_max": 179,
+          "event_rates": {}
+        },
+        {
+          "entity": "minecraft:magma_cube",
+          "rate": 1.0,
+          "y_max": 179,
+          "event_rates": {}
+        }
+      ],
+      "events": [
+        "sternenwerft:solar_storm",
+        "sternenwerft:acid_rain"
+      ],
+      "event_chance_multipliers": {},
+      "special": {},
+      "spec_ref": "13",
+      "notes": "Material Rule setzt alle Blöcke ab y 176 auf Luft (Wolkenschicht y 180–240 frei). Raketen landen immer in der Wolkenschicht (12.5/12.8). Farbe 24.5: Venus #3B2F2A."
+    },
+    {
+      "id": "sternenwerft:mercury",
+      "dimension": "sternenwerft:mercury",
+      "type": "surface",
+      "name_de": "Merkur",
+      "name_en": "Mercury",
+      "star_system": "sternenwerft:sol",
+      "ring": 2,
+      "distance_points": 2,
+      "gravity": 0.38,
+      "atmosphere": "none",
+      "pressure": "vacuum",
+      "temperature": {
+        "day": 20,
+        "night": 20
+      },
+      "radiation": 2,
+      "solar_factor": 3.0,
+      "water_behavior": "evaporate",
+      "landing_requires_fuel": true,
+      "launch_cost_override": null,
+      "required_rocket_tier": 2,
+      "requires_long_range": false,
+      "probe": "sternenwerft:advanced_probe",
+      "orbit": "sternenwerft:mercury_orbit",
+      "lander_connects_to": "sternenwerft:mercury_orbit",
+      "gas_collector_output": null,
+      "default_block": "sternenwerft:mercury_rock",
+      "default_fluid": "minecraft:air",
+      "sea_level": null,
+      "fixed_time": 6000,
+      "generator": {
+        "type": "noise",
+        "air_above_y": null,
+        "biome_source": {
+          "type": "x_bands",
+          "bands": [
+            {
+              "biome": "sternenwerft:mercury_frost_plains",
+              "x_min": null,
+              "x_max": -2000
+            },
+            {
+              "biome": "sternenwerft:mercury_twilight_belt",
+              "x_min": -2000,
+              "x_max": 2000
+            },
+            {
+              "biome": "sternenwerft:mercury_scorched_plains",
+              "x_min": 2000,
+              "x_max": null
+            }
+          ],
+          "rare_inclusions": [
+            "sternenwerft:mercury_shadow_crater"
+          ]
+        }
+      },
+      "sky": {
+        "color": "#000000",
+        "fog_color": "#000000",
+        "fog_distance": null,
+        "stars_in_daylight": true,
+        "sun_scale": 3.0,
+        "sunset_color": null,
+        "celestial_bodies": []
+      },
+      "zones": [
+        {
+          "id": "scorched_plains",
+          "y_min": -64,
+          "y_max": 400,
+          "biome": "sternenwerft:mercury_scorched_plains",
+          "near_block": null,
+          "temperature": 430,
+          "pressure": null,
+          "radiation": null,
+          "solar_factor": null,
+          "atmosphere": null,
+          "water_behavior": null,
+          "launch_cost_override": null
+        },
+        {
+          "id": "frost_plains",
+          "y_min": -64,
+          "y_max": 400,
+          "biome": "sternenwerft:mercury_frost_plains",
+          "near_block": null,
+          "temperature": -180,
+          "pressure": null,
+          "radiation": null,
+          "solar_factor": null,
+          "atmosphere": null,
+          "water_behavior": null,
+          "launch_cost_override": null
+        },
+        {
+          "id": "twilight_belt",
+          "y_min": -64,
+          "y_max": 400,
+          "biome": "sternenwerft:mercury_twilight_belt",
+          "near_block": null,
+          "temperature": 20,
+          "pressure": null,
+          "radiation": null,
+          "solar_factor": null,
+          "atmosphere": null,
+          "water_behavior": null,
+          "launch_cost_override": null
+        },
+        {
+          "id": "shadow_crater",
+          "y_min": -64,
+          "y_max": 400,
+          "biome": "sternenwerft:mercury_shadow_crater",
+          "near_block": null,
+          "temperature": -150,
+          "pressure": null,
+          "radiation": null,
+          "solar_factor": null,
+          "atmosphere": null,
+          "water_behavior": null,
+          "launch_cost_override": null
+        }
+      ],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {
+        "sternenwerft:mercury_scorched_plains": 430,
+        "sternenwerft:mercury_frost_plains": -180,
+        "sternenwerft:mercury_twilight_belt": 20,
+        "sternenwerft:mercury_shadow_crater": -150
+      },
+      "biomes": [
+        {
+          "id": "sternenwerft:mercury_scorched_plains",
+          "name_de": "Glutebenen",
+          "name_en": "Mercury Scorched Plains",
+          "surface": "sternenwerft:mercury_rock",
+          "surface_secondary": null,
+          "shape": "flat",
+          "rarity": "common",
+          "notes": "Tagseite X > 2.000, +430 °C"
+        },
+        {
+          "id": "sternenwerft:mercury_frost_plains",
+          "name_de": "Frostebenen",
+          "name_en": "Mercury Frost Plains",
+          "surface": "sternenwerft:mercury_rock",
+          "surface_secondary": null,
+          "shape": "flat",
+          "rarity": "common",
+          "notes": "Nachtseite X < −2.000, −180 °C"
+        },
+        {
+          "id": "sternenwerft:mercury_twilight_belt",
+          "name_de": "Dämmerungsgürtel",
+          "name_en": "Mercury Twilight Belt",
+          "surface": "sternenwerft:mercury_rock",
+          "surface_secondary": null,
+          "shape": "hilly",
+          "rarity": "common",
+          "notes": "−2.000 ≤ X ≤ 2.000, +20 °C, Spawn bei (0, 0)"
+        },
+        {
+          "id": "sternenwerft:mercury_shadow_crater",
+          "name_de": "Schattenkrater",
+          "name_en": "Mercury Shadow Crater",
+          "surface": "sternenwerft:mercury_rock",
+          "surface_secondary": "minecraft:ice",
+          "shape": "rare",
+          "rarity": "rare",
+          "notes": "seltene Einsprengsel, −150 °C"
+        }
+      ],
+      "ores": [
+        {
+          "block": "sternenwerft:mercury_titanium_ore",
+          "placement": "vein",
+          "y_min": null,
+          "y_max": null,
+          "vein_size": null,
+          "per_chunk": null,
+          "radius": null,
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "sternenwerft:mercury_scorched_plains"
+          ],
+          "drops": [
+            {
+              "id": "sternenwerft:raw_titanium",
+              "count": 1
+            }
+          ],
+          "deepslate_block": null,
+          "notes": "SPEC-GAP: y-Bereich, Adergröße, Adern je Chunk fehlen"
+        },
+        {
+          "block": "sternenwerft:mercury_iron_ore",
+          "placement": "vein",
+          "y_min": null,
+          "y_max": null,
+          "vein_size": null,
+          "per_chunk": null,
+          "radius": null,
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "sternenwerft:mercury_frost_plains"
+          ],
+          "drops": [
+            {
+              "id": "minecraft:raw_iron",
+              "count": 1
+            }
+          ],
+          "deepslate_block": null,
+          "notes": "SPEC-GAP: y-Bereich, Adergröße, Adern je Chunk fehlen"
+        },
+        {
+          "block": "sternenwerft:mercury_lithium_salt",
+          "placement": "surface_disk",
+          "y_min": null,
+          "y_max": null,
+          "vein_size": null,
+          "per_chunk": 3,
+          "radius": [
+            3,
+            6
+          ],
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "sternenwerft:mercury_twilight_belt"
+          ],
+          "drops": [
+            {
+              "id": "sternenwerft:lithium_salt",
+              "count": 2
+            }
+          ],
+          "deepslate_block": null,
+          "notes": "Oberflächenkruste"
+        },
+        {
+          "block": "minecraft:ice",
+          "placement": "vein",
+          "y_min": null,
+          "y_max": null,
+          "vein_size": null,
+          "per_chunk": null,
+          "radius": null,
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "sternenwerft:mercury_shadow_crater"
+          ],
+          "drops": "vanilla",
+          "deepslate_block": null,
+          "notes": "SPEC-GAP: Menge/Form nicht angegeben"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "sternenwerft:mercury_rock",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:mercury_lithium_salt",
+          "drops": [
+            {
+              "id": "sternenwerft:lithium_salt",
+              "count": 2
+            }
+          ],
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:mercury_iron_ore",
+          "drops": [
+            {
+              "id": "minecraft:raw_iron",
+              "count": 1
+            }
+          ],
+          "fortune": true,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:mercury_titanium_ore",
+          "drops": [
+            {
+              "id": "sternenwerft:raw_titanium",
+              "count": 1
+            }
+          ],
+          "fortune": true,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "minecraft:ice",
+          "drops": "vanilla",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        }
+      ],
+      "structures": [],
+      "features": [],
+      "vanilla_mobs": [],
+      "events": [
+        "sternenwerft:solar_storm"
+      ],
+      "event_chance_multipliers": {
+        "sternenwerft:solar_storm": 3
+      },
+      "special": {},
+      "spec_ref": "13",
+      "notes": "Temperatur biomabhängig (Overrides); Planetenwert 20/20 = Dämmerungsgürtel als Grundwert. Sonne 3× so groß. Farbe 24.5: Merkur #5A5550."
+    },
+    {
+      "id": "sternenwerft:asteroid_belt",
+      "dimension": "sternenwerft:asteroid_belt",
+      "type": "surface",
+      "name_de": "Asteroidengürtel",
+      "name_en": "Asteroid Belt",
+      "star_system": "sternenwerft:sol",
+      "ring": 2,
+      "distance_points": 3,
+      "gravity": 0.03,
+      "atmosphere": "none",
+      "pressure": "vacuum",
+      "temperature": {
+        "day": -100,
+        "night": -100
+      },
+      "radiation": 1,
+      "solar_factor": 0.25,
+      "water_behavior": "freeze",
+      "landing_requires_fuel": false,
+      "launch_cost_override": null,
+      "required_rocket_tier": 2,
+      "requires_long_range": false,
+      "probe": "sternenwerft:advanced_probe",
+      "orbit": null,
+      "lander_connects_to": null,
+      "gas_collector_output": null,
+      "default_block": null,
+      "default_fluid": "minecraft:air",
+      "sea_level": null,
+      "fixed_time": null,
+      "generator": {
+        "type": "empty",
+        "biome": "minecraft:the_void"
+      },
+      "sky": {
+        "color": "#000000",
+        "fog_color": "#000000",
+        "fog_distance": null,
+        "stars_in_daylight": true,
+        "sun_scale": 0.5,
+        "sunset_color": null,
+        "celestial_bodies": []
+      },
+      "zones": [],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [],
+      "ores": [
+        {
+          "block": "sternenwerft:asteroid_platinum_ore",
+          "placement": "host_fraction",
+          "y_min": 20,
+          "y_max": 220,
+          "vein_size": null,
+          "per_chunk": null,
+          "radius": null,
+          "fraction": 0.04,
+          "host_block": "sternenwerft:asteroid_rock",
+          "biomes": [],
+          "drops": [
+            {
+              "id": "sternenwerft:raw_platinum",
+              "count": 1
+            }
+          ],
+          "deepslate_block": null,
+          "notes": "4 % der Asteroidenblöcke (Feature asteroid)"
+        },
+        {
+          "block": "sternenwerft:asteroid_iridium_ore",
+          "placement": "host_fraction",
+          "y_min": 20,
+          "y_max": 220,
+          "vein_size": null,
+          "per_chunk": null,
+          "radius": null,
+          "fraction": 0.02,
+          "host_block": "sternenwerft:asteroid_rock",
+          "biomes": [],
+          "drops": [
+            {
+              "id": "sternenwerft:raw_iridium",
+              "count": 1
+            }
+          ],
+          "deepslate_block": null,
+          "notes": "2 % der Asteroidenblöcke (Feature asteroid)"
+        },
+        {
+          "block": "sternenwerft:asteroid_nickel_ore",
+          "placement": "host_fraction",
+          "y_min": 20,
+          "y_max": 220,
+          "vein_size": null,
+          "per_chunk": null,
+          "radius": null,
+          "fraction": 0.06,
+          "host_block": "sternenwerft:asteroid_rock",
+          "biomes": [],
+          "drops": [
+            {
+              "id": "sternenwerft:raw_nickel",
+              "count": 1
+            }
+          ],
+          "deepslate_block": null,
+          "notes": "6 % der Asteroidenblöcke (Feature asteroid)"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "sternenwerft:asteroid_rock",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:asteroid_platinum_ore",
+          "drops": [
+            {
+              "id": "sternenwerft:raw_platinum",
+              "count": 1
+            }
+          ],
+          "fortune": true,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:asteroid_iridium_ore",
+          "drops": [
+            {
+              "id": "sternenwerft:raw_iridium",
+              "count": 1
+            }
+          ],
+          "fortune": true,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:asteroid_nickel_ore",
+          "drops": [
+            {
+              "id": "sternenwerft:raw_nickel",
+              "count": 1
+            }
+          ],
+          "fortune": true,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        }
+      ],
+      "structures": [
+        {
+          "id": "sternenwerft:large_asteroid",
+          "exploration_target": false,
+          "biomes": [],
+          "spacing_chunks": null,
+          "count_per_dimension": null,
+          "position": {
+            "x": 0,
+            "y": 80,
+            "z": 0,
+            "tolerance": 0,
+            "radius": 15,
+            "all_ores": true
+          },
+          "params": {
+            "radius": [
+              13,
+              20
+            ]
+          },
+          "notes": "Radius 13–20; dazu der Spawn-Asteroid (Radius 15 bei 0/80/0 mit allen drei Erzen); SPEC-GAP: Häufigkeit nicht angegeben"
+        }
+      ],
+      "features": [
+        {
+          "id": "sternenwerft:asteroid",
+          "type": "asteroid",
+          "block": "sternenwerft:asteroid_rock",
+          "fluid": null,
+          "biomes": [],
+          "params": {
+            "radius": [
+              3,
+              12
+            ],
+            "y_min": 20,
+            "y_max": 220,
+            "per_chunk": 1,
+            "chance": 0.4,
+            "shape": "sphere_or_ellipsoid"
+          },
+          "notes": "Kugeln/Ellipsoide aus asteroid_rock mit Erzen (siehe ores)"
+        }
+      ],
+      "vanilla_mobs": [],
+      "events": [
+        "sternenwerft:solar_storm",
+        "sternenwerft:meteor_shower"
+      ],
+      "event_chance_multipliers": {},
+      "special": {
+        "void_reset": {
+          "below_y": 0,
+          "target": "spawn_asteroid",
+          "slow_falling_ticks": 400
+        }
+      },
+      "spec_ref": "13",
+      "notes": "Leere Dimension ohne Boden; Landung auf dem höchsten Asteroidenblock der Spalte, sonst Schweben auf y 100 (12.5). Farbe 24.5: Asteroiden #6B6B6B."
+    },
+    {
+      "id": "sternenwerft:ceres",
+      "dimension": "sternenwerft:ceres",
+      "type": "surface",
+      "name_de": "Ceres",
+      "name_en": "Ceres",
+      "star_system": "sternenwerft:sol",
+      "ring": 2,
+      "distance_points": 3,
+      "gravity": 0.03,
+      "atmosphere": "none",
+      "pressure": "vacuum",
+      "temperature": {
+        "day": -90,
+        "night": -110
+      },
+      "radiation": 1,
+      "solar_factor": 0.25,
+      "water_behavior": "freeze",
+      "landing_requires_fuel": true,
+      "launch_cost_override": null,
+      "required_rocket_tier": 2,
+      "requires_long_range": false,
+      "probe": "sternenwerft:advanced_probe",
+      "orbit": null,
+      "lander_connects_to": null,
+      "gas_collector_output": null,
+      "default_block": "sternenwerft:ceres_rock",
+      "default_fluid": "minecraft:air",
+      "sea_level": null,
+      "fixed_time": null,
+      "generator": {
+        "type": "noise",
+        "biome_source": {
+          "type": "multi_noise"
+        },
+        "air_above_y": null
+      },
+      "sky": {
+        "color": "#000000",
+        "fog_color": "#000000",
+        "fog_distance": null,
+        "stars_in_daylight": true,
+        "sun_scale": 0.5,
+        "sunset_color": null,
+        "celestial_bodies": []
+      },
+      "zones": [],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [
+        {
+          "id": "sternenwerft:ceres_plains",
+          "name_de": "Ceres-Ebenen",
+          "name_en": "Ceres Plains",
+          "surface": "sternenwerft:ceres_rock",
+          "surface_secondary": null,
+          "shape": "flat",
+          "rarity": "common",
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:ceres_salt_flats",
+          "name_de": "Salzebenen",
+          "name_en": "Ceres Salt Flats",
+          "surface": "sternenwerft:salt_crust",
+          "surface_secondary": null,
+          "shape": "flat",
+          "rarity": "common",
+          "notes": "salt_crust als Oberflächenflecken"
+        }
+      ],
+      "ores": [],
+      "blocks": [
+        {
+          "id": "sternenwerft:ceres_rock",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:salt_crust",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "minecraft:ice",
+          "drops": "vanilla",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        }
+      ],
+      "structures": [
+        {
+          "id": "sternenwerft:ice_volcano",
+          "exploration_target": true,
+          "biomes": [
+            "sternenwerft:ceres_plains",
+            "sternenwerft:ceres_salt_flats"
+          ],
+          "spacing_chunks": null,
+          "count_per_dimension": 1,
+          "position": {
+            "x": 0,
+            "y": null,
+            "z": 0,
+            "tolerance": null
+          },
+          "params": {},
+          "notes": "Kegel aus Eis, 1 je Dimension nahe Spawn"
+        }
+      ],
+      "features": [],
+      "vanilla_mobs": [],
+      "events": [
+        "sternenwerft:solar_storm"
+      ],
+      "event_chance_multipliers": {},
+      "special": {},
+      "spec_ref": "13",
+      "notes": "Farben 24.5: Ceres #7A776F, Salzkruste #E8E8E0."
+    },
+    {
+      "id": "sternenwerft:io",
+      "dimension": "sternenwerft:io",
+      "type": "surface",
+      "name_de": "Io",
+      "name_en": "Io",
+      "star_system": "sternenwerft:sol",
+      "ring": 2,
+      "distance_points": 5,
+      "gravity": 0.18,
+      "atmosphere": "none",
+      "pressure": "vacuum",
+      "temperature": {
+        "day": -140,
+        "night": -140
+      },
+      "radiation": 3,
+      "solar_factor": 0.1,
+      "water_behavior": "freeze",
+      "landing_requires_fuel": true,
+      "launch_cost_override": null,
+      "required_rocket_tier": 2,
+      "requires_long_range": false,
+      "probe": "sternenwerft:advanced_probe",
+      "orbit": "sternenwerft:jupiter_orbit",
+      "lander_connects_to": "sternenwerft:jupiter_orbit",
+      "gas_collector_output": null,
+      "default_block": "sternenwerft:io_crust",
+      "default_fluid": "minecraft:lava",
+      "sea_level": null,
+      "fixed_time": null,
+      "generator": {
+        "type": "noise",
+        "biome_source": {
+          "type": "multi_noise"
+        },
+        "air_above_y": null
+      },
+      "sky": {
+        "color": "#000000",
+        "fog_color": "#000000",
+        "fog_distance": null,
+        "stars_in_daylight": true,
+        "sun_scale": 1.0,
+        "sunset_color": null,
+        "celestial_bodies": [
+          {
+            "texture": "sternenwerft:textures/sky/jupiter.png",
+            "size": 90,
+            "azimuth": 30,
+            "elevation": 35
+          }
+        ]
+      },
+      "zones": [
+        {
+          "id": "near_lava",
+          "y_min": -64,
+          "y_max": 400,
+          "biome": null,
+          "near_block": "minecraft:lava",
+          "temperature": 300,
+          "pressure": null,
+          "radiation": null,
+          "solar_factor": null,
+          "atmosphere": null,
+          "water_behavior": null,
+          "launch_cost_override": null
+        }
+      ],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [
+        {
+          "id": "sternenwerft:io_sulfur_plains",
+          "name_de": "Schwefelebenen",
+          "name_en": "Io Sulfur Plains",
+          "surface": "sternenwerft:io_crust",
+          "surface_secondary": null,
+          "shape": "flat",
+          "rarity": "common",
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:io_lava_lakes",
+          "name_de": "Lavaseen",
+          "name_en": "Io Lava Lakes",
+          "surface": "sternenwerft:io_crust",
+          "surface_secondary": null,
+          "shape": "flat",
+          "rarity": "common",
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:io_volcanic_fields",
+          "name_de": "Vulkanfelder",
+          "name_en": "Io Volcanic Fields",
+          "surface": "sternenwerft:io_crust",
+          "surface_secondary": null,
+          "shape": "mountainous",
+          "rarity": "common",
+          "notes": null
+        }
+      ],
+      "ores": [
+        {
+          "block": "sternenwerft:io_sulfur_ore",
+          "placement": "vein",
+          "y_min": null,
+          "y_max": null,
+          "vein_size": null,
+          "per_chunk": null,
+          "radius": null,
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "sternenwerft:io_sulfur_plains",
+            "sternenwerft:io_lava_lakes",
+            "sternenwerft:io_volcanic_fields"
+          ],
+          "drops": [
+            {
+              "id": "sternenwerft:sulfur",
+              "count": 2,
+              "count_max": 4
+            }
+          ],
+          "deepslate_block": null,
+          "notes": "SPEC-GAP: y-Bereich, Adergröße, Adern je Chunk und Biome nicht angegeben"
+        }
+      ],
+      "blocks": [
+        {
+          "id": "sternenwerft:io_crust",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:io_sulfur_ore",
+          "drops": [
+            {
+              "id": "sternenwerft:sulfur",
+              "count": 2,
+              "count_max": 4
+            }
+          ],
+          "fortune": true,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        }
+      ],
+      "structures": [
+        {
+          "id": "sternenwerft:volcanic_vent",
+          "exploration_target": true,
+          "biomes": [
+            "sternenwerft:io_volcanic_fields"
+          ],
+          "spacing_chunks": null,
+          "count_per_dimension": null,
+          "position": null,
+          "params": {},
+          "notes": "Biom-Zuordnung angenommen (Vulkanfelder); SPEC-GAP: Häufigkeit nicht angegeben"
+        }
+      ],
+      "features": [],
+      "vanilla_mobs": [
+        {
+          "entity": "minecraft:magma_cube",
+          "rate": 0.5,
+          "y_max": null,
+          "event_rates": {}
+        }
+      ],
+      "events": [
+        "sternenwerft:solar_storm",
+        "sternenwerft:volcanic_eruption"
+      ],
+      "event_chance_multipliers": {},
+      "special": {},
+      "spec_ref": "13",
+      "notes": "SPEC-GAP: Meeresspiegel für Lava nicht angegeben (Venus: 40). Jupiter riesig am Himmel. Farbe 24.5: Io #E8C440."
+    },
+    {
+      "id": "sternenwerft:europa",
+      "dimension": "sternenwerft:europa",
+      "type": "surface",
+      "name_de": "Europa",
+      "name_en": "Europa",
+      "star_system": "sternenwerft:sol",
+      "ring": 2,
+      "distance_points": 5,
+      "gravity": 0.13,
+      "atmosphere": "none",
+      "pressure": "vacuum",
+      "temperature": {
+        "day": -160,
+        "night": -160
+      },
+      "radiation": 2,
+      "solar_factor": 0.1,
+      "water_behavior": "freeze",
+      "landing_requires_fuel": true,
+      "launch_cost_override": null,
+      "required_rocket_tier": 2,
+      "requires_long_range": false,
+      "probe": "sternenwerft:advanced_probe",
+      "orbit": "sternenwerft:jupiter_orbit",
+      "lander_connects_to": "sternenwerft:jupiter_orbit",
+      "gas_collector_output": null,
+      "default_block": "sternenwerft:europa_seabed",
+      "default_fluid": "minecraft:water",
+      "sea_level": 120,
+      "fixed_time": null,
+      "generator": {
+        "type": "noise",
+        "biome_source": {
+          "type": "multi_noise"
+        },
+        "air_above_y": null
+      },
+      "sky": {
+        "color": "#000000",
+        "fog_color": "#000000",
+        "fog_distance": null,
+        "stars_in_daylight": true,
+        "sun_scale": 1.0,
+        "sunset_color": null,
+        "celestial_bodies": [
+          {
+            "texture": "sternenwerft:textures/sky/jupiter.png",
+            "size": 90,
+            "azimuth": 30,
+            "elevation": 35
+          }
+        ]
+      },
+      "zones": [
+        {
+          "id": "ocean",
+          "y_min": -64,
+          "y_max": 111,
+          "biome": null,
+          "near_block": null,
+          "temperature": 2,
+          "pressure": "normal",
+          "radiation": 0,
+          "solar_factor": null,
+          "atmosphere": null,
+          "water_behavior": "normal",
+          "launch_cost_override": null
+        },
+        {
+          "id": "deep_sea",
+          "y_min": -64,
+          "y_max": 79,
+          "biome": null,
+          "near_block": null,
+          "temperature": null,
+          "pressure": "deep",
+          "radiation": null,
+          "solar_factor": null,
+          "atmosphere": null,
+          "water_behavior": null,
+          "launch_cost_override": null
+        }
+      ],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [
+        {
+          "id": "sternenwerft:europa_ice_plains",
+          "name_de": "Eisebenen",
+          "name_en": "Europa Ice Plains",
+          "surface": "sternenwerft:europa_ice",
+          "surface_secondary": null,
+          "shape": "flat",
+          "rarity": "common",
+          "notes": "geschlossene Eisdecke"
+        },
+        {
+          "id": "sternenwerft:europa_rifts",
+          "name_de": "Eisspalten",
+          "name_en": "Europa Rifts",
+          "surface": "sternenwerft:europa_ice",
+          "surface_secondary": null,
+          "shape": "hilly",
+          "rarity": "common",
+          "notes": "Spalten 3–6 Blöcke breit mit Zugang zum Wasser (ice_shell ausgespart)"
+        },
+        {
+          "id": "sternenwerft:europa_ocean",
+          "name_de": "Europa-Ozean",
+          "name_en": "Europa Ocean",
+          "surface": "sternenwerft:europa_seabed",
+          "surface_secondary": null,
+          "shape": "hilly",
+          "rarity": "common",
+          "notes": "Unterwasserbiom unter der Eisdecke, Tiefseedruck unter y 80"
+        },
+        {
+          "id": "sternenwerft:europa_vents",
+          "name_de": "Hydrothermale Quellen",
+          "name_en": "Europa Vents",
+          "surface": "sternenwerft:europa_seabed",
+          "surface_secondary": null,
+          "shape": "hilly",
+          "rarity": "common",
+          "notes": "Meeresboden mit hydrothermal_vent-Clustern"
+        }
+      ],
+      "ores": [],
+      "blocks": [
+        {
+          "id": "sternenwerft:europa_ice",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": 50,
+          "notes": "nur mit ice_drill effizient abbaubar"
+        },
+        {
+          "id": "sternenwerft:europa_seabed",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:hydrothermal_vent",
+          "drops": "none",
+          "fortune": false,
+          "unbreakable": true,
+          "hardness": null,
+          "notes": "Glasflasche → 1 microbe_culture, Abklingzeit 1.200 t pro Block"
+        }
+      ],
+      "structures": [
+        {
+          "id": "sternenwerft:hydrothermal_field",
+          "exploration_target": true,
+          "biomes": [
+            "sternenwerft:europa_vents"
+          ],
+          "spacing_chunks": null,
+          "count_per_dimension": null,
+          "position": null,
+          "params": {},
+          "notes": "Quellen-Cluster aus hydrothermal_vent, 1 reef_keeper je Cluster; SPEC-GAP: Häufigkeit nicht angegeben"
+        }
+      ],
+      "features": [
+        {
+          "id": "sternenwerft:ice_shell",
+          "type": "ice_shell",
+          "block": "sternenwerft:europa_ice",
+          "fluid": null,
+          "biomes": [
+            "sternenwerft:europa_ice_plains",
+            "sternenwerft:europa_ocean",
+            "sternenwerft:europa_vents"
+          ],
+          "params": {
+            "y_min": 112,
+            "y_max": 124,
+            "rift_width": [
+              3,
+              6
+            ],
+            "excluded_biomes": [
+              "sternenwerft:europa_rifts"
+            ]
+          },
+          "notes": "füllt y 112–124 mit europa_ice außer in europa_rifts; Meeresboden etwa y −40 bis 0"
+        }
+      ],
+      "vanilla_mobs": [],
+      "events": [
+        "sternenwerft:solar_storm"
+      ],
+      "event_chance_multipliers": {},
+      "special": {},
+      "spec_ref": "13",
+      "notes": "Jupiter riesig am Himmel. Farben 24.5: Europa-Eis #E8EEF2 mit Rissen #8A5A3A."
+    },
+    {
+      "id": "sternenwerft:titan",
+      "dimension": "sternenwerft:titan",
+      "type": "surface",
+      "name_de": "Titan",
+      "name_en": "Titan",
+      "star_system": "sternenwerft:sol",
+      "ring": 2,
+      "distance_points": 8,
+      "gravity": 0.14,
+      "atmosphere": "dense",
+      "pressure": "normal",
+      "temperature": {
+        "day": -180,
+        "night": -180
+      },
+      "radiation": 1,
+      "solar_factor": 0.05,
+      "water_behavior": "freeze",
+      "landing_requires_fuel": false,
+      "launch_cost_override": null,
+      "required_rocket_tier": 2,
+      "requires_long_range": true,
+      "probe": "sternenwerft:advanced_probe",
+      "orbit": "sternenwerft:saturn_orbit",
+      "lander_connects_to": "sternenwerft:saturn_orbit",
+      "gas_collector_output": null,
+      "default_block": "sternenwerft:titan_ice_rock",
+      "default_fluid": "sternenwerft:methane",
+      "sea_level": 62,
+      "fixed_time": null,
+      "generator": {
+        "type": "noise",
+        "biome_source": {
+          "type": "multi_noise"
+        },
+        "air_above_y": null
+      },
+      "sky": {
+        "color": "#C27A2C",
+        "fog_color": "#C8812F",
+        "fog_distance": 48,
+        "stars_in_daylight": false,
+        "sun_scale": 1.0,
+        "sunset_color": null,
+        "celestial_bodies": []
+      },
+      "zones": [],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [
+        {
+          "id": "sternenwerft:titan_methane_lakes",
+          "name_de": "Methanseen",
+          "name_en": "Titan Methane Lakes",
+          "surface": "sternenwerft:titan_ice_rock",
+          "surface_secondary": null,
+          "shape": "flat",
+          "rarity": "common",
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:titan_dunes",
+          "name_de": "Titan-Dünen",
+          "name_en": "Titan Dunes",
+          "surface": "sternenwerft:titan_dune_sand",
+          "surface_secondary": null,
+          "shape": "flat",
+          "rarity": "common",
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:titan_ice_mountains",
+          "name_de": "Titan-Eisgebirge",
+          "name_en": "Titan Ice Mountains",
+          "surface": "sternenwerft:titan_ice_rock",
+          "surface_secondary": null,
+          "shape": "mountainous",
+          "rarity": "common",
+          "notes": null
+        }
+      ],
+      "ores": [],
+      "blocks": [
+        {
+          "id": "sternenwerft:titan_dune_sand",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:titan_ice_rock",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        }
+      ],
+      "structures": [],
+      "features": [],
+      "vanilla_mobs": [
+        {
+          "entity": "minecraft:zombie",
+          "rate": 0.5,
+          "y_max": null,
+          "event_rates": {}
+        },
+        {
+          "entity": "minecraft:skeleton",
+          "rate": 0.5,
+          "y_max": null,
+          "event_rates": {}
+        }
+      ],
+      "events": [
+        "sternenwerft:solar_storm",
+        "sternenwerft:methane_rain"
+      ],
+      "event_chance_multipliers": {},
+      "special": {
+        "elytra_without_fireworks": true,
+        "elytra_sink_rate_multiplier": 0.5
+      },
+      "spec_ref": "13",
+      "notes": "Landung per Fallschirm. Farbe 24.5: Titan #A0622A."
+    },
+    {
+      "id": "sternenwerft:enceladus",
+      "dimension": "sternenwerft:enceladus",
+      "type": "surface",
+      "name_de": "Enceladus",
+      "name_en": "Enceladus",
+      "star_system": "sternenwerft:sol",
+      "ring": 2,
+      "distance_points": 8,
+      "gravity": 0.01,
+      "atmosphere": "none",
+      "pressure": "vacuum",
+      "temperature": {
+        "day": -200,
+        "night": -200
+      },
+      "radiation": 1,
+      "solar_factor": 0.05,
+      "water_behavior": "freeze",
+      "landing_requires_fuel": true,
+      "launch_cost_override": null,
+      "required_rocket_tier": 2,
+      "requires_long_range": true,
+      "probe": "sternenwerft:advanced_probe",
+      "orbit": "sternenwerft:saturn_orbit",
+      "lander_connects_to": "sternenwerft:saturn_orbit",
+      "gas_collector_output": null,
+      "default_block": "sternenwerft:enceladus_ice",
+      "default_fluid": "minecraft:air",
+      "sea_level": null,
+      "fixed_time": null,
+      "generator": {
+        "type": "noise",
+        "biome_source": {
+          "type": "multi_noise"
+        },
+        "air_above_y": null
+      },
+      "sky": {
+        "color": "#000000",
+        "fog_color": "#000000",
+        "fog_distance": null,
+        "stars_in_daylight": true,
+        "sun_scale": 1.0,
+        "sunset_color": null,
+        "celestial_bodies": [
+          {
+            "texture": "sternenwerft:textures/sky/saturn.png",
+            "size": 70,
+            "azimuth": 45,
+            "elevation": 30
+          }
+        ]
+      },
+      "zones": [],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [
+        {
+          "id": "sternenwerft:enceladus_snowfields",
+          "name_de": "Schneefelder",
+          "name_en": "Enceladus Snowfields",
+          "surface": "sternenwerft:enceladus_snow",
+          "surface_secondary": null,
+          "shape": "flat",
+          "rarity": "common",
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:enceladus_tiger_stripes",
+          "name_de": "Tigerstreifen",
+          "name_en": "Enceladus Tiger Stripes",
+          "surface": "sternenwerft:enceladus_ice",
+          "surface_secondary": null,
+          "shape": "hilly",
+          "rarity": "common",
+          "notes": "blaue Streifen, Geysire 1 je Chunk"
+        }
+      ],
+      "ores": [],
+      "blocks": [
+        {
+          "id": "sternenwerft:enceladus_snow",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:enceladus_ice",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:ammonia_geyser",
+          "drops": "none",
+          "fortune": false,
+          "unbreakable": true,
+          "hardness": null,
+          "notes": null
+        }
+      ],
+      "structures": [],
+      "features": [
+        {
+          "id": null,
+          "type": "geyser",
+          "block": "sternenwerft:ammonia_geyser",
+          "fluid": null,
+          "biomes": [
+            "sternenwerft:enceladus_tiger_stripes"
+          ],
+          "params": {
+            "per_chunk": 1
+          },
+          "notes": "Fontänenwerte (200 t, 40 Blöcke, +2,0) in balance/items.json"
+        }
+      ],
+      "vanilla_mobs": [],
+      "events": [
+        "sternenwerft:solar_storm"
+      ],
+      "event_chance_multipliers": {},
+      "special": {},
+      "spec_ref": "13",
+      "notes": "Saturn mit Ringen am Himmel. Farbe 24.5: Enceladus #F4F8FF."
+    },
+    {
+      "id": "sternenwerft:triton",
+      "dimension": "sternenwerft:triton",
+      "type": "surface",
+      "name_de": "Triton",
+      "name_en": "Triton",
+      "star_system": "sternenwerft:sol",
+      "ring": 2,
+      "distance_points": 15,
+      "gravity": 0.08,
+      "atmosphere": "thin",
+      "pressure": "low",
+      "temperature": {
+        "day": -235,
+        "night": -235
+      },
+      "radiation": 1,
+      "solar_factor": 0.02,
+      "water_behavior": "freeze",
+      "landing_requires_fuel": true,
+      "launch_cost_override": null,
+      "required_rocket_tier": 2,
+      "requires_long_range": true,
+      "probe": "sternenwerft:advanced_probe",
+      "orbit": "sternenwerft:neptune_orbit",
+      "lander_connects_to": "sternenwerft:neptune_orbit",
+      "gas_collector_output": null,
+      "default_block": "sternenwerft:triton_ice",
+      "default_fluid": "minecraft:air",
+      "sea_level": null,
+      "fixed_time": null,
+      "generator": {
+        "type": "noise",
+        "biome_source": {
+          "type": "multi_noise"
+        },
+        "air_above_y": null
+      },
+      "sky": {
+        "color": "#000000",
+        "fog_color": "#000000",
+        "fog_distance": null,
+        "stars_in_daylight": true,
+        "sun_scale": 1.0,
+        "sunset_color": null,
+        "celestial_bodies": [
+          {
+            "texture": "sternenwerft:textures/sky/neptune.png",
+            "size": 40,
+            "azimuth": 200,
+            "elevation": 30
+          }
+        ]
+      },
+      "zones": [],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [
+        {
+          "id": "sternenwerft:triton_cantaloupe_terrain",
+          "name_de": "Cantaloupe-Terrain",
+          "name_en": "Triton Cantaloupe Terrain",
+          "surface": "sternenwerft:triton_ice",
+          "surface_secondary": null,
+          "shape": "hilly",
+          "rarity": "common",
+          "notes": "wellige Hügel"
+        },
+        {
+          "id": "sternenwerft:triton_polar_cap",
+          "name_de": "Triton-Polkappe",
+          "name_en": "Triton Polar Cap",
+          "surface": "sternenwerft:triton_ice",
+          "surface_secondary": null,
+          "shape": "rare",
+          "rarity": "rare",
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:triton_geyser_fields",
+          "name_de": "Geysirfelder",
+          "name_en": "Triton Geyser Fields",
+          "surface": "sternenwerft:triton_ice",
+          "surface_secondary": null,
+          "shape": "rare",
+          "rarity": "rare",
+          "notes": null
+        }
+      ],
+      "ores": [],
+      "blocks": [
+        {
+          "id": "sternenwerft:triton_ice",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": "rosa-grau"
+        },
+        {
+          "id": "sternenwerft:nitrogen_geyser",
+          "drops": "none",
+          "fortune": false,
+          "unbreakable": true,
+          "hardness": null,
+          "notes": null
+        }
+      ],
+      "structures": [],
+      "features": [
+        {
+          "id": null,
+          "type": "geyser",
+          "block": "sternenwerft:nitrogen_geyser",
+          "fluid": null,
+          "biomes": [
+            "sternenwerft:triton_geyser_fields"
+          ],
+          "params": {
+            "per_chunk": null
+          },
+          "notes": "SPEC-GAP: Häufigkeit nicht angegeben"
+        }
+      ],
+      "vanilla_mobs": [
+        {
+          "entity": "minecraft:stray",
+          "rate": 0.5,
+          "y_max": null,
+          "event_rates": {}
+        }
+      ],
+      "events": [
+        "sternenwerft:solar_storm"
+      ],
+      "event_chance_multipliers": {},
+      "special": {},
+      "spec_ref": "13",
+      "notes": "Neptun blau am Himmel. Farbe 24.5: Triton #C9A4A4."
+    },
+    {
+      "id": "sternenwerft:pluto",
+      "dimension": "sternenwerft:pluto",
+      "type": "surface",
+      "name_de": "Pluto",
+      "name_en": "Pluto",
+      "star_system": "sternenwerft:sol",
+      "ring": 2,
+      "distance_points": 18,
+      "gravity": 0.06,
+      "atmosphere": "thin",
+      "pressure": "low",
+      "temperature": {
+        "day": -230,
+        "night": -230
+      },
+      "radiation": 1,
+      "solar_factor": 0.02,
+      "water_behavior": "freeze",
+      "landing_requires_fuel": true,
+      "launch_cost_override": null,
+      "required_rocket_tier": 2,
+      "requires_long_range": true,
+      "probe": "sternenwerft:advanced_probe",
+      "orbit": null,
+      "lander_connects_to": null,
+      "gas_collector_output": null,
+      "default_block": "sternenwerft:pluto_water_ice",
+      "default_fluid": "minecraft:air",
+      "sea_level": null,
+      "fixed_time": null,
+      "generator": {
+        "type": "noise",
+        "air_above_y": null,
+        "biome_source": {
+          "type": "center_radius",
+          "center": [
+            0,
+            0
+          ],
+          "radius": 400,
+          "inner_biome": "sternenwerft:pluto_heart_glacier",
+          "outside": "multi_noise"
+        }
+      },
+      "sky": {
+        "color": "#10101C",
+        "fog_color": "#1A1A26",
+        "fog_distance": null,
+        "stars_in_daylight": true,
+        "sun_scale": 0.1,
+        "sunset_color": null,
+        "celestial_bodies": []
+      },
+      "zones": [],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [
+        {
+          "id": "sternenwerft:pluto_heart_glacier",
+          "name_de": "Herzgletscher",
+          "name_en": "Pluto Heart Glacier",
+          "surface": "sternenwerft:pluto_nitrogen_ice",
+          "surface_secondary": null,
+          "shape": "flat",
+          "rarity": "common",
+          "notes": "Radius 400 um (0, 0) über eigene BiomeSource"
+        },
+        {
+          "id": "sternenwerft:pluto_ice_mountains",
+          "name_de": "Pluto-Eisgebirge",
+          "name_en": "Pluto Ice Mountains",
+          "surface": "sternenwerft:pluto_water_ice",
+          "surface_secondary": null,
+          "shape": "mountainous",
+          "rarity": "common",
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:pluto_dark_highlands",
+          "name_de": "Dunkles Hochland",
+          "name_en": "Pluto Dark Highlands",
+          "surface": "sternenwerft:pluto_tholin",
+          "surface_secondary": null,
+          "shape": "mountainous",
+          "rarity": "common",
+          "notes": null
+        }
+      ],
+      "ores": [
+        {
+          "block": "sternenwerft:pluto_uranium_ore",
+          "placement": "vein",
+          "y_min": 0,
+          "y_max": 60,
+          "vein_size": 4,
+          "per_chunk": 3,
+          "radius": null,
+          "fraction": null,
+          "host_block": null,
+          "biomes": [
+            "sternenwerft:pluto_dark_highlands"
+          ],
+          "drops": [
+            {
+              "id": "sternenwerft:raw_uranium",
+              "count": 1
+            }
+          ],
+          "deepslate_block": null,
+          "notes": null
+        }
+      ],
+      "blocks": [
+        {
+          "id": "sternenwerft:pluto_nitrogen_ice",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:pluto_water_ice",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:pluto_tholin",
+          "drops": "self",
+          "fortune": false,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:pluto_uranium_ore",
+          "drops": [
+            {
+              "id": "sternenwerft:raw_uranium",
+              "count": 1
+            }
+          ],
+          "fortune": true,
+          "unbreakable": false,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:ancient_alloy",
+          "drops": "none",
+          "fortune": false,
+          "unbreakable": true,
+          "hardness": null,
+          "notes": null
+        },
+        {
+          "id": "sternenwerft:transmitter_core",
+          "drops": "none",
+          "fortune": false,
+          "unbreakable": true,
+          "hardness": null,
+          "notes": "Rechtsklick beschwört signal_sentinel"
+        }
+      ],
+      "structures": [
+        {
+          "id": "sternenwerft:signal_transmitter",
+          "exploration_target": true,
+          "biomes": [
+            "sternenwerft:pluto_heart_glacier"
+          ],
+          "spacing_chunks": null,
+          "count_per_dimension": 1,
+          "position": {
+            "x": 0,
+            "y": 30,
+            "z": 0,
+            "tolerance": 64
+          },
+          "params": {
+            "hall_size": [
+              32,
+              32,
+              16
+            ],
+            "entrance": {
+              "wall": "south",
+              "width": 3,
+              "height": 4
+            },
+            "tunnel": {
+              "width": 3,
+              "height": 4,
+              "block": "sternenwerft:pluto_water_ice"
+            },
+            "surface_marker": {
+              "size": 5,
+              "block": "sternenwerft:ancient_alloy"
+            }
+          },
+          "notes": "Halle 32×32×16 aus ancient_alloy, transmitter_core in der Mitte, Öffnung 3×4 in der Südwand, Treppentunnel (3 breit, 4 hoch) aus pluto_water_ice zur Oberfläche, oben 5×5-Ring aus ancient_alloy"
+        }
+      ],
+      "features": [],
+      "vanilla_mobs": [
+        {
+          "entity": "minecraft:stray",
+          "rate": 0.5,
+          "y_max": null,
+          "event_rates": {}
+        }
+      ],
+      "events": [
+        "sternenwerft:solar_storm"
+      ],
+      "event_chance_multipliers": {},
+      "special": {},
+      "spec_ref": "13",
+      "notes": "Himmel dämmrig, Sonne als heller Stern. Farben 24.5: Pluto-Eis #D8C8A8, Tholin #5A3A2A."
+    },
+    {
+      "id": "sternenwerft:earth_orbit",
+      "dimension": "sternenwerft:earth_orbit",
+      "type": "orbit",
+      "name_de": "Erdorbit",
+      "name_en": "Earth Orbit",
+      "star_system": "sternenwerft:sol",
+      "ring": 0,
+      "distance_points": 0,
+      "gravity": 0.005,
+      "atmosphere": "none",
+      "pressure": "vacuum",
+      "temperature": {
+        "day": 100,
+        "night": -100
+      },
+      "radiation": 1,
+      "solar_factor": 1.0,
+      "water_behavior": "freeze",
+      "landing_requires_fuel": false,
+      "launch_cost_override": 0,
+      "required_rocket_tier": 2,
+      "requires_long_range": false,
+      "probe": null,
+      "orbit": null,
+      "lander_connects_to": null,
+      "gas_collector_output": null,
+      "default_block": null,
+      "default_fluid": "minecraft:air",
+      "sea_level": null,
+      "fixed_time": 6000,
+      "generator": {
+        "type": "flat",
+        "layers": [],
+        "biome": "minecraft:the_void"
+      },
+      "sky": {
+        "color": "#000000",
+        "fog_color": "#000000",
+        "fog_distance": null,
+        "stars_in_daylight": true,
+        "sun_scale": 1.0,
+        "sunset_color": null,
+        "celestial_bodies": [
+          {
+            "texture": "sternenwerft:textures/sky/earth.png",
+            "size": 120,
+            "azimuth": 0,
+            "elevation": -90
+          }
+        ]
+      },
+      "zones": [],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [],
+      "ores": [],
+      "blocks": [],
+      "structures": [],
+      "features": [],
+      "vanilla_mobs": [],
+      "events": [
+        "sternenwerft:solar_storm",
+        "sternenwerft:meteor_shower"
+      ],
+      "event_chance_multipliers": {},
+      "special": {},
+      "spec_ref": "13.1",
+      "notes": "Planet groß unter dem Spieler (auch unterhalb des Horizonts). Immer bekannt (keine Sonde nötig)."
+    },
+    {
+      "id": "sternenwerft:venus_orbit",
+      "dimension": "sternenwerft:venus_orbit",
+      "type": "orbit",
+      "name_de": "Venus-Orbit",
+      "name_en": "Venus Orbit",
+      "star_system": "sternenwerft:sol",
+      "ring": 1,
+      "distance_points": 1,
+      "gravity": 0.005,
+      "atmosphere": "none",
+      "pressure": "vacuum",
+      "temperature": {
+        "day": 100,
+        "night": -100
+      },
+      "radiation": 1,
+      "solar_factor": 2.0,
+      "water_behavior": "freeze",
+      "landing_requires_fuel": false,
+      "launch_cost_override": 0,
+      "required_rocket_tier": 2,
+      "requires_long_range": false,
+      "probe": "sternenwerft:probe",
+      "orbit": null,
+      "lander_connects_to": null,
+      "gas_collector_output": null,
+      "default_block": null,
+      "default_fluid": "minecraft:air",
+      "sea_level": null,
+      "fixed_time": 6000,
+      "generator": {
+        "type": "flat",
+        "layers": [],
+        "biome": "minecraft:the_void"
+      },
+      "sky": {
+        "color": "#000000",
+        "fog_color": "#000000",
+        "fog_distance": null,
+        "stars_in_daylight": true,
+        "sun_scale": 1.0,
+        "sunset_color": null,
+        "celestial_bodies": [
+          {
+            "texture": "sternenwerft:textures/sky/venus.png",
+            "size": 120,
+            "azimuth": 0,
+            "elevation": -90
+          }
+        ]
+      },
+      "zones": [],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [],
+      "ores": [],
+      "blocks": [],
+      "structures": [],
+      "features": [],
+      "vanilla_mobs": [],
+      "events": [
+        "sternenwerft:solar_storm",
+        "sternenwerft:meteor_shower"
+      ],
+      "event_chance_multipliers": {},
+      "special": {},
+      "spec_ref": "13.1",
+      "notes": "Planet groß unter dem Spieler (auch unterhalb des Horizonts)."
+    },
+    {
+      "id": "sternenwerft:mars_orbit",
+      "dimension": "sternenwerft:mars_orbit",
+      "type": "orbit",
+      "name_de": "Mars-Orbit",
+      "name_en": "Mars Orbit",
+      "star_system": "sternenwerft:sol",
+      "ring": 1,
+      "distance_points": 1.5,
+      "gravity": 0.005,
+      "atmosphere": "none",
+      "pressure": "vacuum",
+      "temperature": {
+        "day": 100,
+        "night": -100
+      },
+      "radiation": 1,
+      "solar_factor": 0.5,
+      "water_behavior": "freeze",
+      "landing_requires_fuel": false,
+      "launch_cost_override": 0,
+      "required_rocket_tier": 2,
+      "requires_long_range": false,
+      "probe": "sternenwerft:probe",
+      "orbit": null,
+      "lander_connects_to": null,
+      "gas_collector_output": null,
+      "default_block": null,
+      "default_fluid": "minecraft:air",
+      "sea_level": null,
+      "fixed_time": 6000,
+      "generator": {
+        "type": "flat",
+        "layers": [],
+        "biome": "minecraft:the_void"
+      },
+      "sky": {
+        "color": "#000000",
+        "fog_color": "#000000",
+        "fog_distance": null,
+        "stars_in_daylight": true,
+        "sun_scale": 1.0,
+        "sunset_color": null,
+        "celestial_bodies": [
+          {
+            "texture": "sternenwerft:textures/sky/mars.png",
+            "size": 120,
+            "azimuth": 0,
+            "elevation": -90
+          }
+        ]
+      },
+      "zones": [],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [],
+      "ores": [],
+      "blocks": [],
+      "structures": [],
+      "features": [],
+      "vanilla_mobs": [],
+      "events": [
+        "sternenwerft:solar_storm",
+        "sternenwerft:meteor_shower"
+      ],
+      "event_chance_multipliers": {},
+      "special": {},
+      "spec_ref": "13.1",
+      "notes": "Planet groß unter dem Spieler (auch unterhalb des Horizonts)."
+    },
+    {
+      "id": "sternenwerft:mercury_orbit",
+      "dimension": "sternenwerft:mercury_orbit",
+      "type": "orbit",
+      "name_de": "Merkur-Orbit",
+      "name_en": "Mercury Orbit",
+      "star_system": "sternenwerft:sol",
+      "ring": 2,
+      "distance_points": 2,
+      "gravity": 0.005,
+      "atmosphere": "none",
+      "pressure": "vacuum",
+      "temperature": {
+        "day": 100,
+        "night": -100
+      },
+      "radiation": 1,
+      "solar_factor": 3.0,
+      "water_behavior": "freeze",
+      "landing_requires_fuel": false,
+      "launch_cost_override": 0,
+      "required_rocket_tier": 2,
+      "requires_long_range": false,
+      "probe": "sternenwerft:advanced_probe",
+      "orbit": null,
+      "lander_connects_to": null,
+      "gas_collector_output": null,
+      "default_block": null,
+      "default_fluid": "minecraft:air",
+      "sea_level": null,
+      "fixed_time": 6000,
+      "generator": {
+        "type": "flat",
+        "layers": [],
+        "biome": "minecraft:the_void"
+      },
+      "sky": {
+        "color": "#000000",
+        "fog_color": "#000000",
+        "fog_distance": null,
+        "stars_in_daylight": true,
+        "sun_scale": 1.0,
+        "sunset_color": null,
+        "celestial_bodies": [
+          {
+            "texture": "sternenwerft:textures/sky/mercury.png",
+            "size": 120,
+            "azimuth": 0,
+            "elevation": -90
+          }
+        ]
+      },
+      "zones": [],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [],
+      "ores": [],
+      "blocks": [],
+      "structures": [],
+      "features": [],
+      "vanilla_mobs": [],
+      "events": [
+        "sternenwerft:solar_storm",
+        "sternenwerft:meteor_shower"
+      ],
+      "event_chance_multipliers": {},
+      "special": {},
+      "spec_ref": "13.1",
+      "notes": "Planet groß unter dem Spieler (auch unterhalb des Horizonts)."
+    },
+    {
+      "id": "sternenwerft:jupiter_orbit",
+      "dimension": "sternenwerft:jupiter_orbit",
+      "type": "orbit",
+      "name_de": "Jupiter-Orbit",
+      "name_en": "Jupiter Orbit",
+      "star_system": "sternenwerft:sol",
+      "ring": 2,
+      "distance_points": 5,
+      "gravity": 0.005,
+      "atmosphere": "none",
+      "pressure": "vacuum",
+      "temperature": {
+        "day": 100,
+        "night": -100
+      },
+      "radiation": 3,
+      "solar_factor": 0.1,
+      "water_behavior": "freeze",
+      "landing_requires_fuel": false,
+      "launch_cost_override": 0,
+      "required_rocket_tier": 2,
+      "requires_long_range": false,
+      "probe": "sternenwerft:advanced_probe",
+      "orbit": null,
+      "lander_connects_to": null,
+      "gas_collector_output": {
+        "fluid": "sternenwerft:hydrogen",
+        "amount": 100,
+        "ticks": 20,
+        "alternative": null
+      },
+      "default_block": null,
+      "default_fluid": "minecraft:air",
+      "sea_level": null,
+      "fixed_time": 6000,
+      "generator": {
+        "type": "flat",
+        "layers": [],
+        "biome": "minecraft:the_void"
+      },
+      "sky": {
+        "color": "#000000",
+        "fog_color": "#000000",
+        "fog_distance": null,
+        "stars_in_daylight": true,
+        "sun_scale": 1.0,
+        "sunset_color": null,
+        "celestial_bodies": [
+          {
+            "texture": "sternenwerft:textures/sky/jupiter.png",
+            "size": 120,
+            "azimuth": 0,
+            "elevation": -90
+          }
+        ]
+      },
+      "zones": [],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [],
+      "ores": [],
+      "blocks": [],
+      "structures": [],
+      "features": [],
+      "vanilla_mobs": [],
+      "events": [
+        "sternenwerft:solar_storm",
+        "sternenwerft:meteor_shower"
+      ],
+      "event_chance_multipliers": {},
+      "special": {},
+      "spec_ref": "13.1",
+      "notes": "Planet groß unter dem Spieler (auch unterhalb des Horizonts)."
+    },
+    {
+      "id": "sternenwerft:saturn_orbit",
+      "dimension": "sternenwerft:saturn_orbit",
+      "type": "orbit",
+      "name_de": "Saturn-Orbit",
+      "name_en": "Saturn Orbit",
+      "star_system": "sternenwerft:sol",
+      "ring": 2,
+      "distance_points": 8,
+      "gravity": 0.005,
+      "atmosphere": "none",
+      "pressure": "vacuum",
+      "temperature": {
+        "day": 100,
+        "night": -100
+      },
+      "radiation": 1,
+      "solar_factor": 0.05,
+      "water_behavior": "freeze",
+      "landing_requires_fuel": false,
+      "launch_cost_override": 0,
+      "required_rocket_tier": 2,
+      "requires_long_range": true,
+      "probe": "sternenwerft:advanced_probe",
+      "orbit": null,
+      "lander_connects_to": null,
+      "gas_collector_output": {
+        "fluid": "sternenwerft:helium",
+        "amount": 100,
+        "ticks": 20,
+        "alternative": null
+      },
+      "default_block": null,
+      "default_fluid": "minecraft:air",
+      "sea_level": null,
+      "fixed_time": 6000,
+      "generator": {
+        "type": "flat",
+        "layers": [],
+        "biome": "minecraft:the_void"
+      },
+      "sky": {
+        "color": "#000000",
+        "fog_color": "#000000",
+        "fog_distance": null,
+        "stars_in_daylight": true,
+        "sun_scale": 1.0,
+        "sunset_color": null,
+        "celestial_bodies": [
+          {
+            "texture": "sternenwerft:textures/sky/saturn.png",
+            "size": 120,
+            "azimuth": 0,
+            "elevation": -90
+          }
+        ]
+      },
+      "zones": [],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [],
+      "ores": [],
+      "blocks": [],
+      "structures": [],
+      "features": [],
+      "vanilla_mobs": [],
+      "events": [
+        "sternenwerft:solar_storm",
+        "sternenwerft:meteor_shower",
+        "sternenwerft:ring_debris"
+      ],
+      "event_chance_multipliers": {},
+      "special": {},
+      "spec_ref": "13.1",
+      "notes": "Planet groß unter dem Spieler (auch unterhalb des Horizonts)."
+    },
+    {
+      "id": "sternenwerft:uranus_orbit",
+      "dimension": "sternenwerft:uranus_orbit",
+      "type": "orbit",
+      "name_de": "Uranus-Orbit",
+      "name_en": "Uranus Orbit",
+      "star_system": "sternenwerft:sol",
+      "ring": 2,
+      "distance_points": 12,
+      "gravity": 0.005,
+      "atmosphere": "none",
+      "pressure": "vacuum",
+      "temperature": {
+        "day": 100,
+        "night": -100
+      },
+      "radiation": 1,
+      "solar_factor": 0.02,
+      "water_behavior": "freeze",
+      "landing_requires_fuel": false,
+      "launch_cost_override": 0,
+      "required_rocket_tier": 2,
+      "requires_long_range": true,
+      "probe": "sternenwerft:advanced_probe",
+      "orbit": null,
+      "lander_connects_to": null,
+      "gas_collector_output": {
+        "fluid": "sternenwerft:methane",
+        "amount": 100,
+        "ticks": 20,
+        "alternative": "sternenwerft:hydrogen"
+      },
+      "default_block": null,
+      "default_fluid": "minecraft:air",
+      "sea_level": null,
+      "fixed_time": 6000,
+      "generator": {
+        "type": "flat",
+        "layers": [],
+        "biome": "minecraft:the_void"
+      },
+      "sky": {
+        "color": "#000000",
+        "fog_color": "#000000",
+        "fog_distance": null,
+        "stars_in_daylight": true,
+        "sun_scale": 1.0,
+        "sunset_color": null,
+        "celestial_bodies": [
+          {
+            "texture": "sternenwerft:textures/sky/uranus.png",
+            "size": 120,
+            "azimuth": 0,
+            "elevation": -90
+          }
+        ]
+      },
+      "zones": [],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [],
+      "ores": [],
+      "blocks": [],
+      "structures": [],
+      "features": [],
+      "vanilla_mobs": [],
+      "events": [
+        "sternenwerft:solar_storm",
+        "sternenwerft:meteor_shower"
+      ],
+      "event_chance_multipliers": {},
+      "special": {},
+      "spec_ref": "13.1",
+      "notes": "Planet groß unter dem Spieler (auch unterhalb des Horizonts). Gas-Sammler: Standard methane, per Knopf auf hydrogen umschaltbar."
+    },
+    {
+      "id": "sternenwerft:neptune_orbit",
+      "dimension": "sternenwerft:neptune_orbit",
+      "type": "orbit",
+      "name_de": "Neptun-Orbit",
+      "name_en": "Neptune Orbit",
+      "star_system": "sternenwerft:sol",
+      "ring": 2,
+      "distance_points": 15,
+      "gravity": 0.005,
+      "atmosphere": "none",
+      "pressure": "vacuum",
+      "temperature": {
+        "day": 100,
+        "night": -100
+      },
+      "radiation": 1,
+      "solar_factor": 0.02,
+      "water_behavior": "freeze",
+      "landing_requires_fuel": false,
+      "launch_cost_override": 0,
+      "required_rocket_tier": 2,
+      "requires_long_range": true,
+      "probe": "sternenwerft:advanced_probe",
+      "orbit": null,
+      "lander_connects_to": null,
+      "gas_collector_output": {
+        "fluid": "sternenwerft:methane",
+        "amount": 100,
+        "ticks": 20,
+        "alternative": "sternenwerft:hydrogen"
+      },
+      "default_block": null,
+      "default_fluid": "minecraft:air",
+      "sea_level": null,
+      "fixed_time": 6000,
+      "generator": {
+        "type": "flat",
+        "layers": [],
+        "biome": "minecraft:the_void"
+      },
+      "sky": {
+        "color": "#000000",
+        "fog_color": "#000000",
+        "fog_distance": null,
+        "stars_in_daylight": true,
+        "sun_scale": 1.0,
+        "sunset_color": null,
+        "celestial_bodies": [
+          {
+            "texture": "sternenwerft:textures/sky/neptune.png",
+            "size": 120,
+            "azimuth": 0,
+            "elevation": -90
+          }
+        ]
+      },
+      "zones": [],
+      "biome_temperature_offsets": {},
+      "biome_temperature_overrides": {},
+      "biomes": [],
+      "ores": [],
+      "blocks": [],
+      "structures": [],
+      "features": [],
+      "vanilla_mobs": [],
+      "events": [
+        "sternenwerft:solar_storm",
+        "sternenwerft:meteor_shower"
+      ],
+      "event_chance_multipliers": {},
+      "special": {},
+      "spec_ref": "13.1",
+      "notes": "Planet groß unter dem Spieler (auch unterhalb des Horizonts). Gas-Sammler: Standard methane, per Knopf auf hydrogen umschaltbar."
+    }
+  ]
+}

@@ -1,0 +1,1659 @@
+{
+  "schema_version": 1,
+  "tiers": [
+    {
+      "tier": 1,
+      "name_de": "Raumfahrtprogramm",
+      "name_en": "Space Program",
+      "cost_default": 10,
+      "gate": {
+        "type": "has_block",
+        "block": "sternenwerft:research_terminal"
+      },
+      "spec_ref": "11.4"
+    },
+    {
+      "tier": 2,
+      "name_de": "Nahe Welten",
+      "name_en": "Nearby Worlds",
+      "cost_default": 25,
+      "gate": {
+        "type": "enter_dimension",
+        "dimension": "sternenwerft:moon"
+      },
+      "spec_ref": "11.4"
+    },
+    {
+      "tier": 3,
+      "name_de": "Orbit",
+      "name_en": "Orbit",
+      "cost_default": 50,
+      "gate": {
+        "type": "crafted_items",
+        "items": [
+          "sternenwerft:magnesium_ingot",
+          "sternenwerft:tungsten_ingot"
+        ],
+        "fluids": [
+          "sternenwerft:helium"
+        ]
+      },
+      "spec_ref": "11.4",
+      "notes": "Ein crafted_items-Gate mit items + fluids verlangt bereits jedes einzelne Element (25.3); helium zählt aus jeder Maschine der Agentur (in Stufe 2 praktisch nur Regolith-Erhitzer)."
+    },
+    {
+      "tier": 4,
+      "name_de": "Inneres System",
+      "name_en": "Inner System",
+      "cost_default": 80,
+      "gate": {
+        "type": "machine_completed",
+        "block": "sternenwerft:zero_g_fabricator",
+        "recipe": null
+      },
+      "spec_ref": "11.4",
+      "notes": "Ausnahme: advanced_probe kostet 20 FP (Knoten-cost)."
+    },
+    {
+      "tier": 5,
+      "name_de": "Äußeres System",
+      "name_en": "Outer System",
+      "cost_default": 120,
+      "gate": {
+        "type": "enter_dimension",
+        "dimension": "sternenwerft:saturn_orbit"
+      },
+      "spec_ref": "11.4"
+    },
+    {
+      "tier": 6,
+      "name_de": "Endgame",
+      "name_en": "Endgame",
+      "cost_default": 250,
+      "gate": {
+        "type": "all",
+        "gates": [
+          {
+            "type": "crafted_items",
+            "items": [
+              "sternenwerft:uranium_ingot"
+            ],
+            "fluids": []
+          },
+          {
+            "type": "machine_completed",
+            "block": "sternenwerft:magnetic_trap",
+            "recipe": null
+          }
+        ]
+      },
+      "spec_ref": "11.4",
+      "notes": "'antimatter_cell gefüllt' = abgeschlossener Vorgang der magnetic_trap (leere Zelle -> charge 1, 6.1); crafted_items kennt keinen Komponentenabgleich."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "sternenwerft:solar_power",
+      "tier": 1,
+      "branch": "industry",
+      "cost": 10,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:solar_panel"
+        }
+      ],
+      "icon": "sternenwerft:solar_panel",
+      "position": {
+        "column": 0,
+        "row": 1,
+        "slot": 0
+      },
+      "name_de": "Solarenergie",
+      "name_en": "Solar Power",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:aluminum_wiring",
+      "tier": 1,
+      "branch": "logistics",
+      "cost": 10,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:aluminum_cable"
+        }
+      ],
+      "icon": "sternenwerft:aluminum_cable",
+      "position": {
+        "column": 3,
+        "row": 1,
+        "slot": 0
+      },
+      "name_de": "Aluminiumverkabelung",
+      "name_en": "Aluminum Wiring",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:gas_storage",
+      "tier": 1,
+      "branch": "logistics",
+      "cost": 10,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:pressure_bottle"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:transport_tank"
+        }
+      ],
+      "icon": "sternenwerft:pressure_bottle",
+      "position": {
+        "column": 3,
+        "row": 1,
+        "slot": 1
+      },
+      "name_de": "Gasspeicher",
+      "name_en": "Gas Storage",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:launch_pad",
+      "tier": 1,
+      "branch": "spaceflight",
+      "cost": 10,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:launch_pad"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:launch_tower"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:fuel_pump"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:launch_control"
+        }
+      ],
+      "icon": "sternenwerft:launch_pad",
+      "position": {
+        "column": 1,
+        "row": 1,
+        "slot": 0
+      },
+      "name_de": "Startrampe",
+      "name_en": "Launch Pad",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:moon_probe",
+      "tier": 1,
+      "branch": "spaceflight",
+      "cost": 10,
+      "requires": [
+        "sternenwerft:launch_pad",
+        "sternenwerft:solar_power",
+        "sternenwerft:gas_storage"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:probe"
+        },
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:moon"
+        }
+      ],
+      "icon": "sternenwerft:probe",
+      "position": {
+        "column": 1,
+        "row": 1,
+        "slot": 1
+      },
+      "name_de": "Mondsonde",
+      "name_en": "Moon Probe",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:rocket_t1",
+      "tier": 1,
+      "branch": "spaceflight",
+      "cost": 10,
+      "requires": [
+        "sternenwerft:moon_probe"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:rocket_capsule_t1"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:rocket_tank_t1"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:rocket_engine_t1"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:rocket_fin_t1"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:rocket_cargo_bay"
+        }
+      ],
+      "icon": "sternenwerft:rocket_capsule_t1",
+      "position": {
+        "column": 1,
+        "row": 1,
+        "slot": 2
+      },
+      "name_de": "Rakete T1",
+      "name_en": "Rocket T1",
+      "spec_ref": "11.4",
+      "notes": "Raketenteile T1 aus 12.4 inkl. rocket_cargo_bay (gilt auch für T2)."
+    },
+    {
+      "id": "sternenwerft:suit_t1",
+      "tier": 1,
+      "branch": "life_support",
+      "cost": 10,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:pressure_suit_helmet"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:pressure_suit_chestplate"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:pressure_suit_leggings"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:pressure_suit_boots"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:oxygen_canister"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:large_oxygen_canister"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:helmet_lamp"
+        }
+      ],
+      "icon": "sternenwerft:pressure_suit_helmet",
+      "position": {
+        "column": 2,
+        "row": 1,
+        "slot": 0
+      },
+      "name_de": "Druckanzug",
+      "name_en": "Pressure Suit",
+      "spec_ref": "11.4",
+      "notes": "pressure_suit_* = helmet, chestplate, leggings, boots."
+    },
+    {
+      "id": "sternenwerft:space_food",
+      "tier": 1,
+      "branch": "life_support",
+      "cost": 10,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:food_packer"
+        }
+      ],
+      "icon": "sternenwerft:food_packer",
+      "position": {
+        "column": 2,
+        "row": 1,
+        "slot": 1
+      },
+      "name_de": "Raumfahrtnahrung",
+      "name_en": "Space Food",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:regolith_heater",
+      "tier": 2,
+      "branch": "industry",
+      "cost": 25,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:regolith_heater"
+        }
+      ],
+      "icon": "sternenwerft:regolith_heater",
+      "position": {
+        "column": 0,
+        "row": 2,
+        "slot": 0
+      },
+      "name_de": "Regolith-Erhitzer",
+      "name_en": "Regolith Heater",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:high_temperature",
+      "tier": 2,
+      "branch": "industry",
+      "cost": 25,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:high_temperature_furnace"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:ceramic_plate"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:titanium_pipe"
+        }
+      ],
+      "icon": "sternenwerft:high_temperature_furnace",
+      "position": {
+        "column": 0,
+        "row": 2,
+        "slot": 1
+      },
+      "name_de": "Hochtemperatur",
+      "name_en": "High Temperature",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:magnesium_alloy",
+      "tier": 2,
+      "branch": "industry",
+      "cost": 25,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:magnesium_alloy"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:lightweight_plate"
+        }
+      ],
+      "icon": "sternenwerft:magnesium_alloy",
+      "position": {
+        "column": 0,
+        "row": 2,
+        "slot": 2
+      },
+      "name_de": "Magnesium-Legierung",
+      "name_en": "Magnesium Alloy",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:cryogenics",
+      "tier": 2,
+      "branch": "industry",
+      "cost": 25,
+      "requires": [
+        "sternenwerft:regolith_heater"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:cryo_liquefier"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:cooling_system"
+        }
+      ],
+      "icon": "sternenwerft:cryo_liquefier",
+      "position": {
+        "column": 0,
+        "row": 2,
+        "slot": 3
+      },
+      "name_de": "Kryotechnik",
+      "name_en": "Cryogenics",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:planet_probes",
+      "tier": 2,
+      "branch": "spaceflight",
+      "cost": 25,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:mars"
+        },
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:venus"
+        },
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:mars_orbit"
+        },
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:venus_orbit"
+        }
+      ],
+      "icon": "sternenwerft:probe",
+      "position": {
+        "column": 1,
+        "row": 2,
+        "slot": 0
+      },
+      "name_de": "Planetensonden",
+      "name_en": "Planetary Probes",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:landing_beacon",
+      "tier": 2,
+      "branch": "spaceflight",
+      "cost": 25,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:landing_beacon"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:aerostat_platform"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:cloud_elevator"
+        }
+      ],
+      "icon": "sternenwerft:landing_beacon",
+      "position": {
+        "column": 1,
+        "row": 2,
+        "slot": 1
+      },
+      "name_de": "Landefeuer",
+      "name_en": "Landing Beacon",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:rover",
+      "tier": 2,
+      "branch": "spaceflight",
+      "cost": 25,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:rover_kit"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:rover_scanner"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:rover_drill"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:rover_headlight"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:rover_pressure_cabin"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:rover_trailer"
+        }
+      ],
+      "icon": "sternenwerft:rover_kit",
+      "position": {
+        "column": 1,
+        "row": 2,
+        "slot": 2
+      },
+      "name_de": "Rover",
+      "name_en": "Rover",
+      "spec_ref": "11.4",
+      "notes": "Rover-Module aus 16 außer rover_lithium_pack (kommt mit lithium_storage)."
+    },
+    {
+      "id": "sternenwerft:rocket_t2",
+      "tier": 2,
+      "branch": "spaceflight",
+      "cost": 25,
+      "requires": [
+        "sternenwerft:magnesium_alloy",
+        "sternenwerft:cryogenics",
+        "sternenwerft:high_temperature"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:rocket_capsule_t2"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:rocket_tank_t2"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:rocket_engine_t2"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:rocket_fin_t2"
+        },
+        {
+          "type": "multiblock",
+          "id": "sternenwerft:launch_pad_t2"
+        }
+      ],
+      "icon": "sternenwerft:rocket_capsule_t2",
+      "position": {
+        "column": 1,
+        "row": 2,
+        "slot": 3
+      },
+      "name_de": "Rakete T2",
+      "name_en": "Rocket T2",
+      "spec_ref": "11.4",
+      "notes": "Raketenteile T2 aus 12.4 (Frachtraum schon in rocket_t1); Multiblock launch_pad_t2 als Startregel aus 12.4."
+    },
+    {
+      "id": "sternenwerft:dome_t1",
+      "tier": 2,
+      "branch": "life_support",
+      "cost": 25,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:dome_generator_t1"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:oxygen_generator"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:dome_range_module"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:dome_efficiency_module"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:dome_shield_module"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:electric_lamp"
+        }
+      ],
+      "icon": "sternenwerft:dome_generator_t1",
+      "position": {
+        "column": 2,
+        "row": 2,
+        "slot": 0
+      },
+      "name_de": "Kuppel I",
+      "name_en": "Dome I",
+      "spec_ref": "11.4",
+      "notes": "Kuppelmodule = dome_range_module, dome_efficiency_module, dome_shield_module (10.1)."
+    },
+    {
+      "id": "sternenwerft:suit_t2",
+      "tier": 2,
+      "branch": "life_support",
+      "cost": 25,
+      "requires": [
+        "sternenwerft:high_temperature",
+        "sternenwerft:cryogenics"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:heat_suit_helmet"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:heat_suit_chestplate"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:heat_suit_leggings"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:heat_suit_boots"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:cooling_module"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:armor_plating"
+        }
+      ],
+      "icon": "sternenwerft:heat_suit_helmet",
+      "position": {
+        "column": 2,
+        "row": 2,
+        "slot": 1
+      },
+      "name_de": "Hitzeanzug",
+      "name_en": "Heat Suit",
+      "spec_ref": "11.4",
+      "notes": "heat_suit_* = helmet, chestplate, leggings, boots."
+    },
+    {
+      "id": "sternenwerft:dome_t2",
+      "tier": 2,
+      "branch": "life_support",
+      "cost": 25,
+      "requires": [
+        "sternenwerft:dome_t1",
+        "sternenwerft:magnesium_alloy",
+        "sternenwerft:cryogenics"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:dome_generator_t2"
+        }
+      ],
+      "icon": "sternenwerft:dome_generator_t2",
+      "position": {
+        "column": 2,
+        "row": 2,
+        "slot": 2
+      },
+      "name_de": "Kuppel II",
+      "name_en": "Dome II",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:hydroponics",
+      "tier": 2,
+      "branch": "life_support",
+      "cost": 25,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:hydroponics_basin"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:compost_soil"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:compost"
+        }
+      ],
+      "icon": "sternenwerft:hydroponics_basin",
+      "position": {
+        "column": 2,
+        "row": 2,
+        "slot": 3
+      },
+      "name_de": "Hydrokultur",
+      "name_en": "Hydroponics",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:gas_tanks",
+      "tier": 2,
+      "branch": "logistics",
+      "cost": 25,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:gas_tank"
+        }
+      ],
+      "icon": "sternenwerft:gas_tank",
+      "position": {
+        "column": 3,
+        "row": 2,
+        "slot": 0
+      },
+      "name_de": "Gastanks",
+      "name_en": "Gas Tanks",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:fusion",
+      "tier": 3,
+      "branch": "industry",
+      "cost": 50,
+      "requires": [
+        "sternenwerft:superconductors"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:fusion_reactor"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:fusion_casing"
+        }
+      ],
+      "icon": "sternenwerft:fusion_reactor",
+      "position": {
+        "column": 0,
+        "row": 3,
+        "slot": 0
+      },
+      "name_de": "Kernfusion",
+      "name_en": "Fusion",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:superconductors",
+      "tier": 3,
+      "branch": "industry",
+      "cost": 50,
+      "requires": [
+        "sternenwerft:station_modules"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:superconductor_wire"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:superconductor_cable"
+        }
+      ],
+      "icon": "sternenwerft:superconductor_wire",
+      "position": {
+        "column": 0,
+        "row": 3,
+        "slot": 1
+      },
+      "name_de": "Supraleiter",
+      "name_en": "Superconductors",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:space_weather",
+      "tier": 3,
+      "branch": "industry",
+      "cost": 50,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:space_weather_station"
+        }
+      ],
+      "icon": "sternenwerft:space_weather_station",
+      "position": {
+        "column": 0,
+        "row": 3,
+        "slot": 2
+      },
+      "name_de": "Weltraumwetter",
+      "name_en": "Space Weather",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:station_core",
+      "tier": 3,
+      "branch": "spaceflight",
+      "cost": 50,
+      "requires": [
+        "sternenwerft:dome_t1",
+        "sternenwerft:magnesium_alloy"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:station_core"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:station_hull"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:station_window"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:docking_bay"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:magnet_boots"
+        }
+      ],
+      "icon": "sternenwerft:station_core",
+      "position": {
+        "column": 1,
+        "row": 3,
+        "slot": 0
+      },
+      "name_de": "Stationskern",
+      "name_en": "Station Core",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:station_modules",
+      "tier": 3,
+      "branch": "spaceflight",
+      "cost": 50,
+      "requires": [
+        "sternenwerft:station_core"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:habitation_module"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:research_lab"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:zero_g_fabricator"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:solar_wing"
+        }
+      ],
+      "icon": "sternenwerft:habitation_module",
+      "position": {
+        "column": 1,
+        "row": 3,
+        "slot": 1
+      },
+      "name_de": "Stationsmodule",
+      "name_en": "Station Modules",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:lander",
+      "tier": 3,
+      "branch": "spaceflight",
+      "cost": 50,
+      "requires": [
+        "sternenwerft:station_core"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:lander"
+        }
+      ],
+      "icon": "sternenwerft:lander",
+      "position": {
+        "column": 1,
+        "row": 3,
+        "slot": 2
+      },
+      "name_de": "Landefähre",
+      "name_en": "Lander",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:gravity",
+      "tier": 3,
+      "branch": "life_support",
+      "cost": 50,
+      "requires": [
+        "sternenwerft:fusion"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:gravity_plate"
+        }
+      ],
+      "icon": "sternenwerft:gravity_plate",
+      "position": {
+        "column": 2,
+        "row": 3,
+        "slot": 0
+      },
+      "name_de": "Künstliche Schwerkraft",
+      "name_en": "Artificial Gravity",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:greenhouse",
+      "tier": 3,
+      "branch": "life_support",
+      "cost": 50,
+      "requires": [
+        "sternenwerft:station_modules",
+        "sternenwerft:hydroponics"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:greenhouse"
+        }
+      ],
+      "icon": "sternenwerft:greenhouse",
+      "position": {
+        "column": 2,
+        "row": 3,
+        "slot": 1
+      },
+      "name_de": "Gewächshaus",
+      "name_en": "Greenhouse",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:tank_depot",
+      "tier": 3,
+      "branch": "logistics",
+      "cost": 50,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:tank_depot"
+        }
+      ],
+      "icon": "sternenwerft:tank_depot",
+      "position": {
+        "column": 3,
+        "row": 3,
+        "slot": 0
+      },
+      "name_de": "Tankdepot",
+      "name_en": "Tank Depot",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:lithium_storage",
+      "tier": 4,
+      "branch": "industry",
+      "cost": 80,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:lithium_battery"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:lithium_battery_bank"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:rover_lithium_pack"
+        }
+      ],
+      "icon": "sternenwerft:lithium_battery",
+      "position": {
+        "column": 0,
+        "row": 4,
+        "slot": 0
+      },
+      "name_de": "Lithiumspeicher",
+      "name_en": "Lithium Storage",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:gas_collection",
+      "tier": 4,
+      "branch": "industry",
+      "cost": 80,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:gas_collector"
+        }
+      ],
+      "icon": "sternenwerft:gas_collector",
+      "position": {
+        "column": 0,
+        "row": 4,
+        "slot": 1
+      },
+      "name_de": "Gasgewinnung",
+      "name_en": "Gas Collection",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:magnetic_trap",
+      "tier": 4,
+      "branch": "industry",
+      "cost": 80,
+      "requires": [
+        "sternenwerft:gas_collection",
+        "sternenwerft:iridium_chips"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:magnetic_trap"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:antimatter_cell"
+        }
+      ],
+      "icon": "sternenwerft:magnetic_trap",
+      "position": {
+        "column": 0,
+        "row": 4,
+        "slot": 2
+      },
+      "name_de": "Magnetfalle",
+      "name_en": "Magnetic Trap",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:advanced_probe",
+      "tier": 4,
+      "branch": "spaceflight",
+      "cost": 20,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:advanced_probe"
+        },
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:mercury_orbit"
+        },
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:mercury"
+        },
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:asteroid_belt"
+        },
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:ceres"
+        },
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:jupiter_orbit"
+        },
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:io"
+        },
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:europa"
+        },
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:saturn_orbit"
+        },
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:titan"
+        },
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:enceladus"
+        },
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:uranus_orbit"
+        },
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:neptune_orbit"
+        },
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:triton"
+        },
+        {
+          "type": "probe_target",
+          "id": "sternenwerft:pluto"
+        }
+      ],
+      "icon": "sternenwerft:advanced_probe",
+      "position": {
+        "column": 1,
+        "row": 4,
+        "slot": 0
+      },
+      "name_de": "Fortgeschrittene Sonde",
+      "name_en": "Advanced Probe",
+      "spec_ref": "11.4",
+      "notes": "Sondenziele = alle Ziele mit Ring 2 aus 12.1; Sonderkosten 20 FP."
+    },
+    {
+      "id": "sternenwerft:asteroid_anchor",
+      "tier": 4,
+      "branch": "spaceflight",
+      "cost": 80,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:asteroid_anchor"
+        }
+      ],
+      "icon": "sternenwerft:asteroid_anchor",
+      "position": {
+        "column": 1,
+        "row": 4,
+        "slot": 1
+      },
+      "name_de": "Asteroiden-Anker",
+      "name_en": "Asteroid Anchor",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:long_range",
+      "tier": 4,
+      "branch": "spaceflight",
+      "cost": 80,
+      "requires": [
+        "sternenwerft:lithium_storage",
+        "sternenwerft:iridium_chips"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:long_range_module"
+        }
+      ],
+      "icon": "sternenwerft:long_range_module",
+      "position": {
+        "column": 1,
+        "row": 4,
+        "slot": 2
+      },
+      "name_de": "Fernflug",
+      "name_en": "Long Range",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:dome_t3",
+      "tier": 4,
+      "branch": "life_support",
+      "cost": 80,
+      "requires": [
+        "sternenwerft:dome_t2",
+        "sternenwerft:iridium_chips"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:dome_generator_t3"
+        }
+      ],
+      "icon": "sternenwerft:dome_generator_t3",
+      "position": {
+        "column": 2,
+        "row": 4,
+        "slot": 0
+      },
+      "name_de": "Kuppel III",
+      "name_en": "Dome III",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:eva",
+      "tier": 4,
+      "branch": "life_support",
+      "cost": 80,
+      "requires": [
+        "sternenwerft:lithium_storage"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:jetpack"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:heat_reflector"
+        }
+      ],
+      "icon": "sternenwerft:jetpack",
+      "position": {
+        "column": 2,
+        "row": 4,
+        "slot": 1
+      },
+      "name_de": "Außeneinsatz",
+      "name_en": "EVA",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:radiation_shield",
+      "tier": 4,
+      "branch": "life_support",
+      "cost": 80,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:radiation_shield"
+        }
+      ],
+      "icon": "sternenwerft:radiation_shield",
+      "position": {
+        "column": 2,
+        "row": 4,
+        "slot": 2
+      },
+      "name_de": "Strahlenschutz",
+      "name_en": "Radiation Shielding",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:ice_drilling",
+      "tier": 4,
+      "branch": "life_support",
+      "cost": 80,
+      "requires": [
+        "sternenwerft:lithium_storage"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:ice_drill"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:diving_module"
+        }
+      ],
+      "icon": "sternenwerft:ice_drill",
+      "position": {
+        "column": 2,
+        "row": 4,
+        "slot": 3
+      },
+      "name_de": "Eisbohrung",
+      "name_en": "Ice Drilling",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:clone_chamber",
+      "tier": 4,
+      "branch": "life_support",
+      "cost": 80,
+      "requires": [
+        "sternenwerft:iridium_chips"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:clone_chamber"
+        }
+      ],
+      "icon": "sternenwerft:clone_chamber",
+      "position": {
+        "column": 2,
+        "row": 4,
+        "slot": 4
+      },
+      "name_de": "Klon-Kammer",
+      "name_en": "Clone Chamber",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:iridium_chips",
+      "tier": 4,
+      "branch": "logistics",
+      "cost": 80,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:iridium_chip"
+        }
+      ],
+      "icon": "sternenwerft:iridium_chip",
+      "position": {
+        "column": 3,
+        "row": 4,
+        "slot": 0
+      },
+      "name_de": "Iridium-Chips",
+      "name_en": "Iridium Chips",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:fission",
+      "tier": 5,
+      "branch": "industry",
+      "cost": 120,
+      "requires": [
+        "sternenwerft:iridium_chips"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:fission_reactor"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:fission_casing"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:fuel_rod"
+        }
+      ],
+      "icon": "sternenwerft:fission_reactor",
+      "position": {
+        "column": 0,
+        "row": 5,
+        "slot": 0
+      },
+      "name_de": "Kernspaltung",
+      "name_en": "Fission",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:pump_station",
+      "tier": 5,
+      "branch": "industry",
+      "cost": 120,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:pump_station"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:pontoon"
+        }
+      ],
+      "icon": "sternenwerft:pump_station",
+      "position": {
+        "column": 0,
+        "row": 5,
+        "slot": 1
+      },
+      "name_de": "Pumpstation",
+      "name_en": "Pump Station",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:drilling_rig",
+      "tier": 5,
+      "branch": "industry",
+      "cost": 120,
+      "requires": [],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:drilling_rig"
+        }
+      ],
+      "icon": "sternenwerft:drilling_rig",
+      "position": {
+        "column": 0,
+        "row": 5,
+        "slot": 2
+      },
+      "name_de": "Bohrturm",
+      "name_en": "Drilling Rig",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:atomic_drive",
+      "tier": 5,
+      "branch": "spaceflight",
+      "cost": 120,
+      "requires": [
+        "sternenwerft:fission"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:atomic_drive"
+        }
+      ],
+      "icon": "sternenwerft:atomic_drive",
+      "position": {
+        "column": 1,
+        "row": 5,
+        "slot": 0
+      },
+      "name_de": "Atomantrieb",
+      "name_en": "Atomic Drive",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:suit_t3",
+      "tier": 5,
+      "branch": "life_support",
+      "cost": 120,
+      "requires": [
+        "sternenwerft:suit_t2",
+        "sternenwerft:superconductors",
+        "sternenwerft:lithium_storage"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:deep_space_suit_helmet"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:deep_space_suit_chestplate"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:deep_space_suit_leggings"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:deep_space_suit_boots"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:insulation_fabric"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:heating_module"
+        }
+      ],
+      "icon": "sternenwerft:deep_space_suit_helmet",
+      "position": {
+        "column": 2,
+        "row": 5,
+        "slot": 0
+      },
+      "name_de": "Tiefraumanzug",
+      "name_en": "Deep Space Suit",
+      "spec_ref": "11.4",
+      "notes": "deep_space_suit_* = helmet, chestplate, leggings, boots."
+    },
+    {
+      "id": "sternenwerft:fertilizer",
+      "tier": 5,
+      "branch": "life_support",
+      "cost": 120,
+      "requires": [
+        "sternenwerft:pump_station"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:ammonia_fertilizer"
+        }
+      ],
+      "icon": "sternenwerft:ammonia_fertilizer",
+      "position": {
+        "column": 2,
+        "row": 5,
+        "slot": 1
+      },
+      "name_de": "Dünger",
+      "name_en": "Fertilizer",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:cargo_logistics",
+      "tier": 5,
+      "branch": "logistics",
+      "cost": 120,
+      "requires": [
+        "sternenwerft:iridium_chips",
+        "sternenwerft:lithium_storage"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:cargo_terminal"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:cargo_rocket"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:logistics_computer"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:trading_post"
+        }
+      ],
+      "icon": "sternenwerft:cargo_terminal",
+      "position": {
+        "column": 3,
+        "row": 5,
+        "slot": 0
+      },
+      "name_de": "Frachtlogistik",
+      "name_en": "Cargo Logistics",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:antimatter_drive",
+      "tier": 6,
+      "branch": "spaceflight",
+      "cost": 250,
+      "requires": [
+        "sternenwerft:magnetic_trap",
+        "sternenwerft:fission"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:antimatter_drive"
+        }
+      ],
+      "icon": "sternenwerft:antimatter_drive",
+      "position": {
+        "column": 1,
+        "row": 6,
+        "slot": 0
+      },
+      "name_de": "Antimaterie-Antrieb",
+      "name_en": "Antimatter Drive",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:orbital_shipyard",
+      "tier": 6,
+      "branch": "spaceflight",
+      "cost": 250,
+      "requires": [
+        "sternenwerft:antimatter_drive"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:shipyard_terminal"
+        },
+        {
+          "type": "item",
+          "id": "sternenwerft:shipyard_dock"
+        }
+      ],
+      "icon": "sternenwerft:shipyard_terminal",
+      "position": {
+        "column": 1,
+        "row": 6,
+        "slot": 1
+      },
+      "name_de": "Orbitalwerft",
+      "name_en": "Orbital Shipyard",
+      "spec_ref": "11.4"
+    },
+    {
+      "id": "sternenwerft:heavy_freighter",
+      "tier": 6,
+      "branch": "logistics",
+      "cost": 250,
+      "requires": [
+        "sternenwerft:cargo_logistics",
+        "sternenwerft:atomic_drive"
+      ],
+      "unlocks": [
+        {
+          "type": "item",
+          "id": "sternenwerft:heavy_freighter"
+        }
+      ],
+      "icon": "sternenwerft:heavy_freighter",
+      "position": {
+        "column": 3,
+        "row": 6,
+        "slot": 0
+      },
+      "name_de": "Schwerlast-Frachter",
+      "name_en": "Heavy Freighter",
+      "spec_ref": "11.4"
+    }
+  ]
+}

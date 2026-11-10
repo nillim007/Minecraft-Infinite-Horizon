@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "entries": {
+    "oxygen": {
+      "buildup_ticks": 200,
+      "decay_ticks": 100,
+      "damage": 1,
+      "damage_interval": 20,
+      "spec_ref": "8.2"
+    },
+    "heat": {
+      "buildup_ticks": 200,
+      "decay_ticks": 100,
+      "damage": 1,
+      "damage_interval": 40,
+      "damage_overrides": [
+        {
+          "above_temperature": 300,
+          "damage": 1,
+          "damage_interval": 20
+        }
+      ],
+      "spec_ref": "8.2"
+    },
+    "cold": {
+      "buildup_ticks": 200,
+      "decay_ticks": 100,
+      "damage": 1,
+      "damage_interval": 40,
+      "spec_ref": "8.2"
+    },
+    "pressure": {
+      "buildup_ticks": 200,
+      "decay_ticks": 100,
+      "damage": 1,
+      "damage_interval": 20,
+      "spec_ref": "8.2"
+    },
+    "deep_pressure": {
+      "buildup_ticks": 200,
+      "decay_ticks": 100,
+      "damage": 1,
+      "damage_interval": 20,
+      "protected_by": [
+        "sternenwerft:diving_module"
+      ],
+      "spec_ref": "8.2, 9.1",
+      "notes": "SPEC-GAP: eigene Gefahr (9.1) ohne eigene Schadensrate; Werte wie Druck (8.2)."
+    },
+    "radiation": {
+      "buildup_ticks": 200,
+      "decay_ticks": 100,
+      "damage": 1,
+      "damage_interval": 40,
+      "damage_by_level": {
+        "2": {
+          "damage": 1,
+          "damage_interval": 40
+        },
+        "3": {
+          "damage": 1,
+          "damage_interval": 20
+        }
+      },
+      "spec_ref": "8.2"
+    },
+    "no_suit_tolerance": {
+      "temp_min": -20,
+      "temp_max": 45,
+      "inclusive": true,
+      "pressure": [
+        "low",
+        "normal"
+      ],
+      "radiation_max": 1,
+      "requires_breathable": true,
+      "spec_ref": "8.3"
+    },
+    "radiation_rules": {
+      "min": 0,
+      "max": 3,
+      "cover_blocks": 3,
+      "cover_reduction": 2,
+      "solar_storm_bonus": 2,
+      "dome_t3_value": 0,
+      "spec_ref": "8.1"
+    },
+    "pressure_levels": {
+      "order": [
+        "vacuum",
+        "low",
+        "normal",
+        "high",
+        "deep"
+      ],
+      "spec_ref": "8.1"
+    },
+    "environment_update": {
+      "interval_ticks": 10,
+      "includes_dome_check": true,
+      "spec_ref": "8.1, 23.5"
+    },
+    "hud": {
+      "show_from": 0.01,
+      "warning_sound_from": 0.01,
+      "yellow_from": 0.5,
+      "red_from": 0.8,
+      "bars": [
+        "oxygen",
+        "temperature",
+        "radiation",
+        "venus_heat_timer"
+      ],
+      "spec_ref": "8.2, 8.4"
+    }
+  }
+}

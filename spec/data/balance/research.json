@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "entries": {
+    "sample_ring_0": {
+      "fp": 1,
+      "diminishing": true,
+      "spec_ref": "11.1"
+    },
+    "sample_ring_1": {
+      "fp": 5,
+      "diminishing": true,
+      "spec_ref": "11.1"
+    },
+    "sample_ring_2": {
+      "fp": 10,
+      "diminishing": true,
+      "spec_ref": "11.1"
+    },
+    "probe_new_target": {
+      "fp": 10,
+      "frequency": "once_per_target_and_agency",
+      "diminishing": false,
+      "spec_ref": "11.1, 12.3"
+    },
+    "creature_analysis": {
+      "fp": 15,
+      "frequency": "once_per_creature_type_and_agency",
+      "diminishing": false,
+      "tool": "sternenwerft:field_scanner",
+      "eligible_tag": "#sternenwerft:analyzable",
+      "spec_ref": "11.1, 18"
+    },
+    "exploration_target": {
+      "fp": 20,
+      "frequency": "per_structure_instance",
+      "diminishing": true,
+      "diminishing_key": "structure_type",
+      "structures": [
+        "sternenwerft:lava_tube",
+        "sternenwerft:volcanic_vent",
+        "sternenwerft:meteorite_field",
+        "sternenwerft:hydrothermal_field",
+        "sternenwerft:ice_volcano",
+        "sternenwerft:signal_transmitter"
+      ],
+      "spec_ref": "11.1, 13.1"
+    },
+    "diminishing_returns": {
+      "full_count": 10,
+      "factor_after": 0.1,
+      "sample_key": "block_id + dimension",
+      "deepslate_variants_same_type": true,
+      "structure_key": "structure_type",
+      "spec_ref": "11.1, 11.2"
+    },
+    "fp_storage": {
+      "type": "int",
+      "scale": 100,
+      "rounding": "floor",
+      "spec_ref": "11.1"
+    },
+    "research_lab": {
+      "analyzer_fp_multiplier": 1.5,
+      "condition": "analyzer_adjacent_to_research_lab",
+      "spec_ref": "11.1, 14.2"
+    },
+    "sample_tool": {
+      "cooldown_ticks": 40,
+      "spec_ref": "11.2"
+    },
+    "sample_ring_rules": {
+      "overworld_ring": 0,
+      "other_ring_source": "planets.json ring",
+      "no_planet_entry_fp": 0,
+      "ring0_sampleable_types": 10,
+      "ring0_max_full_fp": 100,
+      "spec_ref": "11.1, 11.2"
+    }
+  }
+}

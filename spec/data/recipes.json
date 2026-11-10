@@ -1,0 +1,6534 @@
+{
+  "schema_version": 1,
+  "recipes": [
+    {
+      "id": "sternenwerft:crafting_shaped/machine_frame",
+      "type": "crafting_shaped",
+      "ingredients": [],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:machine_frame",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": [
+        "ICI",
+        "CRC",
+        "ICI"
+      ],
+      "key": {
+        "C": {
+          "item": "minecraft:copper_ingot"
+        },
+        "I": {
+          "item": "minecraft:iron_ingot"
+        },
+        "R": {
+          "item": "minecraft:redstone"
+        }
+      },
+      "spec_ref": "22.1"
+    },
+    {
+      "id": "sternenwerft:crafting_shaped/crusher",
+      "type": "crafting_shaped",
+      "ingredients": [],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:crusher",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": [
+        "FPF",
+        "IMI",
+        "III"
+      ],
+      "key": {
+        "F": {
+          "item": "minecraft:flint"
+        },
+        "I": {
+          "item": "minecraft:iron_ingot"
+        },
+        "M": {
+          "item": "sternenwerft:machine_frame"
+        },
+        "P": {
+          "item": "minecraft:piston"
+        }
+      },
+      "spec_ref": "22.1"
+    },
+    {
+      "id": "sternenwerft:crafting_shaped/electric_furnace",
+      "type": "crafting_shaped",
+      "ingredients": [],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:electric_furnace",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": [
+        "CCC",
+        "CMC",
+        "CKC"
+      ],
+      "key": {
+        "C": {
+          "item": "minecraft:copper_ingot"
+        },
+        "K": {
+          "item": "minecraft:furnace"
+        },
+        "M": {
+          "item": "sternenwerft:machine_frame"
+        }
+      },
+      "spec_ref": "22.1"
+    },
+    {
+      "id": "sternenwerft:crafting_shaped/press",
+      "type": "crafting_shaped",
+      "ingredients": [],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:press",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": [
+        "IPI",
+        "IMI",
+        "IXI"
+      ],
+      "key": {
+        "I": {
+          "item": "minecraft:iron_ingot"
+        },
+        "M": {
+          "item": "sternenwerft:machine_frame"
+        },
+        "P": {
+          "item": "minecraft:piston"
+        },
+        "X": {
+          "item": "minecraft:iron_block"
+        }
+      },
+      "spec_ref": "22.1"
+    },
+    {
+      "id": "sternenwerft:crafting_shaped/press_mold_plate",
+      "type": "crafting_shaped",
+      "ingredients": [],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:press_mold_plate",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": [
+        "II",
+        "II"
+      ],
+      "key": {
+        "I": {
+          "item": "minecraft:iron_ingot"
+        }
+      },
+      "spec_ref": "22.1"
+    },
+    {
+      "id": "sternenwerft:crafting_shaped/press_mold_rod",
+      "type": "crafting_shaped",
+      "ingredients": [],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:press_mold_rod",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": [
+        "I",
+        "I",
+        "I"
+      ],
+      "key": {
+        "I": {
+          "item": "minecraft:iron_ingot"
+        }
+      },
+      "spec_ref": "22.1"
+    },
+    {
+      "id": "sternenwerft:crafting_shaped/press_mold_wire",
+      "type": "crafting_shaped",
+      "ingredients": [],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:press_mold_wire",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": [
+        "I I",
+        " I ",
+        "I I"
+      ],
+      "key": {
+        "I": {
+          "item": "minecraft:iron_ingot"
+        }
+      },
+      "spec_ref": "22.1"
+    },
+    {
+      "id": "sternenwerft:crafting_shaped/combustion_generator",
+      "type": "crafting_shaped",
+      "ingredients": [],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:combustion_generator",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": [
+        "III",
+        "IMI",
+        "CKC"
+      ],
+      "key": {
+        "C": {
+          "item": "minecraft:copper_ingot"
+        },
+        "I": {
+          "item": "minecraft:iron_ingot"
+        },
+        "K": {
+          "item": "minecraft:furnace"
+        },
+        "M": {
+          "item": "sternenwerft:machine_frame"
+        }
+      },
+      "spec_ref": "22.1"
+    },
+    {
+      "id": "sternenwerft:crafting_shaped/battery",
+      "type": "crafting_shaped",
+      "ingredients": [],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:battery",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": [
+        "CBC",
+        "BMB",
+        "CBC"
+      ],
+      "key": {
+        "B": {
+          "item": "minecraft:redstone_block"
+        },
+        "C": {
+          "item": "minecraft:copper_ingot"
+        },
+        "M": {
+          "item": "sternenwerft:machine_frame"
+        }
+      },
+      "spec_ref": "22.1"
+    },
+    {
+      "id": "sternenwerft:crafting_shaped/copper_cable",
+      "type": "crafting_shaped",
+      "ingredients": [],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:copper_cable",
+          "count": 6,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": [
+        "CCC"
+      ],
+      "key": {
+        "C": {
+          "item": "minecraft:copper_ingot"
+        }
+      },
+      "spec_ref": "22.1"
+    },
+    {
+      "id": "sternenwerft:crafting_shaped/copper_pipe",
+      "type": "crafting_shaped",
+      "ingredients": [],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:copper_pipe",
+          "count": 4,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": [
+        "CGC"
+      ],
+      "key": {
+        "C": {
+          "item": "minecraft:copper_ingot"
+        },
+        "G": {
+          "item": "minecraft:glass"
+        }
+      },
+      "spec_ref": "22.1"
+    },
+    {
+      "id": "sternenwerft:crafting_shaped/fluid_tank",
+      "type": "crafting_shaped",
+      "ingredients": [],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:fluid_tank",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": [
+        "IGI",
+        "G G",
+        "IGI"
+      ],
+      "key": {
+        "G": {
+          "item": "minecraft:glass"
+        },
+        "I": {
+          "item": "minecraft:iron_ingot"
+        }
+      },
+      "spec_ref": "22.1"
+    },
+    {
+      "id": "sternenwerft:crafting_shaped/fluid_pump",
+      "type": "crafting_shaped",
+      "ingredients": [],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:fluid_pump",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": [
+        "IEI",
+        "IMI",
+        "ITI"
+      ],
+      "key": {
+        "E": {
+          "item": "minecraft:bucket"
+        },
+        "I": {
+          "item": "minecraft:iron_ingot"
+        },
+        "M": {
+          "item": "sternenwerft:machine_frame"
+        },
+        "T": {
+          "item": "sternenwerft:copper_pipe"
+        }
+      },
+      "spec_ref": "22.1"
+    },
+    {
+      "id": "sternenwerft:crafting_shaped/assembly_table",
+      "type": "crafting_shaped",
+      "ingredients": [],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:assembly_table",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": [
+        "CRC",
+        "IMI",
+        "IWI"
+      ],
+      "key": {
+        "C": {
+          "item": "minecraft:copper_ingot"
+        },
+        "I": {
+          "item": "minecraft:iron_ingot"
+        },
+        "M": {
+          "item": "sternenwerft:machine_frame"
+        },
+        "R": {
+          "item": "minecraft:redstone"
+        },
+        "W": {
+          "item": "minecraft:crafting_table"
+        }
+      },
+      "spec_ref": "22.1"
+    },
+    {
+      "id": "sternenwerft:crafting_shapeless/engineers_handbook",
+      "type": "crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:book",
+          "count": 1
+        },
+        {
+          "item": "minecraft:copper_ingot",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:engineers_handbook",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.1"
+    },
+    {
+      "id": "sternenwerft:crafting_shapeless/planetary_atlas",
+      "type": "crafting_shapeless",
+      "ingredients": [
+        {
+          "item": "minecraft:book",
+          "count": 1
+        },
+        {
+          "item": "minecraft:compass",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:planetary_atlas",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.1"
+    },
+    {
+      "id": "sternenwerft:pressing/aluminum_plate",
+      "type": "pressing",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_ingot",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:aluminum_plate",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 30,
+      "mold": "sternenwerft:press_mold_plate",
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "6.2"
+    },
+    {
+      "id": "sternenwerft:pressing/aluminum_wire",
+      "type": "pressing",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_ingot",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:aluminum_wire",
+          "count": 3,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 30,
+      "mold": "sternenwerft:press_mold_wire",
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "6.2"
+    },
+    {
+      "id": "sternenwerft:pressing/titanium_plate",
+      "type": "pressing",
+      "ingredients": [
+        {
+          "item": "sternenwerft:titanium_ingot",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:titanium_plate",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 30,
+      "mold": "sternenwerft:press_mold_plate",
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "6.2"
+    },
+    {
+      "id": "sternenwerft:pressing/titanium_rod",
+      "type": "pressing",
+      "ingredients": [
+        {
+          "item": "sternenwerft:titanium_ingot",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:titanium_rod",
+          "count": 2,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 30,
+      "mold": "sternenwerft:press_mold_rod",
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "6.2"
+    },
+    {
+      "id": "sternenwerft:pressing/iron_plate",
+      "type": "pressing",
+      "ingredients": [
+        {
+          "item": "minecraft:iron_ingot",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:iron_plate",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 30,
+      "mold": "sternenwerft:press_mold_plate",
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "6.2"
+    },
+    {
+      "id": "sternenwerft:pressing/iron_rod",
+      "type": "pressing",
+      "ingredients": [
+        {
+          "item": "minecraft:iron_ingot",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:iron_rod",
+          "count": 2,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 30,
+      "mold": "sternenwerft:press_mold_rod",
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "6.2"
+    },
+    {
+      "id": "sternenwerft:pressing/copper_wire",
+      "type": "pressing",
+      "ingredients": [
+        {
+          "item": "minecraft:copper_ingot",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:copper_wire",
+          "count": 3,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 30,
+      "mold": "sternenwerft:press_mold_wire",
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "6.2"
+    },
+    {
+      "id": "sternenwerft:pressing/gold_wire",
+      "type": "pressing",
+      "ingredients": [
+        {
+          "item": "minecraft:gold_ingot",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:gold_wire",
+          "count": 3,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 30,
+      "mold": "sternenwerft:press_mold_wire",
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "6.2"
+    },
+    {
+      "id": "sternenwerft:pressing/nickel_plate",
+      "type": "pressing",
+      "ingredients": [
+        {
+          "item": "sternenwerft:nickel_ingot",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:nickel_plate",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 30,
+      "mold": "sternenwerft:press_mold_plate",
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "6.2"
+    },
+    {
+      "id": "sternenwerft:pressing/tungsten_plate",
+      "type": "pressing",
+      "ingredients": [
+        {
+          "item": "sternenwerft:tungsten_ingot",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:tungsten_plate",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 30,
+      "mold": "sternenwerft:press_mold_plate",
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "6.2"
+    },
+    {
+      "id": "sternenwerft:pressing/lightweight_plate",
+      "type": "pressing",
+      "ingredients": [
+        {
+          "item": "sternenwerft:magnesium_alloy",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:lightweight_plate",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 30,
+      "mold": "sternenwerft:press_mold_plate",
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "6.2"
+    },
+    {
+      "id": "sternenwerft:crushing/aluminum_dust",
+      "type": "crushing",
+      "ingredients": [
+        {
+          "item": "sternenwerft:bauxite",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:aluminum_dust",
+          "count": 2,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:crushing/titanium_dust",
+      "type": "crushing",
+      "ingredients": [
+        {
+          "item": "sternenwerft:raw_titanium",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:titanium_dust",
+          "count": 2,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:crushing/iron_dust",
+      "type": "crushing",
+      "ingredients": [
+        {
+          "item": "minecraft:raw_iron",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:iron_dust",
+          "count": 2,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:crushing/copper_dust",
+      "type": "crushing",
+      "ingredients": [
+        {
+          "item": "minecraft:raw_copper",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:copper_dust",
+          "count": 2,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:crushing/gold_dust",
+      "type": "crushing",
+      "ingredients": [
+        {
+          "item": "minecraft:raw_gold",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:gold_dust",
+          "count": 2,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:crushing/magnesium_dust",
+      "type": "crushing",
+      "ingredients": [
+        {
+          "item": "sternenwerft:raw_magnesium",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:magnesium_dust",
+          "count": 2,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:crushing/nickel_dust",
+      "type": "crushing",
+      "ingredients": [
+        {
+          "item": "sternenwerft:raw_nickel",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:nickel_dust",
+          "count": 2,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:crushing/tungsten_dust",
+      "type": "crushing",
+      "ingredients": [
+        {
+          "item": "sternenwerft:raw_tungsten",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:tungsten_dust",
+          "count": 2,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:crushing/lithium_dust",
+      "type": "crushing",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lithium_salt",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:lithium_dust",
+          "count": 2,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2",
+      "notes": "lithium_salt ist die Raw-Form von Lithium (5.1)"
+    },
+    {
+      "id": "sternenwerft:crushing/platinum_dust",
+      "type": "crushing",
+      "ingredients": [
+        {
+          "item": "sternenwerft:raw_platinum",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:platinum_dust",
+          "count": 2,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:crushing/iridium_dust",
+      "type": "crushing",
+      "ingredients": [
+        {
+          "item": "sternenwerft:raw_iridium",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:iridium_dust",
+          "count": 2,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:crushing/uranium_dust",
+      "type": "crushing",
+      "ingredients": [
+        {
+          "item": "sternenwerft:raw_uranium",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:uranium_dust",
+          "count": 2,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:crushing/aluminum_dust_from_metal_concentrate",
+      "type": "crushing",
+      "ingredients": [
+        {
+          "item": "sternenwerft:metal_concentrate",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:aluminum_dust",
+          "count": 1,
+          "chance": 1.0
+        },
+        {
+          "id": "sternenwerft:titanium_dust",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:crushing/raw_iron_from_meteorite_ore",
+      "type": "crushing",
+      "ingredients": [
+        {
+          "item": "sternenwerft:meteorite_ore",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "minecraft:raw_iron",
+          "count": 2,
+          "chance": 1.0
+        },
+        {
+          "id": "sternenwerft:raw_nickel",
+          "count": 1,
+          "chance": 1.0
+        },
+        {
+          "id": "sternenwerft:raw_platinum",
+          "count": 1,
+          "chance": 0.1
+        },
+        {
+          "id": "sternenwerft:raw_iridium",
+          "count": 1,
+          "chance": 0.05
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2",
+      "notes": "Ausbeute laut Kapitel 19 (Meteoritenschauer)"
+    },
+    {
+      "id": "sternenwerft:smelting/aluminum_ingot",
+      "type": "smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:bauxite",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:aluminum_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:smelting/titanium_ingot",
+      "type": "smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:raw_titanium",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:titanium_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:smelting/aluminum_ingot_from_dust",
+      "type": "smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_dust",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:aluminum_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:smelting/titanium_ingot_from_dust",
+      "type": "smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:titanium_dust",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:titanium_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:smelting/iron_ingot_from_dust",
+      "type": "smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:iron_dust",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "minecraft:iron_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:smelting/copper_ingot_from_dust",
+      "type": "smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:copper_dust",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "minecraft:copper_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:smelting/gold_ingot_from_dust",
+      "type": "smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:gold_dust",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "minecraft:gold_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": null,
+      "energy_per_tick": null,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:electric_smelting/magnesium_ingot",
+      "type": "electric_smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:raw_magnesium",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:magnesium_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:electric_smelting/magnesium_ingot_from_dust",
+      "type": "electric_smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:magnesium_dust",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:magnesium_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:electric_smelting/nickel_ingot",
+      "type": "electric_smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:raw_nickel",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:nickel_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:electric_smelting/nickel_ingot_from_dust",
+      "type": "electric_smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:nickel_dust",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:nickel_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:electric_smelting/lithium_ingot",
+      "type": "electric_smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lithium_salt",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:lithium_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2",
+      "notes": "lithium_salt ist die Raw-Form von Lithium (5.1)"
+    },
+    {
+      "id": "sternenwerft:electric_smelting/lithium_ingot_from_dust",
+      "type": "electric_smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lithium_dust",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:lithium_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:electric_smelting/platinum_ingot",
+      "type": "electric_smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:raw_platinum",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:platinum_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:electric_smelting/platinum_ingot_from_dust",
+      "type": "electric_smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:platinum_dust",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:platinum_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:electric_smelting/iridium_ingot",
+      "type": "electric_smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:raw_iridium",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:iridium_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:electric_smelting/iridium_ingot_from_dust",
+      "type": "electric_smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:iridium_dust",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:iridium_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:electric_smelting/uranium_ingot",
+      "type": "electric_smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:raw_uranium",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:uranium_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:electric_smelting/uranium_ingot_from_dust",
+      "type": "electric_smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:uranium_dust",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:uranium_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:electric_smelting/silicon",
+      "type": "electric_smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:quartz_sand",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:silicon",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:electric_smelting/magnesium_alloy",
+      "type": "electric_smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:magnesium_ingot",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:aluminum_ingot",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:magnesium_alloy",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 100,
+      "energy_per_tick": 20,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:high_temp_smelting/tungsten_ingot",
+      "type": "high_temp_smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:raw_tungsten",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:tungsten_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 400,
+      "energy_per_tick": 80,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:high_temp_smelting/tungsten_ingot_from_dust",
+      "type": "high_temp_smelting",
+      "ingredients": [
+        {
+          "item": "sternenwerft:tungsten_dust",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:tungsten_ingot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 400,
+      "energy_per_tick": 80,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:high_temp_smelting/ceramic_plate",
+      "type": "high_temp_smelting",
+      "ingredients": [
+        {
+          "any_of": [
+            {
+              "item": "minecraft:basalt"
+            },
+            {
+              "item": "sternenwerft:moon_basalt"
+            }
+          ],
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:aluminum_dust",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:ceramic_plate",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 400,
+      "energy_per_tick": 80,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2",
+      "notes": "any_of entspricht Tag sternenwerft:basalt (Vanilla-Basalt, moon_basalt)"
+    },
+    {
+      "id": "sternenwerft:refining/kerosene",
+      "type": "refining",
+      "ingredients": [],
+      "fluid": {
+        "fluid": "sternenwerft:crude_oil",
+        "amount": 1000
+      },
+      "results": [
+        {
+          "id": "sternenwerft:plastic",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [
+        {
+          "fluid": "sternenwerft:kerosene",
+          "amount": 600
+        }
+      ],
+      "ticks": 200,
+      "energy_per_tick": 40,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:electrolysis/hydrogen",
+      "type": "electrolysis",
+      "ingredients": [],
+      "fluid": {
+        "fluid": "minecraft:water",
+        "amount": 200
+      },
+      "results": [],
+      "fluid_results": [
+        {
+          "fluid": "sternenwerft:hydrogen",
+          "amount": 200
+        },
+        {
+          "fluid": "sternenwerft:oxygen",
+          "amount": 100
+        }
+      ],
+      "ticks": 40,
+      "energy_per_tick": 40,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:cryo/liquid_helium",
+      "type": "cryo",
+      "ingredients": [],
+      "fluid": {
+        "fluid": "sternenwerft:helium",
+        "amount": 40
+      },
+      "results": [],
+      "fluid_results": [
+        {
+          "fluid": "sternenwerft:liquid_helium",
+          "amount": 10
+        }
+      ],
+      "ticks": 20,
+      "energy_per_tick": 120,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:cryo/liquid_nitrogen",
+      "type": "cryo",
+      "ingredients": [],
+      "fluid": {
+        "fluid": "sternenwerft:nitrogen",
+        "amount": 40
+      },
+      "results": [],
+      "fluid_results": [
+        {
+          "fluid": "sternenwerft:liquid_nitrogen",
+          "amount": 10
+        }
+      ],
+      "ticks": 20,
+      "energy_per_tick": 120,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:regolith_heating/helium",
+      "type": "regolith_heating",
+      "ingredients": [
+        {
+          "item": "sternenwerft:moon_regolith",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [],
+      "fluid_results": [
+        {
+          "fluid": "sternenwerft:helium",
+          "amount": 50
+        }
+      ],
+      "ticks": 100,
+      "energy_per_tick": 40,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "6.1"
+    },
+    {
+      "id": "sternenwerft:zero_g/superconductor_wire",
+      "type": "zero_g",
+      "ingredients": [
+        {
+          "item": "sternenwerft:magnesium_ingot",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:copper_wire",
+          "count": 2
+        }
+      ],
+      "fluid": {
+        "fluid": "sternenwerft:liquid_helium",
+        "amount": 100
+      },
+      "results": [
+        {
+          "id": "sternenwerft:superconductor_wire",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 100,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:zero_g/iridium_chip",
+      "type": "zero_g",
+      "ingredients": [
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:iridium_ingot",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:platinum_ingot",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:iridium_chip",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 100,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.2"
+    },
+    {
+      "id": "sternenwerft:assembly/circuit",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:silicon",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:copper_wire",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:plastic",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:circuit",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/advanced_circuit",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:circuit",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:gold_wire",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:silicon",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:advanced_circuit",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/pressure_hull",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:pressure_hull",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/heat_shield",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:tungsten_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:heat_shield",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/cooling_system",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:pressure_hull",
+          "count": 1
+        }
+      ],
+      "fluid": {
+        "fluid": "sternenwerft:liquid_helium",
+        "amount": 1000
+      },
+      "results": [
+        {
+          "id": "sternenwerft:cooling_system",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/lithium_battery",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lithium_ingot",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:nickel_plate",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:lithium_battery",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/insulation_fabric",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:plastic",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:silicon",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:lithium_ingot",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:insulation_fabric",
+          "count": 2,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/fuel_rod",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:uranium_ingot",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:fuel_rod",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/antimatter_cell",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:superconductor_wire",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 2
+        },
+        {
+          "item": "minecraft:glass",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:antimatter_cell",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/transport_tank",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:pressure_hull",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:transport_tank",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/oxygen_canister",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:oxygen_canister",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/large_oxygen_canister",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:oxygen_canister",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:large_oxygen_canister",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/speed_upgrade",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:circuit",
+          "count": 1
+        },
+        {
+          "item": "minecraft:redstone",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:copper_wire",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:speed_upgrade",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/efficiency_upgrade",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:circuit",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:gold_wire",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:efficiency_upgrade",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/compost",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "tag": "#sternenwerft:compostable",
+          "count": 8
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:compost",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/compost_soil",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "any_of": [
+            {
+              "item": "sternenwerft:moon_regolith"
+            },
+            {
+              "item": "sternenwerft:mars_sand"
+            }
+          ],
+          "count": 4
+        },
+        {
+          "item": "minecraft:bone_meal",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:gypsum",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:compost_soil",
+          "count": 4,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3",
+      "notes": "Planetenboden = moon_regolith oder mars_sand; Alternativrezept mit 2 compost statt 1 gypsum"
+    },
+    {
+      "id": "sternenwerft:assembly/compost_soil_alt",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "any_of": [
+            {
+              "item": "sternenwerft:moon_regolith"
+            },
+            {
+              "item": "sternenwerft:mars_sand"
+            }
+          ],
+          "count": 4
+        },
+        {
+          "item": "minecraft:bone_meal",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:compost",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:compost_soil",
+          "count": 4,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3",
+      "notes": "Planetenboden = moon_regolith oder mars_sand; Alternative zu 1 gypsum"
+    },
+    {
+      "id": "sternenwerft:assembly/ammonia_fertilizer",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "minecraft:bone_meal",
+          "count": 1
+        }
+      ],
+      "fluid": {
+        "fluid": "sternenwerft:ammonia",
+        "amount": 1000
+      },
+      "results": [
+        {
+          "id": "sternenwerft:ammonia_fertilizer",
+          "count": 8,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/pontoon",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:skimmer_leg",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:plastic",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:pontoon",
+          "count": 4,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/sample_tool",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:titanium_rod",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:iron_plate",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:sample_tool",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/field_scanner",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 1
+        },
+        {
+          "item": "minecraft:glass",
+          "count": 1
+        },
+        {
+          "item": "minecraft:redstone",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:field_scanner",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/pressure_suit_helmet",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:plastic",
+          "count": 1
+        },
+        {
+          "item": "minecraft:glass",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:pressure_suit_helmet",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/pressure_suit_chestplate",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 10
+        },
+        {
+          "item": "sternenwerft:plastic",
+          "count": 3
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:pressure_suit_chestplate",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/pressure_suit_leggings",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 6
+        },
+        {
+          "item": "sternenwerft:plastic",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:pressure_suit_leggings",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/pressure_suit_boots",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:plastic",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:pressure_suit_boots",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/heat_suit_helmet",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:pressure_suit_helmet",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:ceramic_plate",
+          "count": 3
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:heat_suit_helmet",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": 0,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/heat_suit_chestplate",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:pressure_suit_chestplate",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:ceramic_plate",
+          "count": 6
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:cooling_system",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:heat_suit_chestplate",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": 0,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/heat_suit_leggings",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:pressure_suit_leggings",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:ceramic_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:heat_suit_leggings",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": 0,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/heat_suit_boots",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:pressure_suit_boots",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:ceramic_plate",
+          "count": 3
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:heat_suit_boots",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": 0,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/deep_space_suit_helmet",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:heat_suit_helmet",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:superconductor_wire",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:insulation_fabric",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:deep_space_suit_helmet",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": 0,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/deep_space_suit_chestplate",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:heat_suit_chestplate",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:superconductor_wire",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:lithium_battery",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:insulation_fabric",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:deep_space_suit_chestplate",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": 0,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/deep_space_suit_leggings",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:heat_suit_leggings",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:superconductor_wire",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:insulation_fabric",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:deep_space_suit_leggings",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": 0,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/deep_space_suit_boots",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:heat_suit_boots",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:superconductor_wire",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:insulation_fabric",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:deep_space_suit_boots",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": 0,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/helmet_lamp",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 2
+        },
+        {
+          "item": "minecraft:glowstone_dust",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:helmet_lamp",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/cooling_module",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:cooling_system",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:cooling_module",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/cooling_module_alt",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:heat_scale",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:cooling_module",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/heat_reflector",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:mirror_shell",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:heat_reflector",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/heating_module",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:copper_wire",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:lithium_battery",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:insulation_fabric",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:heating_module",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/armor_plating",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:armor_plate",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:armor_plating",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/magnet_boots",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:iron_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:nickel_plate",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:magnet_boots",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/jetpack",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:lithium_battery",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:jetpack",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/radiation_shield",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:tungsten_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:plastic",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:radiation_shield",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/diving_module",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 4
+        },
+        {
+          "item": "minecraft:glass",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:oxygen_canister",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:diving_module",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/ice_drill",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:tungsten_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:titanium_rod",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:lithium_battery",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:ice_drill",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/electrolyzer",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:machine_frame",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:copper_wire",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:iron_plate",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 2
+        },
+        {
+          "item": "minecraft:glass",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:electrolyzer",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/refinery_controller",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:machine_frame",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:iron_plate",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 8
+        },
+        {
+          "item": "minecraft:redstone",
+          "count": 4
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:refinery_controller",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/refinery_casing",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:iron_plate",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:refinery_casing",
+          "count": 4,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/item_port",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:iron_plate",
+          "count": 4
+        },
+        {
+          "item": "minecraft:hopper",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:item_port",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/fluid_port",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:iron_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:fluid_port",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/energy_port",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:iron_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:copper_cable",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:energy_port",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/fuel_generator",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:machine_frame",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:combustion_generator",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:iron_plate",
+          "count": 4
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:fuel_generator",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/solar_panel",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:silicon",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:copper_wire",
+          "count": 4
+        },
+        {
+          "item": "minecraft:glass",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:solar_panel",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/aluminum_cable",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_wire",
+          "count": 3
+        },
+        {
+          "item": "sternenwerft:plastic",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:aluminum_cable",
+          "count": 8,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/pressure_bottle",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:pressure_bottle",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/analyzer",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:machine_frame",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 2
+        },
+        {
+          "item": "minecraft:glass",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:analyzer",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/research_terminal",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:machine_frame",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 4
+        },
+        {
+          "item": "minecraft:glass",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:research_terminal",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/food_packer",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:machine_frame",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 2
+        },
+        {
+          "item": "minecraft:piston",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:food_packer",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/launch_pad",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:iron_plate",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:launch_pad",
+          "count": 2,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/launch_tower",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:iron_rod",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:iron_plate",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:launch_tower",
+          "count": 2,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/fuel_pump",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:machine_frame",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:fuel_pump",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/launch_control",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:machine_frame",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 4
+        },
+        {
+          "item": "minecraft:glass",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:launch_control",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/probe",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:solar_panel",
+          "count": 1
+        }
+      ],
+      "fluid": {
+        "fluid": "sternenwerft:kerosene",
+        "amount": 16000
+      },
+      "results": [
+        {
+          "id": "sternenwerft:probe",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/electric_lamp",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 1
+        },
+        {
+          "item": "minecraft:glowstone_dust",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:copper_wire",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:electric_lamp",
+          "count": 4,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/regolith_heater",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:machine_frame",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:copper_wire",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:pressure_bottle",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:regolith_heater",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/high_temperature_furnace",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:electric_furnace",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 8
+        },
+        {
+          "item": "minecraft:brick",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:high_temperature_furnace",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/cryo_liquefier",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:machine_frame",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:pressure_hull",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:cryo_liquefier",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/titanium_pipe",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 3
+        },
+        {
+          "item": "minecraft:glass",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:titanium_pipe",
+          "count": 4,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/gas_tank",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:pressure_hull",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:gas_tank",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/oxygen_generator",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:pressure_hull",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:oxygen_generator",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/dome_generator_t1",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 4
+        },
+        {
+          "item": "minecraft:glass",
+          "count": 4
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:dome_generator_t1",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/dome_generator_t2",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:dome_generator_t1",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:cooling_system",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 4
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:dome_generator_t2",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/dome_generator_t3",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:dome_generator_t2",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:superconductor_wire",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:tungsten_plate",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:iridium_chip",
+          "count": 4
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:dome_generator_t3",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/dome_range_module",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:dome_range_module",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/dome_efficiency_module",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:dome_efficiency_module",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/dome_shield_module",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:dome_shield_module",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/landing_beacon",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 1
+        },
+        {
+          "item": "minecraft:glowstone_dust",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:landing_beacon",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/aerostat_platform",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:plastic",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:aerostat_platform",
+          "count": 4,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/cloud_elevator",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:plastic",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:cloud_elevator",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/rover_kit",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 32
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:solar_panel",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:battery",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:rover_kit",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/rover_scanner",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 2
+        },
+        {
+          "item": "minecraft:glass",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:rover_scanner",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/rover_drill",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:titanium_rod",
+          "count": 2
+        },
+        {
+          "item": "minecraft:diamond",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:rover_drill",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/rover_headlight",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 2
+        },
+        {
+          "item": "minecraft:glowstone_dust",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:rover_headlight",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/rover_pressure_cabin",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 8
+        },
+        {
+          "item": "minecraft:glass",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:oxygen_canister",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:pressure_hull",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:rover_pressure_cabin",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/rover_lithium_pack",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lithium_battery",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:rover_lithium_pack",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/rover_trailer",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 16
+        },
+        {
+          "item": "minecraft:chest",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:rover_trailer",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/hydroponics_basin",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 4
+        },
+        {
+          "item": "minecraft:glass",
+          "count": 2
+        },
+        {
+          "item": "minecraft:water_bucket",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:hydroponics_basin",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/station_core",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 32
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:solar_panel",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:dome_generator_t1",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:station_core",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/station_hull",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:station_hull",
+          "count": 4,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/station_window",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 1
+        },
+        {
+          "item": "minecraft:glass",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:station_window",
+          "count": 2,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/docking_bay",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:docking_bay",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/tank_depot",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:pressure_hull",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:tank_depot",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/solar_wing",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:solar_panel",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:solar_wing",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/habitation_module",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 8
+        },
+        {
+          "tag": "#minecraft:beds",
+          "count": 1
+        },
+        {
+          "item": "minecraft:chest",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:habitation_module",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/research_lab",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:analyzer",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:research_lab",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/zero_g_fabricator",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:cooling_system",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:assembly_table",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:zero_g_fabricator",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/greenhouse",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 8
+        },
+        {
+          "item": "minecraft:glass",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:hydroponics_basin",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:greenhouse",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/lander",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 32
+        },
+        {
+          "item": "sternenwerft:heat_shield",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:cooling_system",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:lander",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/fusion_reactor",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 64
+        },
+        {
+          "item": "sternenwerft:superconductor_wire",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:cooling_system",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 4
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:fusion_reactor",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3",
+      "notes": "Controller-Block des Multiblocks fusion_reactor"
+    },
+    {
+      "id": "sternenwerft:assembly/fusion_casing",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:copper_wire",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:fusion_casing",
+          "count": 4,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/superconductor_cable",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:superconductor_wire",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:plastic",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:superconductor_cable",
+          "count": 4,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/gravity_plate",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:superconductor_wire",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:gravity_plate",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/space_weather_station",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:solar_panel",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:space_weather_station",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/lithium_battery_bank",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:machine_frame",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:lithium_battery",
+          "count": 8
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:lithium_battery_bank",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/gas_collector",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:superconductor_wire",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 4
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:gas_collector",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/magnetic_trap",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:superconductor_wire",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:tungsten_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:iridium_chip",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:cooling_system",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:magnetic_trap",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/advanced_probe",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:solar_panel",
+          "count": 2
+        }
+      ],
+      "fluid": {
+        "fluid": "sternenwerft:hydrogen",
+        "amount": 16000
+      },
+      "results": [
+        {
+          "id": "sternenwerft:advanced_probe",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/asteroid_anchor",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:titanium_rod",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:tungsten_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:asteroid_anchor",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/clone_chamber",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:iridium_chip",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:microbe_culture",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:pressure_hull",
+          "count": 1
+        },
+        {
+          "item": "minecraft:glass",
+          "count": 4
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:clone_chamber",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/fission_reactor",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 96
+        },
+        {
+          "item": "sternenwerft:tungsten_plate",
+          "count": 32
+        },
+        {
+          "item": "sternenwerft:iridium_chip",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:cooling_system",
+          "count": 8
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:fission_reactor",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3",
+      "notes": "Controller-Block des Multiblocks fission_reactor"
+    },
+    {
+      "id": "sternenwerft:assembly/fission_casing",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:tungsten_plate",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:fission_casing",
+          "count": 4,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/pump_station",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:machine_frame",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:fluid_pump",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:pump_station",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/drilling_rig",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:machine_frame",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:nickel_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:tungsten_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 4
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:drilling_rig",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/atomic_drive",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:tungsten_plate",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:fuel_rod",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:cooling_system",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:atomic_drive",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/antimatter_drive",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:antimatter_cell",
+          "count": 16,
+          "components": {
+            "sternenwerft:charge": 1
+          }
+        },
+        {
+          "item": "sternenwerft:fuel_rod",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:superconductor_wire",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:tungsten_plate",
+          "count": 8
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:antimatter_drive",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3",
+      "notes": "nur gefüllte antimatter_cell (charge 1)"
+    },
+    {
+      "id": "sternenwerft:assembly/cargo_terminal",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 4
+        },
+        {
+          "item": "minecraft:chest",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:copper_pipe",
+          "count": 4
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:cargo_terminal",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/cargo_rocket",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 64
+        },
+        {
+          "item": "sternenwerft:iridium_chip",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:lithium_battery",
+          "count": 8
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:cargo_rocket",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/heavy_freighter",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:cargo_rocket",
+          "count": 2
+        },
+        {
+          "item": "sternenwerft:atomic_drive",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:heavy_freighter",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": 0,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3",
+      "notes": "übernimmt die Komponenten der ersten passenden cargo_rocket"
+    },
+    {
+      "id": "sternenwerft:assembly/logistics_computer",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:machine_frame",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:iridium_chip",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 8
+        },
+        {
+          "item": "minecraft:glass",
+          "count": 4
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:logistics_computer",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/trading_post",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 4
+        },
+        {
+          "item": "minecraft:chest",
+          "count": 1
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:trading_post",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/shipyard_terminal",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 64
+        },
+        {
+          "item": "sternenwerft:iridium_chip",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 8
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:shipyard_terminal",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/shipyard_dock",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 32
+        },
+        {
+          "item": "sternenwerft:iridium_chip",
+          "count": 4
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:shipyard_dock",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/rocket_capsule_t1",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 40
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 16
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:rocket_capsule_t1",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/rocket_tank_t1",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 30
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 4
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:rocket_tank_t1",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/rocket_engine_t1",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 32
+        },
+        {
+          "item": "sternenwerft:circuit",
+          "count": 8
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:rocket_engine_t1",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/rocket_fin_t1",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 8
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:rocket_fin_t1",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/rocket_cargo_bay",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:aluminum_plate",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:titanium_plate",
+          "count": 2
+        },
+        {
+          "item": "minecraft:chest",
+          "count": 1
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:rocket_cargo_bay",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/rocket_capsule_t2",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 32
+        },
+        {
+          "item": "sternenwerft:heat_shield",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 16
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:rocket_capsule_t2",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/rocket_tank_t2",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 12
+        },
+        {
+          "item": "sternenwerft:heat_shield",
+          "count": 4
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:rocket_tank_t2",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/rocket_engine_t2",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:heat_shield",
+          "count": 24
+        },
+        {
+          "item": "sternenwerft:advanced_circuit",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:cooling_system",
+          "count": 4
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:rocket_engine_t2",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/rocket_fin_t2",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 2
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:rocket_fin_t2",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    },
+    {
+      "id": "sternenwerft:assembly/long_range_module",
+      "type": "assembly",
+      "ingredients": [
+        {
+          "item": "sternenwerft:lightweight_plate",
+          "count": 32
+        },
+        {
+          "item": "sternenwerft:superconductor_wire",
+          "count": 16
+        },
+        {
+          "item": "sternenwerft:iridium_chip",
+          "count": 8
+        },
+        {
+          "item": "sternenwerft:lithium_battery",
+          "count": 8
+        }
+      ],
+      "fluid": null,
+      "results": [
+        {
+          "id": "sternenwerft:long_range_module",
+          "count": 1,
+          "chance": 1.0
+        }
+      ],
+      "fluid_results": [],
+      "ticks": 200,
+      "energy_per_tick": 30,
+      "mold": null,
+      "copy_components_from": null,
+      "pattern": null,
+      "key": null,
+      "spec_ref": "22.3"
+    }
+  ]
+}

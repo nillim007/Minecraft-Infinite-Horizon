@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "parts": [
+    {
+      "block": "sternenwerft:rocket_capsule_t1",
+      "role": "capsule",
+      "tier": 1,
+      "usable_in_tiers": [
+        1
+      ],
+      "mass": 4.0,
+      "fuel_capacity": 0,
+      "fuel_mass_full": 0.0,
+      "thrust": 0,
+      "cargo_slots": 0,
+      "mass_per_slot": 0.0,
+      "seats": 1,
+      "spec_ref": "12.4"
+    },
+    {
+      "block": "sternenwerft:rocket_tank_t1",
+      "role": "tank",
+      "tier": 1,
+      "usable_in_tiers": [
+        1
+      ],
+      "mass": 2.0,
+      "fuel_capacity": 16000,
+      "fuel_mass_full": 2.0,
+      "thrust": 0,
+      "cargo_slots": 0,
+      "mass_per_slot": 0.0,
+      "seats": 0,
+      "spec_ref": "12.4"
+    },
+    {
+      "block": "sternenwerft:rocket_engine_t1",
+      "role": "engine",
+      "tier": 1,
+      "usable_in_tiers": [
+        1
+      ],
+      "mass": 3.0,
+      "fuel_capacity": 0,
+      "fuel_mass_full": 0.0,
+      "thrust": 30,
+      "cargo_slots": 0,
+      "mass_per_slot": 0.0,
+      "seats": 0,
+      "spec_ref": "12.4"
+    },
+    {
+      "block": "sternenwerft:rocket_fin_t1",
+      "role": "fin",
+      "tier": 1,
+      "usable_in_tiers": [
+        1
+      ],
+      "mass": 0.5,
+      "fuel_capacity": 0,
+      "fuel_mass_full": 0.0,
+      "thrust": 0,
+      "cargo_slots": 0,
+      "mass_per_slot": 0.0,
+      "seats": 0,
+      "spec_ref": "12.4"
+    },
+    {
+      "block": "sternenwerft:rocket_cargo_bay",
+      "role": "cargo",
+      "tier": 1,
+      "usable_in_tiers": [
+        1,
+        2
+      ],
+      "mass": 1.0,
+      "fuel_capacity": 0,
+      "fuel_mass_full": 0.0,
+      "thrust": 0,
+      "cargo_slots": 27,
+      "mass_per_slot": 0.05,
+      "seats": 0,
+      "spec_ref": "12.4"
+    },
+    {
+      "block": "sternenwerft:rocket_capsule_t2",
+      "role": "capsule",
+      "tier": 2,
+      "usable_in_tiers": [
+        2
+      ],
+      "mass": 5.0,
+      "fuel_capacity": 0,
+      "fuel_mass_full": 0.0,
+      "thrust": 0,
+      "cargo_slots": 0,
+      "mass_per_slot": 0.0,
+      "seats": 2,
+      "spec_ref": "12.4"
+    },
+    {
+      "block": "sternenwerft:rocket_tank_t2",
+      "role": "tank",
+      "tier": 2,
+      "usable_in_tiers": [
+        2
+      ],
+      "mass": 1.5,
+      "fuel_capacity": 16000,
+      "fuel_mass_full": 2.0,
+      "thrust": 0,
+      "cargo_slots": 0,
+      "mass_per_slot": 0.0,
+      "seats": 0,
+      "spec_ref": "12.4"
+    },
+    {
+      "block": "sternenwerft:rocket_engine_t2",
+      "role": "engine",
+      "tier": 2,
+      "usable_in_tiers": [
+        2
+      ],
+      "mass": 4.0,
+      "fuel_capacity": 0,
+      "fuel_mass_full": 0.0,
+      "thrust": 48,
+      "cargo_slots": 0,
+      "mass_per_slot": 0.0,
+      "seats": 0,
+      "spec_ref": "12.4"
+    },
+    {
+      "block": "sternenwerft:rocket_fin_t2",
+      "role": "fin",
+      "tier": 2,
+      "usable_in_tiers": [
+        2
+      ],
+      "mass": 0.5,
+      "fuel_capacity": 0,
+      "fuel_mass_full": 0.0,
+      "thrust": 0,
+      "cargo_slots": 0,
+      "mass_per_slot": 0.0,
+      "seats": 0,
+      "spec_ref": "12.4"
+    },
+    {
+      "block": "sternenwerft:long_range_module",
+      "role": "long_range",
+      "tier": 2,
+      "usable_in_tiers": [
+        2
+      ],
+      "mass": 4.0,
+      "fuel_capacity": 128000,
+      "fuel_mass_full": 4.0,
+      "thrust": 0,
+      "cargo_slots": 0,
+      "mass_per_slot": 0.0,
+      "seats": 0,
+      "spec_ref": "12.4"
+    }
+  ],
+  "rules": [
+    {
+      "tier": 1,
+      "thrust": 30,
+      "pad": "sternenwerft:launch_pad_t1",
+      "pad_size": [
+        5,
+        5
+      ],
+      "launch_sites": [
+        "sternenwerft:launch_pad_t1",
+        "landed_rocket_entity"
+      ],
+      "fuel": [
+        "sternenwerft:kerosene",
+        "sternenwerft:oxygen"
+      ],
+      "capsules": [
+        1,
+        1
+      ],
+      "engines": [
+        1,
+        1
+      ],
+      "tanks": [
+        3,
+        5
+      ],
+      "fins": 4,
+      "cargo_bays": [
+        0,
+        1
+      ],
+      "long_range": [
+        0,
+        0
+      ],
+      "seats": 1,
+      "stack_order": [
+        "engine",
+        "tank",
+        "cargo",
+        "long_range",
+        "capsule"
+      ],
+      "fin_placement": "N,E,S,W neben dem Triebwerk",
+      "mixing_allowed_roles": [
+        "cargo"
+      ],
+      "spec_ref": "12.4",
+      "notes": "Neustart als gelandetes rocket-Entity überall ohne Rampe (12.5)."
+    },
+    {
+      "tier": 2,
+      "thrust": 48,
+      "pad": "sternenwerft:launch_pad_t2",
+      "pad_size": [
+        7,
+        7
+      ],
+      "launch_sites": [
+        "sternenwerft:launch_pad_t2",
+        "sternenwerft:docking_bay",
+        "landed_rocket_entity"
+      ],
+      "fuel": [
+        "sternenwerft:hydrogen",
+        "sternenwerft:oxygen"
+      ],
+      "capsules": [
+        1,
+        1
+      ],
+      "engines": [
+        1,
+        1
+      ],
+      "tanks": [
+        4,
+        8
+      ],
+      "fins": 4,
+      "cargo_bays": [
+        0,
+        2
+      ],
+      "long_range": [
+        0,
+        1
+      ],
+      "seats": 2,
+      "stack_order": [
+        "engine",
+        "tank",
+        "cargo",
+        "long_range",
+        "capsule"
+      ],
+      "fin_placement": "N,E,S,W neben dem Triebwerk",
+      "mixing_allowed_roles": [
+        "cargo"
+      ],
+      "spec_ref": "12.4",
+      "notes": "long_range_module direkt unter der Kapsel; nutzt hydrogen + oxygen wie T2 (Ä8)."
+    }
+  ]
+}
