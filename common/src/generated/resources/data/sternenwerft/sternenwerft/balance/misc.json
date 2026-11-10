@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "entries": {
+    "gravity": {
+      "modifier_id": "sternenwerft:planet_gravity",
+      "update_interval_ticks": 10,
+      "gravity_attribute": "minecraft:gravity",
+      "gravity_per_g": 0.08,
+      "fall_damage_multiplier": "g",
+      "safe_fall_distance_numerator": 3,
+      "safe_fall_distance_min_g": 0.05,
+      "orbit_g": 0.005,
+      "applies_to": [
+        "players",
+        "sternenwerft:rover",
+        "sternenwerft:rocket"
+      ],
+      "projectiles_use_g": true,
+      "explosion_vertical_knockback": "× 1/g bei g < 1",
+      "spec_ref": "12.9, 3.7, 14.3",
+      "notes": "gravity = 0,08 × g; safe_fall_distance = 3 / max(g, 0,05); fall_damage_multiplier = g."
+    },
+    "slow_fall": {
+      "ticks": 400,
+      "applies_to": [
+        "orbit_fall_to_surface_planet",
+        "asteroid_belt_fall_below_y0"
+      ],
+      "spec_ref": "14.3, 13.4"
+    },
+    "vacuum_sound": {
+      "volume_multiplier": 0.15,
+      "condition": "vacuum_without_dome",
+      "exempt": [
+        "suit_sounds",
+        "warning_sounds"
+      ],
+      "spec_ref": "24.6, 3.7"
+    },
+    "multiblock_rules": {
+      "structure_check_interval_ticks": 100,
+      "structure_check_on": [
+        "place",
+        "neighbor_change",
+        "interval"
+      ],
+      "ghost_projection_ticks": 200,
+      "ghost_projection_trigger": "sneak_right_click_empty_hand",
+      "spec_ref": "4.1, 4.3"
+    },
+    "titan_elytra": {
+      "dimension": "sternenwerft:titan",
+      "glide_without_fireworks": true,
+      "sink_rate_multiplier": 0.5,
+      "spec_ref": "13.4"
+    },
+    "server_performance": {
+      "landing_forceload_chunks": 1,
+      "landing_forceload_ticks": 200,
+      "spec_ref": "23.5"
+    },
+    "code_recipes": {
+      "suit_module_install": {
+        "machine": "sternenwerft:assembly_table",
+        "description_de": "Anzugteil + Modul im Montagetisch → Anzugteil mit eingebautem Modul (Data Component suit_modules, max. 2 Module je Teil). Gilt für alle Anzugteile und alle Module aus 9.2, das Modul muss zum Teil passen.",
+        "ticks": null,
+        "energy_per_tick": null,
+        "spec_ref": "9.2, 25.4"
+      },
+      "suit_module_remove": {
+        "machine": "sternenwerft:assembly_table",
+        "description_de": "Anzugteil allein im Montagetisch → Anzugteil ohne Module als Hauptergebnis, die ausgebauten Module in die Nebenausgaben (3 Ausgabeslots).",
+        "ticks": null,
+        "energy_per_tick": null,
+        "spec_ref": "9.2, 25.4"
+      },
+      "food_packing": {
+        "machine": "sternenwerft:food_packer",
+        "description_de": "3 beliebige Nahrungsmittel → 1 space_ration; Nahrung und Sättigung = Summe der 3 Eingaben (max. 20), gespeichert in der Data Component nutrition.",
+        "ticks": null,
+        "energy_per_tick": null,
+        "spec_ref": "6.1, 17"
+      },
+      "spec_ref": "25.4",
+      "notes": "ticks/energy_per_tick null = Werte der Maschine aus balance/machines.json."
+    },
+    "config_defaults": {
+      "file": "serverconfig/sternenwerft.json",
+      "recipe_amount_multiplier": {
+        "default": 1.0,
+        "min": 0.25,
+        "max": 4.0
+      },
+      "oxygen_consumption": {
+        "default": 1.0,
+        "min": 0.5,
+        "max": 2.0
+      },
+      "event_frequency": {
+        "default": "normal",
+        "values": [
+          "off",
+          "rare",
+          "normal",
+          "frequent"
+        ]
+      },
+      "meteor_block_damage": {
+        "default": true
+      },
+      "planet_mobs": {
+        "default": true
+      },
+      "outposts_offline": {
+        "default": true
+      },
+      "outpost_offline_factor": {
+        "default": 0.5,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "research_required": {
+        "default": true
+      },
+      "spec_ref": "24.4, 3.5",
+      "notes": "recipe_amount_multiplier gilt nur für stapelbare Item-Zutaten in Montagetisch-Rezepten (aufrunden, min. 1, max. 9 Slots)."
+    }
+  }
+}

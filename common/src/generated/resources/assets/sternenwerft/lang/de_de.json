@@ -1,0 +1,14 @@
+{
+  "block.sternenwerft.combustion_generator": "Verbrennungsgenerator",
+  "block.sternenwerft.copper_cable": "Kupferkabel",
+  "block.sternenwerft.crusher": "Zerkleinerer",
+  "gui.sternenwerft.burn_time": "Brennzeit: %s t",
+  "gui.sternenwerft.energy": "Energie: %s / %s J",
+  "gui.sternenwerft.progress": "Fortschritt: %s %%",
+  "gui.sternenwerft.status.error": "Fehler",
+  "gui.sternenwerft.status.idle": "Wartet auf Material oder Strom",
+  "gui.sternenwerft.status.running": "Läuft",
+  "item.sternenwerft.iron_dust": "Eisenstaub",
+  "item.sternenwerft.machine_frame": "Maschinenrahmen",
+  "itemGroup.sternenwerft": "Sternenwerft"
+}

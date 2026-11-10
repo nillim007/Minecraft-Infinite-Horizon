@@ -1,0 +1,21 @@
+{
+  "_comment": "Oberflächentexte, die nicht aus spec/data/items.json kommen. tools/gen_resources.py führt sie mit den Item-Namen zusammen.",
+  "de_de": {
+    "itemGroup.sternenwerft": "Sternenwerft",
+    "gui.sternenwerft.energy": "Energie: %s / %s J",
+    "gui.sternenwerft.progress": "Fortschritt: %s %%",
+    "gui.sternenwerft.status.idle": "Wartet auf Material oder Strom",
+    "gui.sternenwerft.status.running": "Läuft",
+    "gui.sternenwerft.status.error": "Fehler",
+    "gui.sternenwerft.burn_time": "Brennzeit: %s t"
+  },
+  "en_us": {
+    "itemGroup.sternenwerft": "Sternenwerft",
+    "gui.sternenwerft.energy": "Energy: %s / %s J",
+    "gui.sternenwerft.progress": "Progress: %s %%",
+    "gui.sternenwerft.status.idle": "Waiting for material or power",
+    "gui.sternenwerft.status.running": "Running",
+    "gui.sternenwerft.status.error": "Error",
+    "gui.sternenwerft.burn_time": "Burn time: %s t"
+  }
+}

@@ -20,7 +20,7 @@ Bei Widerspruch gilt: `spec/data` vor Text, sonst die Regeln in `docs/spec/00-le
 5. Prüfe vor dem Abschluss:
    - `./gradlew build` ist grün (beide Loader).
    - Alle GameTests und JUnit-Tests laufen: `./gradlew test` und `./gradlew runGameTestServer` (je Loader-Projekt).
-   - `./gradlew runData` erzeugt keine ungeprüften Änderungen mehr.
+   - `python tools/gen_resources.py` erzeugt keine ungeprüften Änderungen mehr (die CI prüft das).
    - Alle Abnahmekriterien des Meilensteins aus Kapitel 27 sind erfüllt.
 6. Committe mit einer Nachricht der Form `M<n>: <was>` und fasse zusammen, was fertig ist und was nicht.
 
@@ -38,6 +38,20 @@ Bei Widerspruch gilt: `spec/data` vor Text, sonst die Regeln in `docs/spec/00-le
 - **Platzhalter-Assets** über `tools/gen_placeholders.py` (Farben in 24.5), keine echten Texturen erfinden.
 - Übersetzungen kommen aus `items.json` (`name_de`, `name_en`); kein fest eingebauter Text.
 
+## Bauen nur auf GitHub
+
+Lokal gibt es kein JDK; gebaut und getestet wird ausschließlich in GitHub Actions (`.github/workflows/build.yml`).
+
+1. Änderungen committen und pushen.
+2. `python tools/ci_status.py --wait` im Hintergrund starten; es meldet GRÜN/ROT und gibt Compiler-Fehler mit Datei und Zeile aus.
+3. Bei ROT die Meldungen beheben und erneut pushen. Höchstens 60 GitHub-Abfragen pro Stunde (ohne Token).
+
+API-Spickzettel für 26.3: `docs/dev/api-neoforge-26.3.md`, `docs/dev/api-fabric-26.3.md`.
+
+## Ressourcen
+
+Ressourcen (Übersetzungen, Modelle, Blockzustände, Loot-Tables, Rezepte, Tags, Balance) erzeugt `python tools/gen_resources.py` aus `spec/data` für alle IDs in `common/implemented_ids.json`; Platzhalter-Texturen `python tools/gen_placeholders.py --only <ids>`. Neue Blöcke/Items: zuerst in `implemented_ids.json` eintragen, dann beide Skripte ausführen. Oberflächentexte stehen in `common/lang_extra.json`.
+
 ## Befehle
 
 ```bash
@@ -45,7 +59,7 @@ Bei Widerspruch gilt: `spec/data` vor Text, sonst die Regeln in `docs/spec/00-le
 ```
 
 ```bash
-./gradlew runData
+python tools/gen_resources.py
 ```
 
 ```bash

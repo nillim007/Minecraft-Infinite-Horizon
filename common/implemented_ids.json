@@ -1,0 +1,13 @@
+{
+  "_comment": "IDs, die im Code registriert sind. tools/gen_resources.py erzeugt nur für diese Ressourcen. Mit jedem Meilenstein erweitern.",
+  "milestone": 1,
+  "blocks": {
+    "sternenwerft:crusher": "machine",
+    "sternenwerft:combustion_generator": "machine",
+    "sternenwerft:copper_cable": "cable"
+  },
+  "items": [
+    "sternenwerft:machine_frame",
+    "sternenwerft:iron_dust"
+  ]
+}

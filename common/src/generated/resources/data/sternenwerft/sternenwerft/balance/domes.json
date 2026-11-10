@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "entries": {
+    "sternenwerft:dome_generator_t1": {
+      "tier": 1,
+      "radius": 8,
+      "energy_per_tick": 40,
+      "oxygen_per_1200": 50,
+      "temp_min": -180,
+      "temp_max": 150,
+      "protects": [
+        "breathable_air",
+        "pressure",
+        "temperature"
+      ],
+      "o2_tank": 2000,
+      "module_slots": 3,
+      "render_color": "white",
+      "spec_ref": "10.1"
+    },
+    "sternenwerft:dome_generator_t2": {
+      "tier": 2,
+      "radius": 16,
+      "energy_per_tick": 200,
+      "oxygen_per_1200": 200,
+      "temp_min": -210,
+      "temp_max": 250,
+      "protects": [
+        "breathable_air",
+        "pressure",
+        "temperature",
+        "dust_storm",
+        "acid_rain"
+      ],
+      "o2_tank": 2000,
+      "module_slots": 3,
+      "render_color": "blue",
+      "spec_ref": "10.1"
+    },
+    "sternenwerft:dome_generator_t3": {
+      "tier": 3,
+      "radius": 32,
+      "energy_per_tick": 1000,
+      "oxygen_per_1200": 800,
+      "temp_min": -250,
+      "temp_max": 300,
+      "protects": [
+        "breathable_air",
+        "pressure",
+        "temperature",
+        "dust_storm",
+        "acid_rain",
+        "radiation",
+        "solar_storm"
+      ],
+      "radiation_inside": 0,
+      "o2_tank": 2000,
+      "module_slots": 3,
+      "render_color": "violet",
+      "spec_ref": "10.1, 8.1, 19",
+      "notes": "solar_storm: Maschinen unter Kuppel T3 pausieren nicht (19)."
+    },
+    "sternenwerft:dome_range_module": {
+      "radius_multiplier": 1.5,
+      "energy_multiplier": 2.0,
+      "oxygen_multiplier": 2.0,
+      "spec_ref": "10.1"
+    },
+    "sternenwerft:dome_efficiency_module": {
+      "oxygen_multiplier": 0.75,
+      "spec_ref": "10.1"
+    },
+    "sternenwerft:dome_shield_module": {
+      "intercepts": [
+        "sternenwerft:meteor_shower",
+        "sternenwerft:ring_debris"
+      ],
+      "blocks_mobs": false,
+      "spec_ref": "10.1"
+    },
+    "dome_rules": {
+      "shape": "hemisphere",
+      "inside_test": "distance(point, center) <= radius && point.y >= center.y - 1",
+      "below_center_offset": 1,
+      "temperature_measured_at": "generator_position",
+      "inside_temperature": 20,
+      "inside_pressure": "normal",
+      "failure_ticks": 600,
+      "failure_state": "failing",
+      "failure_causes": [
+        "no_energy",
+        "no_oxygen"
+      ],
+      "out_of_range_status": "error",
+      "overlap": "shared_airspace",
+      "render_distance": 128,
+      "failure_render_color": "red_pulsing",
+      "storage": "SavedData je Dimension",
+      "spec_ref": "10.1, 8.1"
+    }
+  }
+}

@@ -1,0 +1,219 @@
+{
+  "schema_version": 1,
+  "entries": {
+    "suit_rules": {
+      "pieces_required": 4,
+      "effective_tier": "lowest_piece",
+      "limits_inclusive": true,
+      "module_slots_per_piece": 2,
+      "module_data_component": "sternenwerft:suit_modules",
+      "modules_fit_all_tiers": true,
+      "modules_kept_on_upgrade": true,
+      "spec_ref": "9.1, 9.2"
+    },
+    "pressure_suit": {
+      "tier": 1,
+      "pieces": [
+        "sternenwerft:pressure_suit_helmet",
+        "sternenwerft:pressure_suit_chestplate",
+        "sternenwerft:pressure_suit_leggings",
+        "sternenwerft:pressure_suit_boots"
+      ],
+      "armor_like": "iron",
+      "temp_min": -180,
+      "temp_max": 150,
+      "pressure": [
+        "vacuum",
+        "low",
+        "normal"
+      ],
+      "radiation_max": 1,
+      "protects": [],
+      "venus_heat_timer": false,
+      "oxygen_consumption": {
+        "amount": 1,
+        "per_ticks": 20
+      },
+      "spec_ref": "9.1",
+      "notes": "radiation_max 1 = Schutz ohne Anzug (8.3), vgl. Mindestausrüstung 13.2."
+    },
+    "heat_suit": {
+      "tier": 2,
+      "pieces": [
+        "sternenwerft:heat_suit_helmet",
+        "sternenwerft:heat_suit_chestplate",
+        "sternenwerft:heat_suit_leggings",
+        "sternenwerft:heat_suit_boots"
+      ],
+      "armor_like": "diamond",
+      "temp_min": -200,
+      "temp_max": 500,
+      "pressure": [
+        "vacuum",
+        "low",
+        "normal",
+        "high"
+      ],
+      "radiation_max": 1,
+      "protects": [
+        "acid_rain"
+      ],
+      "venus_heat_timer": true,
+      "oxygen_consumption": {
+        "amount": 1,
+        "per_ticks": 20
+      },
+      "spec_ref": "9.1",
+      "notes": null
+    },
+    "deep_space_suit": {
+      "tier": 3,
+      "pieces": [
+        "sternenwerft:deep_space_suit_helmet",
+        "sternenwerft:deep_space_suit_chestplate",
+        "sternenwerft:deep_space_suit_leggings",
+        "sternenwerft:deep_space_suit_boots"
+      ],
+      "armor_like": "netherite",
+      "temp_min": -220,
+      "temp_max": 500,
+      "pressure": [
+        "vacuum",
+        "low",
+        "normal",
+        "high"
+      ],
+      "radiation_max": 2,
+      "protects": [
+        "acid_rain"
+      ],
+      "venus_heat_timer": true,
+      "oxygen_consumption": {
+        "amount": 1,
+        "per_ticks": 40
+      },
+      "spec_ref": "9.1",
+      "notes": "Säureschutz und Hitzezeit Venus von T2 übernommen (höhere Stufe, 9.1)."
+    },
+    "oxygen_supply": {
+      "chestplate_capacity": 1200,
+      "data_component": "sternenwerft:oxygen",
+      "auto_refill_from_inventory": [
+        "sternenwerft:oxygen_canister",
+        "sternenwerft:large_oxygen_canister"
+      ],
+      "dome_refill_per_tick": 1,
+      "dome_refill_min_tank": 500,
+      "keeps_vanilla_air_full_underwater": true,
+      "spec_ref": "9.1"
+    },
+    "sternenwerft:oxygen_canister": {
+      "capacity": 600,
+      "unit": "mB",
+      "spec_ref": "5.2, 9.1"
+    },
+    "sternenwerft:large_oxygen_canister": {
+      "capacity": 1200,
+      "unit": "mB",
+      "spec_ref": "5.2, 9.1"
+    },
+    "venus_heat_timer": {
+      "dimension": "sternenwerft:venus",
+      "applies_below_y": 180,
+      "duration_ticks": 3600,
+      "refill_above_y": 180,
+      "refill_ticks": 1200,
+      "on_expiry": "unprotected_against_heat",
+      "spec_ref": "9.1"
+    },
+    "sternenwerft:helmet_lamp": {
+      "piece": [
+        "helmet"
+      ],
+      "research_tier": 1,
+      "effect": "light_at_head",
+      "spec_ref": "9.2",
+      "notes": "Lichtwerte in balance/items.json."
+    },
+    "sternenwerft:radiation_shield": {
+      "piece": [
+        "helmet"
+      ],
+      "research_tier": 4,
+      "radiation_max": 3,
+      "spec_ref": "9.2"
+    },
+    "sternenwerft:cooling_module": {
+      "piece": [
+        "chestplate"
+      ],
+      "research_tier": 2,
+      "temp_max_bonus": 100,
+      "spec_ref": "9.2"
+    },
+    "sternenwerft:heat_reflector": {
+      "piece": [
+        "chestplate"
+      ],
+      "research_tier": 4,
+      "venus_heat_timer_multiplier": 1.5,
+      "spec_ref": "9.2"
+    },
+    "sternenwerft:heating_module": {
+      "piece": [
+        "chestplate"
+      ],
+      "research_tier": 5,
+      "temp_min_bonus": -30,
+      "spec_ref": "9.2"
+    },
+    "sternenwerft:jetpack": {
+      "piece": [
+        "chestplate"
+      ],
+      "research_tier": 4,
+      "energy_capacity": 200000,
+      "energy_per_tick": 40,
+      "active_while": "jump_held",
+      "cancels_gravity": true,
+      "acceleration_up": 0.12,
+      "max_speed_up": 0.4,
+      "sneak_thrust": "down",
+      "horizontal_speed": 0.1,
+      "charging": "battery_charge_slot",
+      "data_component": "sternenwerft:energy",
+      "spec_ref": "9.2, 14.3",
+      "notes": "Einheiten: Blöcke/t² bzw. Blöcke/t. horizontal_speed = Blickrichtung + Vorwärts (14.3)."
+    },
+    "sternenwerft:diving_module": {
+      "piece": [
+        "leggings"
+      ],
+      "research_tier": 4,
+      "protects": [
+        "deep_pressure"
+      ],
+      "swim_speed_multiplier": 1.5,
+      "spec_ref": "9.2"
+    },
+    "sternenwerft:armor_plating": {
+      "piece": [
+        "leggings",
+        "boots"
+      ],
+      "research_tier": 2,
+      "armor_bonus": 3,
+      "spec_ref": "9.2"
+    },
+    "sternenwerft:magnet_boots": {
+      "piece": [
+        "boots"
+      ],
+      "research_tier": 3,
+      "gravity_g": 1,
+      "condition": "block_directly_below",
+      "detached_g": 0.005,
+      "spec_ref": "9.2, 12.9, 14.3"
+    }
+  }
+}
