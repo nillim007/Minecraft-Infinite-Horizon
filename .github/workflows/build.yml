@@ -1,0 +1,69 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  checks: write
+
+jobs:
+  spec:
+    name: Spezifikation prüfen
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+      - name: Daten validieren
+        run: python tools/validate_spec.py
+      - name: Lesefassungen aktuell?
+        run: |
+          python tools/render_docs.py
+          git diff --exit-code -- docs/spec/generated || (echo "::error::docs/spec/generated ist veraltet – python tools/render_docs.py ausführen" && exit 1)
+
+  build:
+    name: Mod bauen (NeoForge + Fabric)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "25"
+      - uses: gradle/actions/setup-gradle@v4
+      - name: Build
+        shell: bash
+        run: |
+          set -o pipefail
+          ./gradlew build --stacktrace --no-daemon 2>&1 | tee build.log
+      - name: Fehler als Anmerkungen ausgeben
+        if: failure()
+        shell: bash
+        run: |
+          # Compiler-Fehler mit Datei und Zeile
+          grep -E '^/.*\.java:[0-9]+: error:' build.log | head -40 | while IFS= read -r line; do
+            file=$(echo "$line" | sed -E 's#^.*/(common|fabric|neoforge)/#\1/#; s#:[0-9]+: error:.*##')
+            num=$(echo "$line" | sed -E 's#^.*\.java:([0-9]+): error:.*#\1#')
+            msg=$(echo "$line" | sed -E 's#^.*: error: ##')
+            echo "::error file=$file,line=$num::$msg"
+          done
+          # Gradle-Zusammenfassung ("What went wrong")
+          awk '/What went wrong:/{f=1} f{print} /Try:/{f=0}' build.log | head -30 | while IFS= read -r line; do
+            [ -n "$line" ] && echo "::error title=Gradle::$line"
+          done
+          # Letzte Zeilen als Rückfallebene
+          tail -25 build.log | while IFS= read -r line; do
+            [ -n "$line" ] && echo "::warning title=Log-Ende::$line"
+          done
+      - name: Build-Log sichern
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-log
+          path: build.log
+          retention-days: 7

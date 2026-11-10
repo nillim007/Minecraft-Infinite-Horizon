@@ -23,3 +23,8 @@ bin/
 # Betriebssystem
 .DS_Store
 Thumbs.db
+
+# Eclipse/Startkonfigurationen (aus der MultiLoader-Vorlage)
+*.launch
+.metadata
+eclipse/
