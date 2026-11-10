@@ -54,7 +54,8 @@ configurations {
 
 artifacts {
     commonJava sourceSets.main.java.sourceDirectories.singleFile
-    commonResources sourceSets.main.resources.sourceDirectories.singleFile
+    // Zwei Ressourcen-Ordner: von Hand gepflegt (src/main/resources) und erzeugt (src/generated/resources)
+    sourceSets.main.resources.sourceDirectories.each { dir -> commonResources dir }
 }
 
 // Implement mcgradleconventions loader attribute
