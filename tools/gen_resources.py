@@ -140,9 +140,10 @@ def cable_block(name):
 def block_loot(name):
     write_json(f"data/{NS}/loot_table/blocks/{name}.json", {
         "type": "minecraft:block",
-        "pools": [{"rolls": 1, "bonus_rolls": 0,
+        # 26.3-Format wie Vanilla iron_block: "condition" mit "type"
+        "pools": [{"condition": {"type": "minecraft:survives_explosion"},
                    "entries": [{"type": "minecraft:item", "name": f"{NS}:{name}"}],
-                   "conditions": [{"condition": "minecraft:survives_explosion"}]}],
+                   "rolls": 1}],
         "random_sequence": f"{NS}:blocks/{name}",
     })
 
@@ -165,18 +166,17 @@ def simple_block(name):
 
 
 def ore_loot(name, raw):
-    """Vanilla-Eisenerz-Muster: Seidenberührung -> Block, sonst Rohstoff mit Glück."""
-    silk = {"condition": "minecraft:match_tool", "predicate": {"predicates": {"minecraft:enchantments": [
-        {"enchantments": "minecraft:silk_touch", "levels": {"min": 1}}]}}}
+    """Vanilla-Eisenerz-Muster (26.3-Format): Behuehrung -> Block, sonst Rohstoff mit Glueck."""
     write_json(f"data/{NS}/loot_table/blocks/{name}.json", {
         "type": "minecraft:block",
-        "pools": [{"rolls": 1, "bonus_rolls": 0, "entries": [{
+        "pools": [{"entries": [{
             "type": "minecraft:alternatives",
             "children": [
-                {"type": "minecraft:item", "name": f"{NS}:{name}", "conditions": [silk]},
-                {"type": "minecraft:item", "name": f"{NS}:{raw}", "functions": [
-                    {"function": "minecraft:apply_bonus", "enchantment": "minecraft:fortune", "formula": "minecraft:ore_drops"},
-                    {"function": "minecraft:explosion_decay"}]}]}]}],
+                {"type": "minecraft:item", "condition": "minecraft:tool/can_silk_touch", "name": f"{NS}:{name}"},
+                {"type": "minecraft:item", "modifier": [
+                    {"type": "minecraft:apply_bonus", "enchantment": "minecraft:fortune", "formula": "minecraft:ore_drops"},
+                    {"type": "minecraft:explosion_decay"}], "name": f"{NS}:{raw}"}]}],
+            "rolls": 1}],
         "random_sequence": f"{NS}:blocks/{name}",
     })
 
@@ -208,8 +208,7 @@ def earth_worldgen(blocks):
                     {"type": "minecraft:biome"}]
         elif ore["placement"] == "disk":
             conf = {"type": "minecraft:disk",
-                # Disk erwartet einen regelbasierten Provider (fallback + rules), wie Vanilla-Ton
-                "state_provider": {"fallback": {"type": "minecraft:simple_state_provider", "state": bid}, "rules": []},
+                "state_provider": {"type": "minecraft:simple", "state": bid},  # 26.3: Typ heißt "simple"
                 "target": {"type": "minecraft:matching_blocks", "blocks": ["minecraft:sand", "minecraft:dirt", "minecraft:clay"]},
                 "radius": {"type": "minecraft:uniform", "min_inclusive": ore["radius"][0], "max_inclusive": ore["radius"][1]},
                 "half_height": 1}

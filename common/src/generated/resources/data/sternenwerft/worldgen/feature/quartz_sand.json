@@ -1,11 +1,8 @@
 {
   "type": "minecraft:disk",
   "state_provider": {
-    "fallback": {
-      "type": "minecraft:simple_state_provider",
-      "state": "sternenwerft:quartz_sand"
-    },
-    "rules": []
+    "type": "minecraft:simple",
+    "state": "sternenwerft:quartz_sand"
   },
   "target": {
     "type": "minecraft:matching_blocks",

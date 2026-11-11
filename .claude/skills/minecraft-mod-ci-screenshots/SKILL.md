@@ -78,6 +78,9 @@ Datei: `fabric/src/main/java/de/sternenwerft/gametest/SwClientGameTests.java`. S
   - `extractBackground(GuiGraphicsExtractor, …)` überschreiben, `g.fill(…)` und `g.setComponentTooltipForNextFrame(…)`.
   - Registrierung je Loader: NeoForge `RegisterMenuScreensEvent` in der Klasse mit `@Mod(dist = Dist.CLIENT)`; Fabric `MenuScreens.register` im Client-Entry-Point.
 - **Worldgen:** Features liegen unter `data/<ns>/worldgen/feature/` (nicht `configured_feature`), die Werte direkt im Objekt ohne `"config"`, Blockzustände als String (`"state": "ns:block"`). Placed Features sind unverändert. Fehlerbild sonst: „Unbound values in registry worldgen/feature“ beim Serverstart.
+- **Block-Provider:** Typ-IDs ohne Endung: `minecraft:simple` statt `simple_state_provider`, ebenso `weighted`, `rule_based`, `noise` usw.
+- **Loot-Tables:** Pool und Eintrag nutzen `"condition": {"type": …}` statt `"conditions"`, `"modifier": [{"type": …}]` statt `"functions"`. Behührung: `"condition": "minecraft:tool/can_silk_touch"`. Alte Schlüssel werden still ignoriert, Erze droppen dann sich selbst.
+- **Vanilla-Daten nachschlagen:** Nach dem ersten lokalen Build liegt das Jar unter `~/.gradle/caches/neoformruntime/artifacts/minecraft_26.3_client.jar`. Darin stehen `data/minecraft/...` (Loot, Worldgen) und die Klassen; mit Python `zipfile` lesen.
 - **Lokaler Build im Firmennetz:** Bei „PKIX path building failed“ prüft das Netz TLS mit eigenem Zertifikat. Dann `JAVA_TOOL_OPTIONS=-Djavax.net.ssl.trustStoreType=Windows-ROOT` nur für den Befehl setzen. JDK: `C:\Users\NickM\.jdks\jdk-25.0.5+8` (`JAVA_HOME`).
 - **GameTest-Server:** Er läuft ohne Tick-Begrenzung. 400 Spielticks dauern wenige Sekunden, das ist kein Fehler.
 - **Shell (Windows):** Lange Python-Skripte nicht als Inline-Heredoc in Bash schicken, das bricht gelegentlich ab. Besser als Datei im Scratchpad schreiben und ausführen.
