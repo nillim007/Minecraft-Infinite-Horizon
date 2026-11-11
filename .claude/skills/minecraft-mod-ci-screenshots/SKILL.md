@@ -55,6 +55,10 @@ git clone --depth 1 -b ci-screenshots https://github.com/nillim007/Minecraft-New
   - fehlende Texturen (lila-schwarz)
   - Chat-Text im Bild
 
+### NeoForge-Client-Test
+
+`neoforge/.../client/NeoForgeClientTest.java` ist eine Ablaufsteuerung pro Client-Tick (Run `runClientTest`, CI-Job „Client-Test mit Screenshots (NeoForge)“ mit xvfb + Mesa). Er schreibt `runs/clienttest/sternenwerft-clienttest.txt` (PASS/FAIL, DONE). Die Bilder landen im Branch `ci-screenshots-neoforge`. Neue GUIs mit `openMachine(block, name, setup, extra)` ergänzen. Lokal nicht starten, weil sich dafür ein Fenster öffnet.
+
 ## 4. Neue GUIs und Blöcke in den Client-Test aufnehmen
 
 Datei: `fabric/src/main/java/de/sternenwerft/gametest/SwClientGameTests.java`. Sie ist nur mit `-Dfabric.client.gametest` aktiv, Entry-Point `fabric-client-gametest`.

@@ -1,6 +1,6 @@
 # Testbericht: Meilenstein 1 bis M2c
 
-Stand: 11.11.2026, Commit `bbe00f1`, GitHub-Lauf [43016017246](https://github.com/nillim007/Minecraft-New-Horizon/actions/runs/43016017246).
+Stand: 11.11.2026, Commit `f683a24`, GitHub-Lauf [43018888655](https://github.com/nillim007/Minecraft-New-Horizon/actions/runs/43018888655).
 
 ## Ergebnis
 
@@ -9,7 +9,7 @@ Stand: 11.11.2026, Commit `bbe00f1`, GitHub-Lauf [43016017246](https://github.co
 | Build (beide Loader) | grün | grün |
 | JUnit (18 Tests, gemeinsamer Code) | grün | grün |
 | Server-GameTests (31 eigene + 1 vom Loader) | 32/32 bestanden | 32/32 bestanden |
-| Client-Test (echter Client, Software-Grafik) | – (nur Fabric) | bestanden, 8 Screenshots |
+| Client-Test (echter Client, Software-Grafik) | bestanden (9/9), 7 Screenshots | bestanden, 8 Screenshots |
 | Spezifikation (`validate_spec`), erzeugte Dateien aktuell | grün | grün |
 
 Gefunden und behoben wurden in dieser Runde ein echter Fehler im Spielverhalten (Shift-Klick) und zwei offene Punkte. Dazu kommen die Fehler aus den vorigen Runden (Tabelle unten).
@@ -61,7 +61,20 @@ Alle Tests laufen auf **beiden** Loadern. Die Liste steht in `common/gametests.j
 | PureRulesTest | 5 | gleichmäßige Netzverteilung, Zusammenführen der Balance aus mehreren Namespaces, Config-Prüfung |
 | FluidTankTest | 3 | ein Fluid je Tank, Rücknahme per Transaktion, Filter gegen Selbstbefüllung |
 
-## Client-Test (Fabric, echter Client)
+## Client-Test NeoForge (echter Client, xvfb + Mesa)
+
+`NeoForgeClientTest` läuft nur mit `-Dsternenwerft.clienttest=true` (Run `runClientTest`). Er legt selbst eine Flachland-Welt an, öffnet jedes GUI per echtem Rechtsklick über das Netzwerk und schreibt eine Ergebnisdatei. Die Bilder liegen im Branch `ci-screenshots-neoforge`.
+
+| Prüfung | Ergebnis |
+| --- | --- |
+| Welt anlegen und betreten (CreateWorldScreen, Flachland, Kreativ) | ✔ |
+| SyncConfigPayload beim Client angekommen | ✔ PASS config_sync |
+| Knopf „Seite“: Server-Ausgangsseite Nord → Süd | ✔ PASS side_button |
+| GUIs von Tank (leer und mit Erdöl), Zerkleinerer, Elektroofen, Presse, Generator und Pumpe öffnen sich | ✔ 7 × PASS |
+| Sichtprüfung: Darstellung wie unter Fabric (Leisten, Knopf, Slots) | ✔ |
+| Nebenbefund: Abgebaute Maschinen werfen ihren Inhalt aus, der Spieler sammelt ihn auf (sichtbar in der Hotbar) | ✔ wie vorgesehen |
+
+## Client-Test Fabric (echter Client)
 
 Er öffnet eine Testwelt, setzt die Blöcke, öffnet jedes GUI per Rechtsklick und fotografiert es. Die Bilder liegen im Branch `ci-screenshots`.
 
@@ -97,7 +110,6 @@ Er öffnet eine Testwelt, setzt die Blöcke, öffnet jedes GUI per Rechtsklick u
 ## Nicht automatisch geprüft
 
 - **Aussehen der Ölblasen und Erzadern** in einer echten, generierten Welt. Geprüft sind nur die Biomzuordnung und die Platzierungslogik.
-- **NeoForge-Client:** Der Client-Test läuft nur unter Fabric. Die Server-Tests laufen auf beiden Loadern.
 - **Bedienung mit Maus und Spielerhand im GUI:** Shift-Klick ist auf dem Server getestet, Drag & Drop nicht.
 - **Zusammenspiel mit echten fremden Mods:** Die Loader-APIs sind mit einem Test-Verbraucher bzw. über die eigene Schnittstelle getestet.
 
