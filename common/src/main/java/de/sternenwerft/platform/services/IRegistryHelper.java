@@ -2,12 +2,15 @@ package de.sternenwerft.platform.services;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
+import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Supplier;
 
@@ -20,5 +23,6 @@ public interface IRegistryHelper {
     /** Der Vanilla-Konstruktor von BlockEntityType ist nicht öffentlich; jeder Loader baut den Typ selbst. */
     <T extends BlockEntity> BlockEntityType<T> blockEntityType(BiFunction<BlockPos, BlockState, T> factory, Block... blocks);
 
-    CreativeModeTab.Builder creativeTabBuilder();
+    /** Creative-Tab; {@code CreativeModeTab.Output} ist in Vanilla nicht öffentlich, daher baut jeder Loader selbst. */
+    CreativeModeTab creativeTab(Component title, Supplier<ItemStack> icon, Supplier<List<ItemStack>> items);
 }

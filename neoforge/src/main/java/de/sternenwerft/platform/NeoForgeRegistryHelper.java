@@ -5,7 +5,9 @@ import de.sternenwerft.platform.services.IRegistryHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -15,6 +17,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Supplier;
 
@@ -37,8 +40,12 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
     }
 
     @Override
-    public CreativeModeTab.Builder creativeTabBuilder() {
-        return CreativeModeTab.builder();
+    public CreativeModeTab creativeTab(Component title, Supplier<ItemStack> icon, Supplier<List<ItemStack>> items) {
+        return CreativeModeTab.builder()
+                .title(title)
+                .icon(icon)
+                .displayItems((params, output) -> items.get().forEach(output::accept))
+                .build();
     }
 
     public static void registerAll(IEventBus modBus) {

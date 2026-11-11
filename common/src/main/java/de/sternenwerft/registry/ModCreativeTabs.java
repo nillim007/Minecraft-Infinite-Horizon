@@ -11,11 +11,9 @@ import java.util.function.Supplier;
 public final class ModCreativeTabs {
 
     public static final Supplier<CreativeModeTab> MAIN = Services.REGISTRY.register(BuiltInRegistries.CREATIVE_MODE_TAB, "main",
-            () -> Services.REGISTRY.creativeTabBuilder()
-                    .title(Component.translatable("itemGroup.sternenwerft"))
-                    .icon(() -> new ItemStack(ModItems.CRUSHER.get()))
-                    .displayItems((params, output) -> ModItems.all().forEach(item -> output.accept(item.get())))
-                    .build());
+            () -> Services.REGISTRY.creativeTab(Component.translatable("itemGroup.sternenwerft"),
+                    () -> new ItemStack(ModItems.CRUSHER.get()),
+                    () -> ModItems.all().stream().map(item -> new ItemStack(item.get())).toList()));
 
     private ModCreativeTabs() {
     }

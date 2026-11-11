@@ -6,12 +6,15 @@ import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 
+import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.Supplier;
 
@@ -30,7 +33,11 @@ public class FabricRegistryHelper implements IRegistryHelper {
     }
 
     @Override
-    public CreativeModeTab.Builder creativeTabBuilder() {
-        return FabricCreativeModeTab.builder();
+    public CreativeModeTab creativeTab(Component title, Supplier<ItemStack> icon, Supplier<List<ItemStack>> items) {
+        return FabricCreativeModeTab.builder()
+                .title(title)
+                .icon(icon)
+                .displayItems((params, output) -> items.get().forEach(output::accept))
+                .build();
     }
 }

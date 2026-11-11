@@ -9,6 +9,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
 import java.util.function.Function;
@@ -24,7 +25,7 @@ public final class ModBlocks {
             p -> new MachineBlock(p, () -> ModBlockEntities.COMBUSTION_GENERATOR.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Supplier<Block> COPPER_CABLE = register("copper_cable", CableBlock::new,
-            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.COPPER_BLOCK).noOcclusion());
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.COPPER).noOcclusion());
 
     private ModBlocks() {
     }
