@@ -20,6 +20,7 @@
         "sternenwerft:pressure_suit_boots"
       ],
       "armor_like": "iron",
+      "repair_item": "sternenwerft:aluminum_plate",
       "temp_min": -180,
       "temp_max": 150,
       "pressure": [
@@ -105,16 +106,38 @@
       "dome_refill_per_tick": 1,
       "dome_refill_min_tank": 500,
       "keeps_vanilla_air_full_underwater": true,
+      "consumption_condition": "full_suit_and_not_breathable",
+      "consumption_unit_mb": 0.001,
+      "config_multiplier": "oxygen_consumption (24.4), nur Anzüge",
+      "initial_amount": 0,
+      "protection_without_oxygen": "Druck und Temperatur bleiben geschützt; nur die Gefahr oxygen entsteht",
+      "inventory_refill": {
+        "check": "environment_update",
+        "order": "inventory_0_35_then_offhand",
+        "amount": "as_much_as_fits"
+      },
+      "exempt_game_modes": [
+        "creative",
+        "spectator"
+      ],
       "spec_ref": "9.1"
     },
     "sternenwerft:oxygen_canister": {
       "capacity": 600,
       "unit": "mB",
+      "fluids": [
+        "sternenwerft:oxygen"
+      ],
+      "transfer": "immediate_partial",
       "spec_ref": "5.2, 9.1"
     },
     "sternenwerft:large_oxygen_canister": {
       "capacity": 1200,
       "unit": "mB",
+      "fluids": [
+        "sternenwerft:oxygen"
+      ],
+      "transfer": "immediate_partial",
       "spec_ref": "5.2, 9.1"
     },
     "venus_heat_timer": {

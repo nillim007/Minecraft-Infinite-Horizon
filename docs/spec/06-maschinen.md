@@ -63,10 +63,11 @@ Brennstoffe mit Behälter (z. B. Lavaeimer) hinterlassen den leeren Behälter im
 
 - **`battery`:** Der Ladeslot nimmt jedes Item an, das eine Energie-Schnittstelle der Plattform (NeoForge, Team Reborn) oder die Komponente `sternenwerft:energy` trägt, und lädt es mit höchstens `io_per_tick` (512 J/t). In M2 gibt es keine eigenen ladbaren Items; der Test nutzt ein Plattform-Testitem.
 - **`fluid_tank`:** nur Flüssigkeiten. Gase (`hydrogen`, `oxygen`) bleiben in M2 im Maschinentank (5.3).
+- **`pressure_bottle` (ab M3):** nur Gase; Ausgangsseite und Füll-/Leerslot wie beim `fluid_tank`; behält beim Abbauen ihren Inhalt (`sternenwerft:fluid`).
 
 **Tageslicht** = 1 bei Tag, 0 bei Nacht, linear in der Dämmerung. Regen und Staubsturm: × 0,25. Sonnensturm: × 2.
 
-**Vorgabe für später (ab dem Meilenstein des `solar_panel`):** Tag 0–12.000 t = 1, 12.000–13.800 t linear auf 0, 13.800–22.200 t = 0, 22.200–24.000 t linear auf 1. „Himmel sichtbar“ heißt `canSeeSky` (Wolken zählen nicht). Gewitter zählt wie Regen.
+**Tageslicht-Kurve** (ab M3 für die Temperatur, 8.1, dort ohne Wetterfaktor; ab dem Meilenstein des `solar_panel` auch für Solarstrom): Tag 0–12.000 t = 1, 12.000–13.800 t linear auf 0, 13.800–22.200 t = 0, 22.200–24.000 t linear auf 1 (`daylight_curve` in `environment.json`). „Himmel sichtbar“ heißt `canSeeSky` (Wolken zählen nicht). Gewitter zählt wie Regen.
 
 **Reaktor-Sicherheit**
 
@@ -89,3 +90,18 @@ Alle Texte stehen in `common/lang_extra.json`. Namen von Blöcken und Items komm
 | `gui.sternenwerft.multiblock.missing` | fehlender Block im Multiblock (mit Koordinate) |
 | `gui.sternenwerft.status.running`, `.idle`, `.error` | Tooltip der Statuslampe |
 | `jei.sternenwerft.<rezepttyp>` | Name der Rezeptkategorie je Rezepttyp (3.9) |
+
+Schlüssel für Meilenstein 3:
+
+| Schlüssel | Verwendung |
+| --- | --- |
+| `hud.sternenwerft.oxygen`, `.pressure`, `.heat`, `.cold`, `.radiation` | Belastungsleisten (8.4) |
+| `hud.sternenwerft.suit_oxygen`, `.temperature` | Anzugvorrat und Temperatur im HUD (8.4) |
+| `gui.sternenwerft.oxygen` | Tooltip der Brustplatte, z. B. „O₂: 600 / 1.200 mB“ (9.1) |
+| `gui.sternenwerft.dome.radius` | Radius im Kuppel-GUI (10.1) |
+| `message.sternenwerft.no_atmosphere` | Fackel, Feuer usw. lassen sich nicht setzen (8.5) |
+| `message.sternenwerft.dome.failing` | Kuppel fällt aus, mit Restsekunden (10.1) |
+| `message.sternenwerft.bed.no_air` | „Hier kannst du nicht atmen“ (14.4) |
+| `death.attack.sternenwerft.<gefahr>` | Todesnachricht je Schadensart (8.2) |
+| `agency.sternenwerft.default_name` | „Agentur von <Name>“ (23.1) |
+| `commands.sternenwerft.goto.*`, `commands.sternenwerft.agency.*` | Rückmeldungen der Befehle (12.10, 23.1) |

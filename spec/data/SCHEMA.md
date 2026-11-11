@@ -200,6 +200,7 @@ Liste `"entries"` mit einem Eintrag pro Ziel aus Kapitel 12.1 (Overworld, 12 Obe
 
 - `shape`: `flat`, `hilly`, `mountainous`, `rare` (Zuordnung zu `multi_noise` nach 13.1).
 - `drops` bei Blöcken: `"self"`, `"none"` oder Liste `{id, count, count_max?, chance?}`.
+- Strukturen: `spacing_chunks` und `separation_chunks` wie bei Vanilla-`random_spread`. Features: `id`, `type`, `params`.
 - Die Overworld hat `"id": "minecraft:overworld"` und listet nur die Ergänzungen der Mod (Bauxit, Titan, Quarzsand, Ölblasen).
 
 ---
@@ -226,7 +227,7 @@ Jede Datei ist ein Objekt `{ "schema_version": 1, "entries": { "<schlüssel>": {
 | `storage.json` | Block-ID | `capacity`, `unit`, `io_per_tick`, `accepts` (`liquid`, `gas`, `all`, `energy`) |
 | `environment.json` | Gefahr | `buildup_ticks`, `damage`, `damage_interval` |
 | `suits.json` | Stufe bzw. Modul-ID | Grenzwerte, Verbrauch, Slots, Wirkung |
-| `domes.json` | Block-ID bzw. Modul-ID | `radius`, `energy_per_tick`, `oxygen_per_1200`, `temp_min`, `temp_max`, `protects[]`, `o2_tank` |
+| `domes.json` | Block-ID bzw. Modul-ID | `radius`, `energy_per_tick`, `oxygen_per_1200`, `temp_min`, `temp_max`, `protects[]`, `o2_tank`, `buffer`, `o2_fluids`, `container_slots`, `upgrade_slots`; Regeln in `dome_rules` |
 | `spaceflight.json` | Name | Treibstoffformel, Sondenzeiten, Landefähre |
 | `vehicles.json` | Entity- bzw. Item-ID | Rover und Module |
 | `creatures.json` | Entity-ID | `hp`, `armor`, `damage`, `speed`, `width`, `height`, `category`, `spawn` (`{dimension, biomes[], weight, group_min, group_max, light_max}`), `behavior` (Text), `drops[]` |

@@ -36,7 +36,7 @@
 
 ## Mond (`moon`)
 
-**Zonen:** id polar_crater, y_min -64, y_max 400, biome sternenwerft:moon_polar_crater, temperature -190
+**Zonen:** id polar_crater, y_min -64, y_max 400, biome sternenwerft:moon_polar_crater, temperature -190, solar_factor 0.0
 
 | Biom | Name | Oberfläche | Form | Häufigkeit |
 | --- | --- | --- | --- | --- |
@@ -50,12 +50,12 @@
 | `moon_titanium_ore` | 0–100 | 6 | 3 | `raw_titanium` |
 | `moon_aluminum_ore` | 0–80 | 8 | 5 | `bauxite` |
 | `moon_titanium_ore` | 0–80 | 6 | 4 | `raw_titanium` |
-| `moon_ice` | ––– | 16 | – | `minecraft:ice` |
+| `moon_ice` | 40–100 | 16 | 4 | `minecraft:ice` |
 
 | Struktur | Erkundungsziel | Hinweis |
 | --- | --- | --- |
-| `great_crater` | nein | Radius 40–60, Zentralberg, Erze ×2 innerhalb der Struktur; SPEC-GAP: Abstand nicht angegeben |
-| `lava_tube` | ja | Tunnel 5×5, Länge 60–120, y 30–50, 1 je 16 Chunks |
+| `great_crater` | nein | Radius 40–60, Zentralberg, nur im Biom moon_great_crater, Abstand 32 Chunks, Trennung 8; Erze ×2 innerhalb der Struktur (Ä27) |
+| `lava_tube` | ja | gerader Tunnel 5×5 in zufälliger Himmelsrichtung, Länge 60–120, y 30–50, 1 je 16 Chunks (Trennung 4); Erkundungsziel ab M4 |
 
 ## Venus (`venus`)
 

@@ -243,7 +243,7 @@
       "gas_collector_output": null,
       "default_block": "sternenwerft:moon_rock",
       "default_fluid": "minecraft:air",
-      "sea_level": null,
+      "sea_level": -64,
       "fixed_time": null,
       "generator": {
         "type": "noise",
@@ -278,7 +278,7 @@
           "temperature": -190,
           "pressure": null,
           "radiation": null,
-          "solar_factor": null,
+          "solar_factor": 0.0,
           "atmosphere": null,
           "water_behavior": null,
           "launch_cost_override": null
@@ -317,7 +317,7 @@
           "surface_secondary": null,
           "shape": "hilly",
           "rarity": "common",
-          "notes": "Struktur great_crater erscheint bevorzugt hier"
+          "notes": "Struktur great_crater erscheint nur hier; Erze wie moon_mare"
         },
         {
           "id": "sternenwerft:moon_polar_crater",
@@ -327,7 +327,7 @@
           "surface_secondary": "sternenwerft:moon_ice",
           "shape": "rare",
           "rarity": "rare",
-          "notes": "selten (5 %), Temperatur fest −190 °C, Licht 0"
+          "notes": "selten (5 %), Temperatur fest −190 °C, keine Sonnenenergie (solar_factor 0); moon_ice ersetzt den Oberflächenblock, wo das Noise minecraft:surface > 0 ist (13.1)"
         }
       ],
       "ores": [
@@ -364,7 +364,8 @@
           "fraction": null,
           "host_block": null,
           "biomes": [
-            "sternenwerft:moon_mare"
+            "sternenwerft:moon_mare",
+            "sternenwerft:moon_great_crater"
           ],
           "drops": [
             {
@@ -373,7 +374,7 @@
             }
           ],
           "deepslate_block": null,
-          "notes": null
+          "notes": "auch im Biom moon_great_crater (Ä27); innerhalb der Struktur great_crater ein zweites Mal"
         },
         {
           "block": "sternenwerft:moon_titanium_ore",
@@ -386,7 +387,8 @@
           "fraction": null,
           "host_block": null,
           "biomes": [
-            "sternenwerft:moon_mare"
+            "sternenwerft:moon_mare",
+            "sternenwerft:moon_great_crater"
           ],
           "drops": [
             {
@@ -395,15 +397,15 @@
             }
           ],
           "deepslate_block": null,
-          "notes": null
+          "notes": "auch im Biom moon_great_crater (Ä27); innerhalb der Struktur great_crater ein zweites Mal"
         },
         {
           "block": "sternenwerft:moon_ice",
           "placement": "vein",
-          "y_min": null,
-          "y_max": null,
+          "y_min": 40,
+          "y_max": 100,
           "vein_size": 16,
-          "per_chunk": null,
+          "per_chunk": 4,
           "radius": null,
           "fraction": null,
           "host_block": null,
@@ -417,7 +419,7 @@
             }
           ],
           "deepslate_block": null,
-          "notes": "SPEC-GAP: nur Adergröße 16 angegeben (y-Bereich, Adern je Chunk fehlen)"
+          "notes": "Ä27: y 40–100, 4 je Chunk; Oberflächenflecken über surface_secondary"
         }
       ],
       "blocks": [
@@ -492,7 +494,8 @@
           "biomes": [
             "sternenwerft:moon_great_crater"
           ],
-          "spacing_chunks": null,
+          "spacing_chunks": 32,
+          "separation_chunks": 8,
           "count_per_dimension": null,
           "position": null,
           "params": {
@@ -501,9 +504,10 @@
               60
             ],
             "central_peak": true,
-            "ore_multiplier": 2
+            "ore_multiplier": 2,
+            "ore_rule": "die Struktur setzt die Erzadern ihres Bioms in ihrem Volumen ein zweites Mal"
           },
-          "notes": "Radius 40–60, Zentralberg, Erze ×2 innerhalb der Struktur; SPEC-GAP: Abstand nicht angegeben"
+          "notes": "Radius 40–60, Zentralberg, nur im Biom moon_great_crater, Abstand 32 Chunks, Trennung 8; Erze ×2 innerhalb der Struktur (Ä27)"
         },
         {
           "id": "sternenwerft:lava_tube",
@@ -512,6 +516,7 @@
             "sternenwerft:moon_mare"
           ],
           "spacing_chunks": 16,
+          "separation_chunks": 4,
           "count_per_dimension": null,
           "position": null,
           "params": {
@@ -524,14 +529,16 @@
               120
             ],
             "y_min": 30,
-            "y_max": 50
+            "y_max": 50,
+            "shape": "straight",
+            "direction": "random_horizontal"
           },
-          "notes": "Tunnel 5×5, Länge 60–120, y 30–50, 1 je 16 Chunks"
+          "notes": "gerader Tunnel 5×5 in zufälliger Himmelsrichtung, Länge 60–120, y 30–50, 1 je 16 Chunks (Trennung 4); Erkundungsziel ab M4"
         }
       ],
       "features": [
         {
-          "id": null,
+          "id": "sternenwerft:small_crater",
           "type": "crater",
           "block": null,
           "fluid": null,
@@ -545,9 +552,13 @@
             "radius": [
               4,
               12
-            ]
+            ],
+            "rarity_chunks": 4,
+            "depth_divisor": 3,
+            "rim_height": 1,
+            "rim_block": "biome_surface"
           },
-          "notes": "Kleine Krater in allen Biomen; SPEC-GAP: keine ID, keine Häufigkeit"
+          "notes": "Kleine Krater in allen Biomen: 1 Versuch je 4 Chunks, Tiefe = Radius / 3, Rand 1 Block hoch aus dem Oberflächenblock des Bioms (Ä27)"
         }
       ],
       "vanilla_mobs": [

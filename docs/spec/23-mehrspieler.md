@@ -13,7 +13,7 @@
   - **Beitritt:** Wird die alte Agentur durch einen Beitritt leer, geht ihr gesamter Besitz automatisch an die neue Agentur über (Block-Entities, Fahrzeuge, Kuppeln, Stationen, Terminals, Routen). Technisch speichert die alte Agentur `merged_into`, und `owner_agency` wird beim nächsten Zugriff umgeschrieben. FP, Forschung und Atlas werden **nicht** übertragen, es gilt der Stand der neuen Agentur.
   - Eine Agentur, die auf andere Weise leer wird (alle verlassen den Server dauerhaft), bleibt ruhend bestehen und kann über den Server-Befehl `/sternenwerft agency transfer <von> <an>` einer anderen Agentur übertragen werden.
   - Ehemalige Mitglieder kann man wieder einladen.
-- **Fremde:** Nicht-Mitglieder haben an Block-Entities fremder Agenturen überall Gast-Rechte, auch außerhalb von Kuppeln.
+- **Fremde:** Nicht-Mitglieder haben an Block-Entities fremder Agenturen überall Gast-Rechte, auch außerhalb von Kuppeln. Das wirkt ab M4 (siehe „Agentur-Kern“ unten).
 
 | Rolle | Rechte |
 | --- | --- |
@@ -21,9 +21,21 @@
 | `engineer` | bauen, Maschinen bedienen, Raketen starten, Routen ändern, forschen |
 | `guest` | Kuppeln betreten, Container öffnen (Slot-Klicks werden serverseitig verworfen), nichts abbauen oder setzen |
 
+**Agentur-Kern (M3):**
+
+- **Daten:** Agentur-ID = UUID. `AgencyData` (3A.4) speichert in M3 je Agentur `id`, `name`, `members` (UUID, Rolle, Beitritts-Tick), `merged_into` und `visited_dimensions`, dazu `data_version` 1. Spätere Felder sind optional und haben einen Standardwert.
+- **Name:** `name` = `null` heißt Anzeige „Agentur von <Name>“ über den Schlüssel `agency.sternenwerft.default_name` mit dem Namen des Gründers.
+- **Entstehung:** Bei jedem Login prüft der Server, ob der Spieler zu einer Agentur gehört. Wenn nicht, entsteht eine neue mit ihm als `leader`. Das gilt auch für Spieler aus Welten vor M3.
+- **Besuche:** `visited_dimensions` wird beim Dimensionswechsel gefüllt (auch über den Befehl `goto`, 12.10). M4 liest es für das Tor `enter_dimension` (25.3) und den Entdecker (23.3).
+- **Befehle:** `/sternenwerft agency info [<spieler>]` (alle Spieler) und `/sternenwerft agency transfer <von> <an>` (Rechtestufe 2).
+- **Rechte:** M3 speichert Besitz nur. Die Prüfung läuft über `Permissions.can(player, owner, action)` mit dem Standard `true`. Gast-Rechte und Kuppelschutz (23.2, 10.3) wirken ab M4, wenn man am `research_terminal` beitreten kann.
+- **Client:** In M3 gibt es keinen Agentur-Sync; `AgencyStatePayload` kommt mit M4.
+- **Ohne Besitzer:** Blöcke ohne `owner_agency` (aus Welten vor M3, gesetzt per Befehl, Werfer, Struktur oder GameTest) sind ohne Besitzer. In M3 hat das keine Wirkung. Ab M4 wird der erste Spieler, der das GUI öffnet, mit seiner Agentur Besitzer; bis dahin gilt die Rezeptsperre als offen, und der Block zählt für keine Tore.
+- Besitz haben nur Blöcke mit Block-Entity (3A.3); Kabel, Rohre und Gehäuse nicht.
+
 ## 23.2 Schutz
 
-- In aktiven Kuppeln dürfen nur Mitglieder der Besitzer-Agentur (ab `engineer`) abbauen und setzen. Alle Spieler können in jeder Kuppel atmen.
+- In aktiven Kuppeln dürfen nur Mitglieder der Besitzer-Agentur (ab `engineer`) abbauen und setzen (ab M4). Alle Spieler können in jeder Kuppel atmen.
 - Raketen und Rover darf jeder besteigen, starten nur Mitglieder der Besitzer-Agentur.
 
 ## 23.3 Zwischen Agenturen

@@ -677,7 +677,7 @@
         "pipes"
       ],
       "spec_ref": "10.2, 4.1",
-      "notes": "Bedarf: Kuppel T1 = 1, T2 = 2, T3 = 8 Generatoren ohne Upgrades; +1 je 2 Spieler, die regelmäßig draußen arbeiten (10.2)."
+      "notes": "Abgabe nur über die Ausgangsseite (4.1, Standard facing); outputs_to nennt die Empfängerarten, nicht die Seiten. Der Füllslot füllt Sauerstoffflaschen. Bedarf: Kuppel T1 = 1, T2 = 2, T3 = 8 Generatoren ohne Upgrades; +1 je 2 Spieler, die regelmäßig draußen arbeiten (10.2)."
     },
     "sternenwerft:electric_lamp": {
       "energy_per_tick": 5,
@@ -697,8 +697,9 @@
       "recipe_types": [],
       "light_level": 15,
       "works_everywhere": true,
+      "lit_requires_energy": true,
       "spec_ref": "8.5",
-      "notes": "Kein GUI, daher keine Upgrade-Slots."
+      "notes": "Kein GUI, keine Upgrade-Slots, keine Statuslampe. Puffer nach 4.1 (10.000 J), Blockstate lit, ohne Strom Licht 0."
     },
     "sternenwerft:cargo_terminal": {
       "energy_per_tick": 0,

@@ -30,6 +30,7 @@ Diese Entscheidungen lösen Widersprüche und Sackgassen. **Bitte prüfen**, bev
 | Ä24 | Lückentest Meilenstein 2 (`docs/dev/lueckentest-m2.md`): 33 Lücken, die bei M2 zu Rückfragen geführt hätten | In die Kapitel 3.9, 3A, 4, 5, 6, 13.4, 22, 24 und 27 eingearbeitet (Stichpunkte unten). Zwei Punkte bleiben in Kapitel 28 offen. |
 | Ä25 | Entscheidungen zu Kapitel 28 (11.11.2026) | Erdöl-Quellblöcke verbraucht die Pumpe nur mit 10 % Wahrscheinlichkeit (6.1); drei zutatengleiche Montagetisch-Rezepte getrennt (22.3) |
 | Ä26 | Handbuch-GUI erst in M9, kein Spieler-Wiki (11.11.2026) | Wiki und Ingenieurs-Handbuch aus einer Quelle `docs/handbook/` (24.1, 25.6). Buch-GUI mit Links, Rezeptanzeige, Suche und Taste `H` sowie Join-Geschenk vorgezogen nach M2f; jeder Meilenstein ergänzt seine Seiten (27). |
+| Ä27 | Lückentest Meilenstein 3 (`docs/dev/lueckentest-m3.md`, 11.11.2026): 34 Lücken, die bei M3 zu Rückfragen geführt hätten | In die Kapitel 3, 3A, 4, 5, 6, 8, 9, 10, 12, 13, 14.4, 23, 24, 25, 26, 27 und 28 eingearbeitet; Mondwerte in `planets.json` und Regeln in `domes.json`, `suits.json`, `environment.json`, `misc.json`, `machines.json` und `stations.json` ergänzt (Stichpunkte unten). Die Sauerstoff-Balance bleibt in Kapitel 28 offen. |
 
 **Ä24: Lückentest Meilenstein 2**
 
@@ -55,3 +56,15 @@ Diese Entscheidungen lösen Widersprüche und Sackgassen. **Bitte prüfen**, bev
 - Schema 25.6 erweitert: Kapiteldatei `_chapter.json`, Seiten-`id`, `icon`, `order`, `items`, Elemente `heading`, `list`, `callout`, `machine`, `table`, eingebettete `recipes`, Inline-Markup für Links und Items.
 - Buch-GUI, Links, Taste `H` und Join-Geschenk des Handbuchs in M2f (27.3); Blaupausen-Optik und englische Texte bleiben in M9.
 - Pflicht je Meilenstein: Seiten für neue Inhalte, `gen_wiki.py --check` grün, README-Status aktuell (27).
+
+**Ä27: Lückentest Meilenstein 3**
+
+- Umfang von M3 als Liste: 18 Items und Blöcke, 11 Rezepte, Dimension `moon`. `pressure_bottle` gehört dazu; `helmet_lamp`, `transport_tank`, Kuppelmodule und `advanced_circuit` kommen später. Teilschritte M3a–M3e (27.4, 27.5, Matrix).
+- Abnahme M3 präzisiert: Belastung mit Prüftakt statt „genau 200 t“, Kuppel-Ausfall mit festem Startzustand; Umwelt-Override `EnvironmentOverrides` und Dimensionsfeld von `TestData` (27, 3A.8).
+- Agentur-Kern: Format von `AgencyData`, Agentur bei jedem Login ohne Agentur, Befehle `agency info` und `agency transfer`, Blöcke ohne Besitzer, Rechte erst ab M4, `visited_dimensions` (23.1, 3A). `SwBlockEntity` als Basis von Maschinen und Ports; Kabel, Rohre und Gehäuse ohne Block-Entity (3A.3, 26).
+- Kuppelgenerator als Block mit den Zuständen `running`, `failing` und aus, O₂-Rechnung in 1/1.000 mB, Darstellung als Halbkugel (10.1, `domes.json`). Der Sauerstoffgenerator gibt nur über die Ausgangsseite ab (10.2).
+- Belastung: Zählweise, Schadensarten, Kreativ ausgenommen (8.2). HUD mit Maßen, Leisten und Payload-Feldern (8.4, 3.5, 3A.5). Tageslicht-Kurve und Deckung (8.1). Welten ohne Atmosphäre im Einzelnen (8.5, 3.7).
+- Anzug: O₂-Verbrauch, Startwert, Nachfüllen, Rüstungswerte (9.1). Sauerstoffflaschen in Füll- und Leerslots (4.1); `pressure_bottle` behält beim Abbauen ihren Inhalt (4.1, 6.3).
+- Planeten-Registry als Reload-Listener mit Sync, Laufzeitfelder, `dimensions` in `implemented_ids.json` (13.1, 25). Noise-Settings, Biom-Parameter, Himmelsfelder (13.1, 25.1). Mondwerte für `great_crater`, `moon_ice`, `small_crater`, `lava_tube`, Polarkrater ohne Sonnenenergie und Eigenschaften der Mondblöcke (13.4, `planets.json`). Monster mit Atemmaske (13.5).
+- Schwerkraft-Modifikatoren (12.9), Befehl `goto` (12.10), Betten (14.4), Platzhalter und Warntöne (24.5, 24.6), Schlüssel für Oberflächentexte (6.4), Spickzettel `api-dimensions-26.3.md` zu Beginn von M3 (3.1).
+- Offen (Kapitel 28): Sauerstoff-Balance.

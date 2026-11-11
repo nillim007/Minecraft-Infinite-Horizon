@@ -29,6 +29,8 @@ Begründung: 26.3 ist die neueste stabile Version und wird von NeoForge und Fabr
 
 **Regel für alles Versionsabhängige:** Dieses Dokument nennt Datenfelder und Klassen so, wie sie zuletzt sicher bekannt waren (z. B. `dimension_type`-Felder wie `fixed_time`, `bed_works`, `has_skylight` oder die Sky-Renderer-Hooks der Loader). Die KI MUSS jeweils das **26.3-Format** verwenden: Vanilla-Datenpaketdateien aus dem 26.3-Client-JAR als Vorlage nehmen (`data/minecraft/dimension_type/overworld.json`, `worldgen/noise_settings/overworld.json` usw.) und Plattform-APIs gegen die Javadocs von NeoForge 26.3 und Fabric API `+26.3` prüfen. Gibt es ein genanntes Feld oder eine Klasse in 26.3 nicht mehr, wird das gleichwertige Mittel genutzt und mit `// SPEC-GAP: 26.3` markiert. Für Himmel und Nebel gilt: Plattform-Hook für Dimensions-Effekte verwenden. Gibt es keinen, Mixin in den Sky-Pass des Level-Renderers.
 
+**Dimensionen, Biome und Himmel (ab M3):** Felder, die 13.1 nicht nennt, haben die Werte von `minecraft:overworld` aus 26.3. Führt 26.3 einen Wert als Umgebungsattribut (environment attribute) statt als Feld, gilt der Wert dort. Zu Beginn von M3 entsteht der Spickzettel `docs/dev/api-dimensions-26.3.md` (wie `api-fluids-26.3.md`, mit Belegen aus dem 26.3-JAR, NeoForge und Fabric API): Dimensions- und Biomformat, Umgebungsattribute, Himmel, HUD-Ebenen, `SavedData`, Spieler-Attachments und Attribut-Modifikatoren.
+
 ## 3.2 Projektaufbau
 
 ```
@@ -65,22 +67,22 @@ Gase sind Fluide mit dem Tag `sternenwerft:gases`. Gase haben keine platzierbare
 ## 3.5 Konfiguration
 
 - Eigene JSON-Datei pro Welt: `<welt>/serverconfig/sternenwerft.json`. Sie wird beim ersten Start mit Standardwerten angelegt und beim Join an Clients gesendet.
-- Client-Datei `config/sternenwerft-client.json` nur für HUD-Position und Lautstärke.
+- Client-Datei `config/sternenwerft-client.json` nur für HUD-Position und Lautstärke: `hud_offset_x` und `hud_offset_y` (Verschiebung des HUD in px, Standard 0) sowie `sound_volume` (0,0–1,0, Standard 1,0, gilt für die Warntöne).
 - Schlüssel: Kapitel 24.4.
 
 ## 3.6 Code-Konstanten
 
-`TICKS_PER_SECOND = 20`, `VANILLA_GRAVITY = 0.08`, `TANK_CAPACITY = 16000`, `HAZARD_WARN_TICKS = 200`.
+`TICKS_PER_SECOND = 20`, `VANILLA_GRAVITY = 0.08`, `TANK_CAPACITY = 16000`, `HAZARD_WARN_TICKS = 200`. `HAZARD_WARN_TICKS` ist nur die Untergrenze der Warnzeit (27); die Belastungszeit selbst liest der Code aus `environment.json` (`buildup_ticks`).
 
 ## 3.7 Mixins (nur wo nötig)
 
 | Ziel | Zweck |
 | --- | --- |
-| `Projectile` / `AbstractArrow` Schwerkraft | Projektile fallen mit `g` des Planeten |
-| `Explosion` Rückstoß | vertikaler Rückstoß × (1 / g) bei g < 1 |
-| `SoundEngine` Lautstärke | Dämpfung im Vakuum (24.6) |
-| `FireBlock`, `TorchBlock`-Platzierung | Feuer und Fackeln nach Regel 8.5 |
-| `CropBlock` Random Tick | Pflanzenwachstum nach Regel 8.5 |
+| `Projectile` / `AbstractArrow` Schwerkraft | Projektile fallen mit `g` des Planeten (ab M5) |
+| `Explosion` Rückstoß | vertikaler Rückstoß × (1 / g) bei g < 1 (ab M5) |
+| `SoundEngine` Lautstärke | Dämpfung im Vakuum (24.6, ab M9) |
+| `FireBlock`, `TorchBlock` (Platzierung, Random Tick), `IceBlock` (Schmelzen) | Feuer, Fackeln und Eis nach Regel 8.5 (ab M3) |
+| `CropBlock`, `SaplingBlock` (Random Tick, Knochenmehl) | Pflanzenwachstum nach Regel 8.5 (ab M3) |
 
 Alles andere über Events (NeoForge) bzw. Fabric-API-Callbacks.
 

@@ -4,7 +4,17 @@
 
 Datenpaket-Registry `sternenwerft:planet` (Schema in 25.1). Jede Planetendimension ist eine Datenpaket-Dimension mit eigenem `dimension_type` und eigenen Noise-Settings.
 
-**Gemeinsame Dimensionswerte (alle Planeten):** `min_y −64`, `height 384`, `bed_works true`, `respawn_anchor_works false`, `has_raids false`, `natural false`, `piglin_safe false`, Tag-Nacht-Zyklus wie Overworld (`fixed_time` nur wo angegeben). Noise-Settings: Kopie von `minecraft:overworld` **aus der Vanilla-Version 26.3** mit den Änderungen aus 13.4, `aquifers_enabled false`, `ore_veins_enabled false`, eigener `default_block`, `default_fluid` nach Tabelle. Die Oberflächenblöcke je Biom (Spalte „Oberfläche“) werden als **Material Rules** umgesetzt (26.3-Bezeichnung für die früheren Surface Rules). Erze und Strukturen sind Features im 26.3-Format (`worldgen/feature` + `worldgen/placed_feature`).
+**Umsetzung der Registry (ab M3):** `PlanetRegistry` ist ein Reload-Listener wie `BalanceManager`, keine dynamische Registry von Minecraft (die lädt `/reload` nicht neu). Dateien `data/<ns>/sternenwerft/planet/*.json` aus allen Namespaces werden zusammengeführt und über den Planeten-Teil von `SyncDataPayload` an Clients gesendet (Join, `/reload`). `gen_resources.py` erzeugt Einträge nur für die Overworld und für die Dimensionen im neuen Schlüssel `dimensions` von `common/implemented_ids.json` (M3: `sternenwerft:moon`). Verweise auf fehlende Einträge (`orbit`, `lander_connects_to`, `star_system`) sind erlaubt und liefern `null`. Die Laufzeitfelder stehen in 25.1; Biome, Erze, Blöcke, Strukturen, Features und Monster aus `planets.json` gehen nur in die Vanilla-Worldgen-Dateien. Den Planeten einer Position liefert `PlanetResolver` (3A.3).
+
+**Gemeinsame Dimensionswerte (alle Planeten):** `min_y −64`, `height 384`, `bed_works true`, `respawn_anchor_works false`, `has_raids false`, `natural false`, `piglin_safe false`, Tag-Nacht-Zyklus wie Overworld (`fixed_time` nur wo angegeben; die Tageszeit ist die der Overworld). Alle hier nicht genannten Felder wie `minecraft:overworld` aus 26.3 (z. B. `has_skylight`, `has_ceiling`, `ambient_light`, Monster-Lichtwerte); steht ein Wert in 26.3 als Umgebungsattribut, gilt er dort (3.1). Noise-Settings: Kopie von `minecraft:overworld` **aus der Vanilla-Version 26.3** mit den Änderungen aus 13.4, `aquifers_enabled false`, `ore_veins_enabled false`, eigener `default_block`, `default_fluid` nach Tabelle. Die Oberflächenblöcke je Biom (Spalte „Oberfläche“) werden als **Material Rules** umgesetzt (26.3-Bezeichnung für die früheren Surface Rules). Erze und Strukturen sind Features im 26.3-Format (`worldgen/feature` + `worldgen/placed_feature`).
+
+**Noise-Settings im Einzelnen (ab M3):**
+
+- Material Rules: Grundgestein wie in der Overworld, kein Tiefenschiefer (überall `default_block`), die obersten 3 Blöcke aus dem Oberflächenblock des Bioms. `surface_secondary` ersetzt den Oberflächenblock dort, wo das Noise `minecraft:surface` größer als 0 ist.
+- `sea_level` aus `planets.json` (ohne Fluid −64).
+- Carver: eigene Kopien von `minecraft:cave`, `cave_extra_underground` und `canyon` mit `lava_level` = `min_y` (keine Lava), außer `default_fluid` ist Lava.
+- Biome enthalten nur die Mod-Features aus `planets.json` (keine Vanilla-Erze, Quellen, Geoden, Pflanzen) und `has_precipitation false`; Wetter je Planet kommt mit Kapitel 19.
+- Der unveränderte Noise-Router erzeugt Ozeanbecken. Ohne Fluid bleiben sie leer; das ist gewollt.
 
 **Biome und Großformen (Umsetzungsregeln):**
 
@@ -13,7 +23,8 @@ Datenpaket-Registry `sternenwerft:planet` (Schema in 25.1). Jede Planetendimensi
   - Bergige oder hohe Biome (Hochland, Vulkane, Gebirge, Hochebenen): `erosion < −0,2`.
   - Flache Biome (Mare, Ebenen, Seen, Dünen, Eisebenen): `erosion > 0,45`.
   - Übrige: dazwischen.
-  - Seltene Biome (Polarkrater, Polkappe, Meteoritenfeld, Schattenkrater, Geysirfelder): `temperature < −0,8` oder `weirdness > 0,8`, ergibt ca. 5–10 % Fläche.
+  - Seltene Biome (Polarkrater, Polkappe, Meteoritenfeld, Schattenkrater, Geysirfelder), je ca. 5 % Fläche: das erste seltene Biom eines Planeten (Reihenfolge in `planets.json`) über `temperature < −0,8`, ein zweites über `weirdness > 0,8`.
+  - **Parameter:** Alle Werte von −1 bis 1, außer Erosion (bergig −1 bis −0,2, flach 0,45 bis 1, übrige −0,2 bis 0,45) und den Achsen seltener Biome: Belegt ein seltenes Biom eine Achse, nutzen alle anderen Biome des Planeten auf ihr nur den Rest (Temperatur −0,8 bis 1, Weirdness −1 bis 0,8). `offset` 0.
 - **Eigene `BiomeSource`:**
   - Merkur: Biom nach X-Koordinate (13.4), Schattenkrater als seltene Einsprengsel.
   - Pluto: `pluto_heart_glacier` im Radius 400 um (0, 0), außerhalb `multi_noise`.
@@ -97,11 +108,13 @@ Blöcke: `moon_regolith` (Oberfläche, 3 Schichten), `moon_rock` (Gestein = `def
 | --- | --- | --- | --- |
 | `moon_highlands` | `moon_regolith` | zerklüftet, höhere Berge | `moon_titanium_ore` (y 0–100, 6, 3) |
 | `moon_mare` | `moon_basalt` | flach, dunkel | `moon_aluminum_ore` (y 0–80, 8, 5), `moon_titanium_ore` (y 0–80, 6, 4) |
-| `moon_great_crater` | `moon_regolith` | Struktur `great_crater` erscheint bevorzugt in diesem Biom | Erze ×2 nur innerhalb der Struktur |
-| `moon_polar_crater` | `moon_regolith` + `moon_ice` | selten (5 %), Temperatur fest −190 (braucht Anzug T2), Licht 0 | `moon_ice` (Ader 16) |
+| `moon_great_crater` | `moon_regolith` | Struktur `great_crater` erscheint nur in diesem Biom | wie `moon_mare`; innerhalb der Struktur doppelt |
+| `moon_polar_crater` | `moon_regolith` + `moon_ice` | selten (5 %), Temperatur fest −190 (braucht Anzug T2), keine Sonnenenergie (`solar_factor` 0) | `moon_ice` (y 40–100, 16, 4) |
 
-Strukturen: `lava_tube` (Mare: Tunnel 5×5, Länge 60–120, y 30–50, 1 je 16 Chunks; zählt als Erkundungsziel). Kleine Krater (Radius 4–12) in allen Biomen.
+Strukturen: `great_crater` (nur im Biom `moon_great_crater`, Radius 40–60, Zentralberg, Abstand 32 Chunks, Trennung 8; „Erze ×2“ heißt: Die Struktur setzt die Erzadern ihres Bioms in ihrem Volumen ein zweites Mal). `lava_tube` (Mare: gerader Tunnel 5×5 in zufälliger Himmelsrichtung, Länge 60–120, y 30–50, 1 je 16 Chunks, Trennung 4; zählt ab M4 als Erkundungsziel). Feature `small_crater`: kleine Krater in allen Biomen, Radius 4–12, Tiefe = Radius / 3, Rand 1 Block hoch aus dem Oberflächenblock, 1 Versuch je 4 Chunks.
 `moon_aluminum_ore` droppt `bauxite`, `moon_titanium_ore` droppt `raw_titanium`, `moon_ice` droppt `minecraft:ice`.
+
+**Eigenschaften der Mondblöcke (ab M3):** `moon_rock` wie `minecraft:stone`, droppt sich selbst. `moon_basalt` wie `minecraft:basalt` (Tag `sternenwerft:basalt`). `moon_regolith` wie `minecraft:gravel`, aber kein Fallblock (Schaufel). `moon_ice` mit Härte und Klang von `minecraft:packed_ice`, schmilzt nicht und droppt immer `minecraft:ice`. Die Erze wie `minecraft:iron_ore` (Härte, Glück): `moon_aluminum_ore` braucht eine Steinspitzhacke, `moon_titanium_ore` eine Eisenspitzhacke (wie auf der Erde). Platzierung wie auf der Erde (`uniform`, „je Chunk“ = `count`), Wirtsblock `moon_rock`.
 
 ### Mars `mars`
 
@@ -202,3 +215,5 @@ In Planetendimensionen spawnen diese Vanilla-Monster nachts bzw. bei Licht ≤ 7
 | andere | keine | |
 
 Monster brauchen keinen Sauerstoff und nehmen keinen Umweltschaden. Mit `planet_mobs = false` spawnen keine.
+
+**Umsetzung (ab M3, `misc.json` → `planet_mob_rules`):** Die Biome tragen die Spawngewichte der Overworld. Die Häufigkeit (`rate` in `planets.json`) ist die Wahrscheinlichkeit, dass ein natürlicher Spawn bestehen bleibt; bei 50 % bricht das Spawn-Ereignis jeden zweiten ab. Die Lichtregel ist die der Overworld; „Licht ≤ 7“ ist so zu lesen. Die Atemmaske ist eine Render-Ebene am Kopf dieser Arten in jeder Dimension mit Planeten-Eintrag außer der Overworld (Platzhalter 24.5). Die Monster verbrennen weiter im Sonnenlicht.

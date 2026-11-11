@@ -101,7 +101,11 @@
         "bed",
         "overworld_world_spawn"
       ],
-      "spec_ref": "14.4"
+      "bed_denied_message": "message.sternenwerft.bed.no_air",
+      "sleep_only_where_spawn_allowed": true,
+      "missing_steps_skipped": true,
+      "spec_ref": "14.4",
+      "notes": "Ä27: Fehlt ein Glied der Reihenfolge (M3: keine Klon-Kammer), wird es übersprungen: Bett → Weltspawn der Overworld."
     },
     "sternenwerft:habitation_module": {
       "location": {

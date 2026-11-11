@@ -45,7 +45,7 @@ Jeder Erfolg wird mit Zeitstempel in `logs/sternenwerft-progress.log` geschriebe
 | Schlüssel | Standard | Bereich |
 | --- | --- | --- |
 | `recipe_amount_multiplier` | 1.0 | 0.25–4.0 (gilt nur für Item-Zutaten mit Stapelgröße > 1 in Montagetisch-Rezepten; rundet auf, min. 1; ein Rezept wird nur so weit vergrößert, dass es noch in 9 Slots passt. Fluide, unstapelbare Zutaten, Pressformen und Werftabschnitte bleiben unverändert) |
-| `oxygen_consumption` | 1.0 | 0.5–2.0 |
+| `oxygen_consumption` | 1.0 | 0.5–2.0 (nur Anzüge, 9.1) |
 | `event_frequency` | `normal` | `off`, `rare`, `normal`, `frequent` |
 | `meteor_block_damage` | true | |
 | `planet_mobs` | true | |
@@ -83,6 +83,7 @@ Jeder Erfolg wird mit Zeitstempel in `logs/sternenwerft-progress.log` geschriebe
 
   Der Rand ist die Grundfarbe × 0,6, dazu kommt Helligkeitsrauschen von ± 10 %. Items haben 2 px transparenten Rand.
 - Statuslampe als kleines Overlay oben auf jeder Maschine.
+- **Weitere Platzhalter ab M3** (`tools/gen_placeholders.py`): Anzug-Schichten (Equipment-Asset, 64 × 32) in der Phasenfarbe `#E8E8E8` mit Akzent `#E07B20`; Erde am Himmel (`textures/sky/earth.png`, 32 × 32) als Scheibe `#3F76E4` mit Rauschen; Kuppel-Sechseckmuster 16 × 16, weiß mit 25 % Deckkraft (beim Ausfall rot über die Renderfarbe); Atemmaske 64 × 32, Kopfbereich `#6E6E6E`. HUD-Leisten werden als Rechtecke gezeichnet (wie das Maschinen-GUI).
 
 ## 24.6 Klang
 
@@ -96,3 +97,5 @@ Jeder Erfolg wird mit Zeitstempel in `logs/sternenwerft-progress.log` geschriebe
 | `sternenwerft:music.<planet>` | ruhige Hintergrundmusik je Planet (Platzhalter: Vanilla-Musik `minecraft:music.game`) |
 
 Im Vakuum ohne Kuppel werden alle Geräusche außer Anzug- und Warntönen mit Lautstärke × 0,15 abgespielt.
+
+**Platzhalter und Meilensteine:** `sounds.json` verweist auf Vanilla-Klangdateien (wie die Musik). M3 registriert nur `warning.oxygen`, `.heat`, `.cold`, `.radiation` und `.dome`; die Gefahr Druck nutzt `warning.oxygen`. Atem- und Funkschleifen und die Dämpfung im Vakuum kommen mit M9.

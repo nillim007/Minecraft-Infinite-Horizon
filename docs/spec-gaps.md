@@ -14,8 +14,8 @@ Status: `offen` (noch nicht geprüft), `übernommen` (in Spezifikation eingearbe
 
 | # | Meilenstein | Kapitel | Lücke | Gewählte Lösung | Code-Stelle | Status |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1 | Datenaufbau | 13.4 | Keine y-Bereiche/Häufigkeiten für `moon_ice`, Merkur-Titan, Merkur-Eisen, Merkur-Eis, `io_sulfur_ore` | Werte in `planets.json` auf `null`; vor M5/M7 festlegen | `spec/data/planets.json` | offen |
-| 2 | Datenaufbau | 13.4 | Kein Abstand (`spacing_chunks`) für `great_crater`, Mars-`lava_tube`, `volcanic_vent`, `hydrothermal_field`, `large_asteroid` | `null`; vor M5/M7 festlegen | `spec/data/planets.json` | offen |
+| 1 | Datenaufbau | 13.4 | Keine y-Bereiche/Häufigkeiten für `moon_ice`, Merkur-Titan, Merkur-Eisen, Merkur-Eis, `io_sulfur_ore` | `moon_ice` in Ä27 festgelegt (y 40–100, Ader 16, 4 je Chunk); die übrigen Werte in `planets.json` auf `null`, vor M7 festlegen | `spec/data/planets.json` | `moon_ice` übernommen (Ä27), Rest offen |
+| 2 | Datenaufbau | 13.4 | Kein Abstand (`spacing_chunks`) für `great_crater`, Mars-`lava_tube`, `volcanic_vent`, `hydrothermal_field`, `large_asteroid` | `great_crater` in Ä27 festgelegt (Abstand 32, Trennung 8); die übrigen `null`, vor M5/M7 festlegen | `spec/data/planets.json` | `great_crater` übernommen (Ä27), Rest offen |
 | 3 | Datenaufbau | 13.4 | Meeresspiegel Io (Lava) fehlt | `null` | `spec/data/planets.json` | offen |
 | 4 | Datenaufbau | 13.1 | Orbits und Asteroidengürtel ohne eigenes Biom | `minecraft:the_void` | `spec/data/planets.json` | offen |
 | 5 | Datenaufbau | 13.4 | `default_block` für Merkur, Ceres, Io, Europa, Titan, Enceladus, Triton, Pluto nicht genannt | jeweils das Hauptgestein (z. B. `mercury_rock`) | `spec/data/planets.json` | offen |

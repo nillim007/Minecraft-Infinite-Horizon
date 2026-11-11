@@ -1,6 +1,6 @@
 # 25. Datenformate
 
-Dateien **eigener Registries** liegen unter `data/<namespace>/sternenwerft/<typ>/`, damit andere Mods und Datenpakete Inhalte ergänzen können. Rezepte, Advancements, Loot-Tables, Tags und Worldgen liegen in den Vanilla-Ordnern (`recipe/`, `advancement/`, `loot_table/`, `tags/`, `worldgen/` …). Alle eigenen Registries sind neu ladbar (`/reload`) und werden an Clients synchronisiert.
+Dateien **eigener Registries** liegen unter `data/<namespace>/sternenwerft/<typ>/`, damit andere Mods und Datenpakete Inhalte ergänzen können. Rezepte, Advancements, Loot-Tables, Tags und Worldgen liegen in den Vanilla-Ordnern (`recipe/`, `advancement/`, `loot_table/`, `tags/`, `worldgen/` …). Alle eigenen Registries sind neu ladbar (`/reload`) und werden an Clients synchronisiert. Sie sind als Reload-Listener umgesetzt, nicht als dynamische Registries von Minecraft (13.1).
 
 ## 25.1 Planet (`sternenwerft:planet`, Ordner `planet/`)
 
@@ -55,8 +55,10 @@ Dateien **eigener Registries** liegen unter `data/<namespace>/sternenwerft/<typ>
   - Europa-Ozean: y −64–111, +2 °C, `normal`, Strahlung 0, `water_behavior: normal`.
   - Europa-Tiefsee: y −64–79, Druck `deep`.
   - Io an Lava: `near_block: minecraft:lava`, +300 °C.
-  - Mond-Polarkrater: −190 °C (wie im Beispiel oben).
+  - Mond-Polarkrater: −190 °C, `solar_factor` 0 (keine Sonnenenergie).
   - Merkur-Biome laut 13.4.
+- **Himmel (`sky`):** `color` und `fog_color` sind Himmels- und Nebelfarbe; `fog_distance: null` = Vanilla-Nebel; `stars_in_daylight` = Sterne auch tagsüber in voller Helligkeit; `sun_scale` = Größe der Sonne relativ zu Vanilla. `celestial_bodies` stehen fest am Himmel und drehen sich nicht mit der Tageszeit: `azimuth` in Grad ab Norden im Uhrzeigersinn, `elevation` in Grad über dem Horizont (negativ = darunter), `size` in der Einheit der Vanilla-Sonne (Sonne = 30). Die Sonne läuft normal.
+- **Laufzeitfelder:** Die Datei im Spiel enthält nur die Felder dieses Beispiels und `name`. Worldgen-Felder aus `planets.json` gehen in die Vanilla-Worldgen-Dateien (13.1).
 
 ## 25.2 Sonnensystem (`sternenwerft:star_system`, Ordner `star_system/`)
 
@@ -204,9 +206,9 @@ Alle Zahlenwerte, die nicht in Rezepten, Planeten, Forschung oder Raketenteilen 
 | `machines.json` | Verbrauch, Dauer, Puffer, Ortsbindung, Upgrades (4.1, 4.2, 6.1) | Block-ID |
 | `generators.json` | Leistung, Brennstoff, Speicher, Reaktor-Sicherheit (6.3) | Block-ID |
 | `transport.json` | Kabel- und Rohrdurchsatz (4.4) | Block-ID |
-| `environment.json` | Belastungszeit, Schadensraten, Schutz ohne Anzug (8.2, 8.3) | Gefahr |
+| `environment.json` | Belastungszeit und Zählweise, Schadensraten und -arten, Schutz ohne Anzug, Tageslicht-Kurve, HUD (8.1–8.4) | Gefahr bzw. Name |
 | `suits.json` | Anzugstufen und Module (9.1, 9.2) | Stufe bzw. Modul-ID |
-| `domes.json` | Kuppelstufen, Module, Ausfallzeit (10.1, 10.2) | Block-ID |
+| `domes.json` | Kuppelstufen, Module, Zustände, Verbrauchsrechnung, Ausfallzeit (10.1, 10.2) | Block-ID bzw. `dome_rules` |
 | `spaceflight.json` | Treibstoffformel, Schub, Sondenzeiten, Landefähre (12.2–12.7) | Schlüssel aus der Formel |
 | `vehicles.json` | Rover, Rover-Module (16) | Entity- bzw. Item-ID |
 | `creatures.json` | Lebenspunkte, Schaden, Tempo, Spawn (18) | Entity-ID |
@@ -230,4 +232,4 @@ Beispiel `machines.json`:
 `buffer: null` heißt „Formel aus 4.1 verwenden“.
 
 - **Zusammenführen:** Gleiche Dateien aus mehreren Datenpaketen werden pro Schlüssel zusammengeführt; bei gleichem Schlüssel gewinnt das Paket mit höherer Priorität.
-- **`misc.json`** enthält alle übrigen Einzelwerte, z. B. Wartezeit des Wolkenaufzugs (100 t, 12.8), Schwerkraftformel (12.9), Langsamer Fall nach Sturz (400 t, 14.3), Vakuum-Dämpfung (0,15, 24.6), Belastungszeit (200 t).
+- **`misc.json`** enthält alle übrigen Einzelwerte, z. B. Wartezeit des Wolkenaufzugs (100 t, 12.8), Schwerkraftformel (12.9), Langsamer Fall nach Sturz (400 t, 14.3), Vakuum-Dämpfung (0,15, 24.6), Regeln für Welten ohne Atmosphäre (8.5), Monster auf Planeten (13.5) und Befehle (12.10, 23.1). Die Belastungszeit (200 t) steht in `environment.json`.

@@ -27,6 +27,7 @@ Alle Fluide stehen in `items.json` (`kind: fluid`) mit Typ (`liquid`/`gas`), Roh
 
 - **`crude_oil`:** wie Wasser, aber `tickDelay` 30, Fließweite 4 (Pegelabfall 2), hohe Dichte (der Spieler schwimmt langsam), wird nicht zur Quelle (`canConvertToSource` false), Licht 0.
 - **Gase in M2:** `hydrogen` und `oxygen` haben in M2 keinen Speicher (`pressure_bottle` ist Phase 2) und keine Verbraucher. Sie bleiben im Maschinentank, Rohre dürfen sie führen. Ist der Tank voll, meldet der Elektrolyseur `error`. Das ist so gewollt.
+- **Gase ab M3:** `pressure_bottle` speichert Gase (6.3), Sauerstoffflaschen nehmen `oxygen` auf (4.1), Kuppelgeneratoren und Anzüge verbrauchen es (9.1, 10.1).
 
 ## 5.4 Verarbeitungsketten (max. 3 Schritte)
 

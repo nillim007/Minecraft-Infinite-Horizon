@@ -8,7 +8,7 @@ Dieses Kapitel legt fest, **wie der Code gegliedert ist**. Jede Sitzung MUSS sic
 2. **Reine Funktionen für Regeln.** Jede Berechnung mit Spielregeln (Umwelt, Treibstoff, Raketenprüfung, Forschungstore, Offline-Produktion, Fracht) steht in einer zustandslosen Klasse ohne Minecraft-Weltzugriff. Block-Entities und Events rufen sie nur auf. So sind die Regeln mit JUnit testbar.
 3. **Alle Zahlen aus Daten.** Kein Balance-Wert steht im Code. Code liest Werte über `BalanceManager` (3A.6) bzw. die eigenen Registries.
 4. **Plattformcode bleibt dünn.** `neoforge/` und `fabric/` enthalten nur Registrierung, Capability-/API-Adapter, Event-Weiterleitung und Render-Hooks. Logik gehört nach `common/`.
-5. **Besitz ist überall.** Jede Block-Entity und jedes Fahrzeug kennt `owner_agency` (23.1). Das gilt ab M3 (Agentur-Kern); in M1 und M2 gibt es noch keinen Besitzer.
+5. **Besitz ist überall.** Jede Block-Entity und jedes Fahrzeug kennt `owner_agency` (23.1). Das gilt ab M3 (Agentur-Kern); in M1 und M2 gibt es noch keinen Besitzer. Blöcke ohne Eintrag (aus Welten vor M3 oder nicht von einem Spieler gesetzt) sind „ohne Besitzer“ (23.1).
 
 ## 3A.2 Paketstruktur (`common`)
 
@@ -33,14 +33,15 @@ de.sternenwerft
 ├─ machine/                     MachineBlock, MachineBlockEntity, MachineMenu, Upgrades, je Maschine eine Unterklasse
 ├─ multiblock/                  MultiblockController, MultiblockPattern, PortBlockEntity, GhostPreview
 ├─ environment/                 EnvironmentCalculator, EnvironmentInput, EnvironmentResult, Hazard, HazardTracker,
-│                               AtmosphereRules (8.5), GravityService (12.9)
+│                               AtmosphereRules (8.5), GravityService (12.9), PlanetResolver,
+│                               EnvironmentOverrides (nur im GameTest-Betrieb)
 ├─ suit/                        SuitItem, SuitProtection, SuitModules, OxygenService
 ├─ dome/                        DomeGeneratorBlockEntity, DomeManager, DomeVolume
 ├─ research/                    FpLedger, ResearchGates, SampleTool, AnalyzerBlockEntity, FieldScanner
-├─ agency/                      Agency, AgencyManager, Role, Permissions, OwnershipResolver (merged_into)
+├─ agency/                      Agency, AgencyManager, Role, Permissions, OwnershipResolver (merged_into), AgencyCommands
 ├─ space/                       FuelCalculator, RocketAssembler, RocketConfig, RocketEntity, LaunchControlBlockEntity,
 │                               FlightService, LandingService, ProbeService, LanderEntity, Destinations
-├─ world/                       Dimensionen, MercuryBiomeSource, PlutoBiomeSource, Features, Structures, Carver,
+├─ world/                       Dimensionen, MercuryBiomeSource, PlutoBiomeSource, Features, Structures, Carver, GotoCommand,
 │                               DimensionWeatherManager, EventScheduler, MeteorEntity
 ├─ station/                     StationCoreBlockEntity, StationModules, ZeroGMovement, GravityPlateBlockEntity
 ├─ vehicle/                     RoverEntity, RoverTrailerEntity, StarshipEntity, SeatEntity
@@ -62,12 +63,14 @@ de.sternenwerft
 
 | Klasse | Aufgabe | Wichtige Regeln |
 | --- | --- | --- |
-| `SwBlockEntity` | Basis aller eigenen Block-Entities | speichert `owner_agency`; setzt es in `setPlacedBy`; liefert `OwnershipResolver.current(owner)` (berücksichtigt `merged_into`). Ab M2 Basisklasse für Speicher, Ports sowie Kabel- und Rohrblöcke; `owner_agency` und `setPlacedBy` kommen erst mit M3. Maschinen erben von `MachineBlockEntity`. |
+| `SwBlockEntity` | Basis aller eigenen Block-Entities | speichert `owner_agency` (NBT-Schlüssel `owner_agency`, UUID); setzt es in `setPlacedBy`, wenn ein Spieler platziert; liefert `OwnershipResolver.current(owner)` (berücksichtigt `merged_into`). Ab M3 Basis von `MachineBlockEntity` und `PortBlockEntity` (im Code aus M2 fehlt die Klasse noch). Fehlt der Eintrag, ist der Block ohne Besitzer (23.1). Blöcke ohne Block-Entity (Kabel, Rohre, Gehäuse) haben keinen Besitzer. |
 | `MachineBlockEntity` | Basis aller Maschinen | liest Werte aus `BalanceManager` per Block-ID; Zustände `idle`/`running`/`error` → Blockstate `status`; Upgrades; Füll-/Leerslots; Rezeptsuche ruft `ResearchRecipeLock.isUnlocked(recipe, owner)` auf (Standard `true`; die Prüfung der Forschung der Besitzer-Agentur kommt mit M4, die Agentur mit M3) |
 | `MultiblockController` | Basis für Raffinerie, Fusion, Kernreaktor, Startrampe | Musterprüfung beim Setzen, bei Nachbaränderungen und alle 100 t; nimmt an freien Seiten I/O an |
 | `Transaction` | gemeinsames Transaktionsmodell | `simulate → commit/rollback`; Adapter auf NeoForge-Transfer-API und Fabric-Transfer-API |
 | `EnvironmentCalculator` | reine Funktion (8.1) | Eingabe: Planet, Zonenliste, Position, Tageszeit, Kuppeln, Ausrüstung; Ausgabe: Werte + Schutz je Gefahr |
-| `HazardTracker` | Belastung je Spieler | Spieler-Attachment; alle 10 t; ruft `EnvironmentCalculator`; sendet `HazardStatePayload` nur bei Änderung |
+| `HazardTracker` | Belastung je Spieler | Spieler-Attachment; alle 10 t; läuft im Server-Tick über die Spielerliste (auch GameTest-Spieler); Zählweise 8.2; ruft `EnvironmentCalculator`; sendet `HazardStatePayload` nur bei Änderung |
+| `PlanetResolver` | Planet und Zonen an einer Position | einzige Quelle für Umwelt, Schwerkraft, Kuppeltemperatur, 8.5 und Ortsbindung; im GameTest-Betrieb fragt er zuerst `EnvironmentOverrides` (27) |
+| `Permissions` | Rechteprüfung | `can(player, owner, action)`; in M3 immer `true`, Gast-Rechte und Kuppelschutz ab M4 (23.1) |
 | `FuelCalculator` | reine Funktion (12.2) | Kosten A→B, Hin- und Rückflug, erreichbare Ziele für eine `RocketConfig` |
 | `RocketAssembler` | reine Funktion (12.4) | Block-Schnappschuss der Rampe → `RocketConfig` oder Fehlerliste (für die Checkliste) |
 | `ResearchGates` | reine Funktion (11.4, 25.3) | Agentur-Fortschritt + Tor-Definition → offen/zu |
@@ -81,7 +84,7 @@ de.sternenwerft
 
 | Name | Ort | Inhalt |
 | --- | --- | --- |
-| `AgencyData` | Overworld, `SavedData` | Agenturen, Mitglieder, Rollen, FP, erforschte Knoten, offene Stufen, Sondenziele, Atlas, Entdecker-Einträge, `chart_uuid`, `merged_into`, Partner, entdeckte Strukturinstanzen |
+| `AgencyData` | Overworld, `SavedData` | Agenturen, Mitglieder, Rollen, FP, erforschte Knoten, offene Stufen, Sondenziele, Atlas, Entdecker-Einträge, `chart_uuid`, `merged_into`, Partner, entdeckte Strukturinstanzen; Felder in M3 und Format: 23.1 |
 | `DomeData` | je Dimension, `SavedData` | aktive Kuppeln (Mittelpunkt, Radius, Stufe, Agentur, Zustand) |
 | `WeatherData` | je Mod-Dimension, `SavedData` | Wetterzustand, Restdauer, geplante Ereignisse |
 | `OutpostData` | Overworld, `SavedData` | Außenposten, Produzenten-Snapshots, letzter Tick |
@@ -90,9 +93,9 @@ de.sternenwerft
 | `CloneData` | Overworld, `SavedData` | Bindung je Spieler, gemeldeter Kammerzustand |
 | `WorldFlags` | je Dimension, `SavedData` | einmalige Weltereignisse (z. B. Venus-Plattformen, Boss-Beschwörungen) |
 | Chunk-Attachment `sampled_positions` | je Chunk | beprobte bzw. von Spielern gesetzte Positionen (11.2) |
-| Spieler-Attachment `hazard_state` | je Spieler | Belastung je Gefahr, Venus-Hitzezeit, Klon-Bindung (Kopie) |
+| Spieler-Attachment `hazard_state` | je Spieler | Belastung je Gefahr (in Ticks, 8.2; beim Tod 0), Zähler für den O₂-Verbrauch (9.1), Venus-Hitzezeit, Klon-Bindung (Kopie) |
 
-Jede `SavedData` hat ein Feld `data_version` (Start: 1) und eine Migrationsmethode für spätere Versionen.
+Jede `SavedData` hat ein Feld `data_version` (Start: 1) und eine Migrationsmethode für spätere Versionen. Gespeichert wird im 26.3-Format (Codec). Neue Felder späterer Meilensteine sind optional und haben einen Standardwert.
 
 ## 3A.5 Netzwerk-Payloads
 
@@ -100,11 +103,11 @@ Alle Payloads sind `CustomPacketPayload` mit `StreamCodec`. Jeder Client→Serve
 
 | Payload | Richtung | Inhalt | Wann |
 | --- | --- | --- | --- |
-| `SyncDataPayload` | S→C | Balance, Planeten, Forschung, Raketenteile (komprimiert, ggf. in Teilen) | Join, `/reload` |
+| `SyncDataPayload` | S→C | Balance, Planeten, Forschung, Raketenteile (komprimiert, ggf. in Teilen); ab M3 mindestens der Planeten-Teil (13.1) | Join, `/reload` |
 | `SyncConfigPayload` | S→C | Serverkonfiguration (24.4) | Join, Änderung |
-| `AgencyStatePayload` | S→C | Agentur, Rolle, FP, Knoten, offene Stufen, Sondenziele, Atlas | Join, Änderung |
-| `DomeStatePayload` | S→C | Kuppeln der aktuellen Dimension | Dimensionswechsel, Änderung |
-| `HazardStatePayload` | S→C | Werte und Belastungen für das HUD | bei Änderung, höchstens alle 10 t |
+| `AgencyStatePayload` | S→C | Agentur, Rolle, FP, Knoten, offene Stufen, Sondenziele, Atlas | Join, Änderung (ab M4) |
+| `DomeStatePayload` | S→C | Kuppeln der aktuellen Dimension: je Kuppel `pos`, `radius`, `tier`, `state` (`active`, `failing`), `agency` | Dimensionswechsel, Änderung |
+| `HazardStatePayload` | S→C | Belastung je Gefahr (0–100: `oxygen`, `pressure`, `heat`, `cold`, `radiation`), `temperature`, `pressure`, `radiation`, `breathable`, `suit_oxygen` (mB) | bei Änderung, höchstens alle 10 t |
 | `WeatherStatePayload` | S→C | Wetter und Ereigniswarnung der Dimension | Dimensionswechsel, Änderung |
 | `FlightSequencePayload` | S→C | Ziel, Dauer, Sequenztyp (Start, Landung, Finale) | Flugbeginn |
 | `ResearchUnlockPayload` | C→S | Knoten-ID | Klick im Terminal |
@@ -146,6 +149,7 @@ Laufzeit: Reload-Listener ─▶ BalanceManager / Registries ─▶ SyncDataPayl
 - **GameTests** in `common` (Registrierung je Loader) für Verhalten in der Welt: Maschinen, Netze, Multiblöcke, Kuppeln, Raketenbau. Strukturvorlagen unter `data/sternenwerft/structure/gametest/`.
 - Teststruktur: `data/sternenwerft/structure/gametest/empty.nbt` (leer, 8×8×8, von `gen_resources.py` erzeugt). Logik in `common` (`gametest/SwGameTests`), Registrierung je Loader: NeoForge `RegisterGameTestsEvent` + `TEST_FUNCTION`, Fabric `@GameTest` + Entry-Point `fabric-gametest`. Die CI wertet „All N required tests passed“ aus.
 - Testnamen: `<System>_<Verhalten>_<Erwartung>`, z. B. `Crusher_RawIron_TwoDustWithin220Ticks`.
+- **Umwelt-Override und Dimension (ab M3):** Umweltabhängige Tests nutzen `EnvironmentOverrides` (Einleitung von Kapitel 27). Tests, die eine echte Mod-Dimension brauchen, setzen das Dimensionsfeld von `TestData` (26.3; Fabric `@GameTest(dimension = …)`).
 
 ## 3A.9 Code-Regeln
 

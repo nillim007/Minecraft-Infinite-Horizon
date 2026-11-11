@@ -17,8 +17,83 @@
       ],
       "projectiles_use_g": true,
       "explosion_vertical_knockback": "× 1/g bei g < 1",
+      "modifier_operations": {
+        "minecraft:gravity": "add_multiplied_total: g - 1",
+        "minecraft:fall_damage_multiplier": "add_multiplied_total: g - 1",
+        "minecraft:safe_fall_distance": "add_value: 3 / max(g, 0.05) - 3"
+      },
+      "apply_on": [
+        "dimension_change",
+        "respawn",
+        "login",
+        "interval"
+      ],
+      "jump_strength_unchanged": true,
+      "mixins_from_milestone": 5,
       "spec_ref": "12.9, 3.7, 14.3",
-      "notes": "gravity = 0,08 × g; safe_fall_distance = 3 / max(g, 0,05); fall_damage_multiplier = g."
+      "notes": "gravity = 0,08 × g; safe_fall_distance = 3 / max(g, 0,05); fall_damage_multiplier = g. Monster und Items fallen mit Vanilla-Schwerkraft. Mond: Sprunghöhe rund 4,9 Blöcke (gewollt)."
+    },
+    "atmosphere_rules": {
+      "block_tag": "sternenwerft:needs_atmosphere",
+      "tag_contents": [
+        "#minecraft:candles",
+        "minecraft:torch",
+        "minecraft:wall_torch",
+        "minecraft:soul_torch",
+        "minecraft:soul_wall_torch",
+        "minecraft:copper_torch",
+        "minecraft:copper_wall_torch",
+        "minecraft:fire",
+        "minecraft:soul_fire",
+        "minecraft:lantern",
+        "minecraft:soul_lantern",
+        "minecraft:campfire",
+        "minecraft:soul_campfire"
+      ],
+      "placement": "denied",
+      "denied_message": "message.sternenwerft.no_atmosphere",
+      "existing_torches": "random_tick_to_extinguished_torch",
+      "existing_lit_blocks": "lit_false",
+      "existing_other": "removed",
+      "plant_tags": [
+        "#minecraft:crops",
+        "#minecraft:saplings"
+      ],
+      "plants_block_bonemeal": true,
+      "ice_melts_in_freeze": false,
+      "extinguished_torch_drops": "self",
+      "applies": "Mod-Dimensionen außerhalb aktiver Kuppeln (failing zählt als aktiv)",
+      "spec_ref": "8.5, 3.7",
+      "notes": "Ä27. Redstone-Fackeln sind ausgenommen. IDs der Kupferfackel gegen 26.3 prüfen (3.1)."
+    },
+    "planet_mob_rules": {
+      "weights": "wie Overworld",
+      "rate_meaning": "Wahrscheinlichkeit, dass ein natürlicher Spawn bestehen bleibt",
+      "light": "wie Overworld",
+      "mask_render_layer": "Kopf; alle Dimensionen mit Planeten-Eintrag außer der Overworld",
+      "burn_in_daylight": true,
+      "spec_ref": "13.5"
+    },
+    "commands": {
+      "goto": {
+        "syntax": "/sternenwerft goto <planet> [<x> <z>]",
+        "permission_level": 2,
+        "default_xz": [
+          0,
+          0
+        ],
+        "landing": "spaceflight.json landing_search",
+        "overworld": "world_spawn"
+      },
+      "agency_info": {
+        "syntax": "/sternenwerft agency info [<spieler>]",
+        "permission_level": 0
+      },
+      "agency_transfer": {
+        "syntax": "/sternenwerft agency transfer <von> <an>",
+        "permission_level": 2
+      },
+      "spec_ref": "12.5, 23.1"
     },
     "slow_fall": {
       "ticks": 400,

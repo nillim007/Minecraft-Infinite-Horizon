@@ -64,6 +64,30 @@
       },
       "spec_ref": "8.2"
     },
+    "hazard_rules": {
+      "unit": "ticks",
+      "add_per_check": "interval_ticks",
+      "remove_per_check": "interval_ticks * buildup_ticks / decay_ticks",
+      "runs_in": "server_tick_over_player_list",
+      "exempt_game_modes": [
+        "creative",
+        "spectator"
+      ],
+      "persist_with_player": true,
+      "reset_on_death": true,
+      "damage_stacks": true,
+      "damage_types": {
+        "oxygen": "sternenwerft:oxygen",
+        "pressure": "sternenwerft:pressure",
+        "deep_pressure": "sternenwerft:pressure",
+        "heat": "sternenwerft:heat",
+        "cold": "sternenwerft:cold",
+        "radiation": "sternenwerft:radiation"
+      },
+      "damage_type_tag": "minecraft:bypasses_armor",
+      "spec_ref": "8.2",
+      "notes": "Ä27: 100 % mit der 20. Prüfung (200 t), Toleranz 1 Takt."
+    },
     "no_suit_tolerance": {
       "temp_min": -20,
       "temp_max": 45,
@@ -83,6 +107,8 @@
       "cover_reduction": 2,
       "solar_storm_bonus": 2,
       "dome_t3_value": 0,
+      "cover_block_test": "BlockState#isSolidRender",
+      "cover_scan_to": "world_top",
       "spec_ref": "8.1"
     },
     "pressure_levels": {
@@ -100,18 +126,69 @@
       "includes_dome_check": true,
       "spec_ref": "8.1, 23.5"
     },
+    "daylight_curve": {
+      "points": [
+        [
+          0,
+          1.0
+        ],
+        [
+          12000,
+          1.0
+        ],
+        [
+          13800,
+          0.0
+        ],
+        [
+          22200,
+          0.0
+        ],
+        [
+          24000,
+          1.0
+        ]
+      ],
+      "interpolation": "linear",
+      "weather_factor": false,
+      "time_source": "overworld_day_time",
+      "spec_ref": "8.1, 6.3"
+    },
     "hud": {
       "show_from": 0.01,
       "warning_sound_from": 0.01,
       "yellow_from": 0.5,
       "red_from": 0.8,
-      "bars": [
+      "bar_width": 81,
+      "bar_height": 5,
+      "anchor": "above_food_bar",
+      "stack": "up",
+      "above_air_bubbles": true,
+      "hazard_bars": [
         "oxygen",
-        "temperature",
-        "radiation",
+        "pressure",
+        "heat",
+        "cold",
+        "radiation"
+      ],
+      "value_bars": [
+        "suit_oxygen",
         "venus_heat_timer"
       ],
-      "spec_ref": "8.2, 8.4"
+      "value_icons": [
+        "temperature",
+        "radiation"
+      ],
+      "warning_sound": "on_show",
+      "warning_sounds": {
+        "oxygen": "sternenwerft:warning.oxygen",
+        "pressure": "sternenwerft:warning.oxygen",
+        "heat": "sternenwerft:warning.heat",
+        "cold": "sternenwerft:warning.cold",
+        "radiation": "sternenwerft:warning.radiation"
+      },
+      "spec_ref": "8.2, 8.4",
+      "notes": "Ä27: Belastungsleisten je Gefahr; suit_oxygen nur mit vollständigem Anzug außerhalb von breathable (Farben umgekehrt); Symbole außerhalb des Schutzes ohne Anzug (8.3); venus_heat_timer ab M5."
     }
   }
 }
