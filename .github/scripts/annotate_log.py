@@ -11,7 +11,23 @@ def esc(s):
     return s.replace("%", "%25").replace("\r", "").replace("\n", "%0A")
 
 
+def summary(path):
+    """Kurzfassung eines GameTest-Logs als Hinweis-Anmerkung (auch bei Erfolg)."""
+    try:
+        lines = open(path, encoding="utf-8", errors="replace").read().splitlines()
+    except OSError:
+        print(f"::warning title=GameTest-Zusammenfassung {path}::Log fehlt")
+        return
+    rx = re.compile(r"game ?tests? complete|required tests?|tests? (are now )?running|passed|failed|timed out|"
+                    r"sternenwerft:|batch|structure|no tests", re.I)
+    hits = [l.strip()[-300:] for l in lines if rx.search(l)][-30:]
+    print(f"::notice title=GameTest-Zusammenfassung {path}::{esc(' | '.join(hits)[:6000] or 'keine passenden Zeilen')}")
+
+
 def main():
+    if len(sys.argv) > 2 and sys.argv[1] == "--summary":
+        summary(sys.argv[2])
+        return
     try:
         lines = open(sys.argv[1], encoding="utf-8", errors="replace").read().splitlines()
     except OSError:

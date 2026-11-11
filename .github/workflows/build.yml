@@ -61,6 +61,13 @@ jobs:
         run: |
           set -o pipefail
           ./gradlew :fabric:runGameTestServer --stacktrace --no-daemon 2>&1 | tee gametest-fabric.log
+      - name: GameTest-Zusammenfassung
+        if: always() && steps.build.outcome == 'success'
+        shell: bash
+        run: |
+          for f in gametest-neoforge.log gametest-fabric.log; do
+            python3 .github/scripts/annotate_log.py --summary "$f"
+          done
       - name: Fehler als Anmerkungen ausgeben
         if: failure()
         shell: bash {0}
