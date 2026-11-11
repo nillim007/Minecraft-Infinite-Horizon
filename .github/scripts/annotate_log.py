@@ -11,23 +11,27 @@ def esc(s):
     return s.replace("%", "%25").replace("\r", "").replace("\n", "%0A")
 
 
-def summary(path):
+def gametest_summary(path):
     """Kurzfassung eines GameTest-Logs als Hinweis-Anmerkung (auch bei Erfolg)."""
     try:
         lines = open(path, encoding="utf-8", errors="replace").read().splitlines()
     except OSError:
-        print(f"::warning title=GameTest-Zusammenfassung {path}::Log fehlt")
-        return
+        print(f"::error title=GameTest-Zusammenfassung {path}::Log fehlt")
+        return 1
     rx = re.compile(r"game ?tests? complete|required tests?|tests? (are now )?running|passed|failed|timed out|"
                     r"sternenwerft:|batch|structure|no tests", re.I)
     hits = [l.strip()[-300:] for l in lines if rx.search(l)][-30:]
     print(f"::notice title=GameTest-Zusammenfassung {path}::{esc(' | '.join(hits)[:6000] or 'keine passenden Zeilen')}")
+    # Streng: ohne Erfolgsmeldung des GameTest-Servers gilt der Lauf als fehlgeschlagen
+    if not any(re.search(r"All \d+ required tests passed", l) for l in lines):
+        print(f"::error title=GameTest {path}::Keine Erfolgsmeldung 'All N required tests passed' im Log")
+        return 1
+    return 0
 
 
 def main():
     if len(sys.argv) > 2 and sys.argv[1] == "--summary":
-        summary(sys.argv[2])
-        return
+        sys.exit(gametest_summary(sys.argv[2]))
     try:
         lines = open(sys.argv[1], encoding="utf-8", errors="replace").read().splitlines()
     except OSError:

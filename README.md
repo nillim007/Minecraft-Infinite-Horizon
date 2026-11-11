@@ -8,7 +8,7 @@ Die **Spezifikation ist fertig** (Version 1.1). Der Code entsteht als Nächstes,
 
 | Meilenstein | Inhalt | Stand |
 | --- | --- | --- |
-| 1 | Grundgerüst (Multiloader, Energie, erste Maschine) | offen |
+| 1 | Grundgerüst (Multiloader, Energie, erste Maschine) | fertig (GameTests grün auf NeoForge und Fabric; Client-Start nur manuell prüfbar) |
 | 2 | Erdindustrie | offen |
 | 3 | Erste Welt (Mond, Anzug, Kuppel) | offen |
 | 4 | Erster Flug (Forschung, Sonde, Rakete T1) | offen |
