@@ -22,7 +22,7 @@ de.sternenwerft
 │                               ModRecipeTypes, ModRecipeSerializers, ModDataComponents, ModSounds,
 │                               ModCreativeTabs, ModStructures, ModFeatures, ModAttachments, ModKeys (Dimensionen)
 ├─ data/                        BalanceManager, PlanetRegistry, ResearchRegistry, RocketPartRegistry,
-│                               StarSystemRegistry, HandbookLoader (Reload-Listener + Sync)
+│                               StarSystemRegistry, HandbookLoader (Client-Reload-Listener für assets/<ns>/handbook, 25.6)
 ├─ core/
 │  ├─ transaction/              Transaction (Snapshot → commit/rollback), TransactionAdapter
 │  ├─ energy/                   SwEnergyStorage
@@ -51,7 +51,8 @@ de.sternenwerft
 ├─ food/                        FoodPackerBlockEntity, HydroponicsBlockEntity, GreenhouseBlockEntity
 ├─ recipe/                      eigene Recipe-Klassen + Serializer (Codecs), ResearchRecipeLock
 ├─ network/                     alle Payloads (3A.4), PacketHandlers
-├─ client/                      HudOverlay, Screens, SkyRenderer-Logik, DomeRenderer, Cutscenes, SoundDamping
+├─ client/                      HudOverlay, Screens, SkyRenderer-Logik, DomeRenderer, Cutscenes, SoundDamping,
+│                               handbook/ (HandbookScreen, HandbookMarkup als reine Funktion, HandbookHistory)
 ├─ compat/                      jei/, rei/, emi/ (nur laden, wenn Mod vorhanden)
 ├─ api/                         stabile Schnittstelle für Addons (3A.10)
 └─ util/

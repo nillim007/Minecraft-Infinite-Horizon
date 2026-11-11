@@ -1,0 +1,111 @@
+{
+  "id": "sternenwerft:phase_1/upgrades",
+  "chapter": "sternenwerft:phase_1",
+  "title": "sternenwerft.handbook.phase_1.upgrades.title",
+  "icon": "sternenwerft:speed_upgrade",
+  "order": 110,
+  "unlock": null,
+  "items": [
+    "sternenwerft:speed_upgrade",
+    "sternenwerft:efficiency_upgrade"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.phase_1.upgrades.e0"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "sternenwerft.handbook.phase_1.upgrades.e1.0",
+        "sternenwerft.handbook.phase_1.upgrades.e1.1"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.phase_1.upgrades.e2"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "sternenwerft:assembly/speed_upgrade",
+          "type": "sternenwerft:assembly",
+          "station": "sternenwerft:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "sternenwerft:circuit"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "minecraft:redstone"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "sternenwerft:copper_wire"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "sternenwerft:speed_upgrade",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "sternenwerft:assembly/efficiency_upgrade",
+          "type": "sternenwerft:assembly",
+          "station": "sternenwerft:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "sternenwerft:circuit"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "sternenwerft:gold_wire"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "sternenwerft:aluminum_plate"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "sternenwerft:efficiency_upgrade",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "sternenwerft.handbook.phase_1.upgrades.e4",
+      "style": "tip"
+    },
+    {
+      "type": "callout",
+      "key": "sternenwerft.handbook.phase_1.upgrades.e5",
+      "style": "note"
+    }
+  ]
+}

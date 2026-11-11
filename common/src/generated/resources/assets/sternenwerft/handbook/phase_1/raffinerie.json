@@ -1,0 +1,287 @@
+{
+  "id": "sternenwerft:phase_1/raffinerie",
+  "chapter": "sternenwerft:phase_1",
+  "title": "sternenwerft.handbook.phase_1.raffinerie.title",
+  "icon": "sternenwerft:refinery_controller",
+  "order": 100,
+  "unlock": null,
+  "items": [
+    "sternenwerft:refinery_controller",
+    "sternenwerft:refinery_casing",
+    "sternenwerft:plastic",
+    "sternenwerft:item_port",
+    "sternenwerft:fluid_port",
+    "sternenwerft:energy_port"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e0"
+    },
+    {
+      "type": "machine",
+      "block": "sternenwerft:refinery_controller",
+      "rows": [
+        [
+          "sternenwerft.handbook.phase_1.raffinerie.e2.0.label",
+          "sternenwerft.handbook.phase_1.raffinerie.e2.0.value"
+        ],
+        [
+          "sternenwerft.handbook.phase_1.raffinerie.e2.1.label",
+          "sternenwerft.handbook.phase_1.raffinerie.e2.1.value"
+        ],
+        [
+          "sternenwerft.handbook.phase_1.raffinerie.e2.2.label",
+          "sternenwerft.handbook.phase_1.raffinerie.e2.2.value"
+        ],
+        [
+          "sternenwerft.handbook.phase_1.raffinerie.e2.3.label",
+          "sternenwerft.handbook.phase_1.raffinerie.e2.3.value"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e3",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "sternenwerft:refining/kerosene",
+          "type": "sternenwerft:refining",
+          "station": "sternenwerft:refinery_controller",
+          "ingredients": [],
+          "fluid": {
+            "fluid": "sternenwerft:crude_oil",
+            "amount": 1000
+          },
+          "results": [
+            {
+              "item": "sternenwerft:plastic",
+              "count": 1
+            }
+          ],
+          "fluid_results": [
+            {
+              "fluid": "sternenwerft:kerosene",
+              "amount": 600
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 40
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e5",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e6"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "sternenwerft.handbook.phase_1.raffinerie.e7.0",
+        "sternenwerft.handbook.phase_1.raffinerie.e7.1",
+        "sternenwerft.handbook.phase_1.raffinerie.e7.2",
+        "sternenwerft.handbook.phase_1.raffinerie.e7.3",
+        "sternenwerft.handbook.phase_1.raffinerie.e7.4"
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e8",
+      "style": "tip"
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e9",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e10"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "sternenwerft.handbook.phase_1.raffinerie.e11.0",
+        "sternenwerft.handbook.phase_1.raffinerie.e11.1",
+        "sternenwerft.handbook.phase_1.raffinerie.e11.2"
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "sternenwerft:assembly/refinery_controller",
+          "type": "sternenwerft:assembly",
+          "station": "sternenwerft:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "sternenwerft:machine_frame"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "sternenwerft:iron_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "sternenwerft:copper_pipe"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "minecraft:redstone"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "sternenwerft:refinery_controller",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "sternenwerft:assembly/refinery_casing",
+          "type": "sternenwerft:assembly",
+          "station": "sternenwerft:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "sternenwerft:iron_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "sternenwerft:copper_pipe"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "sternenwerft:refinery_casing",
+              "count": 4
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "sternenwerft:assembly/item_port",
+          "type": "sternenwerft:assembly",
+          "station": "sternenwerft:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "sternenwerft:iron_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "minecraft:hopper"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "sternenwerft:item_port",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "sternenwerft:assembly/fluid_port",
+          "type": "sternenwerft:assembly",
+          "station": "sternenwerft:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "sternenwerft:iron_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "sternenwerft:copper_pipe"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "sternenwerft:fluid_port",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "sternenwerft:assembly/energy_port",
+          "type": "sternenwerft:assembly",
+          "station": "sternenwerft:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "sternenwerft:iron_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "sternenwerft:copper_cable"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "sternenwerft:energy_port",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e13",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e14"
+    },
+    {
+      "type": "callout",
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e15",
+      "style": "warning"
+    }
+  ]
+}

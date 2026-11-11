@@ -1,0 +1,82 @@
+{
+  "id": "sternenwerft:phase_1/erste_schritte",
+  "chapter": "sternenwerft:phase_1",
+  "title": "sternenwerft.handbook.phase_1.erste_schritte.title",
+  "icon": "sternenwerft:machine_frame",
+  "order": 10,
+  "unlock": null,
+  "items": [
+    "sternenwerft:machine_frame"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.phase_1.erste_schritte.e0"
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.phase_1.erste_schritte.e2",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "sternenwerft.handbook.phase_1.erste_schritte.e3.0",
+        "sternenwerft.handbook.phase_1.erste_schritte.e3.1",
+        "sternenwerft.handbook.phase_1.erste_schritte.e3.2",
+        "sternenwerft.handbook.phase_1.erste_schritte.e3.3",
+        "sternenwerft.handbook.phase_1.erste_schritte.e3.4",
+        "sternenwerft.handbook.phase_1.erste_schritte.e3.5",
+        "sternenwerft.handbook.phase_1.erste_schritte.e3.6",
+        "sternenwerft.handbook.phase_1.erste_schritte.e3.7",
+        "sternenwerft.handbook.phase_1.erste_schritte.e3.8",
+        "sternenwerft.handbook.phase_1.erste_schritte.e3.9",
+        "sternenwerft.handbook.phase_1.erste_schritte.e3.10",
+        "sternenwerft.handbook.phase_1.erste_schritte.e3.11"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.phase_1.erste_schritte.e4",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "sternenwerft:crafting_shaped/machine_frame",
+          "type": "minecraft:crafting_shaped",
+          "station": "minecraft:crafting_table",
+          "pattern": [
+            "ICI",
+            "CRC",
+            "ICI"
+          ],
+          "key": {
+            "C": [
+              "minecraft:copper_ingot"
+            ],
+            "I": [
+              "minecraft:iron_ingot"
+            ],
+            "R": [
+              "minecraft:redstone"
+            ]
+          },
+          "results": [
+            {
+              "item": "sternenwerft:machine_frame",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "sternenwerft.handbook.phase_1.erste_schritte.e6",
+      "style": "tip"
+    }
+  ]
+}

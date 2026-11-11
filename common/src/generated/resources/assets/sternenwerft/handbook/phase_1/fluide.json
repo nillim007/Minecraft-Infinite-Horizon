@@ -1,0 +1,210 @@
+{
+  "id": "sternenwerft:phase_1/fluide",
+  "chapter": "sternenwerft:phase_1",
+  "title": "sternenwerft.handbook.phase_1.fluide.title",
+  "icon": "sternenwerft:fluid_tank",
+  "order": 70,
+  "unlock": null,
+  "items": [
+    "sternenwerft:copper_pipe",
+    "sternenwerft:fluid_tank",
+    "sternenwerft:fluid_pump",
+    "sternenwerft:crude_oil_bucket",
+    "sternenwerft:kerosene_bucket"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.phase_1.fluide.e0"
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.phase_1.fluide.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.phase_1.fluide.e2"
+    },
+    {
+      "type": "machine",
+      "block": "sternenwerft:fluid_pump",
+      "rows": [
+        [
+          "sternenwerft.handbook.phase_1.fluide.e3.0.label",
+          "sternenwerft.handbook.phase_1.fluide.e3.0.value"
+        ],
+        [
+          "sternenwerft.handbook.phase_1.fluide.e3.1.label",
+          "sternenwerft.handbook.phase_1.fluide.e3.1.value"
+        ],
+        [
+          "sternenwerft.handbook.phase_1.fluide.e3.2.label",
+          "sternenwerft.handbook.phase_1.fluide.e3.2.value"
+        ],
+        [
+          "sternenwerft.handbook.phase_1.fluide.e3.3.label",
+          "sternenwerft.handbook.phase_1.fluide.e3.3.value"
+        ]
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "sternenwerft:crafting_shaped/fluid_pump",
+          "type": "minecraft:crafting_shaped",
+          "station": "minecraft:crafting_table",
+          "pattern": [
+            "IEI",
+            "IMI",
+            "ITI"
+          ],
+          "key": {
+            "E": [
+              "minecraft:bucket"
+            ],
+            "I": [
+              "minecraft:iron_ingot"
+            ],
+            "M": [
+              "sternenwerft:machine_frame"
+            ],
+            "T": [
+              "sternenwerft:copper_pipe"
+            ]
+          },
+          "results": [
+            {
+              "item": "sternenwerft:fluid_pump",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.phase_1.fluide.e5",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.phase_1.fluide.e6"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "sternenwerft.handbook.phase_1.fluide.e7.0",
+        "sternenwerft.handbook.phase_1.fluide.e7.1"
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "sternenwerft:crafting_shaped/copper_pipe",
+          "type": "minecraft:crafting_shaped",
+          "station": "minecraft:crafting_table",
+          "pattern": [
+            "CGC"
+          ],
+          "key": {
+            "C": [
+              "minecraft:copper_ingot"
+            ],
+            "G": [
+              "minecraft:glass"
+            ]
+          },
+          "results": [
+            {
+              "item": "sternenwerft:copper_pipe",
+              "count": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.phase_1.fluide.e9",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.phase_1.fluide.e10"
+    },
+    {
+      "type": "machine",
+      "block": "sternenwerft:fluid_tank",
+      "rows": [
+        [
+          "sternenwerft.handbook.phase_1.fluide.e11.0.label",
+          "sternenwerft.handbook.phase_1.fluide.e11.0.value"
+        ]
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "sternenwerft:crafting_shaped/fluid_tank",
+          "type": "minecraft:crafting_shaped",
+          "station": "minecraft:crafting_table",
+          "pattern": [
+            "IGI",
+            "G G",
+            "IGI"
+          ],
+          "key": {
+            "G": [
+              "minecraft:glass"
+            ],
+            "I": [
+              "minecraft:iron_ingot"
+            ]
+          },
+          "results": [
+            {
+              "item": "sternenwerft:fluid_tank",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.phase_1.fluide.e13",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.phase_1.fluide.e14"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "sternenwerft.handbook.phase_1.fluide.e15.0",
+        "sternenwerft.handbook.phase_1.fluide.e15.1"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.phase_1.fluide.e16"
+    },
+    {
+      "type": "callout",
+      "key": "sternenwerft.handbook.phase_1.fluide.e17",
+      "style": "tip"
+    },
+    {
+      "type": "callout",
+      "key": "sternenwerft.handbook.phase_1.fluide.e18",
+      "style": "warning"
+    }
+  ]
+}

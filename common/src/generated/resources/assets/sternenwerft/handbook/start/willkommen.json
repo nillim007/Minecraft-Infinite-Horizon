@@ -1,0 +1,56 @@
+{
+  "id": "sternenwerft:start/willkommen",
+  "chapter": "sternenwerft:start",
+  "title": "sternenwerft.handbook.start.willkommen.title",
+  "icon": "sternenwerft:machine_frame",
+  "order": 10,
+  "unlock": null,
+  "items": [],
+  "elements": [
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.start.willkommen.e0"
+    },
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.start.willkommen.e1"
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.start.willkommen.e2",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "sternenwerft.handbook.start.willkommen.e3.0",
+        "sternenwerft.handbook.start.willkommen.e3.1",
+        "sternenwerft.handbook.start.willkommen.e3.2",
+        "sternenwerft.handbook.start.willkommen.e3.3",
+        "sternenwerft.handbook.start.willkommen.e3.4",
+        "sternenwerft.handbook.start.willkommen.e3.5"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.start.willkommen.e5",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "sternenwerft.handbook.start.willkommen.e6.0",
+        "sternenwerft.handbook.start.willkommen.e6.1",
+        "sternenwerft.handbook.start.willkommen.e6.2",
+        "sternenwerft.handbook.start.willkommen.e6.3"
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "sternenwerft.handbook.start.willkommen.e7",
+      "style": "tip"
+    }
+  ]
+}

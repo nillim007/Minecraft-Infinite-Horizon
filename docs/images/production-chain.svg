@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 360" width="1200" height="360">
+<rect width="1200" height="360" rx="18" fill="#141821"/>
+<defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0 L10 5 L0 10 z" fill="#E07B20"/></marker></defs>
+<text x="36" y="48" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="24" font-weight="700" fill="#fff">Phase 1 auf einen Blick</text>
+<rect x="30" y="90" width="150" height="64" rx="10" fill="#222a36" stroke="#B07850" stroke-width="3"/>
+<rect x="42" y="106" width="32" height="32" fill="#B07850"/>
+<rect x="42" y="106" width="32" height="8" fill="#ffffff" opacity="0.25"/>
+<text x="84" y="120" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">Roherz</text>
+<text x="84" y="140" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#9aa7b8">Eisen · Kupfer</text>
+<line x1="180" y1="122" x2="250" y2="122" stroke="#E07B20" stroke-width="3" marker-end="url(#ar)"/><text x="215.0" y="112.0" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#E07B20">× 2</text>
+<rect x="255" y="90" width="150" height="64" rx="10" fill="#222a36" stroke="#C8CCD0" stroke-width="3"/>
+<rect x="267" y="106" width="32" height="32" fill="#C8CCD0"/>
+<rect x="267" y="106" width="32" height="8" fill="#ffffff" opacity="0.25"/>
+<text x="309" y="120" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">Staub</text>
+<text x="309" y="140" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#9aa7b8">Zerkleinerer</text>
+<line x1="405" y1="122" x2="475" y2="122" stroke="#E07B20" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="480" y="90" width="150" height="64" rx="10" fill="#222a36" stroke="#D8D0C8" stroke-width="3"/>
+<rect x="492" y="106" width="32" height="32" fill="#D8D0C8"/>
+<rect x="492" y="106" width="32" height="8" fill="#ffffff" opacity="0.25"/>
+<text x="534" y="120" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">Barren</text>
+<text x="534" y="140" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#9aa7b8">Elektroofen</text>
+<line x1="630" y1="122" x2="700" y2="122" stroke="#E07B20" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="705" y="90" width="170" height="64" rx="10" fill="#222a36" stroke="#8A94A6" stroke-width="3"/>
+<rect x="717" y="106" width="32" height="32" fill="#8A94A6"/>
+<rect x="717" y="106" width="32" height="8" fill="#ffffff" opacity="0.25"/>
+<text x="759" y="120" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">Platte · Draht</text>
+<text x="759" y="140" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#9aa7b8">Presse</text>
+<line x1="875" y1="122" x2="945" y2="122" stroke="#E07B20" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="950" y="90" width="200" height="64" rx="10" fill="#222a36" stroke="#E07B20" stroke-width="3"/>
+<rect x="962" y="106" width="32" height="32" fill="#E07B20"/>
+<rect x="962" y="106" width="32" height="8" fill="#ffffff" opacity="0.25"/>
+<text x="1004" y="120" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">Montagetisch</text>
+<text x="1004" y="140" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#9aa7b8">Schaltkreise</text>
+<rect x="30" y="220" width="150" height="64" rx="10" fill="#222a36" stroke="#3B2F2A" stroke-width="3"/>
+<rect x="42" y="236" width="32" height="32" fill="#3B2F2A"/>
+<rect x="42" y="236" width="32" height="8" fill="#ffffff" opacity="0.25"/>
+<text x="84" y="250" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">Erdöl</text>
+<text x="84" y="270" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#9aa7b8">Pumpe · Ölblase</text>
+<line x1="180" y1="252" x2="250" y2="252" stroke="#E07B20" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="255" y="220" width="150" height="64" rx="10" fill="#222a36" stroke="#6E6E6E" stroke-width="3"/>
+<rect x="267" y="236" width="32" height="32" fill="#6E6E6E"/>
+<rect x="267" y="236" width="32" height="8" fill="#ffffff" opacity="0.25"/>
+<text x="309" y="250" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">Raffinerie</text>
+<text x="309" y="270" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#9aa7b8">Multiblock</text>
+<line x1="405" y1="252" x2="475" y2="252" stroke="#E07B20" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="480" y="220" width="150" height="64" rx="10" fill="#222a36" stroke="#E8E8E0" stroke-width="3"/>
+<rect x="492" y="236" width="32" height="32" fill="#E8E8E0"/>
+<rect x="492" y="236" width="32" height="8" fill="#ffffff" opacity="0.25"/>
+<text x="534" y="250" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">Kunststoff</text>
+<text x="534" y="270" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#9aa7b8">+ Kerosin</text>
+<line x1="630" y1="252" x2="960" y2="156" stroke="#E07B20" stroke-width="3" marker-end="url(#ar)"/>
+<rect x="950" y="240" width="200" height="64" rx="10" fill="#222a36" stroke="#E8DCB0" stroke-width="3"/>
+<rect x="962" y="256" width="32" height="32" fill="#E8DCB0"/>
+<rect x="962" y="256" width="32" height="8" fill="#ffffff" opacity="0.25"/>
+<text x="1004" y="270" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="16" font-weight="700" fill="#fff">Quarzsand</text>
+<text x="1004" y="290" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="12" fill="#9aa7b8">→ Silizium</text>
+<line x1="1050" y1="240" x2="1050" y2="158" stroke="#E07B20" stroke-width="3" marker-end="url(#ar)"/>
+</svg>

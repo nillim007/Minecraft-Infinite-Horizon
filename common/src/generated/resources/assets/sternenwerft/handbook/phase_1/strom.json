@@ -1,0 +1,135 @@
+{
+  "id": "sternenwerft:phase_1/strom",
+  "chapter": "sternenwerft:phase_1",
+  "title": "sternenwerft.handbook.phase_1.strom.title",
+  "icon": "sternenwerft:combustion_generator",
+  "order": 30,
+  "unlock": null,
+  "items": [
+    "sternenwerft:combustion_generator",
+    "sternenwerft:copper_cable",
+    "sternenwerft:fuel_generator",
+    "sternenwerft:battery"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.phase_1.strom.e0"
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.phase_1.strom.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.phase_1.strom.e2"
+    },
+    {
+      "type": "machine",
+      "block": "sternenwerft:combustion_generator",
+      "rows": [
+        [
+          "sternenwerft.handbook.phase_1.strom.e3.0.label",
+          "sternenwerft.handbook.phase_1.strom.e3.0.value"
+        ],
+        [
+          "sternenwerft.handbook.phase_1.strom.e3.1.label",
+          "sternenwerft.handbook.phase_1.strom.e3.1.value"
+        ],
+        [
+          "sternenwerft.handbook.phase_1.strom.e3.2.label",
+          "sternenwerft.handbook.phase_1.strom.e3.2.value"
+        ]
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "sternenwerft:crafting_shaped/combustion_generator",
+          "type": "minecraft:crafting_shaped",
+          "station": "minecraft:crafting_table",
+          "pattern": [
+            "III",
+            "IMI",
+            "CKC"
+          ],
+          "key": {
+            "C": [
+              "minecraft:copper_ingot"
+            ],
+            "I": [
+              "minecraft:iron_ingot"
+            ],
+            "K": [
+              "minecraft:furnace"
+            ],
+            "M": [
+              "sternenwerft:machine_frame"
+            ]
+          },
+          "results": [
+            {
+              "item": "sternenwerft:combustion_generator",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.phase_1.strom.e5",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.phase_1.strom.e6"
+    },
+    {
+      "type": "machine",
+      "block": "sternenwerft:copper_cable",
+      "rows": [
+        [
+          "sternenwerft.handbook.phase_1.strom.e7.0.label",
+          "sternenwerft.handbook.phase_1.strom.e7.0.value"
+        ]
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "sternenwerft:crafting_shaped/copper_cable",
+          "type": "minecraft:crafting_shaped",
+          "station": "minecraft:crafting_table",
+          "pattern": [
+            "CCC"
+          ],
+          "key": {
+            "C": [
+              "minecraft:copper_ingot"
+            ]
+          },
+          "results": [
+            {
+              "item": "sternenwerft:copper_cable",
+              "count": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "sternenwerft.handbook.phase_1.strom.e9",
+      "style": "tip"
+    },
+    {
+      "type": "callout",
+      "key": "sternenwerft.handbook.phase_1.strom.e10",
+      "style": "note"
+    }
+  ]
+}

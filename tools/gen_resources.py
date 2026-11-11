@@ -17,6 +17,7 @@ import sys
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+import handbook  # noqa: E402
 import specdata as sd  # noqa: E402
 
 NS = "sternenwerft"
@@ -369,6 +370,9 @@ def main():
     # Übersetzungen
     fluids = impl.get("fluids", [])
     extra = json.loads(LANG_EXTRA.read_text(encoding="utf-8"))
+    hb = handbook.build(spec, impl)
+    for w in hb.warnings:
+        print(f"Warnung (Handbuch): {w}")
     for lang, field in (("de_de", "name_de"), ("en_us", "name_en")):
         data = {k: v for k, v in extra.get(lang, {}).items()}
         for i in sorted(registered):
@@ -380,7 +384,11 @@ def main():
             data[f"fluid_type.{NS}.{f}"] = fe[field]
             if fe.get("has_source_block") and fe.get("has_bucket"):
                 data[f"item.{NS}.{f}_bucket"] = spec.items[f"{NS}:{f}_bucket"][field]
+        data.update(hb.lang[lang])  # Ingenieurs-Handbuch (24.1, 25.6)
         write_json(f"assets/{NS}/lang/{lang}.json", dict(sorted(data.items())))
+    # Handbuchseiten aus docs/handbook (dieselbe Quelle wie das Wiki, tools/gen_wiki.py)
+    for rel, page in sorted(hb.files.items()):
+        write_json(rel, page)
 
     # Blöcke
     for i, shape in sorted(blocks.items()):

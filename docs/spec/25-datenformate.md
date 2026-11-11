@@ -148,22 +148,50 @@ Maschinenrezepte haben zusätzlich `fluid_inputs` und `fluid_outputs` (`{ "fluid
 
 Rollen: `capsule`, `tank`, `engine`, `fin`, `cargo`, `long_range`. `fuel_capacity` gilt je Komponente. Die Treibstoffmasse wächst linear mit dem Füllstand bis `fuel_mass_full`. Frachtraum: `mass` 1,0, `mass_per_slot` 0,05 je belegtem Slot. Kapsel: `seats` 1 (T1) bzw. 2 (T2). Fernflug-Modul: `mass` 4,0, `fuel_capacity` 128000, `fuel_mass_full` 4,0.
 
-## 25.6 Handbuchseite (`assets/<ns>/handbook/<kapitel>/<seite>.json`)
+## 25.6 Handbuch (`assets/<ns>/handbook/<kapitel>/…`)
 
-`unlock`: `null` = immer sichtbar (Phase 1). Sonst die ID eines Stufen-Tors (`sternenwerft:research_tier/<n>`) oder eines Forschungsknotens.
+Erzeugt von `tools/gen_resources.py` aus `docs/handbook/` (24.1). Andere Mods legen eigene Dateien nach demselben Schema in ihren Namespace.
+
+`unlock`: `null` = immer sichtbar. Sonst die ID eines Stufen-Tors (`sternenwerft:research_tier/<n>`) oder eines Forschungsknotens. Bis M4 gilt jedes `unlock` als offen.
+
+**Kapitel** (`<kapitel>/_chapter.json`):
+
+```json
+{ "id": "sternenwerft:phase_1", "title": "sternenwerft.handbook.chapter.phase_1", "icon": "sternenwerft:crusher", "order": 10, "unlock": null }
+```
+
+**Seite** (`<kapitel>/<seite>.json`):
 
 ```json
 {
+  "id": "sternenwerft:phase_1/zerkleinerer",
   "chapter": "sternenwerft:phase_1",
-  "title": "sternenwerft.handbook.crusher.title",
+  "title": "sternenwerft.handbook.phase_1.zerkleinerer.title",
+  "icon": "sternenwerft:crusher",
+  "order": 40,
   "unlock": null,
+  "items": ["sternenwerft:crusher", "sternenwerft:iron_dust"],
   "elements": [
-    { "type": "text", "key": "sternenwerft.handbook.crusher.text" },
-    { "type": "recipe", "recipe": "sternenwerft:crusher" },
+    { "type": "heading", "key": "…e0", "level": 2 },
+    { "type": "text", "key": "…e1" },
+    { "type": "list", "ordered": true, "keys": ["…e2.0", "…e2.1"] },
+    { "type": "callout", "style": "tip", "key": "…e3" },
+    { "type": "machine", "block": "sternenwerft:crusher", "rows": [["…e4.0.label", "…e4.0.value"]] },
+    { "type": "table", "headers": ["…e5.h0"], "rows": [["…e5.r0.0"]] },
+    { "type": "recipes", "recipes": [ {
+        "id": "sternenwerft:crushing/iron_dust", "type": "sternenwerft:crushing", "station": "sternenwerft:crusher",
+        "ingredients": [ { "items": ["minecraft:raw_iron"], "count": 1 } ],
+        "results": [ { "item": "sternenwerft:iron_dust", "count": 2 } ],
+        "ticks": 200, "energy_per_tick": 20 } ] },
     { "type": "image", "texture": "sternenwerft:textures/handbook/crusher_setup.png", "width": 120, "height": 60 }
   ]
 }
 ```
+
+- **Elemente:** `heading` (`level` 2–3), `text`, `list`, `callout` (`style`: `tip`, `note`, `warning`), `machine` (Steckbrief als Zeilen), `table`, `recipes`, `image`. Unbekannte Typen überspringt das GUI.
+- **Texte** sind Übersetzungsschlüssel. Sie dürfen Inline-Markup enthalten: `[[<seiten-id>|Text]]` (Link), `<item:<id>>` (übersetzter Item-Name, anklickbar), `**fett**`.
+- **Rezepte** sind als Anzeige-Daten eingebettet, weil der Client nicht alle Rezepte kennt. Werkbank-Rezepte haben `pattern` und `key` (Zeichen → Liste von IDs) statt `ingredients`; dazu optional `fluid`, `mold`, `fluid_results`, `chance`. `recipe_amount_multiplier` (24.4) wendet das GUI beim Anzeigen auf Montagetisch-Zutaten an (Wert aus der synchronisierten Config).
+- **Werte** in Texten und Steckbriefen sind die Standardwerte aus `spec/data` beim Erzeugen. Datapack-Änderungen an Balance-Dateien erscheinen dort nicht.
 
 ---
 

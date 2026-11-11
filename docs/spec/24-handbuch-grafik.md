@@ -1,13 +1,17 @@
 # 24. Handbuch, Atlas, Erfolge, Einstellungen, Klang, Grafik
 
-## 24.1 Ingenieurs-Handbuch
+## 24.1 Ingenieurs-Handbuch und Spieler-Wiki
 
 - `engineers_handbook`: jeder Spieler bekommt es beim ersten Join, Ersatz per Werkbank (22.1).
-- Eigenes Buch-GUI im Notizbuch-Stil mit Blaupausen-Optik. Kapitel nach Phasen. Ein Kapitel öffnet sich mit der passenden Stufe.
-- Seiten sind Ressourcen-Dateien unter `assets/<namespace>/handbook/` (Schema 25.6), damit andere Mods Kapitel ergänzen können.
-- Maschinenseiten werden automatisch aus Rezept, Verbrauch und Kapitel 6 erzeugt. Planetenseiten füllen sich beim ersten Besuch.
+- **Eine Quelle, zwei Ausgaben (Ä26):** Die Seiten stehen als Markdown in `docs/handbook/` (Format in `docs/handbook/README.md`). `tools/gen_resources.py` erzeugt daraus die Handbuchseiten im Spiel (Schema 25.6) samt Übersetzungsschlüsseln, `tools/gen_wiki.py` das Spieler-Wiki in `docs/wiki/`. Beide Ausgaben werden nie von Hand geändert; die CI prüft, dass sie aktuell sind, und veröffentlicht das Wiki im GitHub-Wiki.
+- **Inhalt:** Ablauf jeder Phase, alle Rezepte, Steckbriefe der Maschinen und Tipps. Rezepte, Steckbriefe, Erz- und Item-Tabellen sowie Zahlen im Text (`{{value:…}}`) kommen aus `spec/data`. Seiten und Abschnitte erscheinen erst, wenn ihr Meilenstein erreicht und ihre IDs registriert sind (`common/implemented_ids.json`). So wächst das Handbuch mit jedem Meilenstein.
+- **Buch-GUI:** eigener Bildschirm im Notizbuch-Stil (Blaupausen-Optik ab M9). Links ein Inhaltsverzeichnis nach Kapiteln, rechts die Seite mit Bildlauf. Kapitel nach Phasen; ein Kapitel öffnet sich mit der passenden Stufe (`unlock`, ab M4 aus der Forschung; bis dahin ist alles offen).
+- **Verlinkungen:** Links `[[<seiten-id>|Text]]` im Text sind anklickbar und öffnen die Seite. `<item:<id>>` zeigt den übersetzten Item-Namen, beim Überfahren das Item als Tooltip, und öffnet per Klick die Seite, die das Item in `items` nennt. Rezeptanzeigen zeigen Items als Symbole; ein Klick auf ein Symbol öffnet ebenfalls dessen Seite. Ein Zurück-Knopf führt durch den Verlauf; die zuletzt offene Seite merkt sich der Client.
+- **Aus dem Spiel ins Handbuch:** Taste (Standard `H`, änderbar) über einem Item im Inventar oder in JEI/REI/EMI öffnet das Handbuch auf der Seite dieses Items, sofern eine existiert. Item-Tooltips zeigen dann den Hinweis „H: Handbuch“.
+- Seiten sind Ressourcen-Dateien unter `assets/<namespace>/handbook/` (Schema 25.6), damit andere Mods Kapitel und Seiten ergänzen können (Ressourcen aller Namespaces werden zusammengeführt).
 - Suchfeld (filtert Seitentitel und Item-Namen).
-- In M2 wird `engineers_handbook` nur registriert (Item, Rezept, Platzhalter). Das Rechtsklick-GUI kommt mit M9, das Geschenk beim ersten Join mit M4.
+- Planetenseiten füllen sich ab M4 beim ersten Besuch (Atlas-Daten der Agentur).
+- **Meilensteine:** Das Buch-GUI mit Kapiteln, Links, Rezeptanzeige, Suche und Taste `H` sowie das Geschenk beim ersten Join kommen mit **M2f**. Ab dann ergänzt **jeder Meilenstein** die Seiten seiner Inhalte (27). Freischaltung nach Forschung kommt mit M4, Blaupausen-Optik und vollständige englische Texte mit M9.
 
 ## 24.2 Planetenatlas
 

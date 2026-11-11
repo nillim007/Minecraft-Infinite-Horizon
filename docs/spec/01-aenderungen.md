@@ -29,6 +29,7 @@ Diese Entscheidungen lösen Widersprüche und Sackgassen. **Bitte prüfen**, bev
 | Ä23 | Nachzug nach Meilenstein 1 | Ressourcen erzeugt `tools/gen_resources.py` statt Java-`runData` (3.8, 3A.6); Rezeptwerte entfallen bei Maschinenstandard (25.4); Balance-Dateien aller Namespaces werden zusammengeführt (25.7); Addon-Schnittstelle `api/` (3A.10); Energie-API 26.3 (3.3); GameTest-Aufbau (3A.8, 27); M1 ohne GUI, GUI und Upgrades in M2 (27); Behälter-Brennstoffe (6.3). |
 | Ä24 | Lückentest Meilenstein 2 (`docs/dev/lueckentest-m2.md`): 33 Lücken, die bei M2 zu Rückfragen geführt hätten | In die Kapitel 3.9, 3A, 4, 5, 6, 13.4, 22, 24 und 27 eingearbeitet (Stichpunkte unten). Zwei Punkte bleiben in Kapitel 28 offen. |
 | Ä25 | Entscheidungen zu Kapitel 28 (11.11.2026) | Erdöl-Quellblöcke verbraucht die Pumpe nur mit 10 % Wahrscheinlichkeit (6.1); drei zutatengleiche Montagetisch-Rezepte getrennt (22.3) |
+| Ä26 | Handbuch-GUI erst in M9, kein Spieler-Wiki (11.11.2026) | Wiki und Ingenieurs-Handbuch aus einer Quelle `docs/handbook/` (24.1, 25.6). Buch-GUI mit Links, Rezeptanzeige, Suche und Taste `H` sowie Join-Geschenk vorgezogen nach M2f; jeder Meilenstein ergänzt seine Seiten (27). |
 
 **Ä24: Lückentest Meilenstein 2**
 
@@ -47,3 +48,10 @@ Diese Entscheidungen lösen Widersprüche und Sackgassen. **Bitte prüfen**, bev
 
 - Erdöl: Die Pumpe entfernt einen `crude_oil`-Quellblock nur mit 10 % Wahrscheinlichkeit (`source_consume_chance` in `machines.json`, 6.1).
 - Zutatengleiche Rezepte getrennt: `research_terminal` +1 `minecraft:book`, `landing_beacon` mit `minecraft:redstone_lamp` statt Glowstone-Staub, `rocket_fin_t2` mit 3 statt 2 `lightweight_plate` (22.3); dadurch braucht die Rakete T2 132 statt 128 `lightweight_plate` (22.3, `validate_spec.py`).
+
+**Ä26: Handbuch und Wiki**
+
+- Quelle `docs/handbook/` (Markdown mit Befehlen wie `@recipes_for`, `@machine`, `{{value:…}}`), Generator `tools/handbook.py`; Ausgaben über `tools/gen_resources.py` (Spiel) und `tools/gen_wiki.py` (`docs/wiki/`, GitHub-Wiki) (24.1).
+- Schema 25.6 erweitert: Kapiteldatei `_chapter.json`, Seiten-`id`, `icon`, `order`, `items`, Elemente `heading`, `list`, `callout`, `machine`, `table`, eingebettete `recipes`, Inline-Markup für Links und Items.
+- Buch-GUI, Links, Taste `H` und Join-Geschenk des Handbuchs in M2f (27.3); Blaupausen-Optik und englische Texte bleiben in M9.
+- Pflicht je Meilenstein: Seiten für neue Inhalte, `gen_wiki.py --check` grün, README-Status aktuell (27).
