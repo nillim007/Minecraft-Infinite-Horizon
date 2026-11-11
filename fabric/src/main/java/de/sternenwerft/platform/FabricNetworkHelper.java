@@ -11,6 +11,7 @@ import net.minecraft.server.level.ServerPlayer;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 /** Payload-Typen werden sofort angemeldet; Client-Empfänger registriert {@code SternenwerftFabricClient}. */
@@ -31,6 +32,19 @@ public class FabricNetworkHelper implements INetworkHelper {
                                                                     Consumer<T> clientHandler) {
         PayloadTypeRegistry.clientboundPlay().register(type, codec);
         CLIENT_ENTRIES.add(new ClientEntry<>(type, clientHandler));
+    }
+
+    @Override
+    public <T extends CustomPacketPayload> void registerServerbound(CustomPacketPayload.Type<T> type,
+                                                                    StreamCodec<? super RegistryFriendlyByteBuf, T> codec,
+                                                                    BiConsumer<T, ServerPlayer> serverHandler) {
+        PayloadTypeRegistry.serverboundPlay().register(type, codec);
+        ServerPlayNetworking.registerGlobalReceiver(type, (payload, context) -> serverHandler.accept(payload, context.player()));
+    }
+
+    @Override
+    public void sendToServer(CustomPacketPayload payload) {
+        net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking.send(payload);
     }
 
     @Override

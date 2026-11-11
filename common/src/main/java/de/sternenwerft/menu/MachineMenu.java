@@ -42,7 +42,7 @@ public class MachineMenu extends AbstractContainerMenu {
     public static final int UPGRADE_Y = 62;
     public static final int UPGRADE_X = 152;
     /** Bei Blöcken mit Fluidleiste rechts außen rücken Upgrades nach links, Füll-/Leerslot stehen neben der Leiste. */
-    public static final int UPGRADE_X_FLUID = 116;
+    public static final int UPGRADE_X_FLUID = 98;
     public static final int CONTAINER_X = 130;
     public static final int FILL_Y = 17;
     public static final int DRAIN_Y = 53;

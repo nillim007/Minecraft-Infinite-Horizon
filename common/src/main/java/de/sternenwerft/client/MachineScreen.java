@@ -1,6 +1,10 @@
 package de.sternenwerft.client;
 
 import de.sternenwerft.Sternenwerft;
+import de.sternenwerft.network.MachineConfigPayload;
+import de.sternenwerft.platform.Services;
+import net.minecraft.client.gui.components.Button;
+import net.minecraft.core.Direction;
 import de.sternenwerft.core.fluid.FluidIds;
 import de.sternenwerft.machine.MachineBlockEntity;
 import de.sternenwerft.machine.MachineLayout;
@@ -35,6 +39,10 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
     private static final int BAR_H = 60;
     private static final int ARROW_W = 24;
     private static final int FLUID_X = 152;
+    private static final int SIDE_X = 104;
+    private static final int SIDE_Y = 4;
+    private static final int SIDE_W = 44;
+    private static final int SIDE_H = 12;
     private static final int FLUID_W = 16;
     private static final int FLUID_STEP = 18;
     // Platzhalterfarben der Vanilla-Fluide (GUI)
@@ -47,6 +55,20 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         this.titleLabelX = BAR_X + BAR_W + 4;
     }
 
+    private Button sideButton;
+
+    @Override
+    protected void init() {
+        super.init();
+        // Knopf „Seite“ (4.1): schaltet die Ausgangsseite durch Unten, Oben, Nord, Süd, West, Ost
+        sideButton = Button.builder(Component.translatable("gui.sternenwerft.side"), b -> {
+            long current = menu.value(MachineBlockEntity.SYNC_SIDE);
+            int next = current <= 0 ? 0 : (int) (current % Direction.values().length);
+            Services.NETWORK.sendToServer(new MachineConfigPayload(menu.openData().pos(), next, -1));
+        }).bounds(leftPos + SIDE_X, topPos + SIDE_Y, SIDE_W, SIDE_H).build();
+        addRenderableWidget(sideButton);
+    }
+
     @Override
     public void extractBackground(GuiGraphicsExtractor g, int mouseX, int mouseY, float partialTick) {
         int x = leftPos;
@@ -57,11 +79,21 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
             g.fill(x + slot.x, y + slot.y, x + slot.x + 16, y + slot.y + 16, SLOT_FILL);
         }
 
+        long sideValue = menu.value(MachineBlockEntity.SYNC_SIDE);
+        if (sideButton != null) {
+            sideButton.visible = sideValue > 0;
+            if (sideValue > 0) {
+                Direction d = Direction.values()[(int) sideValue - 1];
+                sideButton.setMessage(Component.translatable("gui.sternenwerft.side." + d.getSerializedName()));
+            }
+        }
         long energy = menu.value(0);
         long capacity = menu.value(1);
         int bx = x + BAR_X;
         int by = y + BAR_Y;
-        g.fill(bx - 1, by - 1, bx + BAR_W + 1, by + BAR_H + 1, SLOT_DARK);
+        if (capacity > 0) {
+            g.fill(bx - 1, by - 1, bx + BAR_W + 1, by + BAR_H + 1, SLOT_DARK);
+        }
         int filled = capacity > 0 ? (int) Math.min(BAR_H, energy * BAR_H / capacity) : 0;
         g.fill(bx, by + BAR_H - filled, bx + BAR_W, by + BAR_H, ENERGY);
 
@@ -76,7 +108,10 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
             long part = generator ? now : Math.min(now, total);
             w = (int) Math.min(ARROW_W, part * ARROW_W / total);
         }
-        drawArrow(g, ax, ay, w, generator ? BURN : PROGRESS);
+        // Pfeil nur bei Blöcken mit Vorgang (Maschinen, Generatoren), nicht bei reinen Speichern
+        if (l.inputs() + l.fuel() + l.upgrades() > 0) {
+            drawArrow(g, ax, ay, w, generator ? BURN : PROGRESS);
+        }
 
         // Fluidleisten rechts außen (x 152), weitere Tanks je 18 px nach links (4.1)
         Component fluidTip = null;
@@ -101,7 +136,7 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         }
         if (fluidTip != null) {
             g.setComponentTooltipForNextFrame(font, List.of(fluidTip), mouseX, mouseY);
-        } else if (inside(mouseX, mouseY, bx, by, BAR_W, BAR_H)) {
+        } else if (capacity > 0 && inside(mouseX, mouseY, bx, by, BAR_W, BAR_H)) {
             g.setComponentTooltipForNextFrame(font,
                     List.of(Component.translatable("gui.sternenwerft.energy", energy, capacity)), mouseX, mouseY);
         } else if (total > 0 && inside(mouseX, mouseY, ax, ay, ARROW_W, ARROW_H)) {

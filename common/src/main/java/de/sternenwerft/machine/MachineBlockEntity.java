@@ -70,7 +70,10 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
     /** Höchstzahl Tanks, die das GUI anzeigt (Elektrolyseur: 1 Eingang + 2 Ausgänge). */
     public static final int MAX_TANKS = 3;
     /** Anzahl synchronisierter Werte (je 64 Bit, als 4 × 16 Bit übertragen): 4 Grundwerte + je Tank Fluid, Menge, Kapazität. */
-    public static final int SYNC_VALUES = 4 + 3 * MAX_TANKS;
+    public static final int SYNC_VALUES = 4 + 3 * MAX_TANKS + 2;
+    /** Index des Sync-Werts „Ausgangsseite + 1“ (0 = keine Fluidausgabe) und „gewählter Tank“. */
+    public static final int SYNC_SIDE = 4 + 3 * MAX_TANKS;
+    public static final int SYNC_TANK = SYNC_SIDE + 1;
 
     protected NonNullList<ItemStack> items = NonNullList.withSize(0, ItemStack.EMPTY);
     protected final SwEnergyStorage energy = new SwEnergyStorage(0, 0, 0, this::setChanged);
@@ -78,6 +81,8 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
     private @Nullable Object platformFluid;
     /** Gewählte Ausgangsseite für Fluide (4.1); null = {@code facing}. */
     private @Nullable Direction outputSide;
+    /** Im GUI gewählter Tank für leere Behälter im Füllslot (4.1, Standard Tank 1). */
+    private int selectedTank;
     private final ContainerData dataAccess = new ContainerData() {
         @Override
         public int get(int index) {
@@ -119,6 +124,12 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
      * Unterklassen überschreiben 2 und 3.
      */
     protected long syncValue(int index) {
+        if (index == SYNC_SIDE) {
+            return outputTanks().isEmpty() ? 0 : outputSide().ordinal() + 1;
+        }
+        if (index == SYNC_TANK) {
+            return selectedTank;
+        }
         if (index >= 4) {
             int t = (index - 4) / 3;
             List<SwFluidTank> tanks = fluidTanks();
@@ -256,6 +267,15 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
         }
         BlockState s = getBlockState();
         return s.hasProperty(MachineBlock.FACING) ? s.getValue(MachineBlock.FACING) : Direction.NORTH;
+    }
+
+    public void setSelectedTank(int tank) {
+        selectedTank = Math.max(0, Math.min(tank, Math.max(0, fluidTanks().size() - 1)));
+        setChanged();
+    }
+
+    public int selectedTank() {
+        return selectedTank;
     }
 
     public void setOutputSide(@Nullable Direction side) {

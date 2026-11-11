@@ -12,5 +12,6 @@ public final class ModPayloads {
     public static void init() {
         Services.NETWORK.registerClientbound(SyncConfigPayload.TYPE, SyncConfigPayload.CODEC,
                 payload -> ServerConfig.setClient(payload.json()));
+        Services.NETWORK.registerServerbound(MachineConfigPayload.TYPE, MachineConfigPayload.CODEC, MachineConfigPayload::handle);
     }
 }
