@@ -39,13 +39,28 @@ Bei Widerspruch gilt: `spec/data` vor Text, sonst die Regeln in `docs/spec/00-le
 - **Platzhalter-Assets** über `tools/gen_placeholders.py` (Farben in 24.5), keine echten Texturen erfinden.
 - Übersetzungen kommen aus `items.json` (`name_de`, `name_en`); kein fest eingebauter Text.
 
-## Bauen nur auf GitHub
+## Bauen und Testen
 
-Lokal gibt es kein JDK; gebaut und getestet wird ausschließlich in GitHub Actions (`.github/workflows/build.yml`).
+**Lokal (schnell, bevorzugt zum Iterieren):** Wenn ein JDK 25 vorhanden ist (`java -version`), lokal nur das Fabric-Projekt bauen – das geht deutlich schneller als NeoForge oder die CI:
+
+```bash
+./gradlew :fabric:build
+```
+
+```bash
+./gradlew :fabric:runGameTestServer
+```
+
+Ohne JDK 25 lokal nicht bauen, sondern GitHub nutzen (unten). Ein JDK nur mit Zustimmung des Auftraggebers herunterladen.
+
+**GitHub Actions (vollständig, vor jedem Abschluss):** baut beide Loader, führt JUnit, Server-GameTests (NeoForge + Fabric) und den Fabric-Client-Test mit Screenshots aus (`.github/workflows/build.yml`).
 
 1. Änderungen committen und pushen.
-2. `python tools/ci_status.py --wait` im Hintergrund starten; es meldet GRÜN/ROT und gibt Compiler-Fehler mit Datei und Zeile aus.
+2. `python tools/ci_status.py --wait` im Hintergrund starten; es meldet GRÜN/ROT, Compiler-Fehler mit Datei und Zeile und die GameTest-Zusammenfassungen.
 3. Bei ROT die Meldungen beheben und erneut pushen. Höchstens 60 GitHub-Abfragen pro Stunde (ohne Token).
+4. **GUI prüfen:** Der Client-Test (`fabric/.../gametest/SwClientGameTests.java`) öffnet jedes Maschinen-GUI und fotografiert es; die CI legt die Bilder im Branch `ci-screenshots` ab. Abrufen ohne Anmeldung: `git clone --depth 1 -b ci-screenshots https://github.com/nillim007/Minecraft-New-Horizon.git <scratch>/shots` und die PNGs ansehen. Neue GUIs dort ergänzen.
+
+Falls im Konto der Skill `minecraft-mod-ci-screenshots` verfügbar ist, beschreibt er denselben Ablauf.
 
 API-Spickzettel für 26.3: `docs/dev/api-neoforge-26.3.md`, `docs/dev/api-fabric-26.3.md`.
 

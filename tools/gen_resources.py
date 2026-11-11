@@ -147,6 +147,78 @@ def block_loot(name):
     })
 
 
+# Eigenschaften-Vorlage, Fallblock-Flag und Werkzeugart der einfachen Blöcke (4.1, Lücke #21)
+SIMPLE_BLOCKS = {
+    "bauxite_ore": {"copy": "minecraft:iron_ore", "falls": False, "tool": "pickaxe", "needs": "stone", "ore": ("aluminum", "bauxite")},
+    "titanium_ore": {"copy": "minecraft:iron_ore", "falls": False, "tool": "pickaxe", "needs": "iron", "ore": ("titanium", "raw_titanium")},
+    "deepslate_titanium_ore": {"copy": "minecraft:deepslate_iron_ore", "falls": False, "tool": "pickaxe", "needs": "iron", "ore": ("titanium", "raw_titanium")},
+    "quartz_sand": {"copy": "minecraft:sand", "falls": False, "tool": "shovel", "needs": None, "ore": None},
+}
+
+
+def simple_block(name):
+    model = f"{NS}:block/{name}"
+    write_json(f"assets/{NS}/models/block/{name}.json",
+               {"parent": "minecraft:block/cube_all", "textures": {"all": f"{NS}:block/{name}"}})
+    write_json(f"assets/{NS}/blockstates/{name}.json", {"variants": {"": {"model": model}}})
+    return model
+
+
+def ore_loot(name, raw):
+    """Vanilla-Eisenerz-Muster: Seidenberührung -> Block, sonst Rohstoff mit Glück."""
+    silk = {"condition": "minecraft:match_tool", "predicate": {"predicates": {"minecraft:enchantments": [
+        {"enchantments": "minecraft:silk_touch", "levels": {"min": 1}}]}}}
+    write_json(f"data/{NS}/loot_table/blocks/{name}.json", {
+        "type": "minecraft:block",
+        "pools": [{"rolls": 1, "bonus_rolls": 0, "entries": [{
+            "type": "minecraft:alternatives",
+            "children": [
+                {"type": "minecraft:item", "name": f"{NS}:{name}", "conditions": [silk]},
+                {"type": "minecraft:item", "name": f"{NS}:{raw}", "functions": [
+                    {"function": "minecraft:apply_bonus", "enchantment": "minecraft:fortune", "formula": "minecraft:ore_drops"},
+                    {"function": "minecraft:explosion_decay"}]}]}]}],
+        "random_sequence": f"{NS}:blocks/{name}",
+    })
+
+
+def earth_worldgen(blocks):
+    """Erzadern und Quarzsand der Erde aus planets.json (ohne Ölblase)."""
+    planets = json.loads((sd.DATA / "planets.json").read_text(encoding="utf-8"))["entries"]
+    earth = next(p for p in planets if p["id"] == "minecraft:overworld")
+    feats = []
+    for ore in earth["ores"]:
+        bid = ore["block"]
+        if bid not in blocks:
+            continue
+        name = short(bid)
+        if ore["placement"] == "vein":
+            dbid = ore.get("deepslate_block") or bid
+            targets = [
+                {"target": {"predicate_type": "minecraft:tag_match", "tag": "minecraft:stone_ore_replaceables"},
+                 "state": {"Name": bid}},
+                {"target": {"predicate_type": "minecraft:tag_match", "tag": "minecraft:deepslate_ore_replaceables"},
+                 "state": {"Name": dbid}}]
+            conf = {"type": "minecraft:ore", "config": {"size": ore["vein_size"], "discard_chance_on_air_exposure": 0.0,
+                                                          "targets": targets}}
+            mods = [{"type": "minecraft:count", "count": ore["per_chunk"]}, {"type": "minecraft:in_square"},
+                    {"type": "minecraft:height_range", "height": {
+                        "type": "minecraft:uniform", "min_inclusive": {"absolute": ore["y_min"]},
+                        "max_inclusive": {"absolute": ore["y_max"]}}},
+                    {"type": "minecraft:biome"}]
+        elif ore["placement"] == "disk":
+            conf = {"type": "minecraft:disk", "config": {
+                "state_provider": {"type": "minecraft:simple_state_provider", "state": {"Name": bid}},
+                "target": {"type": "minecraft:matching_blocks", "blocks": ["minecraft:sand", "minecraft:dirt", "minecraft:clay"]},
+                "radius": {"type": "minecraft:uniform", "min_inclusive": ore["radius"][0], "max_inclusive": ore["radius"][1]},
+                "half_height": 1}}
+            mods = [{"type": "minecraft:count", "count": ore["per_chunk"]}, {"type": "minecraft:in_square"},
+                    {"type": "minecraft:heightmap", "heightmap": "OCEAN_FLOOR_WG"}, {"type": "minecraft:biome"}]
+        else:
+            sys.exit(f"Unbekannte Platzierung {ore['placement']} für {bid}")
+        feats.append((name, conf, mods, ore["biomes"]))
+    return feats
+
+
 # ---------------------------------------------------------------- Rezepte
 
 def recipe_json(r, registered):
@@ -217,10 +289,20 @@ def main():
             inv_model = machine_block(name)
         elif shape == "cable":
             inv_model = cable_block(name)
+        elif shape == "simple_block":
+            inv_model = simple_block(name)
         else:
             sys.exit(f"Unbekannte Blockform {shape} für {i}")
         write_json(f"assets/{NS}/items/{name}.json", {"model": {"type": "minecraft:model", "model": inv_model}})
-        block_loot(name)
+        if shape == "simple_block" and SIMPLE_BLOCKS[name]["ore"]:
+            ore_loot(name, SIMPLE_BLOCKS[name]["ore"][1])
+        else:
+            block_loot(name)
+
+    # Liste der einfachen Blöcke für die Java-Registrierung (Reihenfolge wie in implemented_ids.json)
+    write_json("sternenwerft/simple_blocks.json", {"blocks": [
+        {"id": short(i), "copy": SIMPLE_BLOCKS[short(i)]["copy"], "falls": SIMPLE_BLOCKS[short(i)]["falls"]}
+        for i, shape in blocks.items() if shape == "simple_block"]})
 
     # Items
     for i in sorted(items):
@@ -233,7 +315,48 @@ def main():
     write_json("sternenwerft/simple_items.json", {"items": [short(i) for i in impl["items"]]})
 
     # Tags
-    write_json("data/minecraft/tags/block/mineable/pickaxe.json", {"values": sorted(blocks)})
+    simple = {short(i): SIMPLE_BLOCKS[short(i)] for i, shape in blocks.items() if shape == "simple_block"}
+    for tool in ("pickaxe", "shovel"):
+        vals = [i for i in sorted(blocks) if (simple[short(i)]["tool"] if short(i) in simple else "pickaxe") == tool]
+        if vals:
+            write_json(f"data/minecraft/tags/block/mineable/{tool}.json", {"values": vals})
+    for lvl in ("stone", "iron"):
+        vals = [f"{NS}:{n}" for n, v in sorted(simple.items()) if v["needs"] == lvl]
+        if vals:
+            write_json(f"data/minecraft/tags/block/needs_{lvl}_tool.json", {"values": vals})
+    ore_tags = {}
+    for n, v in sorted(simple.items()):
+        if v["ore"]:
+            ore_tags.setdefault(v["ore"][0], []).append(f"{NS}:{n}")
+    for metal, vals in sorted(ore_tags.items()):
+        write_json(f"data/c/tags/block/ores/{metal}.json", {"values": vals})
+        write_json(f"data/c/tags/item/ores/{metal}.json", {"values": vals})
+    if ore_tags:
+        agg = [f"#c:ores/{m}" for m in sorted(ore_tags)]
+        write_json("data/c/tags/block/ores.json", {"values": agg})
+        write_json("data/c/tags/item/ores.json", {"values": agg})
+    raw = {}
+    for n, v in simple.items():
+        if v["ore"] and f"{NS}:{v['ore'][1]}" in items:
+            raw.setdefault(v["ore"][0], set()).add(f"{NS}:{v['ore'][1]}")
+    for metal, vals in sorted(raw.items()):
+        write_json(f"data/c/tags/item/raw_materials/{metal}.json", {"values": sorted(vals)})
+    if raw:
+        write_json("data/c/tags/item/raw_materials.json", {"values": [f"#c:raw_materials/{m}" for m in sorted(raw)]})
+
+    # Worldgen der Erde (13.4): Features, Biom-Tags, NeoForge-Biome-Modifier, Fabric-Liste
+    fabric = []
+    for name, conf, mods, biomes in earth_worldgen(blocks):
+        write_json(f"data/{NS}/worldgen/configured_feature/{name}.json", conf)
+        write_json(f"data/{NS}/worldgen/placed_feature/{name}.json",
+                   {"feature": f"{NS}:{name}", "placement": mods})
+        write_json(f"data/{NS}/tags/worldgen/biome/has_{name}.json", {"values": biomes})
+        write_json(f"data/{NS}/neoforge/biome_modifier/{name}.json",
+                   {"type": "neoforge:add_features", "biomes": f"#{NS}:has_{name}",
+                    "features": f"{NS}:{name}", "step": "underground_ores"})
+        fabric.append({"feature": f"{NS}:{name}", "biomes": f"{NS}:has_{name}", "step": "underground_ores"})
+    if fabric:
+        write_json("sternenwerft/biome_features.json", {"features": fabric})
     tags = {}
     for i in sorted(items):
         n = short(i)

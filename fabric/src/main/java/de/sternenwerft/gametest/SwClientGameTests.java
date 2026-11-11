@@ -62,6 +62,12 @@ public class SwClientGameTests implements FabricClientGameTest {
                 sp.getServer().runCommand("setblock %d %d %d %s%s".formatted(p.getX(), p.getY(), p.getZ(),
                         BuiltInRegistries.BLOCK.getKey(row[i]), state));
             }
+            // Zweite Reihe darüber: alle einfachen Blöcke (Erze, Quarzsand)
+            int k = 0;
+            for (var entry : ModBlocks.simpleBlocks().values()) {
+                setBlock(sp, base.above().east(k - 2), entry.get());
+                k++;
+            }
             context.waitTicks(5);
             // Zerkleinerer laufen lassen (grüne Lampe), Generator mit Kohle
             BlockPos crusherPos = base.east(-2);

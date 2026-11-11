@@ -11,7 +11,12 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockState;
+
+import java.util.List;
 
 /**
  * GameTests aus Kapitel 27, Meilenstein 1. Die Logik steht hier; die Loader registrieren nur
@@ -122,6 +127,31 @@ public final class SwGameTests {
             helper.assertTrue(press.countOutput(plate) >= 1, "Noch keine titanium_plate (Zerkleinerer "
                     + crusher.status() + ", Ofen " + furnace.status() + ", Presse " + press.status() + ")");
         });
+    }
+
+    public static final String ORE_TOOLS = "ores_tooltier_dropsonlywithcorrecttool";
+    public static final int ORE_TOOLS_TICKS = 20;
+
+    /** M2b: bauxite_ore mit Steinspitzhacke gibt 1 bauxite; titanium_ore braucht eine Eisenspitzhacke. */
+    public static void oresNeedCorrectTool(GameTestHelper helper) {
+        BlockState bauxite = ModBlocks.simple("bauxite_ore").get().defaultBlockState();
+        BlockState titanium = ModBlocks.simple("titanium_ore").get().defaultBlockState();
+        ItemStack wood = new ItemStack(Items.WOODEN_PICKAXE);
+        ItemStack stone = new ItemStack(Items.STONE_PICKAXE);
+        ItemStack iron = new ItemStack(Items.IRON_PICKAXE);
+        helper.assertTrue(bauxite.requiresCorrectToolForDrops(), "bauxite_ore braucht ein Werkzeug");
+        helper.assertTrue(stone.isCorrectToolForDrops(bauxite), "Steinspitzhacke muss bauxite_ore abbauen");
+        helper.assertFalse(wood.isCorrectToolForDrops(bauxite), "Holzspitzhacke darf bauxite_ore nicht abbauen");
+        helper.assertFalse(stone.isCorrectToolForDrops(titanium), "titanium_ore braucht eine Eisenspitzhacke");
+        helper.assertTrue(iron.isCorrectToolForDrops(titanium), "Eisenspitzhacke muss titanium_ore abbauen");
+
+        BlockPos pos = new BlockPos(1, 1, 1);
+        helper.setBlock(pos, bauxite);
+        List<ItemStack> drops = Block.getDrops(bauxite, helper.getLevel(), helper.absolutePos(pos), null, null, stone);
+        Item item = ModItems.simple("bauxite").get();
+        helper.assertTrue(drops.size() == 1 && drops.getFirst().is(item) && drops.getFirst().getCount() == 1,
+                "Erwartet genau 1 bauxite, erhalten: " + drops);
+        helper.succeed();
     }
 
     /** Ein Verbraucher, der nur die Loader-API nutzt, erhält Strom aus dem Kabel. */

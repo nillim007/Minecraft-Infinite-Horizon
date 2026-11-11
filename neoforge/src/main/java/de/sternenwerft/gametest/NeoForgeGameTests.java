@@ -32,6 +32,9 @@ public final class NeoForgeGameTests {
     private static final DeferredHolder<Consumer<GameTestHelper>, Consumer<GameTestHelper>> METAL_CHAIN =
             FUNCTIONS.register(SwGameTests.METAL_CHAIN, () -> SwGameTests::machinesRawTitaniumToPlate);
 
+    private static final DeferredHolder<Consumer<GameTestHelper>, Consumer<GameTestHelper>> ORE_TOOLS =
+            FUNCTIONS.register(SwGameTests.ORE_TOOLS, () -> SwGameTests::oresNeedCorrectTool);
+
     private NeoForgeGameTests() {
     }
 
@@ -41,6 +44,7 @@ public final class NeoForgeGameTests {
         add(event, env, BALANCE_RELOAD, SwGameTests.BALANCE_RELOAD_TICKS);
         add(event, env, PLATFORM_CONSUMER, SwGameTests.PLATFORM_CONSUMER_TICKS);
         add(event, env, METAL_CHAIN, SwGameTests.METAL_CHAIN_TICKS);
+        add(event, env, ORE_TOOLS, SwGameTests.ORE_TOOLS_TICKS);
     }
 
     private static void add(RegisterGameTestsEvent event, Holder<TestEnvironmentDefinition<?>> env,

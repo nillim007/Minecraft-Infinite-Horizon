@@ -39,6 +39,7 @@ public final class ModItems {
     public static final Supplier<Item> COPPER_CABLE = blockItem("copper_cable", ModBlocks.COPPER_CABLE);
 
     static {
+        ModBlocks.simpleBlocks().forEach((id, block) -> blockItem(id, block));
         for (String id : loadSimpleIds()) {
             SIMPLE.put(id, item(id));
         }

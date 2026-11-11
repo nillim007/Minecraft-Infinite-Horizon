@@ -1,9 +1,13 @@
 {
+  "block.sternenwerft.bauxite_ore": "Bauxite Ore",
   "block.sternenwerft.combustion_generator": "Combustion Generator",
   "block.sternenwerft.copper_cable": "Copper Cable",
   "block.sternenwerft.crusher": "Crusher",
+  "block.sternenwerft.deepslate_titanium_ore": "Deepslate Titanium Ore",
   "block.sternenwerft.electric_furnace": "Electric Furnace",
   "block.sternenwerft.press": "Press",
+  "block.sternenwerft.quartz_sand": "Quartz Sand",
+  "block.sternenwerft.titanium_ore": "Titanium Ore",
   "gui.sternenwerft.burn_time": "Burn time: %s t",
   "gui.sternenwerft.energy": "Energy: %s / %s J",
   "gui.sternenwerft.fluid": "%s: %s / %s mB",

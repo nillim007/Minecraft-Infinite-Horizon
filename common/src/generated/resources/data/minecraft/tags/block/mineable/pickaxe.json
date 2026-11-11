@@ -1,9 +1,12 @@
 {
   "values": [
+    "sternenwerft:bauxite_ore",
     "sternenwerft:combustion_generator",
     "sternenwerft:copper_cable",
     "sternenwerft:crusher",
+    "sternenwerft:deepslate_titanium_ore",
     "sternenwerft:electric_furnace",
-    "sternenwerft:press"
+    "sternenwerft:press",
+    "sternenwerft:titanium_ore"
   ]
 }

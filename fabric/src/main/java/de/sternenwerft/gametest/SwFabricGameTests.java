@@ -21,6 +21,11 @@ public class SwFabricGameTests {
         SwGameTests.machinesRawTitaniumToPlate(helper);
     }
 
+    @GameTest(maxTicks = SwGameTests.ORE_TOOLS_TICKS)
+    public void oresDropOnlyWithCorrectTool(GameTestHelper helper) {
+        SwGameTests.oresNeedCorrectTool(helper);
+    }
+
     @GameTest(maxTicks = SwGameTests.PLATFORM_CONSUMER_TICKS)
     public void cablePlatformConsumerReceivesEnergy(GameTestHelper helper) {
         SwGameTests.cablePlatformConsumerReceivesEnergy(helper);

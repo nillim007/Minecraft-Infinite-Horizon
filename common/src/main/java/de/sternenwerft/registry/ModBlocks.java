@@ -12,6 +12,14 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import de.sternenwerft.data.GeneratedData;
+import net.minecraft.resources.Identifier;
+
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
@@ -33,7 +41,33 @@ public final class ModBlocks {
     public static final Supplier<Block> COPPER_CABLE = register("copper_cable", CableBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.COPPER).noOcclusion());
 
+    private static final Map<String, Supplier<Block>> SIMPLE = new LinkedHashMap<>();
+
+    static {
+        // Einfache Bloecke (Erze, Sand ...) mit Eigenschaften eines Vanilla-Blocks (4.1), Liste aus gen_resources
+        for (JsonElement e : GeneratedData.array("simple_blocks", "blocks")) {
+            JsonObject o = e.getAsJsonObject();
+            String id = o.get("id").getAsString();
+            Identifier copy = Identifier.parse(o.get("copy").getAsString());
+            SIMPLE.put(id, register(id, Block::new,
+                    () -> BlockBehaviour.Properties.ofFullCopy(BuiltInRegistries.BLOCK.getValue(copy))));
+        }
+    }
+
     private ModBlocks() {
+    }
+
+    /** Einfacher Block nach Pfad (z. B. {@code "bauxite_ore"}). */
+    public static Supplier<Block> simple(String path) {
+        Supplier<Block> s = SIMPLE.get(path);
+        if (s == null) {
+            throw new IllegalArgumentException("Block nicht registriert: " + Sternenwerft.MOD_ID + ":" + path);
+        }
+        return s;
+    }
+
+    public static Map<String, Supplier<Block>> simpleBlocks() {
+        return Collections.unmodifiableMap(SIMPLE);
     }
 
     public static void init() {

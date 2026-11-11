@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#sternenwerft:has_quartz_sand",
+  "features": "sternenwerft:quartz_sand",
+  "step": "underground_ores"
+}

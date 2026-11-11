@@ -1,0 +1,24 @@
+{
+  "blocks": [
+    {
+      "id": "bauxite_ore",
+      "copy": "minecraft:iron_ore",
+      "falls": false
+    },
+    {
+      "id": "titanium_ore",
+      "copy": "minecraft:iron_ore",
+      "falls": false
+    },
+    {
+      "id": "deepslate_titanium_ore",
+      "copy": "minecraft:deepslate_iron_ore",
+      "falls": false
+    },
+    {
+      "id": "quartz_sand",
+      "copy": "minecraft:sand",
+      "falls": false
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "features": [
+    {
+      "feature": "sternenwerft:bauxite_ore",
+      "biomes": "sternenwerft:has_bauxite_ore",
+      "step": "underground_ores"
+    },
+    {
+      "feature": "sternenwerft:titanium_ore",
+      "biomes": "sternenwerft:has_titanium_ore",
+      "step": "underground_ores"
+    },
+    {
+      "feature": "sternenwerft:quartz_sand",
+      "biomes": "sternenwerft:has_quartz_sand",
+      "step": "underground_ores"
+    }
+  ]
+}

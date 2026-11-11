@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#sternenwerft:has_titanium_ore",
+  "features": "sternenwerft:titanium_ore",
+  "step": "underground_ores"
+}

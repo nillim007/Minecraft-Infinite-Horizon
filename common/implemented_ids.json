@@ -6,7 +6,11 @@
     "sternenwerft:combustion_generator": "machine",
     "sternenwerft:copper_cable": "cable",
     "sternenwerft:electric_furnace": "machine",
-    "sternenwerft:press": "machine"
+    "sternenwerft:press": "machine",
+    "sternenwerft:bauxite_ore": "simple_block",
+    "sternenwerft:titanium_ore": "simple_block",
+    "sternenwerft:deepslate_titanium_ore": "simple_block",
+    "sternenwerft:quartz_sand": "simple_block"
   },
   "items": [
     "sternenwerft:aluminum_dust",
@@ -34,5 +38,5 @@
     "sternenwerft:titanium_plate",
     "sternenwerft:titanium_rod"
   ],
-  "step": "2a"
+  "step": "2b"
 }
