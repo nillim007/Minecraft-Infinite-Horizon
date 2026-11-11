@@ -3,10 +3,20 @@ package de.sternenwerft.platform;
 import de.sternenwerft.Sternenwerft;
 import de.sternenwerft.platform.services.IRegistryHelper;
 import net.fabricmc.fabric.api.creativetab.v1.FabricCreativeModeTab;
+import net.fabricmc.fabric.api.menu.v1.ExtendedMenuProvider;
+import net.fabricmc.fabric.api.menu.v1.ExtendedMenuType;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
@@ -30,6 +40,33 @@ public class FabricRegistryHelper implements IRegistryHelper {
     @Override
     public <T extends BlockEntity> BlockEntityType<T> blockEntityType(BiFunction<BlockPos, BlockState, T> factory, Block... blocks) {
         return FabricBlockEntityTypeBuilder.<T>create(factory::apply, blocks).build();
+    }
+
+    @Override
+    public <M extends AbstractContainerMenu, D> MenuType<M> menuType(MenuFactory<M, D> factory,
+                                                                    StreamCodec<? super RegistryFriendlyByteBuf, D> codec) {
+        return new ExtendedMenuType<>(factory::create, codec);
+    }
+
+    @Override
+    public <D> void openMenu(ServerPlayer player, MenuProvider provider, D data,
+                             StreamCodec<? super RegistryFriendlyByteBuf, D> codec) {
+        player.openMenu(new ExtendedMenuProvider<D>() {
+            @Override
+            public D getScreenOpeningData(ServerPlayer p) {
+                return data;
+            }
+
+            @Override
+            public Component getDisplayName() {
+                return provider.getDisplayName();
+            }
+
+            @Override
+            public AbstractContainerMenu createMenu(int id, Inventory inventory, Player p) {
+                return provider.createMenu(id, inventory, p);
+            }
+        });
     }
 
     @Override

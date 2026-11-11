@@ -3,9 +3,10 @@ package de.sternenwerft.machine;
 import de.sternenwerft.data.BalanceManager.MachineStats;
 import de.sternenwerft.data.BalanceManager.UpgradeStats;
 
-/**
- * Reine Funktion (Kapitel 3A.1): wirksame Vorgangsdauer und wirksamer Verbrauch einer Maschine mit Upgrades (Kapitel 4.2).
- */
+import java.util.LinkedHashMap;
+import java.util.Map;
+
+/** Wirksame Dauer und Verbrauch einer Maschine mit Upgrades (4.2); rechnet über {@link UpgradeMath}. */
 public final class ProcessingMath {
 
     private ProcessingMath() {
@@ -17,18 +18,16 @@ public final class ProcessingMath {
         }
     }
 
-    /**
-     * @param speedCount      Anzahl Geschwindigkeits-Upgrades (wird auf maxStack begrenzt)
-     * @param efficiencyCount Anzahl Effizienz-Upgrades (wird auf maxStack begrenzt)
-     */
+    public static Effective effective(MachineStats machine, Map<UpgradeStats, Integer> upgrades) {
+        UpgradeMath.Result r = UpgradeMath.apply(machine.ticks(), machine.energyPerTick(), upgrades);
+        return new Effective(r.ticks(), r.energyPerTick());
+    }
+
     public static Effective effective(MachineStats machine, UpgradeStats speed, int speedCount,
                                       UpgradeStats efficiency, int efficiencyCount) {
-        int s = Math.max(0, Math.min(speedCount, speed.maxStack()));
-        int e = Math.max(0, Math.min(efficiencyCount, efficiency.maxStack()));
-        double ticks = machine.ticks() * Math.pow(speed.ticksMultiplier(), s);
-        double energy = machine.energyPerTick()
-                * Math.pow(speed.energyMultiplier(), s)
-                * Math.pow(efficiency.energyMultiplier(), e);
-        return new Effective(Math.max(1, (int) Math.ceil(ticks - 1e-9)), Math.max(0, Math.round(energy)));
+        Map<UpgradeStats, Integer> map = new LinkedHashMap<>();
+        map.put(speed, speedCount);
+        map.put(efficiency, efficiencyCount);
+        return effective(machine, map);
     }
 }

@@ -68,6 +68,12 @@ class BalanceManagerTest {
         assertEquals(150, oneSpeed.ticks());
         assertEquals(30, oneSpeed.energyPerTick());
         var capped = ProcessingMath.effective(crusher, speed, 99, eff, 0);
-        assertEquals(64, capped.ticks()); // 200 × 0,75^4 = 63,3 → 64
+        assertEquals(63, capped.ticks()); // max_stack 4: 200 × 0,75^4 = 63,28 → round → 63 (4.2)
+        // Beispiel aus 4.2: n = 4 → 63 t und 101 J/t (20 × 1,5^4 = 101,25)
+        var four = ProcessingMath.effective(crusher, speed, 4, eff, 0);
+        assertEquals(63, four.ticks());
+        assertEquals(101, four.energyPerTick());
+        var mixed = ProcessingMath.effective(crusher, speed, 0, eff, 4);
+        assertEquals(10, mixed.energyPerTick()); // 20 × 0,85^4 = 10,44 → 10
     }
 }

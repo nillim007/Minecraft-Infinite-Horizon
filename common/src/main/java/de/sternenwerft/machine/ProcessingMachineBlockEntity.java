@@ -5,14 +5,14 @@ import de.sternenwerft.core.energy.SwEnergyStorage;
 import de.sternenwerft.core.transaction.Transaction;
 import de.sternenwerft.data.BalanceManager;
 import de.sternenwerft.data.BalanceManager.MachineStats;
-import de.sternenwerft.data.BalanceManager.UpgradeStats;
+import de.sternenwerft.recipe.MachineRecipeInput;
 import de.sternenwerft.recipe.ProcessingRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
-import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
@@ -25,39 +25,49 @@ import java.util.Optional;
 import java.util.function.Supplier;
 
 /**
- * Verarbeitungsmaschine mit einem Eingang (z. B. Zerkleinerer). Slots laut machines.json:
- * Eingänge, dann Ausgänge, dann Upgrades. Verbrauch und Dauer: Rezept, sonst Maschine (25.4), dann Upgrades (4.2).
+ * Verarbeitungsmaschine (Zerkleinerer, Presse, …). Slots laut machines.json; Rezeptarten als {@link ProcessingRecipe.Kind}.
+ * Dauer und Verbrauch: Rezept, sonst Maschine (25.4), dann Upgrades (4.2). Der Fortschritt ist ein Anteil (0–1),
+ * damit er beim Ein- und Ausbau von Upgrades erhalten bleibt.
  *
- * <p>Addon-Maschine: eigene {@link ProcessingRecipe.Kind}, ein BE-Typ mit
- * {@code (pos, state) -> new ProcessingMachineBlockEntity(TYP, pos, state, () -> KIND)}, ein {@link MachineBlock}
- * und ein Eintrag in {@code data/<ns>/sternenwerft/balance/machines.json}.
+ * <p>Addon-Maschine: {@code (pos, state) -> new ProcessingMachineBlockEntity(TYP, pos, state, () -> List.of(KIND))},
+ * ein {@link MachineBlock} und ein Eintrag in {@code data/<ns>/sternenwerft/balance/machines.json}.
+ * Für andere Rezeptquellen {@link #findPlan(ServerLevel)} überschreiben.
  */
 public class ProcessingMachineBlockEntity extends MachineBlockEntity {
 
-    /** Neutrale Upgrade-Werte, solange keine Upgrade-Items existieren. */
-    private static final UpgradeStats NO_UPGRADE = new UpgradeStats("none", 1.0, 1.0, 0);
+    /** Ein konkreter Vorgang: welche Slots wie viel verbrauchen, was herauskommt, Rezept-Überschreibungen. */
+    public record Plan(int[] consumeSlots, int[] consumeCounts, List<ProcessingRecipe.ChanceResult> results,
+                       Optional<Integer> ticks, Optional<Long> energyPerTick) {
+    }
 
-    private final Supplier<ProcessingRecipe.Kind> kind;
-    private int progress;
+    private static final double DONE = 1.0 - 1e-9;
+
+    private final Supplier<List<ProcessingRecipe.Kind>> kinds;
+    private double progress;
+    private int currentTicks;
 
     public ProcessingMachineBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state,
-                                        Supplier<ProcessingRecipe.Kind> kind) {
+                                        Supplier<List<ProcessingRecipe.Kind>> kinds) {
         super(type, pos, state);
-        this.kind = kind;
+        this.kinds = kinds;
     }
 
     public MachineStats stats() {
         return BalanceManager.get().machine(machineId());
     }
 
-    public int progress() {
+    /** Fortschritt des laufenden Vorgangs als Anteil 0–1. */
+    public double progress() {
         return progress;
     }
 
     @Override
-    protected int slotCount() {
+    public MachineLayout layout() {
+        if (BalanceManager.get().isEmpty()) {
+            return MachineLayout.EMPTY;
+        }
         MachineStats s = stats();
-        return s.inputSlots() + s.outputSlots() + s.upgradeSlots();
+        return new MachineLayout(s.inputSlots(), s.moldSlots(), s.outputSlots(), s.upgradeSlots(), 0);
     }
 
     @Override
@@ -66,34 +76,13 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         storage.reconfigure(s.buffer(), s.buffer(), 0);
     }
 
-    private boolean isInput(int slot) {
-        return slot >= 0 && slot < stats().inputSlots();
-    }
-
-    private boolean isOutput(int slot) {
-        MachineStats s = stats();
-        return slot >= s.inputSlots() && slot < s.inputSlots() + s.outputSlots();
-    }
-
-    // SPEC-GAP: Upgrade-Items kommen erst in M2; Upgrade-Slots nehmen bis dahin nichts an.
     @Override
-    public boolean canPlaceItem(int slot, ItemStack stack) {
-        return isInput(slot);
-    }
-
-    @Override
-    public int[] getSlotsForFace(Direction side) {
-        MachineStats s = stats();
-        int[] slots = new int[s.inputSlots() + s.outputSlots()];
-        for (int i = 0; i < slots.length; i++) {
-            slots[i] = i;
-        }
-        return slots;
-    }
-
-    @Override
-    public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) {
-        return isOutput(slot);
+    protected long syncValue(int index) {
+        return switch (index) {
+            case 2 -> Math.round(progress * currentTicks);
+            case 3 -> currentTicks;
+            default -> super.syncValue(index);
+        };
     }
 
     @Override
@@ -106,24 +95,54 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         return false;
     }
 
-    public Optional<RecipeHolder<ProcessingRecipe>> findRecipe(ServerLevel level, ItemStack input) {
-        if (input.isEmpty()) {
+    /** Aktuelle Eingabe: alle Eingabeslots und der Formslot. */
+    public MachineRecipeInput recipeInput() {
+        MachineLayout l = layout();
+        List<ItemStack> in = new ArrayList<>(l.inputs());
+        for (int i = 0; i < l.inputs(); i++) {
+            in.add(items.get(i));
+        }
+        ItemStack mold = l.molds() > 0 ? items.get(l.moldStart()) : ItemStack.EMPTY;
+        return new MachineRecipeInput(in, mold);
+    }
+
+    /** Sucht den nächsten Vorgang über alle Rezeptarten der Maschine. */
+    protected Optional<Plan> findPlan(ServerLevel level) {
+        MachineRecipeInput input = recipeInput();
+        if (input.inputs().stream().allMatch(ItemStack::isEmpty)) {
             return Optional.empty();
         }
-        return level.recipeAccess().getRecipeFor(kind.get().type(), new SingleRecipeInput(input), level);
+        for (ProcessingRecipe.Kind kind : kinds.get()) {
+            Optional<RecipeHolder<ProcessingRecipe>> found = level.recipeAccess().getRecipeFor(kind.type(), input, level);
+            if (found.isPresent()) {
+                ProcessingRecipe r = found.get().value();
+                int[] slots = r.assign(input);
+                if (slots != null) {
+                    int[] counts = r.ingredients().stream().mapToInt(ProcessingRecipe.CountedIngredient::count).toArray();
+                    return Optional.of(new Plan(slots, counts, r.results(), r.ticks(), r.energyPerTick()));
+                }
+            }
+        }
+        return Optional.empty();
     }
 
-    /** Wirksame Dauer und Verbrauch für ein Rezept (reine Rechnung, 4.2). */
-    public ProcessingMath.Effective effective(ProcessingRecipe recipe) {
+    /** Wirksame Dauer und Verbrauch für einen Vorgang (reine Rechnung, 4.2). */
+    public ProcessingMath.Effective effective(Plan plan) {
         MachineStats s = stats();
-        MachineStats withRecipe = new MachineStats(s.id(), recipe.energyPerTick().orElse(s.energyPerTick()),
-                recipe.ticks().orElse(s.ticks()), s.buffer(), s.inputSlots(), s.outputSlots(), s.upgradeSlots());
-        return ProcessingMath.effective(withRecipe, NO_UPGRADE, 0, NO_UPGRADE, 0);
+        MachineStats withRecipe = s.withProcess(plan.energyPerTick().orElse(s.energyPerTick()), plan.ticks().orElse(s.ticks()));
+        return ProcessingMath.effective(withRecipe, installedUpgrades());
     }
 
-    /** Dauer in Ticks für dieses Eingangs-Item; -1 ohne passendes Rezept. */
+    /** Dauer in Ticks, wenn {@code input} im ersten Eingabeslot läge; -1 ohne passendes Rezept. */
     public int durationFor(ServerLevel level, ItemStack input) {
-        return findRecipe(level, input).map(h -> effective(h.value()).ticks()).orElse(-1);
+        ensureLayout();
+        ItemStack old = items.get(0);
+        items.set(0, input);
+        try {
+            return findPlan(level).map(p -> effective(p).ticks()).orElse(-1);
+        } finally {
+            items.set(0, old);
+        }
     }
 
     @Override
@@ -131,19 +150,20 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         if (!ensureLayout()) {
             return;
         }
-        ItemStack input = items.get(0);
-        Optional<RecipeHolder<ProcessingRecipe>> found = findRecipe(level, input);
+        Optional<Plan> found = findPlan(level);
         if (found.isEmpty()) {
             progress = 0;
+            currentTicks = 0;
             setStatus(MachineStatus.IDLE);
             return;
         }
-        ProcessingRecipe recipe = found.get().value();
-        if (!outputsFit(recipe.results())) {
+        Plan plan = found.get();
+        if (!outputsFit(plan.results())) {
             setStatus(MachineStatus.ERROR);
             return;
         }
-        ProcessingMath.Effective eff = effective(recipe);
+        ProcessingMath.Effective eff = effective(plan);
+        currentTicks = eff.ticks();
         try (Transaction tx = Transaction.open()) {
             if (!energy.consumeInternal(eff.energyPerTick(), tx)) {
                 setStatus(MachineStatus.IDLE);
@@ -151,13 +171,15 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
             }
             tx.commit();
         }
-        progress++;
-        if (progress >= eff.ticks()) {
+        progress += 1.0 / eff.ticks();
+        if (progress >= DONE) {
             progress = 0;
-            input.shrink(recipe.inputCount());
-            for (ProcessingRecipe.ChanceResult r : recipe.results()) {
+            for (int k = 0; k < plan.consumeSlots().length; k++) {
+                items.get(plan.consumeSlots()[k]).shrink(plan.consumeCounts()[k]);
+            }
+            for (ProcessingRecipe.ChanceResult r : plan.results()) {
                 if (r.chance() >= 1.0f || level.getRandom().nextFloat() < r.chance()) {
-                    insertOutput(r.toStack(), false);
+                    insertOutput(r.toStack());
                 }
             }
         }
@@ -166,9 +188,9 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
     }
 
     private boolean outputsFit(List<ProcessingRecipe.ChanceResult> results) {
-        MachineStats s = stats();
+        MachineLayout l = layout();
         List<ItemStack> copy = new ArrayList<>();
-        for (int i = s.inputSlots(); i < s.inputSlots() + s.outputSlots(); i++) {
+        for (int i = l.outputStart(); i < l.upgradeStart(); i++) {
             copy.add(items.get(i).copy());
         }
         for (ProcessingRecipe.ChanceResult r : results) {
@@ -183,10 +205,10 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         return true;
     }
 
-    private void insertOutput(ItemStack stack, boolean simulate) {
-        MachineStats s = stats();
+    private void insertOutput(ItemStack stack) {
+        MachineLayout l = layout();
         ItemStack rest = stack;
-        for (int i = s.inputSlots(); i < s.inputSlots() + s.outputSlots() && !rest.isEmpty(); i++) {
+        for (int i = l.outputStart(); i < l.upgradeStart() && !rest.isEmpty(); i++) {
             rest = merge(items, i, rest);
         }
     }
@@ -212,10 +234,10 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
     }
 
     /** Anzahl eines Items in den Ausgabeslots (für Tests und Anzeigen). */
-    public int countOutput(net.minecraft.world.item.Item item) {
-        MachineStats s = stats();
+    public int countOutput(Item item) {
+        MachineLayout l = layout();
         int n = 0;
-        for (int i = s.inputSlots(); i < s.inputSlots() + s.outputSlots() && i < items.size(); i++) {
+        for (int i = l.outputStart(); i < l.upgradeStart() && i < items.size(); i++) {
             if (items.get(i).is(item)) {
                 n += items.get(i).getCount();
             }
@@ -223,15 +245,26 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         return n;
     }
 
+    /** Nimmt bis zu {@code max} Stück eines Items aus den Ausgabeslots (für Tests und Logistik). */
+    public ItemStack takeOutput(Item item, int max) {
+        MachineLayout l = layout();
+        for (int i = l.outputStart(); i < l.upgradeStart() && i < items.size(); i++) {
+            if (items.get(i).is(item)) {
+                return removeItem(i, max);
+            }
+        }
+        return ItemStack.EMPTY;
+    }
+
     @Override
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
-        output.putInt("progress", progress);
+        output.putDouble("progress", progress);
     }
 
     @Override
     public void loadAdditional(ValueInput input) {
         super.loadAdditional(input);
-        progress = input.getIntOr("progress", 0);
+        progress = input.getDoubleOr("progress", 0.0);
     }
 }

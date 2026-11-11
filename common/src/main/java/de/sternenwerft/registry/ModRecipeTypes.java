@@ -10,10 +10,16 @@ import java.util.function.Supplier;
 /** Eigene Rezeptarten (25.4). Jede Art ist eine {@link ProcessingRecipe.Kind}. */
 public final class ModRecipeTypes {
 
-    public static final ProcessingRecipe.Kind CRUSHING = new ProcessingRecipe.Kind("crushing");
+    public static final ProcessingRecipe.Kind CRUSHING = kind("crushing");
+    public static final ProcessingRecipe.Kind PRESSING = kind("pressing");
+    public static final ProcessingRecipe.Kind ELECTRIC_SMELTING = kind("electric_smelting");
 
-    static {
-        Services.REGISTRY.register(BuiltInRegistries.RECIPE_TYPE, CRUSHING.name(), CRUSHING::type);
+    /** Legt eine Rezeptart an und registriert Typ und Serializer unter {@code sternenwerft:<name>}. */
+    public static ProcessingRecipe.Kind kind(String name) {
+        ProcessingRecipe.Kind k = new ProcessingRecipe.Kind(name);
+        Services.REGISTRY.register(BuiltInRegistries.RECIPE_TYPE, name, k::type);
+        Services.REGISTRY.register(BuiltInRegistries.RECIPE_SERIALIZER, name, k::serializer);
+        return k;
     }
 
     /** Gemeinsame Rezeptbuch-Kategorie aller Maschinenrezepte (sie erscheinen nicht im Rezeptbuch). */

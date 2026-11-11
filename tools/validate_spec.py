@@ -283,7 +283,7 @@ def check_rocket_sums(spec):
     t1 = total([("rocket_capsule_t1", 1), ("rocket_tank_t1", 4), ("rocket_engine_t1", 1), ("rocket_fin_t1", 4)])
     expect1 = {"aluminum_plate": 200, "titanium_plate": 64, "circuit": 32}
     t2 = total([("rocket_capsule_t2", 1), ("rocket_tank_t2", 6), ("rocket_engine_t2", 1), ("rocket_fin_t2", 4)])
-    expect2 = {"lightweight_plate": 128, "heat_shield": 64, "advanced_circuit": 32, "cooling_system": 4}
+    expect2 = {"lightweight_plate": 132, "heat_shield": 64, "advanced_circuit": 32, "cooling_system": 4}
     for label, got, expect in (("T1", t1, expect1), ("T2", t2, expect2)):
         for k, v in expect.items():
             g = sum(val for key, val in got.items() if key.endswith(k))

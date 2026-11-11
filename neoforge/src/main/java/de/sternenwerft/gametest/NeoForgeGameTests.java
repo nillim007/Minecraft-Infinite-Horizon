@@ -29,6 +29,9 @@ public final class NeoForgeGameTests {
     private static final DeferredHolder<Consumer<GameTestHelper>, Consumer<GameTestHelper>> PLATFORM_CONSUMER =
             FUNCTIONS.register(SwGameTests.PLATFORM_CONSUMER, () -> SwGameTests::cablePlatformConsumerReceivesEnergy);
 
+    private static final DeferredHolder<Consumer<GameTestHelper>, Consumer<GameTestHelper>> METAL_CHAIN =
+            FUNCTIONS.register(SwGameTests.METAL_CHAIN, () -> SwGameTests::machinesRawTitaniumToPlate);
+
     private NeoForgeGameTests() {
     }
 
@@ -37,6 +40,7 @@ public final class NeoForgeGameTests {
         add(event, env, CRUSHER_CHAIN, SwGameTests.CRUSHER_CHAIN_TICKS);
         add(event, env, BALANCE_RELOAD, SwGameTests.BALANCE_RELOAD_TICKS);
         add(event, env, PLATFORM_CONSUMER, SwGameTests.PLATFORM_CONSUMER_TICKS);
+        add(event, env, METAL_CHAIN, SwGameTests.METAL_CHAIN_TICKS);
     }
 
     private static void add(RegisterGameTestsEvent event, Holder<TestEnvironmentDefinition<?>> env,

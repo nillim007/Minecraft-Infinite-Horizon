@@ -5,6 +5,12 @@ import de.sternenwerft.platform.services.IRegistryHelper;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.network.codec.StreamCodec;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.MenuProvider;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.inventory.MenuType;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
@@ -13,6 +19,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.neoforged.bus.api.IEventBus;
+import net.neoforged.neoforge.common.extensions.IMenuTypeExtension;
 import net.neoforged.neoforge.registries.DeferredRegister;
 
 import java.util.LinkedHashMap;
@@ -37,6 +44,18 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
     @Override
     public <T extends BlockEntity> BlockEntityType<T> blockEntityType(BiFunction<BlockPos, BlockState, T> factory, Block... blocks) {
         return new BlockEntityType<T>(factory::apply, blocks);
+    }
+
+    @Override
+    public <M extends AbstractContainerMenu, D> MenuType<M> menuType(MenuFactory<M, D> factory,
+                                                                    StreamCodec<? super RegistryFriendlyByteBuf, D> codec) {
+        return IMenuTypeExtension.create((id, inventory, buf) -> factory.create(id, inventory, codec.decode(buf)));
+    }
+
+    @Override
+    public <D> void openMenu(ServerPlayer player, MenuProvider provider, D data,
+                             StreamCodec<? super RegistryFriendlyByteBuf, D> codec) {
+        player.openMenu(provider, buf -> codec.encode(buf, data));
     }
 
     @Override

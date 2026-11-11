@@ -1,0 +1,17 @@
+{
+  "type": "sternenwerft:pressing",
+  "ingredients": [
+    {
+      "ingredient": "sternenwerft:aluminum_ingot",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "sternenwerft:aluminum_plate",
+      "count": 1,
+      "chance": 1.0
+    }
+  ],
+  "mold": "sternenwerft:press_mold_plate"
+}

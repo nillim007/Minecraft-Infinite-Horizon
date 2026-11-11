@@ -3,7 +3,13 @@ package de.sternenwerft.machine;
 import de.sternenwerft.block.MachineStatus;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import de.sternenwerft.menu.MachineMenu;
+import de.sternenwerft.platform.Services;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -45,6 +51,15 @@ public class MachineBlock extends BaseEntityBlock {
     @Override
     public @Nullable BlockState getStateForPlacement(BlockPlaceContext context) {
         return defaultBlockState().setValue(FACING, context.getHorizontalDirection().getOpposite());
+    }
+
+    /** Rechtsklick öffnet das GUI (4.1); der Server entscheidet. */
+    @Override
+    public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+        if (!level.isClientSide() && player instanceof ServerPlayer sp && level.getBlockEntity(pos) instanceof MachineBlockEntity be) {
+            Services.REGISTRY.openMenu(sp, be, be.openData(), MachineMenu.OpenData.STREAM_CODEC);
+        }
+        return InteractionResult.SUCCESS;
     }
 
     @Override

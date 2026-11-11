@@ -10,6 +10,7 @@ import de.sternenwerft.registry.ModBlockEntities;
 import de.sternenwerft.registry.ModBlocks;
 import de.sternenwerft.registry.ModCreativeTabs;
 import de.sternenwerft.registry.ModItems;
+import de.sternenwerft.registry.ModMenus;
 import de.sternenwerft.registry.ModRecipeSerializers;
 import de.sternenwerft.registry.ModRecipeTypes;
 import net.minecraft.resources.Identifier;
@@ -49,6 +50,7 @@ public final class Sternenwerft {
         ModBlockEntities.init();
         ModRecipeTypes.init();
         ModRecipeSerializers.init();
+        ModMenus.init();
         ModCreativeTabs.init();
         ModPayloads.init();
     }

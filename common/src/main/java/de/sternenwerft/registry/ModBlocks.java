@@ -24,6 +24,12 @@ public final class ModBlocks {
     public static final Supplier<Block> COMBUSTION_GENERATOR = register("combustion_generator",
             p -> new MachineBlock(p, () -> ModBlockEntities.COMBUSTION_GENERATOR.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> ELECTRIC_FURNACE = register("electric_furnace",
+            p -> new MachineBlock(p, () -> ModBlockEntities.ELECTRIC_FURNACE.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> PRESS = register("press",
+            p -> new MachineBlock(p, () -> ModBlockEntities.PRESS.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Supplier<Block> COPPER_CABLE = register("copper_cable", CableBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.COPPER).noOcclusion());
 

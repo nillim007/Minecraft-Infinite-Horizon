@@ -15,7 +15,6 @@ import net.minecraft.world.item.crafting.Recipe;
 import net.minecraft.world.item.crafting.RecipeBookCategory;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
-import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 
 import java.util.List;
@@ -29,7 +28,7 @@ import java.util.Optional;
  * <p>Eine neue Rezeptart braucht nur eine {@link Kind}; Addons registrieren deren {@code type()} und
  * {@code serializer()} unter eigener ID.
  */
-public final class ProcessingRecipe implements Recipe<SingleRecipeInput> {
+public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
 
     public record CountedIngredient(Ingredient ingredient, int count) {
         public static final Codec<CountedIngredient> CODEC = RecordCodecBuilder.create(i -> i.group(
@@ -68,8 +67,9 @@ public final class ProcessingRecipe implements Recipe<SingleRecipeInput> {
                     CountedIngredient.CODEC.listOf().fieldOf("ingredients").forGetter(ProcessingRecipe::ingredients),
                     ChanceResult.CODEC.listOf().fieldOf("results").forGetter(ProcessingRecipe::results),
                     ExtraCodecs.POSITIVE_INT.optionalFieldOf("ticks").forGetter(ProcessingRecipe::ticks),
-                    Codec.LONG.optionalFieldOf("energy_per_tick").forGetter(ProcessingRecipe::energyPerTick)
-            ).apply(i, (ing, res, t, e) -> new ProcessingRecipe(this, ing, res, t, e)));
+                    Codec.LONG.optionalFieldOf("energy_per_tick").forGetter(ProcessingRecipe::energyPerTick),
+                    BuiltInRegistries.ITEM.byNameCodec().optionalFieldOf("mold").forGetter(ProcessingRecipe::mold)
+            ).apply(i, (ing, res, t, e, m) -> new ProcessingRecipe(this, ing, res, t, e, m)));
             this.serializer = new RecipeSerializer<>(codec, ByteBufCodecs.fromCodecWithRegistries(codec.codec()));
         }
 
@@ -91,14 +91,21 @@ public final class ProcessingRecipe implements Recipe<SingleRecipeInput> {
     private final List<ChanceResult> results;
     private final Optional<Integer> ticks;
     private final Optional<Long> energyPerTick;
+    private final Optional<Item> mold;
 
     public ProcessingRecipe(Kind kind, List<CountedIngredient> ingredients, List<ChanceResult> results,
-                            Optional<Integer> ticks, Optional<Long> energyPerTick) {
+                            Optional<Integer> ticks, Optional<Long> energyPerTick, Optional<Item> mold) {
         this.kind = kind;
         this.ingredients = List.copyOf(ingredients);
         this.results = List.copyOf(results);
         this.ticks = ticks;
         this.energyPerTick = energyPerTick;
+        this.mold = mold;
+    }
+
+    /** Pressform, die im Formslot liegen muss und nicht verbraucht wird (5.2). */
+    public Optional<Item> mold() {
+        return mold;
     }
 
     public Kind kind() {
@@ -126,17 +133,44 @@ public final class ProcessingRecipe implements Recipe<SingleRecipeInput> {
         return ingredients.isEmpty() ? 0 : ingredients.getFirst().count();
     }
 
-    @Override
-    public boolean matches(SingleRecipeInput input, Level level) {
+    /**
+     * Ordnet jeder Zutat einen eigenen Eingabeslot zu, der genug davon enthält (Reihenfolge egal).
+     * Ergebnis: Slotindex je Zutat, oder null, wenn das Rezept nicht passt.
+     */
+    public int[] assign(MachineRecipeInput input) {
         if (ingredients.isEmpty()) {
-            return false;
+            return null;
         }
-        ItemStack stack = input.getItem(0);
-        return ingredients.getFirst().ingredient().test(stack) && stack.getCount() >= inputCount();
+        if (mold.isPresent() && !input.mold().is(mold.get())) {
+            return null;
+        }
+        int[] slots = new int[ingredients.size()];
+        boolean[] used = new boolean[input.size()];
+        for (int k = 0; k < ingredients.size(); k++) {
+            CountedIngredient ci = ingredients.get(k);
+            int found = -1;
+            for (int s = 0; s < input.size() && found < 0; s++) {
+                ItemStack stack = input.getItem(s);
+                if (!used[s] && !stack.isEmpty() && ci.ingredient().test(stack) && stack.getCount() >= ci.count()) {
+                    found = s;
+                }
+            }
+            if (found < 0) {
+                return null;
+            }
+            used[found] = true;
+            slots[k] = found;
+        }
+        return slots;
     }
 
     @Override
-    public ItemStack assemble(SingleRecipeInput input) {
+    public boolean matches(MachineRecipeInput input, Level level) {
+        return assign(input) != null;
+    }
+
+    @Override
+    public ItemStack assemble(MachineRecipeInput input) {
         return results.isEmpty() ? ItemStack.EMPTY : results.getFirst().toStack();
     }
 

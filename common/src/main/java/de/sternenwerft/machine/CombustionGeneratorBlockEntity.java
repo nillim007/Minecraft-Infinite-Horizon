@@ -41,8 +41,11 @@ public class CombustionGeneratorBlockEntity extends MachineBlockEntity {
     }
 
     @Override
-    protected int slotCount() {
-        return stats().fuelSlots();
+    public MachineLayout layout() {
+        if (BalanceManager.get().isEmpty()) {
+            return MachineLayout.EMPTY;
+        }
+        return new MachineLayout(0, 0, 0, 0, stats().fuelSlots());
     }
 
     @Override
@@ -51,24 +54,15 @@ public class CombustionGeneratorBlockEntity extends MachineBlockEntity {
         storage.reconfigure(s.buffer(), 0, s.buffer());
     }
 
-    @Override
-    public boolean canPlaceItem(int slot, ItemStack stack) {
-        // SPEC-GAP: Behälter-Brennstoffe (Lavaeimer) verlieren in M1 den Eimer; Füll-/Leerslots kommen mit Fluiden.
-        return slot >= 0 && slot < getContainerSize() && FuelHelper.isFuel(stack);
-    }
+    // SPEC-GAP: Behälter-Brennstoffe (Lavaeimer) behalten den Eimer erst ab M2e (6.3); bis dahin geht er verloren.
 
     @Override
-    public int[] getSlotsForFace(Direction side) {
-        int[] slots = new int[getContainerSize()];
-        for (int i = 0; i < slots.length; i++) {
-            slots[i] = i;
-        }
-        return slots;
-    }
-
-    @Override
-    public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) {
-        return false;
+    protected long syncValue(int index) {
+        return switch (index) {
+            case 2 -> burnRemaining;
+            case 3 -> burnTotal;
+            default -> super.syncValue(index);
+        };
     }
 
     @Override

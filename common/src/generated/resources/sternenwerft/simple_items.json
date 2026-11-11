@@ -1,0 +1,28 @@
+{
+  "items": [
+    "aluminum_dust",
+    "aluminum_ingot",
+    "aluminum_plate",
+    "aluminum_wire",
+    "bauxite",
+    "copper_dust",
+    "copper_wire",
+    "efficiency_upgrade",
+    "gold_dust",
+    "gold_wire",
+    "iron_dust",
+    "iron_plate",
+    "iron_rod",
+    "machine_frame",
+    "press_mold_plate",
+    "press_mold_rod",
+    "press_mold_wire",
+    "raw_titanium",
+    "silicon",
+    "speed_upgrade",
+    "titanium_dust",
+    "titanium_ingot",
+    "titanium_plate",
+    "titanium_rod"
+  ]
+}

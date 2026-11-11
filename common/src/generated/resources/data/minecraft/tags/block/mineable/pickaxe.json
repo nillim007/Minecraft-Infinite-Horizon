@@ -2,6 +2,8 @@
   "values": [
     "sternenwerft:combustion_generator",
     "sternenwerft:copper_cable",
-    "sternenwerft:crusher"
+    "sternenwerft:crusher",
+    "sternenwerft:electric_furnace",
+    "sternenwerft:press"
   ]
 }

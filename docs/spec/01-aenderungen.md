@@ -46,4 +46,4 @@ Diese Entscheidungen lösen Widersprüche und Sackgassen. **Bitte prüfen**, bev
 **Ä25: Entscheidungen zu Kapitel 28**
 
 - Erdöl: Die Pumpe entfernt einen `crude_oil`-Quellblock nur mit 10 % Wahrscheinlichkeit (`source_consume_chance` in `machines.json`, 6.1).
-- Zutatengleiche Rezepte getrennt: `research_terminal` +1 `minecraft:book`, `landing_beacon` mit `minecraft:redstone_lamp` statt Glowstone-Staub, `rocket_fin_t2` mit 3 statt 2 `lightweight_plate` (22.3).
+- Zutatengleiche Rezepte getrennt: `research_terminal` +1 `minecraft:book`, `landing_beacon` mit `minecraft:redstone_lamp` statt Glowstone-Staub, `rocket_fin_t2` mit 3 statt 2 `lightweight_plate` (22.3); dadurch braucht die Rakete T2 132 statt 128 `lightweight_plate` (22.3, `validate_spec.py`).

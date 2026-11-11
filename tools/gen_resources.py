@@ -224,6 +224,9 @@ def main():
                    {"parent": "minecraft:item/generated", "textures": {"layer0": f"{NS}:item/{name}"}})
         write_json(f"assets/{NS}/items/{name}.json", {"model": {"type": "minecraft:model", "model": f"{NS}:item/{name}"}})
 
+    # Liste der einfachen Items für die Java-Registrierung (Reihenfolge wie in implemented_ids.json)
+    write_json("sternenwerft/simple_items.json", {"items": [short(i) for i in impl["items"]]})
+
     # Tags
     write_json("data/minecraft/tags/block/mineable/pickaxe.json", {"values": sorted(blocks)})
     tags = {}
@@ -236,12 +239,16 @@ def main():
     for tag, values in sorted(tags.items()):
         write_json(f"data/c/tags/item/{tag}.json", {"values": sorted(values)})
 
+    molds = sorted(i for i in items if short(i).startswith("press_mold_"))
+    if molds:
+        write_json(f"data/{NS}/tags/item/press_molds.json", {"values": molds})
+
     # Rezepte: nur wenn alle eigenen IDs registriert sind
     n_rec = 0
     for r in spec.recipes:
         if not recipe_ids(r) or not recipe_ids(r) <= registered:
             continue
-        if r["type"] not in ("crafting_shaped", "crafting_shapeless", "smelting", "crushing"):
+        if r["type"] not in ("crafting_shaped", "crafting_shapeless", "smelting", "crushing", "electric_smelting", "pressing"):
             continue  # weitere Typen folgen mit ihren Maschinen
         write_json(f"data/{NS}/recipe/{r['id'].split(':', 1)[1].replace('/', '_')}.json", recipe_json(r, registered))
         n_rec += 1

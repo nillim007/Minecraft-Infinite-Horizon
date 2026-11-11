@@ -1,0 +1,17 @@
+{
+  "type": "sternenwerft:pressing",
+  "ingredients": [
+    {
+      "ingredient": "minecraft:iron_ingot",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "sternenwerft:iron_plate",
+      "count": 1,
+      "chance": 1.0
+    }
+  ],
+  "mold": "sternenwerft:press_mold_plate"
+}

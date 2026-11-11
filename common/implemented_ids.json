@@ -1,13 +1,38 @@
 {
   "_comment": "IDs, die im Code registriert sind. tools/gen_resources.py erzeugt nur für diese Ressourcen. Mit jedem Meilenstein erweitern.",
-  "milestone": 1,
+  "milestone": 2,
   "blocks": {
     "sternenwerft:crusher": "machine",
     "sternenwerft:combustion_generator": "machine",
-    "sternenwerft:copper_cable": "cable"
+    "sternenwerft:copper_cable": "cable",
+    "sternenwerft:electric_furnace": "machine",
+    "sternenwerft:press": "machine"
   },
   "items": [
+    "sternenwerft:aluminum_dust",
+    "sternenwerft:aluminum_ingot",
+    "sternenwerft:aluminum_plate",
+    "sternenwerft:aluminum_wire",
+    "sternenwerft:bauxite",
+    "sternenwerft:copper_dust",
+    "sternenwerft:copper_wire",
+    "sternenwerft:efficiency_upgrade",
+    "sternenwerft:gold_dust",
+    "sternenwerft:gold_wire",
+    "sternenwerft:iron_dust",
+    "sternenwerft:iron_plate",
+    "sternenwerft:iron_rod",
     "sternenwerft:machine_frame",
-    "sternenwerft:iron_dust"
-  ]
+    "sternenwerft:press_mold_plate",
+    "sternenwerft:press_mold_rod",
+    "sternenwerft:press_mold_wire",
+    "sternenwerft:raw_titanium",
+    "sternenwerft:silicon",
+    "sternenwerft:speed_upgrade",
+    "sternenwerft:titanium_dust",
+    "sternenwerft:titanium_ingot",
+    "sternenwerft:titanium_plate",
+    "sternenwerft:titanium_rod"
+  ],
+  "step": "2a"
 }

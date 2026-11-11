@@ -16,6 +16,11 @@ public class SwFabricGameTests {
         SwGameTests.crusherBalanceChangesDuration(helper);
     }
 
+    @GameTest(maxTicks = SwGameTests.METAL_CHAIN_TICKS)
+    public void machinesRawTitaniumToPlateWithin440Ticks(GameTestHelper helper) {
+        SwGameTests.machinesRawTitaniumToPlate(helper);
+    }
+
     @GameTest(maxTicks = SwGameTests.PLATFORM_CONSUMER_TICKS)
     public void cablePlatformConsumerReceivesEnergy(GameTestHelper helper) {
         SwGameTests.cablePlatformConsumerReceivesEnergy(helper);

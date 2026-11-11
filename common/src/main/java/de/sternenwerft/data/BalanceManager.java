@@ -66,8 +66,15 @@ public final class BalanceManager {
         JsonObject slots = e.has("item_slots") ? e.getAsJsonObject("item_slots") : new JsonObject();
         int input = slots.has("input") ? slots.get("input").getAsInt() : 0;
         int output = slots.has("output") ? slots.get("output").getAsInt() : 0;
+        int mold = slots.has("mold") ? slots.get("mold").getAsInt() : 0;
         int upgrades = e.has("upgrade_slots") ? e.get("upgrade_slots").getAsInt() : 0;
-        return new MachineStats(id, energy, ticks == null ? 0 : ticks, buffer, input, output, upgrades);
+        return new MachineStats(id, energy, ticks == null ? 0 : ticks, buffer, input, output, upgrades, mold);
+    }
+
+    /** Upgrade-Slot (1, 2, …), in den dieses Item gehört; 0 = kein Upgrade (machines.json → Feld {@code slot}). */
+    public int upgradeSlotOf(String itemId) {
+        return entry("machines", itemId).filter(o -> o.has("slot") && o.has("max_stack"))
+                .map(o -> o.get("slot").getAsInt()).orElse(0);
     }
 
     public GeneratorStats generator(String id) {
@@ -160,7 +167,11 @@ public final class BalanceManager {
     // ------------------------------------------------------------------ Datentypen
 
     public record MachineStats(String id, long energyPerTick, int ticks, long buffer, int inputSlots, int outputSlots,
-                               int upgradeSlots) {
+                               int upgradeSlots, int moldSlots) {
+
+        public MachineStats withProcess(long energyPerTick, int ticks) {
+            return new MachineStats(id, energyPerTick, ticks, buffer, inputSlots, outputSlots, upgradeSlots, moldSlots);
+        }
     }
 
     public record GeneratorStats(String id, long outputPerTick, long buffer, int fuelSlots) {

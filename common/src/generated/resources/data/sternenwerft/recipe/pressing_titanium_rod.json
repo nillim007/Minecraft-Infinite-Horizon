@@ -1,0 +1,17 @@
+{
+  "type": "sternenwerft:pressing",
+  "ingredients": [
+    {
+      "ingredient": "sternenwerft:titanium_ingot",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "sternenwerft:titanium_rod",
+      "count": 2,
+      "chance": 1.0
+    }
+  ],
+  "mold": "sternenwerft:press_mold_rod"
+}
