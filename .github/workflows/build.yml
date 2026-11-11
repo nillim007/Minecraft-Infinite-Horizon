@@ -104,8 +104,12 @@ jobs:
       - uses: gradle/actions/setup-gradle@v5
       - name: Software-Grafik und Spieloptionen
         run: |
-          sudo apt-get update -q
-          sudo apt-get install -y -q mesa-vulkan-drivers
+          # Paketspiegel fallen gelegentlich aus: bis zu 3 Versuche
+          for i in 1 2 3; do
+            sudo apt-get update -q && sudo apt-get install -y -q mesa-vulkan-drivers && break
+            [ "$i" = 3 ] && exit 1
+            sleep 20
+          done
           mkdir -p fabric/build/clientgametest
           echo "eula=true" > fabric/build/clientgametest/eula.txt
           printf 'version:4896\npreferredGraphicsBackend:"opengl"\n' > fabric/build/clientgametest/options.txt
@@ -155,8 +159,12 @@ jobs:
       - uses: gradle/actions/setup-gradle@v5
       - name: Virtuelle Anzeige, Software-Grafik und Spieloptionen
         run: |
-          sudo apt-get update -q
-          sudo apt-get install -y -q xvfb libgl1-mesa-dri libegl1 mesa-vulkan-drivers
+          # Paketspiegel fallen gelegentlich aus: bis zu 3 Versuche
+          for i in 1 2 3; do
+            sudo apt-get update -q && sudo apt-get install -y -q xvfb libgl1-mesa-dri libegl1 mesa-vulkan-drivers && break
+            [ "$i" = 3 ] && exit 1
+            sleep 20
+          done
           mkdir -p neoforge/runs/clienttest
           printf 'version:4896\npreferredGraphicsBackend:"opengl"\nonboardAccessibility:false\ntutorialStep:none\npauseOnLostFocus:false\nnarrator:0\n' > neoforge/runs/clienttest/options.txt
       - name: NeoForge-Client-Test
