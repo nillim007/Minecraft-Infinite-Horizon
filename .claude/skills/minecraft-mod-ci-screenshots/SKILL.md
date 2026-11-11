@@ -70,6 +70,9 @@ Datei: `fabric/src/main/java/de/sternenwerft/gametest/SwClientGameTests.java`. S
 - **Neue einfache Blöcke:** Sie erscheinen automatisch in der zweiten Reihe von `world_machines`, weil die Liste aus `ModBlocks.simpleBlocks()` kommt.
 - **Neue Server-GameTests:** in `common/gametests.json` eintragen (Name, Klasse, Methode, Ticks, Spez.-Bezug), dann `python tools/gen_gametests.py`; das erzeugt `SwTestCatalog` (NeoForge registriert per Schleife) und `SwFabricGameTests`. Die CI prüft, dass beides aktuell ist. Mock-Spieler (`makeMockServerPlayer`) haben keine Netzwerkverbindung – Menüs öffnen nur im Client-Test.
   - Testlogik steht in `common/.../gametest/SwGameTests*.java` (statische Methoden mit `GameTestHelper`).
+  - Optionale Felder `structure` (z. B. `sternenwerft:gametest/empty_large`, 24 × 6 × 24, aus `gen_resources`) und `environment`. Ein Test mit eigener Umgebung läuft allein in einem eigenen Durchgang. Fabric braucht die Umgebung als JSON unter `fabric/src/main/resources/data/<ns>/test_environment/`; NeoForge registriert sie per `registerEnvironment`.
+  - **Leistung messen:** `getServer().getAverageTickTimeNanos()` (Server-eigene Messung, Mittel der letzten 100 Ticks). Abstände zwischen `onEachTick`-Aufrufen enthalten alle anderen Tests und den Testrahmen.
+- **Wiki-Pflicht:** Neue Blöcke, Items oder Fluide müssen auf einer Handbuchseite stehen (`docs/handbook/pages`). Nach jedem Teilschritt `python tools/gen_wiki.py`, sonst wird der Job `spec` rot (Details in `CLAUDE.md`).
 
 ## 5. Bekannte Stolperstellen in 26.3
 

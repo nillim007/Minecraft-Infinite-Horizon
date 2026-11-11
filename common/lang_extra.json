@@ -25,7 +25,13 @@
     "gui.sternenwerft.progress_ticks": "%s / %s t",
     "gui.sternenwerft.mold": "Formslot",
     "gui.sternenwerft.upgrade.max": "höchstens %s",
-    "gui.sternenwerft.tank.n": "T%s"
+    "gui.sternenwerft.tank.n": "T%s",
+    "jei.sternenwerft.crushing": "Zerkleinern",
+    "jei.sternenwerft.pressing": "Pressen",
+    "jei.sternenwerft.electric_smelting": "Elektroofen",
+    "jei.sternenwerft.refining": "Raffinieren",
+    "jei.sternenwerft.electrolysis": "Elektrolyse",
+    "jei.sternenwerft.assembly": "Montage"
   },
   "en_us": {
     "itemGroup.sternenwerft": "Sternenwerft",
@@ -52,6 +58,12 @@
     "gui.sternenwerft.progress_ticks": "%s / %s t",
     "gui.sternenwerft.mold": "Mold slot",
     "gui.sternenwerft.upgrade.max": "max. %s",
-    "gui.sternenwerft.tank.n": "T%s"
+    "gui.sternenwerft.tank.n": "T%s",
+    "jei.sternenwerft.crushing": "Crushing",
+    "jei.sternenwerft.pressing": "Pressing",
+    "jei.sternenwerft.electric_smelting": "Electric Smelting",
+    "jei.sternenwerft.refining": "Refining",
+    "jei.sternenwerft.electrolysis": "Electrolysis",
+    "jei.sternenwerft.assembly": "Assembly"
   }
 }

@@ -56,6 +56,20 @@ Stand: 11.11.2026. Umfang und Teilschritte stehen in `docs/spec/27-meilensteine.
   - **Korrektur:** Maschinen, Ports, Gehäuse, Kabel und Rohre brauchen jetzt mindestens eine Steinspitzhacke (`needs_stone_tool`, 4.1).
   - **Annahmen:** spec-gaps #24 bis #29.
 
+- **M2e:** Treibstoffgenerator, Akku, Leistung.
+  - `FluidFuelGeneratorBlockEntity`: Kerosin 1 mB je 4 t ergibt 80 J/t, Füll- und Leerslot. Das GUI zeigt die Brennzeit (Flag `generator` in `OpenData`).
+  - `BatteryBlockEntity`:
+    - Ein- und Ausgang zusammen höchstens 512 J/t je Tick (`SwEnergyStorage` mit Tick-Grenze); Abgabe nur über die Ausgangsseite.
+    - Ladeslot für Items mit Loader-Item-Energie oder `sternenwerft:energy`.
+    - Die Energie bleibt beim Abbauen am Item.
+  - **Loader:** Energie-Adapter je Seite; Item-Energie (NeoForge `Capabilities.Energy.ITEM`, Fabric `EnergyStorage.ITEM`). Test-Item im GameTest-Betrieb ist `minecraft:redstone_block`.
+  - **Leistung:**
+    - `BalanceManager` speichert die typisierten Werte zwischen, Maschinen richten sich nur nach `/reload` neu ein.
+    - Das letzte passende Rezept wird zuerst geprüft; `setChanged` meldet keine Komparatoren mehr.
+    - Leistungstest (100 Zerkleinerer, eigene Testumgebung): lokal 0,84 ms (Fabric) bzw. 0,50 ms (NeoForge) je Tick.
+  - `gen_placeholders.py` überschreibt vorhandene Texturen nur noch mit `--force`, damit fertige Grafiken sicher sind.
+  - **Annahmen:** spec-gaps #30 bis #32.
+
 - **Testrunde M1–M2c:** 31 Server-GameTests auf beiden Loadern, 18 JUnit-Tests, Client-Tests auf Fabric **und NeoForge** (Knopf-Klick, Config-Sync, alle GUIs mit Screenshots), alles grün. Bericht: `docs/dev/testbericht-m2abc.md`.
 
 ## Noch manuell zu prüfen
@@ -65,4 +79,4 @@ Stand: 11.11.2026. Umfang und Teilschritte stehen in `docs/spec/27-meilensteine.
 
 ## Nächster Schritt
 
-M2e: Treibstoffgenerator, Akku mit Ausgangsseite, Energie-Plattformtest für Speicher, Leistungstest mit 100 Zerkleinerern (27.3). Die Annahmen stehen in `docs/spec-gaps.md` bis #29.
+M2f: JEI/REI/EMI-Kategorien, `recipe_amount_multiplier`, Übersetzungen, Handbuch- und Atlas-Items, Abschlusslauf aller Beispielrezepte (27.3). Die Annahmen stehen in `docs/spec-gaps.md` bis #32.

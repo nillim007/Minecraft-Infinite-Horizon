@@ -12,10 +12,12 @@ Hier stehen alle Rezepte, die es im aktuellen Stand gibt. Die Werte kommen direk
 | --- | --- | --- | --- |
 | <img src="images/rezepte/crafting_shaped_battery.svg" alt="Rezept" width="300"> | 4 × Redstone-Block, 4 × Kupferbarren, 1 × [Maschinenrahmen](Erste-Schritte.md) → 1 × [Akku](Strom.md) | Werkbank | – |
 | <img src="images/rezepte/crafting_shaped_electric_furnace.svg" alt="Rezept" width="300"> | 7 × Kupferbarren, 1 × Ofen, 1 × [Maschinenrahmen](Erste-Schritte.md) → 1 × [Elektroofen](Elektroofen.md) | Werkbank | – |
+| <img src="images/rezepte/crafting_shapeless_engineers_handbook.svg" alt="Rezept" width="300"> | 1 × Buch, 1 × Kupferbarren → 1 × [Ingenieurs-Handbuch](Willkommen-bei-Sternenwerft.md) | Werkbank (formlos) | – |
 | <img src="images/rezepte/crafting_shaped_copper_cable.svg" alt="Rezept" width="300"> | 3 × Kupferbarren → 6 × [Kupferkabel](Strom.md) | Werkbank | – |
 | <img src="images/rezepte/crafting_shaped_copper_pipe.svg" alt="Rezept" width="300"> | 2 × Kupferbarren, 1 × Glas → 4 × [Kupferrohr](Fluide-und-Rohre.md) | Werkbank | – |
 | <img src="images/rezepte/crafting_shaped_machine_frame.svg" alt="Rezept" width="300"> | 4 × Kupferbarren, 4 × Eisenbarren, 1 × Redstone-Staub → 1 × [Maschinenrahmen](Erste-Schritte.md) | Werkbank | – |
 | <img src="images/rezepte/crafting_shaped_assembly_table.svg" alt="Rezept" width="300"> | 2 × Kupferbarren, 4 × Eisenbarren, 1 × [Maschinenrahmen](Erste-Schritte.md), 1 × Redstone-Staub, 1 × Werkbank → 1 × [Montagetisch](Montagetisch.md) | Werkbank | – |
+| <img src="images/rezepte/crafting_shapeless_planetary_atlas.svg" alt="Rezept" width="300"> | 1 × Buch, 1 × Kompass → 1 × [Planetenatlas](Willkommen-bei-Sternenwerft.md) | Werkbank (formlos) | – |
 | <img src="images/rezepte/crafting_shaped_press.svg" alt="Rezept" width="300"> | 6 × Eisenbarren, 1 × [Maschinenrahmen](Erste-Schritte.md), 1 × Kolben, 1 × Eisenblock → 1 × [Presse](Presse.md) | Werkbank | – |
 | <img src="images/rezepte/crafting_shaped_press_mold_wire.svg" alt="Rezept" width="300"> | 5 × Eisenbarren → 1 × [Pressform (Draht)](Presse.md) | Werkbank | – |
 | <img src="images/rezepte/crafting_shaped_press_mold_plate.svg" alt="Rezept" width="300"> | 4 × Eisenbarren → 1 × [Pressform (Platte)](Presse.md) | Werkbank | – |

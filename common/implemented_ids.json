@@ -34,6 +34,7 @@
     "sternenwerft:copper_dust",
     "sternenwerft:copper_wire",
     "sternenwerft:efficiency_upgrade",
+    "sternenwerft:engineers_handbook",
     "sternenwerft:gold_dust",
     "sternenwerft:gold_wire",
     "sternenwerft:iron_dust",
@@ -41,6 +42,7 @@
     "sternenwerft:iron_rod",
     "sternenwerft:kerosene_bucket",
     "sternenwerft:machine_frame",
+    "sternenwerft:planetary_atlas",
     "sternenwerft:plastic",
     "sternenwerft:press_mold_plate",
     "sternenwerft:press_mold_rod",
@@ -59,5 +61,9 @@
     "hydrogen",
     "oxygen"
   ],
-  "step": "2e"
+  "step": "2e",
+  "item_classes": {
+    "_comment": "Items mit eigenem Verhalten; sie fehlen in simple_items.json und werden in ModItems registriert.",
+    "sternenwerft:engineers_handbook": "handbook"
+  }
 }

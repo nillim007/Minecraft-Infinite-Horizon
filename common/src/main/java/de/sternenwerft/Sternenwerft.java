@@ -77,7 +77,25 @@ public final class Sternenwerft {
     }
 
     /** Join: Konfiguration an den Client senden. */
+    /** Merkt am Spieler, dass er das Handbuch schon bekommen hat (Entity-Tags werden gespeichert). */
+    public static final String HANDBOOK_GIVEN_TAG = MOD_ID + ".handbook_given";
+
     public static void onPlayerJoin(ServerPlayer player) {
         Services.NETWORK.sendToPlayer(player, new SyncConfigPayload(ServerConfig.get().toJson()));
+        giveHandbookOnce(player);
+    }
+
+    /** Ingenieurs-Handbuch beim ersten Join (24.1); genau einmal je Spieler. */
+    public static void giveHandbookOnce(net.minecraft.world.entity.player.Player player) {
+        if (player.entityTags().contains(HANDBOOK_GIVEN_TAG)) {
+            return;
+        }
+        player.addTag(HANDBOOK_GIVEN_TAG);
+        net.minecraft.world.item.ItemStack book = new net.minecraft.world.item.ItemStack(
+                de.sternenwerft.registry.ModItems.ENGINEERS_HANDBOOK.get());
+        // ins Inventar, bei vollem Inventar fällt es vor den Spieler
+        if (!player.getInventory().add(book) && player.level() instanceof net.minecraft.server.level.ServerLevel sl) {
+            player.spawnAtLocation(sl, book);
+        }
     }
 }

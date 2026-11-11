@@ -432,7 +432,13 @@ def main():
         write_json(f"assets/{NS}/items/{name}.json", {"model": {"type": "minecraft:model", "model": f"{NS}:item/{name}"}})
 
     # Liste der einfachen Items für die Java-Registrierung (Reihenfolge wie in implemented_ids.json)
-    write_json("sternenwerft/simple_items.json", {"items": [short(i) for i in impl["items"]]})
+    special = {k for k in impl.get("item_classes", {}) if not k.startswith("_")}
+    simple_ids = [i for i in impl["items"] if i not in special]
+    write_json("sternenwerft/simple_items.json", {
+        "items": [short(i) for i in simple_ids],
+        # Stapelgröße aus items.json, nur wenn sie von 64 abweicht (z. B. Eimer 1, 4.1)
+        "max_stack": {short(i): spec.items[i]["max_stack"] for i in simple_ids
+                      if spec.items[i].get("max_stack") not in (None, 64)}})
 
     # Tags
     simple = {short(i): SIMPLE_BLOCKS[short(i)] for i, shape in blocks.items() if shape == "simple_block"}

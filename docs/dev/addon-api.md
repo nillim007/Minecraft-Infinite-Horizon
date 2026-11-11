@@ -31,8 +31,13 @@ Balance-Werte stehen unter `data/<namespace>/sternenwerft/balance/<datei>.json`,
 
 | Was | Bausteine | Daten |
 | --- | --- | --- |
-| Verarbeitungsmaschine | `SternenwerftApi.newRecipeKind("pressing")` (Typ und Serializer selbst registrieren), BE-Typ mit `(pos, state) -> new ProcessingMachineBlockEntity(TYP, pos, state, () -> KIND)`, Block `new MachineBlock(props, () -> TYP)` | Eintrag in `machines.json` unter der Block-ID |
+| Verarbeitungsmaschine | `SternenwerftApi.newRecipeKind("pressing")` (Typ und Serializer selbst registrieren), BE-Typ mit `(pos, state) -> new ProcessingMachineBlockEntity(TYP, pos, state, () -> KIND)`, Block `new MachineBlock(props, () -> TYP)` | Eintrag in `machines.json` unter der Block-ID; Tanks über `fluid_tanks` (`role` input/output), Füll-/Leerslots über `container_slots` |
+| Rezepte mit Fluiden | dieselbe `ProcessingRecipe.Kind`; im Rezept `"fluid": {"fluid", "amount"}` und `"fluid_results": [...]` | Eingangstanks nehmen nur Fluide aus den Rezepten an |
+| Rezeptart mit exaktem Abgleich | `new ProcessingRecipe.Kind(name, true)` wie der Montagetisch (22.3) | – |
+| Multiblock | Controller-BE `new MultiblockControllerBlockEntity(TYP, pos, state, () -> List.of(KIND))`, Gehäuse `new MultiblockPartBlock(props)`, Ports `new PortBlock(props, PortType, () -> PORT_TYP)` | Muster-Eintrag in `machines.json` (`size`, `shape` solid/hollow_shell, `controller_position`, `casing`, `casing_replaceable_by`) und beim Controller `"multiblock": "<eintrag>"` |
 | Generator mit Item-Brennstoff | `CombustionGeneratorBlockEntity` (Vanilla-Brennwert) | Eintrag in `generators.json` |
+| Generator mit Fluid-Brennstoff | `FluidFuelGeneratorBlockEntity` | `fuel: [{"fluid", "amount", "per_ticks"}]` und `fluid_tanks` in `generators.json` |
+| Energiespeicher | `BatteryBlockEntity` (Ausgangsseite, Ladeslot, Tick-Grenze) | `capacity`, `io_per_tick`, `charge_slots` in `storage.json` |
 | Eigene Maschine | von `MachineBlockEntity` erben: `slotCount()`, `configureEnergy(...)`, `serverTick(...)`, `getSlotsForFace`, `canTakeItemThroughFace` | beliebig über `SternenwerftApi.balance()` |
 | Kabelsorte | `new CableBlock(properties)`. Gleiche Sorten bilden ein Netz. | `throughput` in `transport.json` |
 
@@ -44,6 +49,14 @@ Alle Werte liest der Code per Block-ID aus der Balance. Im Code steht keine Zahl
 - **Fremde Mods:** Kabel und Generatoren erkennen auch Blöcke, die nur die Energie-API des Loaders anbieten. Auf NeoForge ist das `Capabilities.Energy.BLOCK`, auf Fabric Team Reborn Energy (`EnergyStorage.SIDED`).
 - **Unsere Blöcke von außen:** Sie bieten ihre Energie ebenfalls über diese APIs an.
 - **Netz abfragen:** `SternenwerftApi.energyGrid(level, pos)` liefert das Netz eines Kabels mit Endpunkten und Durchsatz.
+- **Seiten:** Die Loader-APIs bekommen je Seite einen eigenen Adapter. `acceptsEnergyFrom(side)` und `providesEnergyTo(side)` gelten deshalb auch für fremde Mods (ein Akku nimmt an seiner Ausgangsseite nichts an).
+- **Grenze je Tick:** `SwEnergyStorage#setPerTickLimit(true)` macht aus `maxInsert`/`maxExtract` eine Grenze je Tick; der Block ruft zu Beginn seines Ticks `newTick()` auf.
+- **Items laden:** Ladeslots laden Items mit der Item-Energie-API des Loaders oder mit der Komponente `sternenwerft:energy` (Kapazität aus `storage.json` unter der Item-ID).
+
+## Leistung
+
+- Die typisierten Zugriffe von `BalanceManager` (`machine`, `tanks`, `generator` …) sind zwischengespeichert. Maschinen richten Slots und Puffer nur nach `/reload` neu ein.
+- `MachineBlockEntity#setChanged()` markiert nur den Chunk und meldet keine Komparatoren. Eigene Blöcke mit Komparator-Signal überschreiben die Methode.
 
 ## Regeln für die Schnittstelle (gelten für alle Meilensteine)
 

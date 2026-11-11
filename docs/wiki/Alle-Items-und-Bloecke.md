@@ -27,6 +27,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Geschwindigkeits-Upgrade](Upgrades.md) | Item | Rezept |
 | [Golddraht](Presse.md) | Item | Maschine |
 | [Goldstaub](Zerkleinerer.md) | Item | Maschine |
+| [Ingenieurs-Handbuch](Willkommen-bei-Sternenwerft.md) | Item | Geschenk beim ersten Betreten, Rezept |
 | [Item-Port](Raffinerie.md) | Block | Rezept |
 | [Kerosin](Raffinerie.md) | Fluid | Maschine |
 | [Kerosineimer](Fluide-und-Rohre.md) | Item | Füllslot oder Eimer |
@@ -37,6 +38,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Kupferstaub](Zerkleinerer.md) | Item | Maschine |
 | [Maschinenrahmen](Erste-Schritte.md) | Item | Rezept |
 | [Montagetisch](Montagetisch.md) | Block | Rezept |
+| [Planetenatlas](Willkommen-bei-Sternenwerft.md) | Item | Geschenk beim ersten Betreten, Rezept |
 | [Presse](Presse.md) | Block | Rezept |
 | [Pressform (Draht)](Presse.md) | Item | Rezept |
 | [Pressform (Platte)](Presse.md) | Item | Rezept |

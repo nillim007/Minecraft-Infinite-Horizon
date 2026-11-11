@@ -16,6 +16,7 @@
     "iron_rod",
     "kerosene_bucket",
     "machine_frame",
+    "planetary_atlas",
     "plastic",
     "press_mold_plate",
     "press_mold_rod",
@@ -27,5 +28,14 @@
     "titanium_ingot",
     "titanium_plate",
     "titanium_rod"
-  ]
+  ],
+  "max_stack": {
+    "efficiency_upgrade": 16,
+    "kerosene_bucket": 1,
+    "planetary_atlas": 1,
+    "press_mold_plate": 1,
+    "press_mold_rod": 1,
+    "press_mold_wire": 1,
+    "speed_upgrade": 16
+  }
 }

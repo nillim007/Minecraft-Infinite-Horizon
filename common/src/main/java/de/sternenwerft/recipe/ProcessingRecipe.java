@@ -188,7 +188,9 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
             return null;
         }
         if (kind.exact()) {
-            int[] owner = ExactMatch.assign(input.inputs(), ingredients, ItemStack::isEmpty,
+            List<CountedIngredient> need = scaledIngredients(
+                    de.sternenwerft.data.ServerConfig.get().getDouble("recipe_amount_multiplier"), input.size());
+            int[] owner = ExactMatch.assign(input.inputs(), need, ItemStack::isEmpty,
                     (ci, stack) -> ci.ingredient().test(stack), ItemStack::getCount, CountedIngredient::count);
             if (owner == null) {
                 return null;
@@ -214,6 +216,29 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
         int[] slots = assign(input);
         return slots == null ? null
                 : new Match(slots, ingredients.stream().mapToInt(CountedIngredient::count).toArray());
+    }
+
+    /**
+     * Zutaten mit dem Mengen-Multiplikator (22.3): nur bei exaktem Abgleich (Montagetisch), nur stapelbare Zutaten,
+     * höchstens so groß, dass alles in {@code slots} Slots passt. Auch für die Anzeige in JEI/REI.
+     */
+    public List<CountedIngredient> scaledIngredients(double multiplier, int slots) {
+        if (!kind.exact() || multiplier <= 0 || multiplier == 1.0 || ingredients.isEmpty()) {
+            return ingredients;
+        }
+        int[] counts = new int[ingredients.size()];
+        int[] stacks = new int[ingredients.size()];
+        for (int i = 0; i < counts.length; i++) {
+            CountedIngredient ci = ingredients.get(i);
+            counts[i] = ci.count();
+            stacks[i] = ci.ingredient().items().findFirst().map(h -> h.value().getDefaultMaxStackSize()).orElse(64);
+        }
+        int[] scaled = AmountMultiplier.scale(counts, stacks, multiplier, slots);
+        List<CountedIngredient> out = new java.util.ArrayList<>();
+        for (int i = 0; i < counts.length; i++) {
+            out.add(new CountedIngredient(ingredients.get(i).ingredient(), scaled[i]));
+        }
+        return out;
     }
 
     /**

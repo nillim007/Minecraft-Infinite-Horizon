@@ -253,4 +253,24 @@ public class SwFabricGameTests {
     public void performance100crushersMeantick(GameTestHelper helper) {
         SwGameTestsM2e.performanceHundredCrushers(helper);
     }
+
+    @GameTest(maxTicks = 20)
+    public void handbookJoingiftOnce(GameTestHelper helper) {
+        SwGameTestsM2f.handbookGiftOnce(helper);
+    }
+
+    @GameTest(maxTicks = 220)
+    public void crusherBauxiteTwoaluminumdustwithin220ticks(GameTestHelper helper) {
+        SwGameTestsM2f.crusherBauxite(helper);
+    }
+
+    @GameTest(maxTicks = 110)
+    public void furnaceQuartzsandSiliconwithin110ticks(GameTestHelper helper) {
+        SwGameTestsM2f.furnaceQuartzSand(helper);
+    }
+
+    @GameTest(maxTicks = 110)
+    public void pressTitaniumplatewithin110ticks(GameTestHelper helper) {
+        SwGameTestsM2f.pressTitaniumPlate(helper);
+    }
 }

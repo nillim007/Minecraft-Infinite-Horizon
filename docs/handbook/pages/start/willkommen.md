@@ -4,6 +4,7 @@ title_en: Welcome to Sternenwerft
 order: 10
 milestone: 1
 icon: sternenwerft:machine_frame
+items: ["sternenwerft:engineers_handbook", "sternenwerft:planetary_atlas"]
 summary: Worum es geht und wie dieses Handbuch funktioniert
 ---
 Willkommen, Ingenieurin, willkommen, Ingenieur! Du stehst am Anfang einer langen Reise: von einer kleinen Werkstatt auf der Erde bis zur **Orbitalwerft**, in der du am Ende das Sternenschiff baust.
@@ -28,5 +29,17 @@ Sternenwerft führt dich durch das **echte Sonnensystem**. Jeder Schritt baut au
 - Rezepte stehen direkt auf den Seiten der Maschinen. Eine Übersicht findest du unter [[rezepte|Alle Rezepte]].
 - Neu bei Sternenwerft? Lies zuerst die [[grundbegriffe|Grundbegriffe]].
 - Weißt du nicht weiter, schau in [[erste_schritte|Erste Schritte]] oder in die [[tipps|Tipps und häufigen Fragen]].
+
+## Handbuch und Atlas
+
+@if sternenwerft:engineers_handbook
+Das <item:sternenwerft:engineers_handbook> bekommst du beim ersten Betreten der Welt. Rechtsklick öffnet es. Hältst du im Inventar die Maus über ein Item und drückst **H**, springt das Handbuch zur Seite dieses Items. Verloren? Du kannst es an der Werkbank neu herstellen.
+
+@recipes_for sternenwerft:engineers_handbook
+@endif
+
+@if sternenwerft:planetary_atlas
+Der <item:sternenwerft:planetary_atlas> sammelt später, was du über die Planeten herausfindest. Er lässt sich schon herstellen, wird aber erst mit dem ersten Raumflug lebendig.
+@endif
 
 @tip Fang mit [[erste_schritte|Erste Schritte]] an. Dort steht der ganze Ablauf der ersten Phase Schritt für Schritt.

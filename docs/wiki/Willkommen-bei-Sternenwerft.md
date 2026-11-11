@@ -27,6 +27,16 @@ Sternenwerft führt dich durch das **echte Sonnensystem**. Jeder Schritt baut au
 - Neu bei Sternenwerft? Lies zuerst die [Grundbegriffe](Grundbegriffe.md).
 - Weißt du nicht weiter, schau in [Erste Schritte](Erste-Schritte.md) oder in die [Tipps und häufigen Fragen](Tipps-und-haeufige-Fragen.md).
 
+## Handbuch und Atlas
+
+Das Ingenieurs-Handbuch bekommst du beim ersten Betreten der Welt. Rechtsklick öffnet es. Hältst du im Inventar die Maus über ein Item und drückst **H**, springt das Handbuch zur Seite dieses Items. Verloren? Du kannst es an der Werkbank neu herstellen.
+
+![Rezept: Ingenieurs-Handbuch](images/rezepte/crafting_shapeless_engineers_handbook.svg)
+
+<sub>1 × Buch, 1 × Kupferbarren → 1 × Ingenieurs-Handbuch</sub>
+
+Der Planetenatlas sammelt später, was du über die Planeten herausfindest. Er lässt sich schon herstellen, wird aber erst mit dem ersten Raumflug lebendig.
+
 > [!TIP]
 > Fang mit [Erste Schritte](Erste-Schritte.md) an. Dort steht der ganze Ablauf der ersten Phase Schritt für Schritt.
 

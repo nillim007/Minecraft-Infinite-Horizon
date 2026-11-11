@@ -1,6 +1,7 @@
 package de.sternenwerft.registry;
 
 import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import de.sternenwerft.Sternenwerft;
 import de.sternenwerft.platform.Services;
@@ -50,11 +51,26 @@ public final class ModItems {
     public static final Supplier<Item> FLUID_PORT = blockItem("fluid_port", ModBlocks.FLUID_PORT);
     public static final Supplier<Item> ENERGY_PORT = blockItem("energy_port", ModBlocks.ENERGY_PORT);
 
+    /** Ingenieurs-Handbuch (24.1): Rechtsklick öffnet das Buch-GUI. */
+    public static final Supplier<Item> ENGINEERS_HANDBOOK = register("engineers_handbook",
+            p -> new de.sternenwerft.item.HandbookItem(p.stacksTo(1)));
+
     static {
         ModBlocks.simpleBlocks().forEach((id, block) -> blockItem(id, block));
+        JsonObject simple = de.sternenwerft.data.GeneratedData.read("simple_items");
+        JsonObject stacks = simple.has("max_stack") ? simple.getAsJsonObject("max_stack") : new JsonObject();
         for (String id : loadSimpleIds()) {
-            SIMPLE.put(id, item(id));
+            int max = stacks.has(id) ? stacks.get(id).getAsInt() : 0;
+            SIMPLE.put(id, max > 0 ? register(id, p -> new Item(p.stacksTo(max))) : item(id));
         }
+    }
+
+    /** Registriert ein Item mit eigener Fabrik (Eigenschaften mit gesetzter ID). */
+    public static Supplier<Item> register(String name, java.util.function.Function<Item.Properties, Item> factory) {
+        Supplier<Item> s = Services.REGISTRY.register(BuiltInRegistries.ITEM, name,
+                () -> factory.apply(new Item.Properties().setId(key(name))));
+        ALL.add(s);
+        return s;
     }
 
     private ModItems() {

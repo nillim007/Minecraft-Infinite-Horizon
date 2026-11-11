@@ -18,6 +18,10 @@ public final class ModRecipeTypes {
     /** Montagetisch: exakter Abgleich (22.3). */
     public static final ProcessingRecipe.Kind ASSEMBLY = kind("assembly", true);
 
+    /** Alle eigenen Rezeptarten in Registrierreihenfolge (Kategorien der Rezeptanzeige, 3.9). */
+    public static final java.util.List<ProcessingRecipe.Kind> ALL =
+            java.util.List.of(CRUSHING, PRESSING, ELECTRIC_SMELTING, REFINING, ELECTROLYSIS, ASSEMBLY);
+
     /** Legt eine Rezeptart an und registriert Typ und Serializer unter {@code sternenwerft:<name>}. */
     public static ProcessingRecipe.Kind kind(String name) {
         return kind(name, false);

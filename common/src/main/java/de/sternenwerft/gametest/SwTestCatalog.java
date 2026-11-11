@@ -66,7 +66,11 @@ public final class SwTestCatalog {
             new Test("battery_io512_platformapi", 20, null, null, SwGameTestsM2e::batteryIoLimitAndPlatform),  // 27.2, 3.3
             new Test("battery_chargeslot", 20, null, null, SwGameTestsM2e::batteryChargeSlot),  // 6.3
             new Test("battery_broken_keepsenergy", 20, null, null, SwGameTestsM2e::batteryKeepsEnergyWhenBroken),  // 4.1
-            new Test("performance_100crushers_meantick", 240, "sternenwerft:gametest/empty_large", "sternenwerft:performance", SwGameTestsM2e::performanceHundredCrushers)  // 27.2
+            new Test("performance_100crushers_meantick", 240, "sternenwerft:gametest/empty_large", "sternenwerft:performance", SwGameTestsM2e::performanceHundredCrushers),  // 27.2
+            new Test("handbook_joingift_once", 20, null, null, SwGameTestsM2f::handbookGiftOnce),  // 24.1, 27.3 M2f
+            new Test("crusher_bauxite_twoaluminumdustwithin220ticks", 220, null, null, SwGameTestsM2f::crusherBauxite),  // 27.2
+            new Test("furnace_quartzsand_siliconwithin110ticks", 110, null, null, SwGameTestsM2f::furnaceQuartzSand),  // 27.2
+            new Test("press_titaniumplatewithin110ticks", 110, null, null, SwGameTestsM2f::pressTitaniumPlate)  // 27.2
     );
 
     private SwTestCatalog() {
