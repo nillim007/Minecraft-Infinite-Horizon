@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "sternenwerft:block/combustion_generator"
+    "model": "sternenwerft:block/combustion_generator_idle"
   }
 }

@@ -98,16 +98,21 @@ def ingredient(ing):
 # ---------------------------------------------------------------- Blöcke
 
 def machine_block(name):
-    write_json(f"assets/{NS}/models/block/{name}.json",
-               {"parent": "minecraft:block/cube_all", "textures": {"all": f"{NS}:block/{name}"}})
+    for status in STATUSES:
+        write_json(f"assets/{NS}/models/block/{name}_{status}.json",
+                   {"parent": "minecraft:block/orientable",
+                    "textures": {"front": f"{NS}:block/{name}_front_{status}",
+                                 "side": f"{NS}:block/{name}",
+                                 "top": f"{NS}:block/{name}_top"}})
     variants = {}
     for facing, rot in MACHINE_FACINGS.items():
         for status in STATUSES:
-            v = {"model": f"{NS}:block/{name}"}
+            v = {"model": f"{NS}:block/{name}_{status}"}
             if rot:
                 v["y"] = rot
             variants[f"facing={facing},status={status}"] = v
     write_json(f"assets/{NS}/blockstates/{name}.json", {"variants": variants})
+    return f"{NS}:block/{name}_idle"
 
 
 def cable_block(name):
@@ -209,7 +214,7 @@ def main():
         name = short(i)
         inv_model = f"{NS}:block/{name}"
         if shape == "machine":
-            machine_block(name)
+            inv_model = machine_block(name)
         elif shape == "cable":
             inv_model = cable_block(name)
         else:

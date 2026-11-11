@@ -24,7 +24,8 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
     private static final int BURN = 0xFFF0A020;
 
     private static final int BAR_X = 8;
-    private static final int BAR_Y = 17;
+    // 60 px hoch (4.1), endet über der Inventar-Beschriftung (y 72); der Titel steht rechts daneben
+    private static final int BAR_Y = 10;
     private static final int BAR_W = 8;
     private static final int BAR_H = 60;
     private static final int ARROW_W = 24;
@@ -32,6 +33,7 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
 
     public MachineScreen(MachineMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title);
+        this.titleLabelX = BAR_X + BAR_W + 4;
     }
 
     @Override
@@ -57,13 +59,13 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         MachineLayout l = menu.openData().layout();
         int ax = x + MachineMenu.ARROW_X;
         int ay = y + MachineMenu.ROW_Y;
-        g.fill(ax, ay, ax + ARROW_W, ay + ARROW_H, SLOT_DARK);
+        boolean generator = l.fuel() > 0;
+        int w = 0;
         if (total > 0) {
-            boolean generator = l.fuel() > 0;
             long part = generator ? now : Math.min(now, total);
-            int w = (int) Math.min(ARROW_W, part * ARROW_W / total);
-            g.fill(ax, ay, ax + w, ay + ARROW_H, generator ? BURN : PROGRESS);
+            w = (int) Math.min(ARROW_W, part * ARROW_W / total);
         }
+        drawArrow(g, ax, ay, w, generator ? BURN : PROGRESS);
 
         if (inside(mouseX, mouseY, bx, by, BAR_W, BAR_H)) {
             g.setComponentTooltipForNextFrame(font,
@@ -71,6 +73,27 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         } else if (total > 0 && inside(mouseX, mouseY, ax, ay, ARROW_W, ARROW_H)) {
             String key = l.fuel() > 0 ? "gui.sternenwerft.burn_time" : "gui.sternenwerft.progress_ticks";
             g.setComponentTooltipForNextFrame(font, List.of(Component.translatable(key, now, total)), mouseX, mouseY);
+        }
+    }
+
+    /** Pfeil 24 × 17 px: Schaft 16 px, Spitze 8 px; die ersten {@code filled} Spalten in {@code color}. */
+    private static void drawArrow(GuiGraphicsExtractor g, int x, int y, int filled, int color) {
+        int shaft = 16;
+        int mid = ARROW_H / 2;
+        for (int c = 0; c < ARROW_W; c++) {
+            int top;
+            int bottom;
+            if (c < shaft) {
+                top = mid - 3;
+                bottom = mid + 4;
+            } else {
+                int k = c - shaft;
+                top = k;
+                bottom = ARROW_H - k;
+            }
+            if (bottom > top) {
+                g.fill(x + c, y + top, x + c + 1, y + bottom, c < filled ? color : SLOT_DARK);
+            }
         }
     }
 

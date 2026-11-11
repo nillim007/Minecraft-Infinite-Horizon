@@ -92,7 +92,7 @@ def base_colors(e):
     return rgb(base), rgb(accent)
 
 
-def texture(e):
+def texture_px(e):
     base, accent = base_colors(e)
     r = rng(e["id"])
     name = e["id"].split(":")[1]
@@ -120,7 +120,43 @@ def texture(e):
         px[7][7] = px[8][8] = (*shade(accent, 0.8), 255)
     else:
         px[7][7] = px[8][8] = px[7][8] = px[8][7] = (*accent, 255)
+    return px
+
+
+def texture(e):
+    return png(texture_px(e))
+
+
+LAMPS = {"idle": "#F0C020", "running": "#40D040", "error": "#E04030"}
+
+
+def machine_top(e):
+    px = [row[:] for row in texture_px(e)]
+    for y in range(16):
+        for x in range(16):
+            if x not in (0, 15) and y not in (0, 15):
+                px[y][x] = (*shade(px[y][x][:3], 1.15), 255)
     return png(px)
+
+
+def machine_front(e, status):
+    px = [row[:] for row in texture_px(e)]
+    for y in range(3, 13):
+        for x in range(3, 13):
+            c = shade(px[y][x][:3], 0.55)
+            if x in (3, 12) or y in (3, 12):
+                c = shade(c, 0.6)
+            px[y][x] = (*c, 255)
+    for y in range(4, 8):
+        for x in range(8, 12):
+            px[y][x] = (*rgb(LAMPS[status]), 255)
+    return png(px)
+
+
+def machine_ids():
+    import json
+    impl = json.loads((sd.ROOT / "common" / "implemented_ids.json").read_text(encoding="utf-8"))
+    return {i.split(":")[1] for i, k in impl["blocks"].items() if k == "machine"}
 
 
 def main():
@@ -130,6 +166,7 @@ def main():
     only = set(args.only.split(",")) if args.only else None
     spec = sd.load()
     n = 0
+    machines = machine_ids()
     for e in spec.all_entries:
         if e.get("kind") not in ("item", "block"):
             continue
@@ -141,6 +178,11 @@ def main():
         p.parent.mkdir(parents=True, exist_ok=True)
         p.write_bytes(texture(e))
         n += 1
+        if folder == "block" and name in machines:
+            (p.parent / f"{name}_top.png").write_bytes(machine_top(e))
+            for st in LAMPS:
+                (p.parent / f"{name}_front_{st}.png").write_bytes(machine_front(e, st))
+            n += 4
     print(f"{n} Platzhalter-Texturen erzeugt in {OUT.relative_to(sd.ROOT)}")
 
 

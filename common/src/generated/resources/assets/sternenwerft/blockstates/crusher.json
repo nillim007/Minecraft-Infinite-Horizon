@@ -1,48 +1,48 @@
 {
   "variants": {
     "facing=north,status=idle": {
-      "model": "sternenwerft:block/crusher"
+      "model": "sternenwerft:block/crusher_idle"
     },
     "facing=north,status=running": {
-      "model": "sternenwerft:block/crusher"
+      "model": "sternenwerft:block/crusher_running"
     },
     "facing=north,status=error": {
-      "model": "sternenwerft:block/crusher"
+      "model": "sternenwerft:block/crusher_error"
     },
     "facing=east,status=idle": {
-      "model": "sternenwerft:block/crusher",
+      "model": "sternenwerft:block/crusher_idle",
       "y": 90
     },
     "facing=east,status=running": {
-      "model": "sternenwerft:block/crusher",
+      "model": "sternenwerft:block/crusher_running",
       "y": 90
     },
     "facing=east,status=error": {
-      "model": "sternenwerft:block/crusher",
+      "model": "sternenwerft:block/crusher_error",
       "y": 90
     },
     "facing=south,status=idle": {
-      "model": "sternenwerft:block/crusher",
+      "model": "sternenwerft:block/crusher_idle",
       "y": 180
     },
     "facing=south,status=running": {
-      "model": "sternenwerft:block/crusher",
+      "model": "sternenwerft:block/crusher_running",
       "y": 180
     },
     "facing=south,status=error": {
-      "model": "sternenwerft:block/crusher",
+      "model": "sternenwerft:block/crusher_error",
       "y": 180
     },
     "facing=west,status=idle": {
-      "model": "sternenwerft:block/crusher",
+      "model": "sternenwerft:block/crusher_idle",
       "y": 270
     },
     "facing=west,status=running": {
-      "model": "sternenwerft:block/crusher",
+      "model": "sternenwerft:block/crusher_running",
       "y": 270
     },
     "facing=west,status=error": {
-      "model": "sternenwerft:block/crusher",
+      "model": "sternenwerft:block/crusher_error",
       "y": 270
     }
   }

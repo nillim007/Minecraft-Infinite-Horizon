@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "sternenwerft:block/electric_furnace"
+    "model": "sternenwerft:block/electric_furnace_idle"
   }
 }

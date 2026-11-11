@@ -1,6 +1,6 @@
 {
   "model": {
     "type": "minecraft:model",
-    "model": "sternenwerft:block/crusher"
+    "model": "sternenwerft:block/crusher_idle"
   }
 }

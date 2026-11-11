@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "sternenwerft:block/press_front_running",
+    "side": "sternenwerft:block/press",
+    "top": "sternenwerft:block/press_top"
+  }
+}

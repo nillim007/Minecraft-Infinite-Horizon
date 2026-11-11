@@ -56,11 +56,32 @@ public class SwClientGameTests implements FabricClientGameTest {
             Block[] row = {ModBlocks.CRUSHER.get(), ModBlocks.ELECTRIC_FURNACE.get(), ModBlocks.PRESS.get(),
                     ModBlocks.COMBUSTION_GENERATOR.get(), ModBlocks.COPPER_CABLE.get(), ModBlocks.COPPER_CABLE.get()};
             for (int i = 0; i < row.length; i++) {
-                setBlock(sp, base.east(i - 2), row[i]);
+                // Vorderseite zum Spieler (Süden); Kabel ignorieren die Eigenschaft nicht, daher nur für Maschinen
+                String state = i < 4 ? "[facing=south]" : "";
+                BlockPos p = base.east(i - 2);
+                sp.getServer().runCommand("setblock %d %d %d %s%s".formatted(p.getX(), p.getY(), p.getZ(),
+                        BuiltInRegistries.BLOCK.getKey(row[i]), state));
             }
+            context.waitTicks(5);
+            // Zerkleinerer laufen lassen (grüne Lampe), Generator mit Kohle
+            BlockPos crusherPos = base.east(-2);
+            BlockPos generatorPos = base.east(1);
+            sp.getServer().runOnServer(server -> {
+                ServerLevel level = sp.getConnection().getServerLevel();
+                if (level.getBlockEntity(crusherPos) instanceof MachineBlockEntity be) {
+                    be.refreshLayout();
+                    be.setItem(0, new ItemStack(Items.RAW_IRON, 8));
+                    fillEnergy(be, 1);
+                }
+                if (level.getBlockEntity(generatorPos) instanceof MachineBlockEntity be) {
+                    be.refreshLayout();
+                    be.setItem(0, new ItemStack(Items.COAL, 4));
+                }
+            });
             context.waitTicks(20);
             context.getInput().lookAt(base);
             context.waitTicks(5);
+            clearChat(context);
             context.takeScreenshot("world_machines");
         }
     }
@@ -83,9 +104,16 @@ public class SwClientGameTests implements FabricClientGameTest {
         context.getInput().pressKey(options -> options.keyUse);
         context.waitForScreen(MachineScreen.class);
         context.waitTicks(10);
+        clearChat(context);
         context.takeScreenshot(name);
         context.setScreen(() -> null);
         sp.getServer().runCommand("setblock %d %d %d minecraft:air".formatted(pos.getX(), pos.getY(), pos.getZ()));
+        context.waitTick();
+    }
+
+    /** Befehlsrückmeldungen im Chat würden die Bilder verdecken. */
+    private static void clearChat(ClientGameTestContext context) {
+        context.runOnClient(client -> client.gui.getChat().clearMessages(false));
         context.waitTick();
     }
 
