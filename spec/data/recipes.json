@@ -3900,6 +3900,10 @@
         {
           "item": "minecraft:glass",
           "count": 2
+        },
+        {
+          "item": "minecraft:book",
+          "count": 1
         }
       ],
       "fluid": null,
@@ -4605,7 +4609,7 @@
           "count": 1
         },
         {
-          "item": "minecraft:glowstone_dust",
+          "item": "minecraft:redstone_lamp",
           "count": 1
         }
       ],
@@ -6472,7 +6476,7 @@
       "ingredients": [
         {
           "item": "sternenwerft:lightweight_plate",
-          "count": 2
+          "count": 3
         }
       ],
       "fluid": null,

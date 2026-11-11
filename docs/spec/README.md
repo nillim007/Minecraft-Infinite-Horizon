@@ -21,7 +21,7 @@ Raumfahrt-Mod für Minecraft 26.3 (NeoForge + Fabric) im echten Sonnensystem: In
 | Nr. | Datei | Thema |
 | --- | --- | --- |
 | 0 | [00-lesehinweise.md](00-lesehinweise.md) | Verbindlichkeit, Einheiten, Konventionen |
-| 1 | [01-aenderungen.md](01-aenderungen.md) | Änderungen gegenüber dem Design-Dokument (Ä1–Ä24) |
+| 1 | [01-aenderungen.md](01-aenderungen.md) | Änderungen gegenüber dem Design-Dokument (Ä1–Ä25) |
 | 2 | [02-glossar.md](02-glossar.md) | Begriffe, Phasen |
 | 3 | [03-technik.md](03-technik.md) | Versionen, Projekt, Plattformen, Netzwerk, Config, Mixins, Ressourcen-Generator, Rezeptanzeige (3.9) |
 | 3A | [03a-architektur.md](03a-architektur.md) | Paketstruktur, zentrale Klassen, gespeicherte Daten, Payloads, Datenfluss, Tests, Addon-Schnittstelle |

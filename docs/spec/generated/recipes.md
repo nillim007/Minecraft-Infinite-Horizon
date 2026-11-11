@@ -77,7 +77,7 @@
 | 1 `item_port` | 4 `iron_plate`, 1 `minecraft:hopper` | 200 t · 30 J/t | 22.3 |
 | 1 `jetpack` | 8 `lightweight_plate`, 4 `lithium_battery`, 2 `copper_pipe`, 1 `advanced_circuit` | 200 t · 30 J/t | 22.3 |
 | 1 `lander` | 32 `lightweight_plate`, 8 `heat_shield`, 8 `advanced_circuit`, 2 `cooling_system` | 200 t · 30 J/t | 22.3 |
-| 1 `landing_beacon` | 2 `aluminum_plate`, 1 `circuit`, 1 `minecraft:glowstone_dust` | 200 t · 30 J/t | 22.3 |
+| 1 `landing_beacon` | 2 `aluminum_plate`, 1 `circuit`, 1 `minecraft:redstone_lamp` | 200 t · 30 J/t | 22.3 |
 | 1 `large_oxygen_canister` | 2 `oxygen_canister`, 1 `titanium_plate` | 200 t · 30 J/t | 22.3 |
 | 1 `launch_control` | 1 `machine_frame`, 4 `circuit`, 4 `aluminum_plate`, 2 `minecraft:glass` | 200 t · 30 J/t | 22.3 |
 | 2 `launch_pad` | 2 `iron_plate`, 1 `titanium_plate` | 200 t · 30 J/t | 22.3 |
@@ -104,14 +104,14 @@
 | 1 `refinery_controller` | 1 `machine_frame`, 16 `iron_plate`, 8 `copper_pipe`, 4 `minecraft:redstone` | 200 t · 30 J/t | 22.3 |
 | 1 `regolith_heater` | 1 `machine_frame`, 8 `aluminum_plate`, 4 `copper_wire`, 2 `circuit`, 1 `pressure_bottle` | 200 t · 30 J/t | 22.3 |
 | 1 `research_lab` | 8 `lightweight_plate`, 4 `advanced_circuit`, 1 `analyzer` | 200 t · 30 J/t | 22.3 |
-| 1 `research_terminal` | 1 `machine_frame`, 4 `aluminum_plate`, 4 `circuit`, 2 `minecraft:glass` | 200 t · 30 J/t | 22.3 |
+| 1 `research_terminal` | 1 `machine_frame`, 4 `aluminum_plate`, 4 `circuit`, 2 `minecraft:glass`, 1 `minecraft:book` | 200 t · 30 J/t | 22.3 |
 | 1 `rocket_capsule_t1` | 40 `aluminum_plate`, 16 `titanium_plate`, 16 `circuit` | 200 t · 30 J/t | 22.3 |
 | 1 `rocket_capsule_t2` | 32 `lightweight_plate`, 16 `heat_shield`, 16 `advanced_circuit` | 200 t · 30 J/t | 22.3 |
 | 1 `rocket_cargo_bay` | 16 `aluminum_plate`, 2 `titanium_plate`, 1 `minecraft:chest` | 200 t · 30 J/t | 22.3 |
 | 1 `rocket_engine_t1` | 8 `aluminum_plate`, 32 `titanium_plate`, 8 `circuit` | 200 t · 30 J/t | 22.3 |
 | 1 `rocket_engine_t2` | 16 `lightweight_plate`, 24 `heat_shield`, 16 `advanced_circuit`, 4 `cooling_system` | 200 t · 30 J/t | 22.3 |
 | 1 `rocket_fin_t1` | 8 `aluminum_plate` | 200 t · 30 J/t | 22.3 |
-| 1 `rocket_fin_t2` | 2 `lightweight_plate` | 200 t · 30 J/t | 22.3 |
+| 1 `rocket_fin_t2` | 3 `lightweight_plate` | 200 t · 30 J/t | 22.3 |
 | 1 `rocket_tank_t1` | 30 `aluminum_plate`, 4 `titanium_plate`, 2 `circuit` | 200 t · 30 J/t | 22.3 |
 | 1 `rocket_tank_t2` | 12 `lightweight_plate`, 4 `heat_shield` | 200 t · 30 J/t | 22.3 |
 | 1 `rover_drill` | 4 `titanium_plate`, 2 `titanium_rod`, 1 `minecraft:diamond` | 200 t · 30 J/t | 22.3 |

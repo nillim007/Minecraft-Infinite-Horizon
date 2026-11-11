@@ -28,6 +28,7 @@ Diese Entscheidungen lösen Widersprüche und Sackgassen. **Bitte prüfen**, bev
 | Ä22 | Frachtraketen (32.000 mB) schafften Hin- und Rückflug ins äußere System nicht, und die Werft konnte nicht betanken | Frachtrakete mit 64.000 mB Methan. `cargo_terminal` mit 216 Slots, 8 Frachttanks und eigenem Treibstofftank. |
 | Ä23 | Nachzug nach Meilenstein 1 | Ressourcen erzeugt `tools/gen_resources.py` statt Java-`runData` (3.8, 3A.6); Rezeptwerte entfallen bei Maschinenstandard (25.4); Balance-Dateien aller Namespaces werden zusammengeführt (25.7); Addon-Schnittstelle `api/` (3A.10); Energie-API 26.3 (3.3); GameTest-Aufbau (3A.8, 27); M1 ohne GUI, GUI und Upgrades in M2 (27); Behälter-Brennstoffe (6.3). |
 | Ä24 | Lückentest Meilenstein 2 (`docs/dev/lueckentest-m2.md`): 33 Lücken, die bei M2 zu Rückfragen geführt hätten | In die Kapitel 3.9, 3A, 4, 5, 6, 13.4, 22, 24 und 27 eingearbeitet (Stichpunkte unten). Zwei Punkte bleiben in Kapitel 28 offen. |
+| Ä25 | Entscheidungen zu Kapitel 28 (11.11.2026) | Erdöl-Quellblöcke verbraucht die Pumpe nur mit 10 % Wahrscheinlichkeit (6.1); drei zutatengleiche Montagetisch-Rezepte getrennt (22.3) |
 
 **Ä24: Lückentest Meilenstein 2**
 
@@ -41,3 +42,8 @@ Diese Entscheidungen lösen Widersprüche und Sackgassen. **Bitte prüfen**, bev
 - Forschungssperre als Schnittstelle, `SwBlockEntity` ab M2, `MachineConfigPayload`-Format (3A).
 - Beispielrezepte mit Zeitgrenzen, Leistungstest und Teilschritte M2a–M2f (27.1–27.3).
 - Offen (Kapitel 28): drei zutatengleiche Montagetisch-Paare, endliches Erdöl.
+
+**Ä25: Entscheidungen zu Kapitel 28**
+
+- Erdöl: Die Pumpe entfernt einen `crude_oil`-Quellblock nur mit 10 % Wahrscheinlichkeit (`source_consume_chance` in `machines.json`, 6.1).
+- Zutatengleiche Rezepte getrennt: `research_terminal` +1 `minecraft:book`, `landing_beacon` mit `minecraft:redstone_lamp` statt Glowstone-Staub, `rocket_fin_t2` mit 3 statt 2 `lightweight_plate` (22.3).

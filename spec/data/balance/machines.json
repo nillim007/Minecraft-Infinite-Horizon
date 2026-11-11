@@ -196,6 +196,9 @@
         "search_direction": "below",
         "output_per_cycle": 1000,
         "consumes_source": true,
+        "source_consume_chance": {
+          "sternenwerft:crude_oil": 0.1
+        },
         "source_selection": "nächste Quelle mit dem Fluid, das schon im Tank ist; bei leerem Tank die nächste Quelle überhaupt"
       },
       "spec_ref": "6.1",
