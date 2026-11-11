@@ -46,6 +46,8 @@ Stand: 11.11.2026. Umfang und Teilschritte stehen in `docs/spec/27-meilensteine.
   - Lokal: Fabric-Build und Fabric-GameTests mit JDK 25 unter `C:\Users\NickM\.jdks\jdk-25.0.5+8`. Im Firmennetz `JAVA_TOOL_OPTIONS=-Djavax.net.ssl.trustStoreType=Windows-ROOT` setzen.
   - Details zu allem: Skill `.claude/skills/minecraft-mod-ci-screenshots/SKILL.md`.
 
+- **Testrunde M1–M2c:** 31 Server-GameTests auf beiden Loadern, 18 JUnit-Tests, Client-Test mit Knopf-Klick und Config-Sync, alles grün. Bericht: `docs/dev/testbericht-m2abc.md`.
+
 ## Noch manuell zu prüfen
 
 - Bauxit kommt in der Savanne vor (27.3).
