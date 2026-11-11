@@ -27,6 +27,8 @@ public record MachineGeometry(int tanks, int fluidLeft, int containerX, int outp
     public static final int FLUID_Y = 18;
     public static final int ROW_Y = 35;
     public static final int GRID_COLUMNS = 3;
+    /** Ab hier frei von der Inventar-Beschriftung (x 8, etwa 50 px breit) in der Zeile der Upgrades. */
+    public static final int LABEL_CLEAR_X = 62;
 
     // SPEC-GAP: Lage bei mehreren Tanks und 3 × 3-Raster (spec-gaps #27)
     public static MachineGeometry of(MachineLayout l, int tanks) {
@@ -40,6 +42,11 @@ public record MachineGeometry(int tanks, int fluidLeft, int containerX, int outp
         int extraRows = l.inputs() > GRID_COLUMNS || l.outputs() > 2 ? 1 : 0;
         int upgradeX = tanks > 0 || containers ? containerX - 32 : MachineMenu.UPGRADE_X;
         int upgradeY = extraRows > 0 ? MachineMenu.UPGRADE_Y + 13 : MachineMenu.UPGRADE_Y;
+        if (extraRows == 0 && upgradeX - (l.upgrades() - 1) * SLOT < LABEL_CLEAR_X) {
+            // unten links stünden die Upgrades auf der Inventar-Beschriftung: oben neben den Füllslot (Elektrolyseur)
+            upgradeX = containerX - 22;
+            upgradeY = MachineMenu.FILL_Y;
+        }
         return new MachineGeometry(tanks, fluidLeft, containerX, outputX, arrowX, inputX, upgradeX, upgradeY, extraRows);
     }
 

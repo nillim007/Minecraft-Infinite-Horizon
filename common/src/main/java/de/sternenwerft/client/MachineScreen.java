@@ -61,8 +61,8 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
     private static final int HEADER_H = 12;
     private static final int SIDE_X = 124;
     private static final int SIDE_W = 44;
-    private static final int TANK_X = 92;
-    private static final int TANK_W = 30;
+    private static final int TANK_X = 102;
+    private static final int TANK_W = 20;
     private static final int FLUID_W = 16;
     // Platzhalterfarben der Vanilla-Fluide (GUI)
     private static final int WATER = 0xFF3F76E4;
@@ -88,7 +88,9 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         addRenderableWidget(sideButton);
         // Knopf „Tank“ (4.1): wählt den Tank für leere Behälter im Füllslot
         tankButton = Button.builder(Component.translatable("gui.sternenwerft.tank"), b -> cycleTank())
-                .bounds(leftPos + TANK_X, topPos + HEADER_Y, TANK_W, HEADER_H).build();
+                .bounds(leftPos + TANK_X, topPos + HEADER_Y, TANK_W, HEADER_H)
+                .tooltip(net.minecraft.client.gui.components.Tooltip.create(Component.translatable("gui.sternenwerft.tank")))
+                .build();
         tankButton.visible = false;
         addRenderableWidget(tankButton);
     }
@@ -198,7 +200,8 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
             int fx = x + geometry.tankX(t);
             boolean chosen = choices > 1 && t == firstChoice + selected;
             g.fill(fx - 1, fy - 1, fx + FLUID_W + 1, fy + BAR_H + 1, chosen ? SELECTED : SLOT_DARK);
-            g.fill(fx, fy, fx + FLUID_W, fy + BAR_H, SLOT_DARK);
+            // heller Hintergrund, damit auch dunkle Fluide (Erdöl) sichtbar sind
+            g.fill(fx, fy, fx + FLUID_W, fy + BAR_H, SLOT_FILL);
             int h = (int) Math.min(BAR_H, amount * BAR_H / cap);
             if (fluid != null && h > 0) {
                 g.fill(fx, fy + BAR_H - h, fx + FLUID_W, fy + BAR_H, fluidColor(fluid));

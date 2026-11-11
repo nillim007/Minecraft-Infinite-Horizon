@@ -25,7 +25,7 @@
     "gui.sternenwerft.progress_ticks": "%s / %s t",
     "gui.sternenwerft.mold": "Formslot",
     "gui.sternenwerft.upgrade.max": "höchstens %s",
-    "gui.sternenwerft.tank.n": "Tank %s"
+    "gui.sternenwerft.tank.n": "T%s"
   },
   "en_us": {
     "itemGroup.sternenwerft": "Sternenwerft",
@@ -52,6 +52,6 @@
     "gui.sternenwerft.progress_ticks": "%s / %s t",
     "gui.sternenwerft.mold": "Mold slot",
     "gui.sternenwerft.upgrade.max": "max. %s",
-    "gui.sternenwerft.tank.n": "Tank %s"
+    "gui.sternenwerft.tank.n": "T%s"
   }
 }

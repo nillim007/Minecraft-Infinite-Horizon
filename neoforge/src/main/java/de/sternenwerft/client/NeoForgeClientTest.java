@@ -231,8 +231,8 @@ public final class NeoForgeClientTest {
         STEPS.add((mc, t) -> {
             BlockPos pos = POS.get();
             onServer(mc, level -> {
-                MultiblockPattern p = MultiblockPattern.forMachine(BalanceManager.get(), "sternenwerft:refinery_controller").orElseThrow();
-                level.setBlockAndUpdate(p.partPositions(pos, Direction.WEST).getLast(), Blocks.AIR.defaultBlockState());
+                // Gehäuse in der Vorderseite (vom Spieler aus sichtbar)
+                level.setBlockAndUpdate(pos.above(2).south(), Blocks.AIR.defaultBlockState());
                 // leere Hand: aufgesammelte Maschineninhalte aus den vorigen Schritten entfernen
                 level.players().forEach(pl -> pl.getInventory().clearContent());
                 return null;
@@ -252,7 +252,7 @@ public final class NeoForgeClientTest {
             BlockPos pos = POS.get();
             check("ghost_preview", GhostPreview.active(mc.level, pos) && mc.gui.screen() == null,
                     "aktiv=" + GhostPreview.active(mc.level, pos) + ", Screen=" + mc.gui.screen());
-            mc.player.lookAt(net.minecraft.commands.arguments.EntityAnchorArgument.Anchor.EYES, Vec3.atCenterOf(pos.above(3).east(1)));
+            mc.player.lookAt(net.minecraft.commands.arguments.EntityAnchorArgument.Anchor.EYES, Vec3.atCenterOf(pos.above(2).south()));
             return true;
         });
         STEPS.add((mc, t) -> t > 10);

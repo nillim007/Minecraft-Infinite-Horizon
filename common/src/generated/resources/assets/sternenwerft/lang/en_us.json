@@ -46,7 +46,7 @@
   "gui.sternenwerft.status.idle": "Waiting for material or power",
   "gui.sternenwerft.status.running": "Running",
   "gui.sternenwerft.tank": "Select tank",
-  "gui.sternenwerft.tank.n": "Tank %s",
+  "gui.sternenwerft.tank.n": "T%s",
   "gui.sternenwerft.upgrade.efficiency": "Efficiency upgrade",
   "gui.sternenwerft.upgrade.max": "max. %s",
   "gui.sternenwerft.upgrade.speed": "Speed upgrade",

@@ -36,15 +36,25 @@ Stand: 11.11.2026. Umfang und Teilschritte stehen in `docs/spec/27-meilensteine.
     - GameTests: Pumpe → Rohr → Tank, Rohre mischen nicht, Eimer im Füllslot.
     - JUnit: Tankregeln.
   - **Annahmen:** #22 (Werte nur im Text) und #23 (Zeitgrenze der Pumpe inklusive Rohrdurchsatz: 50 t statt 44 t).
-  - **Noch offen:**
-    - Behälter-Brennstoffe (Lavaeimer im Generator, #15). Sie gehören zu M2e.
-    - Tank-Inhalt beim Abbauen auf dem Item behalten (4.1).
-    - Knopf „Tank“, sobald es Maschinen mit mehreren Tanks gibt (M2d).
+  - **Nachgezogen:** Lavaeimer im Generator, Tank-Inhalt auf dem Item (Testrunde) und Knopf „Tank“ (M2d).
 - **Prüfung:**
   - GitHub: 6/6 GameTests auf beiden Loadern.
   - Client-Test mit Screenshots (alle GUIs und ein Weltfoto) bei jedem CI-Lauf, Branch `ci-screenshots`.
   - Lokal: Fabric-Build und Fabric-GameTests mit JDK 25 unter `C:\Users\NickM\.jdks\jdk-25.0.5+8`. Im Firmennetz `JAVA_TOOL_OPTIONS=-Djavax.net.ssl.trustStoreType=Windows-ROOT` setzen.
   - Details zu allem: Skill `.claude/skills/minecraft-mod-ci-screenshots/SKILL.md`.
+
+- **M2d:** Montagetisch, Elektrolyseur, Raffinerie (Multiblock), Ports.
+  - **Rezepte:** `ProcessingRecipe` kennt eine Fluid-Zutat und Fluid-Ergebnisse. Neue Rezeptarten `refining`, `electrolysis` und `assembly`; `assembly` nutzt den exakten Abgleich (22.3, reine Funktion `ExactMatch`).
+  - **Maschinen:** `ProcessingMachineBlockEntity` legt Tanks aus `fluid_tanks` an. Eingangstanks nehmen nur Fluide aus den eigenen Rezepten. Ergebnisse gehen in den Ausgangstank mit demselben Fluid, sonst in den ersten leeren; ist keiner frei, steht die Lampe auf `error`.
+  - **Multiblock** (Paket `multiblock`):
+    - `MultiblockPattern` liest das Muster aus machines.json (auch `hollow_shell` für spätere Reaktoren).
+    - `MultiblockControllerBlockEntity` prüft beim Setzen, bei Meldungen aus `MultiblockRegistry` und alle 100 t. Bei Erfolg verknüpft sie die Ports.
+    - `PortBlock`/`PortBlockEntity` mit Modus `input`/`output` (Rechtsklick mit leerer Hand).
+    - `GhostPreview`: Sneak-Rechtsklick zeigt Partikel an fehlenden Plätzen.
+  - **GUI:** `MachineGeometry` ordnet bis zu 3 Tanks, das 3 × 3-Raster des Montagetischs und die Knöpfe „Tank“ und „Seite“ an. Statuslampe links oben; bei Multiblöcken nennt der Tooltip den fehlenden Block.
+  - **Fluide:** `hydrogen` und `oxygen` als Gase; der Tank nimmt nur Flüssigkeiten (`accepts` in storage.json).
+  - **Korrektur:** Maschinen, Ports, Gehäuse, Kabel und Rohre brauchen jetzt mindestens eine Steinspitzhacke (`needs_stone_tool`, 4.1).
+  - **Annahmen:** spec-gaps #24 bis #29.
 
 - **Testrunde M1–M2c:** 31 Server-GameTests auf beiden Loadern, 18 JUnit-Tests, Client-Tests auf Fabric **und NeoForge** (Knopf-Klick, Config-Sync, alle GUIs mit Screenshots), alles grün. Bericht: `docs/dev/testbericht-m2abc.md`.
 
@@ -55,4 +65,4 @@ Stand: 11.11.2026. Umfang und Teilschritte stehen in `docs/spec/27-meilensteine.
 
 ## Nächster Schritt
 
-M2d: Montagetisch, Raffinerie (Multiblock), Elektrolyseur, Ports (27.3). Die Annahmen stehen in `docs/spec-gaps.md` bis #23.
+M2e: Treibstoffgenerator, Akku mit Ausgangsseite, Energie-Plattformtest für Speicher, Leistungstest mit 100 Zerkleinerern (27.3). Die Annahmen stehen in `docs/spec-gaps.md` bis #29.

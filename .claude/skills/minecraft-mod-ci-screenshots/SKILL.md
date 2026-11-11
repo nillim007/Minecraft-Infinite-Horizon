@@ -20,17 +20,19 @@ Nur wenn `java -version` ein JDK 25 zeigt. Nur das Fabric-Projekt bauen, das ist
 ```
 
 - Ohne JDK 25 lokal nicht bauen. Ein JDK nur mit Zustimmung des Auftraggebers herunterladen.
-- Der lokale Build ersetzt nicht die CI: NeoForge und der Client-Test laufen nur auf GitHub.
+- `./gradlew :neoforge:runGameTestServer` geht lokal auch (etwa 1 min) und lohnt sich vor dem Push.
+- Der lokale Build ersetzt nicht die CI: Die Client-Tests mit Screenshots laufen nur auf GitHub.
 
 ## 2. GitHub Actions (vollständig, vor jedem Abschluss)
 
-Workflow: `.github/workflows/build.yml` mit drei Jobs.
+Workflow: `.github/workflows/build.yml` mit vier Jobs.
 
 | Job | Inhalt |
 | --- | --- |
-| `spec` | `validate_spec`, `render_docs`, `gen_resources` aktuell? |
+| `spec` | `validate_spec`, `render_docs`, `gen_resources` und `gen_gametests` aktuell? |
 | `build` | `./gradlew build` (beide Loader + JUnit), `:neoforge:runGameTestServer`, `:fabric:runGameTestServer` |
 | `client_test` | Fabric-Client-GameTest mit Software-Grafik (Mesa); legt die Screenshots im Branch `ci-screenshots` ab |
+| `neoforge_client_test` | NeoForge-Client mit xvfb + Mesa (`NeoForgeClientTest`); Screenshots im Branch `ci-screenshots-neoforge` |
 
 Ablauf:
 
@@ -95,4 +97,9 @@ Datei: `fabric/src/main/java/de/sternenwerft/gametest/SwClientGameTests.java`. S
 - **Lokaler Build im Firmennetz:** Bei „PKIX path building failed“ prüft das Netz TLS mit eigenem Zertifikat. Dann `JAVA_TOOL_OPTIONS=-Djavax.net.ssl.trustStoreType=Windows-ROOT` nur für den Befehl setzen. JDK: `C:\Users\NickM\.jdks\jdk-25.0.5+8` (`JAVA_HOME`).
 - **GameTest-Server:** Er läuft ohne Tick-Begrenzung. 400 Spielticks dauern wenige Sekunden, das ist kein Fehler.
 - **Shell (Windows):** Lange Python-Skripte nicht als Inline-Heredoc in Bash schicken, das bricht gelegentlich ab. Besser als Datei im Scratchpad schreiben und ausführen.
+- **Screens:** `imageWidth`/`imageHeight` sind in 26.3 `final`. Höhere GUIs über den Konstruktor `super(menu, inv, title, breite, höhe)`.
+- **Rezepte ohne Items:** `RecipeInput#isEmpty()` ist standardmäßig „alle Slots leer“, dann findet der Rezeptmanager nichts. `MachineRecipeInput` zählt deshalb die Eingangstanks mit.
+- **Leere Hand im Client-Test:** Abgebaute Maschinen werfen ihren Inhalt aus, der Spieler sammelt ihn auf. Vor Prüfungen mit leerer Hand (Port umschalten, Geisterprojektion) `clear @a` bzw. `getInventory().clearContent()`.
+- **Sneak im Client-Test:** Fabric `getInput().holdKey(o -> o.keyShift)`, NeoForge-Test `mc.options.keyShift.setDown(true)` und ein paar Ticks warten.
+- **Multiblock im Test:** Aufbau mit `fill … sternenwerft:refinery_casing`, dann den Controller per `setblock …[facing=west]` mit Blick zum Spieler setzen, sonst trifft der Rechtsklick ein Gehäuse.
 - **Ressourcen:** Generierte Ressourcen nie von Hand ändern. Dafür gibt es `python tools/gen_resources.py`. Platzhalter-Texturen nur mit `python tools/gen_placeholders.py --only <ids>` erzeugen, sonst entstehen Texturen für alle IDs.

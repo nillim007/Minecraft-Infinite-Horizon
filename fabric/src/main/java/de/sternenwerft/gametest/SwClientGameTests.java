@@ -126,7 +126,7 @@ public class SwClientGameTests implements FabricClientGameTest {
                 }
             });
             context.waitTicks(20);
-            context.getInput().lookAt(base);
+            context.getInput().lookAt(base.above());
             context.waitTicks(5);
             clearChat(context);
             context.takeScreenshot("world_machines");
@@ -185,8 +185,9 @@ public class SwClientGameTests implements FabricClientGameTest {
         clearChat(context);
         context.takeScreenshot("gui_refinery_controller");
         context.setScreen(() -> null);
-        // Gehäuse oben hinten entfernen → Geisterprojektion
-        sp.getServer().runCommand("setblock %d %d %d minecraft:air".formatted(pos.getX() + 2, pos.getY() + 4, pos.getZ() + 1));
+        // Gehäuse in der Vorderseite entfernen (vom Spieler aus sichtbar) → Geisterprojektion
+        BlockPos gap = pos.above(2).south();
+        sp.getServer().runCommand("setblock %d %d %d minecraft:air".formatted(gap.getX(), gap.getY(), gap.getZ()));
         // leere Hand: aufgesammelte Maschineninhalte aus den vorigen Schritten entfernen
         sp.getServer().runCommand("clear @a");
         context.waitTicks(5);
@@ -198,7 +199,7 @@ public class SwClientGameTests implements FabricClientGameTest {
         context.waitTicks(10);
         boolean ghost = context.computeOnClient(c -> GhostPreview.active(c.level, pos));
         boolean noGui = context.computeOnClient(c -> c.gui.screen() == null);
-        context.getInput().lookAt(pos.above(3).east(1));
+        context.getInput().lookAt(gap);
         context.waitTicks(10);
         clearChat(context);
         context.takeScreenshot("world_refinery_ghost");
