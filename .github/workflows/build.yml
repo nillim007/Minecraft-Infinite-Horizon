@@ -121,7 +121,7 @@ jobs:
         shell: bash
         run: |
           set -o pipefail
-          ./gradlew :fabric:runClientGameTest --stacktrace --no-daemon 2>&1 | tee clientgametest.log
+          ./gradlew :fabric:runClientGameTest -PwithRei --stacktrace --no-daemon 2>&1 | tee clientgametest.log
       - name: Fehler als Anmerkungen
         if: failure()
         shell: bash {0}

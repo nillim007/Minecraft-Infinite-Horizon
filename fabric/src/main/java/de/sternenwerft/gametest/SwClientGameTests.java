@@ -6,6 +6,7 @@ import de.sternenwerft.core.fluid.SwFluidStack;
 import de.sternenwerft.core.fluid.SwFluidTank;
 import de.sternenwerft.client.handbook.HandbookClient;
 import de.sternenwerft.client.handbook.HandbookScreen;
+import de.sternenwerft.compat.RecipeViewerHooks;
 import de.sternenwerft.multiblock.GhostPreview;
 import net.minecraft.resources.Identifier;
 import de.sternenwerft.machine.MachineBlockEntity;
@@ -101,6 +102,7 @@ public class SwClientGameTests implements FabricClientGameTest {
                 be.setItem(0, new ItemStack(ModItems.BATTERY.get()));
             });
             handbook(context);
+            recipeViewer(context);
 
             // Alle Blöcke nebeneinander in der Welt (Modelle, Texturen, Statuslampe)
             BlockPos base = context.computeOnClient(c -> BlockPos.containing(c.player.position()).north(3));
@@ -171,6 +173,35 @@ public class SwClientGameTests implements FabricClientGameTest {
         context.waitTick();
         if (link == null || !link.equals(now) || crusherPage == null) {
             throw new AssertionError("Handbuch: Link=" + link + ", offen=" + now + ", Zerkleinerer-Seite=" + crusherPage);
+        }
+    }
+
+    /**
+     * REI (nur mit -PwithRei geladen, 3.9): Plugin aktiv, Rezepte angekommen, Kategorien Raffinieren und Montage öffnen
+     * sich; Screenshots für die Sichtprüfung.
+     */
+    private static void recipeViewer(ClientGameTestContext context) {
+        if (!Boolean.getBoolean("sternenwerft.clienttest.rei")) {
+            return;
+        }
+        context.waitTicks(20);
+        String active = RecipeViewerHooks.active;
+        int recipes = RecipeViewerHooks.recipeCount;
+        if (!"rei".equals(active) || recipes <= 0 || RecipeViewerHooks.showCategory == null) {
+            throw new AssertionError("REI: aktiv=" + active + ", Rezepte=" + recipes);
+        }
+        context.runOnClient(c -> RecipeViewerHooks.showCategory.accept("refining"));
+        context.waitTicks(20);
+        clearChat(context);
+        context.takeScreenshot("rei_refining");
+        boolean open = context.computeOnClient(c -> c.gui.screen() != null);
+        context.runOnClient(c -> RecipeViewerHooks.showCategory.accept("assembly"));
+        context.waitTicks(20);
+        context.takeScreenshot("rei_assembly");
+        context.setScreen(() -> null);
+        context.waitTicks(5);
+        if (!open) {
+            throw new AssertionError("REI: Kategorie Raffinieren hat sich nicht geöffnet");
         }
     }
 

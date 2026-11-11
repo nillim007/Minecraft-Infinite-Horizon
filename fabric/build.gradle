@@ -18,6 +18,14 @@ dependencies {
     include "teamreborn:energy:5.0.0"
 }
 
+// REI zur Laufzeit nur mit -PwithRei (CI-Job des Fabric-Client-Tests), damit das REI-Plugin im echten Spiel geprüft und
+// fotografiert wird (bringt Architectury und Cloth Config mit). Normale Builds und Server-GameTests laufen ohne REI.
+if (project.hasProperty('withRei')) {
+    dependencies {
+        runtimeOnly("me.shedaniel:RoughlyEnoughItems-fabric:${rei_version}")
+    }
+}
+
 loom {
     def aw = project(':common').file("src/main/resources/${mod_id}.accesswidener")
     if (aw.exists()) {
@@ -49,6 +57,7 @@ loom {
             setConfigName('Fabric Client GameTest')
             ideConfigGenerated(false)
             vmArg '-Dfabric.client.gametest'
+            vmArg "-Dsternenwerft.clienttest.rei=${project.hasProperty('withRei')}"
             runDir('build/clientgametest')
         }
     }
