@@ -208,7 +208,8 @@ def earth_worldgen(blocks):
                     {"type": "minecraft:biome"}]
         elif ore["placement"] == "disk":
             conf = {"type": "minecraft:disk",
-                "state_provider": {"type": "minecraft:simple_state_provider", "state": bid},
+                # Disk erwartet einen regelbasierten Provider (fallback + rules), wie Vanilla-Ton
+                "state_provider": {"fallback": {"type": "minecraft:simple_state_provider", "state": bid}, "rules": []},
                 "target": {"type": "minecraft:matching_blocks", "blocks": ["minecraft:sand", "minecraft:dirt", "minecraft:clay"]},
                 "radius": {"type": "minecraft:uniform", "min_inclusive": ore["radius"][0], "max_inclusive": ore["radius"][1]},
                 "half_height": 1}
