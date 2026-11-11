@@ -10,6 +10,7 @@
 - Bei Vanilla-Metallen (Eisen, Kupfer, Gold) fügt die Mod nur die fehlenden Formen hinzu; Rohstoff und Barren bleiben `minecraft:*`.
 - Sonderfälle: Aluminium-Rohstoff heißt `bauxite`, Lithium-Rohstoff `lithium_salt`.
 - Jede Form bekommt den passenden Konventions-Tag (`c:ingots/aluminum`, `c:plates/titanium`, `c:dusts/tungsten`, `c:raw_materials/nickel`, `c:ores/titanium` …). Rezepte verwenden für Metallformen bevorzugt diese Tags.
+- **Tag-Muster:** Jeder Eintrag der Kategorien `material` und `ore` bekommt einen Tag `c:<form>s/<metall>`, z. B. `c:ingots/titanium`, `c:dusts/aluminum`, `c:plates/iron`, `c:rods/titanium`, `c:wires/copper`. `c:ores/titanium` gilt für `titanium_ore` und `deepslate_titanium_ore`, `c:ores/aluminum` für `bauxite_ore`, `c:raw_materials/aluminum` für `bauxite`. Die Rezepte in `recipes.json` nennen trotzdem Items; bei Widerspruch gelten die Daten (Kapitel 0).
 
 ## 5.2 Weitere Items
 
@@ -23,6 +24,9 @@ Alle übrigen Items (Bauteile, Werkzeuge, Drops, Behälter) stehen in `items.jso
 ## 5.3 Fluide
 
 Alle Fluide stehen in `items.json` (`kind: fluid`) mit Typ (`liquid`/`gas`), Rohrfarbe, Quellblock und Eimer. Gase haben keine Quellblöcke und keine Eimer (3.3). Wasser ist Vanilla.
+
+- **`crude_oil`:** wie Wasser, aber `tickDelay` 30, Fließweite 4 (Pegelabfall 2), hohe Dichte (der Spieler schwimmt langsam), wird nicht zur Quelle (`canConvertToSource` false), Licht 0.
+- **Gase in M2:** `hydrogen` und `oxygen` haben in M2 keinen Speicher (`pressure_bottle` ist Phase 2) und keine Verbraucher. Sie bleiben im Maschinentank, Rohre dürfen sie führen. Ist der Tank voll, meldet der Elektrolyseur `error`. Das ist so gewollt.
 
 ## 5.4 Verarbeitungsketten (max. 3 Schritte)
 

@@ -7,10 +7,11 @@
 - Seiten sind Ressourcen-Dateien unter `assets/<namespace>/handbook/` (Schema 25.6), damit andere Mods Kapitel ergänzen können.
 - Maschinenseiten werden automatisch aus Rezept, Verbrauch und Kapitel 6 erzeugt. Planetenseiten füllen sich beim ersten Besuch.
 - Suchfeld (filtert Seitentitel und Item-Namen).
+- In M2 wird `engineers_handbook` nur registriert (Item, Rezept, Platzhalter). Das Rechtsklick-GUI kommt mit M9, das Geschenk beim ersten Join mit M4.
 
 ## 24.2 Planetenatlas
 
-`planetary_atlas`: Item, das jeder Spieler beim ersten Join bekommt (Ersatz per Werkbank, 22.1). Rechtsklick öffnet die GUI mit allen Zielen. Pro Ziel: Status (unbekannt, Sonde angekommen, besucht), Entdecker-Agentur, besuchte Biome, gefundene Erkundungsziele, Landefeuer. Inhalte gehören der Agentur.
+`planetary_atlas`: Item, das jeder Spieler beim ersten Join bekommt (Ersatz per Werkbank, 22.1). Rechtsklick öffnet die GUI mit allen Zielen. Pro Ziel: Status (unbekannt, Sonde angekommen, besucht), Entdecker-Agentur, besuchte Biome, gefundene Erkundungsziele, Landefeuer. Inhalte gehören der Agentur. In M2 wird `planetary_atlas` nur registriert (Item, Rezept, Platzhalter); GUI und Geschenk beim ersten Join kommen mit M4.
 
 ## 24.3 Erfolge (Advancements, Reiter `sternenwerft:root`)
 
@@ -48,6 +49,8 @@ Jeder Erfolg wird mit Zeitstempel in `logs/sternenwerft-progress.log` geschriebe
 | `outpost_offline_factor` | 0.5 | 0.0–1.0 |
 | `research_required` | true | |
 
+`recipe_amount_multiplier` gilt ab M2 (22.3). `research_required` wird in M2 gelesen, wirkt aber erst ab M4; bis dahin ist nichts gesperrt (3A.3).
+
 ## 24.5 Grafik
 
 - Vanilla-nah: 16×16-Texturen, Blockmodelle, klare Farben.
@@ -55,6 +58,26 @@ Jeder Erfolg wird mit Zeitstempel in `logs/sternenwerft-progress.log` geschriebe
 - Planetenblöcke (Grundfarbe): Mond `#8C8C8C`, Mond-Basalt `#3A3A3A`, Mars `#B5502A`, Gips `#E6DFD0`, Trockeneis `#F0F4F8`, Venus `#3B2F2A`, Merkur `#5A5550`, Asteroiden `#6B6B6B`, Ceres `#7A776F`, Salzkruste `#E8E8E0`, Io `#E8C440`, Europa-Eis `#E8EEF2` mit Rissen `#8A5A3A`, Titan `#A0622A`, Enceladus `#F4F8FF`, Triton `#C9A4A4`, Pluto-Eis `#D8C8A8`, Tholin `#5A3A2A`.
 - Erze: Gesteinsfarbe mit Flecken der Metallfarbe (Aluminium `#C8CCD0`, Titan `#8A94A6`, Magnesium `#D8D8C0`, Nickel `#A8A890`, Wolfram `#4A4E58`, Lithium `#F0E8F0`, Platin `#E0E0E8`, Iridium `#B0C0D8`, Uran `#7AC040`, Schwefel `#E8D020`).
 - Kabel: Kupfer orange, Aluminium silbern, Supraleiter hellblau. Rohre in der Fluidfarbe aus 5.3.
+- **Metall- und Materialfarben** (aus `tools/gen_placeholders.py`; Metallformen sind Rohform, Staub, Barren, Platte, Stange und Draht der Kategorie `material`):
+
+| Material | Farbe |
+| --- | --- |
+| Eisen | `#D8D0C8` |
+| Kupfer | `#D88050` |
+| Gold | `#F0D040` |
+| Bauxit (Rohform von Aluminium) | `#B07850` |
+| Aluminium, Titan, Magnesium, Nickel, Wolfram, Lithium, Platin, Iridium, Uran, Schwefel | wie bei den Erzen oben |
+| `quartz_sand` | `#E8DCB0` |
+
+| Gruppe | Grundfarbe | Akzent |
+| --- | --- | --- |
+| Metallformen | Metallfarbe | Metallfarbe × 1,25 |
+| `quartz_sand` | `#E8DCB0` | `#E8DCB0` |
+| Fluidtexturen | Fluidfarbe aus `items.json` (5.3) | – |
+| Eimer | Phasenfarbe, Inhalt in der Fluidfarbe | Phasen-Akzent |
+| alle übrigen Items und Blöcke (`silicon`, `plastic`, Bauteile, Maschinen, Generatoren, Speicher, Kabel, Rohre, Ports, Gehäuse, Upgrades, Pressformen) | Phasenfarbe | Phasen-Akzent |
+
+  Der Rand ist die Grundfarbe × 0,6, dazu kommt Helligkeitsrauschen von ± 10 %. Items haben 2 px transparenten Rand.
 - Statuslampe als kleines Overlay oben auf jeder Maschine.
 
 ## 24.6 Klang

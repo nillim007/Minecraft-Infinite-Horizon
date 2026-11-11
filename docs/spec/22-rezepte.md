@@ -12,6 +12,7 @@ Nur Phase-1-Objekte, die vor dem Montagetisch gebraucht werden, sowie Handbuch u
 - Regelrezepte (jedes Erz → 2 Staub, jede Form in der Presse) sind in `recipes.json` ausgeschrieben, ein Eintrag pro Metall.
 - `smelting`-Rezepte gelten im Vanilla-Ofen und im Elektroofen; `electric_smelting` nur im Elektroofen.
 - Ohne eigene `ticks`/`energy_per_tick` gelten die Werte der Maschine aus `balance/machines.json`.
+- Ein Rezept wird erst mit seinen Items umgesetzt (`common/implemented_ids.json`). So entsteht `crushing/aluminum_dust_from_metal_concentrate` erst mit dem Item `metal_concentrate` (Meilenstein 5). Der Zerkleinerer verarbeitet in M2 nur `raw_*`-Items und `bauxite`.
 
 ## 22.3 Montagetisch (`assembly`)
 
@@ -20,3 +21,6 @@ Nur Phase-1-Objekte, die vor dem Montagetisch gebraucht werden, sowie Handbuch u
 - Alternativrezepte (Endung `_alt`) werden vom selben Forschungsknoten freigeschaltet wie das Hauptrezept (11.3).
 - Aufwertungen (Anzug T1 → T2 → T3, Frachter) übernehmen die Komponenten des Basisteils (`copy_components_from`).
 - Raketenteil-Summen: T1 mit 4 Tanks = 200 `aluminum_plate`, 64 `titanium_plate`, 32 `circuit`; T2 mit 6 Tanks = 128 `lightweight_plate`, 64 `heat_shield`, 32 `advanced_circuit`, 4 `cooling_system`. `tools/validate_spec.py` prüft diese Summen und die Slotgrenze.
+- **Abgleich:** Ein Rezept passt nur, wenn die belegten Eingabeslots **genau** die Zutatenmengen enthalten (gleiche Zutatenarten, gleiche Summen, nichts anderes). Überschuss in den Slots verhindert den Start. Verbraucht wird genau die Menge des Rezepts. Beispiel: 4 `iron_plate` + 1 `copper_pipe` ergeben `fluid_port`, nicht `refinery_casing` (2 + 1).
+- **Mengen-Multiplikator:** `recipe_amount_multiplier` (24.4) gilt ab M2 im Rezept-Matcher: Menge = max(1, aufgerundet(Menge × Multiplikator)), höchstens so weit, dass die Zutaten in 9 Slots passen. Der Abgleich nutzt die vergrößerten Mengen. JUnit-Beispiel: Multiplikator 2,0 bei 4 `iron_plate` → 8.
+- **Zutatengleiche Rezepte:** Drei Paare haben dieselben Zutaten und sind so nicht zu unterscheiden: `launch_control`/`research_terminal`, `helmet_lamp`/`landing_beacon`, `station_hull`/`rocket_fin_t2`. Sie sind offen (Kapitel 28) und vor dem Meilenstein des jeweiligen Items zu lösen.

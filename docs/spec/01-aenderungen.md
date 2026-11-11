@@ -26,3 +26,18 @@ Diese Entscheidungen lösen Widersprüche und Sackgassen. **Bitte prüfen**, bev
 | Ä20 | Säureregen und Staubsturm (Stufe 2) brauchten Kuppel T2 (Stufe 3) | Kuppel T2 nach Stufe 2 verschoben. |
 | Ä21 | Bewegung in der Station ohne Jetpack (Stufe 4) war undefiniert | Magnetstiefel kommen mit dem Stationskern (Stufe 3) und brauchen Nickel statt Supraleiter. |
 | Ä22 | Frachtraketen (32.000 mB) schafften Hin- und Rückflug ins äußere System nicht, und die Werft konnte nicht betanken | Frachtrakete mit 64.000 mB Methan. `cargo_terminal` mit 216 Slots, 8 Frachttanks und eigenem Treibstofftank. |
+| Ä23 | Nachzug nach Meilenstein 1 | Ressourcen erzeugt `tools/gen_resources.py` statt Java-`runData` (3.8, 3A.6); Rezeptwerte entfallen bei Maschinenstandard (25.4); Balance-Dateien aller Namespaces werden zusammengeführt (25.7); Addon-Schnittstelle `api/` (3A.10); Energie-API 26.3 (3.3); GameTest-Aufbau (3A.8, 27); M1 ohne GUI, GUI und Upgrades in M2 (27); Behälter-Brennstoffe (6.3). |
+| Ä24 | Lückentest Meilenstein 2 (`docs/dev/lueckentest-m2.md`): 33 Lücken, die bei M2 zu Rückfragen geführt hätten | In die Kapitel 3.9, 3A, 4, 5, 6, 13.4, 22, 24 und 27 eingearbeitet (Stichpunkte unten). Zwei Punkte bleiben in Kapitel 28 offen. |
+
+**Ä24: Lückentest Meilenstein 2**
+
+- Umfang von M2 = alle Einträge mit `phase = 1` (27.1); die Spalte „Stufe“ in Kapitel 4 und 6 ist nur Orientierung.
+- Neue Items `crude_oil_bucket` und `kerosene_bucket`; Füll-/Leerslots für Eimer gehören zu M2, Kanister und `transport_tank` kommen später (4.1, 27).
+- Ausgangsseite für Fluide, Port-Modus, Netze ohne Puffer, „leer“ definiert (4.1, 4.3, 4.4); Muster der Raffinerie (4.3).
+- Tank-Regeln, Energie und Fortschritt, Trichter-Regeln, Abbauen und Blockeigenschaften (4.1); `UpgradeMath` mit Rundung (4.2).
+- Exakter Abgleich im Montagetisch und Mengen-Multiplikator ab M2 (22.3).
+- Regeln für Pumpe, Elektroofen, Zerkleinerer und Akku (6.1, 6.3); Solar-Vorgabe für später (6.3); GUI-Schlüssel (6.4).
+- Worldgen der Erde (13.4) und Eigenschaften von `crude_oil` (5.3); Tag-Muster (5.1); Farbtabelle (24.5); Rezeptanzeige (3.9).
+- Forschungssperre als Schnittstelle, `SwBlockEntity` ab M2, `MachineConfigPayload`-Format (3A).
+- Beispielrezepte mit Zeitgrenzen, Leistungstest und Teilschritte M2a–M2f (27.1–27.3).
+- Offen (Kapitel 28): drei zutatengleiche Montagetisch-Paare, endliches Erdöl.

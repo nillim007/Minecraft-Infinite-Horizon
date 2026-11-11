@@ -26,6 +26,13 @@
 | `drilling_rig` | Bohrturm | 5 | 200 J/t | 100 t | → 1 Erz-Item (20.2) | überall außer Erde |
 | `clone_chamber` | Klon-Kammer | 4 | 200 J/t | – | Respawn-Punkt (14.4) | überall |
 
+**Zusatzregeln (Meilenstein 2)**
+
+- **Umfang:** Die Spalte „Stufe“ in 6.1 und 6.3 ist nur eine Orientierung. Welche Objekte zu einem Meilenstein gehören, bestimmt `phase` in `items.json` (27.1). Objekte mit `phase` ≥ 2 kommen mit ihrem Meilenstein, auch wenn hier „Stufe 1“ steht (z. B. `solar_panel`, `pressure_bottle`).
+- **`crusher`:** Er verarbeitet `raw_*`-Items und `bauxite`. Erzblöcke zu zerkleinern ist kein Ziel von M2; „Erz/Raw“ in der Tabelle ist als „Rohform“ zu lesen.
+- **`electric_furnace`:** „Alle Vanilla-Schmelzrezepte“ heißt nur `minecraft:smelting`, nicht Hochofen (`blasting`) oder Räucherofen (`smoking`). Die Dauer ist immer die der Maschine (100 t); die `cookingtime` des Rezepts wird ignoriert. Es gibt keine Erfahrungspunkte.
+- **`fluid_pump`:** Suchbereich: Radius 8 horizontal um die Pumpe, 1 bis 8 Blöcke darunter. Es zählen nur Quellblöcke (`isSource`) von Wasser, Lava und `crude_oil`; Fließblöcke zählen nicht. Die nächste Quelle (euklidischer Abstand) kommt zuerst, bei Gleichstand die mit der kleineren Koordinate (x, dann y, dann z). Das Auffüllen der Quelle bleibt wie in Vanilla (Wasser ist unendlich, Erdöl endlich). Ohne Quelle steht die Pumpe auf `idle`.
+
 ## 6.2 Pressen
 
 | Eingabe | Pressform | Ausgabe |
@@ -52,9 +59,33 @@
 | `gas_tank` | Gastank | 2 | – | nur Gase | 64.000 mB |
 | `tank_depot` | Tankdepot | 3 | – | alle Fluide | 256.000 mB |
 
+Brennstoffe mit Behälter (z. B. Lavaeimer) hinterlassen den leeren Behälter im Brennstoffslot, wie im Vanilla-Ofen; ein Trichter kann ihn abziehen.
+
+- **`battery`:** Der Ladeslot nimmt jedes Item an, das eine Energie-Schnittstelle der Plattform (NeoForge, Team Reborn) oder die Komponente `sternenwerft:energy` trägt, und lädt es mit höchstens `io_per_tick` (512 J/t). In M2 gibt es keine eigenen ladbaren Items; der Test nutzt ein Plattform-Testitem.
+- **`fluid_tank`:** nur Flüssigkeiten. Gase (`hydrogen`, `oxygen`) bleiben in M2 im Maschinentank (5.3).
+
 **Tageslicht** = 1 bei Tag, 0 bei Nacht, linear in der Dämmerung. Regen und Staubsturm: × 0,25. Sonnensturm: × 2.
+
+**Vorgabe für später (ab dem Meilenstein des `solar_panel`):** Tag 0–12.000 t = 1, 12.000–13.800 t linear auf 0, 13.800–22.200 t = 0, 22.200–24.000 t linear auf 1. „Himmel sichtbar“ heißt `canSeeSky` (Wolken zählen nicht). Gewitter zählt wie Regen.
 
 **Reaktor-Sicherheit**
 
 - Fusion: Fehlt die Kühlung 40 t lang, schaltet der Reaktor ab (Status `error`). Keine Explosion. Er startet automatisch neu, sobald die Kühlung 100 t lang ohne Unterbrechung läuft.
 - Kernreaktor: interne Hitze 0–1.000. Mit Kühlung −5/t, ohne Kühlung +2/t. Ab 800 Warnung (Ton, Statuslampe blinkt). Bei 1.000 Notabschaltung und **Strahlungszone** (Radius 16, Strahlung 3) für 72.000 t. Keine Explosion. Nach einer Notabschaltung startet er automatisch wieder, sobald die Hitze unter 200 liegt.
+
+## 6.4 Schlüssel für Oberflächentexte (GUI)
+
+Alle Texte stehen in `common/lang_extra.json`. Namen von Blöcken und Items kommen aus `items.json` (`name_de`, `name_en`). Schlüssel für Meilenstein 2:
+
+| Schlüssel | Verwendung |
+| --- | --- |
+| `gui.sternenwerft.energy` | Tooltip der Energieleiste (Wert und Kapazität in J) |
+| `gui.sternenwerft.fluid` | Tooltip der Fluidleiste, z. B. „Wasser: 4.000 / 16.000 mB“ |
+| `gui.sternenwerft.tank` | Knopf „Tank wählen“ |
+| `gui.sternenwerft.side` | Knopf „Ausgangsseite“ |
+| `gui.sternenwerft.side.down`, `.up`, `.north`, `.south`, `.west`, `.east` | die sechs Seiten (Unten, Oben, Nord, Süd, West, Ost) |
+| `gui.sternenwerft.upgrade.speed`, `gui.sternenwerft.upgrade.efficiency` | Hinweis an den Upgrade-Slots |
+| `gui.sternenwerft.port.input`, `gui.sternenwerft.port.output` | Port-Modus |
+| `gui.sternenwerft.multiblock.missing` | fehlender Block im Multiblock (mit Koordinate) |
+| `gui.sternenwerft.status.running`, `.idle`, `.error` | Tooltip der Statuslampe |
+| `jei.sternenwerft.<rezepttyp>` | Name der Rezeptkategorie je Rezepttyp (3.9) |

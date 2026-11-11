@@ -5038,6 +5038,20 @@
       "notes": "Teil: Helm"
     },
     {
+      "id": "sternenwerft:crude_oil_bucket",
+      "kind": "item",
+      "category": "tool",
+      "name_de": "Erdöleimer",
+      "name_en": "Crude Oil Bucket",
+      "max_stack": 1,
+      "phase": 1,
+      "obtained_by": [
+        "generated"
+      ],
+      "spec_ref": "4.1",
+      "notes": "kein Rezept; 1.000 mB crude_oil; leerer Eimer im Füllslot oder Eimer auf Quellblock crude_oil; platzierbar"
+    },
+    {
       "id": "sternenwerft:field_scanner",
       "kind": "item",
       "category": "tool",
@@ -5064,6 +5078,20 @@
       ],
       "spec_ref": "13.4",
       "notes": "interner Akku 100.000 J"
+    },
+    {
+      "id": "sternenwerft:kerosene_bucket",
+      "kind": "item",
+      "category": "tool",
+      "name_de": "Kerosineimer",
+      "name_en": "Kerosene Bucket",
+      "max_stack": 1,
+      "phase": 1,
+      "obtained_by": [
+        "generated"
+      ],
+      "spec_ref": "4.1",
+      "notes": "kein Rezept; 1.000 mB kerosene; leerer Eimer im Füllslot; kerosene ist nicht als Block platzierbar"
     },
     {
       "id": "sternenwerft:large_oxygen_canister",

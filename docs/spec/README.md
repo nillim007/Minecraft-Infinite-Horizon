@@ -10,7 +10,7 @@ Raumfahrt-Mod für Minecraft 26.3 (NeoForge + Fabric) im echten Sonnensystem: In
 | --- | --- | --- |
 | `docs/spec/*.md` | Regeln, Verhalten, Abläufe, Architektur | was und wie |
 | `spec/data/*.json` | IDs, Namen, Rezepte, Forschung, Planeten, Raketenteile, Balance-Werte | **maßgebliche Zahlen und Listen** |
-| `spec/data/SCHEMA.md` | Format der Datendateien | Vertrag für Datagen und Tools |
+| `spec/data/SCHEMA.md` | Format der Datendateien | Vertrag für Ressourcen-Generator und Tools |
 | `docs/spec/generated/` | Lesefassungen der Daten als Tabellen | erzeugt, nie von Hand ändern |
 | `tools/validate_spec.py` | prüft Daten auf Vollständigkeit und Widersprüche | vor jedem Commit an `spec/data` |
 | `tools/render_docs.py` | erzeugt `docs/spec/generated/` | nach jeder Änderung an `spec/data` |
@@ -21,13 +21,13 @@ Raumfahrt-Mod für Minecraft 26.3 (NeoForge + Fabric) im echten Sonnensystem: In
 | Nr. | Datei | Thema |
 | --- | --- | --- |
 | 0 | [00-lesehinweise.md](00-lesehinweise.md) | Verbindlichkeit, Einheiten, Konventionen |
-| 1 | [01-aenderungen.md](01-aenderungen.md) | Änderungen gegenüber dem Design-Dokument (Ä1–Ä22) |
+| 1 | [01-aenderungen.md](01-aenderungen.md) | Änderungen gegenüber dem Design-Dokument (Ä1–Ä24) |
 | 2 | [02-glossar.md](02-glossar.md) | Begriffe, Phasen |
-| 3 | [03-technik.md](03-technik.md) | Versionen, Projekt, Plattformen, Netzwerk, Config, Mixins, Datagen |
-| 3A | [03a-architektur.md](03a-architektur.md) | Paketstruktur, zentrale Klassen, gespeicherte Daten, Payloads, Datenfluss, Tests |
+| 3 | [03-technik.md](03-technik.md) | Versionen, Projekt, Plattformen, Netzwerk, Config, Mixins, Ressourcen-Generator, Rezeptanzeige (3.9) |
+| 3A | [03a-architektur.md](03a-architektur.md) | Paketstruktur, zentrale Klassen, gespeicherte Daten, Payloads, Datenfluss, Tests, Addon-Schnittstelle |
 | 4 | [04-grundsysteme.md](04-grundsysteme.md) | Maschinen-Grundverhalten, Upgrades, Multiblöcke, Kabel und Rohre |
 | 5 | [05-materialien.md](05-materialien.md) | Metalle, Items, Fluide, Verarbeitungsketten |
-| 6 | [06-maschinen.md](06-maschinen.md) | Maschinen, Pressen, Generatoren und Speicher |
+| 6 | [06-maschinen.md](06-maschinen.md) | Maschinen, Pressen, Generatoren und Speicher, GUI-Schlüssel (6.4) |
 | 7 | [07-generatoren.md](07-generatoren.md) | Verweis auf 6.3 |
 | 8 | [08-umwelt.md](08-umwelt.md) | Umweltwerte, Belastung, Atmosphäre-Regeln |
 | 9 | [09-raumanzug.md](09-raumanzug.md) | Anzugstufen und Module |
@@ -48,7 +48,7 @@ Raumfahrt-Mod für Minecraft 26.3 (NeoForge + Fabric) im echten Sonnensystem: In
 | 24 | [24-handbuch-grafik.md](24-handbuch-grafik.md) | Handbuch, Atlas, Erfolge, Einstellungen, Grafik, Klang |
 | 25 | [25-datenformate.md](25-datenformate.md) | Formate der Mod-Datenpakete |
 | 26 | [26-registry.md](26-registry.md) | Registry-Übersicht |
-| 27 | [27-meilensteine.md](27-meilensteine.md) | Meilensteine, Abnahmekriterien, Balancing-Ziele |
+| 27 | [27-meilensteine.md](27-meilensteine.md) | Meilensteine, Abnahmekriterien, Umfang und Teilschritte von M2, Balancing-Ziele |
 | 28 | [28-offene-punkte.md](28-offene-punkte.md) | Entscheidungen, die nicht bei der KI liegen |
 | A | [anhang-a-namen.md](anhang-a-namen.md) | Namen DE/EN (Verweis auf Daten) |
 | B | [anhang-b-stimmung.md](anhang-b-stimmung.md) | Stimmung (nicht verbindlich) |
@@ -59,8 +59,8 @@ Für einen Meilenstein liest die umsetzende KI **immer** die Kapitel 0, 2, 3, 3A
 
 | # | Inhalt | Kapitel | Daten (`spec/data/…`) |
 | --- | --- | --- | --- |
-| 1 | Grundgerüst | 4.1–4.4, 6.1 (`crusher`), 6.3 (`combustion_generator`), 25.7 | `items.json`, `recipes.json` (nur benötigte Einträge), `balance/machines.json`, `balance/generators.json`, `balance/transport.json`, `balance/storage.json` |
-| 2 | Erdindustrie | 4, 5, 6, 7, 13.4 (Erde), 22 | `items.json`, `recipes.json`, `planets.json` (Overworld), `balance/machines.json`, `balance/generators.json`, `balance/transport.json`, `balance/storage.json` |
+| 1 | Grundgerüst (ohne GUI; Bedienung per Trichter) | 4.1–4.4, 6.1 (`crusher`), 6.3 (`combustion_generator`), 25.7 | `items.json`, `recipes.json` (nur benötigte Einträge), `balance/machines.json`, `balance/generators.json`, `balance/transport.json`, `balance/storage.json` |
+| 2 | Erdindustrie (alle Einträge mit `phase = 1`, siehe 27.1); GUI für alle Maschinen und Generatoren (auch aus M1), Upgrade-Items aktivieren die Upgrade-Slots, Füll- und Leerslots für Eimer | 3.9, 4, 5, 6, 7, 13.4 (Erde), 22, 24.4–24.5, 27.1–27.3 | `items.json`, `recipes.json`, `planets.json` (Overworld), `balance/machines.json`, `balance/generators.json`, `balance/transport.json`, `balance/storage.json` |
 | 3 | Erste Welt | 8, 9, 10, 12.9, 13.1–13.2, 13.4 (Mond), 13.5, 14.4 (Betten), 23.1 (Agentur-Kern), 25.1 | `planets.json` (Mond, Erdorbit), `balance/environment.json`, `balance/suits.json`, `balance/domes.json`, `balance/misc.json` |
 | 4 | Erster Flug | 11, 12.1–12.6, 24.2, 24.3 | `research.json`, `rocket_parts.json`, `balance/spaceflight.json`, `balance/research.json` |
 | 5 | Ring 1 | 12.8, 13.4 (Mars, Venus), 16, 17, 18, 19 | `planets.json`, `balance/vehicles.json`, `balance/creatures.json`, `balance/events.json`, `balance/agriculture.json` |

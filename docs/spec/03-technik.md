@@ -33,7 +33,7 @@ Begründung: 26.3 ist die neueste stabile Version und wird von NeoForge und Fabr
 
 ```
 sternenwerft/
-  common/     – gesamte Spiellogik, Datagen, Netzwerk-Payloads, Services-Interfaces
+  common/     – gesamte Spiellogik, generierte Ressourcen, Netzwerk-Payloads, Services-Interfaces
   neoforge/   – Registrierung, Capabilities, Events, Sky-Renderer, Config-Pfad
   fabric/     – Registrierung, Team Reborn Energy, Fabric Transfer API, Sky-Renderer
   tools/      – gen_placeholders.py, balance_sheet.py (Kapitel 27)
@@ -47,7 +47,7 @@ sternenwerft/
 
 | Thema | common | NeoForge | Fabric |
 | --- | --- | --- | --- |
-| Energie | eigene Klasse `SwEnergyStorage` (long, J) | `Capabilities.Energy.BLOCK` (Transfer-API) | `team.reborn.energy.api.EnergyStorage.SIDED` |
+| Energie | eigene Klasse `SwEnergyStorage` (long, J) | `Capabilities.Energy.BLOCK` (`EnergyHandler`, Transfer-API mit Transaktionen) | `team.reborn.energy.api.EnergyStorage.SIDED` (Team Reborn Energy 5.0.0, per `include` eingebettet) |
 | Fluide | eigene Klasse `SwFluidTank` (mB) | `Capabilities.Fluid.BLOCK` mit `ResourceHandler<FluidResource>` | `FluidStorage.SIDED` (Droplets ↔ mB umrechnen) |
 | Items | eigene Klasse `SwItemContainer` | `Capabilities.Item.BLOCK` mit `ResourceHandler<ItemResource>` | `ItemStorage.SIDED` |
 
@@ -86,4 +86,15 @@ Alles andere über Events (NeoForge) bzw. Fabric-API-Callbacks.
 
 ## 3.8 Datagen (MUSS)
 
-Datagen erzeugt: Block-/Item-Modelle, Blockstates, Loot-Tables, Rezepte, Tags, Übersetzungen (de_de, en_us), Advancements, Worldgen (Biome, Features, Noise-Settings, Dimensionen), Forschungsknoten, Planeten-Einträge.
+Ressourcen erzeugt `tools/gen_resources.py` aus `spec/data` für alle IDs in `common/implemented_ids.json`; Platzhalter-Texturen erzeugt `tools/gen_placeholders.py`. Ausgabe: `common/src/generated/resources`. Die Dateien werden committet, die CI prüft, dass sie aktuell sind. Gebaut wird nur in GitHub Actions. Es gibt kein Java-`runData`.
+
+Erzeugt werden: Block-/Item-Modelle, Blockstates, Loot-Tables, Rezepte, Tags, Übersetzungen (de_de, en_us), Advancements, Worldgen (Biome, Features, Noise-Settings, Dimensionen), Forschungsknoten, Planeten-Einträge.
+
+## 3.9 Rezeptanzeige (JEI/REI/EMI)
+
+- Jeder eigene Rezepttyp (ab M2: `crushing`, `pressing`, `electric_smelting`, `refining`, `electrolysis`, `assembly`; später die übrigen aus 25.4) bekommt eine Kategorie. Vanilla-Schmelzrezepte laufen über die Vanilla-Kategorie.
+- Eine Kategorie zeigt Eingabeslots links, einen Pfeil mit Dauer (`ticks` aus Rezept oder Maschine) und Energie (J/t × ticks) und Ausgaben rechts mit Chance. Fluide erscheinen als Tank mit Menge in mB. Der Katalysator ist der Maschinenblock. Die Pressform steht als Zutat mit dem Hinweis „wird nicht verbraucht“.
+- Mengen werden mit `recipe_amount_multiplier` (24.4) angezeigt. Gesperrte Rezepte (ab M4, 11.3) sind als gesperrt markiert.
+- Keine Worldgen- oder Multiblock-Seiten in M2.
+- Test: Ein JUnit-Test prüft, dass die Kategorienliste aus den Rezepttypen aufgebaut wird (ohne die Anzeige-Mod zu laden). Die Darstellung wird manuell geprüft.
+- Gibt es JEI, REI oder EMI nicht für 26.3, fällt das Plugin weg und der Eintrag kommt in `docs/spec-gaps.md` (siehe 3.1).

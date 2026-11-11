@@ -81,6 +81,14 @@ Sonnenstürme heben die Strahlung um 2 (Maximum 3, siehe 8.1). Dagegen schützen
 | `quartz_sand` | Strand und Flussufer: Scheibe wie Ton, Radius 2–4, 2 je Chunk |
 | Ölblase | Wüste und Ozeanboden: Kugel Radius 3–5 aus `crude_oil`-Quellblöcken, y −20–40, 1 je 8 Chunks |
 
+**Regeln für die Erde (Meilenstein 2):**
+
+- **Erze (`bauxite_ore`, `titanium_ore`):** wie Vanilla-Eisenerz. Höhe gleichmäßig (`uniform`), `discard_chance_on_air_exposure` 0, „je Chunk“ sind die Versuche je Chunk (`count`). `bauxite_ore` ersetzt Blöcke aus `#minecraft:stone_ore_replaceables`, auch in Wüste und Badlands (nicht Sandstein oder Terrakotta); bei y 50–120 liegt kein Tiefenschiefer. `titanium_ore` ersetzt `#minecraft:stone_ore_replaceables`, `deepslate_titanium_ore` ersetzt `#minecraft:deepslate_ore_replaceables`.
+- **Biome:** „Savanne“ ist `#minecraft:is_savanna` (Savanne, Savannenplateau, Windgepeitschte Savanne), „Wüste“ ist `minecraft:desert`, „Badlands“ ist `#minecraft:is_badlands`. „Alle Biome“ ist `#minecraft:is_overworld`.
+- **Eigenschaften und Drops:** `bauxite_ore` und `titanium_ore` wie `minecraft:iron_ore`, `deepslate_titanium_ore` wie `minecraft:deepslate_iron_ore` (Härte, Sprengwiderstand, Klang, Glück wie Vanilla-Eisen). Werkzeugstufe: `bauxite_ore` braucht eine Steinspitzhacke (Tag `minecraft:needs_stone_tool`), `titanium_ore` und `deepslate_titanium_ore` eine Eisenspitzhacke (`minecraft:needs_iron_tool`). Die Drops stehen in der Pauschalregel oben.
+- **`quartz_sand`:** Feature `disk`: Radius 2–4 (`uniform`), Halbhöhe 1, Ziele `minecraft:sand`, `minecraft:dirt`, `minecraft:clay`, Platzierung `OCEAN_FLOOR_WG`, 2 Versuche je Chunk, Biome `#minecraft:is_beach` und `#minecraft:is_river`. Eigenschaften wie `minecraft:sand` (Schaufel), aber kein Fallblock. Der Block droppt sich selbst.
+- **Ölblase:** nur in Wüste (`minecraft:desert`) und Ozeanen (`#minecraft:is_ocean`), gemessen am Biom des Mittelpunkts. Mittelpunkt `uniform` y −20 bis 40, Radius `uniform` 3 bis 5, Wahrscheinlichkeit 1/8 je Chunk. Die Kugel ersetzt alle Blöcke außer Bedrock, Fluiden und Luft; Luft bleibt Luft, damit Höhlen nicht fluten. Sie liegt damit teils frei in Höhlen. Es gibt keinen Hinweis an der Oberfläche (Handbuch, M9). Die Fluid-Eigenschaften von `crude_oil` stehen in 5.3.
+
 ### Mond `moon`
 
 Blöcke: `moon_regolith` (Oberfläche, 3 Schichten), `moon_rock` (Gestein = `default_block`), `moon_basalt`, `moon_ice`. `default_fluid` = Luft.

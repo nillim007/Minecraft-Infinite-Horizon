@@ -131,6 +131,8 @@ Eigene Rezepttypen (`RecipeType` + `RecipeSerializer` über Codecs): `sternenwer
 }
 ```
 
+Beim Erzeugen lässt `gen_resources.py` `ticks`/`energy_per_tick` weg, wenn sie dem Wert der Maschine in `machines.json` entsprechen; so wirkt eine Änderung in `machines.json` auf alle Standardrezepte.
+
 Maschinenrezepte haben zusätzlich `fluid_inputs` und `fluid_outputs` (`{ "fluid": "...", "amount": n }`). `pressing` hat `mold`. `results` erlaubt mehrere Ausgaben mit `chance` (0–1), z. B. `metal_concentrate` → Aluminium- und Titanstaub oder `meteorite_ore` mit 10 % Platin. Beim Montagetisch steht ein „Tank X“ als `"fluid": { "fluid": "X", "amount": 16000 }`. `meteorite_ore` droppt beim Abbau sich selbst, Rohstoffe gibt es nur über den Zerkleinerer.
 
 **Komponenten in Rezepten:**
@@ -167,7 +169,7 @@ Rollen: `capsule`, `tank`, `engine`, `fin`, `cargo`, `long_range`. `fuel_capacit
 
 ## 25.7 Balance-Dateien (`data/<ns>/sternenwerft/balance/`)
 
-Alle Zahlenwerte, die nicht in Rezepten, Planeten, Forschung oder Raketenteilen stehen, liegen in diesen Dateien. Sie werden beim Laden und bei `/reload` eingelesen und an Clients gesendet. Datagen kopiert sie aus `spec/data/balance/` (Quelle, Format in `spec/data/SCHEMA.md`); dazu kommen `storage.json` (Speicherblöcke) und `spaceflight.json` (Treibstoffformel, Sonden, Flugablauf).
+Alle Zahlenwerte, die nicht in Rezepten, Planeten, Forschung oder Raketenteilen stehen, liegen in diesen Dateien. Geladen werden die Dateien `data/<ns>/sternenwerft/balance/*.json` aus allen Namespaces: zuerst `sternenwerft`, dann alphabetisch. Gleichnamige Dateien werden eintragsweise zusammengeführt (spätere ergänzen/überschreiben); `"replace": true` ersetzt die Datei ganz. Das gilt nach `/reload`. Sie werden beim Laden und bei `/reload` eingelesen und an Clients gesendet. `gen_resources.py` kopiert sie aus `spec/data/balance/` (Quelle, Format in `spec/data/SCHEMA.md`); dazu kommen `storage.json` (Speicherblöcke) und `spaceflight.json` (Treibstoffformel, Sonden, Flugablauf).
 
 | Datei | Inhalt (Quelle) | Schlüssel |
 | --- | --- | --- |

@@ -1,6 +1,6 @@
 <!-- Erzeugt von tools/render_docs.py aus spec/data. Nicht von Hand ändern. -->
 
-# IDs und Namen (375)
+# IDs und Namen (377)
 
 ## biome · world
 
@@ -527,8 +527,10 @@
 
 | ID | Deutsch | Englisch | Phase | Herkunft | Kapitel |
 | --- | --- | --- | --- | --- | --- |
+| `crude_oil_bucket` | Erdöleimer | Crude Oil Bucket | 1 | generated | 4.1 |
 | `field_scanner` | Feldscanner | Field Scanner | 2 | recipe | 5.2 |
 | `ice_drill` | Eisbohrer | Ice Drill | 5 | recipe | 13.4 |
+| `kerosene_bucket` | Kerosineimer | Kerosene Bucket | 1 | generated | 4.1 |
 | `large_oxygen_canister` | Große Sauerstoffflasche | Large Oxygen Canister | 2 | recipe | 5.2 |
 | `oxygen_canister` | Sauerstoffflasche | Oxygen Canister | 2 | recipe | 5.2 |
 | `press_mold_plate` | Pressform (Platte) | Press Mold Plate | 1 | recipe | 5.2 |

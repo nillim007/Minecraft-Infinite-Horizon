@@ -8,7 +8,7 @@ Dieses Kapitel legt fest, **wie der Code gegliedert ist**. Jede Sitzung MUSS sic
 2. **Reine Funktionen für Regeln.** Jede Berechnung mit Spielregeln (Umwelt, Treibstoff, Raketenprüfung, Forschungstore, Offline-Produktion, Fracht) steht in einer zustandslosen Klasse ohne Minecraft-Weltzugriff. Block-Entities und Events rufen sie nur auf. So sind die Regeln mit JUnit testbar.
 3. **Alle Zahlen aus Daten.** Kein Balance-Wert steht im Code. Code liest Werte über `BalanceManager` (3A.6) bzw. die eigenen Registries.
 4. **Plattformcode bleibt dünn.** `neoforge/` und `fabric/` enthalten nur Registrierung, Capability-/API-Adapter, Event-Weiterleitung und Render-Hooks. Logik gehört nach `common/`.
-5. **Besitz ist überall.** Jede Block-Entity und jedes Fahrzeug kennt `owner_agency` (23.1).
+5. **Besitz ist überall.** Jede Block-Entity und jedes Fahrzeug kennt `owner_agency` (23.1). Das gilt ab M3 (Agentur-Kern); in M1 und M2 gibt es noch keinen Besitzer.
 
 ## 3A.2 Paketstruktur (`common`)
 
@@ -53,7 +53,7 @@ de.sternenwerft
 ├─ network/                     alle Payloads (3A.4), PacketHandlers
 ├─ client/                      HudOverlay, Screens, SkyRenderer-Logik, DomeRenderer, Cutscenes, SoundDamping
 ├─ compat/                      jei/, rei/, emi/ (nur laden, wenn Mod vorhanden)
-├─ datagen/                     liest spec/data und erzeugt alle generierten Ressourcen (3A.7)
+├─ api/                         stabile Schnittstelle für Addons (3A.10)
 └─ util/
 ```
 
@@ -61,8 +61,8 @@ de.sternenwerft
 
 | Klasse | Aufgabe | Wichtige Regeln |
 | --- | --- | --- |
-| `SwBlockEntity` | Basis aller eigenen Block-Entities | speichert `owner_agency`; setzt es in `setPlacedBy`; liefert `OwnershipResolver.current(owner)` (berücksichtigt `merged_into`) |
-| `MachineBlockEntity` | Basis aller Maschinen | liest Werte aus `BalanceManager` per Block-ID; Zustände `idle`/`running`/`error` → Blockstate `status`; Upgrades; Füll-/Leerslots; Rezeptsuche prüft Forschung der Besitzer-Agentur |
+| `SwBlockEntity` | Basis aller eigenen Block-Entities | speichert `owner_agency`; setzt es in `setPlacedBy`; liefert `OwnershipResolver.current(owner)` (berücksichtigt `merged_into`). Ab M2 Basisklasse für Speicher, Ports sowie Kabel- und Rohrblöcke; `owner_agency` und `setPlacedBy` kommen erst mit M3. Maschinen erben von `MachineBlockEntity`. |
+| `MachineBlockEntity` | Basis aller Maschinen | liest Werte aus `BalanceManager` per Block-ID; Zustände `idle`/`running`/`error` → Blockstate `status`; Upgrades; Füll-/Leerslots; Rezeptsuche ruft `ResearchRecipeLock.isUnlocked(recipe, owner)` auf (Standard `true`; die Prüfung der Forschung der Besitzer-Agentur kommt mit M4, die Agentur mit M3) |
 | `MultiblockController` | Basis für Raffinerie, Fusion, Kernreaktor, Startrampe | Musterprüfung beim Setzen, bei Nachbaränderungen und alle 100 t; nimmt an freien Seiten I/O an |
 | `Transaction` | gemeinsames Transaktionsmodell | `simulate → commit/rollback`; Adapter auf NeoForge-Transfer-API und Fabric-Transfer-API |
 | `EnvironmentCalculator` | reine Funktion (8.1) | Eingabe: Planet, Zonenliste, Position, Tageszeit, Kuppeln, Ausrüstung; Ausgabe: Werte + Schutz je Gefahr |
@@ -111,23 +111,25 @@ Alle Payloads sind `CustomPacketPayload` mit `StreamCodec`. Jeder Client→Serve
 | `LaunchRequestPayload` | C→S | Rampen- bzw. Raketenposition, Ziel, Landeort | Klick auf „Start“ |
 | `RocketActionPayload` | C→S | Aktion (tanken aus Frachtraum, zerlegen) | Raketen-GUI |
 | `LogisticsEditPayload` | C→S | Route anlegen/ändern/löschen | Logistik-GUI |
-| `MachineConfigPayload` | C→S | Ausgangsseite, Tankauswahl, Gas-Sammler-Modus | Maschinen-GUI |
+| `MachineConfigPayload` | C→S | `pos`, `side` (0–5 in der Reihenfolge Unten, Oben, Nord, Süd, West, Ost; −1 = unverändert), `tank` (Index ab 0; −1 = unverändert); der Gas-Sammler-Modus kommt als weiteres Feld mit M6 | Maschinen-GUI |
 | `NamePayload` | C→S | Name für Landefeuer | GUI |
 | `TradingPostEditPayload` | C→S | Angebote | GUI |
 | `ShipyardStartPayload` | C→S | Werft-Position | Klick auf „Start“ |
 
+Kein Payload brauchen: die Geisterprojektion (rein clientseitig, 4.1) und der Port-Modus (Rechtsklick auf den Block, 4.3).
+
 ## 3A.6 Datenfluss
 
 ```
-spec/data/*.json ──(Gradle-Task runData, liest Pfad aus Property specDataDir)──▶ datagen
+spec/data/*.json ──(tools/gen_resources.py, nur IDs aus common/implemented_ids.json; Texturen: tools/gen_placeholders.py)──▶ Generator
    ├─▶ Rezepte, Tags, Loot-Tables, Advancements, Worldgen, Dimensionen (Vanilla-Ordner, 26.3-Format)
    ├─▶ lang/de_de.json, lang/en_us.json
    └─▶ data/sternenwerft/sternenwerft/{planet,research,research_tier,rocket_part,star_system,balance}/…
 Laufzeit: Reload-Listener ─▶ BalanceManager / Registries ─▶ SyncDataPayload ─▶ Client
 ```
 
-- Generierte Dateien werden committet (`src/generated/resources`), damit der Build ohne Datagen läuft.
-- Ändert sich `spec/data`, MUSS `runData` erneut laufen. Der CI-Build prüft, dass die generierten Dateien aktuell sind.
+- Generierte Dateien liegen in `common/src/generated/resources` und werden committet. Gebaut wird nur in GitHub Actions.
+- Ändert sich `spec/data`, MUSS `python tools/gen_resources.py` erneut laufen. Der CI-Build prüft, dass die generierten Dateien aktuell sind.
 
 ## 3A.7 Tick-Modell und Leistung
 
@@ -135,12 +137,13 @@ Laufzeit: Reload-Listener ─▶ BalanceManager / Registries ─▶ SyncDataPayl
 - Netze berechnen ihre Topologie nur bei Blockänderungen neu und verteilen pro Tick ohne Objekt-Neuanlage.
 - Umwelt, Kuppelzugehörigkeit und Schwerkraft je Spieler alle 10 t; Ereignisse alle 1.200 t je Dimension.
 - Außenposten und Frachtflüge werden nur bei Bedarf nachgerechnet (20.1).
-- Budget: Eine Basis mit 100 Maschinen darf im Mittel höchstens 1 ms pro Server-Tick kosten. Ein GameTest misst das ab Meilenstein 2.
+- Budget: Eine Basis mit 100 Maschinen darf im Mittel höchstens 1 ms pro Server-Tick kosten. Ein GameTest misst das ab Meilenstein 2 (Aufbau in 27.2).
 
 ## 3A.8 Tests
 
 - **JUnit 5** in `common/src/test` für alle reinen Funktionen (`EnvironmentCalculator`, `FuelCalculator`, `RocketAssembler`, `ResearchGates`, `OfflineProduction`, `FpLedger`). Testdaten werden aus `spec/data` geladen, damit Tests und Spezifikation dieselben Zahlen nutzen.
 - **GameTests** in `common` (Registrierung je Loader) für Verhalten in der Welt: Maschinen, Netze, Multiblöcke, Kuppeln, Raketenbau. Strukturvorlagen unter `data/sternenwerft/structure/gametest/`.
+- Teststruktur: `data/sternenwerft/structure/gametest/empty.nbt` (leer, 8×8×8, von `gen_resources.py` erzeugt). Logik in `common` (`gametest/SwGameTests`), Registrierung je Loader: NeoForge `RegisterGameTestsEvent` + `TEST_FUNCTION`, Fabric `@GameTest` + Entry-Point `fabric-gametest`. Die CI wertet „All N required tests passed“ aus.
 - Testnamen: `<System>_<Verhalten>_<Erwartung>`, z. B. `Crusher_RawIron_TwoDustWithin220Ticks`.
 
 ## 3A.9 Code-Regeln
@@ -149,3 +152,12 @@ Laufzeit: Reload-Listener ─▶ BalanceManager / Registries ─▶ SyncDataPayl
 - Übersetzungsschlüssel nach Vanilla-Muster (`block.sternenwerft.<id>`, `item.sternenwerft.<id>`, `gui.sternenwerft.<name>`); kein fest eingebauter Text.
 - Logging über SLF4J mit Präfix `[Sternenwerft]`; keine Ausgaben in jedem Tick.
 - Jede Annahme bei fehlender Vorgabe: Kommentar `// SPEC-GAP: <Beschreibung>` **und** Eintrag in `docs/spec-gaps.md`.
+
+## 3A.10 Addon-Schnittstelle
+
+- Ziel: Addons bauen eigene Maschinen, Generatoren, Kabel und Rezeptarten mit wenig Code und vielen Einstellmöglichkeiten.
+- Paket `de.sternenwerft.api` ist stabil; öffentliche Typen für Addons liegen nur dort.
+- Bausteine: `MachineBlock`, `MachineBlockEntity`, `ProcessingMachineBlockEntity` (mit `ProcessingRecipe.Kind`), `CombustionGeneratorBlockEntity`, `CableBlock`, `EnergyNode`.
+- Einstellwerte stehen in Daten (25.7), nicht im Code.
+- Addons erweitern die Basisklassen, statt sie zu kopieren.
+- Details: `docs/dev/addon-api.md`.

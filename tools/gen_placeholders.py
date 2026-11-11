@@ -7,6 +7,7 @@ Nur Python-Standardbibliothek. Bestehende Dateien werden überschrieben (die Aus
 from __future__ import annotations
 
 import argparse
+import re
 import hashlib
 import struct
 import sys
@@ -80,7 +81,8 @@ def base_colors(e):
     cat = e.get("category")
     if cat in ("planet_block", "ore", "world"):
         for k in sorted(PLANET, key=len, reverse=True):
-            if name.startswith(k) or k in name:
+            # nur ganze Namensteile: "titan" darf nicht in "titanium_ore" treffen
+            if re.search(rf"(^|_){re.escape(k)}(_|$)", name):
                 return rgb(PLANET[k]), rgb(metal_of(name) or PLANET[k])
     if cat == "material":
         m = metal_of(name)
