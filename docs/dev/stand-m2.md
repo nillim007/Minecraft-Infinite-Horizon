@@ -20,6 +20,26 @@ Stand: 11.11.2026. Umfang und Teilschritte stehen in `docs/spec/27-meilensteine.
   - Worldgen: `worldgen/feature` + `placed_feature`, Biom-Tags `has_<name>`. NeoForge nutzt Biome-Modifier, Fabric `BiomeModifications` aus `biome_features.json`.
   - GameTest: Werkzeugstufen und Drop.
   - Die Ölblase ist nach M2c verschoben (spec-gaps #21).
+- **M2c:** Fluide, Rohre, Tank, Pumpe, Füll- und Leerslots, Ölblase.
+  - **Kern:** `SwFluidStack` und `SwFluidTank` (ein Fluid je Tank, mit Transaktionen). `FluidGrid` ohne Puffer, ein Fluid je Netz, gilt nach 20 t ohne Übertragung als leer. `ConduitBlock` ist die Basis für `CableBlock` und `FluidPipeBlock`.
+  - **Loader:**
+    - Fluid-Registrierung: Fabric über `SwFlowingFluid`, NeoForge über `FluidType` + `BaseFlowingFluid`. Texturen per `FluidModel`.
+    - Fluid-Schnittstellen nach außen: `FluidStorage.SIDED` bzw. `Capabilities.Fluid.BLOCK`.
+  - **Fluide:** Erdöl als Weltfluid mit Eimer, Kerosin als reines Tank-Fluid. Die Behälterliste `fluid_containers.json` steuert die Füll- und Leerslots.
+  - **Blöcke:**
+    - `fluid_tank`, `fluid_pump` (verbraucht Erdöl-Quellen nur zu 10 %), `copper_pipe`.
+    - Die Ölblase ist der Feature-Typ `sternenwerft:fluid_sphere`.
+  - **GUI und Netzwerk:**
+    - Fluidleisten, Füll- und Leerslot, Knopf „Seite“.
+    - `MachineConfigPayload` als erster C→S-Payload; der Server prüft den Abstand.
+  - **Tests:**
+    - GameTests: Pumpe → Rohr → Tank, Rohre mischen nicht, Eimer im Füllslot.
+    - JUnit: Tankregeln.
+  - **Annahmen:** #22 (Werte nur im Text) und #23 (Zeitgrenze der Pumpe inklusive Rohrdurchsatz: 50 t statt 44 t).
+  - **Noch offen:**
+    - Behälter-Brennstoffe (Lavaeimer im Generator, #15). Sie gehören zu M2e.
+    - Tank-Inhalt beim Abbauen auf dem Item behalten (4.1).
+    - Knopf „Tank“, sobald es Maschinen mit mehreren Tanks gibt (M2d).
 - **Prüfung:**
   - GitHub: 6/6 GameTests auf beiden Loadern.
   - Client-Test mit Screenshots (alle GUIs und ein Weltfoto) bei jedem CI-Lauf, Branch `ci-screenshots`.
@@ -33,4 +53,4 @@ Stand: 11.11.2026. Umfang und Teilschritte stehen in `docs/spec/27-meilensteine.
 
 ## Nächster Schritt
 
-M2c: Fluide, Rohre, Tanks, Füll-/Leerslots, Pumpe, Ölblase (27.3). Die Annahmen stehen in `docs/spec-gaps.md` bis #21.
+M2d: Montagetisch, Raffinerie (Multiblock), Elektrolyseur, Ports (27.3). Die Annahmen stehen in `docs/spec-gaps.md` bis #23.
