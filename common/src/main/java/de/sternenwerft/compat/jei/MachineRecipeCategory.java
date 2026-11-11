@@ -88,7 +88,8 @@ public class MachineRecipeCategory implements IRecipeCategory<RecipeHolder<Proce
         for (int i = 0; i < v.outputs().size(); i++) {
             float chance = v.chances().get(i);
             IRecipeSlotBuilder slot = builder.addOutputSlot(RecipeView.outputX(m) + 1, RecipeView.outputY(m) + 1)
-                    .setOutputSlotBackground().addItemStacks(List.of(v.outputs().get(i)));
+                    // normaler Rahmen: der große Ausgaberahmen (26 px) würde den Nachbarslot im 18-px-Raster überdecken
+                    .setStandardSlotBackground().addItemStacks(List.of(v.outputs().get(i)));
             RecipeView.chanceNote(chance).ifPresent(note -> slot.addRichTooltipCallback((view, tip) -> tip.add(note)));
             m++;
         }

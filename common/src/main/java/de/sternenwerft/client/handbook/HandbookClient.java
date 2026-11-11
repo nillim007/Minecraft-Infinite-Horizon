@@ -6,6 +6,8 @@ import de.sternenwerft.item.HandbookItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.KeyMapping;
 import net.minecraft.client.Minecraft;
+import de.sternenwerft.compat.RecipeViewerHooks;
+import net.minecraft.client.gui.components.EditBox;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.input.KeyEvent;
@@ -80,13 +82,33 @@ public final class HandbookClient {
         return true;
     }
 
-    /** Tastendruck in einem Bildschirm: H über einem Item im Inventar öffnet dessen Seite. True = verbraucht. */
+    /**
+     * Tastendruck in einem Bildschirm: H über einem Item im Inventar oder in JEI/REI öffnet dessen Seite (24.1).
+     * Nicht, solange ein Textfeld (Kreativ-Suche, Suchfeld der Rezeptanzeige) die Eingabe hat. True = verbraucht.
+     */
     public static boolean onScreenKey(Screen screen, KeyEvent event) {
-        if (!KEY.matches(event) || !(screen instanceof AbstractContainerScreen<?> acs)) {
+        if (!KEY.matches(event) || isTyping(screen) || RecipeViewerHooks.isTyping()) {
+            return false;
+        }
+        ItemStack viewer = RecipeViewerHooks.hovered();
+        if (!viewer.isEmpty() && openForItem(viewer)) {
+            return true;
+        }
+        if (!(screen instanceof AbstractContainerScreen<?> acs)) {
             return false;
         }
         Slot slot = hovered(acs);
         return slot != null && slot.hasItem() && openForItem(slot.getItem());
+    }
+
+    /** Hat ein Textfeld des Bildschirms die Eingabe? */
+    static boolean isTyping(Screen screen) {
+        for (var child : screen.children()) {
+            if (child instanceof EditBox box && box.isFocused() && box.canConsumeInput()) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /** Hinweis „H: Handbuch“ an Items mit eigener Seite. */

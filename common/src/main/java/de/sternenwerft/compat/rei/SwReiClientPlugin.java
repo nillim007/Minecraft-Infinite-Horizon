@@ -14,6 +14,14 @@ import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
 import me.shedaniel.rei.api.client.view.ViewSearchBuilder;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.util.EntryStacks;
+import me.shedaniel.math.Point;
+import me.shedaniel.rei.api.client.REIRuntime;
+import me.shedaniel.rei.api.client.registry.screen.ScreenRegistry;
+import me.shedaniel.rei.api.common.entry.EntryStack;
+import me.shedaniel.rei.api.common.entry.type.VanillaEntryTypes;
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
 
 import java.util.List;
@@ -48,6 +56,23 @@ public class SwReiClientPlugin implements REIClientPlugin {
         }
         RecipeViewerHooks.active = "rei";
         RecipeViewerHooks.showCategory = name -> ViewSearchBuilder.builder().addCategory(MachineRecipeDisplay.categoryOf(name)).open();
+        // Taste H über einem Item in der REI-Liste oder einem Rezept (24.1)
+        RecipeViewerHooks.hoveredStack = SwReiClientPlugin::hoveredStack;
+        RecipeViewerHooks.typing = () -> {
+            var field = REIRuntime.getInstance().getSearchTextField();
+            return field != null && field.isFocused();
+        };
+    }
+
+    private static ItemStack hoveredStack() {
+        Minecraft mc = Minecraft.getInstance();
+        Screen screen = mc.gui.screen();
+        if (screen == null) {
+            return ItemStack.EMPTY;
+        }
+        Point mouse = new Point((int) mc.mouseHandler.getScaledXPos(mc.getWindow()), (int) mc.mouseHandler.getScaledYPos(mc.getWindow()));
+        EntryStack<?> stack = ScreenRegistry.getInstance().getFocusedStack(screen, mouse);
+        return stack != null && stack.getType() == VanillaEntryTypes.ITEM ? stack.castValue() : ItemStack.EMPTY;
     }
 
     @Override

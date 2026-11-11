@@ -12,6 +12,7 @@ import de.sternenwerft.registry.ModBlocks;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
+import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.recipe.types.IRecipeHolderType;
 import mezz.jei.api.recipe.types.IRecipeType;
 import mezz.jei.api.registration.IRecipeCatalystRegistration;
@@ -19,6 +20,7 @@ import mezz.jei.api.registration.IRecipeCategoryRegistration;
 import mezz.jei.api.registration.IRecipeRegistration;
 import mezz.jei.api.runtime.IJeiRuntime;
 import net.minecraft.resources.Identifier;
+import net.minecraft.world.item.ItemStack;
 
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -82,10 +84,21 @@ public class SwJeiPlugin implements IModPlugin {
     public void onRuntimeAvailable(IJeiRuntime runtime) {
         RecipeViewerHooks.active = "jei";
         RecipeViewerHooks.showCategory = name -> runtime.getRecipesGui().showTypes(List.of(type(name)));
+        // Taste H über einem Item in der Liste, den Lesezeichen oder einem Rezept (24.1)
+        RecipeViewerHooks.hoveredStack = () -> {
+            ItemStack s = runtime.getIngredientListOverlay().getIngredientUnderMouse(VanillaTypes.ITEM_STACK);
+            if (s == null) {
+                s = runtime.getBookmarkOverlay().getIngredientUnderMouse(VanillaTypes.ITEM_STACK);
+            }
+            return s != null ? s : runtime.getRecipesGui().getIngredientUnderMouse(VanillaTypes.ITEM_STACK).orElse(ItemStack.EMPTY);
+        };
+        RecipeViewerHooks.typing = () -> runtime.getIngredientListOverlay().hasKeyboardFocus();
     }
 
     @Override
     public void onRuntimeUnavailable() {
         RecipeViewerHooks.showCategory = null;
+        RecipeViewerHooks.hoveredStack = null;
+        RecipeViewerHooks.typing = null;
     }
 }

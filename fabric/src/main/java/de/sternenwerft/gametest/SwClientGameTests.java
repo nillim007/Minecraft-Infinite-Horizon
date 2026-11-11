@@ -187,7 +187,8 @@ public class SwClientGameTests implements FabricClientGameTest {
         context.waitTicks(20);
         String active = RecipeViewerHooks.active;
         int recipes = RecipeViewerHooks.recipeCount;
-        if (!"rei".equals(active) || recipes <= 0 || RecipeViewerHooks.showCategory == null) {
+        if (!"rei".equals(active) || recipes <= 0 || RecipeViewerHooks.showCategory == null
+                || RecipeViewerHooks.hoveredStack == null || RecipeViewerHooks.typing == null) {
             throw new AssertionError("REI: aktiv=" + active + ", Rezepte=" + recipes);
         }
         context.runOnClient(c -> RecipeViewerHooks.showCategory.accept("refining"));

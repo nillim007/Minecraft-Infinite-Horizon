@@ -239,6 +239,9 @@ public final class NeoForgeClientTest {
             boolean ok = "jei".equals(RecipeViewerHooks.active) && RecipeViewerHooks.showCategory != null;
             check("jei_plugin", ok, "aktiv=" + RecipeViewerHooks.active);
             check("jei_recipes", RecipeViewerHooks.recipeCount > 0, "Rezepte: " + RecipeViewerHooks.recipeCount);
+            // Taste H über JEI-Items (24.1): Haken gesetzt, ohne Maus über einem Item kommt nichts, kein Suchfeld aktiv
+            check("jei_h_hook", RecipeViewerHooks.hoveredStack != null && RecipeViewerHooks.typing != null
+                    && !RecipeViewerHooks.isTyping(), "Haken fehlen oder Suchfeld aktiv");
             if (ok) {
                 RecipeViewerHooks.showCategory.accept("refining");
             }
