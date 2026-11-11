@@ -35,6 +35,7 @@ Bei Widerspruch gilt: `spec/data` vor Text, sonst die Regeln in `docs/spec/00-le
 - **`spec/data` nur ändern, wenn ausdrücklich darum gebeten.** Danach immer `python tools/validate_spec.py` und `python tools/render_docs.py` ausführen.
 - **Reine Funktionen für Regeln** (3A.1) und JUnit-Tests dafür.
 - **Server entscheidet**, Client stellt nur dar.
+- **Addon-freundlich** (Wunsch des Auftraggebers): einfache Schnittstelle mit vielen Einstellmöglichkeiten. Einstellwerte in Daten (Balance/Config, aus allen Namespaces zusammengeführt), Basisklassen statt Kopien, öffentliche Typen in `de.sternenwerft.api`. Details: `docs/dev/addon-api.md`.
 - **Platzhalter-Assets** über `tools/gen_placeholders.py` (Farben in 24.5), keine echten Texturen erfinden.
 - Übersetzungen kommen aus `items.json` (`name_de`, `name_en`); kein fest eingebauter Text.
 

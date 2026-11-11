@@ -42,18 +42,40 @@ jobs:
           java-version: "25"
       - uses: gradle/actions/setup-gradle@v5
       - name: Build
+        id: build
         shell: bash
         run: |
           set -o pipefail
           ./gradlew build --stacktrace --no-daemon 2>&1 | tee build.log
+      - name: GameTests NeoForge
+        if: always() && steps.build.outcome == 'success'
+        timeout-minutes: 20
+        shell: bash
+        run: |
+          set -o pipefail
+          ./gradlew :neoforge:runGameTestServer --stacktrace --no-daemon 2>&1 | tee gametest-neoforge.log
+      - name: GameTests Fabric
+        if: always() && steps.build.outcome == 'success'
+        timeout-minutes: 20
+        shell: bash
+        run: |
+          set -o pipefail
+          ./gradlew :fabric:runGameTestServer --stacktrace --no-daemon 2>&1 | tee gametest-fabric.log
       - name: Fehler als Anmerkungen ausgeben
         if: failure()
         shell: bash {0}
-        run: python3 .github/scripts/annotate_log.py build.log
+        run: |
+          for f in build.log gametest-neoforge.log gametest-fabric.log; do
+            if [ -f "$f" ]; then python3 .github/scripts/annotate_log.py "$f"; fi
+          done
       - name: Build-Log sichern
         if: always()
         uses: actions/upload-artifact@v5
         with:
           name: build-log
-          path: build.log
+          path: |
+            build.log
+            gametest-neoforge.log
+            gametest-fabric.log
+          if-no-files-found: ignore
           retention-days: 7

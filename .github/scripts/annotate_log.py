@@ -40,6 +40,17 @@ def main():
         if on and l.strip():
             summary.append(l.strip())
 
+    # 4) GameTest-Fehler: Zeilen mit gametest/test + Fehlerwort, dazu 3 Folgezeilen
+    gt_rx = re.compile(r"failed|fail|timed out|exception|error", re.I)
+    gt_hits = []
+    for i, l in enumerate(lines):
+        low = l.lower()
+        if ("gametest" in low or "test" in low) and gt_rx.search(l):
+            follow = " | ".join(x.strip() for x in lines[i + 1:i + 4] if x.strip())
+            gt_hits.append(l.strip() + (" || " + follow if follow else ""))
+    if gt_hits:
+        print(f"::error title=GameTest::{esc(' ## '.join(gt_hits[:20])[:6000])}")
+
     for path, line, msg in errors[:9]:
         print(f"::error file={path},line={line}::{esc(msg)}")
     if len(errors) > 9:

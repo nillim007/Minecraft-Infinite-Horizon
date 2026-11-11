@@ -72,7 +72,51 @@ public final class BalanceManager {
 
     public GeneratorStats generator(String id) {
         JsonObject e = entry("generators", id).orElseThrow(() -> missing("generators", id));
-        return new GeneratorStats(id, e.get("output_per_tick").getAsLong(), e.get("buffer").getAsLong());
+        JsonObject slots = e.has("item_slots") && e.get("item_slots").isJsonObject() ? e.getAsJsonObject("item_slots") : new JsonObject();
+        int fuel = slots.has("fuel") ? slots.get("fuel").getAsInt() : 0;
+        return new GeneratorStats(id, e.get("output_per_tick").getAsLong(), e.get("buffer").getAsLong(), fuel);
+    }
+
+    /**
+     * Kopie mit einem geänderten Feld {@code file → key → field} (z. B. für GameTests oder Werkzeuge).
+     * Der Wert wird wie aus JSON gelesen behandelt.
+     */
+    public BalanceManager withValue(String file, String key, String field, JsonElement value) {
+        Map<String, JsonObject> copy = new HashMap<>();
+        files.forEach((k, v) -> copy.put(k, v.deepCopy()));
+        JsonObject doc = copy.computeIfAbsent(file, k -> new JsonObject());
+        if (!doc.has("entries")) {
+            doc.add("entries", new JsonObject());
+        }
+        JsonObject entries = doc.getAsJsonObject("entries");
+        if (!entries.has(key)) {
+            entries.add(key, new JsonObject());
+        }
+        entries.getAsJsonObject(key).add(field, value);
+        return new BalanceManager(copy);
+    }
+
+    /**
+     * Führt Balance-Dateien zusammen: spätere Dokumente ergänzen bzw. überschreiben Einträge früherer
+     * (gleicher Dateiname, Eintrag für Eintrag). Mit {@code "replace": true} ersetzt ein Dokument die Datei ganz.
+     */
+    public static Map<String, JsonObject> merge(Map<String, JsonObject> into, String file, JsonObject doc) {
+        JsonObject existing = into.get(file);
+        boolean replace = doc.has("replace") && doc.get("replace").getAsBoolean();
+        if (existing == null || replace) {
+            into.put(file, doc.deepCopy());
+            return into;
+        }
+        JsonObject merged = existing.deepCopy();
+        if (doc.has("entries") && doc.get("entries").isJsonObject()) {
+            if (!merged.has("entries")) {
+                merged.add("entries", new JsonObject());
+            }
+            JsonObject target = merged.getAsJsonObject("entries");
+            doc.getAsJsonObject("entries").entrySet().forEach(en -> target.add(en.getKey(), en.getValue().deepCopy()));
+        }
+        into.put(file, merged);
+        return into;
     }
 
     public long cableThroughput(String id) {
@@ -119,7 +163,7 @@ public final class BalanceManager {
                                int upgradeSlots) {
     }
 
-    public record GeneratorStats(String id, long outputPerTick, long buffer) {
+    public record GeneratorStats(String id, long outputPerTick, long buffer, int fuelSlots) {
     }
 
     public record UpgradeStats(String id, double ticksMultiplier, double energyMultiplier, int maxStack) {

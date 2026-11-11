@@ -1,0 +1,50 @@
+package de.sternenwerft.api;
+
+import de.sternenwerft.Sternenwerft;
+import de.sternenwerft.api.energy.EnergyNode;
+import de.sternenwerft.core.grid.EnergyGrid;
+import de.sternenwerft.core.grid.GridManager;
+import de.sternenwerft.data.BalanceManager;
+import de.sternenwerft.data.ServerConfig;
+import de.sternenwerft.recipe.ProcessingRecipe;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.level.Level;
+import org.jspecify.annotations.Nullable;
+
+/**
+ * Öffentlicher Einstieg für Addons (siehe docs/dev/addon-api.md). Alles hier bleibt zwischen kleinen Versionen stabil.
+ *
+ * <ul>
+ *   <li>Werte: eigene Einträge in {@code data/<addon>/sternenwerft/balance/*.json} ergänzen oder überschreiben unsere.</li>
+ *   <li>Maschinen: {@code MachineBlock} + {@code ProcessingMachineBlockEntity} + {@link #newRecipeKind(String)}.</li>
+ *   <li>Kabel: {@code new CableBlock(properties)} + Eintrag in {@code transport.json}.</li>
+ *   <li>Energie: {@link EnergyNode} implementieren oder die Energie-API des Loaders nutzen.</li>
+ * </ul>
+ */
+public final class SternenwerftApi {
+
+    public static final String MOD_ID = Sternenwerft.MOD_ID;
+
+    private SternenwerftApi() {
+    }
+
+    /** Aktuelle Balance-Werte (nach jedem /reload neu). */
+    public static BalanceManager balance() {
+        return BalanceManager.get();
+    }
+
+    /** Serverkonfiguration (24.4); auf dem Client die vom Server gesendeten Werte über {@link ServerConfig#client()}. */
+    public static ServerConfig config() {
+        return ServerConfig.get();
+    }
+
+    /** Netz des Kabels an {@code pos} oder null. */
+    public static @Nullable EnergyGrid energyGrid(Level level, BlockPos pos) {
+        return GridManager.get(level).gridAt(level, pos);
+    }
+
+    /** Neue Rezeptart für eine eigene Verarbeitungsmaschine; {@code type()} und {@code serializer()} selbst registrieren. */
+    public static ProcessingRecipe.Kind newRecipeKind(String name) {
+        return new ProcessingRecipe.Kind(name);
+    }
+}

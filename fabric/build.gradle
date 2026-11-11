@@ -2,10 +2,20 @@ plugins {
     id 'multiloader-loader'
     id 'net.fabricmc.fabric-loom'
 }
+repositories {
+    maven {
+        name = 'Fabric'
+        url = 'https://maven.fabricmc.net/'
+    }
+}
+
 dependencies {
     minecraft("com.mojang:minecraft:${minecraft_version}")
     implementation("net.fabricmc:fabric-loader:${fabric_loader_version}")
     implementation("net.fabricmc.fabric-api:fabric-api:${fabric_version}")
+    // Team Reborn Energy (Energie-API) – Loom ohne Remap, daher implementation + include
+    implementation "teamreborn:energy:5.0.0"
+    include "teamreborn:energy:5.0.0"
 }
 
 loom {
@@ -25,6 +35,14 @@ loom {
             setConfigName('Fabric Server')
             ideConfigGenerated(true)
             runDir('runs/server')
+        }
+        gameTestServer {
+            server()
+            setConfigName('Fabric GameTest Server')
+            ideConfigGenerated(false)
+            vmArg '-Dfabric-api.gametest'
+            vmArg "-Dfabric-api.gametest.report-file=${project.layout.buildDirectory.file('gametest/junit.xml').get().asFile}"
+            runDir('build/gametest')
         }
     }
 }

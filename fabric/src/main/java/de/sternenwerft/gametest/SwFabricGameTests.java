@@ -1,0 +1,23 @@
+package de.sternenwerft.gametest;
+
+import net.fabricmc.fabric.api.gametest.v1.GameTest;
+import net.minecraft.gametest.framework.GameTestHelper;
+
+/** Dünne Fabric-Hülle um {@link SwGameTests} (Entry-Point „fabric-gametest“). */
+public class SwFabricGameTests {
+
+    @GameTest(maxTicks = SwGameTests.CRUSHER_CHAIN_TICKS)
+    public void crusherRawIronTwoDustWithin220Ticks(GameTestHelper helper) {
+        SwGameTests.crusherRawIronTwoDust(helper);
+    }
+
+    @GameTest(maxTicks = SwGameTests.BALANCE_RELOAD_TICKS)
+    public void crusherBalanceChangeChangesDuration(GameTestHelper helper) {
+        SwGameTests.crusherBalanceChangesDuration(helper);
+    }
+
+    @GameTest(maxTicks = SwGameTests.PLATFORM_CONSUMER_TICKS)
+    public void cablePlatformConsumerReceivesEnergy(GameTestHelper helper) {
+        SwGameTests.cablePlatformConsumerReceivesEnergy(helper);
+    }
+}

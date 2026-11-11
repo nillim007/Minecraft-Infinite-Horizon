@@ -9,8 +9,10 @@ Dies ersetzt die Java-Datagen (Abweichung von 3.8/3A.6, siehe docs/spec-gaps.md)
 """
 from __future__ import annotations
 
+import gzip
 import json
 import shutil
+import struct
 import sys
 from pathlib import Path
 
@@ -25,6 +27,52 @@ LANG_EXTRA = sd.ROOT / "common" / "lang_extra.json"
 MACHINE_FACINGS = {"north": 0, "east": 90, "south": 180, "west": 270}
 STATUSES = ["idle", "running", "error"]
 CABLE_DIRS = ["north", "east", "south", "west", "up", "down"]
+
+
+# Rezeptart -> Maschine (spec/data/SCHEMA.md, Rezepttabelle)
+RECIPE_MACHINE = {
+    "electric_smelting": "electric_furnace",
+    "crushing": "crusher",
+    "pressing": "press",
+    "high_temp_smelting": "high_temperature_furnace",
+    "refining": "refinery_controller",
+    "electrolysis": "electrolyzer",
+    "cryo": "cryo_liquefier",
+    "regolith_heating": "regolith_heater",
+    "zero_g": "zero_g_fabricator",
+    "assembly": "assembly_table",
+}
+
+
+def machine_defaults(typ):
+    m = RECIPE_MACHINE.get(typ)
+    if not m:
+        return {}
+    path = sd.DATA / "balance" / "machines.json"
+    return json.loads(path.read_text(encoding="utf-8")).get("entries", {}).get(f"{NS}:{m}") or {}
+
+
+def _nbt_name(s):
+    b = s.encode("utf-8")
+    return struct.pack(">H", len(b)) + b
+
+
+def _nbt_int_list(vals):
+    return b"\x03" + struct.pack(">i", len(vals)) + b"".join(struct.pack(">i", v) for v in vals)
+
+
+EMPTY_LIST = b"\x00" + struct.pack(">i", 0)
+
+
+def empty_structure_nbt():
+    """Leere Strukturvorlage 8x8x8 als gzip-NBT (deterministisch)."""
+    body = b"\x0a" + _nbt_name("")
+    body += b"\x03" + _nbt_name("DataVersion") + struct.pack(">i", 4440)
+    body += b"\x09" + _nbt_name("size") + _nbt_int_list([8, 8, 8])
+    for key in ("palette", "blocks", "entities"):
+        body += b"\x09" + _nbt_name(key) + EMPTY_LIST
+    body += b"\x00"
+    return gzip.compress(body, mtime=0)
 
 
 def short(i):
@@ -116,8 +164,11 @@ def recipe_json(r, registered):
     out = {"type": f"{NS}:{typ}",
            "ingredients": [{"ingredient": ingredient(i), "count": i.get("count", 1)} for i in r.get("ingredients") or []],
            "results": [{"id": x["id"], "count": x.get("count", 1), "chance": x.get("chance", 1.0)} for x in r.get("results") or []]}
+    defaults = machine_defaults(typ)
     for k in ("fluid", "fluid_results", "ticks", "energy_per_tick", "mold"):
         if r.get(k) not in (None, []):
+            if k in ("ticks", "energy_per_tick") and defaults.get(k) == r[k]:
+                continue  # gleich dem Maschinenwert: weglassen, damit machines.json wirkt
             out[k] = r[k]
     return out
 
@@ -194,6 +245,11 @@ def main():
             continue  # weitere Typen folgen mit ihren Maschinen
         write_json(f"data/{NS}/recipe/{r['id'].split(':', 1)[1].replace('/', '_')}.json", recipe_json(r, registered))
         n_rec += 1
+
+    # Leere GameTest-Struktur
+    nbt = OUT / "data" / NS / "structure" / "gametest" / "empty.nbt"
+    nbt.parent.mkdir(parents=True, exist_ok=True)
+    nbt.write_bytes(empty_structure_nbt())
 
     # Balance-Dateien (Kapitel 25.7)
     for p in sorted((sd.DATA / "balance").glob("*.json")):

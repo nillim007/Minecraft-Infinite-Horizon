@@ -1,0 +1,24 @@
+package de.sternenwerft.platform.services;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Registry;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityType;
+import net.minecraft.world.level.block.state.BlockState;
+
+import java.util.function.BiFunction;
+import java.util.function.Supplier;
+
+/** Registrierung je Loader (3.2): NeoForge verzögert über DeferredRegister, Fabric sofort. */
+public interface IRegistryHelper {
+
+    /** Registriert {@code factory} unter {@code sternenwerft:name}. Der Supplier ist erst nach der Registrierung gültig. */
+    <R, T extends R> Supplier<T> register(Registry<R> registry, String name, Supplier<T> factory);
+
+    /** Der Vanilla-Konstruktor von BlockEntityType ist nicht öffentlich; jeder Loader baut den Typ selbst. */
+    <T extends BlockEntity> BlockEntityType<T> blockEntityType(BiFunction<BlockPos, BlockState, T> factory, Block... blocks);
+
+    CreativeModeTab.Builder creativeTabBuilder();
+}
