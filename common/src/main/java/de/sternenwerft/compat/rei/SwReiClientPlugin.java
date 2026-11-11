@@ -2,12 +2,12 @@ package de.sternenwerft.compat.rei;
 
 import de.sternenwerft.compat.ClientRecipes;
 import de.sternenwerft.compat.RecipeCategories;
+import de.sternenwerft.compat.RecipeKinds;
 import de.sternenwerft.compat.RecipeView;
 import de.sternenwerft.compat.RecipeViewerHooks;
 import de.sternenwerft.data.BalanceManager;
 import de.sternenwerft.recipe.ProcessingRecipe;
 import de.sternenwerft.registry.ModBlocks;
-import de.sternenwerft.registry.ModRecipeTypes;
 import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
 import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
 import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
@@ -29,7 +29,7 @@ public class SwReiClientPlugin implements REIClientPlugin {
     private static final CategoryIdentifier<?> VANILLA_SMELTING = CategoryIdentifier.of("minecraft", "plugins/smelting");
 
     private static List<RecipeCategories.Category> categories() {
-        return RecipeCategories.build(BalanceManager.getOrBundled(), ModRecipeTypes.ALL.stream().map(ProcessingRecipe.Kind::name).toList());
+        return RecipeCategories.build(BalanceManager.getOrBundled(), RecipeKinds.all().stream().map(ProcessingRecipe.Kind::name).toList());
     }
 
     @Override
@@ -53,7 +53,7 @@ public class SwReiClientPlugin implements REIClientPlugin {
     @Override
     public void registerDisplays(DisplayRegistry registry) {
         int count = 0;
-        for (ProcessingRecipe.Kind kind : ModRecipeTypes.ALL) {
+        for (ProcessingRecipe.Kind kind : RecipeKinds.all()) {
             for (RecipeHolder<ProcessingRecipe> h : ClientRecipes.of(kind)) {
                 registry.add(MachineRecipeDisplay.of(h));
                 count++;

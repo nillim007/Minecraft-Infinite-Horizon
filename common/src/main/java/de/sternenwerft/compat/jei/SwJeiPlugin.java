@@ -3,12 +3,12 @@ package de.sternenwerft.compat.jei;
 import de.sternenwerft.Sternenwerft;
 import de.sternenwerft.compat.ClientRecipes;
 import de.sternenwerft.compat.RecipeCategories;
+import de.sternenwerft.compat.RecipeKinds;
 import de.sternenwerft.compat.RecipeView;
 import de.sternenwerft.compat.RecipeViewerHooks;
 import de.sternenwerft.data.BalanceManager;
 import de.sternenwerft.recipe.ProcessingRecipe;
 import de.sternenwerft.registry.ModBlocks;
-import de.sternenwerft.registry.ModRecipeTypes;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.constants.RecipeTypes;
@@ -40,7 +40,7 @@ public class SwJeiPlugin implements IModPlugin {
     }
 
     private List<RecipeCategories.Category> categories() {
-        return RecipeCategories.build(BalanceManager.getOrBundled(), ModRecipeTypes.ALL.stream().map(ProcessingRecipe.Kind::name).toList());
+        return RecipeCategories.build(BalanceManager.getOrBundled(), RecipeKinds.all().stream().map(ProcessingRecipe.Kind::name).toList());
     }
 
     private IRecipeHolderType<ProcessingRecipe> type(String name) {

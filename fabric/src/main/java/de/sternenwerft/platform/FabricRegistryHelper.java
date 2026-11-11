@@ -77,4 +77,9 @@ public class FabricRegistryHelper implements IRegistryHelper {
                 .displayItems((params, output) -> items.get().forEach(output::accept))
                 .build();
     }
+
+    @Override
+    public void syncRecipesToClient(net.minecraft.world.item.crafting.RecipeSerializer<?> serializer) {
+        net.fabricmc.fabric.api.recipe.v1.sync.RecipeSynchronization.synchronizeRecipeSerializer(serializer);
+    }
 }

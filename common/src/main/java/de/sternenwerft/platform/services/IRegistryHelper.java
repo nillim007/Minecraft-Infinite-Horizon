@@ -45,4 +45,11 @@ public interface IRegistryHelper {
     <D> void openMenu(ServerPlayer player, MenuProvider provider, D data, StreamCodec<? super RegistryFriendlyByteBuf, D> codec);
 
     CreativeModeTab creativeTab(Component title, Supplier<ItemStack> icon, Supplier<List<ItemStack>> items);
+
+    /**
+     * Schickt die Rezepte dieses Serializers zum Client (JEI/REI, 3.9). Fabric braucht das je Serializer
+     * ({@code RecipeSynchronization}); NeoForge schickt die eingetragenen Arten beim Datapack-Sync selbst.
+     */
+    default void syncRecipesToClient(net.minecraft.world.item.crafting.RecipeSerializer<?> serializer) {
+    }
 }

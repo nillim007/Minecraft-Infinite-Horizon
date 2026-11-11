@@ -1,7 +1,6 @@
 package de.sternenwerft.compat;
 
 import de.sternenwerft.recipe.ProcessingRecipe;
-import de.sternenwerft.registry.ModRecipeTypes;
 import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import net.minecraft.world.item.crafting.RecipeType;
@@ -40,7 +39,7 @@ public final class ClientRecipes {
 
     /** Rezept nach ID über alle eigenen Arten (für gespeicherte Anzeigen). */
     public static @Nullable RecipeHolder<ProcessingRecipe> byId(Identifier id) {
-        for (ProcessingRecipe.Kind kind : ModRecipeTypes.ALL) {
+        for (ProcessingRecipe.Kind kind : RecipeKinds.all()) {
             for (RecipeHolder<ProcessingRecipe> h : of(kind)) {
                 if (h.id().identifier().equals(id)) {
                     return h;
@@ -53,7 +52,7 @@ public final class ClientRecipes {
     /** Alle eigenen Rezeptarten als Vanilla-Typen (zum Synchronisieren). */
     public static List<RecipeType<?>> types() {
         List<RecipeType<?>> out = new ArrayList<>();
-        for (ProcessingRecipe.Kind k : ModRecipeTypes.ALL) {
+        for (ProcessingRecipe.Kind k : RecipeKinds.all()) {
             out.add(k.type());
         }
         return out;

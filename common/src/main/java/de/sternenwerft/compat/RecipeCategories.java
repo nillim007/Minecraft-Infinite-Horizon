@@ -29,7 +29,9 @@ public final class RecipeCategories {
         List<Category> out = new ArrayList<>();
         JsonObject machines = balance.entries("machines").orElse(new JsonObject());
         for (String type : types) {
-            String full = Sternenwerft.MOD_ID + ":" + type;
+            // Name ohne Namespace = sternenwerft (unsere Arten), sonst die Art eines Addons
+            String full = type.contains(":") ? type : Sternenwerft.MOD_ID + ":" + type;
+            String[] parts = full.split(":", 2);
             List<String> catalysts = new ArrayList<>();
             for (Map.Entry<String, JsonElement> e : machines.entrySet()) {
                 if (!e.getValue().isJsonObject()) {
@@ -44,7 +46,7 @@ public final class RecipeCategories {
                     }
                 }
             }
-            out.add(new Category(type, "jei." + Sternenwerft.MOD_ID + "." + type, List.copyOf(catalysts)));
+            out.add(new Category(type, "jei." + parts[0] + "." + parts[1].replace('/', '.'), List.copyOf(catalysts)));
         }
         return out;
     }

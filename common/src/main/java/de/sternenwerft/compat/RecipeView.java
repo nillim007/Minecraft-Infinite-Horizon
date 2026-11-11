@@ -4,7 +4,6 @@ import de.sternenwerft.core.fluid.SwFluidStack;
 import de.sternenwerft.data.BalanceManager;
 import de.sternenwerft.data.ServerConfig;
 import de.sternenwerft.recipe.ProcessingRecipe;
-import de.sternenwerft.registry.ModRecipeTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
@@ -125,13 +124,8 @@ public record RecipeView(Identifier id, List<List<ItemStack>> inputs, @Nullable 
                 : Optional.of(Component.translatable("gui.sternenwerft.recipe.chance", Math.round(chance * 100)));
     }
 
-    /** Kategorie zu einer Rezeptart (für Plugins). */
+    /** Rezeptart zum Namen einer Kategorie (für Plugins). */
     public static ProcessingRecipe.Kind kind(String type) {
-        for (ProcessingRecipe.Kind k : ModRecipeTypes.ALL) {
-            if (k.name().equals(type)) {
-                return k;
-            }
-        }
-        throw new IllegalArgumentException(type);
+        return RecipeKinds.byName(type);
     }
 }

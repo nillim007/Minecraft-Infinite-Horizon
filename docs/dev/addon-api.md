@@ -33,7 +33,9 @@ Balance-Werte stehen unter `data/<namespace>/sternenwerft/balance/<datei>.json`,
 | --- | --- | --- |
 | Verarbeitungsmaschine | `SternenwerftApi.newRecipeKind("pressing")` (Typ und Serializer selbst registrieren), BE-Typ mit `(pos, state) -> new ProcessingMachineBlockEntity(TYP, pos, state, () -> KIND)`, Block `new MachineBlock(props, () -> TYP)` | Eintrag in `machines.json` unter der Block-ID; Tanks über `fluid_tanks` (`role` input/output), Füll-/Leerslots über `container_slots` |
 | Rezepte mit Fluiden | dieselbe `ProcessingRecipe.Kind`; im Rezept `"fluid": {"fluid", "amount"}` und `"fluid_results": [...]` | Eingangstanks nehmen nur Fluide aus den Rezepten an |
-| Rezeptart mit exaktem Abgleich | `new ProcessingRecipe.Kind(name, true)` wie der Montagetisch (22.3) | – |
+| Rezeptart mit exaktem Abgleich | `SternenwerftApi.newExactRecipeKind("meinaddon:art")` wie der Montagetisch (22.3) | – |
+| Rezepte in JEI/REI | `SternenwerftApi.showInRecipeViewers(kind)` beim Mod-Start: eigene Kategorie, Rezepte gehen zum Client | Titel `jei.<namespace>.<art>` in den Übersetzungen; Katalysatoren = Maschinen mit der Art in `recipe_types` |
+| Handbuchseiten | Dateien nach Schema 25.6 unter `assets/<namespace>/handbook/<kapitel>/` (eigene Kapitel mit `_chapter.json`) | Seiten nennen ihre Items unter `items`; Taste `H` findet sie dann |
 | Multiblock | Controller-BE `new MultiblockControllerBlockEntity(TYP, pos, state, () -> List.of(KIND))`, Gehäuse `new MultiblockPartBlock(props)`, Ports `new PortBlock(props, PortType, () -> PORT_TYP)` | Muster-Eintrag in `machines.json` (`size`, `shape` solid/hollow_shell, `controller_position`, `casing`, `casing_replaceable_by`) und beim Controller `"multiblock": "<eintrag>"` |
 | Generator mit Item-Brennstoff | `CombustionGeneratorBlockEntity` (Vanilla-Brennwert) | Eintrag in `generators.json` |
 | Generator mit Fluid-Brennstoff | `FluidFuelGeneratorBlockEntity` | `fuel: [{"fluid", "amount", "per_ticks"}]` und `fluid_tanks` in `generators.json` |

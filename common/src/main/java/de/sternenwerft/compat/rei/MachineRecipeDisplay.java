@@ -5,6 +5,7 @@ import com.mojang.serialization.MapCodec;
 import de.sternenwerft.Sternenwerft;
 import de.sternenwerft.compat.ClientRecipes;
 import de.sternenwerft.compat.RecipeCategories;
+import de.sternenwerft.compat.RecipeKinds;
 import de.sternenwerft.compat.RecipeView;
 import de.sternenwerft.core.fluid.SwFluidStack;
 import de.sternenwerft.data.BalanceManager;
@@ -53,7 +54,7 @@ public class MachineRecipeDisplay extends BasicDisplay {
     }
 
     public static CategoryIdentifier<MachineRecipeDisplay> categoryOf(String type) {
-        return CategoryIdentifier.of(Sternenwerft.id(type));
+        return CategoryIdentifier.of(RecipeKinds.id(type));
     }
 
     private static DataResult<MachineRecipeDisplay> byId(Identifier id) {

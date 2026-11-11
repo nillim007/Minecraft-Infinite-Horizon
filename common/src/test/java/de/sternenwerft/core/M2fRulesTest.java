@@ -38,6 +38,16 @@ class M2fRulesTest {
     }
 
     @Test
+    void addonKindGetsOwnNamespace() {
+        com.google.gson.JsonArray types = new com.google.gson.JsonArray();
+        types.add("meinaddon:milling");
+        BalanceManager withAddon = balance.withValue("machines", "meinaddon:mill", "recipe_types", types);
+        RecipeCategories.Category c = RecipeCategories.build(withAddon, List.of("meinaddon:milling")).getFirst();
+        assertEquals("jei.meinaddon.milling", c.titleKey());
+        assertEquals(List.of("meinaddon:mill"), c.catalysts());
+    }
+
+    @Test
     void multiplierDoublesStackableIngredients() {
         // JUnit-Beispiel aus 22.3: Multiplikator 2,0 bei 4 iron_plate → 8
         assertArrayEquals(new int[]{8, 2}, AmountMultiplier.scale(new int[]{4, 1}, new int[]{64, 64}, 2.0, 9));

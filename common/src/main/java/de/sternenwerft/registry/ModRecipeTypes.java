@@ -43,5 +43,7 @@ public final class ModRecipeTypes {
     }
 
     public static void init() {
+        // in JEI/REI zeigen und Rezepte zum Client schicken (3.9)
+        ALL.forEach(de.sternenwerft.compat.RecipeKinds::register);
     }
 }
