@@ -1,0 +1,82 @@
+---
+name: minecraft-mod-ci-screenshots
+description: Sternenwerft-Mod (Minecraft 26.3, NeoForge + Fabric) bauen, testen und GUIs per Screenshot prüfen – lokal mit Fabric (falls JDK 25 da ist) oder über GitHub Actions (Server- und Client-GameTests, Screenshots im Branch ci-screenshots). Verwenden bei jedem Build, nach jeder Code-Änderung, bei neuen GUIs oder Blöcken und wenn der Build rot ist.
+---
+
+# Bauen, testen, Screenshots prüfen
+
+Repo: `nillim007/Minecraft-New-Horizon`. Alles Weitere zur Mod: `CLAUDE.md`, `docs/spec/`, `docs/dev/`.
+
+## 1. Lokal (schnell, zum Iterieren)
+
+Nur wenn `java -version` ein JDK 25 zeigt. Nur das Fabric-Projekt bauen, das ist am schnellsten:
+
+```bash
+./gradlew :fabric:build
+```
+
+```bash
+./gradlew :fabric:runGameTestServer
+```
+
+- Ohne JDK 25 lokal nicht bauen. Ein JDK nur mit Zustimmung des Auftraggebers herunterladen.
+- Der lokale Build ersetzt nicht die CI: NeoForge und der Client-Test laufen nur auf GitHub.
+
+## 2. GitHub Actions (vollständig, vor jedem Abschluss)
+
+Workflow: `.github/workflows/build.yml` mit drei Jobs.
+
+| Job | Inhalt |
+| --- | --- |
+| `spec` | `validate_spec`, `render_docs`, `gen_resources` aktuell? |
+| `build` | `./gradlew build` (beide Loader + JUnit), `:neoforge:runGameTestServer`, `:fabric:runGameTestServer` |
+| `client_test` | Fabric-Client-GameTest mit Software-Grafik (Mesa); legt die Screenshots im Branch `ci-screenshots` ab |
+
+Ablauf:
+
+1. Committen und pushen (Autor laut `CLAUDE.md`).
+2. Im Hintergrund starten: `python tools/ci_status.py --wait`. Das Skript meldet GRÜN/ROT, Compiler-Fehler mit Datei:Zeile und die Anmerkungen „GameTest-Zusammenfassung“ und „Screenshots-Zusammenfassung“.
+3. Ohne Admin-Token sind Job-Logs nicht lesbar (403). Fehler kommen nur über Anmerkungen; `.github/scripts/annotate_log.py` erzeugt sie aus den Logs. Höchstens 60 GitHub-Abfragen pro Stunde.
+4. Ein GameTest-Lauf gilt nur als grün, wenn im Log „All N required tests passed“ steht. Das prüft `annotate_log.py --summary`.
+
+## 3. GUI-Screenshots ansehen
+
+```bash
+git clone --depth 1 -b ci-screenshots https://github.com/nillim007/Minecraft-New-Horizon.git <scratchpad>/shots
+```
+
+- Die Commit-Nachricht nennt den geprüften Commit („Screenshots für <sha>“). Stimmt sie nicht mit dem eigenen Commit überein, ist der Client-Job noch nicht fertig oder fehlgeschlagen.
+- Die PNGs mit dem Read-Werkzeug ansehen (854 × 480). `clientgametest.log` liegt daneben.
+- Prüfpunkte:
+  - Überlappungen (Leisten, Beschriftungen, Slots)
+  - Slot-Positionen und Stapelzahlen
+  - Fortschrittspfeil und Brennzeit
+  - Statuslampe und Ausrichtung der Blöcke in der Welt (`world_machines.png`)
+  - fehlende Texturen (lila-schwarz)
+  - Chat-Text im Bild
+
+## 4. Neue GUIs und Blöcke in den Client-Test aufnehmen
+
+Datei: `fabric/src/main/java/de/sternenwerft/gametest/SwClientGameTests.java`. Sie ist nur mit `-Dfabric.client.gametest` aktiv, Entry-Point `fabric-client-gametest`.
+
+- **Neue Maschine:** Aufruf `machine(context, sp, ModBlocks.X.get(), "gui_x", be -> { …Beispielinhalt… })` ergänzen.
+  - Die Methode setzt den Block per `setblock`, legt über `runOnServer` Items und Energie hinein, öffnet das GUI mit `pressKey(keyUse)`, leert den Chat und macht den Screenshot.
+- **Neue einfache Blöcke:** Sie erscheinen automatisch in der zweiten Reihe von `world_machines`, weil die Liste aus `ModBlocks.simpleBlocks()` kommt.
+- **Neue Server-GameTests:** Logik in `common/.../gametest/SwGameTests.java`. Registrierung je Loader:
+  - NeoForge: `NeoForgeGameTests`, also `TEST_FUNCTION` + `RegisterGameTestsEvent`
+  - Fabric: `SwFabricGameTests` mit `@GameTest(maxTicks = …)`, nicht statisch
+
+## 5. Bekannte Stolperstellen in 26.3
+
+- **Chat:** `client.gui.hud.getChat()`; `client.gui.getChat()` gibt es nicht mehr.
+- **Creative-Tab:** `CreativeModeTab.Output` ist in Vanilla nicht öffentlich. Den Tab je Loader bauen (`IRegistryHelper.creativeTab`).
+- **Kupferblock:** `Blocks.COPPER_BLOCK` ist eine `WeatheringCopperCollection`. Für Eigenschaften `Blocks.IRON_BLOCK` + `SoundType.COPPER` nehmen.
+- **Menüs:**
+  - `MenuType` mit Zusatzdaten je Loader: NeoForge `IMenuTypeExtension.create`, Fabric `ExtendedMenuType` + `ExtendedMenuProvider`.
+  - Fabric überträgt Menüwerte nur mit 16 Bit; größere Zahlen in 16-Bit-Teile zerlegen (`MachineBlockEntity.dataAccess`).
+- **Screens:**
+  - `extractBackground(GuiGraphicsExtractor, …)` überschreiben, `g.fill(…)` und `g.setComponentTooltipForNextFrame(…)`.
+  - Registrierung je Loader: NeoForge `RegisterMenuScreensEvent` in der Klasse mit `@Mod(dist = Dist.CLIENT)`; Fabric `MenuScreens.register` im Client-Entry-Point.
+- **GameTest-Server:** Er läuft ohne Tick-Begrenzung. 400 Spielticks dauern wenige Sekunden, das ist kein Fehler.
+- **Shell (Windows):** Lange Python-Skripte nicht als Inline-Heredoc in Bash schicken, das bricht gelegentlich ab. Besser als Datei im Scratchpad schreiben und ausführen.
+- **Ressourcen:** Generierte Ressourcen nie von Hand ändern. Dafür gibt es `python tools/gen_resources.py`. Platzhalter-Texturen nur mit `python tools/gen_placeholders.py --only <ids>` erzeugen, sonst entstehen Texturen für alle IDs.

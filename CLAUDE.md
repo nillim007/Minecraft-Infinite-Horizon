@@ -60,7 +60,7 @@ Ohne JDK 25 lokal nicht bauen, sondern GitHub nutzen (unten). Ein JDK nur mit Zu
 3. Bei ROT die Meldungen beheben und erneut pushen. Höchstens 60 GitHub-Abfragen pro Stunde (ohne Token).
 4. **GUI prüfen:** Der Client-Test (`fabric/.../gametest/SwClientGameTests.java`) öffnet jedes Maschinen-GUI und fotografiert es; die CI legt die Bilder im Branch `ci-screenshots` ab. Abrufen ohne Anmeldung: `git clone --depth 1 -b ci-screenshots https://github.com/nillim007/Minecraft-New-Horizon.git <scratch>/shots` und die PNGs ansehen. Neue GUIs dort ergänzen.
 
-Falls im Konto der Skill `minecraft-mod-ci-screenshots` verfügbar ist, beschreibt er denselben Ablauf.
+Der Projekt-Skill `.claude/skills/minecraft-mod-ci-screenshots/SKILL.md` beschreibt diesen Ablauf ausführlich (inkl. Stolperstellen in 26.3); Claude-Sitzungen in diesem Repo laden ihn automatisch.
 
 API-Spickzettel für 26.3: `docs/dev/api-neoforge-26.3.md`, `docs/dev/api-fabric-26.3.md`.
 
