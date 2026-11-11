@@ -1,38 +1,41 @@
 {
-    "schemaVersion": 1,
-    "id": "${mod_id}",
-    "version": "${version}",
-    "name": "${mod_name}",
-    "description": "${description}",
-    "authors": [
-        "${mod_author}"
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${version}",
+  "name": "${mod_name}",
+  "description": "${description}",
+  "authors": [
+    "${mod_author}"
+  ],
+  "contact": {
+    "homepage": "https://github.com/nillim007/Minecraft-New-Horizon",
+    "sources": "https://github.com/nillim007/Minecraft-New-Horizon"
+  },
+  "license": "${license}",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "de.sternenwerft.SternenwerftFabric"
     ],
-    "contact": {
-        "homepage": "https://github.com/nillim007/Minecraft-New-Horizon",
-        "sources": "https://github.com/nillim007/Minecraft-New-Horizon"
-    },
-    "license": "${license}",
-    "environment": "*",
-    "entrypoints": {
-        "main": [
-            "de.sternenwerft.SternenwerftFabric"
-        ],
-        "client": [
-            "de.sternenwerft.SternenwerftFabricClient"
-        ],
-        "fabric-gametest": [
-            "de.sternenwerft.gametest.SwFabricGameTests"
-        ]
-    },
-    "mixins": [
-        "${mod_id}.mixins.json",
-        "${mod_id}.fabric.mixins.json"
+    "client": [
+      "de.sternenwerft.SternenwerftFabricClient"
     ],
-    "depends": {
-        "fabricloader": ">=${fabric_loader_version}",
-        "fabric-api": "*",
-        "team_reborn_energy": ">=5.0.0",
-        "minecraft": "~${minecraft_version}",
-        "java": ">=${java_version}"
-    }
+    "fabric-gametest": [
+      "de.sternenwerft.gametest.SwFabricGameTests"
+    ],
+    "fabric-client-gametest": [
+      "de.sternenwerft.gametest.SwClientGameTests"
+    ]
+  },
+  "mixins": [
+    "${mod_id}.mixins.json",
+    "${mod_id}.fabric.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${fabric_loader_version}",
+    "fabric-api": "*",
+    "team_reborn_energy": ">=5.0.0",
+    "minecraft": "~${minecraft_version}",
+    "java": ">=${java_version}"
+  }
 }

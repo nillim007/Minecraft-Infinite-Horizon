@@ -68,7 +68,7 @@ def show(sha):
                 for a in notes:
                     loc = f"{a['path']}:{a['start_line']}" if a.get("path") and a["path"] != ".github" else ""
                     lines.append(f"    [{a['annotation_level']}] {a.get('title') or ''} {loc} {a['message']}".rstrip())
-            elif done and job["conclusion"] == "success" and "bauen" in job["name"]:
+            elif done and job["conclusion"] == "success" and ("bauen" in job["name"] or "Client" in job["name"]):
                 # Bei Erfolg nur die eigenen Zusammenfassungen (z. B. GameTests) zeigen
                 notes = get(f"https://api.github.com/repos/{REPO}/check-runs/{job['id']}/annotations?per_page=100")
                 for a in notes:
