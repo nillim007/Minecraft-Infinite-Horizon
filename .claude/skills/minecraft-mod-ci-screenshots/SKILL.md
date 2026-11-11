@@ -63,9 +63,7 @@ Datei: `fabric/src/main/java/de/sternenwerft/gametest/SwClientGameTests.java`. S
   - Die Methode setzt den Block per `setblock`, legt über `runOnServer` Items und Energie hinein, öffnet das GUI mit `pressKey(keyUse)`, leert den Chat und macht den Screenshot.
 - **Neue einfache Blöcke:** Sie erscheinen automatisch in der zweiten Reihe von `world_machines`, weil die Liste aus `ModBlocks.simpleBlocks()` kommt.
 - **Neue Server-GameTests:** in `common/gametests.json` eintragen (Name, Klasse, Methode, Ticks, Spez.-Bezug), dann `python tools/gen_gametests.py`; das erzeugt `SwTestCatalog` (NeoForge registriert per Schleife) und `SwFabricGameTests`. Die CI prüft, dass beides aktuell ist. Mock-Spieler (`makeMockServerPlayer`) haben keine Netzwerkverbindung – Menüs öffnen nur im Client-Test.
-- **Alt:** Logik in `common/.../gametest/SwGameTests.java`. Registrierung je Loader:
-  - NeoForge: `NeoForgeGameTests`, also `TEST_FUNCTION` + `RegisterGameTestsEvent`
-  - Fabric: `SwFabricGameTests` mit `@GameTest(maxTicks = …)`, nicht statisch
+  - Testlogik steht in `common/.../gametest/SwGameTests*.java` (statische Methoden mit `GameTestHelper`).
 
 ## 5. Bekannte Stolperstellen in 26.3
 
