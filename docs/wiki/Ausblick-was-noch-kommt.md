@@ -1,6 +1,6 @@
 <!-- Erzeugt von tools/gen_wiki.py aus docs/handbook/ und spec/data. Nicht von Hand ändern. -->
 
-[Startseite](Home.md) › Willkommen › **Ausblick – was noch kommt**
+[📖 Wiki](README.md) › Willkommen › **Ausblick – was noch kommt**
 
 # Ausblick – was noch kommt
 
@@ -31,6 +31,6 @@ Sternenwerft entsteht Meilenstein für Meilenstein. Dieses Wiki zeigt immer nur,
 | 9 | Feinschliff: Mehrspieler, Erfolge, Klang, Balancing |
 
 > [!NOTE]
-> Der aktuelle Stand steht oben auf der [Startseite](Home.md). Mit jedem Meilenstein kommen neue Seiten in dieses Wiki und ins Handbuch im Spiel.
+> Der aktuelle Stand steht oben auf der [Wiki-Startseite](README.md). Mit jedem Meilenstein kommen neue Seiten in dieses Wiki und ins Handbuch im Spiel.
 
 ← [Maschinen bedienen](Maschinen-bedienen.md)

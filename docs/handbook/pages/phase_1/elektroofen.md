@@ -12,6 +12,8 @@ Der <item:sternenwerft:electric_furnace> schmilzt alles, was auch der normale Of
 
 @machine sternenwerft:electric_furnace
 
+@image ../images/screenshots/gui-electric-furnace.png | Das Fenster des Elektroofens mit zwei Eingabeslots.
+
 ## Bauen
 
 @recipes_for sternenwerft:electric_furnace

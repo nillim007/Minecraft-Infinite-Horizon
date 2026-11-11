@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 94" width="300" height="94">
+<rect x="1" y="1" width="298" height="92" rx="6" fill="#C6C6C6" stroke="#1E1E1E" stroke-width="2"/>
+<path d="M4 90 V5 H295" stroke="#FFFFFF" stroke-width="2" fill="none"/>
+<path d="M296 5 V90 H5" stroke="#555555" stroke-width="2" fill="none"/>
+<text x="14" y="23" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="15" font-weight="700" fill="#3F3F3F">Goldbarren</text>
+<text x="286" y="23" text-anchor="end" font-family="'Segoe UI','Helvetica Neue',Arial,sans-serif" font-size="12" fill="#555555">Ofen oder Elektroofen</text>
+<rect x="18" y="44.0" width="36" height="36" fill="#8B8B8B"/><path d="M18 80.0 V44.0 H54" stroke="#373737" stroke-width="2" fill="none"/><path d="M54 44.0 V80.0 H18" stroke="#FFFFFF" stroke-width="2" fill="none"/><image x="20.0" y="46.0" width="32" height="32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAA9UlEQVR42s2S7QoBQRSG92rcg/W1a63fLshFuB9JkiQpSZI2X21SUpKSksNzNOWH2ZIfbJ2aOXPeZ95zZh3nb75aNSWfxFvAZVqU/aAgsg5l28vLtJ4Wicsya7iy6eYkarqatwIooPg48lS46+dVCJS1wpehHXAYenKdBXrLaezr/jzxVUiePa6sAETcsGpnVUiwxgVtASFnBVAMxFgXqTxjXtKzRSujeSsg7mS1f4pZGwBrAgfAEl/BDBLLFCPClRkkZ4mvwPRvUaB2X/s2+8QZMGGCYizrHB5AhEC5nfasAJ4PEa0gAELOOKEF1lbAV7/yz747rHeL45ZdbpwAAAAASUVORK5CYII=" style="image-rendering:pixelated;image-rendering:crisp-edges" preserveAspectRatio="none"/>
+<path d="M68 57.0 H98 V51.0 L112 62.0 L98 73.0 V67.0 H68 Z" fill="#FFFFFF" stroke="#373737" stroke-width="2"/>
+<rect x="126" y="44.0" width="36" height="36" fill="#8B8B8B"/><path d="M126 80.0 V44.0 H162" stroke="#373737" stroke-width="2" fill="none"/><path d="M162 44.0 V80.0 H126" stroke="#FFFFFF" stroke-width="2" fill="none"/><rect x="132.0" y="64.0" width="24" height="4" fill="#FFFF50"/><rect x="130.0" y="68.0" width="28" height="6" fill="#F0D040"/><rect x="130.0" y="74.0" width="28" height="2" fill="#9C8729"/><rect x="134.0" y="60.0" width="20" height="4" fill="#FFFF50"/>
+</svg>

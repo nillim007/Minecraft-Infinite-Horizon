@@ -15,6 +15,8 @@ Erdöl, Kerosin, Wasserstoff und Sauerstoff sind **Fluide**. Sie werden in Milli
 Die <item:sternenwerft:fluid_pump> saugt Quellblöcke unter sich ab: Wasser, Lava oder Erdöl, bis zu {{value:machines:fluid_pump.process.search_radius}} Blöcke tief und im gleichen Umkreis zur Seite. Jeder Vorgang bringt {{value:machines:fluid_pump.process.output_per_cycle}} mB. Bei Erdöl verschwindet der Quellblock nur mit {{value:machines:fluid_pump.process.source_consume_chance.crude_oil|%}} Wahrscheinlichkeit. Eine Ölblase hält also sehr lange.
 
 @machine sternenwerft:fluid_pump
+
+@image ../images/screenshots/gui-fluid-pump.png | Das Fenster der Pumpe: Tank und Eimerslots, Knopf „Seite“ für die Ausgangsseite.
 @recipes_for sternenwerft:fluid_pump
 
 ## Kupferrohr
@@ -31,6 +33,8 @@ Das <item:sternenwerft:copper_pipe> transportiert Flüssigkeiten und Gase, {{val
 Der <item:sternenwerft:fluid_tank> fasst {{value:storage:fluid_tank.capacity}} mB einer Flüssigkeit. Er gibt nur über seine Ausgangsseite ab und behält seinen Inhalt, wenn du ihn abbaust. Gase passen nicht hinein; sie bleiben vorerst im Tank der Maschine.
 
 @machine sternenwerft:fluid_tank
+
+@image ../images/screenshots/gui-fluid-tank.png | Das Fenster des Tanks mit Füll- und Leerslot.
 @recipes_for sternenwerft:fluid_tank
 
 ## Eimer, Füll- und Leerslot

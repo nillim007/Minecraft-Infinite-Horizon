@@ -1,6 +1,6 @@
 <!-- Erzeugt von tools/gen_wiki.py aus docs/handbook/ und spec/data. Nicht von Hand ändern. -->
 
-[Startseite](Home.md) › Phase 1 · Erdindustrie › **Montagetisch**
+[📖 Wiki](README.md) › Phase 1 · Erdindustrie › **Montagetisch**
 
 # Montagetisch
 
@@ -16,21 +16,15 @@ Der Montagetisch hat **9 Eingabeslots** ohne festes Muster, einen Fluidtank und 
 | Tanks | 16.000 mB |
 | Upgrade-Slots | 2 |
 
+![Das Fenster des Montagetischs: 3 × 3 Eingabeslots ohne festes Muster, rechts Ausgaben, Eimerslots und Tank.](../images/screenshots/gui-assembly-table.png)
+
+<sub>Das Fenster des Montagetischs: 3 × 3 Eingabeslots ohne festes Muster, rechts Ausgaben, Eimerslots und Tank.</sub>
+
 ## Bauen
 
-**Montagetisch** · Werkbank
+![Rezept: Montagetisch](images/rezepte/crafting_shaped_assembly_table.svg)
 
-```text
-┌───┬───┬───┐
-│ C │ R │ C │
-├───┼───┼───┤
-│ I │ M │ I │
-├───┼───┼───┤
-│ I │ W │ I │
-└───┴───┴───┘
-```
-
-`C` = Kupferbarren · `I` = Eisenbarren · `M` = [Maschinenrahmen](Erste-Schritte.md) · `R` = Redstone-Staub · `W` = Werkbank
+<sub>2 × Kupferbarren, 4 × Eisenbarren, 1 × [Maschinenrahmen](Erste-Schritte.md), 1 × Redstone-Staub, 1 × Werkbank → 1 × Montagetisch</sub>
 
 ## Genau abmessen
 
@@ -44,23 +38,23 @@ Der Montagetisch ist pingelig: Ein Rezept startet nur, wenn in den Slots **genau
 
 Der Schaltkreis steckt in fast jeder Maschine ab Phase 2. Bau dir früh eine kleine Produktion dafür auf.
 
-**Schaltkreis** · Montagetisch · 200 t (10 s) · 30 J/t
+![Rezept: Schaltkreis](images/rezepte/assembly_circuit.svg)
 
-2 × [Silizium](Elektroofen.md) + 4 × [Kupferdraht](Presse.md) + 1 × [Kunststoff](Raffinerie.md) → 1 × Schaltkreis
+<sub>2 × [Silizium](Elektroofen.md), 4 × [Kupferdraht](Presse.md), 1 × [Kunststoff](Raffinerie.md) → 1 × Schaltkreis</sub>
 
 ## Alle Rezepte des Montagetischs
 
-| Ergebnis | Zutaten | Wo | Dauer | Energie |
-| --- | --- | --- | --- | --- |
-| 1 × [Effizienz-Upgrade](Upgrades.md) | 1 × Schaltkreis, 2 × [Golddraht](Presse.md), 2 × [Aluminiumplatte](Presse.md) | Montagetisch | 200 t (10 s) | 30 J/t |
-| 1 × [Elektrolyseur](Elektrolyseur.md) | 1 × [Maschinenrahmen](Erste-Schritte.md), 4 × [Kupferdraht](Presse.md), 2 × [Eisenplatte](Presse.md), 2 × [Kupferrohr](Fluide-und-Rohre.md), 1 × Glas | Montagetisch | 200 t (10 s) | 30 J/t |
-| 1 × [Energie-Port](Raffinerie.md) | 4 × [Eisenplatte](Presse.md), 1 × [Kupferkabel](Strom.md) | Montagetisch | 200 t (10 s) | 30 J/t |
-| 1 × [Fluid-Port](Raffinerie.md) | 4 × [Eisenplatte](Presse.md), 1 × [Kupferrohr](Fluide-und-Rohre.md) | Montagetisch | 200 t (10 s) | 30 J/t |
-| 1 × [Geschwindigkeits-Upgrade](Upgrades.md) | 1 × Schaltkreis, 4 × Redstone-Staub, 2 × [Kupferdraht](Presse.md) | Montagetisch | 200 t (10 s) | 30 J/t |
-| 1 × [Item-Port](Raffinerie.md) | 4 × [Eisenplatte](Presse.md), 1 × Trichter | Montagetisch | 200 t (10 s) | 30 J/t |
-| 1 × [Raffinerie](Raffinerie.md) | 1 × [Maschinenrahmen](Erste-Schritte.md), 16 × [Eisenplatte](Presse.md), 8 × [Kupferrohr](Fluide-und-Rohre.md), 4 × Redstone-Staub | Montagetisch | 200 t (10 s) | 30 J/t |
-| 4 × [Raffinerie-Gehäuse](Raffinerie.md) | 2 × [Eisenplatte](Presse.md), 1 × [Kupferrohr](Fluide-und-Rohre.md) | Montagetisch | 200 t (10 s) | 30 J/t |
-| 1 × Schaltkreis | 2 × [Silizium](Elektroofen.md), 4 × [Kupferdraht](Presse.md), 1 × [Kunststoff](Raffinerie.md) | Montagetisch | 200 t (10 s) | 30 J/t |
+| Rezept | Zutaten → Ergebnis | Wo | Dauer |
+| --- | --- | --- | --- |
+| <img src="images/rezepte/assembly_efficiency_upgrade.svg" alt="Rezept" width="300"> | 1 × Schaltkreis, 2 × [Golddraht](Presse.md), 2 × [Aluminiumplatte](Presse.md) → 1 × [Effizienz-Upgrade](Upgrades.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_electrolyzer.svg" alt="Rezept" width="300"> | 1 × [Maschinenrahmen](Erste-Schritte.md), 4 × [Kupferdraht](Presse.md), 2 × [Eisenplatte](Presse.md), 2 × [Kupferrohr](Fluide-und-Rohre.md), 1 × Glas → 1 × [Elektrolyseur](Elektrolyseur.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_energy_port.svg" alt="Rezept" width="300"> | 4 × [Eisenplatte](Presse.md), 1 × [Kupferkabel](Strom.md) → 1 × [Energie-Port](Raffinerie.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_fluid_port.svg" alt="Rezept" width="300"> | 4 × [Eisenplatte](Presse.md), 1 × [Kupferrohr](Fluide-und-Rohre.md) → 1 × [Fluid-Port](Raffinerie.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_speed_upgrade.svg" alt="Rezept" width="300"> | 1 × Schaltkreis, 4 × Redstone-Staub, 2 × [Kupferdraht](Presse.md) → 1 × [Geschwindigkeits-Upgrade](Upgrades.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_item_port.svg" alt="Rezept" width="300"> | 4 × [Eisenplatte](Presse.md), 1 × Trichter → 1 × [Item-Port](Raffinerie.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_refinery_controller.svg" alt="Rezept" width="300"> | 1 × [Maschinenrahmen](Erste-Schritte.md), 16 × [Eisenplatte](Presse.md), 8 × [Kupferrohr](Fluide-und-Rohre.md), 4 × Redstone-Staub → 1 × [Raffinerie](Raffinerie.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_refinery_casing.svg" alt="Rezept" width="300"> | 2 × [Eisenplatte](Presse.md), 1 × [Kupferrohr](Fluide-und-Rohre.md) → 4 × [Raffinerie-Gehäuse](Raffinerie.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_circuit.svg" alt="Rezept" width="300"> | 2 × [Silizium](Elektroofen.md), 4 × [Kupferdraht](Presse.md), 1 × [Kunststoff](Raffinerie.md) → 1 × Schaltkreis | Montagetisch | 200 t (10 s)<br>30 J/t |
 
 > [!TIP]
 > Wenn der Pfeil nicht losläuft, obwohl alles da zu sein scheint: Nimm alles heraus und lege die Zutaten in genau der Rezeptmenge wieder hinein.

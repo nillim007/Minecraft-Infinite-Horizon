@@ -40,7 +40,7 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.elektroofen.e2",
+      "key": "sternenwerft.handbook.phase_1.elektroofen.e3",
       "level": 2
     },
     {
@@ -77,7 +77,7 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.elektroofen.e4",
+      "key": "sternenwerft.handbook.phase_1.elektroofen.e5",
       "level": 2
     },
     {
@@ -108,12 +108,12 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.elektroofen.e6",
+      "key": "sternenwerft.handbook.phase_1.elektroofen.e7",
       "level": 2
     },
     {
       "type": "text",
-      "key": "sternenwerft.handbook.phase_1.elektroofen.e7"
+      "key": "sternenwerft.handbook.phase_1.elektroofen.e8"
     },
     {
       "type": "recipes",
@@ -255,7 +255,7 @@
     },
     {
       "type": "callout",
-      "key": "sternenwerft.handbook.phase_1.elektroofen.e9",
+      "key": "sternenwerft.handbook.phase_1.elektroofen.e10",
       "style": "note"
     }
   ]

@@ -5,7 +5,7 @@ Aus diesem Ordner entstehen **zwei Ausgaben aus einer Quelle** (Kapitel 24.1, 25
 | Ausgabe | Erzeugt von | Ziel |
 | --- | --- | --- |
 | Ingenieurs-Handbuch im Spiel | `python tools/gen_resources.py` | `common/src/generated/resources/assets/sternenwerft/handbook/…` und Übersetzungen in `lang/*.json` |
-| Spieler-Wiki | `python tools/gen_wiki.py` | `docs/wiki/*.md`, veröffentlicht im GitHub-Wiki (`.github/workflows/wiki.yml`) |
+| Spieler-Wiki | `python tools/gen_wiki.py` | `docs/wiki/` (Markdown-Seiten, Einstieg `README.md`, Rezeptbilder in `images/rezepte/`) |
 
 Beide Ausgaben nie von Hand ändern. Die CI prüft, dass sie zur Quelle passen.
 

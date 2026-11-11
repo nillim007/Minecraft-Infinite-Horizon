@@ -1,10 +1,19 @@
 <!-- Erzeugt von tools/gen_wiki.py aus docs/handbook/ und spec/data. Nicht von Hand ändern. -->
 
-# Sternenwerft – Wiki
+# Sternenwerft – Spieler-Wiki
 
 ![Sternenwerft](../images/banner.svg)
 
-**Neu hier?** Fang mit [Willkommen bei Sternenwerft](Willkommen-bei-Sternenwerft.md) an und folge dann dem Ablauf in [Erste Schritte](Erste-Schritte.md). Alle Rezepte auf einen Blick findest du unter [Alle Rezepte](Alle-Rezepte.md).
+## Neu hier? In vier Schritten zum Start
+
+1. **[Willkommen bei Sternenwerft](Willkommen-bei-Sternenwerft.md)**: worum es in der Mod geht.
+2. **[Installation](Installation.md)**: Mod einrichten und starten.
+3. **[Grundbegriffe](Grundbegriffe.md)**: Strom, Fluide, Statuslampe, Multiblöcke, in fünf Minuten.
+4. **[Erste Schritte](Erste-Schritte.md)**: der ganze Ablauf der ersten Phase, Schritt für Schritt mit allen Rezepten.
+
+Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe bei Problemen unter [Tipps und häufige Fragen](Tipps-und-haeufige-Fragen.md).
+
+![Phase 1 auf einen Blick](../images/production-chain.svg)
 
 Das Wiki zur Raumfahrt-Mod **Minecraft New Horizon – Sternenwerft**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
@@ -13,6 +22,8 @@ Das Wiki zur Raumfahrt-Mod **Minecraft New Horizon – Sternenwerft**. Alle Inha
 ## Willkommen
 
 - [Willkommen bei Sternenwerft](Willkommen-bei-Sternenwerft.md) – Worum es geht und wie dieses Handbuch funktioniert
+- [Installation](Installation.md) – Was du brauchst und wie du die Mod startest
+- [Grundbegriffe](Grundbegriffe.md) – Strom, Ticks, Millibuckets, Statuslampe – alles in fünf Minuten
 - [Maschinen bedienen](Maschinen-bedienen.md) – GUI, Statuslampe, Ausgangsseite, Trichter und Upgrades
 - [Ausblick – was noch kommt](Ausblick-was-noch-kommt.md) – Die geplanten Phasen und Ziele (Entwicklungsstand)
 
@@ -35,3 +46,7 @@ Das Wiki zur Raumfahrt-Mod **Minecraft New Horizon – Sternenwerft**. Alle Inha
 - [Alle Rezepte](Alle-Rezepte.md) – Jedes Rezept des aktuellen Stands, nach Maschine sortiert
 - [Alle Items und Blöcke](Alle-Items-und-Bloecke.md) – Alles, was es gibt, und wo es herkommt
 - [Tipps und häufige Fragen](Tipps-und-haeufige-Fragen.md) – Kniffe, Fehlersuche und Antworten
+
+---
+
+_Dieses Wiki wird aus `docs/handbook/` erzeugt (`python tools/gen_wiki.py`). Änderungen bitte dort, nicht in diesem Ordner._

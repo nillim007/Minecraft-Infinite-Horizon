@@ -1,0 +1,106 @@
+{
+  "id": "sternenwerft:start/grundbegriffe",
+  "chapter": "sternenwerft:start",
+  "title": "sternenwerft.handbook.start.grundbegriffe.title",
+  "icon": "sternenwerft:copper_cable",
+  "order": 15,
+  "unlock": null,
+  "items": [],
+  "elements": [
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.start.grundbegriffe.e0"
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.start.grundbegriffe.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.start.grundbegriffe.e2"
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.start.grundbegriffe.e3",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "sternenwerft.handbook.start.grundbegriffe.e4.0",
+        "sternenwerft.handbook.start.grundbegriffe.e4.1",
+        "sternenwerft.handbook.start.grundbegriffe.e4.2",
+        "sternenwerft.handbook.start.grundbegriffe.e4.3"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.start.grundbegriffe.e5"
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.start.grundbegriffe.e6",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.start.grundbegriffe.e7"
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.start.grundbegriffe.e8",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.start.grundbegriffe.e9"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "sternenwerft.handbook.start.grundbegriffe.e10.0",
+        "sternenwerft.handbook.start.grundbegriffe.e10.1",
+        "sternenwerft.handbook.start.grundbegriffe.e10.2"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.start.grundbegriffe.e11",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "sternenwerft.handbook.start.grundbegriffe.e12.0",
+        "sternenwerft.handbook.start.grundbegriffe.e12.1"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.start.grundbegriffe.e13",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.start.grundbegriffe.e14"
+    },
+    {
+      "type": "heading",
+      "key": "sternenwerft.handbook.start.grundbegriffe.e15",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "sternenwerft.handbook.start.grundbegriffe.e16"
+    },
+    {
+      "type": "callout",
+      "key": "sternenwerft.handbook.start.grundbegriffe.e17",
+      "style": "tip"
+    }
+  ]
+}

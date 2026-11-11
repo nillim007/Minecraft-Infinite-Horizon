@@ -58,5 +58,32 @@
     "#minecraft:is_river": { "de": "Fluss", "en": "River" },
     "#minecraft:is_ocean": { "de": "Ozean", "en": "Ocean" },
     "#minecraft:is_overworld": { "de": "überall in der Oberwelt", "en": "anywhere in the Overworld" }
+  },
+  "_icons": "Ersatzsymbole für Vanilla-Items in den Rezeptbildern des Wikis (Vanilla-Texturen werden nicht mitgeliefert). Form: ingot, raw, dust, gem, block, item, bucket, fluid.",
+  "icons": {
+    "minecraft:book": ["item", "#8B5A2B"],
+    "minecraft:bucket": ["bucket", "#C8C8C8"],
+    "minecraft:coal": ["gem", "#2B2B2B"],
+    "minecraft:compass": ["item", "#C0392B"],
+    "minecraft:copper_ingot": ["ingot", "#E07B50"],
+    "minecraft:crafting_table": ["block", "#A0703C"],
+    "minecraft:flint": ["gem", "#4A4A4A"],
+    "minecraft:furnace": ["block", "#7A7A7A"],
+    "minecraft:glass": ["block", "#CFE8F0"],
+    "minecraft:glowstone_dust": ["dust", "#F2D16B"],
+    "minecraft:gold_ingot": ["ingot", "#F0D040"],
+    "minecraft:hopper": ["block", "#4F4F55"],
+    "minecraft:iron_block": ["block", "#DCDCDC"],
+    "minecraft:iron_ingot": ["ingot", "#D8D8D8"],
+    "minecraft:lava": ["fluid", "#E4572E"],
+    "minecraft:lava_bucket": ["bucket", "#E4572E"],
+    "minecraft:piston": ["block", "#B08A57"],
+    "minecraft:raw_copper": ["raw", "#C9784A"],
+    "minecraft:raw_gold": ["raw", "#E8C547"],
+    "minecraft:raw_iron": ["raw", "#C8A890"],
+    "minecraft:redstone": ["dust", "#C81E1E"],
+    "minecraft:redstone_block": ["block", "#A01010"],
+    "minecraft:water": ["fluid", "#3F76E4"],
+    "minecraft:water_bucket": ["bucket", "#3F76E4"]
   }
 }

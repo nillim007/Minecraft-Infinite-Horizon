@@ -1,6 +1,6 @@
 <!-- Erzeugt von tools/gen_wiki.py aus docs/handbook/ und spec/data. Nicht von Hand ändern. -->
 
-[Startseite](Home.md) › Phase 1 · Erdindustrie › **Rohstoffe und Erze**
+[📖 Wiki](README.md) › Phase 1 · Erdindustrie › **Rohstoffe und Erze**
 
 # Rohstoffe und Erze
 

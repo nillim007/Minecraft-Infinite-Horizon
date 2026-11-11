@@ -1,6 +1,6 @@
 <!-- Erzeugt von tools/gen_wiki.py aus docs/handbook/ und spec/data. Nicht von Hand ändern. -->
 
-[Startseite](Home.md) › Willkommen › **Maschinen bedienen**
+[📖 Wiki](README.md) › Willkommen › **Maschinen bedienen**
 
 # Maschinen bedienen
 
@@ -42,4 +42,4 @@ Maschinen baust du mit einer **Spitzhacke** ab (mindestens Stein). Sie droppen s
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Willkommen bei Sternenwerft](Willkommen-bei-Sternenwerft.md) · [Ausblick – was noch kommt](Ausblick-was-noch-kommt.md) →
+← [Grundbegriffe](Grundbegriffe.md) · [Ausblick – was noch kommt](Ausblick-was-noch-kommt.md) →

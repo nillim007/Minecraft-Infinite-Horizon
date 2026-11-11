@@ -26,6 +26,7 @@ Sternenwerft führt dich durch das **echte Sonnensystem**. Jeder Schritt baut au
 - Das Handbuch wächst mit dir: Ein neues Kapitel öffnet sich, sobald du die passende Forschungsstufe erreichst.
 - Unterstrichene Begriffe sind **Links**. Ein Klick bringt dich zur passenden Seite.
 - Rezepte stehen direkt auf den Seiten der Maschinen. Eine Übersicht findest du unter [[rezepte|Alle Rezepte]].
+- Neu bei Sternenwerft? Lies zuerst die [[grundbegriffe|Grundbegriffe]].
 - Weißt du nicht weiter, schau in [[erste_schritte|Erste Schritte]] oder in die [[tipps|Tipps und häufigen Fragen]].
 
 @tip Fang mit [[erste_schritte|Erste Schritte]] an. Dort steht der ganze Ablauf der ersten Phase Schritt für Schritt.

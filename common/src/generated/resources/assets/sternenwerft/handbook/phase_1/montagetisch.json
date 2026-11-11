@@ -46,7 +46,7 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.montagetisch.e3",
+      "key": "sternenwerft.handbook.phase_1.montagetisch.e4",
       "level": 2
     },
     {
@@ -89,30 +89,30 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.montagetisch.e5",
+      "key": "sternenwerft.handbook.phase_1.montagetisch.e6",
       "level": 2
     },
     {
       "type": "text",
-      "key": "sternenwerft.handbook.phase_1.montagetisch.e6"
+      "key": "sternenwerft.handbook.phase_1.montagetisch.e7"
     },
     {
       "type": "list",
       "ordered": false,
       "keys": [
-        "sternenwerft.handbook.phase_1.montagetisch.e7.0",
-        "sternenwerft.handbook.phase_1.montagetisch.e7.1",
-        "sternenwerft.handbook.phase_1.montagetisch.e7.2"
+        "sternenwerft.handbook.phase_1.montagetisch.e8.0",
+        "sternenwerft.handbook.phase_1.montagetisch.e8.1",
+        "sternenwerft.handbook.phase_1.montagetisch.e8.2"
       ]
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.montagetisch.e8",
+      "key": "sternenwerft.handbook.phase_1.montagetisch.e9",
       "level": 2
     },
     {
       "type": "text",
-      "key": "sternenwerft.handbook.phase_1.montagetisch.e9"
+      "key": "sternenwerft.handbook.phase_1.montagetisch.e10"
     },
     {
       "type": "recipes",
@@ -154,7 +154,7 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.montagetisch.e11",
+      "key": "sternenwerft.handbook.phase_1.montagetisch.e12",
       "level": 2
     },
     {
@@ -455,7 +455,7 @@
     },
     {
       "type": "callout",
-      "key": "sternenwerft.handbook.phase_1.montagetisch.e13",
+      "key": "sternenwerft.handbook.phase_1.montagetisch.e14",
       "style": "tip"
     }
   ]

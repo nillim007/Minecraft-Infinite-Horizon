@@ -57,7 +57,7 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.presse.e3",
+      "key": "sternenwerft.handbook.phase_1.presse.e4",
       "level": 2
     },
     {
@@ -97,7 +97,7 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.presse.e5",
+      "key": "sternenwerft.handbook.phase_1.presse.e6",
       "level": 2
     },
     {
@@ -169,7 +169,7 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.presse.e7",
+      "key": "sternenwerft.handbook.phase_1.presse.e8",
       "level": 2
     },
     {
@@ -355,7 +355,7 @@
     },
     {
       "type": "callout",
-      "key": "sternenwerft.handbook.phase_1.presse.e9",
+      "key": "sternenwerft.handbook.phase_1.presse.e10",
       "style": "tip"
     }
   ]

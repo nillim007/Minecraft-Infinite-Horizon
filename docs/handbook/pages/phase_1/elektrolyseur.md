@@ -12,6 +12,8 @@ Der <item:sternenwerft:electrolyzer> spaltet Wasser mit Strom in **Wasserstoff**
 
 @machine sternenwerft:electrolyzer
 
+@image ../images/screenshots/gui-electrolyzer.png | Das Fenster des Elektrolyseurs: ein Eingangstank für Wasser, zwei Ausgangstanks für die Gase.
+
 ## Bauen
 
 @recipes_for sternenwerft:electrolyzer

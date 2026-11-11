@@ -4,8 +4,7 @@ Aufruf:  python tools/gen_wiki.py            (schreibt docs/wiki/)
          python tools/gen_wiki.py --check    (nur prüfen, Exit 1 bei veralteten Dateien)
 
 Dieselbe Quelle erzeugt über tools/gen_resources.py das Ingenieurs-Handbuch im Spiel.
-Die Dateien in docs/wiki/ nie von Hand ändern. Die CI veröffentlicht sie im GitHub-Wiki
-(.github/workflows/wiki.yml).
+Die Dateien in docs/wiki/ nie von Hand ändern. Der Ordner ist das Wiki (Einstieg docs/wiki/README.md).
 """
 from __future__ import annotations
 
@@ -25,13 +24,13 @@ def main():
     for w in hb.warnings:
         print(f"Warnung: {w}")
     stale = []
-    existing = {p.name for p in OUT.glob("*.md")} if OUT.exists() else set()
+    existing = {p.relative_to(OUT).as_posix() for p in OUT.rglob("*") if p.is_file()} if OUT.exists() else set()
     for name, text in sorted(hb.wiki.items()):
         path = OUT / name
         if not path.exists() or path.read_text(encoding="utf-8") != text:
             stale.append(name)
             if not check:
-                OUT.mkdir(parents=True, exist_ok=True)
+                path.parent.mkdir(parents=True, exist_ok=True)
                 path.write_text(text, encoding="utf-8", newline="\n")
     for name in sorted(existing - set(hb.wiki)):
         stale.append(name)

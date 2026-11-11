@@ -42,7 +42,7 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.raffinerie.e3",
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e4",
       "level": 2
     },
     {
@@ -76,45 +76,45 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.raffinerie.e5",
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e6",
       "level": 2
     },
     {
       "type": "text",
-      "key": "sternenwerft.handbook.phase_1.raffinerie.e6"
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e7"
     },
     {
       "type": "list",
       "ordered": true,
       "keys": [
-        "sternenwerft.handbook.phase_1.raffinerie.e7.0",
-        "sternenwerft.handbook.phase_1.raffinerie.e7.1",
-        "sternenwerft.handbook.phase_1.raffinerie.e7.2",
-        "sternenwerft.handbook.phase_1.raffinerie.e7.3",
-        "sternenwerft.handbook.phase_1.raffinerie.e7.4"
+        "sternenwerft.handbook.phase_1.raffinerie.e8.0",
+        "sternenwerft.handbook.phase_1.raffinerie.e8.1",
+        "sternenwerft.handbook.phase_1.raffinerie.e8.2",
+        "sternenwerft.handbook.phase_1.raffinerie.e8.3",
+        "sternenwerft.handbook.phase_1.raffinerie.e8.4"
       ]
     },
     {
       "type": "callout",
-      "key": "sternenwerft.handbook.phase_1.raffinerie.e8",
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e9",
       "style": "tip"
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.raffinerie.e9",
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e11",
       "level": 2
     },
     {
       "type": "text",
-      "key": "sternenwerft.handbook.phase_1.raffinerie.e10"
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e12"
     },
     {
       "type": "list",
       "ordered": false,
       "keys": [
-        "sternenwerft.handbook.phase_1.raffinerie.e11.0",
-        "sternenwerft.handbook.phase_1.raffinerie.e11.1",
-        "sternenwerft.handbook.phase_1.raffinerie.e11.2"
+        "sternenwerft.handbook.phase_1.raffinerie.e13.0",
+        "sternenwerft.handbook.phase_1.raffinerie.e13.1",
+        "sternenwerft.handbook.phase_1.raffinerie.e13.2"
       ]
     },
     {
@@ -271,16 +271,16 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.raffinerie.e13",
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e15",
       "level": 2
     },
     {
       "type": "text",
-      "key": "sternenwerft.handbook.phase_1.raffinerie.e14"
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e16"
     },
     {
       "type": "callout",
-      "key": "sternenwerft.handbook.phase_1.raffinerie.e15",
+      "key": "sternenwerft.handbook.phase_1.raffinerie.e17",
       "style": "warning"
     }
   ]

@@ -51,7 +51,7 @@ Diese Entscheidungen lösen Widersprüche und Sackgassen. **Bitte prüfen**, bev
 
 **Ä26: Handbuch und Wiki**
 
-- Quelle `docs/handbook/` (Markdown mit Befehlen wie `@recipes_for`, `@machine`, `{{value:…}}`), Generator `tools/handbook.py`; Ausgaben über `tools/gen_resources.py` (Spiel) und `tools/gen_wiki.py` (`docs/wiki/`, GitHub-Wiki) (24.1).
+- Quelle `docs/handbook/` (Markdown mit Befehlen wie `@recipes_for`, `@machine`, `{{value:…}}`), Generator `tools/handbook.py`; Ausgaben über `tools/gen_resources.py` (Spiel) und `tools/gen_wiki.py` (`docs/wiki/`, Ordner mit Markdown-Seiten und Bildern) (24.1).
 - Schema 25.6 erweitert: Kapiteldatei `_chapter.json`, Seiten-`id`, `icon`, `order`, `items`, Elemente `heading`, `list`, `callout`, `machine`, `table`, eingebettete `recipes`, Inline-Markup für Links und Items.
 - Buch-GUI, Links, Taste `H` und Join-Geschenk des Handbuchs in M2f (27.3); Blaupausen-Optik und englische Texte bleiben in M9.
 - Pflicht je Meilenstein: Seiten für neue Inhalte, `gen_wiki.py --check` grün, README-Status aktuell (27).

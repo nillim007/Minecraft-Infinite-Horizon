@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <a href="docs/wiki/Home.md"><b>📖 Wiki</b></a> ·
+  <a href="docs/wiki/README.md"><b>📖 Wiki</b></a> ·
   <a href="docs/wiki/Erste-Schritte.md"><b>🚀 Erste Schritte</b></a> ·
   <a href="docs/wiki/Alle-Rezepte.md"><b>🛠️ Alle Rezepte</b></a> ·
   <a href="#entwicklungsstand"><b>📍 Stand</b></a>
@@ -45,7 +45,7 @@ Dazwischen liegt eine Reise durch das echte Sonnensystem: Du baust auf der Erde 
 | 🛰️ **Raumstationen** | Eigene Stationen im Orbit mit Schwerelosigkeit, Solarflügeln, Fusionsreaktor und Schwerelos-Fertigung. |
 | 📦 **Logistik-Netz** | Außenposten, Bohrtürme und Frachtraketen versorgen deine Kolonien, auch wenn du nicht vor Ort bist. |
 | 🤝 **Mehrspieler** | Agenturen teilen Forschung, Atlas und Frachtnetz. Handel zwischen Agenturen. |
-| 📖 **Handbuch im Spiel** | Das Ingenieurs-Handbuch erklärt jede Maschine mit Rezepten und Links. Es ist dasselbe wie das [Wiki](docs/wiki/Home.md). |
+| 📖 **Handbuch im Spiel** | Das Ingenieurs-Handbuch erklärt jede Maschine mit Rezepten und Links. Es ist dasselbe wie das [Wiki](docs/wiki/README.md). |
 
 <p align="center">
   <img src="docs/images/solar-system.svg" alt="Das Sonnensystem in Sternenwerft" width="100%">
@@ -71,8 +71,8 @@ Der ganze Ablauf mit allen Rezepten steht im Wiki unter [Erste Schritte](docs/wi
 
 <p align="center">
   <img src="docs/images/screenshots/machines.png" alt="Maschinen mit Statuslampen und Erze" width="32%">
-  <img src="docs/images/screenshots/assembly-table.png" alt="Fenster des Montagetischs" width="32%">
-  <img src="docs/images/screenshots/refinery-gui.png" alt="Fenster der Raffinerie" width="32%">
+  <img src="docs/images/screenshots/gui-assembly-table.png" alt="Fenster des Montagetischs" width="32%">
+  <img src="docs/images/screenshots/gui-refinery.png" alt="Fenster der Raffinerie" width="32%">
 </p>
 
 <p align="center">
@@ -100,7 +100,7 @@ Sternenwerft wird Meilenstein für Meilenstein nach einer festen [Spezifikation]
 
 ## Wiki und Ingenieurs-Handbuch
 
-Das **[Wiki](docs/wiki/Home.md)** beschreibt den Ablauf, alle Rezepte und viele Tipps. Es entsteht aus derselben Quelle wie das **Ingenieurs-Handbuch** im Spiel (`docs/handbook/`):
+Das **[Wiki](docs/wiki/README.md)** beschreibt den Ablauf, alle Rezepte und viele Tipps. Es entsteht aus derselben Quelle wie das **Ingenieurs-Handbuch** im Spiel (`docs/handbook/`):
 
 - Rezepte, Werte und Item-Listen kommen direkt aus den Daten der Mod und sind immer aktuell.
 - Mit jedem Meilenstein kommen neue Seiten dazu. Seiten für noch nicht eingebaute Inhalte bleiben verborgen.
@@ -127,7 +127,7 @@ Die fertigen Mod-Dateien liegen danach in `neoforge/build/libs/` und `fabric/bui
 | [`docs/spec/`](docs/spec/README.md) | Spezifikation in Kapiteln, mit Meilenstein-Matrix |
 | [`spec/data/`](spec/data/SCHEMA.md) | maßgebliche Daten: IDs, Rezepte, Forschung, Planeten, Balance |
 | [`docs/handbook/`](docs/handbook/README.md) | Quelle für Wiki und Ingenieurs-Handbuch |
-| [`docs/wiki/`](docs/wiki/Home.md) | erzeugtes Spieler-Wiki (nicht von Hand ändern) |
+| [`docs/wiki/`](docs/wiki/README.md) | erzeugtes Spieler-Wiki (nicht von Hand ändern) |
 | [`docs/dev/`](docs/dev/) | Entwicklernotizen, Testberichte, Addon-Schnittstelle |
 | [`docs/spec-gaps.md`](docs/spec-gaps.md) | offene Annahmen aus der Umsetzung |
 | [`tools/`](tools/) | Prüf- und Generator-Skripte |

@@ -14,6 +14,8 @@ Der Montagetisch hat **9 Eingabeslots** ohne festes Muster, einen Fluidtank und 
 
 @machine sternenwerft:assembly_table
 
+@image ../images/screenshots/gui-assembly-table.png | Das Fenster des Montagetischs: 3 × 3 Eingabeslots ohne festes Muster, rechts Ausgaben, Eimerslots und Tank.
+
 ## Bauen
 
 @recipes_for sternenwerft:assembly_table

@@ -31,4 +31,4 @@ Sternenwerft entsteht Meilenstein für Meilenstein. Dieses Wiki zeigt immer nur,
 | 8 | Netzwerk und Finale |
 | 9 | Feinschliff: Mehrspieler, Erfolge, Klang, Balancing |
 
-@note Der aktuelle Stand steht oben auf der [Startseite](Home.md). Mit jedem Meilenstein kommen neue Seiten in dieses Wiki und ins Handbuch im Spiel.
+@note Der aktuelle Stand steht oben auf der [Wiki-Startseite](README.md). Mit jedem Meilenstein kommen neue Seiten in dieses Wiki und ins Handbuch im Spiel.

@@ -10,9 +10,11 @@ summary: Dein erster Multiblock: Erdöl wird zu Kerosin und Kunststoff
 ---
 Die Raffinerie ist dein erster **Multiblock**: ein Turm aus 45 Blöcken, der aus Erdöl **Kerosin** und **Kunststoff** macht. Kerosin ist Treibstoff, Kunststoff steckt in jedem Schaltkreis.
 
-@image ../images/refinery.svg
+@image ../images/refinery.svg | Bauplan: Der Controller (orange) sitzt unten in der Mitte der Vorderseite, Ports (blau, gelb) ersetzen beliebige Gehäuseblöcke.
 
 @machine sternenwerft:refinery_controller
+
+@image ../images/screenshots/gui-refinery.png | Das Fenster der Raffinerie: Erdöl-Tank links, Kunststoff in der Mitte, Kerosin-Tank rechts.
 
 ## Was sie macht
 
@@ -29,6 +31,8 @@ Die Raffinerie ist **3 Blöcke breit, 3 Blöcke tief und 5 Blöcke hoch**, ganz 
 5. Sobald alles stimmt, springt die Statuslampe von Rot auf Gelb.
 
 @tip **Sneak-Rechtsklick** mit leerer Hand auf den Controller zeigt dir {{value:misc:multiblock_rules.ghost_projection_ticks|t}} lang mit roten Partikeln, wo noch Blöcke fehlen oder falsch sind.
+
+@image ../images/screenshots/refinery-ghost.png | Ein fertiger Raffinerie-Turm von unten gesehen. Ist er unvollständig, zeigen rote Partikel die fehlenden Plätze.
 
 ## Ports
 

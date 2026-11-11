@@ -1,6 +1,6 @@
 <!-- Erzeugt von tools/gen_wiki.py aus docs/handbook/ und spec/data. Nicht von Hand ändern. -->
 
-[Startseite](Home.md) › Phase 1 · Erdindustrie › **Strom**
+[📖 Wiki](README.md) › Phase 1 · Erdindustrie › **Strom**
 
 # Strom
 
@@ -16,19 +16,13 @@ Der Verbrennungsgenerator ist dein erstes Kraftwerk. Er verbrennt alles, was auc
 | Energiepuffer | 20.000 J |
 | Brennstoff | alles, was im Ofen brennt (z. B. Kohle: 1.600 t (80 s)) |
 
-**Verbrennungsgenerator** · Werkbank
+![Das Fenster des Verbrennungsgenerators: Brennstoffslot und Restbrennzeit.](../images/screenshots/gui-combustion-generator.png)
 
-```text
-┌───┬───┬───┐
-│ I │ I │ I │
-├───┼───┼───┤
-│ I │ M │ I │
-├───┼───┼───┤
-│ C │ K │ C │
-└───┴───┴───┘
-```
+<sub>Das Fenster des Verbrennungsgenerators: Brennstoffslot und Restbrennzeit.</sub>
 
-`C` = Kupferbarren · `I` = Eisenbarren · `K` = Ofen · `M` = [Maschinenrahmen](Erste-Schritte.md)
+![Rezept: Verbrennungsgenerator](images/rezepte/crafting_shaped_combustion_generator.svg)
+
+<sub>2 × Kupferbarren, 5 × Eisenbarren, 1 × Ofen, 1 × [Maschinenrahmen](Erste-Schritte.md) → 1 × Verbrennungsgenerator</sub>
 
 ## Kupferkabel
 
@@ -38,19 +32,9 @@ Das Kupferkabel verbindet sich von selbst mit allem, was Strom erzeugt oder brau
 | --- | --- |
 | Durchsatz | 256 J/t |
 
-**6 × Kupferkabel** · Werkbank
+![Rezept: Kupferkabel](images/rezepte/crafting_shaped_copper_cable.svg)
 
-```text
-┌───┬───┬───┐
-│ C │ C │ C │
-├───┼───┼───┤
-│ · │ · │ · │
-├───┼───┼───┤
-│ · │ · │ · │
-└───┴───┴───┘
-```
-
-`C` = Kupferbarren
+<sub>3 × Kupferbarren → 6 × Kupferkabel</sub>
 
 > [!TIP]
 > Ein Kupferkabel-Netz trägt 256 J/t. Reicht das nicht, teile deine Maschinen auf mehrere Netze mit eigenem Generator auf.

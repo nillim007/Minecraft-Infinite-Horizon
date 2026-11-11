@@ -1,6 +1,6 @@
 <!-- Erzeugt von tools/gen_wiki.py aus docs/handbook/ und spec/data. Nicht von Hand ändern. -->
 
-[Startseite](Home.md) › Phase 1 · Erdindustrie › **Upgrades**
+[📖 Wiki](README.md) › Phase 1 · Erdindustrie › **Upgrades**
 
 # Upgrades
 
@@ -11,13 +11,13 @@ Jede Maschine hat unten rechts zwei Upgrade-Slots. Generatoren und Speicher habe
 
 Pro Slot passen bis zu 4 Upgrades. Die Wirkung multipliziert sich: Vier Geschwindigkeits-Upgrades machen einen Zerkleinerer mehr als dreimal so schnell.
 
-**Geschwindigkeits-Upgrade** · [Montagetisch](Montagetisch.md) · 200 t (10 s) · 30 J/t
+![Rezept: Geschwindigkeits-Upgrade](images/rezepte/assembly_speed_upgrade.svg)
 
-1 × [Schaltkreis](Montagetisch.md) + 4 × Redstone-Staub + 2 × [Kupferdraht](Presse.md) → 1 × Geschwindigkeits-Upgrade
+<sub>1 × [Schaltkreis](Montagetisch.md), 4 × Redstone-Staub, 2 × [Kupferdraht](Presse.md) → 1 × Geschwindigkeits-Upgrade</sub>
 
-**Effizienz-Upgrade** · [Montagetisch](Montagetisch.md) · 200 t (10 s) · 30 J/t
+![Rezept: Effizienz-Upgrade](images/rezepte/assembly_efficiency_upgrade.svg)
 
-1 × [Schaltkreis](Montagetisch.md) + 2 × [Golddraht](Presse.md) + 2 × [Aluminiumplatte](Presse.md) → 1 × Effizienz-Upgrade
+<sub>1 × [Schaltkreis](Montagetisch.md), 2 × [Golddraht](Presse.md), 2 × [Aluminiumplatte](Presse.md) → 1 × Effizienz-Upgrade</sub>
 
 > [!TIP]
 > Kombiniere beides: Geschwindigkeits-Upgrades für mehr Tempo, Effizienz-Upgrades, damit dein Kabelnetz nicht überlastet.

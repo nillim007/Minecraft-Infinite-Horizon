@@ -15,6 +15,8 @@ Alle Maschinen laufen mit Strom, gemessen in **Joule (J)**. Wie viel eine Maschi
 Der <item:sternenwerft:combustion_generator> ist dein erstes Kraftwerk. Er verbrennt alles, was auch im Ofen brennt, und liefert {{value:generators:combustion_generator.output_per_tick}} J/t. Lavaeimer funktionieren auch; der leere Eimer bleibt im Slot liegen.
 
 @machine sternenwerft:combustion_generator
+
+@image ../images/screenshots/gui-combustion-generator.png | Das Fenster des Verbrennungsgenerators: Brennstoffslot und Restbrennzeit.
 @recipes_for sternenwerft:combustion_generator
 
 @if sternenwerft:fuel_generator

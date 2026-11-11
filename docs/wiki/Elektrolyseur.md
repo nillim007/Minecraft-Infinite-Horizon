@@ -1,6 +1,6 @@
 <!-- Erzeugt von tools/gen_wiki.py aus docs/handbook/ und spec/data. Nicht von Hand ändern. -->
 
-[Startseite](Home.md) › Phase 1 · Erdindustrie › **Elektrolyseur**
+[📖 Wiki](README.md) › Phase 1 · Erdindustrie › **Elektrolyseur**
 
 # Elektrolyseur
 
@@ -13,17 +13,21 @@ Der Elektrolyseur spaltet Wasser mit Strom in **Wasserstoff** und **Sauerstoff**
 | Tanks | 16.000 mB, 16.000 mB, 16.000 mB |
 | Upgrade-Slots | 2 |
 
+![Das Fenster des Elektrolyseurs: ein Eingangstank für Wasser, zwei Ausgangstanks für die Gase.](../images/screenshots/gui-electrolyzer.png)
+
+<sub>Das Fenster des Elektrolyseurs: ein Eingangstank für Wasser, zwei Ausgangstanks für die Gase.</sub>
+
 ## Bauen
 
-**Elektrolyseur** · [Montagetisch](Montagetisch.md) · 200 t (10 s) · 30 J/t
+![Rezept: Elektrolyseur](images/rezepte/assembly_electrolyzer.svg)
 
-1 × [Maschinenrahmen](Erste-Schritte.md) + 4 × [Kupferdraht](Presse.md) + 2 × [Eisenplatte](Presse.md) + 2 × [Kupferrohr](Fluide-und-Rohre.md) + 1 × Glas → 1 × Elektrolyseur
+<sub>1 × [Maschinenrahmen](Erste-Schritte.md), 4 × [Kupferdraht](Presse.md), 2 × [Eisenplatte](Presse.md), 2 × [Kupferrohr](Fluide-und-Rohre.md), 1 × Glas → 1 × Elektrolyseur</sub>
 
 ## Was er macht
 
-| Ergebnis | Zutaten | Wo | Dauer | Energie |
-| --- | --- | --- | --- | --- |
-| 200 mB Wasserstoff, 100 mB Sauerstoff | 200 mB Wasser | Elektrolyseur | 40 t (2 s) | 40 J/t |
+| Rezept | Zutaten → Ergebnis | Wo | Dauer |
+| --- | --- | --- | --- |
+| <img src="images/rezepte/electrolysis_hydrogen.svg" alt="Rezept" width="300"> | 200 mB Wasser → 200 mB Wasserstoff, 100 mB Sauerstoff | Elektrolyseur | 40 t (2 s)<br>40 J/t |
 
 ## So schließt du ihn an
 

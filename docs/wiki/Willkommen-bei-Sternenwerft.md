@@ -1,6 +1,6 @@
 <!-- Erzeugt von tools/gen_wiki.py aus docs/handbook/ und spec/data. Nicht von Hand ändern. -->
 
-[Startseite](Home.md) › Willkommen › **Willkommen bei Sternenwerft**
+[📖 Wiki](README.md) › Willkommen › **Willkommen bei Sternenwerft**
 
 # Willkommen bei Sternenwerft
 
@@ -24,6 +24,7 @@ Sternenwerft führt dich durch das **echte Sonnensystem**. Jeder Schritt baut au
 - Das Handbuch wächst mit dir: Ein neues Kapitel öffnet sich, sobald du die passende Forschungsstufe erreichst.
 - Unterstrichene Begriffe sind **Links**. Ein Klick bringt dich zur passenden Seite.
 - Rezepte stehen direkt auf den Seiten der Maschinen. Eine Übersicht findest du unter [Alle Rezepte](Alle-Rezepte.md).
+- Neu bei Sternenwerft? Lies zuerst die [Grundbegriffe](Grundbegriffe.md).
 - Weißt du nicht weiter, schau in [Erste Schritte](Erste-Schritte.md) oder in die [Tipps und häufigen Fragen](Tipps-und-haeufige-Fragen.md).
 
 > [!TIP]
@@ -33,4 +34,4 @@ Sternenwerft führt dich durch das **echte Sonnensystem**. Jeder Schritt baut au
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-[Maschinen bedienen](Maschinen-bedienen.md) →
+[Installation](Installation.md) →

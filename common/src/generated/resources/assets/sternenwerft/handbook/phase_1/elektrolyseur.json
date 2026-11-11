@@ -37,7 +37,7 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.elektrolyseur.e2",
+      "key": "sternenwerft.handbook.phase_1.elektrolyseur.e3",
       "level": 2
     },
     {
@@ -92,7 +92,7 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.elektrolyseur.e4",
+      "key": "sternenwerft.handbook.phase_1.elektrolyseur.e5",
       "level": 2
     },
     {
@@ -125,21 +125,21 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.elektrolyseur.e6",
+      "key": "sternenwerft.handbook.phase_1.elektrolyseur.e7",
       "level": 2
     },
     {
       "type": "list",
       "ordered": true,
       "keys": [
-        "sternenwerft.handbook.phase_1.elektrolyseur.e7.0",
-        "sternenwerft.handbook.phase_1.elektrolyseur.e7.1",
-        "sternenwerft.handbook.phase_1.elektrolyseur.e7.2"
+        "sternenwerft.handbook.phase_1.elektrolyseur.e8.0",
+        "sternenwerft.handbook.phase_1.elektrolyseur.e8.1",
+        "sternenwerft.handbook.phase_1.elektrolyseur.e8.2"
       ]
     },
     {
       "type": "callout",
-      "key": "sternenwerft.handbook.phase_1.elektrolyseur.e8",
+      "key": "sternenwerft.handbook.phase_1.elektrolyseur.e9",
       "style": "note"
     }
   ]

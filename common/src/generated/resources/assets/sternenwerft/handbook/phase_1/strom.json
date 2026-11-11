@@ -80,20 +80,20 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.strom.e5",
+      "key": "sternenwerft.handbook.phase_1.strom.e6",
       "level": 2
     },
     {
       "type": "text",
-      "key": "sternenwerft.handbook.phase_1.strom.e6"
+      "key": "sternenwerft.handbook.phase_1.strom.e7"
     },
     {
       "type": "machine",
       "block": "sternenwerft:copper_cable",
       "rows": [
         [
-          "sternenwerft.handbook.phase_1.strom.e7.0.label",
-          "sternenwerft.handbook.phase_1.strom.e7.0.value"
+          "sternenwerft.handbook.phase_1.strom.e8.0.label",
+          "sternenwerft.handbook.phase_1.strom.e8.0.value"
         ]
       ]
     },
@@ -123,12 +123,12 @@
     },
     {
       "type": "callout",
-      "key": "sternenwerft.handbook.phase_1.strom.e9",
+      "key": "sternenwerft.handbook.phase_1.strom.e10",
       "style": "tip"
     },
     {
       "type": "callout",
-      "key": "sternenwerft.handbook.phase_1.strom.e10",
+      "key": "sternenwerft.handbook.phase_1.strom.e11",
       "style": "note"
     }
   ]

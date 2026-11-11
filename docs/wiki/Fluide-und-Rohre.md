@@ -1,6 +1,6 @@
 <!-- Erzeugt von tools/gen_wiki.py aus docs/handbook/ und spec/data. Nicht von Hand ändern. -->
 
-[Startseite](Home.md) › Phase 1 · Erdindustrie › **Fluide und Rohre**
+[📖 Wiki](README.md) › Phase 1 · Erdindustrie › **Fluide und Rohre**
 
 # Fluide und Rohre
 
@@ -17,19 +17,13 @@ Die Pumpe saugt Quellblöcke unter sich ab: Wasser, Lava oder Erdöl, bis zu 8 B
 | Tanks | 16.000 mB |
 | Upgrade-Slots | 2 |
 
-**Pumpe** · Werkbank
+![Das Fenster der Pumpe: Tank und Eimerslots, Knopf „Seite“ für die Ausgangsseite.](../images/screenshots/gui-fluid-pump.png)
 
-```text
-┌───┬───┬───┐
-│ I │ E │ I │
-├───┼───┼───┤
-│ I │ M │ I │
-├───┼───┼───┤
-│ I │ T │ I │
-└───┴───┴───┘
-```
+<sub>Das Fenster der Pumpe: Tank und Eimerslots, Knopf „Seite“ für die Ausgangsseite.</sub>
 
-`E` = Eimer · `I` = Eisenbarren · `M` = [Maschinenrahmen](Erste-Schritte.md) · `T` = Kupferrohr
+![Rezept: Pumpe](images/rezepte/crafting_shaped_fluid_pump.svg)
+
+<sub>1 × Eimer, 6 × Eisenbarren, 1 × [Maschinenrahmen](Erste-Schritte.md), 1 × Kupferrohr → 1 × Pumpe</sub>
 
 ## Kupferrohr
 
@@ -38,19 +32,9 @@ Das Kupferrohr transportiert Flüssigkeiten und Gase, 200 mB pro Tick. Zwei wich
 - Ein Rohrnetz führt **immer nur ein Fluid**. Erst wenn es leer ist, kann ein anderes hinein. Für Wasser und Erdöl brauchst du also getrennte Rohre.
 - Rohre ziehen nie selbst. Maschinen und Tanks **schieben** ihre Ausgabe über ihre Ausgangsseite hinein.
 
-**4 × Kupferrohr** · Werkbank
+![Rezept: Kupferrohr](images/rezepte/crafting_shaped_copper_pipe.svg)
 
-```text
-┌───┬───┬───┐
-│ C │ G │ C │
-├───┼───┼───┤
-│ · │ · │ · │
-├───┼───┼───┤
-│ · │ · │ · │
-└───┴───┴───┘
-```
-
-`C` = Kupferbarren · `G` = Glas
+<sub>2 × Kupferbarren, 1 × Glas → 4 × Kupferrohr</sub>
 
 ## Tank
 
@@ -60,19 +44,13 @@ Der Tank fasst 16.000 mB einer Flüssigkeit. Er gibt nur über seine Ausgangssei
 | --- | --- |
 | Speicher | 16.000 mB |
 
-**Tank** · Werkbank
+![Das Fenster des Tanks mit Füll- und Leerslot.](../images/screenshots/gui-fluid-tank.png)
 
-```text
-┌───┬───┬───┐
-│ I │ G │ I │
-├───┼───┼───┤
-│ G │ · │ G │
-├───┼───┼───┤
-│ I │ G │ I │
-└───┴───┴───┘
-```
+<sub>Das Fenster des Tanks mit Füll- und Leerslot.</sub>
 
-`G` = Glas · `I` = Eisenbarren
+![Rezept: Tank](images/rezepte/crafting_shaped_fluid_tank.svg)
+
+<sub>4 × Glas, 4 × Eisenbarren → 1 × Tank</sub>
 
 ## Eimer, Füll- und Leerslot
 

@@ -1,6 +1,6 @@
 <!-- Erzeugt von tools/gen_wiki.py aus docs/handbook/ und spec/data. Nicht von Hand ändern. -->
 
-[Startseite](Home.md) › Phase 1 · Erdindustrie › **Erste Schritte**
+[📖 Wiki](README.md) › Phase 1 · Erdindustrie › **Erste Schritte**
 
 # Erste Schritte
 
@@ -25,19 +25,9 @@ In der ersten Phase baust du auf der Erde eine kleine Industrie auf. Am Ende has
 
 ## Der Maschinenrahmen
 
-**Maschinenrahmen** · Werkbank
+![Rezept: Maschinenrahmen](images/rezepte/crafting_shaped_machine_frame.svg)
 
-```text
-┌───┬───┬───┐
-│ I │ C │ I │
-├───┼───┼───┤
-│ C │ R │ C │
-├───┼───┼───┤
-│ I │ C │ I │
-└───┴───┴───┘
-```
-
-`C` = Kupferbarren · `I` = Eisenbarren · `R` = Redstone-Staub
+<sub>4 × Kupferbarren, 4 × Eisenbarren, 1 × Redstone-Staub → 1 × Maschinenrahmen</sub>
 
 > [!TIP]
 > Zerkleinere deine Erze, statt sie direkt zu schmelzen. Aus einem Roherz werden so zwei Barren. Das lohnt sich vom ersten Tag an.

@@ -16,6 +16,8 @@ Die <item:sternenwerft:press> formt Barren um. Welche Form herauskommt, bestimmt
 
 @machine sternenwerft:press
 
+@image ../images/screenshots/gui-press.png | Das Fenster der Presse: Barren links, Pressform im Formslot daneben.
+
 ## Bauen
 
 @recipes_for sternenwerft:press

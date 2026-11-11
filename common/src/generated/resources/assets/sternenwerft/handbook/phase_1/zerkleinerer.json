@@ -42,7 +42,7 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.zerkleinerer.e2",
+      "key": "sternenwerft.handbook.phase_1.zerkleinerer.e3",
       "level": 2
     },
     {
@@ -82,7 +82,7 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.zerkleinerer.e4",
+      "key": "sternenwerft.handbook.phase_1.zerkleinerer.e5",
       "level": 2
     },
     {
@@ -197,12 +197,12 @@
     },
     {
       "type": "heading",
-      "key": "sternenwerft.handbook.phase_1.zerkleinerer.e6",
+      "key": "sternenwerft.handbook.phase_1.zerkleinerer.e7",
       "level": 2
     },
     {
       "type": "text",
-      "key": "sternenwerft.handbook.phase_1.zerkleinerer.e7"
+      "key": "sternenwerft.handbook.phase_1.zerkleinerer.e8"
     },
     {
       "type": "recipes",
@@ -344,7 +344,7 @@
     },
     {
       "type": "callout",
-      "key": "sternenwerft.handbook.phase_1.zerkleinerer.e9",
+      "key": "sternenwerft.handbook.phase_1.zerkleinerer.e10",
       "style": "tip"
     }
   ]

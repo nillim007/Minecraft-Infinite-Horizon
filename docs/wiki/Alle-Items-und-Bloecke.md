@@ -1,6 +1,6 @@
 <!-- Erzeugt von tools/gen_wiki.py aus docs/handbook/ und spec/data. Nicht von Hand ändern. -->
 
-[Startseite](Home.md) › Nachschlagen › **Alle Items und Blöcke**
+[📖 Wiki](README.md) › Nachschlagen › **Alle Items und Blöcke**
 
 # Alle Items und Blöcke
 

@@ -12,6 +12,8 @@ Der <item:sternenwerft:crusher> ist die erste Maschine, die du bauen solltest. E
 
 @machine sternenwerft:crusher
 
+@image ../images/screenshots/gui-crusher.png | Das Fenster des Zerkleinerers: Energie links, Eingabe, Fortschrittspfeil, vier Ausgabeslots und unten rechts die Upgrade-Slots.
+
 ## Bauen
 
 @recipes_for sternenwerft:crusher

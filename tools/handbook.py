@@ -152,6 +152,7 @@ class Ctx:
         self.warnings = []
         self.item_page = {}   # ID -> Page (Seite, die das Objekt beschreibt)
         self.pages_by_stem = {}
+        self.wiki_images = {}  # Pfad relativ zu docs/wiki -> SVG
 
     # -- Sichtbarkeit
     def known(self, i: str) -> bool:
@@ -332,8 +333,9 @@ def parse_body(ctx: Ctx, page: Page, src: str) -> list:
                 elements.append(items_table(ctx))
             elif cmd == "image":
                 # @image <wiki-pfad> [<textur-id> <breite> <höhe>]
+                arg, _, caption = arg.partition(" | ")
                 parts = arg.split()
-                el = {"type": "image", "wiki": parts[0]}
+                el = {"type": "image", "wiki": parts[0], "caption": caption.strip()}
                 if len(parts) >= 4:
                     el.update({"texture": parts[1], "width": int(parts[2]), "height": int(parts[3])})
                 elements.append(el)
@@ -418,7 +420,7 @@ def inline_game(ctx: Ctx, text: str, lang: str = "de") -> str:
     def link(m):
         p = link_target(ctx, m.group(1))
         label = m.group(2) or (p.title(lang) if p else m.group(1))
-        return f"[[{p.id}|{label}]]" if p else label
+        return f"[[{p.id}|{label}]]" if p and "game" in p.targets else label
 
     def item(m):
         i = m.group(1)
@@ -519,35 +521,42 @@ def wiki_grid(ctx: Ctx, r) -> str:
     return "```text\n" + "\n".join(lines) + "\n```\n\n" + legend
 
 
-def wiki_recipe_single(ctx: Ctx, r) -> str:
-    res = r["results"][0]
-    title = inline_wiki(ctx, f"<item:{res['id']}>") if r["results"] else "?"
-    count = f"{res['count']} × " if res["count"] != 1 else ""
-    station = inline_wiki(ctx, f"<item:{recipe_station(ctx, r)['station']}>") if recipe_station(ctx, r)["station"].startswith(NS) \
-        else recipe_station(ctx, r)["de"]
-    head = f"**{count}{title}** · {station}"
-    if r.get("pattern"):
-        return head + "\n\n" + wiki_grid(ctx, r)
+IMG_DIR = "images/rezepte"
+
+
+def recipe_image(ctx: Ctx, r) -> str:
+    """Erzeugt das Rezeptbild (einmal je Rezept) und gibt den Pfad relativ zu docs/wiki zurück."""
+    import recipe_images  # noqa: PLC0415
+    path = f"{IMG_DIR}/{recipe_images.image_name(r['id'])}"
+    if path not in ctx.wiki_images:
+        ctx.wiki_images[path] = recipe_images.recipe_svg(ctx, r)
+    return path
+
+
+def recipe_legend(ctx: Ctx, r) -> str:
     ins, outs = recipe_parts(ctx, r)
-    ticks, ept = recipe_time(ctx, r)
-    extra = ""
-    if r["type"] not in ("crafting_shaped", "crafting_shapeless", "smelting") and ticks:
-        extra = f" · {ticks_text(ticks)}" + (f" · {num(ept)} J/t" if ept else "")
-    return head + extra + "\n\n" + inline_wiki(ctx, " + ".join(ins)) + " → " + inline_wiki(ctx, " + ".join(outs))
+    if r.get("pattern"):
+        ins = [f"{sum(row.count(k) for row in r['pattern'])} × " + " oder ".join(f"<item:{i}>" for i in sd.ingredient_ids(v))
+               for k, v in sorted(r["key"].items())]
+    return inline_wiki(ctx, ", ".join(ins)) + " → " + inline_wiki(ctx, ", ".join(outs))
+
+
+def wiki_recipe_single(ctx: Ctx, r) -> str:
+    alt = f"Rezept: {ctx.name(r['results'][0]['id']) if r['results'] else r['id']}"
+    return f"![{alt}]({recipe_image(ctx, r)})\n\n<sub>{recipe_legend(ctx, r)}</sub>"
 
 
 def wiki_recipe_table(ctx: Ctx, rids) -> str:
     rows = []
     for rid in rids:
         r = next(x for x in ctx.spec.recipes if x["id"] == rid)
-        ins, outs = recipe_parts(ctx, r)
         ticks, ept = recipe_time(ctx, r)
         t = "–" if r["type"] in ("crafting_shaped", "crafting_shapeless", "smelting") or not ticks else ticks_text(ticks)
-        e = f"{num(ept)} J/t" if ept and t != "–" else "–"
-        if r.get("pattern"):
-            ins = [f"{sum(row.count(k) for row in r['pattern'])} × <item:{sd.ingredient_ids(v)[0]}>" for k, v in sorted(r["key"].items())]
-        rows.append([inline_wiki(ctx, ", ".join(outs)), inline_wiki(ctx, ", ".join(ins)), recipe_station(ctx, r)["de"], t, e])
-    return md_table(["Ergebnis", "Zutaten", "Wo", "Dauer", "Energie"], rows)
+        if ept and t != "–":
+            t += f"<br>{num(ept)} J/t"
+        img = f'<img src="{recipe_image(ctx, r)}" alt="Rezept" width="300">'
+        rows.append([img, recipe_legend(ctx, r), recipe_station(ctx, r)["de"], t])
+    return md_table(["Rezept", "Zutaten → Ergebnis", "Wo", "Dauer"], rows)
 
 
 def md_table(headers, rows) -> str:
@@ -626,7 +635,8 @@ def wiki_elements(ctx: Ctx, page: Page) -> str:
         elif t == "table":
             out.append(md_table(el["headers"], [[inline_wiki(ctx, c) for c in row] for row in el["rows"]]))
         elif t == "image":
-            out.append(f"![{page.title('de')}]({el['wiki']})")
+            cap = el.get("caption")
+            out.append(f"![{cap or page.title('de')}]({el['wiki']})" + (f"\n\n<sub>{inline_wiki(ctx, cap)}</sub>" if cap else ""))
         elif t == "wiki_only":
             out.append(inline_wiki(ctx, el["markdown"]))
     return "\n\n".join(out)
@@ -643,7 +653,7 @@ def build_wiki(ctx: Ctx, chapters: list) -> dict:
     for c in chapters:
         plist = by_chapter[c["id"]]
         for n, p in enumerate(plist):
-            nav = f"[Startseite](Home.md) › {c['title_de']} › **{p.title('de')}**"
+            nav = f"[📖 Wiki](README.md) › {c['title_de']} › **{p.title('de')}**"
             prev_ = f"← [{plist[n - 1].title('de')}]({plist[n - 1].wiki}.md)" if n > 0 else ""
             next_ = f"[{plist[n + 1].title('de')}]({plist[n + 1].wiki}.md) →" if n + 1 < len(plist) else ""
             foot = " · ".join(x for x in (prev_, next_) if x)
@@ -656,7 +666,8 @@ def build_wiki(ctx: Ctx, chapters: list) -> dict:
     if props.exists():
         m = re.search(r"^version=(.+)$", props.read_text(encoding="utf-8"), re.M)
         version = m.group(1).strip() if m else ""
-    home = [GEN_NOTE.rstrip(), "", "# Sternenwerft – Wiki", ""]
+    ctx.current = None
+    home = [GEN_NOTE.rstrip(), "", "# Sternenwerft – Spieler-Wiki", ""]
     intro = SRC / "home.md"
     if intro.exists():
         home += [read_page_file(intro)[1].strip(), ""]
@@ -669,17 +680,10 @@ def build_wiki(ctx: Ctx, chapters: list) -> dict:
             home += [f"- [{p.title('de')}]({p.wiki}.md)" + (f" – {p.meta['summary']}" if p.meta.get("summary") else "")
                      for p in by_chapter[c["id"]]]
             home.append("")
-    files["Home.md"] = "\n".join(home)
-    side = ["**[Startseite](Home.md)**", ""]
-    for c in chapters:
-        if by_chapter[c["id"]]:
-            side.append(f"**{c['title_de']}**\n")
-            side += [f"- [{p.title('de')}]({p.wiki}.md)" for p in by_chapter[c["id"]]]
-            side.append("")
-    side.append(f"_{status}_")
-    files["_Sidebar.md"] = "\n".join(side) + "\n"
-    files["_Footer.md"] = ("Sternenwerft · MIT-Lizenz · Dieses Wiki wird aus `docs/handbook/` erzeugt "
-                           "(`python tools/gen_wiki.py`). Änderungen bitte dort.\n")
+    home.append("---\n\n_Dieses Wiki wird aus `docs/handbook/` erzeugt (`python tools/gen_wiki.py`). "
+                "Änderungen bitte dort, nicht in diesem Ordner._")
+    files["README.md"] = "\n".join(home) + "\n"
+    files.update(ctx.wiki_images)
     return files
 
 

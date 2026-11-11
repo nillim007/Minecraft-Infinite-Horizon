@@ -1,12 +1,14 @@
 <!-- Erzeugt von tools/gen_wiki.py aus docs/handbook/ und spec/data. Nicht von Hand ändern. -->
 
-[Startseite](Home.md) › Phase 1 · Erdindustrie › **Raffinerie**
+[📖 Wiki](README.md) › Phase 1 · Erdindustrie › **Raffinerie**
 
 # Raffinerie
 
 Die Raffinerie ist dein erster **Multiblock**: ein Turm aus 45 Blöcken, der aus Erdöl **Kerosin** und **Kunststoff** macht. Kerosin ist Treibstoff, Kunststoff steckt in jedem Schaltkreis.
 
-![Raffinerie](../images/refinery.svg)
+![Bauplan: Der Controller (orange) sitzt unten in der Mitte der Vorderseite, Ports (blau, gelb) ersetzen beliebige Gehäuseblöcke.](../images/refinery.svg)
+
+<sub>Bauplan: Der Controller (orange) sitzt unten in der Mitte der Vorderseite, Ports (blau, gelb) ersetzen beliebige Gehäuseblöcke.</sub>
 
 | Steckbrief: Raffinerie |  |
 | --- | --- |
@@ -15,11 +17,15 @@ Die Raffinerie ist dein erster **Multiblock**: ein Turm aus 45 Blöcken, der aus
 | Tanks | 16.000 mB, 16.000 mB |
 | Upgrade-Slots | 2 |
 
+![Das Fenster der Raffinerie: Erdöl-Tank links, Kunststoff in der Mitte, Kerosin-Tank rechts.](../images/screenshots/gui-refinery.png)
+
+<sub>Das Fenster der Raffinerie: Erdöl-Tank links, Kunststoff in der Mitte, Kerosin-Tank rechts.</sub>
+
 ## Was sie macht
 
-| Ergebnis | Zutaten | Wo | Dauer | Energie |
-| --- | --- | --- | --- | --- |
-| 1 × Kunststoff, 600 mB Kerosin | 1.000 mB Erdöl | Raffinerie | 200 t (10 s) | 40 J/t |
+| Rezept | Zutaten → Ergebnis | Wo | Dauer |
+| --- | --- | --- | --- |
+| <img src="images/rezepte/refining_kerosene.svg" alt="Rezept" width="300"> | 1.000 mB Erdöl → 1 × Kunststoff, 600 mB Kerosin | Raffinerie | 200 t (10 s)<br>40 J/t |
 
 ## Der Aufbau
 
@@ -34,6 +40,10 @@ Die Raffinerie ist **3 Blöcke breit, 3 Blöcke tief und 5 Blöcke hoch**, ganz 
 > [!TIP]
 > **Sneak-Rechtsklick** mit leerer Hand auf den Controller zeigt dir 200 t (10 s) lang mit roten Partikeln, wo noch Blöcke fehlen oder falsch sind.
 
+![Ein fertiger Raffinerie-Turm von unten gesehen. Ist er unvollständig, zeigen rote Partikel die fehlenden Plätze.](../images/screenshots/refinery-ghost.png)
+
+<sub>Ein fertiger Raffinerie-Turm von unten gesehen. Ist er unvollständig, zeigen rote Partikel die fehlenden Plätze.</sub>
+
 ## Ports
 
 Ports ersetzen Gehäuseblöcke und leiten nach außen an den Controller weiter. Rechtsklick mit leerer Hand schaltet zwischen **Eingang** und **Ausgang** um.
@@ -42,13 +52,13 @@ Ports ersetzen Gehäuseblöcke und leiten nach außen an den Controller weiter. 
 - Item-Port – Kunststoff heraus (Ausgang).
 - Energie-Port – Strom hinein.
 
-| Ergebnis | Zutaten | Wo | Dauer | Energie |
-| --- | --- | --- | --- | --- |
-| 1 × Raffinerie | 1 × [Maschinenrahmen](Erste-Schritte.md), 16 × [Eisenplatte](Presse.md), 8 × [Kupferrohr](Fluide-und-Rohre.md), 4 × Redstone-Staub | Montagetisch | 200 t (10 s) | 30 J/t |
-| 4 × Raffinerie-Gehäuse | 2 × [Eisenplatte](Presse.md), 1 × [Kupferrohr](Fluide-und-Rohre.md) | Montagetisch | 200 t (10 s) | 30 J/t |
-| 1 × Item-Port | 4 × [Eisenplatte](Presse.md), 1 × Trichter | Montagetisch | 200 t (10 s) | 30 J/t |
-| 1 × Fluid-Port | 4 × [Eisenplatte](Presse.md), 1 × [Kupferrohr](Fluide-und-Rohre.md) | Montagetisch | 200 t (10 s) | 30 J/t |
-| 1 × Energie-Port | 4 × [Eisenplatte](Presse.md), 1 × [Kupferkabel](Strom.md) | Montagetisch | 200 t (10 s) | 30 J/t |
+| Rezept | Zutaten → Ergebnis | Wo | Dauer |
+| --- | --- | --- | --- |
+| <img src="images/rezepte/assembly_refinery_controller.svg" alt="Rezept" width="300"> | 1 × [Maschinenrahmen](Erste-Schritte.md), 16 × [Eisenplatte](Presse.md), 8 × [Kupferrohr](Fluide-und-Rohre.md), 4 × Redstone-Staub → 1 × Raffinerie | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_refinery_casing.svg" alt="Rezept" width="300"> | 2 × [Eisenplatte](Presse.md), 1 × [Kupferrohr](Fluide-und-Rohre.md) → 4 × Raffinerie-Gehäuse | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_item_port.svg" alt="Rezept" width="300"> | 4 × [Eisenplatte](Presse.md), 1 × Trichter → 1 × Item-Port | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_fluid_port.svg" alt="Rezept" width="300"> | 4 × [Eisenplatte](Presse.md), 1 × [Kupferrohr](Fluide-und-Rohre.md) → 1 × Fluid-Port | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_energy_port.svg" alt="Rezept" width="300"> | 4 × [Eisenplatte](Presse.md), 1 × [Kupferkabel](Strom.md) → 1 × Energie-Port | Montagetisch | 200 t (10 s)<br>30 J/t |
 
 ## Materialbedarf
 
