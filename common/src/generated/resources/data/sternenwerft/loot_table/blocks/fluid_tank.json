@@ -8,7 +8,14 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "sternenwerft:fluid_tank"
+          "name": "sternenwerft:fluid_tank",
+          "modifier": {
+            "type": "minecraft:copy_components",
+            "include": [
+              "sternenwerft:fluid"
+            ],
+            "source": "block_entity"
+          }
         }
       ],
       "rolls": 1

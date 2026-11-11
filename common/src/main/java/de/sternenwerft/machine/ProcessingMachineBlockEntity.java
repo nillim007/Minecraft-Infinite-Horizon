@@ -133,6 +133,18 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         return ProcessingMath.effective(withRecipe, installedUpgrades());
     }
 
+    /** Wirksame Dauer und Verbrauch (mit eingebauten Upgrades), wenn {@code input} im ersten Eingabeslot läge; sonst null. */
+    public ProcessingMath.@Nullable Effective effectiveFor(ServerLevel level, ItemStack input) {
+        ensureLayout();
+        ItemStack old = items.get(0);
+        items.set(0, input);
+        try {
+            return findPlan(level).map(this::effective).orElse(null);
+        } finally {
+            items.set(0, old);
+        }
+    }
+
     /** Dauer in Ticks, wenn {@code input} im ersten Eingabeslot läge; -1 ohne passendes Rezept. */
     public int durationFor(ServerLevel level, ItemStack input) {
         ensureLayout();

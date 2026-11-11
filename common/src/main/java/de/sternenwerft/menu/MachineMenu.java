@@ -48,6 +48,10 @@ public class MachineMenu extends AbstractContainerMenu {
     public static final int DRAIN_Y = 53;
     public static final int INVENTORY_Y = 84;
 
+    /** Vorrang beim Shift-Klick aus dem Spielerinventar (4.1). */
+    private static final MachineLayout.Role[] SHIFT_CLICK_ORDER = {MachineLayout.Role.UPGRADE, MachineLayout.Role.MOLD,
+            MachineLayout.Role.FUEL, MachineLayout.Role.DRAIN, MachineLayout.Role.FILL, MachineLayout.Role.INPUT};
+
     private final Container container;
     private final ContainerData data;
     private final OpenData openData;
@@ -147,12 +151,15 @@ public class MachineMenu extends AbstractContainerMenu {
                 return ItemStack.EMPTY;
             }
         } else {
-            // Upgrade → Upgrade-Slot, Pressform → Formslot, sonst Eingabe (4.1); mayPlace entscheidet je Slot
+            // Upgrade → Upgrade-Slot, Pressform → Formslot, sonst Eingabe (4.1): Ziel-Slots nach Vorrang der Rolle
             boolean moved = false;
-            for (int i = 0; i < machineSlots && !stack.isEmpty(); i++) {
-                Slot target = slots.get(i);
-                if (target.mayPlace(stack)) {
-                    moved |= moveItemStackTo(stack, i, i + 1, false);
+            MachineLayout l = openData.layout();
+            for (MachineLayout.Role role : SHIFT_CLICK_ORDER) {
+                for (int i = 0; i < machineSlots && !stack.isEmpty(); i++) {
+                    Slot target = slots.get(i);
+                    if (l.role(target.getContainerSlot()) == role && target.mayPlace(stack)) {
+                        moved |= moveItemStackTo(stack, i, i + 1, false);
+                    }
                 }
             }
             if (!moved) {

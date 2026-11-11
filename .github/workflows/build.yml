@@ -28,8 +28,10 @@ jobs:
       - name: Erzeugte Mod-Ressourcen aktuell?
         run: |
           python tools/gen_resources.py
-          git status --porcelain -- common/src/generated
-          test -z "$(git status --porcelain -- common/src/generated)" || (echo "::error::common/src/generated ist veraltet – python tools/gen_resources.py ausführen" && exit 1)
+          python tools/gen_gametests.py
+          G="common/src/generated common/src/main/java/de/sternenwerft/gametest/SwTestCatalog.java fabric/src/main/java/de/sternenwerft/gametest/SwFabricGameTests.java"
+          git status --porcelain -- $G
+          test -z "$(git status --porcelain -- $G)" || (echo "::error::Erzeugte Dateien veraltet – python tools/gen_resources.py und python tools/gen_gametests.py ausführen" && exit 1)
 
   build:
     name: Mod bauen (NeoForge + Fabric)

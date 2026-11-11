@@ -30,6 +30,14 @@ public class SwClientGameTests implements FabricClientGameTest {
                 .adjustSettings(c -> c.setGameMode(WorldCreationUiState.SelectedGameMode.CREATIVE)).create()) {
             sp.getConnection().waitForChunksRender();
 
+            // Config-Sync (3A.5): der Client kennt nach dem Beitritt die Serverwerte
+            String freq = context.computeOnClient(c -> de.sternenwerft.data.ServerConfig.client().getString("event_frequency"));
+            if (!"normal".equals(freq)) {
+                throw new AssertionError("SyncConfigPayload nicht angekommen: event_frequency = " + freq);
+            }
+
+            sideButtonChangesServer(context, sp);
+
             machine(context, sp, ModBlocks.CRUSHER.get(), "gui_crusher", be -> {
                 be.setItem(0, new ItemStack(Items.RAW_IRON, 8));
                 fillEnergy(be, 2);
@@ -100,6 +108,30 @@ public class SwClientGameTests implements FabricClientGameTest {
             context.waitTicks(5);
             clearChat(context);
             context.takeScreenshot("world_machines");
+        }
+    }
+
+    /** Knopf „Seite“ im echten GUI: schickt MachineConfigPayload, der Server ändert die Ausgangsseite (Nord → Süd). */
+    private static void sideButtonChangesServer(ClientGameTestContext context, TestSingleplayerContext sp) {
+        BlockPos pos = context.computeOnClient(c -> BlockPos.containing(c.player.position()).east(2).above());
+        setBlock(sp, pos, ModBlocks.FLUID_TANK.get());
+        context.waitFor(c -> c.level.getBlockState(pos).is(ModBlocks.FLUID_TANK.get()));
+        context.getInput().lookAt(pos);
+        context.waitTick();
+        context.getInput().pressKey(options -> options.keyUse);
+        context.waitForScreen(MachineScreen.class);
+        context.waitTicks(5);
+        context.runOnClient(c -> ((MachineScreen) c.gui.screen()).cycleOutputSide());
+        context.waitTicks(5);
+        String side = sp.getServer().computeOnServer(server ->
+                sp.getConnection().getServerLevel().getBlockEntity(pos) instanceof MachineBlockEntity be ? be.outputSide().getSerializedName() : "?");
+        clearChat(context);
+        context.takeScreenshot("gui_fluid_tank_side_south");
+        context.setScreen(() -> null);
+        sp.getServer().runCommand("setblock %d %d %d minecraft:air".formatted(pos.getX(), pos.getY(), pos.getZ()));
+        context.waitTick();
+        if (!"south".equals(side)) {
+            throw new AssertionError("Knopf „Seite“: Server-Ausgangsseite ist " + side + ", erwartet south");
         }
     }
 

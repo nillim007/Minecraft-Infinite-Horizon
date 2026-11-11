@@ -198,12 +198,21 @@ def oil_bubble_worldgen():
     return {"feature": f"{NS}:oil_bubble", "biomes": f"{NS}:has_oil_bubble", "step": "lakes"}
 
 
+# Blöcke, deren Inhalt beim Abbauen als Komponente am Item bleibt (4.1: fluid_tank, später battery)
+COPY_COMPONENTS = {"fluid_tank": [f"{NS}:fluid"]}
+
+
 def block_loot(name):
+    entry = {"type": "minecraft:item", "name": f"{NS}:{name}"}
+    if name in COPY_COMPONENTS:
+        # 26.3-Format wie Vanilla furnace: "modifier" mit copy_components aus der Block-Entity
+        entry["modifier"] = {"type": "minecraft:copy_components", "include": COPY_COMPONENTS[name],
+                             "source": "block_entity"}
     write_json(f"data/{NS}/loot_table/blocks/{name}.json", {
         "type": "minecraft:block",
         # 26.3-Format wie Vanilla iron_block: "condition" mit "type"
         "pools": [{"condition": {"type": "minecraft:survives_explosion"},
-                   "entries": [{"type": "minecraft:item", "name": f"{NS}:{name}"}],
+                   "entries": [entry],
                    "rolls": 1}],
         "random_sequence": f"{NS}:blocks/{name}",
     })

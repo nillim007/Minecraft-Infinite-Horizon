@@ -3,7 +3,11 @@ package de.sternenwerft.machine;
 import com.google.gson.JsonObject;
 import de.sternenwerft.block.MachineStatus;
 import de.sternenwerft.core.energy.SwEnergyStorage;
+import de.sternenwerft.core.fluid.SwFluidStack;
 import de.sternenwerft.core.fluid.SwFluidTank;
+import de.sternenwerft.registry.ModDataComponents;
+import net.minecraft.core.component.DataComponentGetter;
+import net.minecraft.core.component.DataComponentMap;
 import de.sternenwerft.data.BalanceManager;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -70,6 +74,26 @@ public class FluidTankBlockEntity extends MachineBlockEntity {
     @Override
     public boolean providesEnergyTo(@Nullable Direction side) {
         return false;
+    }
+
+    /** Beim Abbauen: Inhalt als {@code sternenwerft:fluid} ans Item (Loot kopiert die Komponente, 4.1). */
+    @Override
+    protected void collectImplicitComponents(DataComponentMap.Builder components) {
+        super.collectImplicitComponents(components);
+        if (!tank.stack().isEmpty()) {
+            components.set(ModDataComponents.FLUID.get(), tank.stack());
+        }
+    }
+
+    /** Beim Platzieren eines Tanks mit Inhalt. */
+    @Override
+    protected void applyImplicitComponents(DataComponentGetter components) {
+        super.applyImplicitComponents(components);
+        SwFluidStack stored = components.get(ModDataComponents.FLUID.get());
+        if (stored != null) {
+            ensureLayout();
+            tank.setStackUnchecked(stored);
+        }
     }
 
     @Override

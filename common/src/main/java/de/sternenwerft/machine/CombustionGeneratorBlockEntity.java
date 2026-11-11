@@ -9,6 +9,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
@@ -54,7 +55,6 @@ public class CombustionGeneratorBlockEntity extends MachineBlockEntity {
         storage.reconfigure(s.buffer(), 0, s.buffer());
     }
 
-    // SPEC-GAP: Behälter-Brennstoffe (Lavaeimer) behalten den Eimer erst ab M2e (6.3); bis dahin geht er verloren.
 
     @Override
     protected long syncValue(int index) {
@@ -90,7 +90,13 @@ public class CombustionGeneratorBlockEntity extends MachineBlockEntity {
                     if (time > 0) {
                         burnRemaining = time;
                         burnTotal = time;
-                        fuel.shrink(1);
+                        // Behälter-Brennstoffe (Lavaeimer) lassen den leeren Behälter im Slot, wie der Vanilla-Ofen (6.3)
+                        ItemStackTemplate remainder = fuel.getItem().getCraftingRemainder();
+                        if (fuel.getCount() == 1 && remainder != null) {
+                            items.set(i, remainder.create());
+                        } else {
+                            fuel.shrink(1);
+                        }
                     }
                 }
             }

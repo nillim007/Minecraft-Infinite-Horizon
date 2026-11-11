@@ -9,6 +9,7 @@ import de.sternenwerft.platform.Services;
 import de.sternenwerft.registry.ModBlockEntities;
 import de.sternenwerft.registry.ModBlocks;
 import de.sternenwerft.registry.ModCreativeTabs;
+import de.sternenwerft.registry.ModDataComponents;
 import de.sternenwerft.registry.ModFluids;
 import de.sternenwerft.registry.ModItems;
 import de.sternenwerft.registry.ModWorldgen;
@@ -47,6 +48,7 @@ public final class Sternenwerft {
     public static void init() {
         LOG.info("[Sternenwerft] Initialisierung auf {} ({})", Services.PLATFORM.getPlatformName(),
                 Services.PLATFORM.getEnvironmentName());
+        ModDataComponents.init();
         ModBlocks.init();
         ModItems.init();
         ModFluids.init();

@@ -61,12 +61,19 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
     protected void init() {
         super.init();
         // Knopf „Seite“ (4.1): schaltet die Ausgangsseite durch Unten, Oben, Nord, Süd, West, Ost
-        sideButton = Button.builder(Component.translatable("gui.sternenwerft.side"), b -> {
-            long current = menu.value(MachineBlockEntity.SYNC_SIDE);
-            int next = current <= 0 ? 0 : (int) (current % Direction.values().length);
-            Services.NETWORK.sendToServer(new MachineConfigPayload(menu.openData().pos(), next, -1));
-        }).bounds(leftPos + SIDE_X, topPos + SIDE_Y, SIDE_W, SIDE_H).build();
+        sideButton = Button.builder(Component.translatable("gui.sternenwerft.side"), b -> cycleOutputSide())
+                .bounds(leftPos + SIDE_X, topPos + SIDE_Y, SIDE_W, SIDE_H).build();
         addRenderableWidget(sideButton);
+    }
+
+    /** Schickt die nächste Ausgangsseite (Unten, Oben, Nord, Süd, West, Ost) an den Server. */
+    public void cycleOutputSide() {
+        long current = menu.value(MachineBlockEntity.SYNC_SIDE);
+        if (current <= 0) {
+            return;
+        }
+        int next = (int) (current % Direction.values().length);
+        Services.NETWORK.sendToServer(new MachineConfigPayload(menu.openData().pos(), next, -1));
     }
 
     @Override
