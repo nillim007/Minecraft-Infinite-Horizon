@@ -3,9 +3,12 @@
     "sternenwerft:bauxite_ore",
     "sternenwerft:combustion_generator",
     "sternenwerft:copper_cable",
+    "sternenwerft:copper_pipe",
     "sternenwerft:crusher",
     "sternenwerft:deepslate_titanium_ore",
     "sternenwerft:electric_furnace",
+    "sternenwerft:fluid_pump",
+    "sternenwerft:fluid_tank",
     "sternenwerft:press",
     "sternenwerft:titanium_ore"
   ]

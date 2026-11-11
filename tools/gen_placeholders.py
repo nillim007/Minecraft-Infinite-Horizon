@@ -90,7 +90,7 @@ def base_colors(e):
         m = metal_of(name)
         if m:
             return rgb(host), rgb(m)
-    if cat == "material":
+    if cat in ("material", "pipe"):  # Rohre: Metallfarbe (copper_pipe -> Kupfer)
         m = metal_of(name)
         if m:
             return rgb(m), shade(rgb(m), 1.25)
@@ -159,6 +159,39 @@ def machine_front(e, status):
     return png(px)
 
 
+def fluid_texture(e, flow):
+    """Fluidtextur: einfarbig in der Fluidfarbe mit leichtem Rauschen (still bzw. fliessend, 16x16)."""
+    base = rgb(e["color"])
+    r = rng(e["id"] + (":flow" if flow else ":still"))
+    px = []
+    for y in range(16):
+        row = []
+        for x in range(16):
+            noise = (next(r) % 13 - 6) / 100
+            if flow and (x + y) % 8 == 0:
+                noise += 0.06  # schwache Streifen fuer die Fliessrichtung
+            row.append((*shade(base, 1 + noise), 255))
+        px.append(row)
+    return png(px)
+
+
+def bucket_texture(e):
+    """Eimer: grauer Eimer, Inhalt in der Fluidfarbe."""
+    base = rgb(e["color"])
+    r = rng(e["id"] + ":bucket")
+    iron = rgb("#9A9A9A")
+    px = [[(0, 0, 0, 0)] * 16 for _ in range(16)]
+    for y in range(3, 14):
+        inset = (y - 3) // 4  # Eimer verjuengt sich nach unten
+        for x in range(3 + inset, 13 - inset):
+            edge = x in (3 + inset, 12 - inset) or y in (3, 13)
+            c = shade(iron, 0.7 if edge else 1 + (next(r) % 11 - 5) / 100)
+            if y in (4, 5, 6) and not edge:
+                c = shade(base, 1 + (next(r) % 9 - 4) / 100)  # Fuellung
+            px[y][x] = (*c, 255)
+    return png(px)
+
+
 def machine_ids():
     import json
     impl = json.loads((sd.ROOT / "common" / "implemented_ids.json").read_text(encoding="utf-8"))
@@ -174,11 +207,26 @@ def main():
     n = 0
     machines = machine_ids()
     for e in spec.all_entries:
+        name = e["id"].split(":")[1]
+        if e.get("kind") == "fluid" and e.get("color"):
+            if only and name not in only:
+                continue
+            (OUT / "block").mkdir(parents=True, exist_ok=True)
+            (OUT / "block" / f"{name}_still.png").write_bytes(fluid_texture(e, False))
+            (OUT / "block" / f"{name}_flow.png").write_bytes(fluid_texture(e, True))
+            n += 2
+            continue
         if e.get("kind") not in ("item", "block"):
             continue
-        name = e["id"].split(":")[1]
         if only and name not in only:
             continue
+        if name.endswith("_bucket") and f"sternenwerft:{name[:-7]}" in spec.items:
+            fl = spec.items[f"sternenwerft:{name[:-7]}"]
+            if fl.get("kind") == "fluid" and fl.get("color"):
+                (OUT / "item").mkdir(parents=True, exist_ok=True)
+                (OUT / "item" / f"{name}.png").write_bytes(bucket_texture(fl))
+                n += 1
+                continue
         folder = "block" if e["kind"] == "block" else "item"
         p = OUT / folder / f"{name}.png"
         p.parent.mkdir(parents=True, exist_ok=True)

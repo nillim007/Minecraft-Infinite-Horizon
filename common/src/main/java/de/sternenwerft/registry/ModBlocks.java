@@ -2,6 +2,7 @@ package de.sternenwerft.registry;
 
 import de.sternenwerft.Sternenwerft;
 import de.sternenwerft.block.CableBlock;
+import de.sternenwerft.block.FluidPipeBlock;
 import de.sternenwerft.machine.MachineBlock;
 import de.sternenwerft.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -38,6 +39,14 @@ public final class ModBlocks {
     public static final Supplier<Block> PRESS = register("press",
             p -> new MachineBlock(p, () -> ModBlockEntities.PRESS.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> FLUID_TANK = register("fluid_tank",
+            p -> new MachineBlock(p, () -> ModBlockEntities.FLUID_TANK.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> FLUID_PUMP = register("fluid_pump",
+            p -> new MachineBlock(p, () -> ModBlockEntities.FLUID_PUMP.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> COPPER_PIPE = register("copper_pipe", FluidPipeBlock::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.COPPER).noOcclusion());
     public static final Supplier<Block> COPPER_CABLE = register("copper_cable", CableBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.COPPER).noOcclusion());
 

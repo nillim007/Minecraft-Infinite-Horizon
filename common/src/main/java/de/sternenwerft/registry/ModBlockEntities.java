@@ -2,6 +2,8 @@ package de.sternenwerft.registry;
 
 import de.sternenwerft.machine.CombustionGeneratorBlockEntity;
 import de.sternenwerft.machine.ElectricFurnaceBlockEntity;
+import de.sternenwerft.machine.FluidPumpBlockEntity;
+import de.sternenwerft.machine.FluidTankBlockEntity;
 import de.sternenwerft.machine.ProcessingMachineBlockEntity;
 import de.sternenwerft.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -40,6 +42,18 @@ public final class ModBlockEntities {
                             (pos, state) -> new CombustionGeneratorBlockEntity(ModBlockEntities.COMBUSTION_GENERATOR.get(), pos, state),
                             ModBlocks.COMBUSTION_GENERATOR.get()));
 
+    public static final Supplier<BlockEntityType<FluidTankBlockEntity>> FLUID_TANK =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "fluid_tank",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new FluidTankBlockEntity(ModBlockEntities.FLUID_TANK.get(), pos, state),
+                            ModBlocks.FLUID_TANK.get()));
+
+    public static final Supplier<BlockEntityType<FluidPumpBlockEntity>> FLUID_PUMP =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "fluid_pump",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new FluidPumpBlockEntity(ModBlockEntities.FLUID_PUMP.get(), pos, state),
+                            ModBlocks.FLUID_PUMP.get()));
+
     private ModBlockEntities() {
     }
 
@@ -48,5 +62,8 @@ public final class ModBlockEntities {
         Services.ENERGY.expose(COMBUSTION_GENERATOR);
         Services.ENERGY.expose(ELECTRIC_FURNACE);
         Services.ENERGY.expose(PRESS);
+        Services.ENERGY.expose(FLUID_PUMP);
+        Services.FLUID.expose(FLUID_TANK);
+        Services.FLUID.expose(FLUID_PUMP);
     }
 }

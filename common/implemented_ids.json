@@ -10,7 +10,10 @@
     "sternenwerft:bauxite_ore": "simple_block",
     "sternenwerft:titanium_ore": "simple_block",
     "sternenwerft:deepslate_titanium_ore": "simple_block",
-    "sternenwerft:quartz_sand": "simple_block"
+    "sternenwerft:quartz_sand": "simple_block",
+    "sternenwerft:copper_pipe": "pipe",
+    "sternenwerft:fluid_tank": "machine",
+    "sternenwerft:fluid_pump": "machine"
   },
   "items": [
     "sternenwerft:aluminum_dust",
@@ -26,6 +29,7 @@
     "sternenwerft:iron_dust",
     "sternenwerft:iron_plate",
     "sternenwerft:iron_rod",
+    "sternenwerft:kerosene_bucket",
     "sternenwerft:machine_frame",
     "sternenwerft:press_mold_plate",
     "sternenwerft:press_mold_rod",
@@ -38,5 +42,9 @@
     "sternenwerft:titanium_plate",
     "sternenwerft:titanium_rod"
   ],
-  "step": "2b"
+  "fluids": [
+    "crude_oil",
+    "kerosene"
+  ],
+  "step": "2c"
 }

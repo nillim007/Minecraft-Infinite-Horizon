@@ -2,6 +2,7 @@ package de.sternenwerft;
 
 import de.sternenwerft.gametest.NeoForgeGameTests;
 import de.sternenwerft.platform.NeoForgeEnergyHelper;
+import de.sternenwerft.platform.NeoForgeFluidHelper;
 import de.sternenwerft.platform.NeoForgeNetworkHelper;
 import de.sternenwerft.platform.NeoForgeRegistryHelper;
 import net.minecraft.server.level.ServerPlayer;
@@ -21,6 +22,7 @@ public class SternenwerftNeoForge {
         NeoForgeGameTests.FUNCTIONS.register(modBus);
 
         modBus.addListener(NeoForgeEnergyHelper::registerCapabilities);
+        modBus.addListener(NeoForgeFluidHelper::registerCapabilities);
         modBus.addListener(NeoForgeNetworkHelper::onRegisterPayloads);
         modBus.addListener(NeoForgeGameTests::onRegisterTests);
 

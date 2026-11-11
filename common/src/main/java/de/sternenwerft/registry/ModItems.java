@@ -37,6 +37,9 @@ public final class ModItems {
     public static final Supplier<Item> PRESS = blockItem("press", ModBlocks.PRESS);
     public static final Supplier<Item> COMBUSTION_GENERATOR = blockItem("combustion_generator", ModBlocks.COMBUSTION_GENERATOR);
     public static final Supplier<Item> COPPER_CABLE = blockItem("copper_cable", ModBlocks.COPPER_CABLE);
+    public static final Supplier<Item> COPPER_PIPE = blockItem("copper_pipe", ModBlocks.COPPER_PIPE);
+    public static final Supplier<Item> FLUID_TANK = blockItem("fluid_tank", ModBlocks.FLUID_TANK);
+    public static final Supplier<Item> FLUID_PUMP = blockItem("fluid_pump", ModBlocks.FLUID_PUMP);
 
     static {
         ModBlocks.simpleBlocks().forEach((id, block) -> blockItem(id, block));
@@ -49,6 +52,11 @@ public final class ModItems {
     }
 
     public static void init() {
+    }
+
+    /** Nimmt ein anderswo registriertes Item (z. B. Eimer) in den Creative-Tab auf. */
+    public static void track(Supplier<? extends Item> item) {
+        ALL.add(item);
     }
 
     public static List<Supplier<? extends Item>> all() {

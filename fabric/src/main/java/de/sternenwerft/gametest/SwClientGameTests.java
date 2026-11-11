@@ -48,6 +48,17 @@ public class SwClientGameTests implements FabricClientGameTest {
                 be.setItem(l.upgradeStart() + 1, new ItemStack(ModItems.simple("efficiency_upgrade").get(), 4));
                 fillEnergy(be, 1);
             });
+            machine(context, sp, ModBlocks.FLUID_TANK.get(), "gui_fluid_tank", be -> {
+                ((de.sternenwerft.machine.FluidTankBlockEntity) be).tank().setStackUnchecked(
+                        de.sternenwerft.core.fluid.SwFluidStack.of(de.sternenwerft.Sternenwerft.id("crude_oil"), 9000));
+                be.setItem(be.layout().fillStart(), new ItemStack(Items.BUCKET));
+            });
+            machine(context, sp, ModBlocks.FLUID_PUMP.get(), "gui_fluid_pump", be -> {
+                ((de.sternenwerft.machine.FluidPumpBlockEntity) be).tank().setStackUnchecked(
+                        de.sternenwerft.core.fluid.SwFluidStack.of(net.minecraft.resources.Identifier.withDefaultNamespace("water"), 4000));
+                be.setItem(be.layout().upgradeStart(), new ItemStack(ModItems.simple("speed_upgrade").get(), 1));
+                fillEnergy(be, 2);
+            });
             machine(context, sp, ModBlocks.COMBUSTION_GENERATOR.get(), "gui_combustion_generator", be ->
                     be.setItem(0, new ItemStack(Items.COAL, 12)));
 

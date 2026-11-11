@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#sternenwerft:has_oil_bubble",
+  "features": "sternenwerft:oil_bubble",
+  "step": "lakes"
+}

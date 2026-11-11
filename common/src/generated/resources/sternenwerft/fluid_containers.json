@@ -1,0 +1,28 @@
+{
+  "containers": [
+    {
+      "full": "minecraft:water_bucket",
+      "fluid": "minecraft:water",
+      "amount": 1000,
+      "empty": "minecraft:bucket"
+    },
+    {
+      "full": "minecraft:lava_bucket",
+      "fluid": "minecraft:lava",
+      "amount": 1000,
+      "empty": "minecraft:bucket"
+    },
+    {
+      "full": "sternenwerft:crude_oil_bucket",
+      "fluid": "sternenwerft:crude_oil",
+      "amount": 1000,
+      "empty": "minecraft:bucket"
+    },
+    {
+      "full": "sternenwerft:kerosene_bucket",
+      "fluid": "sternenwerft:kerosene",
+      "amount": 1000,
+      "empty": "minecraft:bucket"
+    }
+  ]
+}

@@ -1,6 +1,11 @@
 package de.sternenwerft.client;
 
+import de.sternenwerft.Sternenwerft;
+import de.sternenwerft.core.fluid.FluidIds;
+import de.sternenwerft.machine.MachineBlockEntity;
 import de.sternenwerft.machine.MachineLayout;
+import de.sternenwerft.registry.ModFluids;
+import net.minecraft.resources.Identifier;
 import de.sternenwerft.menu.MachineMenu;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -29,6 +34,12 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
     private static final int BAR_W = 8;
     private static final int BAR_H = 60;
     private static final int ARROW_W = 24;
+    private static final int FLUID_X = 152;
+    private static final int FLUID_W = 16;
+    private static final int FLUID_STEP = 18;
+    // Platzhalterfarben der Vanilla-Fluide (GUI)
+    private static final int WATER = 0xFF3F76E4;
+    private static final int LAVA = 0xFFE05A10;
     private static final int ARROW_H = 17;
 
     public MachineScreen(MachineMenu menu, Inventory inventory, Component title) {
@@ -67,7 +78,30 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         }
         drawArrow(g, ax, ay, w, generator ? BURN : PROGRESS);
 
-        if (inside(mouseX, mouseY, bx, by, BAR_W, BAR_H)) {
+        // Fluidleisten rechts außen (x 152), weitere Tanks je 18 px nach links (4.1)
+        Component fluidTip = null;
+        for (int t = 0; t < MachineBlockEntity.MAX_TANKS; t++) {
+            long cap = menu.value(6 + 3 * t);
+            if (cap <= 0) {
+                continue;
+            }
+            long amount = menu.value(5 + 3 * t);
+            Identifier fluid = FluidIds.fromNetworkId(menu.value(4 + 3 * t));
+            int fx = x + FLUID_X - t * FLUID_STEP;
+            g.fill(fx - 1, by - 1, fx + FLUID_W + 1, by + BAR_H + 1, SLOT_DARK);
+            int h = (int) Math.min(BAR_H, amount * BAR_H / cap);
+            if (fluid != null && h > 0) {
+                g.fill(fx, by + BAR_H - h, fx + FLUID_W, by + BAR_H, fluidColor(fluid));
+            }
+            if (inside(mouseX, mouseY, fx, by, FLUID_W, BAR_H)) {
+                Component name = fluid == null ? Component.literal("-")
+                        : Component.translatable("block." + fluid.getNamespace() + "." + fluid.getPath());
+                fluidTip = Component.translatable("gui.sternenwerft.fluid", name, amount, cap);
+            }
+        }
+        if (fluidTip != null) {
+            g.setComponentTooltipForNextFrame(font, List.of(fluidTip), mouseX, mouseY);
+        } else if (inside(mouseX, mouseY, bx, by, BAR_W, BAR_H)) {
             g.setComponentTooltipForNextFrame(font,
                     List.of(Component.translatable("gui.sternenwerft.energy", energy, capacity)), mouseX, mouseY);
         } else if (total > 0 && inside(mouseX, mouseY, ax, ay, ARROW_W, ARROW_H)) {
@@ -95,6 +129,18 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
                 g.fill(x + c, y + top, x + c + 1, y + bottom, c < filled ? color : SLOT_DARK);
             }
         }
+    }
+
+    /** Farbe der Fluidleiste: Mod-Fluide aus fluids.json, Vanilla-Wasser/Lava fest, sonst grau. */
+    private static int fluidColor(Identifier fluid) {
+        if (fluid.getNamespace().equals(Sternenwerft.MOD_ID) && ModFluids.defs().containsKey(fluid.getPath())) {
+            return ModFluids.defs().get(fluid.getPath()).color();
+        }
+        return switch (fluid.toString()) {
+            case "minecraft:water" -> WATER;
+            case "minecraft:lava" -> LAVA;
+            default -> 0xFFA0A0A0;
+        };
     }
 
     private static boolean inside(int mx, int my, int x, int y, int w, int h) {

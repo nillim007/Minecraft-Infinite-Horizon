@@ -9,7 +9,9 @@ import de.sternenwerft.platform.Services;
 import de.sternenwerft.registry.ModBlockEntities;
 import de.sternenwerft.registry.ModBlocks;
 import de.sternenwerft.registry.ModCreativeTabs;
+import de.sternenwerft.registry.ModFluids;
 import de.sternenwerft.registry.ModItems;
+import de.sternenwerft.registry.ModWorldgen;
 import de.sternenwerft.registry.ModMenus;
 import de.sternenwerft.registry.ModRecipeSerializers;
 import de.sternenwerft.registry.ModRecipeTypes;
@@ -47,6 +49,8 @@ public final class Sternenwerft {
                 Services.PLATFORM.getEnvironmentName());
         ModBlocks.init();
         ModItems.init();
+        ModFluids.init();
+        ModWorldgen.init();
         ModBlockEntities.init();
         ModRecipeTypes.init();
         ModRecipeSerializers.init();

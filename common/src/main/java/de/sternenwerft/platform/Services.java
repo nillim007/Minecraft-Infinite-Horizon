@@ -2,6 +2,7 @@ package de.sternenwerft.platform;
 
 import de.sternenwerft.Sternenwerft;
 import de.sternenwerft.platform.services.IEnergyHelper;
+import de.sternenwerft.platform.services.IFluidHelper;
 import de.sternenwerft.platform.services.INetworkHelper;
 import de.sternenwerft.platform.services.IPlatformHelper;
 import de.sternenwerft.platform.services.IRegistryHelper;
@@ -14,6 +15,7 @@ public final class Services {
     public static final IPlatformHelper PLATFORM = load(IPlatformHelper.class);
     public static final IRegistryHelper REGISTRY = load(IRegistryHelper.class);
     public static final IEnergyHelper ENERGY = load(IEnergyHelper.class);
+    public static final IFluidHelper FLUID = load(IFluidHelper.class);
     public static final INetworkHelper NETWORK = load(INetworkHelper.class);
 
     private Services() {

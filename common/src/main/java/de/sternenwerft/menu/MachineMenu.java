@@ -41,6 +41,11 @@ public class MachineMenu extends AbstractContainerMenu {
     public static final int ROW_Y = 35;
     public static final int UPGRADE_Y = 62;
     public static final int UPGRADE_X = 152;
+    /** Bei Blöcken mit Fluidleiste rechts außen rücken Upgrades nach links, Füll-/Leerslot stehen neben der Leiste. */
+    public static final int UPGRADE_X_FLUID = 116;
+    public static final int CONTAINER_X = 130;
+    public static final int FILL_Y = 17;
+    public static final int DRAIN_Y = 53;
     public static final int INVENTORY_Y = 84;
 
     private final Container container;
@@ -78,11 +83,19 @@ public class MachineMenu extends AbstractContainerMenu {
             int y = ROW_Y - (rows - 1) * SLOT / 2 + (i / cols) * SLOT;
             addSlot(new RoleSlot(container, l.outputStart() + i, x, y, false, 0));
         }
+        boolean fluid = l.fill() + l.drain() > 0;
+        int upgradeX = fluid ? UPGRADE_X_FLUID : UPGRADE_X;
         for (int i = 0; i < l.upgrades(); i++) {
-            addSlot(new RoleSlot(container, l.upgradeStart() + i, UPGRADE_X - (l.upgrades() - 1 - i) * SLOT, UPGRADE_Y, true,
+            addSlot(new RoleSlot(container, l.upgradeStart() + i, upgradeX - (l.upgrades() - 1 - i) * SLOT, UPGRADE_Y, true,
                     openData.upgradeMax()));
         }
         centered(l.fuel(), INPUT_X, l.fuelStart());
+        for (int i = 0; i < l.fill(); i++) {
+            addSlot(new RoleSlot(container, l.fillStart() + i, CONTAINER_X, FILL_Y + i * SLOT, true, 1));
+        }
+        for (int i = 0; i < l.drain(); i++) {
+            addSlot(new RoleSlot(container, l.drainStart() + i, CONTAINER_X, DRAIN_Y + i * SLOT, true, 1));
+        }
 
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 9; col++) {

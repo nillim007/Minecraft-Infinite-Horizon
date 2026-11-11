@@ -1,0 +1,24 @@
+{
+  "fluids": [
+    {
+      "id": "crude_oil",
+      "color": "#1A1A1A",
+      "source_block": true,
+      "bucket": "crude_oil_bucket",
+      "tick_delay": 30,
+      "slope_find_distance": 4,
+      "drop_off": 2,
+      "explosion_resistance": 100
+    },
+    {
+      "id": "kerosene",
+      "color": "#8B5A2B",
+      "source_block": false,
+      "bucket": "kerosene_bucket",
+      "tick_delay": 30,
+      "slope_find_distance": 4,
+      "drop_off": 2,
+      "explosion_resistance": 100
+    }
+  ]
+}

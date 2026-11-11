@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IEI",
+    "IMI",
+    "ITI"
+  ],
+  "key": {
+    "E": "minecraft:bucket",
+    "I": "minecraft:iron_ingot",
+    "M": "sternenwerft:machine_frame",
+    "T": "sternenwerft:copper_pipe"
+  },
+  "result": {
+    "id": "sternenwerft:fluid_pump",
+    "count": 1
+  }
+}

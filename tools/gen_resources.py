@@ -137,6 +137,67 @@ def cable_block(name):
     return f"{NS}:block/{name}_inventory"
 
 
+# 5.3, nicht in spec/data: Fließwerte (Erdöl wie Wasser, aber Tickverzögerung 30, Fließweite 4, Pegelabfall 2);
+# Kerosin übernimmt die Erdölwerte (Lücke #22)
+FLUID_FLOW = {"tick_delay": 30, "slope_find_distance": 4, "drop_off": 2, "explosion_resistance": 100}
+# Befüllung der Eimer in mB (4.1: 1.000 mB je Eimer)
+BUCKET_AMOUNT = 1000
+
+
+def fluid_resources(spec, fluids, items):
+    """Weltfluid-Blockzustand, Eimer-Item, fluids.json und fluid_containers.json."""
+    entries = []
+    containers = [
+        {"full": "minecraft:water_bucket", "fluid": "minecraft:water", "amount": BUCKET_AMOUNT, "empty": "minecraft:bucket"},
+        {"full": "minecraft:lava_bucket", "fluid": "minecraft:lava", "amount": BUCKET_AMOUNT, "empty": "minecraft:bucket"},
+    ]
+    for f in fluids:
+        e = spec.items[f"{NS}:{f}"]
+        source = bool(e.get("has_source_block"))
+        bucket = f"{f}_bucket" if e.get("has_bucket") else None
+        if source:
+            # wie Vanilla-Wasser: Blockzustand mit einem Modell, das nur die Partikeltextur setzt
+            write_json(f"assets/{NS}/blockstates/{f}.json", {"variants": {"": {"model": f"{NS}:block/{f}"}}})
+            write_json(f"assets/{NS}/models/block/{f}.json", {"textures": {"particle": f"{NS}:block/{f}_still"}})
+        if bucket and source:  # Eimer des Weltfluids registriert der Fluid-Code; Kerosin-Eimer ist ein einfaches Item
+            write_json(f"assets/{NS}/models/item/{bucket}.json",
+                       {"parent": "minecraft:item/generated", "textures": {"layer0": f"{NS}:item/{bucket}"}})
+            write_json(f"assets/{NS}/items/{bucket}.json",
+                       {"model": {"type": "minecraft:model", "model": f"{NS}:item/{bucket}"}})
+        entries.append({"id": f, "color": e["color"], "source_block": source, "bucket": bucket, **FLUID_FLOW})
+        if bucket:
+            containers.append({"full": f"{NS}:{bucket}", "fluid": f"{NS}:{f}", "amount": BUCKET_AMOUNT,
+                               "empty": "minecraft:bucket"})
+    write_json("sternenwerft/fluids.json", {"fluids": entries})
+    write_json("sternenwerft/fluid_containers.json", {"containers": containers})
+
+
+def oil_bubble_worldgen():
+    """Ölblase der Erde (13.4): Feature fluid_sphere, Placed Feature, Biom-Tag; NeoForge-Modifier und Fabric-Eintrag."""
+    planets = json.loads((sd.DATA / "planets.json").read_text(encoding="utf-8"))["entries"]
+    earth = next(p for p in planets if p["id"] == "minecraft:overworld")
+    f = next((x for x in earth["features"] if x["type"] == "fluid_sphere"), None)
+    if not f:
+        return None
+    pr = f["params"]
+    write_json(f"data/{NS}/worldgen/feature/oil_bubble.json", {
+        "type": f"{NS}:fluid_sphere", "fluid": f["fluid"],
+        "radius": {"type": "minecraft:uniform", "min_inclusive": pr["radius"][0], "max_inclusive": pr["radius"][1]}})
+    write_json(f"data/{NS}/worldgen/placed_feature/oil_bubble.json", {
+        "feature": f"{NS}:oil_bubble",
+        "placement": [{"type": "minecraft:rarity_filter", "chance": pr["rarity_chunks"]},
+                      {"type": "minecraft:in_square"},
+                      {"type": "minecraft:height_range", "height": {
+                          "type": "minecraft:uniform", "min_inclusive": {"absolute": pr["y_min"]},
+                          "max_inclusive": {"absolute": pr["y_max"]}}},
+                      {"type": "minecraft:biome"}]})
+    write_json(f"data/{NS}/tags/worldgen/biome/has_oil_bubble.json", {"values": f["biomes"]})
+    write_json(f"data/{NS}/neoforge/biome_modifier/oil_bubble.json",
+               {"type": "neoforge:add_features", "biomes": f"#{NS}:has_oil_bubble",
+                "features": f"{NS}:oil_bubble", "step": "lakes"})
+    return {"feature": f"{NS}:oil_bubble", "biomes": f"{NS}:has_oil_bubble", "step": "lakes"}
+
+
 def block_loot(name):
     write_json(f"data/{NS}/loot_table/blocks/{name}.json", {
         "type": "minecraft:block",
@@ -274,12 +335,19 @@ def main():
                 child.unlink()
 
     # Übersetzungen
+    fluids = impl.get("fluids", [])
     extra = json.loads(LANG_EXTRA.read_text(encoding="utf-8"))
     for lang, field in (("de_de", "name_de"), ("en_us", "name_en")):
         data = {k: v for k, v in extra.get(lang, {}).items()}
         for i in sorted(registered):
             kind = "block" if i in blocks else "item"
             data[f"{kind}.{NS}.{short(i)}"] = spec.items[i][field]
+        for f in fluids:
+            fe = spec.items[f"{NS}:{f}"]
+            data[f"block.{NS}.{f}"] = fe[field]
+            data[f"fluid_type.{NS}.{f}"] = fe[field]
+            if fe.get("has_source_block") and fe.get("has_bucket"):
+                data[f"item.{NS}.{f}_bucket"] = spec.items[f"{NS}:{f}_bucket"][field]
         write_json(f"assets/{NS}/lang/{lang}.json", dict(sorted(data.items())))
 
     # Blöcke
@@ -288,7 +356,7 @@ def main():
         inv_model = f"{NS}:block/{name}"
         if shape == "machine":
             inv_model = machine_block(name)
-        elif shape == "cable":
+        elif shape in ("cable", "pipe"):  # Rohr: gleiche Multipart-Form wie Kabel, andere Textur
             inv_model = cable_block(name)
         elif shape == "simple_block":
             inv_model = simple_block(name)
@@ -299,6 +367,9 @@ def main():
             ore_loot(name, SIMPLE_BLOCKS[name]["ore"][1])
         else:
             block_loot(name)
+
+    # Fluide (M2c): Weltfluid-Block, Eimer, Übersetzungen, Listen für den Java-Code
+    fluid_resources(spec, impl.get("fluids", []), items)
 
     # Liste der einfachen Blöcke für die Java-Registrierung (Reihenfolge wie in implemented_ids.json)
     write_json("sternenwerft/simple_blocks.json", {"blocks": [
@@ -356,6 +427,10 @@ def main():
                    {"type": "neoforge:add_features", "biomes": f"#{NS}:has_{name}",
                     "features": f"{NS}:{name}", "step": "underground_ores"})
         fabric.append({"feature": f"{NS}:{name}", "biomes": f"{NS}:has_{name}", "step": "underground_ores"})
+    if "crude_oil" in impl.get("fluids", []):
+        oil = oil_bubble_worldgen()
+        if oil:
+            fabric.append(oil)
     if fabric:
         write_json("sternenwerft/biome_features.json", {"features": fabric})
     tags = {}

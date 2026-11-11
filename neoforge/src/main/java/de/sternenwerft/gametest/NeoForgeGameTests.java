@@ -35,6 +35,13 @@ public final class NeoForgeGameTests {
     private static final DeferredHolder<Consumer<GameTestHelper>, Consumer<GameTestHelper>> ORE_TOOLS =
             FUNCTIONS.register(SwGameTests.ORE_TOOLS, () -> SwGameTests::oresNeedCorrectTool);
 
+    private static final DeferredHolder<Consumer<GameTestHelper>, Consumer<GameTestHelper>> PUMP_TANK =
+            FUNCTIONS.register(SwGameTests.PUMP_TANK, () -> SwGameTests::pumpCrudeOilIntoTank);
+    private static final DeferredHolder<Consumer<GameTestHelper>, Consumer<GameTestHelper>> PIPES_NO_MIX =
+            FUNCTIONS.register(SwGameTests.PIPES_NO_MIX, () -> SwGameTests::pipesNeverMix);
+    private static final DeferredHolder<Consumer<GameTestHelper>, Consumer<GameTestHelper>> BUCKET_FILL =
+            FUNCTIONS.register(SwGameTests.BUCKET_FILL, () -> SwGameTests::bucketFill);
+
     private NeoForgeGameTests() {
     }
 
@@ -45,6 +52,9 @@ public final class NeoForgeGameTests {
         add(event, env, PLATFORM_CONSUMER, SwGameTests.PLATFORM_CONSUMER_TICKS);
         add(event, env, METAL_CHAIN, SwGameTests.METAL_CHAIN_TICKS);
         add(event, env, ORE_TOOLS, SwGameTests.ORE_TOOLS_TICKS);
+        add(event, env, PUMP_TANK, SwGameTests.PUMP_TANK_TICKS);
+        add(event, env, PIPES_NO_MIX, SwGameTests.PIPES_NO_MIX_TICKS);
+        add(event, env, BUCKET_FILL, SwGameTests.BUCKET_FILL_TICKS);
     }
 
     private static void add(RegisterGameTestsEvent event, Holder<TestEnvironmentDefinition<?>> env,

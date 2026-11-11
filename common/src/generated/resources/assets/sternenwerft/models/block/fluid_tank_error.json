@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "sternenwerft:block/fluid_tank_front_error",
+    "side": "sternenwerft:block/fluid_tank",
+    "top": "sternenwerft:block/fluid_tank_top"
+  }
+}

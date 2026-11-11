@@ -6,7 +6,16 @@ import de.sternenwerft.machine.CombustionGeneratorBlockEntity;
 import de.sternenwerft.machine.ProcessingMachineBlockEntity;
 import de.sternenwerft.platform.Services;
 import de.sternenwerft.registry.ModBlocks;
+import de.sternenwerft.Sternenwerft;
+import de.sternenwerft.core.fluid.SwFluidStack;
+import de.sternenwerft.machine.FluidPumpBlockEntity;
+import de.sternenwerft.machine.FluidTankBlockEntity;
+import de.sternenwerft.machine.MachineBlock;
+import de.sternenwerft.machine.MachineBlockEntity;
+import de.sternenwerft.registry.ModFluids;
 import de.sternenwerft.registry.ModItems;
+import net.minecraft.core.Direction;
+import net.minecraft.resources.Identifier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.gametest.framework.GameTestHelper;
 import net.minecraft.world.item.ItemStack;
@@ -152,6 +161,76 @@ public final class SwGameTests {
         helper.assertTrue(drops.size() == 1 && drops.getFirst().is(item) && drops.getFirst().getCount() == 1,
                 "Erwartet genau 1 bauxite, erhalten: " + drops);
         helper.succeed();
+    }
+
+    public static final String PUMP_TANK = "pump_crudeoil_tank1000within50ticks";
+    /**
+     * 27.2 nennt 44 t (40 t × 1,1), übersieht aber den Rohrdurchsatz: 1.000 mB bei 200 mB/t brauchen 5 t mehr.
+     * SPEC-GAP (#23): (40 + 5) × 1,1 ≈ 50 t.
+     */
+    public static final int PUMP_TANK_TICKS = 50;
+    public static final String PIPES_NO_MIX = "pipes_twofluids_nevermixed";
+    public static final int PIPES_NO_MIX_TICKS = 60;
+    public static final String BUCKET_FILL = "tank_fillslot_bucketbecomescrudeoilbucket";
+    public static final int BUCKET_FILL_TICKS = 20;
+
+    private static <T extends net.minecraft.world.level.block.entity.BlockEntity> T placeFacing(GameTestHelper helper, BlockPos pos, Block block, Direction facing, Class<T> type) {
+        helper.setBlock(pos, block.defaultBlockState().setValue(MachineBlock.FACING, facing));
+        T be = helper.getBlockEntity(pos, type);
+        ((MachineBlockEntity) be).refreshLayout();
+        return be;
+    }
+
+    /** M2c: Pumpe saugt einen crude_oil-Quellblock 4 Blöcke tiefer ab, Rohr → Tank hat 1.000 mB in höchstens 44 t. */
+    public static void pumpCrudeOilIntoTank(GameTestHelper helper) {
+        BlockPos pump = new BlockPos(2, 5, 2);
+        helper.setBlock(new BlockPos(2, 1, 2), ModFluids.get("crude_oil").source().get().defaultFluidState().createLegacyBlock());
+        FluidPumpBlockEntity p = placeFacing(helper, pump, ModBlocks.FLUID_PUMP.get(), Direction.EAST, FluidPumpBlockEntity.class);
+        p.energyStorage().setAmountUnchecked(p.energyStorage().getCapacity());
+        helper.setBlock(new BlockPos(3, 5, 2), ModBlocks.COPPER_PIPE.get());
+        FluidTankBlockEntity tank = placeFacing(helper, new BlockPos(4, 5, 2), ModBlocks.FLUID_TANK.get(), Direction.NORTH,
+                FluidTankBlockEntity.class);
+        Identifier oil = Sternenwerft.id("crude_oil");
+        helper.succeedWhen(() -> helper.assertTrue(tank.tank().stack().is(oil) && tank.tank().stack().amount() >= 1000,
+                "Tank: " + tank.tank().stack() + ", Pumpe " + p.status()));
+    }
+
+    /** M2c: Zwei Quellen mit Wasser und Erdöl an einem Rohrnetz; beide Empfänger bekommen dasselbe Fluid. */
+    public static void pipesNeverMix(GameTestHelper helper) {
+        FluidTankBlockEntity water = placeFacing(helper, new BlockPos(1, 1, 1), ModBlocks.FLUID_TANK.get(), Direction.EAST,
+                FluidTankBlockEntity.class);
+        FluidTankBlockEntity oil = placeFacing(helper, new BlockPos(5, 1, 1), ModBlocks.FLUID_TANK.get(), Direction.WEST,
+                FluidTankBlockEntity.class);
+        for (int x = 2; x <= 4; x++) {
+            helper.setBlock(new BlockPos(x, 1, 1), ModBlocks.COPPER_PIPE.get());
+        }
+        FluidTankBlockEntity a = placeFacing(helper, new BlockPos(2, 1, 2), ModBlocks.FLUID_TANK.get(), Direction.SOUTH,
+                FluidTankBlockEntity.class);
+        FluidTankBlockEntity b = placeFacing(helper, new BlockPos(4, 1, 2), ModBlocks.FLUID_TANK.get(), Direction.SOUTH,
+                FluidTankBlockEntity.class);
+        water.tank().setStackUnchecked(SwFluidStack.of(Identifier.withDefaultNamespace("water"), 4000));
+        oil.tank().setStackUnchecked(SwFluidStack.of(Sternenwerft.id("crude_oil"), 4000));
+        helper.runAfterDelay(PIPES_NO_MIX_TICKS - 10, () -> {
+            SwFluidStack sa = a.tank().stack();
+            SwFluidStack sb = b.tank().stack();
+            helper.assertTrue(!sa.isEmpty() && !sb.isEmpty(), "Empfänger leer: " + sa + " / " + sb);
+            helper.assertTrue(sa.fluid().equals(sb.fluid()), "Fluide gemischt: " + sa + " / " + sb);
+            helper.assertTrue(water.tank().stack().amount() == 4000 || oil.tank().stack().amount() == 4000,
+                    "Beide Quellen haben abgegeben: " + water.tank().stack() + " / " + oil.tank().stack());
+            helper.succeed();
+        });
+    }
+
+    /** M2c: Ein leerer Eimer im Füllslot wird zu crude_oil_bucket. */
+    public static void bucketFill(GameTestHelper helper) {
+        FluidTankBlockEntity tank = placeFacing(helper, new BlockPos(1, 1, 1), ModBlocks.FLUID_TANK.get(), Direction.NORTH,
+                FluidTankBlockEntity.class);
+        tank.tank().setStackUnchecked(SwFluidStack.of(Sternenwerft.id("crude_oil"), 2000));
+        int fill = tank.layout().fillStart();
+        tank.setItem(fill, new ItemStack(Items.BUCKET));
+        Item oilBucket = ModFluids.get("crude_oil").bucket().get();
+        helper.succeedWhen(() -> helper.assertTrue(tank.getItem(fill).is(oilBucket) && tank.tank().stack().amount() == 1000,
+                "Füllslot: " + tank.getItem(fill) + ", Tank " + tank.tank().stack()));
     }
 
     /** Ein Verbraucher, der nur die Loader-API nutzt, erhält Strom aus dem Kabel. */

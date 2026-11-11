@@ -14,6 +14,11 @@
       "feature": "sternenwerft:quartz_sand",
       "biomes": "sternenwerft:has_quartz_sand",
       "step": "underground_ores"
+    },
+    {
+      "feature": "sternenwerft:oil_bubble",
+      "biomes": "sternenwerft:has_oil_bubble",
+      "step": "lakes"
     }
   ]
 }
