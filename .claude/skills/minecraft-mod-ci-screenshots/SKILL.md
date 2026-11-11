@@ -77,6 +77,8 @@ Datei: `fabric/src/main/java/de/sternenwerft/gametest/SwClientGameTests.java`. S
 - **Screens:**
   - `extractBackground(GuiGraphicsExtractor, …)` überschreiben, `g.fill(…)` und `g.setComponentTooltipForNextFrame(…)`.
   - Registrierung je Loader: NeoForge `RegisterMenuScreensEvent` in der Klasse mit `@Mod(dist = Dist.CLIENT)`; Fabric `MenuScreens.register` im Client-Entry-Point.
+- **Worldgen:** Features liegen unter `data/<ns>/worldgen/feature/` (nicht `configured_feature`), die Werte direkt im Objekt ohne `"config"`, Blockzustände als String (`"state": "ns:block"`). Placed Features sind unverändert. Fehlerbild sonst: „Unbound values in registry worldgen/feature“ beim Serverstart.
+- **Lokaler Build im Firmennetz:** Bei „PKIX path building failed“ prüft das Netz TLS mit eigenem Zertifikat. Dann `JAVA_TOOL_OPTIONS=-Djavax.net.ssl.trustStoreType=Windows-ROOT` nur für den Befehl setzen. JDK: `C:\Users\NickM\.jdks\jdk-25.0.5+8` (`JAVA_HOME`).
 - **GameTest-Server:** Er läuft ohne Tick-Begrenzung. 400 Spielticks dauern wenige Sekunden, das ist kein Fehler.
 - **Shell (Windows):** Lange Python-Skripte nicht als Inline-Heredoc in Bash schicken, das bricht gelegentlich ab. Besser als Datei im Scratchpad schreiben und ausführen.
 - **Ressourcen:** Generierte Ressourcen nie von Hand ändern. Dafür gibt es `python tools/gen_resources.py`. Platzhalter-Texturen nur mit `python tools/gen_placeholders.py --only <ids>` erzeugen, sonst entstehen Texturen für alle IDs.
