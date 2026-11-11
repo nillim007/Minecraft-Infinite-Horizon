@@ -163,4 +163,59 @@ public class SwFabricGameTests {
     public void configDefaultsLoaded(GameTestHelper helper) {
         SwGameTestsExtended.configDefaults(helper);
     }
+
+    @GameTest(maxTicks = 220)
+    public void refineryCrudeoilKerosene600plastic1within220ticks(GameTestHelper helper) {
+        SwGameTestsM2d.refineryCrudeOilToKerosene(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void refineryMissingcasingErrorthenidle(GameTestHelper helper) {
+        SwGameTestsM2d.refineryMissingCasingThenIdle(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void refineryWrongblockGhostpreview(GameTestHelper helper) {
+        SwGameTestsM2d.refineryWrongBlockAndGhostPreview(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void refineryPortsForwardtocontroller(GameTestHelper helper) {
+        SwGameTestsM2d.refineryPortsForwardToController(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void portModeToggleemptyhand(GameTestHelper helper) {
+        SwGameTestsM2d.portModeToggle(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void assemblyExactmatchFluidportnotcasing(GameTestHelper helper) {
+        SwGameTestsM2d.assemblyExactMatch(helper);
+    }
+
+    @GameTest(maxTicks = 220)
+    public void assemblyCircuitWithin220ticks(GameTestHelper helper) {
+        SwGameTestsM2d.assemblyCircuit(helper);
+    }
+
+    @GameTest(maxTicks = 44)
+    public void electrolyzerWaterH2o2within44ticks(GameTestHelper helper) {
+        SwGameTestsM2d.electrolyzerWater(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void electrolyzerFullgastankError(GameTestHelper helper) {
+        SwGameTestsM2d.electrolyzerFullError(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void electrolyzerTankselection(GameTestHelper helper) {
+        SwGameTestsM2d.electrolyzerTankSelection(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void tankRejectsGas(GameTestHelper helper) {
+        SwGameTestsM2d.tankRejectsGas(helper);
+    }
 }

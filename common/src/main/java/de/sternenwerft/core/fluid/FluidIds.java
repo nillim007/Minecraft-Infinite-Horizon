@@ -28,6 +28,29 @@ public final class FluidIds {
         return f == null ? null : BuiltInRegistries.FLUID.getKey(f);
     }
 
+    /** Ist das Fluid ein Gas (5.3, {@code fluid_type} in items.json)? Fremde Fluide gelten als Flüssigkeit. */
+    public static boolean isGas(@Nullable Identifier fluid) {
+        if (fluid == null || !fluid.getNamespace().equals(de.sternenwerft.Sternenwerft.MOD_ID)) {
+            return false;
+        }
+        FluidDef def = de.sternenwerft.registry.ModFluids.defs().get(fluid.getPath());
+        return def != null && def.gas();
+    }
+
+    /**
+     * Passt das Fluid zum Feld {@code accepts} eines Speichers (storage.json: {@code liquid}, {@code gas}, sonst alle)?
+     * So nimmt der Tank nur Flüssigkeiten, die Druckflasche nur Gase (6.3).
+     */
+    public static boolean matchesAccepts(@Nullable String accepts, Identifier fluid) {
+        if ("liquid".equals(accepts)) {
+            return !isGas(fluid);
+        }
+        if ("gas".equals(accepts)) {
+            return isGas(fluid);
+        }
+        return true;
+    }
+
     /** Fluid-ID eines (Quell- oder Fließ-)Fluids, immer die der Quelle. */
     public static Identifier sourceId(Fluid fluid) {
         Fluid src = fluid instanceof net.minecraft.world.level.material.FlowingFluid ff ? ff.getSource() : fluid;

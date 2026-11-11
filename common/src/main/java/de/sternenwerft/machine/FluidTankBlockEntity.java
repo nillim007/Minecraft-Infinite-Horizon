@@ -53,7 +53,10 @@ public class FluidTankBlockEntity extends MachineBlockEntity {
     protected void configureEnergy(SwEnergyStorage storage) {
         storage.reconfigure(0, 0, 0);
         JsonObject s = stats();
-        tank.reconfigure(s.has("capacity") ? s.get("capacity").getAsLong() : 0, null);
+        String accepts = s.has("accepts") && s.get("accepts").isJsonPrimitive() ? s.get("accepts").getAsString() : null;
+        // Tank nur für Flüssigkeiten (6.3: accepts = liquid)
+        tank.reconfigure(s.has("capacity") ? s.get("capacity").getAsLong() : 0,
+                id -> de.sternenwerft.core.fluid.FluidIds.matchesAccepts(accepts, id));
     }
 
     @Override

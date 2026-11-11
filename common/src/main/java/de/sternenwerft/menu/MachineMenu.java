@@ -23,13 +23,18 @@ import net.minecraft.world.item.ItemStack;
  */
 public class MachineMenu extends AbstractContainerMenu {
 
-    /** Was der Client beim Öffnen braucht (er kennt keine Balance-Werte). */
-    public record OpenData(BlockPos pos, MachineLayout layout, int upgradeMax) {
+    /** Was der Client beim Öffnen braucht (er kennt keine Balance-Werte); {@code tanks} = Zahl der Fluidleisten. */
+    public record OpenData(BlockPos pos, MachineLayout layout, int upgradeMax, int tanks) {
         public static final StreamCodec<ByteBuf, OpenData> STREAM_CODEC = StreamCodec.composite(
                 BlockPos.STREAM_CODEC, OpenData::pos,
                 MachineLayout.STREAM_CODEC, OpenData::layout,
                 ByteBufCodecs.VAR_INT, OpenData::upgradeMax,
+                ByteBufCodecs.VAR_INT, OpenData::tanks,
                 OpenData::new);
+
+        public MachineGeometry geometry() {
+            return MachineGeometry.of(layout, tanks);
+        }
     }
 
     // Geometrie in Pixeln (4.1): Breite 176, Spieler-Inventar unten mit Vanilla-Abständen
@@ -41,9 +46,6 @@ public class MachineMenu extends AbstractContainerMenu {
     public static final int ROW_Y = 35;
     public static final int UPGRADE_Y = 62;
     public static final int UPGRADE_X = 152;
-    /** Bei Blöcken mit Fluidleiste rechts außen rücken Upgrades nach links, Füll-/Leerslot stehen neben der Leiste. */
-    public static final int UPGRADE_X_FLUID = 98;
-    public static final int CONTAINER_X = 130;
     public static final int FILL_Y = 17;
     public static final int DRAIN_Y = 53;
     public static final int INVENTORY_Y = 84;
@@ -74,40 +76,49 @@ public class MachineMenu extends AbstractContainerMenu {
         this.data = data;
         this.openData = openData;
         MachineLayout l = openData.layout();
+        MachineGeometry g = openData.geometry();
         this.machineSlots = l.total();
 
-        centered(l.inputs(), INPUT_X, 0);
+        if (l.inputs() > MachineGeometry.GRID_COLUMNS) {
+            // Raster 3 × n (Montagetisch: 9 Eingaben)
+            int rows = (l.inputs() + MachineGeometry.GRID_COLUMNS - 1) / MachineGeometry.GRID_COLUMNS;
+            for (int i = 0; i < l.inputs(); i++) {
+                addSlot(new RoleSlot(container, i, g.inputX() + (i % MachineGeometry.GRID_COLUMNS) * SLOT,
+                        ROW_Y - (rows - 1) * SLOT / 2 + (i / MachineGeometry.GRID_COLUMNS) * SLOT, true, 0));
+            }
+        } else {
+            centered(l.inputs(), g.inputX(), 0);
+        }
         for (int i = 0; i < l.molds(); i++) {
             addSlot(new RoleSlot(container, l.moldStart() + i, MOLD_X, ROW_Y + i * SLOT, true, 0));
         }
-        int cols = l.outputs() > 2 ? 2 : 1;
+        int cols = l.outputs() > 3 ? 2 : 1;
         int rows = (l.outputs() + cols - 1) / Math.max(1, cols);
         for (int i = 0; i < l.outputs(); i++) {
-            int x = OUTPUT_X + (i % cols) * SLOT;
+            int x = g.outputX() + (i % cols) * SLOT;
             int y = ROW_Y - (rows - 1) * SLOT / 2 + (i / cols) * SLOT;
             addSlot(new RoleSlot(container, l.outputStart() + i, x, y, false, 0));
         }
-        boolean fluid = l.fill() + l.drain() > 0;
-        int upgradeX = fluid ? UPGRADE_X_FLUID : UPGRADE_X;
         for (int i = 0; i < l.upgrades(); i++) {
-            addSlot(new RoleSlot(container, l.upgradeStart() + i, upgradeX - (l.upgrades() - 1 - i) * SLOT, UPGRADE_Y, true,
-                    openData.upgradeMax()));
+            addSlot(new RoleSlot(container, l.upgradeStart() + i, g.upgradeX() - (l.upgrades() - 1 - i) * SLOT, g.upgradeY(),
+                    true, openData.upgradeMax()));
         }
         centered(l.fuel(), INPUT_X, l.fuelStart());
         for (int i = 0; i < l.fill(); i++) {
-            addSlot(new RoleSlot(container, l.fillStart() + i, CONTAINER_X, FILL_Y + i * SLOT, true, 1));
+            addSlot(new RoleSlot(container, l.fillStart() + i, g.containerX(), FILL_Y + i * SLOT, true, 1));
         }
         for (int i = 0; i < l.drain(); i++) {
-            addSlot(new RoleSlot(container, l.drainStart() + i, CONTAINER_X, DRAIN_Y + i * SLOT, true, 1));
+            addSlot(new RoleSlot(container, l.drainStart() + i, g.containerX(), DRAIN_Y + i * SLOT, true, 1));
         }
 
+        int invY = g.inventoryY();
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 9; col++) {
-                addSlot(new Slot(inventory, col + row * 9 + 9, 8 + col * SLOT, INVENTORY_Y + row * SLOT));
+                addSlot(new Slot(inventory, col + row * 9 + 9, 8 + col * SLOT, invY + row * SLOT));
             }
         }
         for (int col = 0; col < 9; col++) {
-            addSlot(new Slot(inventory, col, 8 + col * SLOT, INVENTORY_Y + 58));
+            addSlot(new Slot(inventory, col, 8 + col * SLOT, invY + 58));
         }
         addDataSlots(data);
     }

@@ -1,5 +1,6 @@
 {
   "values": [
+    "sternenwerft:assembly_table",
     "sternenwerft:bauxite_ore",
     "sternenwerft:combustion_generator",
     "sternenwerft:copper_cable",
@@ -7,9 +8,15 @@
     "sternenwerft:crusher",
     "sternenwerft:deepslate_titanium_ore",
     "sternenwerft:electric_furnace",
+    "sternenwerft:electrolyzer",
+    "sternenwerft:energy_port",
+    "sternenwerft:fluid_port",
     "sternenwerft:fluid_pump",
     "sternenwerft:fluid_tank",
+    "sternenwerft:item_port",
     "sternenwerft:press",
+    "sternenwerft:refinery_casing",
+    "sternenwerft:refinery_controller",
     "sternenwerft:titanium_ore"
   ]
 }

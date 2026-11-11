@@ -1,0 +1,21 @@
+{
+  "type": "sternenwerft:refining",
+  "ingredients": [],
+  "results": [
+    {
+      "id": "sternenwerft:plastic",
+      "count": 1,
+      "chance": 1.0
+    }
+  ],
+  "fluid": {
+    "fluid": "sternenwerft:crude_oil",
+    "amount": 1000
+  },
+  "fluid_results": [
+    {
+      "fluid": "sternenwerft:kerosene",
+      "amount": 600
+    }
+  ]
+}

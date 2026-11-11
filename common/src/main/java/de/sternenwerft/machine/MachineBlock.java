@@ -56,6 +56,14 @@ public class MachineBlock extends BaseEntityBlock {
     /** Rechtsklick öffnet das GUI (4.1); der Server entscheidet. */
     @Override
     public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
+        // Sneak-Rechtsklick mit leerer Hand auf einen Multiblock-Controller: Geisterprojektion (4.1), rein clientseitig
+        if (player.isSecondaryUseActive() && player.getMainHandItem().isEmpty()
+                && level.getBlockEntity(pos) instanceof de.sternenwerft.multiblock.MultiblockController) {
+            if (level.isClientSide()) {
+                de.sternenwerft.multiblock.GhostPreview.show(level, pos);
+            }
+            return InteractionResult.SUCCESS;
+        }
         if (!level.isClientSide() && player instanceof ServerPlayer sp && level.getBlockEntity(pos) instanceof MachineBlockEntity be) {
             Services.REGISTRY.openMenu(sp, be, be.openData(), MachineMenu.OpenData.STREAM_CODEC);
         }
@@ -75,8 +83,15 @@ public class MachineBlock extends BaseEntityBlock {
     @Override
     @SuppressWarnings("unchecked")
     public <T extends BlockEntity> @Nullable BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> blockEntityType) {
-        if (level.isClientSide() || blockEntityType != type.get()) {
+        if (blockEntityType != type.get()) {
             return null;
+        }
+        if (level.isClientSide()) {
+            return (lvl, pos, st, be) -> {
+                if (be instanceof de.sternenwerft.multiblock.MultiblockController) {
+                    de.sternenwerft.multiblock.GhostPreview.clientTick(lvl, pos, st);
+                }
+            };
         }
         return (lvl, pos, st, be) -> ((MachineBlockEntity) be).serverTick((ServerLevel) lvl);
     }

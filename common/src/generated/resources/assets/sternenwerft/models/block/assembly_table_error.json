@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "sternenwerft:block/assembly_table_front_error",
+    "side": "sternenwerft:block/assembly_table",
+    "top": "sternenwerft:block/assembly_table_top"
+  }
+}

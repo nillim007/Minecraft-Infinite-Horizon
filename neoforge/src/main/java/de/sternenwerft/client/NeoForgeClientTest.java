@@ -2,7 +2,11 @@ package de.sternenwerft.client;
 
 import de.sternenwerft.Sternenwerft;
 import de.sternenwerft.core.fluid.SwFluidStack;
+import de.sternenwerft.data.BalanceManager;
 import de.sternenwerft.data.ServerConfig;
+import de.sternenwerft.multiblock.GhostPreview;
+import de.sternenwerft.multiblock.MultiblockController;
+import de.sternenwerft.multiblock.MultiblockPattern;
 import de.sternenwerft.machine.FluidPumpBlockEntity;
 import de.sternenwerft.machine.FluidTankBlockEntity;
 import de.sternenwerft.machine.MachineBlock;
@@ -174,6 +178,96 @@ public final class NeoForgeClientTest {
             ((FluidPumpBlockEntity) be).tank().setStackUnchecked(SwFluidStack.of(Identifier.withDefaultNamespace("water"), 4000));
             half(be);
         }, null);
+        // 6. M2d: Montagetisch, Elektrolyseur mit Knopf „Tank“, Raffinerie mit Aufbau und Geisterprojektion
+        openMachine(ModBlocks.ASSEMBLY_TABLE.get(), "neoforge_gui_assembly_table", be -> {
+            be.setItem(0, new ItemStack(ModItems.simple("silicon").get(), 2));
+            be.setItem(1, new ItemStack(ModItems.simple("copper_wire").get(), 4));
+            be.setItem(2, new ItemStack(ModItems.simple("plastic").get(), 1));
+            half(be);
+        }, null);
+        openMachine(ModBlocks.ELECTROLYZER.get(), "neoforge_gui_electrolyzer", be -> {
+            be.fluidTanks().get(0).setStackUnchecked(SwFluidStack.of(Identifier.withDefaultNamespace("water"), 8000));
+            be.fluidTanks().get(1).setStackUnchecked(SwFluidStack.of(Sternenwerft.id("hydrogen"), 6000));
+            be.fluidTanks().get(2).setStackUnchecked(SwFluidStack.of(Sternenwerft.id("oxygen"), 3000));
+            half(be);
+        }, (mc, t) -> {
+            if (t == 0 && mc.gui.screen() instanceof MachineScreen screen) {
+                screen.cycleTank();
+            }
+            if (t < 10) {
+                return false;
+            }
+            int selected = onServer(mc, level -> level.getBlockEntity(POS.get()) instanceof MachineBlockEntity be ? be.selectedTank() : -1);
+            check("tank_button", selected == 1, "Tankwahl " + selected + ", erwartet 1");
+            Screenshot.grab(mc.gameDirectory, "neoforge_gui_electrolyzer_tank2.png", mc.gameRenderer.mainRenderTarget(), 1, msg -> { });
+            return true;
+        });
+        openMachine(ModBlocks.REFINERY_CONTROLLER.get(), "neoforge_gui_refinery_controller", Direction.WEST,
+                NeoForgeClientTest::refineryCasings, be -> {
+                    be.fluidTanks().get(0).setStackUnchecked(SwFluidStack.of(Sternenwerft.id("crude_oil"), 8000));
+                    be.fluidTanks().get(1).setStackUnchecked(SwFluidStack.of(Sternenwerft.id("kerosene"), 3000));
+                    half(be);
+                }, (mc, t) -> {
+                    check("refinery_complete", onServer(mc, level -> level.getBlockEntity(POS.get())
+                            instanceof MultiblockController c && c.structureComplete()), "Aufbau unvollständig");
+                    return true;
+                }, false);
+        ghostPreview();
+    }
+
+    /** Gehäuse der Raffinerie um den Controller (Vorderseite Westen) aus dem Muster der Daten. */
+    private static void refineryCasings(ServerLevel level, BlockPos controller, boolean place) {
+        MultiblockPattern p = MultiblockPattern.forMachine(BalanceManager.get(), "sternenwerft:refinery_controller").orElseThrow();
+        for (BlockPos pos : p.partPositions(controller, Direction.WEST)) {
+            level.setBlockAndUpdate(pos, place ? ModBlocks.REFINERY_CASING.get().defaultBlockState() : Blocks.AIR.defaultBlockState());
+        }
+    }
+
+    /**
+     * Ein Gehäuse fehlt; Sneak-Rechtsklick mit leerer Hand auf den Controller startet die Geisterprojektion und öffnet
+     * kein GUI (4.1). Danach wird der Aufbau entfernt.
+     */
+    private static void ghostPreview() {
+        STEPS.add((mc, t) -> {
+            BlockPos pos = POS.get();
+            onServer(mc, level -> {
+                MultiblockPattern p = MultiblockPattern.forMachine(BalanceManager.get(), "sternenwerft:refinery_controller").orElseThrow();
+                level.setBlockAndUpdate(p.partPositions(pos, Direction.WEST).getLast(), Blocks.AIR.defaultBlockState());
+                // leere Hand: aufgesammelte Maschineninhalte aus den vorigen Schritten entfernen
+                level.players().forEach(pl -> pl.getInventory().clearContent());
+                return null;
+            });
+            mc.options.keyShift.setDown(true);
+            return true;
+        });
+        STEPS.add((mc, t) -> t > 5);
+        STEPS.add((mc, t) -> {
+            BlockPos pos = POS.get();
+            mc.gameMode.useItemOn(mc.player, InteractionHand.MAIN_HAND,
+                    new BlockHitResult(Vec3.atCenterOf(pos), Direction.WEST, pos, false));
+            return true;
+        });
+        STEPS.add((mc, t) -> t > 10);
+        STEPS.add((mc, t) -> {
+            BlockPos pos = POS.get();
+            check("ghost_preview", GhostPreview.active(mc.level, pos) && mc.gui.screen() == null,
+                    "aktiv=" + GhostPreview.active(mc.level, pos) + ", Screen=" + mc.gui.screen());
+            mc.player.lookAt(net.minecraft.commands.arguments.EntityAnchorArgument.Anchor.EYES, Vec3.atCenterOf(pos.above(3).east(1)));
+            return true;
+        });
+        STEPS.add((mc, t) -> t > 10);
+        STEPS.add((mc, t) -> {
+            Screenshot.grab(mc.gameDirectory, "neoforge_world_refinery_ghost.png", mc.gameRenderer.mainRenderTarget(), 1, msg -> { });
+            mc.options.keyShift.setDown(false);
+            BlockPos pos = POS.get();
+            onServer(mc, level -> {
+                refineryCasings(level, pos, false);
+                level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
+                return null;
+            });
+            return true;
+        });
+        STEPS.add((mc, t) -> t > 5);
     }
 
     private static void half(MachineBlockEntity be) {
@@ -185,12 +279,25 @@ public final class NeoForgeClientTest {
      * fotografiert es und führt optional {@code extra} aus; danach wird der Block entfernt.
      */
     private static void openMachine(Block block, String name, Consumer<MachineBlockEntity> setup, Step extra) {
+        openMachine(block, name, Direction.NORTH, null, setup, extra, true);
+    }
+
+    /** Umgebung einer Maschine (z. B. Gehäuse eines Multiblocks): {@code place} = setzen, sonst entfernen. */
+    private interface Around {
+        void apply(ServerLevel level, BlockPos pos, boolean place);
+    }
+
+    private static void openMachine(Block block, String name, Direction facing, Around around,
+                                    Consumer<MachineBlockEntity> setup, Step extra, boolean remove) {
         STEPS.add((mc, t) -> {
             BlockPos pos = mc.player.blockPosition().east(2);
             POS.set(pos);
             onServer(mc, level -> {
+                if (around != null) {
+                    around.apply(level, pos, true);
+                }
                 level.setBlockAndUpdate(pos, block.defaultBlockState().hasProperty(MachineBlock.FACING)
-                        ? block.defaultBlockState().setValue(MachineBlock.FACING, Direction.NORTH) : block.defaultBlockState());
+                        ? block.defaultBlockState().setValue(MachineBlock.FACING, facing) : block.defaultBlockState());
                 if (level.getBlockEntity(pos) instanceof MachineBlockEntity be) {
                     be.refreshLayout();
                     setup.accept(be);
@@ -232,10 +339,15 @@ public final class NeoForgeClientTest {
                 mc.player.closeContainer();
             }
             BlockPos pos = POS.get();
-            onServer(mc, level -> {
-                level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
-                return null;
-            });
+            if (remove) {
+                onServer(mc, level -> {
+                    if (around != null) {
+                        around.apply(level, pos, false);
+                    }
+                    level.setBlockAndUpdate(pos, Blocks.AIR.defaultBlockState());
+                    return null;
+                });
+            }
             return true;
         });
         STEPS.add((mc, t) -> t > 5);

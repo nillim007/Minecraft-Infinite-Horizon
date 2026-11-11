@@ -115,6 +115,28 @@ def machine_block(name):
     return f"{NS}:block/{name}_idle"
 
 
+def cube_block(name):
+    """Würfel mit einer Textur (Gehäuse eines Multiblocks)."""
+    write_json(f"assets/{NS}/models/block/{name}.json",
+               {"parent": "minecraft:block/cube_all", "textures": {"all": f"{NS}:block/{name}"}})
+    write_json(f"assets/{NS}/blockstates/{name}.json", {"variants": {"": {"model": f"{NS}:block/{name}"}}})
+    return f"{NS}:block/{name}"
+
+
+PORT_MODES = ["input", "output"]
+
+
+def port_block(name):
+    """Port (4.3): Blockstate mode=input|output mit je eigener Textur."""
+    variants = {}
+    for mode in PORT_MODES:
+        write_json(f"assets/{NS}/models/block/{name}_{mode}.json",
+                   {"parent": "minecraft:block/cube_all", "textures": {"all": f"{NS}:block/{name}_{mode}"}})
+        variants[f"mode={mode}"] = {"model": f"{NS}:block/{name}_{mode}"}
+    write_json(f"assets/{NS}/blockstates/{name}.json", {"variants": variants})
+    return f"{NS}:block/{name}_input"
+
+
 def cable_block(name):
     tex = f"{NS}:block/{name}"
     core = {"from": [6, 6, 6], "to": [10, 10, 10],
@@ -164,7 +186,8 @@ def fluid_resources(spec, fluids, items):
                        {"parent": "minecraft:item/generated", "textures": {"layer0": f"{NS}:item/{bucket}"}})
             write_json(f"assets/{NS}/items/{bucket}.json",
                        {"model": {"type": "minecraft:model", "model": f"{NS}:item/{bucket}"}})
-        entries.append({"id": f, "color": e["color"], "source_block": source, "bucket": bucket, **FLUID_FLOW})
+        entries.append({"id": f, "color": e["color"], "source_block": source, "bucket": bucket,
+                        "gas": e.get("fluid_type") == "gas", **FLUID_FLOW})
         if bucket:
             containers.append({"full": f"{NS}:{bucket}", "fluid": f"{NS}:{f}", "amount": BUCKET_AMOUNT,
                                "empty": "minecraft:bucket"})
@@ -369,6 +392,10 @@ def main():
             inv_model = cable_block(name)
         elif shape == "simple_block":
             inv_model = simple_block(name)
+        elif shape == "casing":
+            inv_model = cube_block(name)
+        elif shape == "port":
+            inv_model = port_block(name)
         else:
             sys.exit(f"Unbekannte Blockform {shape} für {i}")
         write_json(f"assets/{NS}/items/{name}.json", {"model": {"type": "minecraft:model", "model": inv_model}})
@@ -403,6 +430,9 @@ def main():
             write_json(f"data/minecraft/tags/block/mineable/{tool}.json", {"values": vals})
     for lvl in ("stone", "iron"):
         vals = [f"{NS}:{n}" for n, v in sorted(simple.items()) if v["needs"] == lvl]
+        if lvl == "stone":
+            # Maschinen, Generatoren, Speicher, Ports, Gehäuse, Kabel, Rohre: Werkzeugstufe wie iron_block (4.1)
+            vals = sorted(vals + [i for i in blocks if short(i) not in simple])
         if vals:
             write_json(f"data/minecraft/tags/block/needs_{lvl}_tool.json", {"values": vals})
     ore_tags = {}
@@ -458,10 +488,12 @@ def main():
 
     # Rezepte: nur wenn alle eigenen IDs registriert sind
     n_rec = 0
+    with_fluids = registered | {f"{NS}:{f}" for f in fluids}
     for r in spec.recipes:
-        if not recipe_ids(r) or not recipe_ids(r) <= registered:
+        if not recipe_ids(r) or not recipe_ids(r) <= with_fluids:
             continue
-        if r["type"] not in ("crafting_shaped", "crafting_shapeless", "smelting", "crushing", "electric_smelting", "pressing"):
+        if r["type"] not in ("crafting_shaped", "crafting_shapeless", "smelting", "crushing", "electric_smelting", "pressing",
+                             "refining", "electrolysis", "assembly"):
             continue  # weitere Typen folgen mit ihren Maschinen
         write_json(f"data/{NS}/recipe/{r['id'].split(':', 1)[1].replace('/', '_')}.json", recipe_json(r, registered))
         n_rec += 1

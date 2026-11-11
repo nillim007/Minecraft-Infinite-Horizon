@@ -159,6 +159,20 @@ def machine_front(e, status):
     return png(px)
 
 
+# Ports (4.3): Eingang blau, Ausgang orange (Rahmen um ein Feld in der Mitte)
+PORT_MODES = {"input": "#3F76E4", "output": "#F08020"}
+
+
+def port_texture(e, mode):
+    px = [row[:] for row in texture_px(e)]
+    c = rgb(PORT_MODES[mode])
+    for y in range(4, 12):
+        for x in range(4, 12):
+            frame = x in (4, 11) or y in (4, 11)
+            px[y][x] = (*(c if frame else shade(c, 0.6)), 255)
+    return png(px)
+
+
 def fluid_texture(e, flow):
     """Fluidtextur: einfarbig in der Fluidfarbe mit leichtem Rauschen (still bzw. fliessend, 16x16)."""
     base = rgb(e["color"])
@@ -192,10 +206,14 @@ def bucket_texture(e):
     return png(px)
 
 
-def machine_ids():
+def block_ids(shape):
     import json
     impl = json.loads((sd.ROOT / "common" / "implemented_ids.json").read_text(encoding="utf-8"))
-    return {i.split(":")[1] for i, k in impl["blocks"].items() if k == "machine"}
+    return {i.split(":")[1] for i, k in impl["blocks"].items() if k == shape}
+
+
+def machine_ids():
+    return block_ids("machine")
 
 
 def main():
@@ -206,6 +224,7 @@ def main():
     spec = sd.load()
     n = 0
     machines = machine_ids()
+    ports = block_ids("port")
     for e in spec.all_entries:
         name = e["id"].split(":")[1]
         if e.get("kind") == "fluid" and e.get("color"):
@@ -237,6 +256,10 @@ def main():
             for st in LAMPS:
                 (p.parent / f"{name}_front_{st}.png").write_bytes(machine_front(e, st))
             n += 4
+        if folder == "block" and name in ports:
+            for mode in PORT_MODES:
+                (p.parent / f"{name}_{mode}.png").write_bytes(port_texture(e, mode))
+            n += 2
     print(f"{n} Platzhalter-Texturen erzeugt in {OUT.relative_to(sd.ROOT)}")
 
 

@@ -1,27 +1,34 @@
 package de.sternenwerft.client;
 
 import de.sternenwerft.Sternenwerft;
-import de.sternenwerft.network.MachineConfigPayload;
-import de.sternenwerft.platform.Services;
-import net.minecraft.client.gui.components.Button;
-import net.minecraft.core.Direction;
+import de.sternenwerft.block.MachineStatus;
 import de.sternenwerft.core.fluid.FluidIds;
+import de.sternenwerft.machine.MachineBlock;
 import de.sternenwerft.machine.MachineBlockEntity;
 import de.sternenwerft.machine.MachineLayout;
-import de.sternenwerft.registry.ModFluids;
-import net.minecraft.resources.Identifier;
+import de.sternenwerft.menu.MachineGeometry;
 import de.sternenwerft.menu.MachineMenu;
+import de.sternenwerft.network.MachineConfigPayload;
+import de.sternenwerft.platform.Services;
+import de.sternenwerft.registry.ModFluids;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
+import net.minecraft.world.level.block.state.BlockState;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * GUI aller Maschinen (4.1), nur aus Rechtecken gezeichnet (Platzhalter-Optik ohne eigene Textur).
- * Energieleiste links (x 8, 8 × 60 px), Fortschrittspfeil 24 × 17 px in der Mitte; Generatoren zeigen die Brennzeit.
+ * Energieleiste links (x 8, 8 × 60 px), Fortschrittspfeil 24 × 17 px, Fluidleisten rechts außen ({@link MachineGeometry});
+ * Generatoren zeigen die Brennzeit. Kopfzeile: Statuslampe, Titel, Knöpfe „Tank“ und „Seite“.
  */
 public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
 
@@ -31,39 +38,59 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
     private static final int ENERGY = 0xFFD83A2A;
     private static final int PROGRESS = 0xFFFFFFFF;
     private static final int BURN = 0xFFF0A020;
+    private static final int SELECTED = 0xFFFFFF60;
+    // Farben der Statuslampe wie in der Welt (gelb/grün/rot, 4.1)
+    private static final int LAMP_IDLE = 0xFFF0C020;
+    private static final int LAMP_RUNNING = 0xFF40D040;
+    private static final int LAMP_ERROR = 0xFFE04030;
 
+    // Breite 176 px (4.1); die Inventar-Beschriftung steht wie in Vanilla 94 px über der Unterkante
+    private static final int GUI_WIDTH = 176;
+    private static final int INVENTORY_LABEL_OFFSET = 94;
     private static final int BAR_X = 8;
     // 60 px hoch (4.1), endet über der Inventar-Beschriftung (y 72); der Titel steht rechts daneben
     private static final int BAR_Y = 10;
     private static final int BAR_W = 8;
     private static final int BAR_H = 60;
     private static final int ARROW_W = 24;
-    private static final int FLUID_X = 152;
-    private static final int SIDE_X = 104;
-    private static final int SIDE_Y = 4;
+    private static final int ARROW_H = 17;
+    private static final int LAMP_X = 8;
+    private static final int LAMP_Y = 2;
+    private static final int LAMP_SIZE = 6;
+    private static final int HEADER_Y = 4;
+    private static final int HEADER_H = 12;
+    private static final int SIDE_X = 124;
     private static final int SIDE_W = 44;
-    private static final int SIDE_H = 12;
+    private static final int TANK_X = 92;
+    private static final int TANK_W = 30;
     private static final int FLUID_W = 16;
-    private static final int FLUID_STEP = 18;
     // Platzhalterfarben der Vanilla-Fluide (GUI)
     private static final int WATER = 0xFF3F76E4;
     private static final int LAVA = 0xFFE05A10;
-    private static final int ARROW_H = 17;
+
+    private final MachineGeometry geometry;
+    private Button sideButton;
+    private Button tankButton;
 
     public MachineScreen(MachineMenu menu, Inventory inventory, Component title) {
-        super(menu, inventory, title);
+        super(menu, inventory, title, GUI_WIDTH, menu.openData().geometry().imageHeight());
+        this.geometry = menu.openData().geometry();
+        this.inventoryLabelY = imageHeight - INVENTORY_LABEL_OFFSET;
         this.titleLabelX = BAR_X + BAR_W + 4;
     }
-
-    private Button sideButton;
 
     @Override
     protected void init() {
         super.init();
         // Knopf „Seite“ (4.1): schaltet die Ausgangsseite durch Unten, Oben, Nord, Süd, West, Ost
         sideButton = Button.builder(Component.translatable("gui.sternenwerft.side"), b -> cycleOutputSide())
-                .bounds(leftPos + SIDE_X, topPos + SIDE_Y, SIDE_W, SIDE_H).build();
+                .bounds(leftPos + SIDE_X, topPos + HEADER_Y, SIDE_W, HEADER_H).build();
         addRenderableWidget(sideButton);
+        // Knopf „Tank“ (4.1): wählt den Tank für leere Behälter im Füllslot
+        tankButton = Button.builder(Component.translatable("gui.sternenwerft.tank"), b -> cycleTank())
+                .bounds(leftPos + TANK_X, topPos + HEADER_Y, TANK_W, HEADER_H).build();
+        tankButton.visible = false;
+        addRenderableWidget(tankButton);
     }
 
     /** Schickt die nächste Ausgangsseite (Unten, Oben, Nord, Süd, West, Ost) an den Server. */
@@ -74,6 +101,17 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         }
         int next = (int) (current % Direction.values().length);
         Services.NETWORK.sendToServer(new MachineConfigPayload(menu.openData().pos(), next, -1));
+    }
+
+    /** Schickt den nächsten wählbaren Tank (1 … n, dann wieder 1) an den Server. */
+    public void cycleTank() {
+        long packed = menu.value(MachineBlockEntity.SYNC_TANK);
+        int count = (int) ((packed >> 8) & 0xFF);
+        if (count <= 1) {
+            return;
+        }
+        int next = (int) ((packed & 0xFF) + 1) % count;
+        Services.NETWORK.sendToServer(new MachineConfigPayload(menu.openData().pos(), -1, next));
     }
 
     @Override
@@ -94,6 +132,34 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
                 sideButton.setMessage(Component.translatable("gui.sternenwerft.side." + d.getSerializedName()));
             }
         }
+        long packed = menu.value(MachineBlockEntity.SYNC_TANK);
+        int selected = (int) (packed & 0xFF);
+        int choices = (int) ((packed >> 8) & 0xFF);
+        int firstChoice = (int) ((packed >> 16) & 0xFF);
+        if (tankButton != null) {
+            tankButton.visible = choices > 1;
+            tankButton.setMessage(Component.translatable("gui.sternenwerft.tank.n", firstChoice + selected + 1));
+        }
+
+        List<Component> tip = null;
+        // Statuslampe (4.1) mit Tooltip; Multiblock: erster fehlender Block mit Koordinate (4.3)
+        MachineStatus status = status();
+        int lampColor = switch (status) {
+            case RUNNING -> LAMP_RUNNING;
+            case ERROR -> LAMP_ERROR;
+            default -> LAMP_IDLE;
+        };
+        g.fill(x + LAMP_X - 1, y + LAMP_Y - 1, x + LAMP_X + LAMP_SIZE + 1, y + LAMP_Y + LAMP_SIZE + 1, SLOT_DARK);
+        g.fill(x + LAMP_X, y + LAMP_Y, x + LAMP_X + LAMP_SIZE, y + LAMP_Y + LAMP_SIZE, lampColor);
+        if (inside(mouseX, mouseY, x + LAMP_X - 1, y + LAMP_Y - 1, LAMP_SIZE + 2, LAMP_SIZE + 2)) {
+            tip = new ArrayList<>();
+            tip.add(Component.translatable("gui.sternenwerft.status." + status.getSerializedName()));
+            if (menu.value(MachineBlockEntity.SYNC_MULTIBLOCK) == 2) {
+                BlockPos missing = BlockPos.of(menu.value(MachineBlockEntity.SYNC_MISSING));
+                tip.add(Component.translatable("gui.sternenwerft.multiblock.missing", missing.getX(), missing.getY(), missing.getZ()));
+            }
+        }
+
         long energy = menu.value(0);
         long capacity = menu.value(1);
         int bx = x + BAR_X;
@@ -107,7 +173,7 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         long now = menu.value(2);
         long total = menu.value(3);
         MachineLayout l = menu.openData().layout();
-        int ax = x + MachineMenu.ARROW_X;
+        int ax = x + geometry.arrowX();
         int ay = y + MachineMenu.ROW_Y;
         boolean generator = l.fuel() > 0;
         int w = 0;
@@ -120,8 +186,8 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
             drawArrow(g, ax, ay, w, generator ? BURN : PROGRESS);
         }
 
-        // Fluidleisten rechts außen (x 152), weitere Tanks je 18 px nach links (4.1)
-        Component fluidTip = null;
+        // Fluidleisten rechts außen (x 152), weitere Tanks je 18 px nach links (4.1); der gewählte Tank ist hell umrandet
+        int fy = y + MachineGeometry.FLUID_Y;
         for (int t = 0; t < MachineBlockEntity.MAX_TANKS; t++) {
             long cap = menu.value(6 + 3 * t);
             if (cap <= 0) {
@@ -129,27 +195,38 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
             }
             long amount = menu.value(5 + 3 * t);
             Identifier fluid = FluidIds.fromNetworkId(menu.value(4 + 3 * t));
-            int fx = x + FLUID_X - t * FLUID_STEP;
-            g.fill(fx - 1, by - 1, fx + FLUID_W + 1, by + BAR_H + 1, SLOT_DARK);
+            int fx = x + geometry.tankX(t);
+            boolean chosen = choices > 1 && t == firstChoice + selected;
+            g.fill(fx - 1, fy - 1, fx + FLUID_W + 1, fy + BAR_H + 1, chosen ? SELECTED : SLOT_DARK);
+            g.fill(fx, fy, fx + FLUID_W, fy + BAR_H, SLOT_DARK);
             int h = (int) Math.min(BAR_H, amount * BAR_H / cap);
             if (fluid != null && h > 0) {
-                g.fill(fx, by + BAR_H - h, fx + FLUID_W, by + BAR_H, fluidColor(fluid));
+                g.fill(fx, fy + BAR_H - h, fx + FLUID_W, fy + BAR_H, fluidColor(fluid));
             }
-            if (inside(mouseX, mouseY, fx, by, FLUID_W, BAR_H)) {
+            if (tip == null && inside(mouseX, mouseY, fx, fy, FLUID_W, BAR_H)) {
                 Component name = fluid == null ? Component.literal("-")
                         : Component.translatable("block." + fluid.getNamespace() + "." + fluid.getPath());
-                fluidTip = Component.translatable("gui.sternenwerft.fluid", name, amount, cap);
+                tip = List.of(Component.translatable("gui.sternenwerft.fluid", name, amount, cap));
             }
         }
-        if (fluidTip != null) {
-            g.setComponentTooltipForNextFrame(font, List.of(fluidTip), mouseX, mouseY);
-        } else if (capacity > 0 && inside(mouseX, mouseY, bx, by, BAR_W, BAR_H)) {
-            g.setComponentTooltipForNextFrame(font,
-                    List.of(Component.translatable("gui.sternenwerft.energy", energy, capacity)), mouseX, mouseY);
-        } else if (total > 0 && inside(mouseX, mouseY, ax, ay, ARROW_W, ARROW_H)) {
+        if (tip == null && capacity > 0 && inside(mouseX, mouseY, bx, by, BAR_W, BAR_H)) {
+            tip = List.of(Component.translatable("gui.sternenwerft.energy", energy, capacity));
+        } else if (tip == null && total > 0 && inside(mouseX, mouseY, ax, ay, ARROW_W, ARROW_H)) {
             String key = l.fuel() > 0 ? "gui.sternenwerft.burn_time" : "gui.sternenwerft.progress_ticks";
-            g.setComponentTooltipForNextFrame(font, List.of(Component.translatable(key, now, total)), mouseX, mouseY);
+            tip = List.of(Component.translatable(key, now, total));
         }
+        if (tip != null) {
+            g.setComponentTooltipForNextFrame(font, tip, mouseX, mouseY);
+        }
+    }
+
+    /** Status aus dem Blockzustand in der Client-Welt (die Statuslampe des Blocks). */
+    private MachineStatus status() {
+        if (minecraft == null || minecraft.level == null) {
+            return MachineStatus.IDLE;
+        }
+        BlockState s = minecraft.level.getBlockState(menu.openData().pos());
+        return s.hasProperty(MachineBlock.STATUS) ? s.getValue(MachineBlock.STATUS) : MachineStatus.IDLE;
     }
 
     /** Pfeil 24 × 17 px: Schaft 16 px, Spitze 8 px; die ersten {@code filled} Spalten in {@code color}. */

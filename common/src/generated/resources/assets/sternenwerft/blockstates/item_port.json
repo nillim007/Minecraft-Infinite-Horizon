@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "mode=input": {
+      "model": "sternenwerft:block/item_port_input"
+    },
+    "mode=output": {
+      "model": "sternenwerft:block/item_port_output"
+    }
+  }
+}

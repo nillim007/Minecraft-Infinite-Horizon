@@ -13,10 +13,19 @@ public final class ModRecipeTypes {
     public static final ProcessingRecipe.Kind CRUSHING = kind("crushing");
     public static final ProcessingRecipe.Kind PRESSING = kind("pressing");
     public static final ProcessingRecipe.Kind ELECTRIC_SMELTING = kind("electric_smelting");
+    public static final ProcessingRecipe.Kind REFINING = kind("refining");
+    public static final ProcessingRecipe.Kind ELECTROLYSIS = kind("electrolysis");
+    /** Montagetisch: exakter Abgleich (22.3). */
+    public static final ProcessingRecipe.Kind ASSEMBLY = kind("assembly", true);
 
     /** Legt eine Rezeptart an und registriert Typ und Serializer unter {@code sternenwerft:<name>}. */
     public static ProcessingRecipe.Kind kind(String name) {
-        ProcessingRecipe.Kind k = new ProcessingRecipe.Kind(name);
+        return kind(name, false);
+    }
+
+    /** Wie {@link #kind(String)}; {@code exact} = exakter Abgleich wie im Montagetisch (22.3). */
+    public static ProcessingRecipe.Kind kind(String name, boolean exact) {
+        ProcessingRecipe.Kind k = new ProcessingRecipe.Kind(name, exact);
         Services.REGISTRY.register(BuiltInRegistries.RECIPE_TYPE, name, k::type);
         Services.REGISTRY.register(BuiltInRegistries.RECIPE_SERIALIZER, name, k::serializer);
         return k;

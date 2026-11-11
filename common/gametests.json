@@ -31,6 +31,17 @@
     {"name": "pump_water_removessource", "class": "SwGameTestsExtended", "method": "pumpWaterRemovesSource", "ticks": 60, "ref": "6.1"},
     {"name": "worldgen_oilbubble_feature", "class": "SwGameTestsExtended", "method": "oilBubbleFeature", "ticks": 20, "ref": "13.4"},
     {"name": "worldgen_biomes_containfeatures", "class": "SwGameTestsExtended", "method": "worldgenBiomeFeatures", "ticks": 20, "ref": "13.4, 27.3 M2b"},
-    {"name": "config_defaults_loaded", "class": "SwGameTestsExtended", "method": "configDefaults", "ticks": 20, "ref": "24.4"}
+    {"name": "config_defaults_loaded", "class": "SwGameTestsExtended", "method": "configDefaults", "ticks": 20, "ref": "24.4"},
+    {"name": "refinery_crudeoil_kerosene600plastic1within220ticks", "class": "SwGameTestsM2d", "method": "refineryCrudeOilToKerosene", "ticks": 220, "ref": "27.2, 27.3 M2d"},
+    {"name": "refinery_missingcasing_errorthenidle", "class": "SwGameTestsM2d", "method": "refineryMissingCasingThenIdle", "ticks": 20, "ref": "27.3 M2d, 4.3"},
+    {"name": "refinery_wrongblock_ghostpreview", "class": "SwGameTestsM2d", "method": "refineryWrongBlockAndGhostPreview", "ticks": 20, "ref": "4.1, 4.3"},
+    {"name": "refinery_ports_forwardtocontroller", "class": "SwGameTestsM2d", "method": "refineryPortsForwardToController", "ticks": 20, "ref": "4.3"},
+    {"name": "port_mode_toggleemptyhand", "class": "SwGameTestsM2d", "method": "portModeToggle", "ticks": 20, "ref": "4.3"},
+    {"name": "assembly_exactmatch_fluidportnotcasing", "class": "SwGameTestsM2d", "method": "assemblyExactMatch", "ticks": 20, "ref": "22.3, 27.3 M2d"},
+    {"name": "assembly_circuit_within220ticks", "class": "SwGameTestsM2d", "method": "assemblyCircuit", "ticks": 220, "ref": "27.2"},
+    {"name": "electrolyzer_water_h2o2within44ticks", "class": "SwGameTestsM2d", "method": "electrolyzerWater", "ticks": 44, "ref": "27.2"},
+    {"name": "electrolyzer_fullgastank_error", "class": "SwGameTestsM2d", "method": "electrolyzerFullError", "ticks": 20, "ref": "5.3"},
+    {"name": "electrolyzer_tankselection", "class": "SwGameTestsM2d", "method": "electrolyzerTankSelection", "ticks": 20, "ref": "4.1"},
+    {"name": "tank_rejects_gas", "class": "SwGameTestsM2d", "method": "tankRejectsGas", "ticks": 20, "ref": "6.3"}
   ]
 }

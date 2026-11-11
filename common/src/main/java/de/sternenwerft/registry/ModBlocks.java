@@ -4,6 +4,8 @@ import de.sternenwerft.Sternenwerft;
 import de.sternenwerft.block.CableBlock;
 import de.sternenwerft.block.FluidPipeBlock;
 import de.sternenwerft.machine.MachineBlock;
+import de.sternenwerft.multiblock.MultiblockPartBlock;
+import de.sternenwerft.multiblock.PortBlock;
 import de.sternenwerft.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -24,7 +26,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-/** Blöcke aus Meilenstein 1 (IDs laut spec/data/items.json). */
+/** Blöcke mit eigenem Verhalten (IDs laut spec/data/items.json); einfache Blöcke kommen aus simple_blocks.json. */
 public final class ModBlocks {
 
     public static final Supplier<Block> CRUSHER = register("crusher",
@@ -44,6 +46,26 @@ public final class ModBlocks {
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Supplier<Block> FLUID_PUMP = register("fluid_pump",
             p -> new MachineBlock(p, () -> ModBlockEntities.FLUID_PUMP.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> ASSEMBLY_TABLE = register("assembly_table",
+            p -> new MachineBlock(p, () -> ModBlockEntities.ASSEMBLY_TABLE.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> ELECTROLYZER = register("electrolyzer",
+            p -> new MachineBlock(p, () -> ModBlockEntities.ELECTROLYZER.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> REFINERY_CONTROLLER = register("refinery_controller",
+            p -> new MachineBlock(p, () -> ModBlockEntities.REFINERY_CONTROLLER.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> REFINERY_CASING = register("refinery_casing", MultiblockPartBlock::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> ITEM_PORT = register("item_port",
+            p -> new PortBlock(p, PortBlock.PortType.ITEM, () -> ModBlockEntities.PORT.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> FLUID_PORT = register("fluid_port",
+            p -> new PortBlock(p, PortBlock.PortType.FLUID, () -> ModBlockEntities.PORT.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> ENERGY_PORT = register("energy_port",
+            p -> new PortBlock(p, PortBlock.PortType.ENERGY, () -> ModBlockEntities.PORT.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Supplier<Block> COPPER_PIPE = register("copper_pipe", FluidPipeBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.COPPER).noOcclusion());

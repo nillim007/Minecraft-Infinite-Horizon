@@ -71,6 +71,37 @@ public final class BalanceManager {
         return new MachineStats(id, energy, ticks == null ? 0 : ticks, buffer, input, output, upgrades, mold);
     }
 
+    /**
+     * Tanks eines Blocks aus {@code fluid_tanks} ({@code role} input/output, {@code capacity}, {@code fluids} = erlaubte
+     * Fluide oder null). Leer, wenn der Eintrag keine Tanks hat.
+     */
+    public java.util.List<TankSpec> tanks(String file, String id) {
+        java.util.List<TankSpec> out = new java.util.ArrayList<>();
+        entry(file, id).filter(e -> e.has("fluid_tanks") && e.get("fluid_tanks").isJsonArray()).ifPresent(e -> {
+            for (JsonElement t : e.getAsJsonArray("fluid_tanks")) {
+                JsonObject o = t.getAsJsonObject();
+                java.util.List<String> fluids = null;
+                if (o.has("fluids") && o.get("fluids").isJsonArray()) {
+                    fluids = new java.util.ArrayList<>();
+                    for (JsonElement f : o.getAsJsonArray("fluids")) {
+                        fluids.add(f.getAsString());
+                    }
+                }
+                out.add(new TankSpec("output".equals(o.has("role") ? o.get("role").getAsString() : "input"),
+                        o.get("capacity").getAsLong(), fluids));
+            }
+        });
+        return out;
+    }
+
+    /** Füll- und Leerslots aus {@code container_slots} ({@code fill}, {@code drain}); {0, 0} ohne Eintrag. */
+    public int[] containerSlots(String file, String id) {
+        JsonObject e = entry(file, id).orElse(new JsonObject());
+        JsonObject s = e.has("container_slots") && e.get("container_slots").isJsonObject()
+                ? e.getAsJsonObject("container_slots") : new JsonObject();
+        return new int[]{s.has("fill") ? s.get("fill").getAsInt() : 0, s.has("drain") ? s.get("drain").getAsInt() : 0};
+    }
+
     /** Upgrade-Slot (1, 2, …), in den dieses Item gehört; 0 = kein Upgrade (machines.json → Feld {@code slot}). */
     public int upgradeSlotOf(String itemId) {
         return entry("machines", itemId).filter(o -> o.has("slot") && o.has("max_stack"))
@@ -150,6 +181,40 @@ public final class BalanceManager {
 
     // ------------------------------------------------------------------ Laden
 
+    private static volatile BalanceManager bundled;
+
+    /**
+     * Die Werte aus dem Mod-Jar (ohne Datapacks). Für den Client, der keine Balance vom Server bekommt, z. B. für die
+     * Geisterprojektion (4.1). Auf dem Server immer {@link #get()} verwenden.
+     */
+    public static BalanceManager bundled() {
+        BalanceManager b = bundled;
+        if (b == null) {
+            Map<String, JsonObject> map = new HashMap<>();
+            for (String name : new String[]{"machines", "misc", "storage", "generators", "transport"}) {
+                String path = "/data/sternenwerft/sternenwerft/balance/" + name + ".json";
+                try (java.io.InputStream in = BalanceManager.class.getResourceAsStream(path)) {
+                    if (in != null) {
+                        try (Reader r = new java.io.InputStreamReader(in, StandardCharsets.UTF_8)) {
+                            map.put(name, JsonParser.parseReader(r).getAsJsonObject());
+                        }
+                    }
+                } catch (IOException | RuntimeException e) {
+                    // fehlt die Datei, bleibt der Eintrag leer
+                }
+            }
+            b = new BalanceManager(map);
+            bundled = b;
+        }
+        return b;
+    }
+
+    /** {@link #get()}, falls geladen (Server, Einzelspieler), sonst {@link #bundled()}. */
+    public static BalanceManager getOrBundled() {
+        BalanceManager b = current;
+        return b.isEmpty() ? bundled() : b;
+    }
+
     /** Lädt alle *.json eines Verzeichnisses (für Tests und Werkzeuge). */
     public static BalanceManager loadDirectory(Path dir) throws IOException {
         Map<String, JsonObject> map = new HashMap<>();
@@ -175,6 +240,10 @@ public final class BalanceManager {
     }
 
     public record GeneratorStats(String id, long outputPerTick, long buffer, int fuelSlots) {
+    }
+
+    /** Ein Tank laut Balance: Ausgangstank ({@code output}) oder Eingangstank; {@code fluids} null = laut Rezepten. */
+    public record TankSpec(boolean output, long capacity, java.util.@org.jspecify.annotations.Nullable List<String> fluids) {
     }
 
     public record UpgradeStats(String id, double ticksMultiplier, double energyMultiplier, int maxStack) {

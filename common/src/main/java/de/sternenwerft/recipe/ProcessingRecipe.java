@@ -3,6 +3,7 @@ package de.sternenwerft.recipe;
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+import de.sternenwerft.core.fluid.SwFluidStack;
 import de.sternenwerft.registry.ModRecipeTypes;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.codec.ByteBufCodecs;
@@ -16,17 +17,19 @@ import net.minecraft.world.item.crafting.RecipeBookCategory;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.item.crafting.RecipeType;
 import net.minecraft.world.level.Level;
+import org.jspecify.annotations.Nullable;
 
 import java.util.List;
 import java.util.Optional;
 
 /**
- * Rezept einer Verarbeitungsmaschine mit einem Eingang (Format 25.4):
+ * Rezept einer Verarbeitungsmaschine (Format 25.4):
  * {@code {"type": "<ns>:<art>", "ingredients": [{"ingredient": …, "count": n}], "results": [{"id", "count", "chance"}],
- * "ticks"?: n, "energy_per_tick"?: n}}. Fehlen {@code ticks}/{@code energy_per_tick}, gelten die Werte der Maschine.
+ * "fluid"?: {"fluid", "amount"}, "fluid_results"?: [{"fluid", "amount"}], "ticks"?: n, "energy_per_tick"?: n, "mold"?: id}}.
+ * Fehlen {@code ticks}/{@code energy_per_tick}, gelten die Werte der Maschine.
  *
  * <p>Eine neue Rezeptart braucht nur eine {@link Kind}; Addons registrieren deren {@code type()} und
- * {@code serializer()} unter eigener ID.
+ * {@code serializer()} unter eigener ID. {@link Kind#exact()} schaltet den exakten Abgleich des Montagetischs ein (22.3).
  */
 public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
 
@@ -49,14 +52,25 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
         }
     }
 
+    /** Zuordnung der Zutaten zu Slots: welche Slots wie viel verbrauchen. */
+    public record Match(int[] slots, int[] counts) {
+    }
+
     /** Eine Rezeptart (z. B. {@code crushing}) mit eigenem RecipeType und Serializer. */
     public static final class Kind {
         private final String name;
+        private final boolean exact;
         private final RecipeType<ProcessingRecipe> type;
         private final RecipeSerializer<ProcessingRecipe> serializer;
 
         public Kind(String name) {
+            this(name, false);
+        }
+
+        /** @param exact exakter Abgleich (22.3): belegte Slots enthalten genau die Zutatenmengen, nichts anderes */
+        public Kind(String name, boolean exact) {
             this.name = name;
+            this.exact = exact;
             this.type = new RecipeType<>() {
                 @Override
                 public String toString() {
@@ -64,17 +78,23 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
                 }
             };
             MapCodec<ProcessingRecipe> codec = RecordCodecBuilder.mapCodec(i -> i.group(
-                    CountedIngredient.CODEC.listOf().fieldOf("ingredients").forGetter(ProcessingRecipe::ingredients),
-                    ChanceResult.CODEC.listOf().fieldOf("results").forGetter(ProcessingRecipe::results),
+                    CountedIngredient.CODEC.listOf().optionalFieldOf("ingredients", List.of()).forGetter(ProcessingRecipe::ingredients),
+                    ChanceResult.CODEC.listOf().optionalFieldOf("results", List.of()).forGetter(ProcessingRecipe::results),
+                    SwFluidStack.CODEC.optionalFieldOf("fluid").forGetter(ProcessingRecipe::fluid),
+                    SwFluidStack.CODEC.listOf().optionalFieldOf("fluid_results", List.of()).forGetter(ProcessingRecipe::fluidResults),
                     ExtraCodecs.POSITIVE_INT.optionalFieldOf("ticks").forGetter(ProcessingRecipe::ticks),
                     Codec.LONG.optionalFieldOf("energy_per_tick").forGetter(ProcessingRecipe::energyPerTick),
                     BuiltInRegistries.ITEM.byNameCodec().optionalFieldOf("mold").forGetter(ProcessingRecipe::mold)
-            ).apply(i, (ing, res, t, e, m) -> new ProcessingRecipe(this, ing, res, t, e, m)));
+            ).apply(i, (ing, res, f, fr, t, e, m) -> new ProcessingRecipe(this, ing, res, f, fr, t, e, m)));
             this.serializer = new RecipeSerializer<>(codec, ByteBufCodecs.fromCodecWithRegistries(codec.codec()));
         }
 
         public String name() {
             return name;
+        }
+
+        public boolean exact() {
+            return exact;
         }
 
         public RecipeType<ProcessingRecipe> type() {
@@ -89,15 +109,25 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
     private final Kind kind;
     private final List<CountedIngredient> ingredients;
     private final List<ChanceResult> results;
+    private final Optional<SwFluidStack> fluid;
+    private final List<SwFluidStack> fluidResults;
     private final Optional<Integer> ticks;
     private final Optional<Long> energyPerTick;
     private final Optional<Item> mold;
 
     public ProcessingRecipe(Kind kind, List<CountedIngredient> ingredients, List<ChanceResult> results,
                             Optional<Integer> ticks, Optional<Long> energyPerTick, Optional<Item> mold) {
+        this(kind, ingredients, results, Optional.empty(), List.of(), ticks, energyPerTick, mold);
+    }
+
+    public ProcessingRecipe(Kind kind, List<CountedIngredient> ingredients, List<ChanceResult> results,
+                            Optional<SwFluidStack> fluid, List<SwFluidStack> fluidResults,
+                            Optional<Integer> ticks, Optional<Long> energyPerTick, Optional<Item> mold) {
         this.kind = kind;
         this.ingredients = List.copyOf(ingredients);
         this.results = List.copyOf(results);
+        this.fluid = fluid;
+        this.fluidResults = List.copyOf(fluidResults);
         this.ticks = ticks;
         this.energyPerTick = energyPerTick;
         this.mold = mold;
@@ -120,6 +150,16 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
         return results;
     }
 
+    /** Fluid-Zutat aus einem Eingangstank (Raffinerie, Elektrolyseur, Montagetisch). */
+    public Optional<SwFluidStack> fluid() {
+        return fluid;
+    }
+
+    /** Fluid-Ergebnisse, je eines in einen Ausgangstank. */
+    public List<SwFluidStack> fluidResults() {
+        return fluidResults;
+    }
+
     public Optional<Integer> ticks() {
         return ticks;
     }
@@ -134,10 +174,53 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
     }
 
     /**
+     * Prüft das Rezept gegen die Eingabe und liefert, welche Slots wie viel verbrauchen; null, wenn es nicht passt.
+     * Normal: jede Zutat in einem eigenen Slot mit mindestens der Menge (Reihenfolge egal). Exakt (22.3): alle belegten
+     * Slots zusammen enthalten genau die Zutaten. Eine Fluid-Zutat braucht einen Eingangstank mit genug davon.
+     */
+    public @Nullable Match match(MachineRecipeInput input) {
+        if (mold.isPresent() && !input.mold().is(mold.get())) {
+            return null;
+        }
+        // SPEC-GAP: Fluid-Zutat „mindestens“, auch beim exakten Abgleich (spec-gaps #26)
+        if (fluid.isPresent() && input.fluids().stream()
+                .noneMatch(f -> f.is(fluid.get().fluid()) && f.amount() >= fluid.get().amount())) {
+            return null;
+        }
+        if (kind.exact()) {
+            int[] owner = ExactMatch.assign(input.inputs(), ingredients, ItemStack::isEmpty,
+                    (ci, stack) -> ci.ingredient().test(stack), ItemStack::getCount, CountedIngredient::count);
+            if (owner == null) {
+                return null;
+            }
+            int n = 0;
+            for (int o : owner) {
+                n += o >= 0 ? 1 : 0;
+            }
+            int[] slots = new int[n];
+            int[] counts = new int[n];
+            int k = 0;
+            for (int s = 0; s < owner.length; s++) {
+                if (owner[s] >= 0) {
+                    slots[k] = s;
+                    counts[k++] = input.getItem(s).getCount();
+                }
+            }
+            return new Match(slots, counts);
+        }
+        if (ingredients.isEmpty()) {
+            return fluid.isPresent() ? new Match(new int[0], new int[0]) : null;
+        }
+        int[] slots = assign(input);
+        return slots == null ? null
+                : new Match(slots, ingredients.stream().mapToInt(CountedIngredient::count).toArray());
+    }
+
+    /**
      * Ordnet jeder Zutat einen eigenen Eingabeslot zu, der genug davon enthält (Reihenfolge egal).
      * Ergebnis: Slotindex je Zutat, oder null, wenn das Rezept nicht passt.
      */
-    public int[] assign(MachineRecipeInput input) {
+    public int @Nullable [] assign(MachineRecipeInput input) {
         if (ingredients.isEmpty()) {
             return null;
         }
@@ -166,7 +249,7 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
 
     @Override
     public boolean matches(MachineRecipeInput input, Level level) {
-        return assign(input) != null;
+        return match(input) != null;
     }
 
     @Override

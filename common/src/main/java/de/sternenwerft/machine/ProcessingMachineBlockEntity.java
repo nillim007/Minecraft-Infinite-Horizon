@@ -2,17 +2,22 @@ package de.sternenwerft.machine;
 
 import de.sternenwerft.block.MachineStatus;
 import de.sternenwerft.core.energy.SwEnergyStorage;
+import de.sternenwerft.core.fluid.SwFluidStack;
+import de.sternenwerft.core.fluid.SwFluidTank;
 import de.sternenwerft.core.transaction.Transaction;
 import de.sternenwerft.data.BalanceManager;
 import de.sternenwerft.data.BalanceManager.MachineStats;
+import de.sternenwerft.data.BalanceManager.TankSpec;
 import de.sternenwerft.recipe.MachineRecipeInput;
 import de.sternenwerft.recipe.ProcessingRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.resources.Identifier;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeManager;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.storage.ValueInput;
@@ -20,14 +25,23 @@ import net.minecraft.world.level.storage.ValueOutput;
 import org.jspecify.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
+import java.util.WeakHashMap;
 import java.util.function.Supplier;
 
 /**
- * Verarbeitungsmaschine (Zerkleinerer, Presse, …). Slots laut machines.json; Rezeptarten als {@link ProcessingRecipe.Kind}.
- * Dauer und Verbrauch: Rezept, sonst Maschine (25.4), dann Upgrades (4.2). Der Fortschritt ist ein Anteil (0–1),
- * damit er beim Ein- und Ausbau von Upgrades erhalten bleibt.
+ * Verarbeitungsmaschine (Zerkleinerer, Presse, Raffinerie, Elektrolyseur, Montagetisch …). Slots und Tanks laut
+ * machines.json ({@code item_slots}, {@code fluid_tanks}, {@code container_slots}); Rezeptarten als
+ * {@link ProcessingRecipe.Kind}. Dauer und Verbrauch: Rezept, sonst Maschine (25.4), dann Upgrades (4.2). Der
+ * Fortschritt ist ein Anteil (0–1), damit er beim Ein- und Ausbau von Upgrades erhalten bleibt.
+ *
+ * <p>Tanks (4.1): Ein Eingangstank nimmt nur Fluide an, die in einem Rezept dieser Maschine als Eingabe stehen (oder die
+ * Liste {@code fluids} aus den Daten); Ausgangstanks nehmen von außen nichts an und geben über die Ausgangsseite ab.
  *
  * <p>Addon-Maschine: {@code (pos, state) -> new ProcessingMachineBlockEntity(TYP, pos, state, () -> List.of(KIND))},
  * ein {@link MachineBlock} und ein Eintrag in {@code data/<ns>/sternenwerft/balance/machines.json}.
@@ -35,14 +49,28 @@ import java.util.function.Supplier;
  */
 public class ProcessingMachineBlockEntity extends MachineBlockEntity {
 
-    /** Ein konkreter Vorgang: welche Slots wie viel verbrauchen, was herauskommt, Rezept-Überschreibungen. */
+    /**
+     * Ein konkreter Vorgang: welche Slots wie viel verbrauchen, was herauskommt, Rezept-Überschreibungen, dazu die
+     * Fluid-Zutat (oder {@link SwFluidStack#EMPTY}) und die Fluid-Ergebnisse.
+     */
     public record Plan(int[] consumeSlots, int[] consumeCounts, List<ProcessingRecipe.ChanceResult> results,
-                       Optional<Integer> ticks, Optional<Long> energyPerTick) {
+                       Optional<Integer> ticks, Optional<Long> energyPerTick, SwFluidStack fluidIn,
+                       List<SwFluidStack> fluidResults) {
+
+        public Plan(int[] consumeSlots, int[] consumeCounts, List<ProcessingRecipe.ChanceResult> results,
+                    Optional<Integer> ticks, Optional<Long> energyPerTick) {
+            this(consumeSlots, consumeCounts, results, ticks, energyPerTick, SwFluidStack.EMPTY, List.of());
+        }
     }
 
     private static final double DONE = 1.0 - 1e-9;
+    /** Eingabe-Fluide je Rezeptart, zwischengespeichert je Rezeptmanager (neu nach /reload). */
+    private static final Map<RecipeManager, Map<ProcessingRecipe.Kind, Set<Identifier>>> INPUT_FLUIDS =
+            Collections.synchronizedMap(new WeakHashMap<>());
 
     private final Supplier<List<ProcessingRecipe.Kind>> kinds;
+    private final List<SwFluidTank> inTanks = new ArrayList<>();
+    private final List<SwFluidTank> outTanks = new ArrayList<>();
     private double progress;
     private int currentTicks;
 
@@ -56,6 +84,10 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         return BalanceManager.get().machine(machineId());
     }
 
+    public List<ProcessingRecipe.Kind> kinds() {
+        return kinds.get();
+    }
+
     /** Fortschritt des laufenden Vorgangs als Anteil 0–1. */
     public double progress() {
         return progress;
@@ -67,13 +99,70 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
             return MachineLayout.EMPTY;
         }
         MachineStats s = stats();
-        return new MachineLayout(s.inputSlots(), s.moldSlots(), s.outputSlots(), s.upgradeSlots(), 0);
+        int[] containers = BalanceManager.get().containerSlots("machines", machineId());
+        return new MachineLayout(s.inputSlots(), s.moldSlots(), s.outputSlots(), s.upgradeSlots(), 0,
+                containers[0], containers[1]);
     }
 
     @Override
     protected void configureEnergy(SwEnergyStorage storage) {
         MachineStats s = stats();
         storage.reconfigure(s.buffer(), s.buffer(), 0);
+        configureTanks(BalanceManager.get().tanks("machines", machineId()));
+    }
+
+    /** Legt die Tanks laut Daten an (Inhalt bleibt erhalten, solange die Zahl gleich bleibt). */
+    protected void configureTanks(List<TankSpec> specs) {
+        int in = 0;
+        int out = 0;
+        for (TankSpec spec : specs) {
+            List<SwFluidTank> list = spec.output() ? outTanks : inTanks;
+            int idx = spec.output() ? out++ : in++;
+            if (list.size() <= idx) {
+                list.add(new SwFluidTank(0, id -> false, this::setChanged));
+            }
+            List<String> allowed = spec.fluids();
+            list.get(idx).reconfigure(spec.capacity(), spec.output() ? id -> false
+                    : allowed != null ? id -> allowed.contains(id.toString()) : this::acceptsInputFluid);
+        }
+        while (inTanks.size() > in) {
+            inTanks.removeLast();
+        }
+        while (outTanks.size() > out) {
+            outTanks.removeLast();
+        }
+    }
+
+    /** Steht dieses Fluid in mindestens einem Rezept dieser Maschine als Eingabe (4.1)? */
+    public boolean acceptsInputFluid(Identifier fluid) {
+        if (!(level instanceof ServerLevel sl) || !(sl.recipeAccess() instanceof RecipeManager rm)) {
+            return false;
+        }
+        Map<ProcessingRecipe.Kind, Set<Identifier>> byKind = INPUT_FLUIDS.computeIfAbsent(rm, k -> {
+            Map<ProcessingRecipe.Kind, Set<Identifier>> m = new java.util.HashMap<>();
+            for (RecipeHolder<?> h : rm.getRecipes()) {
+                if (h.value() instanceof ProcessingRecipe r && r.fluid().isPresent()) {
+                    m.computeIfAbsent(r.kind(), x -> new HashSet<>()).add(r.fluid().get().fluid());
+                }
+            }
+            return m;
+        });
+        for (ProcessingRecipe.Kind kind : kinds.get()) {
+            if (byKind.getOrDefault(kind, Set.of()).contains(fluid)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    protected List<SwFluidTank> inputTanks() {
+        return inTanks;
+    }
+
+    @Override
+    protected List<SwFluidTank> outputTanks() {
+        return outTanks;
     }
 
     @Override
@@ -95,7 +184,7 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         return false;
     }
 
-    /** Aktuelle Eingabe: alle Eingabeslots und der Formslot. */
+    /** Aktuelle Eingabe: alle Eingabeslots, der Formslot und der Inhalt der Eingangstanks. */
     public MachineRecipeInput recipeInput() {
         MachineLayout l = layout();
         List<ItemStack> in = new ArrayList<>(l.inputs());
@@ -103,23 +192,27 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
             in.add(items.get(i));
         }
         ItemStack mold = l.molds() > 0 ? items.get(l.moldStart()) : ItemStack.EMPTY;
-        return new MachineRecipeInput(in, mold);
+        List<SwFluidStack> fluids = new ArrayList<>();
+        for (SwFluidTank t : inTanks) {
+            fluids.add(t.stack());
+        }
+        return new MachineRecipeInput(in, mold, fluids);
     }
 
     /** Sucht den nächsten Vorgang über alle Rezeptarten der Maschine. */
     protected Optional<Plan> findPlan(ServerLevel level) {
         MachineRecipeInput input = recipeInput();
-        if (input.inputs().stream().allMatch(ItemStack::isEmpty)) {
+        if (input.isEmpty()) {
             return Optional.empty();
         }
         for (ProcessingRecipe.Kind kind : kinds.get()) {
             Optional<RecipeHolder<ProcessingRecipe>> found = level.recipeAccess().getRecipeFor(kind.type(), input, level);
             if (found.isPresent()) {
                 ProcessingRecipe r = found.get().value();
-                int[] slots = r.assign(input);
-                if (slots != null) {
-                    int[] counts = r.ingredients().stream().mapToInt(ProcessingRecipe.CountedIngredient::count).toArray();
-                    return Optional.of(new Plan(slots, counts, r.results(), r.ticks(), r.energyPerTick()));
+                ProcessingRecipe.Match m = r.match(input);
+                if (m != null) {
+                    return Optional.of(new Plan(m.slots(), m.counts(), r.results(), r.ticks(), r.energyPerTick(),
+                            r.fluid().orElse(SwFluidStack.EMPTY), r.fluidResults()));
                 }
             }
         }
@@ -162,6 +255,15 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         if (!ensureLayout()) {
             return;
         }
+        if (!inTanks.isEmpty() || !outTanks.isEmpty()) {
+            handleContainers();
+            pushFluids(level);
+        }
+        process(level);
+    }
+
+    /** Ein Verarbeitungsschritt (Rezept suchen, Strom verbrauchen, Fortschritt, Ergebnis ablegen). */
+    protected void process(ServerLevel level) {
         Optional<Plan> found = findPlan(level);
         if (found.isEmpty()) {
             progress = 0;
@@ -170,7 +272,8 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
             return;
         }
         Plan plan = found.get();
-        if (!outputsFit(plan.results())) {
+        int[] fluidTargets = fluidTargets(plan.fluidResults());
+        if (!outputsFit(plan.results()) || fluidTargets == null) {
             setStatus(MachineStatus.ERROR);
             return;
         }
@@ -189,6 +292,20 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
             for (int k = 0; k < plan.consumeSlots().length; k++) {
                 items.get(plan.consumeSlots()[k]).shrink(plan.consumeCounts()[k]);
             }
+            try (Transaction tx = Transaction.open()) {
+                if (!plan.fluidIn().isEmpty()) {
+                    for (SwFluidTank t : inTanks) {
+                        if (t.stack().is(plan.fluidIn().fluid()) && t.stack().amount() >= plan.fluidIn().amount()) {
+                            t.extract(plan.fluidIn().fluid(), plan.fluidIn().amount(), tx);
+                            break;
+                        }
+                    }
+                }
+                for (int k = 0; k < plan.fluidResults().size(); k++) {
+                    outTanks.get(fluidTargets[k]).fill(plan.fluidResults().get(k), tx);
+                }
+                tx.commit();
+            }
             for (ProcessingRecipe.ChanceResult r : plan.results()) {
                 if (r.chance() >= 1.0f || level.getRandom().nextFloat() < r.chance()) {
                     insertOutput(r.toStack());
@@ -197,6 +314,35 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         }
         setStatus(MachineStatus.RUNNING);
         setChanged();
+    }
+
+    /**
+     * Ausgangstank je Fluid-Ergebnis: zuerst ein Tank mit demselben Fluid, sonst der erste leere (jeder Tank höchstens
+     * einmal je Vorgang). Null, wenn ein Ergebnis keinen Platz hat (Statuslampe error, 5.3).
+     */
+    protected int @Nullable [] fluidTargets(List<SwFluidStack> results) {
+        int[] targets = new int[results.size()];
+        boolean[] taken = new boolean[outTanks.size()];
+        for (int k = 0; k < results.size(); k++) {
+            SwFluidStack r = results.get(k);
+            int found = -1;
+            for (int t = 0; t < outTanks.size() && found < 0; t++) {
+                if (!taken[t] && outTanks.get(t).stack().is(r.fluid())) {
+                    found = t;
+                }
+            }
+            for (int t = 0; t < outTanks.size() && found < 0; t++) {
+                if (!taken[t] && outTanks.get(t).stack().isEmpty()) {
+                    found = t;
+                }
+            }
+            if (found < 0 || outTanks.get(found).space() < r.amount()) {
+                return null;
+            }
+            taken[found] = true;
+            targets[k] = found;
+        }
+        return targets;
     }
 
     private boolean outputsFit(List<ProcessingRecipe.ChanceResult> results) {

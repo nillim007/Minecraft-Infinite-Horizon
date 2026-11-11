@@ -69,11 +69,19 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
     public static final TagKey<Item> PRESS_MOLDS = TagKey.create(Registries.ITEM, Sternenwerft.id("press_molds"));
     /** Höchstzahl Tanks, die das GUI anzeigt (Elektrolyseur: 1 Eingang + 2 Ausgänge). */
     public static final int MAX_TANKS = 3;
-    /** Anzahl synchronisierter Werte (je 64 Bit, als 4 × 16 Bit übertragen): 4 Grundwerte + je Tank Fluid, Menge, Kapazität. */
-    public static final int SYNC_VALUES = 4 + 3 * MAX_TANKS + 2;
-    /** Index des Sync-Werts „Ausgangsseite + 1“ (0 = keine Fluidausgabe) und „gewählter Tank“. */
+    /**
+     * Anzahl synchronisierter Werte (je 64 Bit, als 4 × 16 Bit übertragen): 4 Grundwerte + je Tank Fluid, Menge,
+     * Kapazität + Ausgangsseite, Tankwahl, Multiblock-Zustand, fehlender Block.
+     */
+    public static final int SYNC_VALUES = 4 + 3 * MAX_TANKS + 4;
+    /** Index des Sync-Werts „Ausgangsseite + 1“ (0 = keine Fluidausgabe). */
     public static final int SYNC_SIDE = 4 + 3 * MAX_TANKS;
+    /** Tankwahl gepackt: Bits 0–7 gewählter Tank, 8–15 Zahl der wählbaren Tanks, 16–23 Index des ersten im GUI. */
     public static final int SYNC_TANK = SYNC_SIDE + 1;
+    /** Multiblock: 0 = kein Multiblock, 1 = vollständig, 2 = unvollständig. */
+    public static final int SYNC_MULTIBLOCK = SYNC_SIDE + 2;
+    /** Erster fehlender Block ({@code BlockPos#asLong}), nur bei {@link #SYNC_MULTIBLOCK} = 2. */
+    public static final int SYNC_MISSING = SYNC_SIDE + 3;
 
     protected NonNullList<ItemStack> items = NonNullList.withSize(0, ItemStack.EMPTY);
     protected final SwEnergyStorage energy = new SwEnergyStorage(0, 0, 0, this::setChanged);
@@ -128,7 +136,12 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
             return outputTanks().isEmpty() ? 0 : outputSide().ordinal() + 1;
         }
         if (index == SYNC_TANK) {
-            return selectedTank;
+            List<SwFluidTank> sources = fillSources();
+            int offset = outputTanks().isEmpty() ? 0 : inputTanks().size();
+            return Math.min(selectedTank, Math.max(0, sources.size() - 1)) | ((long) sources.size() << 8) | ((long) offset << 16);
+        }
+        if (index == SYNC_MULTIBLOCK || index == SYNC_MISSING) {
+            return 0;
         }
         if (index >= 4) {
             int t = (index - 4) / 3;
@@ -216,19 +229,8 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
             if (!providesEnergyTo(d)) {
                 continue;
             }
-            BlockPos n = worldPosition.relative(d);
             long offer = Math.min(energy.getAmount(), energy.getMaxExtract());
-            long moved;
-            if (level.getBlockState(n).getBlock() instanceof CableBlock) {
-                EnergyGrid grid = GridManager.get(level).gridAt(level, n);
-                moved = grid == null ? 0 : grid.push(level, worldPosition, offer);
-            } else {
-                BlockEntity be = level.getBlockEntity(n);
-                EnergyTarget target = be instanceof EnergyNode node
-                        ? (node.acceptsEnergyFrom(d.getOpposite()) ? node.asTarget() : null)
-                        : Services.ENERGY.findTarget(level, n, d.getOpposite());
-                moved = target == null ? 0 : target.insert(offer, false);
-            }
+            long moved = pushEnergyTo(level, worldPosition, d, offer);
             if (moved > 0) {
                 try (Transaction tx = Transaction.open()) {
                     energy.extract(moved, tx);
@@ -236,6 +238,23 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
                 }
             }
         }
+    }
+
+    /**
+     * Bietet {@code offer} J dem Nachbarn auf Seite {@code side} von {@code from} an (Kabelnetz, eigener Block oder
+     * Loader-API) und gibt die angenommene Menge zurück. Der Aufrufer zieht sie aus seinem Speicher ab.
+     */
+    public static long pushEnergyTo(ServerLevel level, BlockPos from, Direction side, long offer) {
+        BlockPos n = from.relative(side);
+        if (level.getBlockState(n).getBlock() instanceof CableBlock) {
+            EnergyGrid grid = GridManager.get(level).gridAt(level, n);
+            return grid == null ? 0 : grid.push(level, from, offer);
+        }
+        BlockEntity be = level.getBlockEntity(n);
+        EnergyTarget target = be instanceof EnergyNode node
+                ? (node.acceptsEnergyFrom(side.getOpposite()) ? node.asTarget() : null)
+                : Services.ENERGY.findTarget(level, n, side.getOpposite());
+        return target == null ? 0 : target.insert(offer, false);
     }
 
     // ------------------------------------------------------------------ Fluide (4.1, 4.4)
@@ -269,8 +288,18 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
         return s.hasProperty(MachineBlock.FACING) ? s.getValue(MachineBlock.FACING) : Direction.NORTH;
     }
 
+    /**
+     * Tanks, aus denen der Füllslot füllt und zwischen denen der Knopf „Tank“ wählt (4.1): die Ausgangstanks, bei
+     * Speichern ohne Ausgangstank die Eingangstanks.
+     */
+    // SPEC-GAP: Knopf „Tank“ wählt nur unter den Füllquellen (spec-gaps #25)
+    protected List<SwFluidTank> fillSources() {
+        return outputTanks().isEmpty() ? inputTanks() : outputTanks();
+    }
+
+    /** Wählt den Tank (Index in {@link #fillSources()}) für leere Behälter im Füllslot. */
     public void setSelectedTank(int tank) {
-        selectedTank = Math.max(0, Math.min(tank, Math.max(0, fluidTanks().size() - 1)));
+        selectedTank = Math.max(0, Math.min(tank, Math.max(0, fillSources().size() - 1)));
         setChanged();
     }
 
@@ -348,22 +377,12 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
     /** Schiebt den Inhalt der Ausgangstanks über die Ausgangsseite (Rohrnetz oder Nachbar). */
     protected void pushFluids(ServerLevel level) {
         Direction side = outputSide();
-        BlockPos n = worldPosition.relative(side);
         for (SwFluidTank tank : outputTanks()) {
             SwFluidStack offer = tank.stack();
             if (offer.isEmpty()) {
                 continue;
             }
-            long moved;
-            if (level.getBlockState(n).getBlock() instanceof FluidPipeBlock) {
-                FluidGrid grid = GridManager.get(level).fluidGridAt(level, n);
-                moved = grid == null ? 0 : grid.push(level, worldPosition, offer);
-            } else {
-                BlockEntity be = level.getBlockEntity(n);
-                FluidTarget target = be instanceof FluidNode node ? node.fluidInput(side.getOpposite())
-                        : Services.FLUID.findTarget(level, n, side.getOpposite());
-                moved = target == null ? 0 : target.insert(offer, false);
-            }
+            long moved = pushFluidTo(level, worldPosition, side, offer);
             if (moved > 0) {
                 try (Transaction tx = Transaction.open()) {
                     tank.extract(offer.fluid(), moved, tx);
@@ -374,28 +393,43 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
     }
 
     /**
+     * Bietet {@code offer} dem Nachbarn auf Seite {@code side} von {@code from} an (Rohrnetz, eigener Block oder
+     * Loader-API) und gibt die angenommene Menge in mB zurück. Der Aufrufer zieht sie aus seinem Tank ab.
+     */
+    public static long pushFluidTo(ServerLevel level, BlockPos from, Direction side, SwFluidStack offer) {
+        BlockPos n = from.relative(side);
+        if (level.getBlockState(n).getBlock() instanceof FluidPipeBlock) {
+            FluidGrid grid = GridManager.get(level).fluidGridAt(level, n);
+            return grid == null ? 0 : grid.push(level, from, offer);
+        }
+        BlockEntity be = level.getBlockEntity(n);
+        FluidTarget target = be instanceof FluidNode node ? node.fluidInput(side.getOpposite())
+                : Services.FLUID.findTarget(level, n, side.getOpposite());
+        return target == null ? 0 : target.insert(offer, false);
+    }
+
+    /**
      * Füll- und Leerslot (4.1): Behälter werden ganz und sofort gefüllt bzw. geleert und bleiben im Slot liegen.
-     * Füllslot nimmt aus den Ausgangstanks (bei Speichern: aus dem einzigen Tank), Leerslot gibt in Eingangstanks.
+     * Ein leerer Behälter im Füllslot nimmt aus dem im GUI gewählten Tank ({@link #fillSources()}, Standard Tank 1);
+     * der Leerslot gibt in den ersten passenden Eingangstank.
      */
     protected void handleContainers() {
         MachineLayout l = layout();
-        for (int i = l.fillStart(); i < l.drainStart() && i < items.size(); i++) {
+        List<SwFluidTank> sources = fillSources();
+        for (int i = l.fillStart(); i < l.drainStart() && i < items.size() && !sources.isEmpty(); i++) {
             ItemStack empty = items.get(i);
             if (empty.getCount() != 1 || !FluidContainers.isEmptyContainer(empty)) {
                 continue;
             }
-            List<SwFluidTank> sources = outputTanks().isEmpty() ? inputTanks() : outputTanks();
-            for (SwFluidTank tank : sources) {
-                FluidContainers.Entry e = FluidContainers.fillable(empty, tank.stack().fluid());
-                if (e != null && tank.stack().amount() >= e.amount()) {
-                    try (Transaction tx = Transaction.open()) {
-                        tank.extract(e.fluid(), e.amount(), tx);
-                        tx.commit();
-                    }
-                    items.set(i, FluidContainers.stackOf(e.full()));
-                    setChanged();
-                    break;
+            SwFluidTank tank = sources.get(Math.min(selectedTank, sources.size() - 1));
+            FluidContainers.Entry e = FluidContainers.fillable(empty, tank.stack().fluid());
+            if (e != null && tank.stack().amount() >= e.amount()) {
+                try (Transaction tx = Transaction.open()) {
+                    tank.extract(e.fluid(), e.amount(), tx);
+                    tx.commit();
                 }
+                items.set(i, FluidContainers.stackOf(e.full()));
+                setChanged();
             }
         }
         for (int i = l.drainStart(); i < l.total() && i < items.size(); i++) {
@@ -438,7 +472,7 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
         for (int i = 0; i < layout().upgrades(); i++) {
             max = Math.max(max, upgradeMaxForSlot(i));
         }
-        return new MachineMenu.OpenData(worldPosition, layout(), max);
+        return new MachineMenu.OpenData(worldPosition, layout(), max, Math.min(MAX_TANKS, fluidTanks().size()));
     }
 
     /** Größte Stückzahl im Upgrade-Slot {@code i} (0-basiert), aus machines.json. */
@@ -463,6 +497,9 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
         if (outputSide != null) {
             output.putString("output_side", outputSide.getSerializedName());
         }
+        if (selectedTank > 0) {
+            output.putInt("selected_tank", selectedTank);
+        }
         List<SwFluidTank> tanks = fluidTanks();
         for (int t = 0; t < tanks.size(); t++) {
             if (!tanks.get(t).stack().isEmpty()) {
@@ -478,6 +515,7 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
         ContainerHelper.loadAllItems(input, items);
         energy.setAmountUnchecked(input.getLongOr("energy", 0L));
         outputSide = input.getString("output_side").map(Direction::byName).orElse(null);
+        selectedTank = input.getIntOr("selected_tank", 0);
         List<SwFluidTank> tanks = fluidTanks();
         for (int t = 0; t < tanks.size(); t++) {
             SwFluidTank tank = tanks.get(t);

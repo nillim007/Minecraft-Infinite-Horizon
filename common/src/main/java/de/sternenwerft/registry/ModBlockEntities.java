@@ -5,6 +5,8 @@ import de.sternenwerft.machine.ElectricFurnaceBlockEntity;
 import de.sternenwerft.machine.FluidPumpBlockEntity;
 import de.sternenwerft.machine.FluidTankBlockEntity;
 import de.sternenwerft.machine.ProcessingMachineBlockEntity;
+import de.sternenwerft.multiblock.MultiblockControllerBlockEntity;
+import de.sternenwerft.multiblock.PortBlockEntity;
 import de.sternenwerft.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -54,6 +56,34 @@ public final class ModBlockEntities {
                             (pos, state) -> new FluidPumpBlockEntity(ModBlockEntities.FLUID_PUMP.get(), pos, state),
                             ModBlocks.FLUID_PUMP.get()));
 
+    public static final Supplier<BlockEntityType<ProcessingMachineBlockEntity>> ASSEMBLY_TABLE =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "assembly_table",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new ProcessingMachineBlockEntity(ModBlockEntities.ASSEMBLY_TABLE.get(), pos, state,
+                                    () -> List.of(ModRecipeTypes.ASSEMBLY)),
+                            ModBlocks.ASSEMBLY_TABLE.get()));
+
+    public static final Supplier<BlockEntityType<ProcessingMachineBlockEntity>> ELECTROLYZER =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "electrolyzer",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new ProcessingMachineBlockEntity(ModBlockEntities.ELECTROLYZER.get(), pos, state,
+                                    () -> List.of(ModRecipeTypes.ELECTROLYSIS)),
+                            ModBlocks.ELECTROLYZER.get()));
+
+    public static final Supplier<BlockEntityType<MultiblockControllerBlockEntity>> REFINERY_CONTROLLER =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "refinery_controller",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new MultiblockControllerBlockEntity(ModBlockEntities.REFINERY_CONTROLLER.get(), pos, state,
+                                    () -> List.of(ModRecipeTypes.REFINING)),
+                            ModBlocks.REFINERY_CONTROLLER.get()));
+
+    /** Ein Typ für alle Ports; das Verhalten folgt aus {@link de.sternenwerft.multiblock.PortBlock.PortType}. */
+    public static final Supplier<BlockEntityType<PortBlockEntity>> PORT =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "port",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new PortBlockEntity(ModBlockEntities.PORT.get(), pos, state),
+                            ModBlocks.ITEM_PORT.get(), ModBlocks.FLUID_PORT.get(), ModBlocks.ENERGY_PORT.get()));
+
     private ModBlockEntities() {
     }
 
@@ -65,5 +95,12 @@ public final class ModBlockEntities {
         Services.ENERGY.expose(FLUID_PUMP);
         Services.FLUID.expose(FLUID_TANK);
         Services.FLUID.expose(FLUID_PUMP);
+        for (Supplier<? extends BlockEntityType<? extends ProcessingMachineBlockEntity>> t
+                : List.of(ASSEMBLY_TABLE, ELECTROLYZER, REFINERY_CONTROLLER)) {
+            Services.ENERGY.expose(t);
+            Services.FLUID.expose(t);
+        }
+        Services.ENERGY.expose(PORT);
+        Services.FLUID.expose(PORT);
     }
 }

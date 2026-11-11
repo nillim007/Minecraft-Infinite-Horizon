@@ -13,7 +13,7 @@ import java.util.function.Supplier;
  * {@code sourceBlock}: hat einen Weltblock (Quelle + fließend); {@code bucket}: Pfad des Eimer-Items oder null.
  */
 public record FluidDef(String id, int color, boolean sourceBlock, @Nullable String bucket, int tickDelay,
-                       int slopeFindDistance, int dropOff, float explosionResistance) {
+                       int slopeFindDistance, int dropOff, float explosionResistance, boolean gas) {
 
     public static FluidDef fromJson(JsonObject o) {
         String color = o.get("color").getAsString().replace("#", "");
@@ -23,7 +23,8 @@ public record FluidDef(String id, int color, boolean sourceBlock, @Nullable Stri
                 o.has("source_block") && o.get("source_block").getAsBoolean() && o.has("bucket") && !o.get("bucket").isJsonNull()
                         ? o.get("bucket").getAsString() : null,
                 o.get("tick_delay").getAsInt(), o.get("slope_find_distance").getAsInt(), o.get("drop_off").getAsInt(),
-                o.has("explosion_resistance") ? o.get("explosion_resistance").getAsFloat() : 100f);
+                o.has("explosion_resistance") ? o.get("explosion_resistance").getAsFloat() : 100f,
+                o.has("gas") && o.get("gas").getAsBoolean());
     }
 
     /** Registrierte Teile eines Fluids; {@code block} und {@code bucket} sind null, wenn es sie nicht gibt. */

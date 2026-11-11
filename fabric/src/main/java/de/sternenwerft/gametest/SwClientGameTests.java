@@ -1,6 +1,11 @@
 package de.sternenwerft.gametest;
 
+import de.sternenwerft.Sternenwerft;
 import de.sternenwerft.client.MachineScreen;
+import de.sternenwerft.core.fluid.SwFluidStack;
+import de.sternenwerft.core.fluid.SwFluidTank;
+import de.sternenwerft.multiblock.GhostPreview;
+import net.minecraft.resources.Identifier;
 import de.sternenwerft.machine.MachineBlockEntity;
 import de.sternenwerft.machine.MachineLayout;
 import de.sternenwerft.registry.ModBlocks;
@@ -16,6 +21,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 
+import java.util.List;
 import java.util.function.Consumer;
 
 /**
@@ -69,11 +75,27 @@ public class SwClientGameTests implements FabricClientGameTest {
             });
             machine(context, sp, ModBlocks.COMBUSTION_GENERATOR.get(), "gui_combustion_generator", be ->
                     be.setItem(0, new ItemStack(Items.COAL, 12)));
+            machine(context, sp, ModBlocks.ASSEMBLY_TABLE.get(), "gui_assembly_table", be -> {
+                be.setItem(0, new ItemStack(ModItems.simple("silicon").get(), 2));
+                be.setItem(1, new ItemStack(ModItems.simple("copper_wire").get(), 4));
+                be.setItem(2, new ItemStack(ModItems.simple("plastic").get(), 1));
+                be.setItem(be.layout().fillStart(), new ItemStack(Items.BUCKET));
+                fillEnergy(be, 2);
+            });
+            tankButtonChangesServer(context, sp);
+            refinery(context, sp);
 
             // Alle Blöcke nebeneinander in der Welt (Modelle, Texturen, Statuslampe)
             BlockPos base = context.computeOnClient(c -> BlockPos.containing(c.player.position()).north(3));
             Block[] row = {ModBlocks.CRUSHER.get(), ModBlocks.ELECTRIC_FURNACE.get(), ModBlocks.PRESS.get(),
                     ModBlocks.COMBUSTION_GENERATOR.get(), ModBlocks.COPPER_CABLE.get(), ModBlocks.COPPER_CABLE.get()};
+            // Dritte Reihe: Maschinen und Teile aus M2d (Ports im Modus Eingang/Ausgang)
+            String[] row3 = {"assembly_table[facing=south]", "electrolyzer[facing=south]", "refinery_controller[facing=south]",
+                    "refinery_casing", "item_port", "fluid_port[mode=output]", "energy_port"};
+            for (int i = 0; i < row3.length; i++) {
+                BlockPos p = base.above(2).east(i - 2);
+                sp.getServer().runCommand("setblock %d %d %d sternenwerft:%s".formatted(p.getX(), p.getY(), p.getZ(), row3[i]));
+            }
             for (int i = 0; i < row.length; i++) {
                 // Vorderseite zum Spieler (Süden); Kabel ignorieren die Eigenschaft nicht, daher nur für Maschinen
                 String state = i < 4 ? "[facing=south]" : "";
@@ -111,6 +133,85 @@ public class SwClientGameTests implements FabricClientGameTest {
         }
     }
 
+    /** Knopf „Tank“ im Elektrolyseur: wählt Tank 2 der Ausgänge (Sauerstoff) auf dem Server (4.1). */
+    private static void tankButtonChangesServer(ClientGameTestContext context, TestSingleplayerContext sp) {
+        BlockPos pos = openMachine(context, sp, ModBlocks.ELECTROLYZER.get(), be -> {
+            List<SwFluidTank> tanks = be.fluidTanks();
+            tanks.get(0).setStackUnchecked(SwFluidStack.of(Identifier.withDefaultNamespace("water"), 8000));
+            tanks.get(1).setStackUnchecked(SwFluidStack.of(Sternenwerft.id("hydrogen"), 6000));
+            tanks.get(2).setStackUnchecked(SwFluidStack.of(Sternenwerft.id("oxygen"), 3000));
+            be.setItem(be.layout().upgradeStart(), new ItemStack(ModItems.simple("speed_upgrade").get(), 1));
+            fillEnergy(be, 2);
+        });
+        context.takeScreenshot("gui_electrolyzer");
+        context.runOnClient(c -> ((MachineScreen) c.gui.screen()).cycleTank());
+        context.waitTicks(5);
+        int selected = sp.getServer().computeOnServer(server ->
+                sp.getConnection().getServerLevel().getBlockEntity(pos) instanceof MachineBlockEntity be ? be.selectedTank() : -1);
+        clearChat(context);
+        context.takeScreenshot("gui_electrolyzer_tank2");
+        closeAndRemove(context, sp, pos);
+        if (selected != 1) {
+            throw new AssertionError("Knopf „Tank“: Server-Tankwahl ist " + selected + ", erwartet 1");
+        }
+    }
+
+    /**
+     * Raffinerie (4.3): Aufbau per fill-Befehl, Controller mit Blick zum Spieler (Westen), GUI mit Statuslampe; danach
+     * fehlt ein Gehäuse und Sneak-Rechtsklick mit leerer Hand startet die Geisterprojektion (kein GUI).
+     */
+    private static void refinery(ClientGameTestContext context, TestSingleplayerContext sp) {
+        BlockPos pos = context.computeOnClient(c -> BlockPos.containing(c.player.position()).east(2).above());
+        // Vorderseite Westen: Aufbau nach Norden/Süden (±1), Osten (2 nach hinten) und 4 nach oben
+        sp.getServer().runCommand("fill %d %d %d %d %d %d sternenwerft:refinery_casing".formatted(
+                pos.getX(), pos.getY(), pos.getZ() - 1, pos.getX() + 2, pos.getY() + 4, pos.getZ() + 1));
+        sp.getServer().runCommand("setblock %d %d %d sternenwerft:refinery_controller[facing=west]".formatted(
+                pos.getX(), pos.getY(), pos.getZ()));
+        context.waitFor(c -> c.level.getBlockState(pos).is(ModBlocks.REFINERY_CONTROLLER.get()));
+        sp.getServer().runOnServer(server -> {
+            if (sp.getConnection().getServerLevel().getBlockEntity(pos) instanceof MachineBlockEntity be) {
+                be.refreshLayout();
+                be.fluidTanks().get(0).setStackUnchecked(SwFluidStack.of(Sternenwerft.id("crude_oil"), 8000));
+                be.fluidTanks().get(1).setStackUnchecked(SwFluidStack.of(Sternenwerft.id("kerosene"), 3000));
+                fillEnergy(be, 2);
+            }
+        });
+        context.waitTicks(10);
+        context.getInput().lookAt(pos);
+        context.waitTick();
+        context.getInput().pressKey(options -> options.keyUse);
+        context.waitForScreen(MachineScreen.class);
+        context.waitTicks(10);
+        clearChat(context);
+        context.takeScreenshot("gui_refinery_controller");
+        context.setScreen(() -> null);
+        // Gehäuse oben hinten entfernen → Geisterprojektion
+        sp.getServer().runCommand("setblock %d %d %d minecraft:air".formatted(pos.getX() + 2, pos.getY() + 4, pos.getZ() + 1));
+        // leere Hand: aufgesammelte Maschineninhalte aus den vorigen Schritten entfernen
+        sp.getServer().runCommand("clear @a");
+        context.waitTicks(5);
+        context.getInput().holdKey(options -> options.keyShift);
+        context.waitTicks(3);
+        context.getInput().lookAt(pos);
+        context.waitTick();
+        context.getInput().pressKey(options -> options.keyUse);
+        context.waitTicks(10);
+        boolean ghost = context.computeOnClient(c -> GhostPreview.active(c.level, pos));
+        boolean noGui = context.computeOnClient(c -> c.gui.screen() == null);
+        context.getInput().lookAt(pos.above(3).east(1));
+        context.waitTicks(10);
+        clearChat(context);
+        context.takeScreenshot("world_refinery_ghost");
+        context.getInput().releaseKey(options -> options.keyShift);
+        context.waitTicks(3);
+        sp.getServer().runCommand("fill %d %d %d %d %d %d minecraft:air".formatted(
+                pos.getX(), pos.getY(), pos.getZ() - 1, pos.getX() + 2, pos.getY() + 4, pos.getZ() + 1));
+        context.waitTicks(3);
+        if (!ghost || !noGui) {
+            throw new AssertionError("Geisterprojektion aktiv=" + ghost + ", ohne GUI=" + noGui);
+        }
+    }
+
     /** Knopf „Seite“ im echten GUI: schickt MachineConfigPayload, der Server ändert die Ausgangsseite (Nord → Süd). */
     private static void sideButtonChangesServer(ClientGameTestContext context, TestSingleplayerContext sp) {
         BlockPos pos = context.computeOnClient(c -> BlockPos.containing(c.player.position()).east(2).above());
@@ -137,6 +238,15 @@ public class SwClientGameTests implements FabricClientGameTest {
 
     private static void machine(ClientGameTestContext context, TestSingleplayerContext sp, Block block, String name,
                                 Consumer<MachineBlockEntity> setup) {
+        BlockPos pos = openMachine(context, sp, block, setup);
+        clearChat(context);
+        context.takeScreenshot(name);
+        closeAndRemove(context, sp, pos);
+    }
+
+    /** Setzt die Maschine neben den Spieler, füllt sie und öffnet ihr GUI per Rechtsklick; das GUI bleibt offen. */
+    private static BlockPos openMachine(ClientGameTestContext context, TestSingleplayerContext sp, Block block,
+                                        Consumer<MachineBlockEntity> setup) {
         BlockPos pos = context.computeOnClient(c -> BlockPos.containing(c.player.position()).east(2).above());
         setBlock(sp, pos, block);
         context.waitFor(c -> c.level.getBlockState(pos).is(block));
@@ -154,7 +264,10 @@ public class SwClientGameTests implements FabricClientGameTest {
         context.waitForScreen(MachineScreen.class);
         context.waitTicks(10);
         clearChat(context);
-        context.takeScreenshot(name);
+        return pos;
+    }
+
+    private static void closeAndRemove(ClientGameTestContext context, TestSingleplayerContext sp, BlockPos pos) {
         context.setScreen(() -> null);
         sp.getServer().runCommand("setblock %d %d %d minecraft:air".formatted(pos.getX(), pos.getY(), pos.getZ()));
         context.waitTick();

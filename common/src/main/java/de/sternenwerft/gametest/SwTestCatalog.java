@@ -45,7 +45,18 @@ public final class SwTestCatalog {
             new Test("pump_water_removessource", 60, SwGameTestsExtended::pumpWaterRemovesSource),  // 6.1
             new Test("worldgen_oilbubble_feature", 20, SwGameTestsExtended::oilBubbleFeature),  // 13.4
             new Test("worldgen_biomes_containfeatures", 20, SwGameTestsExtended::worldgenBiomeFeatures),  // 13.4, 27.3 M2b
-            new Test("config_defaults_loaded", 20, SwGameTestsExtended::configDefaults)  // 24.4
+            new Test("config_defaults_loaded", 20, SwGameTestsExtended::configDefaults),  // 24.4
+            new Test("refinery_crudeoil_kerosene600plastic1within220ticks", 220, SwGameTestsM2d::refineryCrudeOilToKerosene),  // 27.2, 27.3 M2d
+            new Test("refinery_missingcasing_errorthenidle", 20, SwGameTestsM2d::refineryMissingCasingThenIdle),  // 27.3 M2d, 4.3
+            new Test("refinery_wrongblock_ghostpreview", 20, SwGameTestsM2d::refineryWrongBlockAndGhostPreview),  // 4.1, 4.3
+            new Test("refinery_ports_forwardtocontroller", 20, SwGameTestsM2d::refineryPortsForwardToController),  // 4.3
+            new Test("port_mode_toggleemptyhand", 20, SwGameTestsM2d::portModeToggle),  // 4.3
+            new Test("assembly_exactmatch_fluidportnotcasing", 20, SwGameTestsM2d::assemblyExactMatch),  // 22.3, 27.3 M2d
+            new Test("assembly_circuit_within220ticks", 220, SwGameTestsM2d::assemblyCircuit),  // 27.2
+            new Test("electrolyzer_water_h2o2within44ticks", 44, SwGameTestsM2d::electrolyzerWater),  // 27.2
+            new Test("electrolyzer_fullgastank_error", 20, SwGameTestsM2d::electrolyzerFullError),  // 5.3
+            new Test("electrolyzer_tankselection", 20, SwGameTestsM2d::electrolyzerTankSelection),  // 4.1
+            new Test("tank_rejects_gas", 20, SwGameTestsM2d::tankRejectsGas)  // 6.3
     );
 
     private SwTestCatalog() {

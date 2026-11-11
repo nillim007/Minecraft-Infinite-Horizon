@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "mode=input": {
+      "model": "sternenwerft:block/fluid_port_input"
+    },
+    "mode=output": {
+      "model": "sternenwerft:block/fluid_port_output"
+    }
+  }
+}

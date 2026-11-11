@@ -1,0 +1,28 @@
+{
+  "type": "sternenwerft:assembly",
+  "ingredients": [
+    {
+      "ingredient": "sternenwerft:machine_frame",
+      "count": 1
+    },
+    {
+      "ingredient": "sternenwerft:iron_plate",
+      "count": 16
+    },
+    {
+      "ingredient": "sternenwerft:copper_pipe",
+      "count": 8
+    },
+    {
+      "ingredient": "minecraft:redstone",
+      "count": 4
+    }
+  ],
+  "results": [
+    {
+      "id": "sternenwerft:refinery_controller",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

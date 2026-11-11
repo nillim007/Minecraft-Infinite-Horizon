@@ -13,7 +13,14 @@
     "sternenwerft:quartz_sand": "simple_block",
     "sternenwerft:copper_pipe": "pipe",
     "sternenwerft:fluid_tank": "machine",
-    "sternenwerft:fluid_pump": "machine"
+    "sternenwerft:fluid_pump": "machine",
+    "sternenwerft:assembly_table": "machine",
+    "sternenwerft:electrolyzer": "machine",
+    "sternenwerft:refinery_controller": "machine",
+    "sternenwerft:refinery_casing": "casing",
+    "sternenwerft:item_port": "port",
+    "sternenwerft:fluid_port": "port",
+    "sternenwerft:energy_port": "port"
   },
   "items": [
     "sternenwerft:aluminum_dust",
@@ -21,6 +28,7 @@
     "sternenwerft:aluminum_plate",
     "sternenwerft:aluminum_wire",
     "sternenwerft:bauxite",
+    "sternenwerft:circuit",
     "sternenwerft:copper_dust",
     "sternenwerft:copper_wire",
     "sternenwerft:efficiency_upgrade",
@@ -31,6 +39,7 @@
     "sternenwerft:iron_rod",
     "sternenwerft:kerosene_bucket",
     "sternenwerft:machine_frame",
+    "sternenwerft:plastic",
     "sternenwerft:press_mold_plate",
     "sternenwerft:press_mold_rod",
     "sternenwerft:press_mold_wire",
@@ -44,7 +53,9 @@
   ],
   "fluids": [
     "crude_oil",
-    "kerosene"
+    "kerosene",
+    "hydrogen",
+    "oxygen"
   ],
-  "step": "2c"
+  "step": "2d"
 }
