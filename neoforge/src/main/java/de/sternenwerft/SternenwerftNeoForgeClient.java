@@ -1,6 +1,9 @@
 package de.sternenwerft;
 
 import de.sternenwerft.client.MachineScreen;
+import de.sternenwerft.client.NeoForgeClientTest;
+import net.neoforged.neoforge.client.event.ClientTickEvent;
+import net.neoforged.neoforge.common.NeoForge;
 import de.sternenwerft.registry.ModMenus;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
@@ -18,6 +21,9 @@ public class SternenwerftNeoForgeClient {
 
     public SternenwerftNeoForgeClient(IEventBus modBus) {
         modBus.addListener((RegisterMenuScreensEvent e) -> e.register(ModMenus.MACHINE.get(), MachineScreen::new));
+        if (NeoForgeClientTest.enabled()) {
+            NeoForge.EVENT_BUS.addListener((ClientTickEvent.Post e) -> NeoForgeClientTest.tick());
+        }
         // Fluid-Texturen (26.3: FluidModel statt Client-Extensions), Farbe aus fluids.json
         modBus.addListener((RegisterFluidModelsEvent e) -> ModFluids.handles().forEach((id, h) -> e.register(
                 new FluidModel.Unbaked(new Material(Sternenwerft.id("block/" + id + "_still")),
