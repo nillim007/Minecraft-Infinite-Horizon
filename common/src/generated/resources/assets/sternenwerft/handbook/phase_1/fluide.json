@@ -6,6 +6,7 @@
   "order": 70,
   "unlock": null,
   "items": [
+    "sternenwerft:crude_oil",
     "sternenwerft:copper_pipe",
     "sternenwerft:fluid_tank",
     "sternenwerft:fluid_pump",

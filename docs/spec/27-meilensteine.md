@@ -2,7 +2,7 @@
 
 Jeder Meilenstein MUSS kompilieren, auf beiden Loadern starten (Client + dedizierter Server) und seine GameTests bestehen.
 
-**Handbuch und Wiki (jeder Meilenstein, ab M2f mit Buch-GUI):** Jedes neue spielbare Objekt hat eine Seite in `docs/handbook/pages/` (Ablauf, Rezepte über `@recipes_for`/`@recipes_type`, Steckbrief über `@machine`, mindestens ein Tipp) oder steht in `items` einer bestehenden Seite. Jede neue Phase bekommt eine Seite mit dem Ablauf („Erste Schritte“). `python tools/gen_wiki.py --check` ist grün, und die Statustabelle in `README.md` ist aktuell. Details in `CLAUDE.md`.
+**Handbuch und Wiki (jeder Meilenstein, ab M2f mit Buch-GUI):** Jedes neue spielbare Objekt hat eine Seite in `docs/handbook/pages/` (Ablauf, Rezepte über `@recipes_for`/`@recipes_type`, Steckbrief über `@machine`, mindestens ein Tipp) oder steht in `items` einer bestehenden Seite. Jede neue Phase bekommt eine Seite mit dem Ablauf („Erste Schritte“). `python tools/gen_wiki.py --check` ist grün; es schlägt fehl, wenn ein registriertes Objekt in keiner Seite unter `items` steht oder Wiki bzw. README-Statustabelle veraltet sind. Die Statustabelle entsteht aus `milestone` und `step` in `common/implemented_ids.json` (`step` = zuletzt fertiger Teilschritt). Details in `CLAUDE.md`.
 
 GameTests laufen in der Overworld. Umweltabhängige Tests (Vakuum, Hitze, Kuppel, Venus) prüfen deshalb `EnvironmentCalculator` (8.1) direkt oder nutzen einen Override „Planet + Zone für diesen Testbereich“, der nur in GameTests aktiv ist. Der Override setzt auch die Ortsbindung (z. B. „gilt als Orbit“ oder „nicht Erde“) für Maschinen mit Ortsbindung. Wo möglich, wird Logik als reine Funktion getestet. Zeitangaben in Tests dürfen bis 10 % Toleranz haben.
 

@@ -83,13 +83,13 @@ Hier stehen alle Rezepte, die es im aktuellen Stand gibt. Die Werte kommen direk
 
 | Rezept | Zutaten → Ergebnis | Wo | Dauer |
 | --- | --- | --- | --- |
-| <img src="images/rezepte/refining_kerosene.svg" alt="Rezept" width="300"> | 1.000 mB Erdöl → 1 × [Kunststoff](Raffinerie.md), 600 mB Kerosin | Raffinerie | 200 t (10 s)<br>40 J/t |
+| <img src="images/rezepte/refining_kerosene.svg" alt="Rezept" width="300"> | 1.000 mB [Erdöl](Fluide-und-Rohre.md) → 1 × [Kunststoff](Raffinerie.md), 600 mB [Kerosin](Raffinerie.md) | Raffinerie | 200 t (10 s)<br>40 J/t |
 
 ## Elektrolyseur
 
 | Rezept | Zutaten → Ergebnis | Wo | Dauer |
 | --- | --- | --- | --- |
-| <img src="images/rezepte/electrolysis_hydrogen.svg" alt="Rezept" width="300"> | 200 mB Wasser → 200 mB Wasserstoff, 100 mB Sauerstoff | Elektrolyseur | 40 t (2 s)<br>40 J/t |
+| <img src="images/rezepte/electrolysis_hydrogen.svg" alt="Rezept" width="300"> | 200 mB Wasser → 200 mB [Wasserstoff](Elektrolyseur.md), 100 mB [Sauerstoff](Elektrolyseur.md) | Elektrolyseur | 40 t (2 s)<br>40 J/t |
 
 > [!NOTE]
 > Server können die Rezeptmengen über die Einstellung `recipe_amount_multiplier` ändern. Dann gelten im Montagetisch andere Mengen als hier.

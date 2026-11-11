@@ -21,13 +21,13 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Elektrolyseur](Elektrolyseur.md) | Block | Rezept |
 | [Elektroofen](Elektroofen.md) | Block | Rezept |
 | [Energie-Port](Raffinerie.md) | Block | Rezept |
-| Erdöl | Fluid | Weltgenerierung |
+| [Erdöl](Fluide-und-Rohre.md) | Fluid | Weltgenerierung |
 | [Fluid-Port](Raffinerie.md) | Block | Rezept |
 | [Geschwindigkeits-Upgrade](Upgrades.md) | Item | Rezept |
 | [Golddraht](Presse.md) | Item | Maschine |
 | [Goldstaub](Zerkleinerer.md) | Item | Maschine |
 | [Item-Port](Raffinerie.md) | Block | Rezept |
-| Kerosin | Fluid | Maschine |
+| [Kerosin](Raffinerie.md) | Fluid | Maschine |
 | [Kerosineimer](Fluide-und-Rohre.md) | Item | Füllslot oder Eimer |
 | [Kunststoff](Raffinerie.md) | Item | Maschine |
 | [Kupferdraht](Presse.md) | Item | Maschine |
@@ -45,7 +45,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Raffinerie](Raffinerie.md) | Block | Rezept |
 | [Raffinerie-Gehäuse](Raffinerie.md) | Block | Rezept |
 | [Rohtitan](Rohstoffe-und-Erze.md) | Item | Abbau |
-| Sauerstoff | Fluid | Maschine |
+| [Sauerstoff](Elektrolyseur.md) | Fluid | Maschine |
 | [Schaltkreis](Montagetisch.md) | Item | Rezept |
 | [Silizium](Elektroofen.md) | Item | Maschine |
 | [Tank](Fluide-und-Rohre.md) | Block | Rezept |
@@ -56,7 +56,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Titanstange](Presse.md) | Item | Maschine |
 | [Titanstaub](Zerkleinerer.md) | Item | Maschine |
 | [Verbrennungsgenerator](Strom.md) | Block | Rezept |
-| Wasserstoff | Fluid | Maschine |
+| [Wasserstoff](Elektrolyseur.md) | Fluid | Maschine |
 | [Zerkleinerer](Zerkleinerer.md) | Block | Rezept |
 
 ---

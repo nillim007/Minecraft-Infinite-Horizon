@@ -5,7 +5,7 @@ order: 100
 milestone: 2
 requires: ["sternenwerft:refinery_controller", "sternenwerft:refinery_casing"]
 icon: sternenwerft:refinery_controller
-items: ["sternenwerft:refinery_controller", "sternenwerft:refinery_casing", "sternenwerft:plastic", "sternenwerft:item_port", "sternenwerft:fluid_port", "sternenwerft:energy_port"]
+items: ["sternenwerft:refinery_controller", "sternenwerft:refinery_casing", "sternenwerft:plastic", "sternenwerft:kerosene", "sternenwerft:item_port", "sternenwerft:fluid_port", "sternenwerft:energy_port"]
 summary: Dein erster Multiblock: Erdöl wird zu Kerosin und Kunststoff
 ---
 Die Raffinerie ist dein erster **Multiblock**: ein Turm aus 45 Blöcken, der aus Erdöl **Kerosin** und **Kunststoff** macht. Kerosin ist Treibstoff, Kunststoff steckt in jedem Schaltkreis.

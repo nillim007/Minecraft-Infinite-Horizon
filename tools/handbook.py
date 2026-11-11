@@ -94,6 +94,8 @@ class Handbook:
     lang: dict           # "de_de"/"en_us" -> {Schlüssel: Text}
     wiki: dict           # Dateiname -> Markdown
     warnings: list
+    uncovered: list      # registrierte IDs, die keine Seite in `items` nennt
+    readme_status: str   # Statustabelle für README.md (zwischen den Markierungen)
 
 
 # ---------------------------------------------------------------- Quelle lesen
@@ -796,5 +798,37 @@ def build(spec=None, impl=None) -> Handbook:
     for rid in [r["id"] for r in ctx.recipes()]:
         for i in sd.recipe_inputs(next(x for x in spec.recipes if x["id"] == rid)):
             ctx.name(i)
+    covered = {i for p in visible for i in (p.meta.get("items") or [])}
+    uncovered = sorted(ctx.registered - covered)
     return Handbook(pages=visible, chapters=chapters, files=files, lang=lang, wiki=wiki,
-                    warnings=sorted(set(ctx.warnings)))
+                    warnings=sorted(set(ctx.warnings)), uncovered=uncovered,
+                    readme_status=readme_status(config, impl))
+
+
+README_START = "<!-- stand:start (erzeugt von tools/gen_wiki.py aus common/implemented_ids.json) -->"
+README_END = "<!-- stand:end -->"
+
+
+def readme_status(config, impl) -> str:
+    """Statustabelle der Meilensteine; step = zuletzt fertiger Teilschritt (z. B. "2d")."""
+    cur = impl.get("milestone", 1)
+    step = str(impl.get("step") or "")
+    rows = ["| Meilenstein | Inhalt | Stand |", "| --- | --- | --- |"]
+    for m in config["milestones"]:
+        n, steps = m["nr"], m.get("steps") or []
+        if n < cur:
+            state = "✅ fertig"
+        elif n == cur:
+            letter = step[len(str(n)):] if step.startswith(str(n)) else ""
+            if steps and letter in steps:
+                k = steps.index(letter)
+                done = f"{n}{steps[0]}–{n}{steps[k]} fertig" if k else f"{n}{steps[0]} fertig"
+                rest = steps[k + 1:]
+                state = f"🔨 in Arbeit ({done}" + (f", {n}{rest[0]}–{n}{rest[-1]} offen)" if len(rest) > 1
+                                                    else f", {n}{rest[0]} offen)" if rest else ", Abnahme offen)")
+            else:
+                state = "🔨 in Arbeit"
+        else:
+            state = "⏳ geplant"
+        rows.append(f"| {n} | {m['de']} | {state} |")
+    return README_START + "\n" + "\n".join(rows) + "\n" + README_END

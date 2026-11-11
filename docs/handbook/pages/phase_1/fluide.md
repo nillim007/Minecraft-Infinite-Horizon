@@ -5,7 +5,7 @@ order: 70
 milestone: 2
 requires: ["sternenwerft:copper_pipe", "sternenwerft:fluid_tank", "sternenwerft:fluid_pump"]
 icon: sternenwerft:fluid_tank
-items: ["sternenwerft:copper_pipe", "sternenwerft:fluid_tank", "sternenwerft:fluid_pump", "sternenwerft:crude_oil_bucket", "sternenwerft:kerosene_bucket"]
+items: ["sternenwerft:crude_oil", "sternenwerft:copper_pipe", "sternenwerft:fluid_tank", "sternenwerft:fluid_pump", "sternenwerft:crude_oil_bucket", "sternenwerft:kerosene_bucket"]
 summary: Pumpe, Kupferrohr, Tank und Eimer
 ---
 Erdöl, Kerosin, Wasserstoff und Sauerstoff sind **Fluide**. Sie werden in Millibuckets gemessen: 1.000 mB sind ein Eimer.

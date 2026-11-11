@@ -90,6 +90,14 @@ Rezepte, Steckbriefe und Tabellen zeigen nur, was registriert ist. Nicht eingeba
 
 Rezepte sind als Anzeige-Daten eingebettet (`recipes[]`), weil der Client seit 1.21.2 nicht alle Rezepte kennt.
 
+## Prüfungen (CI)
+
+`python tools/gen_wiki.py --check` schlägt fehl, wenn
+
+- ein registriertes Item, ein Block oder ein Fluid (`common/implemented_ids.json`) in keiner sichtbaren Seite unter `items` steht,
+- `docs/wiki/` nicht zur Quelle passt,
+- die Statustabelle in `README.md` (zwischen `<!-- stand:start … -->` und `<!-- stand:end -->`) nicht zu `milestone`/`step` in `common/implemented_ids.json` passt. Meilenstein-Namen und Teilschritte stehen in `handbook.json` unter `milestones`.
+
 ## Bei jedem Meilenstein
 
 Siehe `CLAUDE.md`, Abschnitt „Handbuch und Wiki“.

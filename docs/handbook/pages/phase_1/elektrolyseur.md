@@ -5,7 +5,7 @@ order: 90
 milestone: 2
 requires: ["sternenwerft:electrolyzer"]
 icon: sternenwerft:electrolyzer
-items: ["sternenwerft:electrolyzer"]
+items: ["sternenwerft:electrolyzer", "sternenwerft:hydrogen", "sternenwerft:oxygen"]
 summary: Wasser wird zu Wasserstoff und Sauerstoff
 ---
 Der <item:sternenwerft:electrolyzer> spaltet Wasser mit Strom in **Wasserstoff** und **Sauerstoff**. Beides wirst du später dringend brauchen: Wasserstoff als Treibstoff, Sauerstoff zum Atmen auf fremden Welten.

@@ -6,7 +6,9 @@
   "order": 90,
   "unlock": null,
   "items": [
-    "sternenwerft:electrolyzer"
+    "sternenwerft:electrolyzer",
+    "sternenwerft:hydrogen",
+    "sternenwerft:oxygen"
   ],
   "elements": [
     {

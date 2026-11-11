@@ -83,10 +83,11 @@ Der ganze Ablauf mit allen Rezepten steht im Wiki unter [Erste Schritte](docs/wi
 
 Sternenwerft wird Meilenstein für Meilenstein nach einer festen [Spezifikation](docs/spec/README.md) gebaut. Den Code schreibt eine KI. Jeder Meilenstein muss auf beiden Loadern bauen und seine automatischen Tests im Spiel bestehen.
 
+<!-- stand:start (erzeugt von tools/gen_wiki.py aus common/implemented_ids.json) -->
 | Meilenstein | Inhalt | Stand |
 | --- | --- | --- |
 | 1 | Grundgerüst: Multiloader, Energie, erste Maschine | ✅ fertig |
-| 2 | Erdindustrie: Maschinen, Erze, Fluide, Raffinerie, Montagetisch | 🔨 in Arbeit (2a–2d fertig, 2e–2f offen) |
+| 2 | Erdindustrie: Maschinen, Erze, Fluide, Raffinerie, Montagetisch, Handbuch | 🔨 in Arbeit (2a–2d fertig, 2e–2f offen) |
 | 3 | Erste Welt: Mond, Anzug, Kuppel | ⏳ geplant |
 | 4 | Erster Flug: Forschung, Sonde, Rakete T1 · **erste spielbare Version** | ⏳ geplant |
 | 5 | Ring 1: Mars, Venus, Rover, Kreaturen | ⏳ geplant |
@@ -94,6 +95,7 @@ Sternenwerft wird Meilenstein für Meilenstein nach einer festen [Spezifikation]
 | 7 | Ring 2: Merkur bis Pluto | ⏳ geplant |
 | 8 | Netzwerk und Finale: Logistik, Werft, Sternenschiff | ⏳ geplant |
 | 9 | Feinschliff: Mehrspieler, Erfolge, Klang, Balancing | ⏳ geplant |
+<!-- stand:end -->
 
 > [!NOTE]
 > Bis Meilenstein 4 gibt es noch keine spielbare Version zum Herunterladen. Wer mitprobieren möchte, baut die Mod selbst (siehe unten).

@@ -25,7 +25,7 @@ Die Raffinerie ist dein erster **Multiblock**: ein Turm aus 45 Blöcken, der aus
 
 | Rezept | Zutaten → Ergebnis | Wo | Dauer |
 | --- | --- | --- | --- |
-| <img src="images/rezepte/refining_kerosene.svg" alt="Rezept" width="300"> | 1.000 mB Erdöl → 1 × Kunststoff, 600 mB Kerosin | Raffinerie | 200 t (10 s)<br>40 J/t |
+| <img src="images/rezepte/refining_kerosene.svg" alt="Rezept" width="300"> | 1.000 mB [Erdöl](Fluide-und-Rohre.md) → 1 × Kunststoff, 600 mB Kerosin | Raffinerie | 200 t (10 s)<br>40 J/t |
 
 ## Der Aufbau
 
