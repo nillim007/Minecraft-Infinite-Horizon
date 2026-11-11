@@ -195,22 +195,23 @@ def earth_worldgen(blocks):
             dbid = ore.get("deepslate_block") or bid
             targets = [
                 {"target": {"predicate_type": "minecraft:tag_match", "tag": "minecraft:stone_ore_replaceables"},
-                 "state": {"Name": bid}},
+                 "state": bid},
                 {"target": {"predicate_type": "minecraft:tag_match", "tag": "minecraft:deepslate_ore_replaceables"},
-                 "state": {"Name": dbid}}]
-            conf = {"type": "minecraft:ore", "config": {"size": ore["vein_size"], "discard_chance_on_air_exposure": 0.0,
-                                                          "targets": targets}}
+                 "state": dbid}]
+            # 26.3: Feature-Werte stehen direkt im Objekt (kein "config"), Blockzustand als String
+            conf = {"type": "minecraft:ore", "size": ore["vein_size"], "discard_chance_on_air_exposure": 0.0,
+                    "targets": targets}
             mods = [{"type": "minecraft:count", "count": ore["per_chunk"]}, {"type": "minecraft:in_square"},
                     {"type": "minecraft:height_range", "height": {
                         "type": "minecraft:uniform", "min_inclusive": {"absolute": ore["y_min"]},
                         "max_inclusive": {"absolute": ore["y_max"]}}},
                     {"type": "minecraft:biome"}]
         elif ore["placement"] == "disk":
-            conf = {"type": "minecraft:disk", "config": {
-                "state_provider": {"type": "minecraft:simple_state_provider", "state": {"Name": bid}},
+            conf = {"type": "minecraft:disk",
+                "state_provider": {"type": "minecraft:simple_state_provider", "state": bid},
                 "target": {"type": "minecraft:matching_blocks", "blocks": ["minecraft:sand", "minecraft:dirt", "minecraft:clay"]},
                 "radius": {"type": "minecraft:uniform", "min_inclusive": ore["radius"][0], "max_inclusive": ore["radius"][1]},
-                "half_height": 1}}
+                "half_height": 1}
             mods = [{"type": "minecraft:count", "count": ore["per_chunk"]}, {"type": "minecraft:in_square"},
                     {"type": "minecraft:heightmap", "heightmap": "OCEAN_FLOOR_WG"}, {"type": "minecraft:biome"}]
         else:
@@ -347,7 +348,7 @@ def main():
     # Worldgen der Erde (13.4): Features, Biom-Tags, NeoForge-Biome-Modifier, Fabric-Liste
     fabric = []
     for name, conf, mods, biomes in earth_worldgen(blocks):
-        write_json(f"data/{NS}/worldgen/configured_feature/{name}.json", conf)
+        write_json(f"data/{NS}/worldgen/feature/{name}.json", conf)  # 26.3: Ordner "feature"
         write_json(f"data/{NS}/worldgen/placed_feature/{name}.json",
                    {"feature": f"{NS}:{name}", "placement": mods})
         write_json(f"data/{NS}/tags/worldgen/biome/has_{name}.json", {"values": biomes})
