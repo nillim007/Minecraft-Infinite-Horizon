@@ -61,7 +61,7 @@
     "hydrogen",
     "oxygen"
   ],
-  "step": "2e",
+  "step": "2f",
   "item_classes": {
     "_comment": "Items mit eigenem Verhalten; sie fehlen in simple_items.json und werden in ModItems registriert.",
     "sternenwerft:engineers_handbook": "handbook"

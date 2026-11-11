@@ -70,13 +70,31 @@ Stand: 11.11.2026. Umfang und Teilschritte stehen in `docs/spec/27-meilensteine.
   - `gen_placeholders.py` überschreibt vorhandene Texturen nur noch mit `--force`, damit fertige Grafiken sicher sind.
   - **Annahmen:** spec-gaps #30 bis #32.
 
+- **M2f:** Rezeptanzeige, Handbuch, Abschluss.
+  - **Mengen-Multiplikator** (`AmountMultiplier`, reine Funktion) im exakten Abgleich des Montagetischs und in allen Anzeigen.
+  - **Rezeptanzeige:**
+    - Der Server schickt die eigenen Rezeptarten zum Client (`ClientRecipes`). `RecipeView` bereitet sie für JEI und REI gleich auf.
+    - Plugins für JEI (31.17.0.109) und REI (26.3.824), nur `compileOnly`. EMI gibt es für 26.3 nicht.
+    - Addons zeigen eigene Arten mit `SternenwerftApi.showInRecipeViewers(kind)`.
+  - **Handbuch:**
+    - `HandbookMarkup` (reine Funktion) und `HandbookData` (Seiten aller Namespaces).
+    - `HandbookScreen` mit Inhaltsverzeichnis, Suche, Links, Item-Links, Rezepten, Steckbriefen, Tabellen, Hinweiskästen, Zurück und Lesezeichen.
+    - Taste `H` über Items in Inventaren, Tooltip-Hinweis, Geschenk beim ersten Join.
+  - **Items:** `engineers_handbook` und `planetary_atlas` registriert; einfache Items übernehmen `max_stack` aus items.json (Kerosin-Eimer stapelt bis 1).
+  - **Tests:** Join-Geschenk, die drei noch fehlenden Beispielrezepte aus 27.2, JUnit für Kategorien, Multiplikator und Markup. Client-Tests öffnen das Handbuch und folgen einem Link; der NeoForge-Client-Test lädt JEI (`-PwithJei`) und fotografiert die Kategorien.
+  - **Annahmen:** spec-gaps #33 bis #37.
+
 - **Testrunde M1–M2c:** 31 Server-GameTests auf beiden Loadern, 18 JUnit-Tests, Client-Tests auf Fabric **und NeoForge** (Knopf-Klick, Config-Sync, alle GUIs mit Screenshots), alles grün. Bericht: `docs/dev/testbericht-m2abc.md`.
 
-## Noch manuell zu prüfen
+## Noch manuell zu prüfen (Abnahme M2)
 
-- Bauxit kommt in der Savanne vor (27.3).
-- GUIs im echten Client bedienen (Shift-Klick, Trichter).
+Alles andere prüfen die GameTests und Client-Tests bei jedem Push (`docs/dev/testbericht-m2def.md`).
+
+- Bauxit kommt in der Savanne vor: mindestens 6 Adern in 25 Chunks nach `/locate biome minecraft:savanna` (27.3 M2b).
+- GUIs mit Maus bedienen: Ziehen und Ablegen, Shift-Klick, Trichter an Item-Ports.
+- Taste `H` per echtem Tastendruck im Inventar, in JEI und in REI; beim Tippen in Suchfeldern darf das Handbuch nicht aufgehen.
+- Geisterprojektion über die volle Dauer ansehen (200 t).
 
 ## Nächster Schritt
 
-M2f: JEI/REI/EMI-Kategorien, `recipe_amount_multiplier`, Übersetzungen, Handbuch- und Atlas-Items, Abschlusslauf aller Beispielrezepte (27.3). Die Annahmen stehen in `docs/spec-gaps.md` bis #32.
+Meilenstein 3 (Erste Welt): Planeten-Registry, Mond, Schwerkraft, Umweltsystem, HUD, Anzug T1, Sauerstoffgenerator, Kuppel T1, Kanister in Füll- und Leerslots, Agentur-Kern (27). Die Annahmen stehen in `docs/spec-gaps.md` bis #37.

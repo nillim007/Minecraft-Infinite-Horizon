@@ -45,7 +45,7 @@ Dazwischen liegt eine Reise durch das echte Sonnensystem: Du baust auf der Erde 
 | 🛰️ **Raumstationen** | Eigene Stationen im Orbit mit Schwerelosigkeit, Solarflügeln, Fusionsreaktor und Schwerelos-Fertigung. |
 | 📦 **Logistik-Netz** | Außenposten, Bohrtürme und Frachtraketen versorgen deine Kolonien, auch wenn du nicht vor Ort bist. |
 | 🤝 **Mehrspieler** | Agenturen teilen Forschung, Atlas und Frachtnetz. Handel zwischen Agenturen. |
-| 📖 **Handbuch im Spiel** | Das Ingenieurs-Handbuch erklärt jede Maschine mit Rezepten und Links. Es ist dasselbe wie das [Wiki](docs/wiki/README.md). |
+| 📖 **Handbuch im Spiel** | Das Ingenieurs-Handbuch erklärt jede Maschine mit Rezepten und Links. Es ist dasselbe wie das [Wiki](docs/wiki/README.md). Taste **H** über einem Item öffnet seine Seite. Alle Maschinenrezepte stehen auch in **JEI** und **REI**. |
 
 <p align="center">
   <img src="docs/images/solar-system.svg" alt="Das Sonnensystem in Sternenwerft" width="100%">
@@ -76,6 +76,11 @@ Der ganze Ablauf mit allen Rezepten steht im Wiki unter [Erste Schritte](docs/wi
 </p>
 
 <p align="center">
+  <img src="docs/images/screenshots/handbook.png" alt="Ingenieurs-Handbuch im Spiel: Seite des Zerkleinerers" width="32%">
+  <img src="docs/images/screenshots/gui-electrolyzer.png" alt="Elektrolyseur mit drei Tanks" width="32%">
+</p>
+
+<p align="center">
   <img src="docs/images/refinery.svg" alt="Bauplan der Raffinerie" width="70%">
 </p>
 
@@ -87,7 +92,7 @@ Sternenwerft wird Meilenstein für Meilenstein nach einer festen [Spezifikation]
 | Meilenstein | Inhalt | Stand |
 | --- | --- | --- |
 | 1 | Grundgerüst: Multiloader, Energie, erste Maschine | ✅ fertig |
-| 2 | Erdindustrie: Maschinen, Erze, Fluide, Raffinerie, Montagetisch, Handbuch | 🔨 in Arbeit (2a–2e fertig, 2f offen) |
+| 2 | Erdindustrie: Maschinen, Erze, Fluide, Raffinerie, Montagetisch, Handbuch | 🔨 in Arbeit (2a–2f fertig, Abnahme offen) |
 | 3 | Erste Welt: Mond, Anzug, Kuppel | ⏳ geplant |
 | 4 | Erster Flug: Forschung, Sonde, Rakete T1 · **erste spielbare Version** | ⏳ geplant |
 | 5 | Ring 1: Mars, Venus, Rover, Kreaturen | ⏳ geplant |

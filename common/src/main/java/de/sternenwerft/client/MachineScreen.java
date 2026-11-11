@@ -1,6 +1,5 @@
 package de.sternenwerft.client;
 
-import de.sternenwerft.Sternenwerft;
 import de.sternenwerft.block.MachineStatus;
 import de.sternenwerft.core.fluid.FluidIds;
 import de.sternenwerft.machine.MachineBlock;
@@ -10,7 +9,6 @@ import de.sternenwerft.menu.MachineGeometry;
 import de.sternenwerft.menu.MachineMenu;
 import de.sternenwerft.network.MachineConfigPayload;
 import de.sternenwerft.platform.Services;
-import de.sternenwerft.registry.ModFluids;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;

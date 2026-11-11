@@ -72,6 +72,8 @@ Datei: `fabric/src/main/java/de/sternenwerft/gametest/SwClientGameTests.java`. S
   - Testlogik steht in `common/.../gametest/SwGameTests*.java` (statische Methoden mit `GameTestHelper`).
   - Optionale Felder `structure` (z. B. `sternenwerft:gametest/empty_large`, 24 × 6 × 24, aus `gen_resources`) und `environment`. Ein Test mit eigener Umgebung läuft allein in einem eigenen Durchgang. Fabric braucht die Umgebung als JSON unter `fabric/src/main/resources/data/<ns>/test_environment/`; NeoForge registriert sie per `registerEnvironment`.
   - **Leistung messen:** `getServer().getAverageTickTimeNanos()` (Server-eigene Messung, Mittel der letzten 100 Ticks). Abstände zwischen `onEachTick`-Aufrufen enthalten alle anderen Tests und den Testrahmen.
+- **JEI/REI:** Nur `compileOnly` über `build-logic` (die Loader-Projekte übersetzen den gemeinsamen Code mit, daher dort und nicht in `common/build.gradle`). JEI läuft zur Laufzeit nur mit `-PwithJei` (CI-Job des NeoForge-Client-Tests). ModDevGradle kennt in 26.3 keinen Zusatz-Classpath je Run mehr. JEI braucht die Gruppe `net.mezzdev` aus maven.blamejared.com.
+- **Rezepte auf dem Client:** Seit 1.21.2 schickt der Server nur ausgewählte Rezepte. Eigene Arten über `RecipeKinds.register` (NeoForge `OnDatapackSyncEvent#sendRecipes`, Fabric `RecipeSynchronization`); lesen über `ClientRecipes`.
 - **Wiki-Pflicht:** Neue Blöcke, Items oder Fluide müssen auf einer Handbuchseite stehen (`docs/handbook/pages`). Nach jedem Teilschritt `python tools/gen_wiki.py`, sonst wird der Job `spec` rot (Details in `CLAUDE.md`).
 
 ## 5. Bekannte Stolperstellen in 26.3
