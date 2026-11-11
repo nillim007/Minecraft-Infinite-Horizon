@@ -113,7 +113,7 @@ public class SwClientGameTests implements FabricClientGameTest {
 
     /** Befehlsrückmeldungen im Chat würden die Bilder verdecken. */
     private static void clearChat(ClientGameTestContext context) {
-        context.runOnClient(client -> client.gui.getChat().clearMessages(false));
+        context.runOnClient(client -> client.gui.hud.getChat().clearMessages(false));
         context.waitTick();
     }
 
