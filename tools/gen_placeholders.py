@@ -84,6 +84,12 @@ def base_colors(e):
             # nur ganze Namensteile: "titan" darf nicht in "titanium_ore" treffen
             if re.search(rf"(^|_){re.escape(k)}(_|$)", name):
                 return rgb(PLANET[k]), rgb(metal_of(name) or PLANET[k])
+    if cat == "ore" or name.endswith("_ore"):
+        # Erz der Erde: Gestein (Stein bzw. Tiefenschiefer) mit Sprenkeln in der Metallfarbe (24.5)
+        host = "#4D4D55" if name.startswith("deepslate_") else "#7F7F7F"
+        m = metal_of(name)
+        if m:
+            return rgb(host), rgb(m)
     if cat == "material":
         m = metal_of(name)
         if m:
