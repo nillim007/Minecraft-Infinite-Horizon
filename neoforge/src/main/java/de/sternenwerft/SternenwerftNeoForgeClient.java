@@ -21,6 +21,12 @@ public class SternenwerftNeoForgeClient {
 
     public SternenwerftNeoForgeClient(IEventBus modBus) {
         modBus.addListener((RegisterMenuScreensEvent e) -> e.register(ModMenus.MACHINE.get(), MachineScreen::new));
+        // Empfangene Maschinenrezepte für JEI/REI (3.9); vor den Anzeige-Mods, daher höchste Priorität
+        NeoForge.EVENT_BUS.addListener(net.neoforged.bus.api.EventPriority.HIGHEST,
+                (net.neoforged.neoforge.client.event.RecipesReceivedEvent e) -> {
+                    net.minecraft.world.item.crafting.RecipeMap map = e.getRecipeMap();
+                    de.sternenwerft.compat.ClientRecipes.setSource(map::byType);
+                });
         // Ingenieurs-Handbuch (24.1): Taste H, Tastendruck über Items in Inventaren, Tooltip-Hinweis
         de.sternenwerft.client.handbook.HandbookClient.init();
         modBus.addListener((net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent e) ->

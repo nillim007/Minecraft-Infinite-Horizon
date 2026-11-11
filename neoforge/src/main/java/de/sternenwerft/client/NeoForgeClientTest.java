@@ -3,6 +3,7 @@ package de.sternenwerft.client;
 import de.sternenwerft.Sternenwerft;
 import de.sternenwerft.core.fluid.SwFluidStack;
 import de.sternenwerft.client.handbook.HandbookClient;
+import de.sternenwerft.compat.RecipeViewerHooks;
 import de.sternenwerft.client.handbook.HandbookScreen;
 import de.sternenwerft.data.BalanceManager;
 import de.sternenwerft.data.ServerConfig;
@@ -223,6 +224,43 @@ public final class NeoForgeClientTest {
             be.setItem(0, new ItemStack(ModItems.BATTERY.get()));
         }, null);
         handbook();
+        recipeViewer();
+    }
+
+    /**
+     * JEI (nur im Client-Test geladen, 3.9): Plugin aktiv, Rezepte angekommen, Kategorien Raffinieren und Montage öffnen
+     * sich; Screenshots für die Sichtprüfung.
+     */
+    private static void recipeViewer() {
+        if (!Boolean.getBoolean("sternenwerft.clienttest.jei")) {
+            return;
+        }
+        STEPS.add((mc, t) -> {
+            boolean ok = "jei".equals(RecipeViewerHooks.active) && RecipeViewerHooks.showCategory != null;
+            check("jei_plugin", ok, "aktiv=" + RecipeViewerHooks.active);
+            check("jei_recipes", RecipeViewerHooks.recipeCount > 0, "Rezepte: " + RecipeViewerHooks.recipeCount);
+            if (ok) {
+                RecipeViewerHooks.showCategory.accept("refining");
+            }
+            return true;
+        });
+        STEPS.add((mc, t) -> t > 20);
+        STEPS.add((mc, t) -> {
+            Screenshot.grab(mc.gameDirectory, "neoforge_jei_refining.png", mc.gameRenderer.mainRenderTarget(), 1, msg -> { });
+            check("jei_category_open", mc.gui.screen() != null && RecipeViewerHooks.showCategory != null,
+                    "Screen: " + mc.gui.screen());
+            if (RecipeViewerHooks.showCategory != null) {
+                RecipeViewerHooks.showCategory.accept("assembly");
+            }
+            return true;
+        });
+        STEPS.add((mc, t) -> t > 20);
+        STEPS.add((mc, t) -> {
+            Screenshot.grab(mc.gameDirectory, "neoforge_jei_assembly.png", mc.gameRenderer.mainRenderTarget(), 1, msg -> { });
+            mc.setScreenAndShow(null);
+            return true;
+        });
+        STEPS.add((mc, t) -> t > 5);
     }
 
     /** Handbuch (24.1, 27.3 M2f): öffnen, einem Link folgen, Seite eines Items finden; Screenshots. */

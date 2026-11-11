@@ -25,6 +25,15 @@
     ],
     "fabric-client-gametest": [
       "de.sternenwerft.gametest.SwClientGameTests"
+    ],
+    "jei_mod_plugin": [
+      "de.sternenwerft.compat.jei.SwJeiPlugin"
+    ],
+    "rei_client": [
+      "de.sternenwerft.compat.rei.SwReiClientPlugin"
+    ],
+    "rei_common": [
+      "de.sternenwerft.compat.rei.SwReiCommonPlugin"
     ]
   },
   "mixins": [

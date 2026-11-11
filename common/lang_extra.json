@@ -36,7 +36,9 @@
     "gui.sternenwerft.handbook.back": "Zurück",
     "gui.sternenwerft.handbook.mold": "Pressform, wird nicht verbraucht",
     "gui.sternenwerft.handbook.hint": "%s: Handbuch",
-    "key.sternenwerft.handbook": "Handbuch öffnen"
+    "key.sternenwerft.handbook": "Handbuch öffnen",
+    "gui.sternenwerft.recipe.info": "%s t · %s J",
+    "gui.sternenwerft.recipe.chance": "Chance: %s %%"
   },
   "en_us": {
     "itemGroup.sternenwerft": "Sternenwerft",
@@ -74,6 +76,8 @@
     "gui.sternenwerft.handbook.back": "Back",
     "gui.sternenwerft.handbook.mold": "press mold, not consumed",
     "gui.sternenwerft.handbook.hint": "%s: Handbook",
-    "key.sternenwerft.handbook": "Open handbook"
+    "key.sternenwerft.handbook": "Open handbook",
+    "gui.sternenwerft.recipe.info": "%s t · %s J",
+    "gui.sternenwerft.recipe.chance": "Chance: %s %%"
   }
 }

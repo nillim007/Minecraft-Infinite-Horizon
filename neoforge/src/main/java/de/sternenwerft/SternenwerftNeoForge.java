@@ -29,6 +29,9 @@ public class SternenwerftNeoForge {
         NeoForge.EVENT_BUS.addListener((AddServerReloadListenersEvent e) ->
                 Sternenwerft.serverReloadListeners().forEach(e::addListener));
         NeoForge.EVENT_BUS.addListener((ServerStartingEvent e) -> Sternenwerft.onServerStarting(e.getServer()));
+        // Maschinenrezepte zum Client schicken (JEI/REI, 3.9); seit 1.21.2 kennt der Client sie sonst nicht
+        NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.OnDatapackSyncEvent e) ->
+                e.sendRecipes(de.sternenwerft.compat.ClientRecipes.types()));
         NeoForge.EVENT_BUS.addListener((PlayerEvent.PlayerLoggedInEvent e) -> {
             if (e.getEntity() instanceof ServerPlayer player) {
                 Sternenwerft.onPlayerJoin(player);

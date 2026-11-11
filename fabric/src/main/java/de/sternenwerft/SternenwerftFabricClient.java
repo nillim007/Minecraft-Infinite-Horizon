@@ -18,6 +18,11 @@ public class SternenwerftFabricClient implements ClientModInitializer {
     public void onInitializeClient() {
         FabricNetworkHelper.clientEntries().forEach(SternenwerftFabricClient::register);
         MenuScreens.register(ModMenus.MACHINE.get(), MachineScreen::new);
+        // Synchronisierte Maschinenrezepte für JEI/REI (3.9), beim Abfragen aus der Client-Welt gelesen
+        de.sternenwerft.compat.ClientRecipes.setSource(type -> {
+            var level = net.minecraft.client.Minecraft.getInstance().level;
+            return level == null ? java.util.List.of() : level.recipeAccess().getSynchronizedRecipes().getAllOfType(type);
+        });
         // Ingenieurs-Handbuch (24.1): Taste H, Tastendruck über Items in Inventaren, Tooltip-Hinweis
         de.sternenwerft.client.handbook.HandbookClient.init();
         net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper.registerKeyMapping(

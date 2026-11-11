@@ -37,6 +37,10 @@ public class SternenwerftFabric implements ModInitializer {
     @Override
     public void onInitialize() {
         Sternenwerft.init();
+        // Maschinenrezepte zum Client schicken (JEI/REI, 3.9)
+        for (de.sternenwerft.recipe.ProcessingRecipe.Kind kind : de.sternenwerft.registry.ModRecipeTypes.ALL) {
+            net.fabricmc.fabric.api.recipe.v1.sync.RecipeSynchronization.synchronizeRecipeSerializer(kind.serializer());
+        }
         FabricEnergyHelper.registerTestConsumers();
         addBiomeFeatures();
         Sternenwerft.serverReloadListeners().forEach((id, listener) ->

@@ -7,6 +7,28 @@ base {
     archivesName = "${mod_id}-${project.name}-${minecraft_version}"
 }
 
+// Rezeptanzeige (3.9): JEI und REI nur zum Kompilieren (Plugins laden nur, wenn die Mod da ist)
+repositories {
+    exclusiveContent {
+        forRepository { maven { name = 'BlameJared (JEI)'; url = 'https://maven.blamejared.com' } }
+        filter { includeGroup('mezz.jei'); includeGroupAndSubgroups('net.mezzdev') }
+    }
+    exclusiveContent {
+        forRepository { maven { name = 'Shedaniel (REI, Cloth Config)'; url = 'https://maven.shedaniel.me' } }
+        filter { includeGroup('me.shedaniel'); includeGroupAndSubgroups('me.shedaniel.cloth') }
+    }
+    exclusiveContent {
+        forRepository { maven { name = 'Architectury'; url = 'https://maven.architectury.dev' } }
+        filter { includeGroupAndSubgroups('dev.architectury') }
+    }
+}
+
+dependencies {
+    // Die Plugins liegen im gemeinsamen Code, den auch die Loader-Projekte übersetzen
+    compileOnly("mezz.jei:jei-${minecraft_version}-common-api:${jei_version}")
+    compileOnly("me.shedaniel:RoughlyEnoughItems-api:${rei_version}")
+}
+
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(java_version)
     withSourcesJar()

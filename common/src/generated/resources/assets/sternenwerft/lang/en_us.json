@@ -41,6 +41,8 @@
   "gui.sternenwerft.port.output": "Output",
   "gui.sternenwerft.progress": "Progress: %s %%",
   "gui.sternenwerft.progress_ticks": "%s / %s t",
+  "gui.sternenwerft.recipe.chance": "Chance: %s %%",
+  "gui.sternenwerft.recipe.info": "%s t · %s J",
   "gui.sternenwerft.side": "Output side",
   "gui.sternenwerft.side.down": "Down",
   "gui.sternenwerft.side.east": "East",

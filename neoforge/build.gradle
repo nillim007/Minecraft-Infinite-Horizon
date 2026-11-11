@@ -40,6 +40,7 @@ neoForge {
             client()
             gameDirectory = this.mkdir(this.file('runs/clienttest'))
             systemProperty 'sternenwerft.clienttest', 'true'
+            systemProperty 'sternenwerft.clienttest.jei', project.hasProperty('withJei') ? 'true' : 'false'
         }
     }
     mods {
@@ -67,5 +68,17 @@ sourceSets.configureEach {
                 attribute(loaderAttribute, 'neoforge')
             }
         }
+    }
+}
+
+// Rezeptanzeige (3.9): REI findet Plugins auf NeoForge über eine Annotation aus diesem Paket.
+dependencies {
+    compileOnly("me.shedaniel:RoughlyEnoughItems-api-neoforge:${rei_version}")
+}
+// JEI zur Laufzeit nur mit -PwithJei (CI-Job des NeoForge-Client-Tests), damit das JEI-Plugin im echten Spiel geprüft
+// und fotografiert wird. Normale Builds und Server-GameTests laufen ohne JEI.
+if (project.hasProperty('withJei')) {
+    dependencies {
+        runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
     }
 }
