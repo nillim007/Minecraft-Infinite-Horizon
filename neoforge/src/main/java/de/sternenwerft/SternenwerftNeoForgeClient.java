@@ -21,6 +21,17 @@ public class SternenwerftNeoForgeClient {
 
     public SternenwerftNeoForgeClient(IEventBus modBus) {
         modBus.addListener((RegisterMenuScreensEvent e) -> e.register(ModMenus.MACHINE.get(), MachineScreen::new));
+        // Ingenieurs-Handbuch (24.1): Taste H, Tastendruck über Items in Inventaren, Tooltip-Hinweis
+        de.sternenwerft.client.handbook.HandbookClient.init();
+        modBus.addListener((net.neoforged.neoforge.client.event.RegisterKeyMappingsEvent e) ->
+                e.register(de.sternenwerft.client.handbook.HandbookClient.KEY));
+        NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.client.event.ScreenEvent.KeyPressed.Pre e) -> {
+            if (de.sternenwerft.client.handbook.HandbookClient.onScreenKey(e.getScreen(), e.getKeyEvent())) {
+                e.setCanceled(true);
+            }
+        });
+        NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.entity.player.ItemTooltipEvent e) ->
+                de.sternenwerft.client.handbook.HandbookClient.appendTooltip(e.getItemStack(), e.getToolTip()));
         if (NeoForgeClientTest.enabled()) {
             NeoForge.EVENT_BUS.addListener((ClientTickEvent.Post e) -> NeoForgeClientTest.tick());
         }

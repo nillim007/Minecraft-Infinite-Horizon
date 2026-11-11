@@ -4,6 +4,8 @@ import de.sternenwerft.Sternenwerft;
 import de.sternenwerft.client.MachineScreen;
 import de.sternenwerft.core.fluid.SwFluidStack;
 import de.sternenwerft.core.fluid.SwFluidTank;
+import de.sternenwerft.client.handbook.HandbookClient;
+import de.sternenwerft.client.handbook.HandbookScreen;
 import de.sternenwerft.multiblock.GhostPreview;
 import net.minecraft.resources.Identifier;
 import de.sternenwerft.machine.MachineBlockEntity;
@@ -40,6 +42,12 @@ public class SwClientGameTests implements FabricClientGameTest {
             String freq = context.computeOnClient(c -> de.sternenwerft.data.ServerConfig.client().getString("event_frequency"));
             if (!"normal".equals(freq)) {
                 throw new AssertionError("SyncConfigPayload nicht angekommen: event_frequency = " + freq);
+            }
+
+            // Geschenk beim ersten Join (24.1): genau ein Handbuch im Inventar
+            int books = context.computeOnClient(c -> c.player.getInventory().countItem(ModItems.ENGINEERS_HANDBOOK.get()));
+            if (books != 1) {
+                throw new AssertionError("Handbuch-Geschenk: " + books + " Stück, erwartet 1");
             }
 
             sideButtonChangesServer(context, sp);
@@ -92,6 +100,7 @@ public class SwClientGameTests implements FabricClientGameTest {
                 fillEnergy(be, 2);
                 be.setItem(0, new ItemStack(ModItems.BATTERY.get()));
             });
+            handbook(context);
 
             // Alle Blöcke nebeneinander in der Welt (Modelle, Texturen, Statuslampe)
             BlockPos base = context.computeOnClient(c -> BlockPos.containing(c.player.position()).north(3));
@@ -139,6 +148,29 @@ public class SwClientGameTests implements FabricClientGameTest {
             context.waitTicks(5);
             clearChat(context);
             context.takeScreenshot("world_machines");
+        }
+    }
+
+    /** Handbuch (24.1, 27.3 M2f): öffnen, einem Link folgen, Seite eines Items finden; Screenshots. */
+    private static void handbook(ClientGameTestContext context) {
+        context.runOnClient(c -> HandbookClient.open("sternenwerft:start/willkommen"));
+        context.waitForScreen(HandbookScreen.class);
+        context.waitTicks(10);
+        clearChat(context);
+        context.takeScreenshot("gui_handbook");
+        String link = context.computeOnClient(c -> ((HandbookScreen) c.gui.screen()).firstLink());
+        context.runOnClient(c -> ((HandbookScreen) c.gui.screen()).openPage(link));
+        context.waitTicks(5);
+        String now = context.computeOnClient(c -> ((HandbookScreen) c.gui.screen()).currentPage());
+        context.takeScreenshot("gui_handbook_link");
+        String crusherPage = context.computeOnClient(c -> HandbookClient.pageFor(new ItemStack(ModBlocks.CRUSHER.get())));
+        context.runOnClient(c -> ((HandbookScreen) c.gui.screen()).openPage(crusherPage));
+        context.waitTicks(5);
+        context.takeScreenshot("gui_handbook_crusher");
+        context.setScreen(() -> null);
+        context.waitTick();
+        if (link == null || !link.equals(now) || crusherPage == null) {
+            throw new AssertionError("Handbuch: Link=" + link + ", offen=" + now + ", Zerkleinerer-Seite=" + crusherPage);
         }
     }
 

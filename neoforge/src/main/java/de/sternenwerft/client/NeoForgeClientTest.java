@@ -2,6 +2,8 @@ package de.sternenwerft.client;
 
 import de.sternenwerft.Sternenwerft;
 import de.sternenwerft.core.fluid.SwFluidStack;
+import de.sternenwerft.client.handbook.HandbookClient;
+import de.sternenwerft.client.handbook.HandbookScreen;
 import de.sternenwerft.data.BalanceManager;
 import de.sternenwerft.data.ServerConfig;
 import de.sternenwerft.multiblock.GhostPreview;
@@ -220,6 +222,36 @@ public final class NeoForgeClientTest {
             half(be);
             be.setItem(0, new ItemStack(ModItems.BATTERY.get()));
         }, null);
+        handbook();
+    }
+
+    /** Handbuch (24.1, 27.3 M2f): öffnen, einem Link folgen, Seite eines Items finden; Screenshots. */
+    private static void handbook() {
+        STEPS.add((mc, t) -> {
+            HandbookClient.open("sternenwerft:start/willkommen");
+            return true;
+        });
+        STEPS.add((mc, t) -> mc.gui.screen() instanceof HandbookScreen && t > 10);
+        STEPS.add((mc, t) -> {
+            Screenshot.grab(mc.gameDirectory, "neoforge_gui_handbook.png", mc.gameRenderer.mainRenderTarget(), 1, msg -> { });
+            HandbookScreen s = (HandbookScreen) mc.gui.screen();
+            String link = s.firstLink();
+            boolean followed = link != null && s.openPage(link) && link.equals(s.currentPage());
+            check("handbook_link", followed, "Link " + link + ", offen " + s.currentPage());
+            return true;
+        });
+        STEPS.add((mc, t) -> t > 5);
+        STEPS.add((mc, t) -> {
+            Screenshot.grab(mc.gameDirectory, "neoforge_gui_handbook_link.png", mc.gameRenderer.mainRenderTarget(), 1, msg -> { });
+            String page = HandbookClient.pageFor(new ItemStack(ModBlocks.CRUSHER.get()));
+            check("handbook_item_page", page != null, "keine Seite für den Zerkleinerer");
+            check("handbook_gift", mc.player.getInventory().countItem(ModItems.ENGINEERS_HANDBOOK.get()) <= 1,
+                    "mehr als ein Handbuch");
+            mc.player.closeContainer();
+            mc.setScreenAndShow(null);
+            return true;
+        });
+        STEPS.add((mc, t) -> t > 5);
     }
 
     /** Gehäuse der Raffinerie um den Controller (Vorderseite Westen) aus dem Muster der Daten. */

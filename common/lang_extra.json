@@ -31,7 +31,12 @@
     "jei.sternenwerft.electric_smelting": "Elektroofen",
     "jei.sternenwerft.refining": "Raffinieren",
     "jei.sternenwerft.electrolysis": "Elektrolyse",
-    "jei.sternenwerft.assembly": "Montage"
+    "jei.sternenwerft.assembly": "Montage",
+    "gui.sternenwerft.handbook.search": "Suchen …",
+    "gui.sternenwerft.handbook.back": "Zurück",
+    "gui.sternenwerft.handbook.mold": "Pressform, wird nicht verbraucht",
+    "gui.sternenwerft.handbook.hint": "%s: Handbuch",
+    "key.sternenwerft.handbook": "Handbuch öffnen"
   },
   "en_us": {
     "itemGroup.sternenwerft": "Sternenwerft",
@@ -64,6 +69,11 @@
     "jei.sternenwerft.electric_smelting": "Electric Smelting",
     "jei.sternenwerft.refining": "Refining",
     "jei.sternenwerft.electrolysis": "Electrolysis",
-    "jei.sternenwerft.assembly": "Assembly"
+    "jei.sternenwerft.assembly": "Assembly",
+    "gui.sternenwerft.handbook.search": "Search …",
+    "gui.sternenwerft.handbook.back": "Back",
+    "gui.sternenwerft.handbook.mold": "press mold, not consumed",
+    "gui.sternenwerft.handbook.hint": "%s: Handbook",
+    "key.sternenwerft.handbook": "Open handbook"
   }
 }
