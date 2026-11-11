@@ -218,4 +218,39 @@ public class SwFabricGameTests {
     public void tankRejectsGas(GameTestHelper helper) {
         SwGameTestsM2d.tankRejectsGas(helper);
     }
+
+    @GameTest(maxTicks = 20)
+    public void fuelgeneratorKerosenebucket80jt(GameTestHelper helper) {
+        SwGameTestsM2e.fuelGeneratorKeroseneBucket(helper);
+    }
+
+    @GameTest(maxTicks = 30)
+    public void fuelgenerator4mb16ticks(GameTestHelper helper) {
+        SwGameTestsM2e.fuelGeneratorFourMbSixteenTicks(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void batteryOutputsideonly(GameTestHelper helper) {
+        SwGameTestsM2e.batteryOutputSideOnly(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void batteryIo512Platformapi(GameTestHelper helper) {
+        SwGameTestsM2e.batteryIoLimitAndPlatform(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void batteryChargeslot(GameTestHelper helper) {
+        SwGameTestsM2e.batteryChargeSlot(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void batteryBrokenKeepsenergy(GameTestHelper helper) {
+        SwGameTestsM2e.batteryKeepsEnergyWhenBroken(helper);
+    }
+
+    @GameTest(maxTicks = 240, structure = "sternenwerft:gametest/empty_large", environment = "sternenwerft:performance")
+    public void performance100crushersMeantick(GameTestHelper helper) {
+        SwGameTestsM2e.performanceHundredCrushers(helper);
+    }
 }

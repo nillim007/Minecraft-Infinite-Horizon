@@ -47,6 +47,12 @@ public final class ModBlocks {
     public static final Supplier<Block> FLUID_PUMP = register("fluid_pump",
             p -> new MachineBlock(p, () -> ModBlockEntities.FLUID_PUMP.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> FUEL_GENERATOR = register("fuel_generator",
+            p -> new MachineBlock(p, () -> ModBlockEntities.FUEL_GENERATOR.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> BATTERY = register("battery",
+            p -> new MachineBlock(p, () -> ModBlockEntities.BATTERY.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Supplier<Block> ASSEMBLY_TABLE = register("assembly_table",
             p -> new MachineBlock(p, () -> ModBlockEntities.ASSEMBLY_TABLE.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));

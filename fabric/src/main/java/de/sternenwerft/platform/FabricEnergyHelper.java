@@ -7,7 +7,12 @@ import de.sternenwerft.platform.services.IEnergyHelper;
 import net.fabricmc.fabric.api.transfer.v1.transaction.Transaction;
 import net.fabricmc.fabric.api.transfer.v1.transaction.TransactionContext;
 import net.fabricmc.fabric.api.transfer.v1.transaction.base.SnapshotParticipant;
+import net.fabricmc.fabric.api.transfer.v1.context.ContainerItemContext;
+import net.fabricmc.fabric.api.transfer.v1.item.ContainerStorage;
 import net.minecraft.core.BlockPos;
+import net.minecraft.world.Container;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.core.Direction;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Blocks;
@@ -55,7 +60,13 @@ public class FabricEnergyHelper implements IEnergyHelper {
             if (!node.acceptsEnergyFrom(side) && !node.providesEnergyTo(side)) {
                 return null;
             }
-            return (EnergyStorage) node.platformEnergyHandle(Adapter::new);
+            // je Seite ein Adapter: Speicher mit Ausgangsseite (Akku) nehmen dort nichts an (4.4)
+            Adapter[] bySide = (Adapter[]) node.platformEnergyHandle(n -> new Adapter[Direction.values().length + 1]);
+            int i = side == null ? Direction.values().length : side.ordinal();
+            if (bySide[i] == null) {
+                bySide[i] = new Adapter(node, side);
+            }
+            return bySide[i];
         }, t);
     }
 
@@ -64,6 +75,34 @@ public class FabricEnergyHelper implements IEnergyHelper {
         SimpleEnergyStorage s = TEST_CONSUMERS.get(pos);
         return s == null ? -1 : s.amount;
     }
+
+    @Override
+    public boolean isPlatformChargeable(ItemStack stack) {
+        EnergyStorage s = EnergyStorage.ITEM.find(stack, ContainerItemContext.withConstant(stack));
+        return s != null && s.supportsInsertion();
+    }
+
+    @Override
+    public long chargeItem(Container container, int slot, long max) {
+        ContainerItemContext ctx = ContainerItemContext.ofSingleSlot(ContainerStorage.of(container, null).getSlot(slot));
+        EnergyStorage s = EnergyStorage.ITEM.find(container.getItem(slot), ctx);
+        if (s == null || max <= 0) {
+            return 0;
+        }
+        try (Transaction tx = Transaction.openOuter()) {
+            long inserted = s.insert(max, tx);
+            tx.commit();
+            return inserted;
+        }
+    }
+
+    @Override
+    public long testItemAmount() {
+        return System.getProperty("fabric-api.gametest") == null ? -1 : TEST_ITEM.amount;
+    }
+
+    /** Test-Item für den Ladeslot (nur GameTests): eine gemeinsame Energie für alle Redstone-Blöcke. */
+    private static final SimpleEnergyStorage TEST_ITEM = new SimpleEnergyStorage(Long.MAX_VALUE / 2, Long.MAX_VALUE / 2, 0);
 
     /**
      * Test-Verbraucher (Kapitel 27, M1): nutzt nur Team Reborn Energy, nur bei {@code -Dfabric-api.gametest}.
@@ -76,53 +115,60 @@ public class FabricEnergyHelper implements IEnergyHelper {
         EnergyStorage.SIDED.registerForBlocks((level, pos, state, be, side) ->
                 TEST_CONSUMERS.computeIfAbsent(pos.immutable(),
                         p -> new SimpleEnergyStorage(Long.MAX_VALUE / 2, Long.MAX_VALUE / 2, 0)), Blocks.TARGET);
+        // SPEC-GAP: Test-Item für den Ladeslot (6.3) ist minecraft:redstone_block, nur im GameTest-Betrieb
+        EnergyStorage.ITEM.registerForItems((stack, ctx) -> TEST_ITEM, Items.REDSTONE_BLOCK);
     }
 
-    /** Bietet einen {@link SwEnergyStorage} als Team-Reborn-{@link EnergyStorage} an. */
-    static final class Adapter extends SnapshotParticipant<Long> implements EnergyStorage {
+    /**
+     * Bietet einen {@link SwEnergyStorage} über eine Seite als Team-Reborn-{@link EnergyStorage} an. Grenzen pro Tick
+     * (Akku) gelten über {@link SwEnergyStorage#remainingInsert()}.
+     */
+    static final class Adapter extends SnapshotParticipant<SwEnergyStorage.State> implements EnergyStorage {
         private final EnergyNode node;
+        private final @Nullable Direction side;
 
-        Adapter(EnergyNode node) {
+        Adapter(EnergyNode node, @Nullable Direction side) {
             this.node = node;
+            this.side = side;
         }
 
         @Override
         public boolean supportsInsertion() {
-            return node.energyStorage().getMaxInsert() > 0;
+            return node.acceptsEnergyFrom(side) && node.energyStorage().getMaxInsert() > 0;
         }
 
         @Override
         public boolean supportsExtraction() {
-            return node.energyStorage().getMaxExtract() > 0;
+            return node.providesEnergyTo(side) && node.energyStorage().getMaxExtract() > 0;
         }
 
         @Override
         public long insert(long maxAmount, TransactionContext transaction) {
             SwEnergyStorage s = node.energyStorage();
-            if (maxAmount <= 0 || !node.acceptsEnergyFrom(null)) {
+            if (maxAmount <= 0 || !node.acceptsEnergyFrom(side)) {
                 return 0;
             }
-            long accepted = Math.min(Math.min(maxAmount, s.getMaxInsert()), s.getCapacity() - s.getAmount());
+            long accepted = Math.min(maxAmount, s.remainingInsert());
             if (accepted <= 0) {
                 return 0;
             }
             updateSnapshots(transaction);
-            s.setAmountUnchecked(s.getAmount() + accepted);
+            s.applyExternal(accepted);
             return accepted;
         }
 
         @Override
         public long extract(long maxAmount, TransactionContext transaction) {
             SwEnergyStorage s = node.energyStorage();
-            if (maxAmount <= 0 || !node.providesEnergyTo(null)) {
+            if (maxAmount <= 0 || !node.providesEnergyTo(side)) {
                 return 0;
             }
-            long taken = Math.min(Math.min(maxAmount, s.getMaxExtract()), s.getAmount());
+            long taken = Math.min(maxAmount, s.remainingExtract());
             if (taken <= 0) {
                 return 0;
             }
             updateSnapshots(transaction);
-            s.setAmountUnchecked(s.getAmount() - taken);
+            s.applyExternal(-taken);
             return taken;
         }
 
@@ -137,13 +183,13 @@ public class FabricEnergyHelper implements IEnergyHelper {
         }
 
         @Override
-        protected Long createSnapshot() {
-            return node.energyStorage().getAmount();
+        protected SwEnergyStorage.State createSnapshot() {
+            return node.energyStorage().snapshot();
         }
 
         @Override
-        protected void readSnapshot(Long snapshot) {
-            node.energyStorage().setAmountUnchecked(snapshot);
+        protected void readSnapshot(SwEnergyStorage.State snapshot) {
+            node.energyStorage().restore(snapshot);
         }
 
         @Override

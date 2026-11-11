@@ -24,6 +24,11 @@ public final class BalanceManager {
     private static volatile BalanceManager current = new BalanceManager(Map.of());
 
     private final Map<String, JsonObject> files;
+    /**
+     * Zwischenspeicher der typisierten Zugriffe: Maschinen fragen ihre Werte jeden Tick ab, das JSON ändert sich aber
+     * nur mit einem neuen BalanceManager (/reload). Leistungstest 27.2.
+     */
+    private final Map<String, Object> memo = new java.util.concurrent.ConcurrentHashMap<>();
 
     public BalanceManager(Map<String, JsonObject> files) {
         this.files = Map.copyOf(files);
@@ -50,6 +55,16 @@ public final class BalanceManager {
         return entries(file).map(e -> e.get(key)).filter(JsonElement::isJsonObject).map(JsonElement::getAsJsonObject);
     }
 
+    @SuppressWarnings("unchecked")
+    private <T> T memo(String key, java.util.function.Supplier<T> compute) {
+        Object v = memo.get(key);
+        if (v == null) {
+            v = compute.get();
+            memo.put(key, v);
+        }
+        return (T) v;
+    }
+
     public boolean isEmpty() {
         return files.isEmpty();
     }
@@ -57,6 +72,10 @@ public final class BalanceManager {
     // ------------------------------------------------------------------ typisierte Zugriffe
 
     public MachineStats machine(String id) {
+        return memo("machine:" + id, () -> computeMachine(id));
+    }
+
+    private MachineStats computeMachine(String id) {
         JsonObject e = entry("machines", id).orElseThrow(() -> missing("machines", id));
         long energy = e.get("energy_per_tick").getAsLong();
         Integer ticks = e.has("ticks") && !e.get("ticks").isJsonNull() ? e.get("ticks").getAsInt() : null;
@@ -76,6 +95,10 @@ public final class BalanceManager {
      * Fluide oder null). Leer, wenn der Eintrag keine Tanks hat.
      */
     public java.util.List<TankSpec> tanks(String file, String id) {
+        return memo("tanks:" + file + ":" + id, () -> java.util.List.copyOf(computeTanks(file, id)));
+    }
+
+    private java.util.List<TankSpec> computeTanks(String file, String id) {
         java.util.List<TankSpec> out = new java.util.ArrayList<>();
         entry(file, id).filter(e -> e.has("fluid_tanks") && e.get("fluid_tanks").isJsonArray()).ifPresent(e -> {
             for (JsonElement t : e.getAsJsonArray("fluid_tanks")) {
@@ -96,6 +119,10 @@ public final class BalanceManager {
 
     /** Füll- und Leerslots aus {@code container_slots} ({@code fill}, {@code drain}); {0, 0} ohne Eintrag. */
     public int[] containerSlots(String file, String id) {
+        return memo("containers:" + file + ":" + id, () -> computeContainerSlots(file, id)).clone();
+    }
+
+    private int[] computeContainerSlots(String file, String id) {
         JsonObject e = entry(file, id).orElse(new JsonObject());
         JsonObject s = e.has("container_slots") && e.get("container_slots").isJsonObject()
                 ? e.getAsJsonObject("container_slots") : new JsonObject();
@@ -104,11 +131,19 @@ public final class BalanceManager {
 
     /** Upgrade-Slot (1, 2, …), in den dieses Item gehört; 0 = kein Upgrade (machines.json → Feld {@code slot}). */
     public int upgradeSlotOf(String itemId) {
+        return memo("upgradeSlot:" + itemId, () -> computeUpgradeSlotOf(itemId));
+    }
+
+    private int computeUpgradeSlotOf(String itemId) {
         return entry("machines", itemId).filter(o -> o.has("slot") && o.has("max_stack"))
                 .map(o -> o.get("slot").getAsInt()).orElse(0);
     }
 
     public GeneratorStats generator(String id) {
+        return memo("generator:" + id, () -> computeGenerator(id));
+    }
+
+    private GeneratorStats computeGenerator(String id) {
         JsonObject e = entry("generators", id).orElseThrow(() -> missing("generators", id));
         JsonObject slots = e.has("item_slots") && e.get("item_slots").isJsonObject() ? e.getAsJsonObject("item_slots") : new JsonObject();
         int fuel = slots.has("fuel") ? slots.get("fuel").getAsInt() : 0;
@@ -162,6 +197,10 @@ public final class BalanceManager {
     }
 
     public UpgradeStats upgrade(String id) {
+        return memo("upgrade:" + id, () -> computeUpgrade(id));
+    }
+
+    private UpgradeStats computeUpgrade(String id) {
         JsonObject e = entry("machines", id).orElseThrow(() -> missing("machines", id));
         double ticks = e.has("ticks_multiplier") ? e.get("ticks_multiplier").getAsDouble() : 1.0;
         double energy = e.has("energy_per_tick_multiplier") ? e.get("energy_per_tick_multiplier").getAsDouble() : 1.0;
@@ -170,6 +209,10 @@ public final class BalanceManager {
     }
 
     public BufferFormula bufferFormula() {
+        return memo("bufferFormula", () -> computeBufferFormula());
+    }
+
+    private BufferFormula computeBufferFormula() {
         JsonObject f = entry("machines", "energy_buffer_formula").orElseThrow(() -> missing("machines", "energy_buffer_formula"));
         return new BufferFormula(f.get("factor").getAsLong(), f.get("duration_cap_ticks").getAsInt(),
                 f.get("default_duration_ticks").getAsInt(), f.get("min").getAsLong(), f.get("max").getAsLong());

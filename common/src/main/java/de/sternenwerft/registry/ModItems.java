@@ -40,6 +40,8 @@ public final class ModItems {
     public static final Supplier<Item> COPPER_PIPE = blockItem("copper_pipe", ModBlocks.COPPER_PIPE);
     public static final Supplier<Item> FLUID_TANK = blockItem("fluid_tank", ModBlocks.FLUID_TANK);
     public static final Supplier<Item> FLUID_PUMP = blockItem("fluid_pump", ModBlocks.FLUID_PUMP);
+    public static final Supplier<Item> FUEL_GENERATOR = blockItem("fuel_generator", ModBlocks.FUEL_GENERATOR);
+    public static final Supplier<Item> BATTERY = blockItem("battery", ModBlocks.BATTERY);
     public static final Supplier<Item> ASSEMBLY_TABLE = blockItem("assembly_table", ModBlocks.ASSEMBLY_TABLE);
     public static final Supplier<Item> ELECTROLYZER = blockItem("electrolyzer", ModBlocks.ELECTROLYZER);
     public static final Supplier<Item> REFINERY_CONTROLLER = blockItem("refinery_controller", ModBlocks.REFINERY_CONTROLLER);

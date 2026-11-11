@@ -1,6 +1,8 @@
 package de.sternenwerft.registry;
 
+import de.sternenwerft.machine.BatteryBlockEntity;
 import de.sternenwerft.machine.CombustionGeneratorBlockEntity;
+import de.sternenwerft.machine.FluidFuelGeneratorBlockEntity;
 import de.sternenwerft.machine.ElectricFurnaceBlockEntity;
 import de.sternenwerft.machine.FluidPumpBlockEntity;
 import de.sternenwerft.machine.FluidTankBlockEntity;
@@ -77,6 +79,18 @@ public final class ModBlockEntities {
                                     () -> List.of(ModRecipeTypes.REFINING)),
                             ModBlocks.REFINERY_CONTROLLER.get()));
 
+    public static final Supplier<BlockEntityType<FluidFuelGeneratorBlockEntity>> FUEL_GENERATOR =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "fuel_generator",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new FluidFuelGeneratorBlockEntity(ModBlockEntities.FUEL_GENERATOR.get(), pos, state),
+                            ModBlocks.FUEL_GENERATOR.get()));
+
+    public static final Supplier<BlockEntityType<BatteryBlockEntity>> BATTERY =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "battery",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new BatteryBlockEntity(ModBlockEntities.BATTERY.get(), pos, state),
+                            ModBlocks.BATTERY.get()));
+
     /** Ein Typ für alle Ports; das Verhalten folgt aus {@link de.sternenwerft.multiblock.PortBlock.PortType}. */
     public static final Supplier<BlockEntityType<PortBlockEntity>> PORT =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "port",
@@ -101,6 +115,9 @@ public final class ModBlockEntities {
             Services.FLUID.expose(t);
         }
         Services.ENERGY.expose(PORT);
+        Services.ENERGY.expose(FUEL_GENERATOR);
+        Services.FLUID.expose(FUEL_GENERATOR);
+        Services.ENERGY.expose(BATTERY);
         Services.FLUID.expose(PORT);
     }
 }

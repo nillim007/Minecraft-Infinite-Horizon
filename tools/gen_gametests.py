@@ -42,7 +42,9 @@ def main():
     for i, t in enumerate(tests):
         comma = "," if i < len(tests) - 1 else ""
         ref = f"  // {t['ref']}" if t.get("ref") else ""
-        lines.append(f'            new Test("{t["name"]}", {t["ticks"]}, {t["class"]}::{t["method"]}){comma}{ref}')
+        struct = f'"{t["structure"]}"' if t.get("structure") else "null"
+        env = f'"{t["environment"]}"' if t.get("environment") else "null"
+        lines.append(f'            new Test("{t["name"]}", {t["ticks"]}, {struct}, {env}, {t["class"]}::{t["method"]}){comma}{ref}')
     entries = "\n".join(lines)
     catalog = f'''package de.sternenwerft.gametest;
 
@@ -56,8 +58,11 @@ import java.util.function.Consumer;
  */
 public final class SwTestCatalog {{
 
-    /** Name (Registry-Pfad), Zeitgrenze in Ticks, Testfunktion. */
-    public record Test(String name, int maxTicks, Consumer<GameTestHelper> run) {{
+    /**
+     * Name (Registry-Pfad), Zeitgrenze in Ticks, Struktur und Testumgebung (null = Standard), Testfunktion. Tests mit
+     * eigener Umgebung laufen in einem eigenen Durchgang (Leistungstest).
+     */
+    public record Test(String name, int maxTicks, String structure, String environment, Consumer<GameTestHelper> run) {{
     }}
 
     public static final List<Test> ALL = List.of(
@@ -69,7 +74,7 @@ public final class SwTestCatalog {{
 }}
 '''
     methods = "\n\n".join(
-        f'''    @GameTest(maxTicks = {t["ticks"]})
+        f'''    @GameTest(maxTicks = {t["ticks"]}{', structure = "' + t["structure"] + '"' if t.get("structure") else ""}{', environment = "' + t["environment"] + '"' if t.get("environment") else ""})
     public void {camel(t["name"])}(GameTestHelper helper) {{
         {t["class"]}.{t["method"]}(helper);
     }}''' for t in tests)

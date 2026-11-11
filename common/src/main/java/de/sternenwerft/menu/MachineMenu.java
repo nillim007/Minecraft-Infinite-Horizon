@@ -23,13 +23,17 @@ import net.minecraft.world.item.ItemStack;
  */
 public class MachineMenu extends AbstractContainerMenu {
 
-    /** Was der Client beim Öffnen braucht (er kennt keine Balance-Werte); {@code tanks} = Zahl der Fluidleisten. */
-    public record OpenData(BlockPos pos, MachineLayout layout, int upgradeMax, int tanks) {
+    /**
+     * Was der Client beim Öffnen braucht (er kennt keine Balance-Werte); {@code tanks} = Zahl der Fluidleisten,
+     * {@code generator} = Block erzeugt Energie (GUI zeigt die Brennzeit statt des Fortschritts).
+     */
+    public record OpenData(BlockPos pos, MachineLayout layout, int upgradeMax, int tanks, boolean generator) {
         public static final StreamCodec<ByteBuf, OpenData> STREAM_CODEC = StreamCodec.composite(
                 BlockPos.STREAM_CODEC, OpenData::pos,
                 MachineLayout.STREAM_CODEC, OpenData::layout,
                 ByteBufCodecs.VAR_INT, OpenData::upgradeMax,
                 ByteBufCodecs.VAR_INT, OpenData::tanks,
+                ByteBufCodecs.BOOL, OpenData::generator,
                 OpenData::new);
 
         public MachineGeometry geometry() {

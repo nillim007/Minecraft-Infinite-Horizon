@@ -65,11 +65,15 @@ def _nbt_int_list(vals):
 EMPTY_LIST = b"\x00" + struct.pack(">i", 0)
 
 
-def empty_structure_nbt():
-    """Leere Strukturvorlage 8x8x8 als gzip-NBT (deterministisch)."""
+# Leere GameTest-Strukturen: Name -> Größe (x, y, z). „empty_large“ für den Leistungstest mit 100 Zerkleinerern (27.2)
+GAMETEST_STRUCTURES = {"empty": [8, 8, 8], "empty_large": [24, 6, 24]}
+
+
+def empty_structure_nbt(size=(8, 8, 8)):
+    """Leere Strukturvorlage als gzip-NBT (deterministisch)."""
     body = b"\x0a" + _nbt_name("")
     body += b"\x03" + _nbt_name("DataVersion") + struct.pack(">i", 4440)
-    body += b"\x09" + _nbt_name("size") + _nbt_int_list([8, 8, 8])
+    body += b"\x09" + _nbt_name("size") + _nbt_int_list(list(size))
     for key in ("palette", "blocks", "entities"):
         body += b"\x09" + _nbt_name(key) + EMPTY_LIST
     body += b"\x00"
@@ -223,7 +227,7 @@ def oil_bubble_worldgen():
 
 
 # Blöcke, deren Inhalt beim Abbauen als Komponente am Item bleibt (4.1: fluid_tank, später battery)
-COPY_COMPONENTS = {"fluid_tank": [f"{NS}:fluid"]}
+COPY_COMPONENTS = {"fluid_tank": [f"{NS}:fluid"], "battery": [f"{NS}:energy"]}
 
 
 def block_loot(name):
@@ -507,9 +511,10 @@ def main():
         n_rec += 1
 
     # Leere GameTest-Struktur
-    nbt = OUT / "data" / NS / "structure" / "gametest" / "empty.nbt"
-    nbt.parent.mkdir(parents=True, exist_ok=True)
-    nbt.write_bytes(empty_structure_nbt())
+    for sname, size in GAMETEST_STRUCTURES.items():
+        nbt = OUT / "data" / NS / "structure" / "gametest" / f"{sname}.nbt"
+        nbt.parent.mkdir(parents=True, exist_ok=True)
+        nbt.write_bytes(empty_structure_nbt(size))
 
     # Balance-Dateien (Kapitel 25.7)
     for p in sorted((sd.DATA / "balance").glob("*.json")):

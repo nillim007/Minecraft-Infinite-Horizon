@@ -84,6 +84,14 @@ public class SwClientGameTests implements FabricClientGameTest {
             });
             tankButtonChangesServer(context, sp);
             refinery(context, sp);
+            machine(context, sp, ModBlocks.FUEL_GENERATOR.get(), "gui_fuel_generator", be -> {
+                be.fluidTanks().get(0).setStackUnchecked(SwFluidStack.of(Sternenwerft.id("kerosene"), 9000));
+                be.setItem(be.layout().fillStart(), new ItemStack(Items.BUCKET));
+            });
+            machine(context, sp, ModBlocks.BATTERY.get(), "gui_battery", be -> {
+                fillEnergy(be, 2);
+                be.setItem(0, new ItemStack(ModItems.BATTERY.get()));
+            });
 
             // Alle Blöcke nebeneinander in der Welt (Modelle, Texturen, Statuslampe)
             BlockPos base = context.computeOnClient(c -> BlockPos.containing(c.player.position()).north(3));
@@ -91,7 +99,8 @@ public class SwClientGameTests implements FabricClientGameTest {
                     ModBlocks.COMBUSTION_GENERATOR.get(), ModBlocks.COPPER_CABLE.get(), ModBlocks.COPPER_CABLE.get()};
             // Dritte Reihe: Maschinen und Teile aus M2d (Ports im Modus Eingang/Ausgang)
             String[] row3 = {"assembly_table[facing=south]", "electrolyzer[facing=south]", "refinery_controller[facing=south]",
-                    "refinery_casing", "item_port", "fluid_port[mode=output]", "energy_port"};
+                    "refinery_casing", "item_port", "fluid_port[mode=output]", "energy_port", "fuel_generator[facing=south]",
+                    "battery[facing=south]"};
             for (int i = 0; i < row3.length; i++) {
                 BlockPos p = base.above(2).east(i - 2);
                 sp.getServer().runCommand("setblock %d %d %d sternenwerft:%s".formatted(p.getX(), p.getY(), p.getZ(), row3[i]));

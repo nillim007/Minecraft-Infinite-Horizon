@@ -37,10 +37,15 @@ public final class NeoForgeGameTests {
     }
 
     public static void onRegisterTests(RegisterGameTestsEvent event) {
-        Holder<TestEnvironmentDefinition<?>> env = event.registerEnvironment(Sternenwerft.id("default"));
+        Holder<TestEnvironmentDefinition<?>> standard = event.registerEnvironment(Sternenwerft.id("default"));
+        Map<String, Holder<TestEnvironmentDefinition<?>>> envs = new LinkedHashMap<>();
         HOLDERS.forEach((test, function) -> {
+            // eigene Umgebung = eigener Durchgang (Leistungstest misst sonst die anderen Tests mit)
+            Holder<TestEnvironmentDefinition<?>> env = test.environment() == null ? standard
+                    : envs.computeIfAbsent(test.environment(), id -> event.registerEnvironment(Identifier.parse(id)));
             TestData<Holder<TestEnvironmentDefinition<?>>> data = new TestData<>(env, Level.OVERWORLD,
-                    Identifier.parse(SwGameTests.STRUCTURE), test.maxTicks(), 0, true, Rotation.NONE, false, 1, 1, false, 0);
+                    Identifier.parse(test.structure() != null ? test.structure() : SwGameTests.STRUCTURE), test.maxTicks(), 0, true,
+                    Rotation.NONE, false, 1, 1, false, 0);
             event.registerTest(function.key().identifier(), new FunctionGameTestInstance(function.key(), data));
         });
     }

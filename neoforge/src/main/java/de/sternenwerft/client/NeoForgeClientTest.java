@@ -213,6 +213,13 @@ public final class NeoForgeClientTest {
                     return true;
                 }, false);
         ghostPreview();
+        // 7. M2e: Treibstoffgenerator und Akku
+        openMachine(ModBlocks.FUEL_GENERATOR.get(), "neoforge_gui_fuel_generator", be ->
+                be.fluidTanks().get(0).setStackUnchecked(SwFluidStack.of(Sternenwerft.id("kerosene"), 9000)), null);
+        openMachine(ModBlocks.BATTERY.get(), "neoforge_gui_battery", be -> {
+            half(be);
+            be.setItem(0, new ItemStack(ModItems.BATTERY.get()));
+        }, null);
     }
 
     /** Gehäuse der Raffinerie um den Controller (Vorderseite Westen) aus dem Muster der Daten. */

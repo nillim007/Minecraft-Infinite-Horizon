@@ -21,6 +21,17 @@ public final class ModDataComponents {
                     .networkSynchronized(SwFluidStack.STREAM_CODEC)
                     .build());
 
+    /**
+     * {@code sternenwerft:energy} (4.1): gespeicherte Energie in J, z. B. auf einem abgebauten Akku. Ein leerer Speicher
+     * hat die Komponente nicht.
+     */
+    public static final Supplier<DataComponentType<Long>> ENERGY = Services.REGISTRY.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE, "energy",
+            () -> DataComponentType.<Long>builder()
+                    .persistent(com.mojang.serialization.Codec.LONG)
+                    .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_LONG)
+                    .build());
+
     private ModDataComponents() {
     }
 

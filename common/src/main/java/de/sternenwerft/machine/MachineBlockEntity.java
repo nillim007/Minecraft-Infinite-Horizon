@@ -115,8 +115,15 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
 
     /** Block-ID, unter der die Werte in den Balance-Dateien stehen (z. B. {@code sternenwerft:crusher}). */
     public String machineId() {
-        return BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).toString();
+        if (machineId == null) {
+            machineId = BuiltInRegistries.BLOCK.getKey(getBlockState().getBlock()).toString();
+        }
+        return machineId;
     }
+
+    private @Nullable String machineId;
+    /** Balance-Stand, für den Slots und Puffer zuletzt eingerichtet wurden (neu nach /reload). */
+    private @Nullable BalanceManager configuredFor;
 
     /** Slot-Aufbau laut Balance. */
     public abstract MachineLayout layout();
@@ -133,7 +140,7 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
      */
     protected long syncValue(int index) {
         if (index == SYNC_SIDE) {
-            return outputTanks().isEmpty() ? 0 : outputSide().ordinal() + 1;
+            return hasOutputSide() ? outputSide().ordinal() + 1 : 0;
         }
         if (index == SYNC_TANK) {
             List<SwFluidTank> sources = fillSources();
@@ -169,8 +176,12 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
 
     /** Passt Slots und Puffer an die aktuellen Balance-Werte an. False, solange keine Werte geladen sind. */
     protected final boolean ensureLayout() {
-        if (BalanceManager.get().isEmpty()) {
+        BalanceManager balance = BalanceManager.get();
+        if (balance.isEmpty()) {
             return false;
+        }
+        if (balance == configuredFor) {
+            return true;
         }
         int n = layout().total();
         if (items.size() != n) {
@@ -181,6 +192,7 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
             items = resized;
         }
         configureEnergy(energy);
+        configuredFor = balance;
         return true;
     }
 
@@ -229,7 +241,7 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
             if (!providesEnergyTo(d)) {
                 continue;
             }
-            long offer = Math.min(energy.getAmount(), energy.getMaxExtract());
+            long offer = energy.remainingExtract();
             long moved = pushEnergyTo(level, worldPosition, d, offer);
             if (moved > 0) {
                 try (Transaction tx = Transaction.open()) {
@@ -258,6 +270,11 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
     }
 
     // ------------------------------------------------------------------ Fluide (4.1, 4.4)
+
+    /** Hat der Block eine wählbare Ausgangsseite (Knopf „Seite“)? Standard: wenn er Ausgangstanks hat. */
+    protected boolean hasOutputSide() {
+        return !outputTanks().isEmpty();
+    }
 
     /** Eingangstanks (nehmen von außen an). Standard: keine. */
     protected List<SwFluidTank> inputTanks() {
@@ -472,7 +489,8 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
         for (int i = 0; i < layout().upgrades(); i++) {
             max = Math.max(max, upgradeMaxForSlot(i));
         }
-        return new MachineMenu.OpenData(worldPosition, layout(), max, Math.min(MAX_TANKS, fluidTanks().size()));
+        boolean generator = providesEnergyTo(null) && !acceptsEnergyFrom(null);
+        return new MachineMenu.OpenData(worldPosition, layout(), max, Math.min(MAX_TANKS, fluidTanks().size()), generator);
     }
 
     /** Größte Stückzahl im Upgrade-Slot {@code i} (0-basiert), aus machines.json. */
@@ -541,6 +559,18 @@ public abstract class MachineBlockEntity extends BlockEntity implements WorldlyC
     @Override
     public void onEnergyChanged() {
         setChanged();
+    }
+
+    /**
+     * Markiert nur den Chunk als geändert. Vanilla meldet zusätzlich Komparatoren in der Nachbarschaft; Maschinen geben
+     * kein Signal aus, und das kostet bei vielen Maschinen jeden Tick Zeit (Leistungstest 27.2). Blöcke mit
+     * Komparator-Signal überschreiben diese Methode und rufen {@code super.setChanged()} des BlockEntity auf.
+     */
+    @Override
+    public void setChanged() {
+        if (level != null) {
+            level.blockEntityChanged(worldPosition);
+        }
     }
 
     @Override

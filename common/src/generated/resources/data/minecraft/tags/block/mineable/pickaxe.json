@@ -1,6 +1,7 @@
 {
   "values": [
     "sternenwerft:assembly_table",
+    "sternenwerft:battery",
     "sternenwerft:bauxite_ore",
     "sternenwerft:combustion_generator",
     "sternenwerft:copper_cable",
@@ -13,6 +14,7 @@
     "sternenwerft:fluid_port",
     "sternenwerft:fluid_pump",
     "sternenwerft:fluid_tank",
+    "sternenwerft:fuel_generator",
     "sternenwerft:item_port",
     "sternenwerft:press",
     "sternenwerft:refinery_casing",

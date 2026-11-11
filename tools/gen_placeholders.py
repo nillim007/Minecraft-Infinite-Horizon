@@ -216,10 +216,24 @@ def machine_ids():
     return block_ids("machine")
 
 
+FORCE = False
+
+
+def put(path, data):
+    """Schreibt eine Platzhalter-Textur; vorhandene Dateien (z. B. fertige Grafiken) bleiben ohne --force erhalten."""
+    if path.exists() and not FORCE:
+        return 0
+    path.write_bytes(data)
+    return 1
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", help="kommagetrennte IDs ohne Namespace")
+    ap.add_argument("--force", action="store_true", help="vorhandene Texturen überschreiben (sonst bleiben sie)")
     args = ap.parse_args()
+    global FORCE
+    FORCE = args.force
     only = set(args.only.split(",")) if args.only else None
     spec = sd.load()
     n = 0
@@ -231,8 +245,8 @@ def main():
             if only and name not in only:
                 continue
             (OUT / "block").mkdir(parents=True, exist_ok=True)
-            (OUT / "block" / f"{name}_still.png").write_bytes(fluid_texture(e, False))
-            (OUT / "block" / f"{name}_flow.png").write_bytes(fluid_texture(e, True))
+            put(OUT / "block" / f"{name}_still.png", fluid_texture(e, False))
+            put(OUT / "block" / f"{name}_flow.png", fluid_texture(e, True))
             n += 2
             continue
         if e.get("kind") not in ("item", "block"):
@@ -243,22 +257,22 @@ def main():
             fl = spec.items[f"sternenwerft:{name[:-7]}"]
             if fl.get("kind") == "fluid" and fl.get("color"):
                 (OUT / "item").mkdir(parents=True, exist_ok=True)
-                (OUT / "item" / f"{name}.png").write_bytes(bucket_texture(fl))
+                put(OUT / "item" / f"{name}.png", bucket_texture(fl))
                 n += 1
                 continue
         folder = "block" if e["kind"] == "block" else "item"
         p = OUT / folder / f"{name}.png"
         p.parent.mkdir(parents=True, exist_ok=True)
-        p.write_bytes(texture(e))
+        put(p, texture(e))
         n += 1
         if folder == "block" and name in machines:
-            (p.parent / f"{name}_top.png").write_bytes(machine_top(e))
+            put(p.parent / f"{name}_top.png", machine_top(e))
             for st in LAMPS:
-                (p.parent / f"{name}_front_{st}.png").write_bytes(machine_front(e, st))
+                put(p.parent / f"{name}_front_{st}.png", machine_front(e, st))
             n += 4
         if folder == "block" and name in ports:
             for mode in PORT_MODES:
-                (p.parent / f"{name}_{mode}.png").write_bytes(port_texture(e, mode))
+                put(p.parent / f"{name}_{mode}.png", port_texture(e, mode))
             n += 2
     print(f"{n} Platzhalter-Texturen erzeugt in {OUT.relative_to(sd.ROOT)}")
 

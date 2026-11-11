@@ -42,6 +42,13 @@
     {"name": "electrolyzer_water_h2o2within44ticks", "class": "SwGameTestsM2d", "method": "electrolyzerWater", "ticks": 44, "ref": "27.2"},
     {"name": "electrolyzer_fullgastank_error", "class": "SwGameTestsM2d", "method": "electrolyzerFullError", "ticks": 20, "ref": "5.3"},
     {"name": "electrolyzer_tankselection", "class": "SwGameTestsM2d", "method": "electrolyzerTankSelection", "ticks": 20, "ref": "4.1"},
-    {"name": "tank_rejects_gas", "class": "SwGameTestsM2d", "method": "tankRejectsGas", "ticks": 20, "ref": "6.3"}
+    {"name": "tank_rejects_gas", "class": "SwGameTestsM2d", "method": "tankRejectsGas", "ticks": 20, "ref": "6.3"},
+    {"name": "fuelgenerator_kerosenebucket_80jt", "class": "SwGameTestsM2e", "method": "fuelGeneratorKeroseneBucket", "ticks": 20, "ref": "27.3 M2e"},
+    {"name": "fuelgenerator_4mb_16ticks", "class": "SwGameTestsM2e", "method": "fuelGeneratorFourMbSixteenTicks", "ticks": 30, "ref": "27.2"},
+    {"name": "battery_outputsideonly", "class": "SwGameTestsM2e", "method": "batteryOutputSideOnly", "ticks": 20, "ref": "27.3 M2e, 4.4"},
+    {"name": "battery_io512_platformapi", "class": "SwGameTestsM2e", "method": "batteryIoLimitAndPlatform", "ticks": 20, "ref": "27.2, 3.3"},
+    {"name": "battery_chargeslot", "class": "SwGameTestsM2e", "method": "batteryChargeSlot", "ticks": 20, "ref": "6.3"},
+    {"name": "battery_broken_keepsenergy", "class": "SwGameTestsM2e", "method": "batteryKeepsEnergyWhenBroken", "ticks": 20, "ref": "4.1"},
+    {"name": "performance_100crushers_meantick", "class": "SwGameTestsM2e", "method": "performanceHundredCrushers", "ticks": 240, "structure": "sternenwerft:gametest/empty_large", "environment": "sternenwerft:performance", "ref": "27.2"}
   ]
 }

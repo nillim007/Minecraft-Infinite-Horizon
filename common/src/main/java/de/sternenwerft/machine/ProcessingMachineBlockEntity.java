@@ -73,6 +73,9 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
     private final List<SwFluidTank> outTanks = new ArrayList<>();
     private double progress;
     private int currentTicks;
+    /** Zuletzt passendes Rezept; nach /reload ein neues Objekt aus dem neuen Rezeptmanager. */
+    private @Nullable ProcessingRecipe lastRecipe;
+    private @Nullable Object lastRecipeSource;
 
     public ProcessingMachineBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state,
                                         Supplier<List<ProcessingRecipe.Kind>> kinds) {
@@ -205,18 +208,34 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         if (input.isEmpty()) {
             return Optional.empty();
         }
+        if (lastRecipeSource != level.recipeAccess()) {
+            lastRecipe = null;
+            lastRecipeSource = level.recipeAccess();
+        }
+        // zuerst das zuletzt passende Rezept (spart die Suche über alle Rezepte, Leistungstest 27.2)
+        if (lastRecipe != null) {
+            ProcessingRecipe.Match m = lastRecipe.match(input);
+            if (m != null) {
+                return Optional.of(planOf(lastRecipe, m));
+            }
+        }
         for (ProcessingRecipe.Kind kind : kinds.get()) {
             Optional<RecipeHolder<ProcessingRecipe>> found = level.recipeAccess().getRecipeFor(kind.type(), input, level);
             if (found.isPresent()) {
                 ProcessingRecipe r = found.get().value();
                 ProcessingRecipe.Match m = r.match(input);
                 if (m != null) {
-                    return Optional.of(new Plan(m.slots(), m.counts(), r.results(), r.ticks(), r.energyPerTick(),
-                            r.fluid().orElse(SwFluidStack.EMPTY), r.fluidResults()));
+                    lastRecipe = r;
+                    return Optional.of(planOf(r, m));
                 }
             }
         }
         return Optional.empty();
+    }
+
+    private static Plan planOf(ProcessingRecipe r, ProcessingRecipe.Match m) {
+        return new Plan(m.slots(), m.counts(), r.results(), r.ticks(), r.energyPerTick(),
+                r.fluid().orElse(SwFluidStack.EMPTY), r.fluidResults());
     }
 
     /** Wirksame Dauer und Verbrauch für einen Vorgang (reine Rechnung, 4.2). */
@@ -279,12 +298,9 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         }
         ProcessingMath.Effective eff = effective(plan);
         currentTicks = eff.ticks();
-        try (Transaction tx = Transaction.open()) {
-            if (!energy.consumeInternal(eff.energyPerTick(), tx)) {
-                setStatus(MachineStatus.IDLE);
-                return;
-            }
-            tx.commit();
+        if (!energy.useInternal(eff.energyPerTick())) {
+            setStatus(MachineStatus.IDLE);
+            return;
         }
         progress += 1.0 / eff.ticks();
         if (progress >= DONE) {

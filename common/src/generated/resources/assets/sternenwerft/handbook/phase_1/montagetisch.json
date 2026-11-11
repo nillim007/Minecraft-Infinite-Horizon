@@ -450,6 +450,45 @@
           ],
           "ticks": 200,
           "energy_per_tick": 30
+        },
+        {
+          "id": "sternenwerft:assembly/fuel_generator",
+          "type": "sternenwerft:assembly",
+          "station": "sternenwerft:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "sternenwerft:machine_frame"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "sternenwerft:combustion_generator"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "sternenwerft:copper_pipe"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "sternenwerft:iron_plate"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "sternenwerft:fuel_generator",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
         }
       ]
     },

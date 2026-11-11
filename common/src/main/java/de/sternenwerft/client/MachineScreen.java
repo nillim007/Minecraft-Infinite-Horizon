@@ -177,14 +177,14 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         MachineLayout l = menu.openData().layout();
         int ax = x + geometry.arrowX();
         int ay = y + MachineMenu.ROW_Y;
-        boolean generator = l.fuel() > 0;
+        boolean generator = menu.openData().generator();
         int w = 0;
         if (total > 0) {
             long part = generator ? now : Math.min(now, total);
             w = (int) Math.min(ARROW_W, part * ARROW_W / total);
         }
-        // Pfeil nur bei Blöcken mit Vorgang (Maschinen, Generatoren), nicht bei reinen Speichern
-        if (l.inputs() + l.fuel() + l.upgrades() > 0) {
+        // Pfeil nur bei Blöcken mit Vorgang (Maschinen, Generatoren), nicht bei Speichern (Akku: nur Ladeslot, 4.1)
+        if (generator || l.fuel() + l.upgrades() > 0 || (l.inputs() > 0 && l.outputs() > 0)) {
             drawArrow(g, ax, ay, w, generator ? BURN : PROGRESS);
         }
 
@@ -215,7 +215,7 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         if (tip == null && capacity > 0 && inside(mouseX, mouseY, bx, by, BAR_W, BAR_H)) {
             tip = List.of(Component.translatable("gui.sternenwerft.energy", energy, capacity));
         } else if (tip == null && total > 0 && inside(mouseX, mouseY, ax, ay, ARROW_W, ARROW_H)) {
-            String key = l.fuel() > 0 ? "gui.sternenwerft.burn_time" : "gui.sternenwerft.progress_ticks";
+            String key = generator ? "gui.sternenwerft.burn_time" : "gui.sternenwerft.progress_ticks";
             tip = List.of(Component.translatable(key, now, total));
         }
         if (tip != null) {

@@ -87,7 +87,7 @@ Sternenwerft wird Meilenstein für Meilenstein nach einer festen [Spezifikation]
 | Meilenstein | Inhalt | Stand |
 | --- | --- | --- |
 | 1 | Grundgerüst: Multiloader, Energie, erste Maschine | ✅ fertig |
-| 2 | Erdindustrie: Maschinen, Erze, Fluide, Raffinerie, Montagetisch, Handbuch | 🔨 in Arbeit (2a–2d fertig, 2e–2f offen) |
+| 2 | Erdindustrie: Maschinen, Erze, Fluide, Raffinerie, Montagetisch, Handbuch | 🔨 in Arbeit (2a–2e fertig, 2f offen) |
 | 3 | Erste Welt: Mond, Anzug, Kuppel | ⏳ geplant |
 | 4 | Erster Flug: Forschung, Sonde, Rakete T1 · **erste spielbare Version** | ⏳ geplant |
 | 5 | Ring 1: Mars, Venus, Rover, Kreaturen | ⏳ geplant |

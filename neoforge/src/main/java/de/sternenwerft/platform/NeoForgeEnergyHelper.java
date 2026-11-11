@@ -22,6 +22,10 @@ import org.jspecify.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import net.minecraft.world.Container;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.neoforged.neoforge.transfer.access.ItemAccess;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Supplier;
@@ -64,6 +68,41 @@ public class NeoForgeEnergyHelper implements IEnergyHelper {
         return h == null ? -1 : h.getAmountAsLong();
     }
 
+    @Override
+    public boolean isPlatformChargeable(ItemStack stack) {
+        EnergyHandler h = stack.getCapability(Capabilities.Energy.ITEM, ItemAccess.forStack(stack.copy()));
+        return h != null && h.getCapacityAsLong() > 0;
+    }
+
+    @Override
+    public long chargeItem(Container container, int slot, long max) {
+        ItemStack stack = container.getItem(slot);
+        ItemAccess access = ItemAccess.forStack(stack.copy());
+        EnergyHandler h = stack.getCapability(Capabilities.Energy.ITEM, access);
+        int request = (int) Math.min(max, Integer.MAX_VALUE);
+        if (h == null || request <= 0) {
+            return 0;
+        }
+        int inserted;
+        try (Transaction tx = Transaction.openRoot()) {
+            inserted = h.insert(request, tx);
+            tx.commit();
+        }
+        if (inserted > 0) {
+            // die Kopie trägt die neuen Item-Daten; zurück in den Slot
+            container.setItem(slot, access.getResource().toStack(access.getAmount()));
+        }
+        return inserted;
+    }
+
+    @Override
+    public long testItemAmount() {
+        return GameTestHooks.isGametestEnabled() ? TEST_ITEM.getAmountAsLong() : -1;
+    }
+
+    /** Test-Item für den Ladeslot (nur GameTests): eine gemeinsame Energie für alle Redstone-Blöcke. */
+    private static final SimpleEnergyHandler TEST_ITEM = new SimpleEnergyHandler(Integer.MAX_VALUE);
+
     @SuppressWarnings("unchecked")
     public static void registerCapabilities(RegisterCapabilitiesEvent event) {
         for (Supplier<? extends BlockEntityType<? extends EnergyNode>> s : EXPOSED) {
@@ -73,7 +112,13 @@ public class NeoForgeEnergyHelper implements IEnergyHelper {
                 if (!node.acceptsEnergyFrom(side) && !node.providesEnergyTo(side)) {
                     return null;
                 }
-                return (EnergyHandler) node.platformEnergyHandle(Adapter::new);
+                // je Seite ein Adapter: Speicher mit Ausgangsseite (Akku) nehmen dort nichts an (4.4)
+                Adapter[] bySide = (Adapter[]) node.platformEnergyHandle(n -> new Adapter[Direction.values().length + 1]);
+                int i = side == null ? Direction.values().length : side.ordinal();
+                if (bySide[i] == null) {
+                    bySide[i] = new Adapter(node, side);
+                }
+                return bySide[i];
             });
         }
         // Test-Verbraucher (Kapitel 27, M1): nutzt nur die NeoForge-API, nur im GameTest-Betrieb.
@@ -83,15 +128,22 @@ public class NeoForgeEnergyHelper implements IEnergyHelper {
                     (level, pos, state, be, side) -> TEST_CONSUMERS.computeIfAbsent(pos.immutable(),
                             p -> new SimpleEnergyHandler(Integer.MAX_VALUE)),
                     Blocks.TARGET);
+            // SPEC-GAP: Test-Item für den Ladeslot (6.3) ist minecraft:redstone_block, nur im GameTest-Betrieb
+            event.registerItem(Capabilities.Energy.ITEM, (stack, access) -> TEST_ITEM, Items.REDSTONE_BLOCK);
         }
     }
 
-    /** Bietet einen {@link SwEnergyStorage} als NeoForge-{@link EnergyHandler} an (Snapshots je Transaktion). */
-    static final class Adapter extends SnapshotJournal<Long> implements EnergyHandler {
+    /**
+     * Bietet einen {@link SwEnergyStorage} über eine Seite als NeoForge-{@link EnergyHandler} an (Snapshots je
+     * Transaktion). Grenzen pro Tick (Akku) gelten über {@link SwEnergyStorage#remainingInsert()}.
+     */
+    static final class Adapter extends SnapshotJournal<SwEnergyStorage.State> implements EnergyHandler {
         private final EnergyNode node;
+        private final @Nullable Direction side;
 
-        Adapter(EnergyNode node) {
+        Adapter(EnergyNode node, @Nullable Direction side) {
             this.node = node;
+            this.side = side;
         }
 
         @Override
@@ -107,45 +159,45 @@ public class NeoForgeEnergyHelper implements IEnergyHelper {
         @Override
         public int insert(int amount, TransactionContext transaction) {
             SwEnergyStorage s = node.energyStorage();
-            if (amount <= 0 || !node.acceptsEnergyFrom(null)) {
+            if (amount <= 0 || !node.acceptsEnergyFrom(side)) {
                 return 0;
             }
-            long accepted = Math.min(Math.min(amount, s.getMaxInsert()), s.getCapacity() - s.getAmount());
+            long accepted = Math.min(amount, s.remainingInsert());
             if (accepted <= 0) {
                 return 0;
             }
             updateSnapshots(transaction);
-            s.setAmountUnchecked(s.getAmount() + accepted);
+            s.applyExternal(accepted);
             return (int) accepted;
         }
 
         @Override
         public int extract(int amount, TransactionContext transaction) {
             SwEnergyStorage s = node.energyStorage();
-            if (amount <= 0 || !node.providesEnergyTo(null)) {
+            if (amount <= 0 || !node.providesEnergyTo(side)) {
                 return 0;
             }
-            long taken = Math.min(Math.min(amount, s.getMaxExtract()), s.getAmount());
+            long taken = Math.min(amount, s.remainingExtract());
             if (taken <= 0) {
                 return 0;
             }
             updateSnapshots(transaction);
-            s.setAmountUnchecked(s.getAmount() - taken);
+            s.applyExternal(-taken);
             return (int) taken;
         }
 
         @Override
-        protected Long createSnapshot() {
-            return node.energyStorage().getAmount();
+        protected SwEnergyStorage.State createSnapshot() {
+            return node.energyStorage().snapshot();
         }
 
         @Override
-        protected void revertToSnapshot(Long snapshot) {
-            node.energyStorage().setAmountUnchecked(snapshot);
+        protected void revertToSnapshot(SwEnergyStorage.State snapshot) {
+            node.energyStorage().restore(snapshot);
         }
 
         @Override
-        protected void onRootCommit(Long originalState) {
+        protected void onRootCommit(SwEnergyStorage.State originalState) {
             node.onEnergyChanged();
         }
     }

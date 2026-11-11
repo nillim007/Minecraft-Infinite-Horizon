@@ -8,6 +8,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 
 | Name | Art | Herkunft |
 | --- | --- | --- |
+| [Akku](Strom.md) | Block | Rezept |
 | [Aluminiumbarren](Elektroofen.md) | Item | Maschine |
 | [Aluminiumdraht](Presse.md) | Item | Maschine |
 | [Aluminiumplatte](Presse.md) | Item | Maschine |
@@ -55,6 +56,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Titanplatte](Presse.md) | Item | Maschine |
 | [Titanstange](Presse.md) | Item | Maschine |
 | [Titanstaub](Zerkleinerer.md) | Item | Maschine |
+| [Treibstoffgenerator](Strom.md) | Block | Rezept |
 | [Verbrennungsgenerator](Strom.md) | Block | Rezept |
 | [Wasserstoff](Elektrolyseur.md) | Fluid | Maschine |
 | [Zerkleinerer](Zerkleinerer.md) | Block | Rezept |

@@ -10,6 +10,7 @@ Hier stehen alle Rezepte, die es im aktuellen Stand gibt. Die Werte kommen direk
 
 | Rezept | Zutaten → Ergebnis | Wo | Dauer |
 | --- | --- | --- | --- |
+| <img src="images/rezepte/crafting_shaped_battery.svg" alt="Rezept" width="300"> | 4 × Redstone-Block, 4 × Kupferbarren, 1 × [Maschinenrahmen](Erste-Schritte.md) → 1 × [Akku](Strom.md) | Werkbank | – |
 | <img src="images/rezepte/crafting_shaped_electric_furnace.svg" alt="Rezept" width="300"> | 7 × Kupferbarren, 1 × Ofen, 1 × [Maschinenrahmen](Erste-Schritte.md) → 1 × [Elektroofen](Elektroofen.md) | Werkbank | – |
 | <img src="images/rezepte/crafting_shaped_copper_cable.svg" alt="Rezept" width="300"> | 3 × Kupferbarren → 6 × [Kupferkabel](Strom.md) | Werkbank | – |
 | <img src="images/rezepte/crafting_shaped_copper_pipe.svg" alt="Rezept" width="300"> | 2 × Kupferbarren, 1 × Glas → 4 × [Kupferrohr](Fluide-und-Rohre.md) | Werkbank | – |
@@ -78,6 +79,7 @@ Hier stehen alle Rezepte, die es im aktuellen Stand gibt. Die Werte kommen direk
 | <img src="images/rezepte/assembly_refinery_controller.svg" alt="Rezept" width="300"> | 1 × [Maschinenrahmen](Erste-Schritte.md), 16 × [Eisenplatte](Presse.md), 8 × [Kupferrohr](Fluide-und-Rohre.md), 4 × Redstone-Staub → 1 × [Raffinerie](Raffinerie.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_refinery_casing.svg" alt="Rezept" width="300"> | 2 × [Eisenplatte](Presse.md), 1 × [Kupferrohr](Fluide-und-Rohre.md) → 4 × [Raffinerie-Gehäuse](Raffinerie.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_circuit.svg" alt="Rezept" width="300"> | 2 × [Silizium](Elektroofen.md), 4 × [Kupferdraht](Presse.md), 1 × [Kunststoff](Raffinerie.md) → 1 × [Schaltkreis](Montagetisch.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_fuel_generator.svg" alt="Rezept" width="300"> | 1 × [Maschinenrahmen](Erste-Schritte.md), 1 × [Verbrennungsgenerator](Strom.md), 4 × [Kupferrohr](Fluide-und-Rohre.md), 4 × [Eisenplatte](Presse.md) → 1 × [Treibstoffgenerator](Strom.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 
 ## Raffinerie
 

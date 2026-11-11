@@ -109,7 +109,7 @@ public class PortBlockEntity extends BlockEntity implements EnergyNode, FluidNod
         } else if (portType() == PortBlock.PortType.ENERGY && c.providesEnergyTo(null)) {
             SwEnergyStorage s = c.energyStorage();
             for (Direction d : Direction.values()) {
-                long offer = Math.min(s.getAmount(), s.getMaxExtract());
+                long offer = s.remainingExtract();
                 if (offer <= 0 || inStructure(worldPosition.relative(d))) {
                     continue;
                 }
