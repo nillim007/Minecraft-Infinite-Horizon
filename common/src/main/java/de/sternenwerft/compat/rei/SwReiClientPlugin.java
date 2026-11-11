@@ -14,7 +14,17 @@ import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
 import me.shedaniel.rei.api.client.view.ViewSearchBuilder;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.util.EntryStacks;
+import de.sternenwerft.client.FluidColors;
+import dev.architectury.fluid.FluidStack;
 import me.shedaniel.math.Point;
+import me.shedaniel.math.Rectangle;
+import me.shedaniel.rei.api.client.entry.renderer.EntryRenderer;
+import me.shedaniel.rei.api.client.entry.renderer.EntryRendererRegistry;
+import me.shedaniel.rei.api.client.gui.compat.GuiGraphics;
+import me.shedaniel.rei.api.client.gui.widgets.Tooltip;
+import me.shedaniel.rei.api.client.gui.widgets.TooltipContext;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.Identifier;
 import me.shedaniel.rei.api.client.REIRuntime;
 import me.shedaniel.rei.api.client.registry.screen.ScreenRegistry;
 import me.shedaniel.rei.api.common.entry.EntryStack;
@@ -47,6 +57,8 @@ public class SwReiClientPlugin implements REIClientPlugin {
             if (!c.catalysts().isEmpty()) {
                 registry.addWorkstations(MachineRecipeDisplay.categoryOf(c.type()), EntryStacks.of(RecipeView.catalystItem(c)));
             }
+            // Maschinenrezepte lassen sich nicht ins Fenster übertragen: kein „+“/„!“-Knopf
+            registry.removePlusButton(MachineRecipeDisplay.categoryOf(c.type()));
         }
         try {
             // Vanilla-Schmelzrezepte laufen über die Vanilla-Kategorie (3.9); fehlt das REI-Standard-Plugin, entfällt das
@@ -73,6 +85,31 @@ public class SwReiClientPlugin implements REIClientPlugin {
         Point mouse = new Point((int) mc.mouseHandler.getScaledXPos(mc.getWindow()), (int) mc.mouseHandler.getScaledYPos(mc.getWindow()));
         EntryStack<?> stack = ScreenRegistry.getInstance().getFocusedStack(screen, mouse);
         return stack != null && stack.getType() == VanillaEntryTypes.ITEM ? stack.castValue() : ItemStack.EMPTY;
+    }
+
+    /**
+     * Fluide als Farbfläche wie in den Maschinen-GUIs: Architectury zeichnet unter Fabric in 26.3 nur eigene Fluide
+     * (sonst bleibt der Slot leer). Für unsere Fluide sowie Wasser und Lava; Tooltip bleibt der von REI.
+     */
+    @Override
+    public void registerEntryRenderers(EntryRendererRegistry registry) {
+        registry.register(VanillaEntryTypes.FLUID, (entry, last) -> {
+            Identifier id = BuiltInRegistries.FLUID.getKey(entry.getValue().getFluid());
+            if (!FluidColors.known(id)) {
+                return last;
+            }
+            return new EntryRenderer<>() {
+                @Override
+                public void render(EntryStack<FluidStack> stack, GuiGraphics g, Rectangle b, int mouseX, int mouseY, float delta) {
+                    g.fill(b.x, b.y, b.x + b.width, b.y + b.height, FluidColors.of(id));
+                }
+
+                @Override
+                public Tooltip getTooltip(EntryStack<FluidStack> stack, TooltipContext context) {
+                    return last.getTooltip(stack, context);
+                }
+            };
+        });
     }
 
     @Override

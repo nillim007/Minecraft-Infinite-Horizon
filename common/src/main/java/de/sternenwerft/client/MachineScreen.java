@@ -64,9 +64,6 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
     private static final int TANK_X = 102;
     private static final int TANK_W = 20;
     private static final int FLUID_W = 16;
-    // Platzhalterfarben der Vanilla-Fluide (GUI)
-    private static final int WATER = 0xFF3F76E4;
-    private static final int LAVA = 0xFFE05A10;
 
     private final MachineGeometry geometry;
     private Button sideButton;
@@ -253,16 +250,9 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         }
     }
 
-    /** Farbe der Fluidleiste: Mod-Fluide aus fluids.json, Vanilla-Wasser/Lava fest, sonst grau. */
+    /** Farbe der Fluidleiste (gemeinsam mit den Rezeptanzeigen). */
     private static int fluidColor(Identifier fluid) {
-        if (fluid.getNamespace().equals(Sternenwerft.MOD_ID) && ModFluids.defs().containsKey(fluid.getPath())) {
-            return ModFluids.defs().get(fluid.getPath()).color();
-        }
-        return switch (fluid.toString()) {
-            case "minecraft:water" -> WATER;
-            case "minecraft:lava" -> LAVA;
-            default -> 0xFFA0A0A0;
-        };
+        return FluidColors.of(fluid);
     }
 
     private static boolean inside(int mx, int my, int x, int y, int w, int h) {
