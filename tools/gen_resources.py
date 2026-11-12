@@ -605,6 +605,8 @@ def planet_worldgen(spec, impl, blocks):
                               "separation": st["separation_chunks"], "spacing": st["spacing_chunks"]},
                 "structures": [{"structure": f"{NS}:{name}", "weight": 1}]})
         out[dim] = ore_features
+    mobs = sorted({m['entity'] for dim in impl.get('dimensions', []) for m in spec.planets[dim].get('vanilla_mobs', [])})
+    write_json("infinite_horizon/planet_mobs.json", {"entities": mobs})
     return out
 
 

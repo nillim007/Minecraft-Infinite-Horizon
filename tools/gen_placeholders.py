@@ -219,6 +219,55 @@ def machine_ids():
 FORCE = False
 
 
+def png_sized(pixels):
+    """PNG beliebiger Größe (Zeilen aus RGBA-Tupeln)."""
+    h, w = len(pixels), len(pixels[0])
+    raw = b"".join(b"\x00" + bytes(v for px in row for v in px) for row in pixels)
+
+    def chunk(tag, data):
+        return struct.pack(">I", len(data)) + tag + data + struct.pack(">I", zlib.crc32(tag + data) & 0xFFFFFFFF)
+
+    return (b"\x89PNG\r\n\x1a\n" + chunk(b"IHDR", struct.pack(">IIBBBBB", w, h, 8, 6, 0, 0, 0))
+            + chunk(b"IDAT", zlib.compress(raw, 9)) + chunk(b"IEND", b""))
+
+
+# 24.5 "Weitere Platzhalter ab M3": Erde am Himmel 32 x 32 als Scheibe #3F76E4 mit Rauschen
+def celestial_disc(color, size, seed):
+    r = rng(seed)
+    c = rgb(color)
+    out = []
+    for y in range(size):
+        row = []
+        for x in range(size):
+            dx, dy = x - (size - 1) / 2, y - (size - 1) / 2
+            if dx * dx + dy * dy > (size / 2) ** 2:
+                row.append((0, 0, 0, 0))
+            else:
+                f = 0.8 + (next(r) % 40) / 100
+                row.append(shade(c, f) + (255,))
+        out.append(row)
+    return png_sized(out)
+
+
+# Atemmaske 64 x 32 (Zombie: 64 x 64 wie seine Textur), Kopfbereich #6E6E6E: untere Hälfte der vier Kopfseiten
+MASK_MODELS = {"minecraft:zombie": ((64, 64), (0, 0)), "minecraft:skeleton": ((64, 32), (0, 0)),
+               "minecraft:creeper": ((64, 32), (0, 0)), "minecraft:spider": ((64, 32), (32, 4))}
+
+
+def breathing_mask(entity):
+    (w, h), (u, v) = MASK_MODELS.get(entity, ((64, 32), (0, 0)))
+    gray = rgb("#6E6E6E") + (255,)
+    filt = shade(rgb("#6E6E6E"), 0.6) + (255,)
+    out = [[(0, 0, 0, 0)] * w for _ in range(h)]
+    for y in range(v + 12, v + 16):          # untere Hälfte des 8 x 8 x 8-Kopfs (Seitenflächen ab v + 8)
+        for x in range(u, u + 32):
+            out[y][x] = gray
+    for y in range(v + 13, v + 15):          # Filter vorn
+        for x in range(u + 10, u + 14):
+            out[y][x] = filt
+    return png_sized(out)
+
+
 def put(path, data):
     """Schreibt eine Platzhalter-Textur; vorhandene Dateien (z. B. fertige Grafiken) bleiben ohne --force erhalten."""
     if path.exists() and not FORCE:
@@ -274,6 +323,23 @@ def main():
             for mode in PORT_MODES:
                 put(p.parent / f"{name}_{mode}.png", port_texture(e, mode))
             n += 2
+    # Himmelskörper und Atemmasken der Planeten in implemented_ids.json (24.5, ab M3)
+    import json as _json
+    impl = _json.loads((sd.ROOT / "common" / "implemented_ids.json").read_text(encoding="utf-8"))
+    for dim in impl.get("dimensions", []):
+        p = spec.planets[dim]
+        for b in (p.get("sky") or {}).get("celestial_bodies", []):
+            name = b["texture"].rsplit("/", 1)[-1].removesuffix(".png")
+            if only and name not in only:
+                continue
+            (OUT / "environment" / "celestial").mkdir(parents=True, exist_ok=True)
+            n += put(OUT / "environment" / "celestial" / f"{name}.png", celestial_disc("#3F76E4", 32, name))
+        for mob in p.get("vanilla_mobs", []):
+            name = mob["entity"].split(":", 1)[1]
+            if only and f"breathing_mask_{name}" not in only:
+                continue
+            (OUT / "entity" / "breathing_mask").mkdir(parents=True, exist_ok=True)
+            n += put(OUT / "entity" / "breathing_mask" / f"{name}.png", breathing_mask(mob["entity"]))
     print(f"{n} Platzhalter-Texturen erzeugt in {OUT.relative_to(sd.ROOT)}")
 
 

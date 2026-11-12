@@ -18,6 +18,14 @@ public class InfiniteHorizonFabricClient implements ClientModInitializer {
     public void onInitializeClient() {
         FabricNetworkHelper.clientEntries().forEach(InfiniteHorizonFabricClient::register);
         MenuScreens.register(ModMenus.MACHINE.get(), MachineScreen::new);
+        // Atemmaske der Planetenmonster (13.5)
+        java.util.List<net.minecraft.world.entity.EntityType<?>> masked = de.infinitehorizon.client.BreathingMaskLayer.types();
+        net.fabricmc.fabric.api.client.rendering.v1.LivingEntityRenderLayerRegistrationCallback.EVENT.register(
+                (type, renderer, helper, context) -> {
+                    if (masked.contains(type)) {
+                        addMask(helper, renderer, type);
+                    }
+                });
         // Synchronisierte Maschinenrezepte für JEI/REI (3.9), beim Abfragen aus der Client-Welt gelesen
         de.infinitehorizon.compat.ClientRecipes.setSource(type -> {
             var level = net.minecraft.client.Minecraft.getInstance().level;
@@ -39,6 +47,13 @@ public class InfiniteHorizonFabricClient implements ClientModInitializer {
                     new Material(InfiniteHorizon.id("block/" + id + "_still")), new Material(InfiniteHorizon.id("block/" + id + "_flow")),
                     null, state -> color));
         });
+    }
+
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    private static void addMask(net.fabricmc.fabric.api.client.rendering.v1.LivingEntityRenderLayerRegistrationCallback.RegistrationHelper helper,
+                                net.minecraft.client.renderer.entity.LivingEntityRenderer<?, ?, ?> renderer,
+                                net.minecraft.world.entity.EntityType<?> type) {
+        helper.register(new de.infinitehorizon.client.BreathingMaskLayer(renderer, type));
     }
 
     private static <T extends CustomPacketPayload> void register(FabricNetworkHelper.ClientEntry<T> entry) {

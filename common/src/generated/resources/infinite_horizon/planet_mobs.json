@@ -1,0 +1,8 @@
+{
+  "entities": [
+    "minecraft:creeper",
+    "minecraft:skeleton",
+    "minecraft:spider",
+    "minecraft:zombie"
+  ]
+}

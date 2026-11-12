@@ -19,8 +19,23 @@ import net.minecraft.client.resources.model.sprite.Material;
 @Mod(value = InfiniteHorizon.MOD_ID, dist = Dist.CLIENT)
 public class InfiniteHorizonNeoForgeClient {
 
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    private static void addMask(net.minecraft.client.renderer.entity.LivingEntityRenderer<?, ?, ?> renderer,
+                                net.minecraft.world.entity.EntityType<?> type) {
+        ((de.infinitehorizon.mixin.LivingEntityRendererAccessor) renderer).infinite_horizon$addLayer(
+                new de.infinitehorizon.client.BreathingMaskLayer(renderer, type));
+    }
+
     public InfiniteHorizonNeoForgeClient(IEventBus modBus) {
         modBus.addListener((RegisterMenuScreensEvent e) -> e.register(ModMenus.MACHINE.get(), MachineScreen::new));
+        // Atemmaske der Planetenmonster (13.5)
+        modBus.addListener((net.neoforged.neoforge.client.event.EntityRenderersEvent.AddLayers e) -> {
+            for (net.minecraft.world.entity.EntityType<?> type : de.infinitehorizon.client.BreathingMaskLayer.types()) {
+                if (e.getRenderer(type) instanceof net.minecraft.client.renderer.entity.LivingEntityRenderer<?, ?, ?> r) {
+                    addMask(r, type);
+                }
+            }
+        });
         // Empfangene Maschinenrezepte für JEI/REI (3.9); vor den Anzeige-Mods, daher höchste Priorität
         NeoForge.EVENT_BUS.addListener(net.neoforged.bus.api.EventPriority.HIGHEST,
                 (net.neoforged.neoforge.client.event.RecipesReceivedEvent e) -> {

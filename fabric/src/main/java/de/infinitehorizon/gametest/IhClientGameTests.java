@@ -150,7 +150,46 @@ public class IhClientGameTests implements FabricClientGameTest {
             context.waitTicks(5);
             clearChat(context);
             context.takeScreenshot("world_machines");
+
+            moon(context, sp);
         }
+    }
+
+    /**
+     * Mond (27.5 M3c): {@code goto moon}, Monster mit Atemmaske (13.5), Blick zur Erde am Himmel (25.1: Azimut 60°,
+     * Höhe 40° → Yaw 240, Pitch −40); Screenshots.
+     */
+    private static void moon(ClientGameTestContext context, TestSingleplayerContext sp) {
+        sp.getServer().runCommand("time set 6000");
+        sp.getServer().runCommand("execute as @p run infinite_horizon goto moon");
+        context.waitTicks(40);
+        sp.getConnection().waitForChunksRender();
+        String dim = context.computeOnClient(c -> c.level.dimension().identifier().toString());
+        if (!"infinite_horizon:moon".equals(dim)) {
+            throw new AssertionError("goto moon: Spieler ist in " + dim);
+        }
+        int bodies = context.computeOnClient(c -> de.infinitehorizon.client.PlanetVisuals.bodies().size());
+        if (bodies == 0) {
+            throw new AssertionError("Mondhimmel: keine Himmelskörper (Planeten-Sync?)");
+        }
+        context.runOnClient(c -> {
+            c.player.setYRot(0);
+            c.player.setXRot(10);
+        });
+        context.waitTicks(2);
+        for (String cmd : new String[]{"summon minecraft:creeper ~ ~ ~4", "summon minecraft:spider ~2.5 ~ ~5",
+                "summon minecraft:zombie ~-2.5 ~ ~5"}) {
+            sp.getServer().runCommand("execute as @p at @s run " + cmd + " {NoAI:1b,PersistenceRequired:1b}");
+        }
+        context.waitTicks(20);
+        clearChat(context);
+        context.takeScreenshot("world_moon_mobs");
+        context.runOnClient(c -> {
+            c.player.setYRot(240);
+            c.player.setXRot(-40);
+        });
+        context.waitTicks(20);
+        context.takeScreenshot("world_moon_sky");
     }
 
     /** Handbuch (24.1, 27.3 M2f): öffnen, einem Link folgen, Seite eines Items finden; Screenshots. */
