@@ -37,5 +37,12 @@ public class InfiniteHorizonNeoForge {
                 InfiniteHorizon.onPlayerJoin(player);
             }
         });
+        NeoForge.EVENT_BUS.addListener((PlayerEvent.PlayerChangedDimensionEvent e) -> {
+            if (e.getEntity() instanceof ServerPlayer player) {
+                InfiniteHorizon.onDimensionChange(player, e.getTo());
+            }
+        });
+        NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.RegisterCommandsEvent e) ->
+                InfiniteHorizon.registerCommands(e.getDispatcher()));
     }
 }

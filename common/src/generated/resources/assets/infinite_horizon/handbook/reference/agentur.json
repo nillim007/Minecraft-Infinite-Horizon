@@ -1,0 +1,95 @@
+{
+  "id": "infinite_horizon:reference/agentur",
+  "chapter": "infinite_horizon:reference",
+  "title": "infinite_horizon.handbook.reference.agentur.title",
+  "icon": "infinite_horizon:engineers_handbook",
+  "order": 25,
+  "unlock": null,
+  "items": [],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.agentur.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.reference.agentur.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.agentur.e2"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.agentur.e3"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.reference.agentur.e4",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.agentur.e5"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.agentur.e6"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.reference.agentur.e7",
+      "style": "note"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.reference.agentur.e8",
+      "level": 2
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.reference.agentur.e9.h0",
+        "infinite_horizon.handbook.reference.agentur.e9.h1"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.reference.agentur.e9.r0.0",
+          "infinite_horizon.handbook.reference.agentur.e9.r0.1"
+        ],
+        [
+          "infinite_horizon.handbook.reference.agentur.e9.r1.0",
+          "infinite_horizon.handbook.reference.agentur.e9.r1.1"
+        ],
+        [
+          "infinite_horizon.handbook.reference.agentur.e9.r2.0",
+          "infinite_horizon.handbook.reference.agentur.e9.r2.1"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.reference.agentur.e10",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.reference.agentur.e11.0",
+        "infinite_horizon.handbook.reference.agentur.e11.1"
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.reference.agentur.e12",
+      "style": "tip"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.reference.agentur.e13",
+      "style": "warning"
+    }
+  ]
+}

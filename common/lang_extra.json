@@ -38,7 +38,19 @@
     "gui.infinite_horizon.handbook.hint": "%s: Handbuch",
     "key.infinite_horizon.handbook": "Handbuch öffnen",
     "gui.infinite_horizon.recipe.info": "%s t · %s J",
-    "gui.infinite_horizon.recipe.chance": "Chance: %s %%"
+    "gui.infinite_horizon.recipe.chance": "Chance: %s %%",
+    "agency.infinite_horizon.default_name": "Agentur von %s",
+    "agency.infinite_horizon.role.leader": "Leiter",
+    "agency.infinite_horizon.role.engineer": "Ingenieur",
+    "agency.infinite_horizon.role.guest": "Gast",
+    "command.infinite_horizon.agency.info.header": "Agentur: %s (%s)",
+    "command.infinite_horizon.agency.info.members": "Mitglieder: %s",
+    "command.infinite_horizon.agency.info.member": "%s (%s)",
+    "command.infinite_horizon.agency.info.dimensions": "Besuchte Dimensionen: %s",
+    "command.infinite_horizon.agency.unknown": "Keine Agentur gefunden: %s",
+    "command.infinite_horizon.agency.transfer.ok": "Der Besitz von %s geht an %s über.",
+    "command.infinite_horizon.agency.transfer.same": "Quelle und Ziel sind dieselbe Agentur.",
+    "command.infinite_horizon.agency.transfer.cycle": "Das Ziel ist bereits in der Quelle aufgegangen."
   },
   "en_us": {
     "itemGroup.infinite_horizon": "Infinite Horizon",
@@ -78,6 +90,18 @@
     "gui.infinite_horizon.handbook.hint": "%s: Handbook",
     "key.infinite_horizon.handbook": "Open handbook",
     "gui.infinite_horizon.recipe.info": "%s t · %s J",
-    "gui.infinite_horizon.recipe.chance": "Chance: %s %%"
+    "gui.infinite_horizon.recipe.chance": "Chance: %s %%",
+    "agency.infinite_horizon.default_name": "%s's Agency",
+    "agency.infinite_horizon.role.leader": "Leader",
+    "agency.infinite_horizon.role.engineer": "Engineer",
+    "agency.infinite_horizon.role.guest": "Guest",
+    "command.infinite_horizon.agency.info.header": "Agency: %s (%s)",
+    "command.infinite_horizon.agency.info.members": "Members: %s",
+    "command.infinite_horizon.agency.info.member": "%s (%s)",
+    "command.infinite_horizon.agency.info.dimensions": "Visited dimensions: %s",
+    "command.infinite_horizon.agency.unknown": "No agency found: %s",
+    "command.infinite_horizon.agency.transfer.ok": "Everything owned by %s now belongs to %s.",
+    "command.infinite_horizon.agency.transfer.same": "Source and target are the same agency.",
+    "command.infinite_horizon.agency.transfer.cycle": "The target has already been merged into the source."
   }
 }

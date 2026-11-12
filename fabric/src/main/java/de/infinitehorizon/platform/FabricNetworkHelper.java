@@ -49,6 +49,9 @@ public class FabricNetworkHelper implements INetworkHelper {
 
     @Override
     public void sendToPlayer(ServerPlayer player, CustomPacketPayload payload) {
-        ServerPlayNetworking.send(player, payload);
+        // wie NeoForge: Clients ohne den Kanal (Mock-Spieler, Clients ohne Mod) bekommen nichts
+        if (ServerPlayNetworking.canSend(player, payload.type())) {
+            ServerPlayNetworking.send(player, payload);
+        }
     }
 }

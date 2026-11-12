@@ -62,7 +62,10 @@ public class NeoForgeNetworkHelper implements INetworkHelper {
 
     @Override
     public void sendToPlayer(ServerPlayer player, CustomPacketPayload payload) {
-        PacketDistributor.sendToPlayer(player, payload);
+        // Clients ohne den Kanal (GameTest-Mock-Spieler, Clients ohne Mod) bekommen nichts; NeoForge würde werfen
+        if (player.connection.hasChannel(payload)) {
+            PacketDistributor.sendToPlayer(player, payload);
+        }
     }
 
     public static void onRegisterPayloads(RegisterPayloadHandlersEvent event) {

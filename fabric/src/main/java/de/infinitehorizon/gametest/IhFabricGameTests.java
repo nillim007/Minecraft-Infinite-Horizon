@@ -273,4 +273,24 @@ public class IhFabricGameTests {
     public void pressTitaniumplatewithin110ticks(GameTestHelper helper) {
         IhGameTestsM2f.pressTitaniumPlate(helper);
     }
+
+    @GameTest(maxTicks = 20)
+    public void agencyPlacedcrusherOwnedbyplayeragency(GameTestHelper helper) {
+        IhGameTestsM3a.placedCrusherHasOwner(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void agencySetblockcrusherNoowner(GameTestHelper helper) {
+        IhGameTestsM3a.setBlockCrusherHasNoOwner(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void agencyMergechainOwnerrewritten(GameTestHelper helper) {
+        IhGameTestsM3a.ownerFollowsMergeChain(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void agencyTransfercommandSetsmergedinto(GameTestHelper helper) {
+        IhGameTestsM3a.transferCommand(helper);
+    }
 }

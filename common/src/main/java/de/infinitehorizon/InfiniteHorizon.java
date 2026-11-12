@@ -1,5 +1,8 @@
 package de.infinitehorizon;
 
+import com.mojang.brigadier.CommandDispatcher;
+import de.infinitehorizon.agency.AgencyCommands;
+import de.infinitehorizon.agency.AgencyManager;
 import de.infinitehorizon.data.BalanceManager;
 import de.infinitehorizon.data.BalanceReloadListener;
 import de.infinitehorizon.data.ServerConfig;
@@ -16,7 +19,10 @@ import de.infinitehorizon.registry.ModWorldgen;
 import de.infinitehorizon.registry.ModMenus;
 import de.infinitehorizon.registry.ModRecipeSerializers;
 import de.infinitehorizon.registry.ModRecipeTypes;
+import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.resources.Identifier;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.Level;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.packs.resources.PreparableReloadListener;
@@ -76,13 +82,24 @@ public final class InfiniteHorizon {
         LOG.info("[InfiniteHorizon] Config geladen: {}", path);
     }
 
-    /** Join: Konfiguration an den Client senden. */
     /** Merkt am Spieler, dass er das Handbuch schon bekommen hat (Entity-Tags werden gespeichert). */
     public static final String HANDBOOK_GIVEN_TAG = MOD_ID + ".handbook_given";
 
+    /** Join: Konfiguration an den Client senden, Agentur sicherstellen (23.1), Handbuch beim ersten Mal. */
     public static void onPlayerJoin(ServerPlayer player) {
         Services.NETWORK.sendToPlayer(player, new SyncConfigPayload(ServerConfig.get().toJson()));
+        AgencyManager.onLogin(player);
         giveHandbookOnce(player);
+    }
+
+    /** Dimensionswechsel (Portal, Befehl, später Rakete): für die Agentur als besucht merken (23.1). */
+    public static void onDimensionChange(ServerPlayer player, ResourceKey<Level> destination) {
+        AgencyManager.onDimensionChange(player, destination);
+    }
+
+    /** Befehle {@code /infinite_horizon …} (23.1). */
+    public static void registerCommands(CommandDispatcher<CommandSourceStack> dispatcher) {
+        AgencyCommands.register(dispatcher);
     }
 
     /** Ingenieurs-Handbuch beim ersten Join (24.1); genau einmal je Spieler. */

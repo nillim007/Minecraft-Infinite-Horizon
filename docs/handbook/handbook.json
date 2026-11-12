@@ -15,7 +15,7 @@
   "milestones": [
     { "nr": 1, "de": "Grundgerüst: Multiloader, Energie, erste Maschine", "steps": [] },
     { "nr": 2, "de": "Erdindustrie: Maschinen, Erze, Fluide, Raffinerie, Montagetisch, Handbuch", "steps": ["a", "b", "c", "d", "e", "f"] },
-    { "nr": 3, "de": "Erste Welt: Mond, Anzug, Kuppel", "steps": [] },
+    { "nr": 3, "de": "Erste Welt: Mond, Anzug, Kuppel", "steps": ["a", "b", "c", "d", "e"] },
     { "nr": 4, "de": "Erster Flug: Forschung, Sonde, Rakete T1 · **erste spielbare Version**", "steps": [] },
     { "nr": 5, "de": "Ring 1: Mars, Venus, Rover, Kreaturen", "steps": [] },
     { "nr": 6, "de": "Orbit: Station, Fusion", "steps": [] },

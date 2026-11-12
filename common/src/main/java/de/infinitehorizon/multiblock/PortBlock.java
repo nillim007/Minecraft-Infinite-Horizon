@@ -26,7 +26,7 @@ import java.util.function.Supplier;
  * weiter. Blockstate {@code mode} = {@code input} (Standard) oder {@code output}; Rechtsklick mit leerer Hand schaltet um.
  * Ein Port ohne gültigen Controller tut nichts.
  */
-public class PortBlock extends MultiblockPartBlock implements EntityBlock {
+public class PortBlock extends MultiblockPartBlock implements EntityBlock, de.infinitehorizon.block.OwnedBlock {
 
     /** Was der Port weiterleitet. */
     public enum PortType { ITEM, FLUID, ENERGY }
@@ -56,6 +56,14 @@ public class PortBlock extends MultiblockPartBlock implements EntityBlock {
         this.portType = portType;
         this.type = type;
         registerDefaultState(stateDefinition.any().setValue(MODE, Mode.INPUT));
+    }
+
+    /** Platziert ein Spieler den Block, wird seine Agentur Besitzer (23.1). */
+    @Override
+    public void setPlacedBy(Level level, BlockPos pos, BlockState state, net.minecraft.world.entity.@Nullable LivingEntity placer,
+                            net.minecraft.world.item.ItemStack stack) {
+        super.setPlacedBy(level, pos, state, placer, stack);
+        de.infinitehorizon.block.OwnedBlock.claim(level, pos, placer);
     }
 
     public PortType portType() {

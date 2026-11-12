@@ -63,7 +63,7 @@ import java.util.function.Function;
  * <p>Addons erben von dieser Klasse (oder von {@link ProcessingMachineBlockEntity}) und überschreiben
  * {@link #layout()}, {@link #configureEnergy(IhEnergyStorage)} und {@link #serverTick(ServerLevel)}.
  */
-public abstract class MachineBlockEntity extends BlockEntity implements WorldlyContainer, EnergyNode, FluidNode, MenuProvider {
+public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBlockEntity implements WorldlyContainer, EnergyNode, FluidNode, MenuProvider {
 
     /** Item-Tag der Pressformen (von gen_resources erzeugt). */
     public static final TagKey<Item> PRESS_MOLDS = TagKey.create(Registries.ITEM, InfiniteHorizon.id("press_molds"));

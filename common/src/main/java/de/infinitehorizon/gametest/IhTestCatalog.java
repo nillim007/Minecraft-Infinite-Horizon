@@ -70,7 +70,11 @@ public final class IhTestCatalog {
             new Test("handbook_joingift_once", 20, null, null, IhGameTestsM2f::handbookGiftOnce),  // 24.1, 27.3 M2f
             new Test("crusher_bauxite_twoaluminumdustwithin220ticks", 220, null, null, IhGameTestsM2f::crusherBauxite),  // 27.2
             new Test("furnace_quartzsand_siliconwithin110ticks", 110, null, null, IhGameTestsM2f::furnaceQuartzSand),  // 27.2
-            new Test("press_titaniumplatewithin110ticks", 110, null, null, IhGameTestsM2f::pressTitaniumPlate)  // 27.2
+            new Test("press_titaniumplatewithin110ticks", 110, null, null, IhGameTestsM2f::pressTitaniumPlate),  // 27.2
+            new Test("agency_placedcrusher_ownedbyplayeragency", 20, null, null, IhGameTestsM3a::placedCrusherHasOwner),  // 23.1, 27.5 M3a
+            new Test("agency_setblockcrusher_noowner", 20, null, null, IhGameTestsM3a::setBlockCrusherHasNoOwner),  // 23.1, 27.5 M3a
+            new Test("agency_mergechain_ownerrewritten", 20, null, null, IhGameTestsM3a::ownerFollowsMergeChain),  // 23.1, 27.5 M3a
+            new Test("agency_transfercommand_setsmergedinto", 20, null, null, IhGameTestsM3a::transferCommand)  // 23.1, 27.5 M3a
     );
 
     private IhTestCatalog() {

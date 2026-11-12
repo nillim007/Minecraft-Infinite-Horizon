@@ -34,7 +34,7 @@ import java.util.function.Function;
  * </ul>
  * Ohne gültigen Controller (Aufbau unvollständig) tut der Port nichts.
  */
-public class PortBlockEntity extends BlockEntity implements EnergyNode, FluidNode, WorldlyContainer {
+public class PortBlockEntity extends de.infinitehorizon.block.IhBlockEntity implements EnergyNode, FluidNode, WorldlyContainer {
 
     private static final int[] NO_SLOTS = new int[0];
 

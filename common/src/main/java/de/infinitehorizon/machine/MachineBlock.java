@@ -30,7 +30,7 @@ import java.util.function.Supplier;
  * Block aller Maschinen und Generatoren (4.1): Blockstate {@code facing} (zum Spieler) und {@code status}.
  * Addons: {@code new MachineBlock(properties, () -> MEIN_BE_TYP)} genügt; das Verhalten steckt in der Block-Entity.
  */
-public class MachineBlock extends BaseEntityBlock {
+public class MachineBlock extends BaseEntityBlock implements de.infinitehorizon.block.OwnedBlock {
 
     public static final EnumProperty<Direction> FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final EnumProperty<MachineStatus> STATUS = EnumProperty.create("status", MachineStatus.class);
@@ -46,6 +46,14 @@ public class MachineBlock extends BaseEntityBlock {
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> builder) {
         builder.add(FACING, STATUS);
+    }
+
+    /** Platziert ein Spieler den Block, wird seine Agentur Besitzer (23.1). */
+    @Override
+    public void setPlacedBy(Level level, BlockPos pos, BlockState state, net.minecraft.world.entity.@Nullable LivingEntity placer,
+                            net.minecraft.world.item.ItemStack stack) {
+        super.setPlacedBy(level, pos, state, placer, stack);
+        de.infinitehorizon.block.OwnedBlock.claim(level, pos, placer);
     }
 
     @Override

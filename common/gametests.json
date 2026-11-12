@@ -53,6 +53,10 @@
     {"name": "handbook_joingift_once", "class": "IhGameTestsM2f", "method": "handbookGiftOnce", "ticks": 20, "ref": "24.1, 27.3 M2f"},
     {"name": "crusher_bauxite_twoaluminumdustwithin220ticks", "class": "IhGameTestsM2f", "method": "crusherBauxite", "ticks": 220, "ref": "27.2"},
     {"name": "furnace_quartzsand_siliconwithin110ticks", "class": "IhGameTestsM2f", "method": "furnaceQuartzSand", "ticks": 110, "ref": "27.2"},
-    {"name": "press_titaniumplatewithin110ticks", "class": "IhGameTestsM2f", "method": "pressTitaniumPlate", "ticks": 110, "ref": "27.2"}
+    {"name": "press_titaniumplatewithin110ticks", "class": "IhGameTestsM2f", "method": "pressTitaniumPlate", "ticks": 110, "ref": "27.2"},
+    {"name": "agency_placedcrusher_ownedbyplayeragency", "class": "IhGameTestsM3a", "method": "placedCrusherHasOwner", "ticks": 20, "ref": "23.1, 27.5 M3a"},
+    {"name": "agency_setblockcrusher_noowner", "class": "IhGameTestsM3a", "method": "setBlockCrusherHasNoOwner", "ticks": 20, "ref": "23.1, 27.5 M3a"},
+    {"name": "agency_mergechain_ownerrewritten", "class": "IhGameTestsM3a", "method": "ownerFollowsMergeChain", "ticks": 20, "ref": "23.1, 27.5 M3a"},
+    {"name": "agency_transfercommand_setsmergedinto", "class": "IhGameTestsM3a", "method": "transferCommand", "ticks": 20, "ref": "23.1, 27.5 M3a"}
   ]
 }

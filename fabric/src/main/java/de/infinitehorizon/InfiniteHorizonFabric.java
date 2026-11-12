@@ -43,5 +43,9 @@ public class InfiniteHorizonFabric implements ModInitializer {
                 DataResourceLoader.get().registerReloadListener(id, listener));
         ServerLifecycleEvents.SERVER_STARTING.register(InfiniteHorizon::onServerStarting);
         ServerPlayConnectionEvents.JOIN.register((handler, sender, server) -> InfiniteHorizon.onPlayerJoin(handler.getPlayer()));
+        net.fabricmc.fabric.api.entity.event.v1.ServerEntityLevelChangeEvents.AFTER_PLAYER_CHANGE_LEVEL.register(
+                (player, origin, destination) -> InfiniteHorizon.onDimensionChange(player, destination.dimension()));
+        net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback.EVENT.register(
+                (dispatcher, registryAccess, environment) -> InfiniteHorizon.registerCommands(dispatcher));
     }
 }
