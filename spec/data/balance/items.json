@@ -74,6 +74,9 @@
         "planets": "#infinite_horizon:sampleable/planet"
       },
       "message_not_sampleable_de": "Keine verwertbare Probe",
+      "cooldown": "vanilla_item_cooldown",
+      "marks_on_place": "nur Blöcke aus den sampleable-Tags, die ein Spieler per BlockItem setzt (nicht Kolben, Endermen, Befehle)",
+      "position_format": "BlockPos#asLong; bleibt nach dem Abbau",
       "spec_ref": "11.2",
       "notes": "Abklingzeit in balance/research.json (sample_tool)."
     },
@@ -89,6 +92,17 @@
       "update_interval_ticks": 5,
       "position": "head",
       "removes_previous": true,
+      "places_in": [
+        "minecraft:air",
+        "minecraft:water",
+        "minecraft:light"
+      ],
+      "removed_on": [
+        "unequip",
+        "death",
+        "logout",
+        "dimension_change"
+      ],
       "spec_ref": "9.2",
       "notes": "Moduldaten (Teil, Stufe) in balance/suits.json. rover_headlight nutzt dieselbe Technik mit Licht 15."
     },

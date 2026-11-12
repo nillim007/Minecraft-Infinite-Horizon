@@ -43,6 +43,9 @@
         "infinite_horizon:ice_volcano",
         "infinite_horizon:signal_transmitter"
       ],
+      "instance_key": "dimension + structure_id + start_chunk",
+      "check": "environment_update: Spieler steht in einem Teil der Struktur",
+      "spectators_count": false,
       "spec_ref": "11.1, 13.1"
     },
     "diminishing_returns": {
@@ -74,7 +77,29 @@
       "no_planet_entry_fp": 0,
       "ring0_sampleable_types": 10,
       "ring0_max_full_fp": 100,
-      "spec_ref": "11.1, 11.2"
+      "ring0_blocks": [
+        "infinite_horizon:bauxite_ore",
+        "infinite_horizon:titanium_ore",
+        "infinite_horizon:deepslate_titanium_ore",
+        "infinite_horizon:quartz_sand",
+        "minecraft:coal_ore",
+        "minecraft:deepslate_coal_ore",
+        "minecraft:iron_ore",
+        "minecraft:deepslate_iron_ore",
+        "minecraft:copper_ore",
+        "minecraft:deepslate_copper_ore",
+        "minecraft:gold_ore",
+        "minecraft:deepslate_gold_ore",
+        "minecraft:redstone_ore",
+        "minecraft:deepslate_redstone_ore",
+        "minecraft:lapis_ore",
+        "minecraft:deepslate_lapis_ore",
+        "minecraft:diamond_ore",
+        "minecraft:deepslate_diamond_ore"
+      ],
+      "planet_tag_source": "blocks[].id und ores[].block aus planets.json für alle Dimensionen in implemented_ids.json",
+      "spec_ref": "11.1, 11.2",
+      "notes": "Ä28. ring0_blocks = Inhalt des Tags infinite_horizon:sampleable/ring0; deepslate_-Varianten zählen als dieselbe Probenart."
     }
   }
 }

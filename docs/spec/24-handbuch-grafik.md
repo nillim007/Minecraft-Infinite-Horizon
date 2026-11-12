@@ -5,17 +5,26 @@
 - `engineers_handbook`: jeder Spieler bekommt es beim ersten Join, Ersatz per Werkbank (22.1).
 - **Eine Quelle, zwei Ausgaben (Ä26):** Die Seiten stehen als Markdown in `docs/handbook/` (Format in `docs/handbook/README.md`). `tools/gen_resources.py` erzeugt daraus die Handbuchseiten im Spiel (Schema 25.6) samt Übersetzungsschlüsseln, `tools/gen_wiki.py` das Spieler-Wiki in `docs/wiki/`. Beide Ausgaben werden nie von Hand geändert; die CI prüft, dass sie aktuell sind. Das Wiki ist ein Ordner im Repository (Einstieg `docs/wiki/README.md`) mit Rezeptbildern unter `docs/wiki/images/`; es wird nicht in ein GitHub-Wiki gespiegelt.
 - **Inhalt:** Ablauf jeder Phase, alle Rezepte, Steckbriefe der Maschinen und Tipps. Rezepte, Steckbriefe, Erz- und Item-Tabellen sowie Zahlen im Text (`{{value:…}}`) kommen aus `spec/data`. Seiten und Abschnitte erscheinen erst, wenn ihr Meilenstein erreicht und ihre IDs registriert sind (`common/implemented_ids.json`). So wächst das Handbuch mit jedem Meilenstein.
-- **Buch-GUI:** eigener Bildschirm im Notizbuch-Stil (Blaupausen-Optik ab M9). Links ein Inhaltsverzeichnis nach Kapiteln, rechts die Seite mit Bildlauf. Kapitel nach Phasen; ein Kapitel öffnet sich mit der passenden Stufe (`unlock`, ab M4 aus der Forschung; bis dahin ist alles offen).
+- **Buch-GUI:** eigener Bildschirm im Notizbuch-Stil (Blaupausen-Optik ab M9). Links ein Inhaltsverzeichnis nach Kapiteln, rechts die Seite mit Bildlauf. Kapitel nach Phasen; ein Kapitel öffnet sich mit der passenden Stufe (`unlock`, ab M4 aus der Forschung der Agentur des Lesers; bis dahin ist alles offen). Ab M4 hat `phase_2` `unlock: null`, weil die Phase mit dem Bau des `research_terminal` beginnt und dessen Seite lesbar sein muss; `phase_3` öffnet sich mit Stufe 2. Mit `research_required = false` sind alle Kapitel offen (11.3).
 - **Verlinkungen:** Links `[[<seiten-id>|Text]]` im Text sind anklickbar und öffnen die Seite. `<item:<id>>` zeigt den übersetzten Item-Namen, beim Überfahren das Item als Tooltip, und öffnet per Klick die Seite, die das Item in `items` nennt. Rezeptanzeigen zeigen Items als Symbole; ein Klick auf ein Symbol öffnet ebenfalls dessen Seite. Ein Zurück-Knopf führt durch den Verlauf; die zuletzt offene Seite merkt sich der Client.
 - **Aus dem Spiel ins Handbuch:** Taste (Standard `H`, änderbar) über einem Item im Inventar oder in JEI/REI/EMI öffnet das Handbuch auf der Seite dieses Items, sofern eine existiert. Item-Tooltips zeigen dann den Hinweis „H: Handbuch“.
 - Seiten sind Ressourcen-Dateien unter `assets/<namespace>/handbook/` (Schema 25.6), damit andere Mods Kapitel und Seiten ergänzen können (Ressourcen aller Namespaces werden zusammengeführt).
 - Suchfeld (filtert Seitentitel und Item-Namen).
-- Planetenseiten füllen sich ab M4 beim ersten Besuch (Atlas-Daten der Agentur).
+- Planetenseiten füllen sich ab M9 beim ersten Besuch (Atlas-Daten der Agentur).
 - **Meilensteine:** Das Buch-GUI mit Kapiteln, Links, Rezeptanzeige, Suche und Taste `H` sowie das Geschenk beim ersten Join kommen mit **M2f**. Ab dann ergänzt **jeder Meilenstein** die Seiten seiner Inhalte (27). Freischaltung nach Forschung kommt mit M4, Blaupausen-Optik und vollständige englische Texte mit M9.
 
 ## 24.2 Planetenatlas
 
 `planetary_atlas`: Item, das jeder Spieler beim ersten Join bekommt (Ersatz per Werkbank, 22.1). Rechtsklick öffnet die GUI mit allen Zielen. Pro Ziel: Status (unbekannt, Sonde angekommen, besucht), Entdecker-Agentur, besuchte Biome, gefundene Erkundungsziele, Landefeuer. Inhalte gehören der Agentur. In M2 wird `planetary_atlas` nur registriert (Item, Rezept, Platzhalter); GUI und Geschenk beim ersten Join kommen mit M4.
+
+**Atlas ab M4:**
+
+- **Aufbau:** links die Ziele (Planeten-Einträge mit Dimension, nach Ring geordnet), rechts zum gewählten Ziel: Status, Entdecker, ab „Sonde angekommen“ die Werte aus 25.1 (g, Temperatur, Druck, Strahlung), besuchte Biome, Erkundungsziele mit Koordinaten und Landefeuer. Gezeichnet aus Rechtecken wie das Maschinen-GUI (24.5).
+- **Status:** „Sonde angekommen“ = Ziel in `probe_reached`; „besucht“ = Dimension in `visited_dimensions` (23.1).
+- **Daten** kommen mit `AgencyStatePayload` (3A.5) aus `AgencyData` (`probe_reached`, `visited_dimensions`, `visited_biomes`, `found_structures`, `beacons`, `discoverers`).
+- **Biome** zählen bei der Umweltprüfung (8.2) mit: das Biom an der Position jedes Mitglieds kommt in `visited_biomes`.
+- **Entdecker:** 23.3.
+- **Geschenk:** beim Login, wenn das Entity-Tag `infinite_horizon.atlas_given` fehlt (wie beim Handbuch, spec-gaps #37), also auch für Spieler aus älteren Welten.
 
 ## 24.3 Erfolge (Advancements, Reiter `infinite_horizon:root`)
 
@@ -36,9 +45,19 @@
 | `network` | Netzwerk | 5 Routen der Agentur gleichzeitig aktiv |
 | `starship` | Infinite Horizon | Rakete T3 starten |
 
-Erfolge, die eine Maschine oder ein Ereignis auslöst (`first_signal`, `own_air`, `sun_in_a_bottle`, `network`), bekommen alle Mitglieder der Besitzer-Agentur, wer offline ist beim nächsten Login. Eine Route gilt für `network` als aktiv, wenn ihr mindestens 1 Rakete zugewiesen ist und keine davon „ohne Treibstoff“ meldet.
+Erfolge, die eine Maschine oder ein Ereignis auslöst (`first_signal`, `own_air`, `sun_in_a_bottle`, `network`), bekommen alle Mitglieder der Besitzer-Agentur, wer offline ist beim nächsten Login (gespeichert in `AgencyData.pending_advancements`, 23.1). Eine Route gilt für `network` als aktiv, wenn ihr mindestens 1 Rakete zugewiesen ist und keine davon „ohne Treibstoff“ meldet.
 
-Jeder Erfolg wird mit Zeitstempel in `logs/infinite_horizon-progress.log` geschrieben (lokal, keine Telemetrie).
+Jeder Erfolg wird mit Zeitstempel in `logs/infinite_horizon-progress.log` geschrieben (lokal, keine Telemetrie): je Erfolg eine Zeile mit ISO-8601-Zeit, Spieler und Erfolg-ID.
+
+**Umsetzung (ab M4):** `gen_resources.py` erzeugt den Reiter `infinite_horizon:root` nur mit den Erfolgen, deren Inhalte registriert sind. Auslöser, Elternteil und Symbol stehen in `misc.json` (`advancements`); Titel und Beschreibung DE/EN in `lang_extra.json` (`advancements.infinite_horizon.<id>.title`, `.description`). Weitere Erfolge kommen mit ihrem Meilenstein, der Feinschliff mit M9.
+
+| ID (M4) | Auslöser | Symbol |
+| --- | --- | --- |
+| `root` | `minecraft:inventory_changed` mit `engineers_handbook` | `engineers_handbook` |
+| `ground_station` | `minecraft:placed_block` mit `research_terminal` | `research_terminal` |
+| `first_signal` | `minecraft:impossible`; der Code vergibt ihn an alle Mitglieder (12.3) | `probe` |
+| `small_step` | `minecraft:changed_dimension` nach `moon` | `moon_regolith` |
+| `own_air` | `minecraft:impossible`; der Code vergibt ihn an alle Mitglieder, wenn ein Kuppelgenerator der Agentur zum ersten Mal `running` wird | `dome_generator_t1` |
 
 ## 24.4 Einstellungen (`serverconfig/infinite_horizon.json`)
 
@@ -53,7 +72,7 @@ Jeder Erfolg wird mit Zeitstempel in `logs/infinite_horizon-progress.log` geschr
 | `outpost_offline_factor` | 0.5 | 0.0–1.0 |
 | `research_required` | true | |
 
-`recipe_amount_multiplier` gilt ab M2 (22.3). `research_required` wird in M2 gelesen, wirkt aber erst ab M4; bis dahin ist nichts gesperrt (3A.3).
+`recipe_amount_multiplier` gilt ab M2 (22.3). `research_required` wird in M2 gelesen, wirkt aber erst ab M4; bis dahin ist nichts gesperrt (3A.3). Ab M4 gibt `research_required = false` alle Rezepte und Handbuch-Kapitel frei, nicht aber die Sondenziele (11.3).
 
 ## 24.5 Grafik
 
@@ -84,6 +103,7 @@ Jeder Erfolg wird mit Zeitstempel in `logs/infinite_horizon-progress.log` geschr
   Der Rand ist die Grundfarbe × 0,6, dazu kommt Helligkeitsrauschen von ± 10 %. Items haben 2 px transparenten Rand.
 - Statuslampe als kleines Overlay oben auf jeder Maschine.
 - **Weitere Platzhalter ab M3** (`tools/gen_placeholders.py`): Anzug-Schichten (Equipment-Asset, 64 × 32) in der Phasenfarbe `#E8E8E8` mit Akzent `#E07B20`; Erde am Himmel (`textures/sky/earth.png`, 32 × 32) als Scheibe `#3F76E4` mit Rauschen; Kuppel-Sechseckmuster 16 × 16, weiß mit 25 % Deckkraft (beim Ausfall rot über die Renderfarbe); Atemmaske 64 × 32, Kopfbereich `#6E6E6E`. HUD-Leisten werden als Rechtecke gezeichnet (wie das Maschinen-GUI).
+- **Darstellung ab M4:** `rocket` zeichnet die Blockmodelle seiner Teile übereinander, die Flossen daneben; `probe_entity` zeichnet das Modell von `probe`; `seat` zeichnet nichts. Der Strahl des Landefeuers ist der Vanilla-Leuchtfeuerstrahl in Rot (12.6). Forschungsbaum, Atlas, Navigationskarte und Raketen-GUI werden aus Rechtecken gezeichnet wie das Maschinen-GUI (spec-gaps #19).
 
 ## 24.6 Klang
 
@@ -98,4 +118,4 @@ Jeder Erfolg wird mit Zeitstempel in `logs/infinite_horizon-progress.log` geschr
 
 Im Vakuum ohne Kuppel werden alle Geräusche außer Anzug- und Warntönen mit Lautstärke × 0,15 abgespielt.
 
-**Platzhalter und Meilensteine:** `sounds.json` verweist auf Vanilla-Klangdateien (wie die Musik). M3 registriert nur `warning.oxygen`, `.heat`, `.cold`, `.radiation` und `.dome`; die Gefahr Druck nutzt `warning.oxygen`. Atem- und Funkschleifen und die Dämpfung im Vakuum kommen mit M9.
+**Platzhalter und Meilensteine:** `sounds.json` verweist auf Vanilla-Klangdateien (wie die Musik). M3 registriert nur `warning.oxygen`, `.heat`, `.cold`, `.radiation` und `.dome`; die Gefahr Druck nutzt `warning.oxygen`. M4 registriert `rocket.countdown`, `.launch` und `.landing`, ebenfalls mit Vanilla-Platzhaltern (wie spec-gaps #58). Atem- und Funkschleifen und die Dämpfung im Vakuum kommen mit M9.

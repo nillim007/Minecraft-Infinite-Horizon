@@ -13,7 +13,7 @@
   - **Ausgangsseite für Fluide:** Fluid-Ausgaben von Maschinen, Controllern und Speichern gehen nur über eine gewählte Ausgangsseite in angrenzende Rohre und Tanks (Standard: `facing`, im GUI wählbar). Diese Seite nimmt selbst keine Fluide an; alle anderen Seiten nehmen nur an. So fließt z. B. der Wasserstoff des Elektrolyseurs nicht in das Wasserrohr zurück, das ihm Wasser liefert.
   - **Energie:** Generatoren schieben in alle Seiten (4.4), Speicher nur über ihre Ausgangsseite (4.4). Maschinen geben keine Energie ab.
   - **Trichter und Slots:** Eingaben füllen den ersten passenden Slot (erst Stapel auffüllen, dann der nächste leere Slot). Den Formslot der Presse füllt ein Trichter nur mit `press_mold_*`-Items, Upgrade-Slots nie. Der Brennstoffslot eines Generators zählt als Eingabeslot. Shift-Klick im GUI: Upgrade → Upgrade-Slot, Pressform → Formslot, sonst Eingabe.
-- **Füll- und Leerslots:** Jeder Block mit Fluidtank (Maschinen mit Fluid-Ein- oder -Ausgang, `fluid_tank`, `pressure_bottle`, `gas_tank`, `tank_depot`, `oxygen_generator`, `dome_generator_*`, `cargo_terminal`, Raketen-GUI) hat ein Slotpaar:
+- **Füll- und Leerslots:** Jeder Block mit Fluidtank (Maschinen mit Fluid-Ein- oder -Ausgang, `fluid_tank`, `pressure_bottle`, `gas_tank`, `tank_depot`, `oxygen_generator`, `dome_generator_*`, `fuel_pump`, `cargo_terminal`, Raketen-GUI) hat ein Slotpaar:
   - **Füllslot:** Ein Behälter-Item (`transport_tank`, `oxygen_canister`, `large_oxygen_canister`, Eimer) wird *aus* dem Block gefüllt.
   - **Leerslot:** Ein gefülltes Behälter-Item wird *in* den Block entleert.
   - Der Behälter bleibt jeweils im Slot liegen, bis man ihn herausnimmt oder ein Trichter ihn abzieht.
@@ -24,7 +24,8 @@
   - **Neue Eimer:** `crude_oil_bucket` und `kerosene_bucket` (`max_stack` 1) sind eigene Items ohne Komponente. `crude_oil_bucket` entsteht im Füllslot oder durch Rechtsklick eines leeren Eimers auf einen `crude_oil`-Quellblock und lässt sich platzieren. `kerosene` hat keinen Quellblock; `kerosene_bucket` entsteht nur im Füllslot und ist nicht platzierbar.
   - **Data Component `infinite_horizon:fluid`** (Kanister, `transport_tank`): `{ "fluid": "<id>", "amount": <mB> }`. Ein leerer Behälter hat die Komponente nicht (sie wird entfernt).
   - **Sauerstoffflaschen (ab M3):** Die „Kanister“ aus Kapitel 27 sind `oxygen_canister` (600 mB) und `large_oxygen_canister` (1.200 mB). Sie nehmen nur `oxygen` an (`fluids` in `suits.json`). Die Übergabe geschieht sofort (1 Tick), so viel wie passt bzw. vorhanden ist; Teilfüllung ist erlaubt. „Voll“ heißt Kapazität erreicht, „leer“ heißt Komponente fehlt. Flaschen gehen in die Füll- und Leerslots aller Blöcke mit O₂-Tank (`electrolyzer`, `oxygen_generator`, `dome_generator_*`, `pressure_bottle`).
-  - **Meilenstein:** Füll- und Leerslots für Eimer gehören zu M2, die für Sauerstoffflaschen zu M3 (27.4). `transport_tank` kommt mit M4.
+  - **`transport_tank` (ab M4):** nimmt alle Fluide an, eines je Tank (16.000 mB, `storage.json`). Er passt in alle Füll- und Leerslots dieses Abschnitts, auch in Montagetisch, `fuel_pump` und Raketen-GUI. Die Übergabe geschieht sofort (1 Tick), so viel wie passt bzw. vorhanden ist; Teilfüllung ist erlaubt (wie bei den Flaschen).
+  - **Meilenstein:** Füll- und Leerslots für Eimer gehören zu M2, die für Sauerstoffflaschen zu M3 (27.4), die für `transport_tank` zu M4 (27.6).
 - **Energiepuffer:** 20 × Verbrauch (J/t) × min(Vorgangsdauer, 100), mindestens 10.000 J, höchstens 1.000.000 J. Maschinen ohne Vorgangsdauer rechnen mit 100.
 - **Energie und Fortschritt:** Eine Maschine nimmt so viel Energie auf, wie in den Puffer passt; über ein Kabel höchstens bis zu dessen Durchsatz. Verbrauch entsteht nur bei Fortschritt, nicht bei `idle` oder `error`. Enthält der Puffer weniger als den Verbrauch eines Ticks, pausiert der Fortschritt (`idle`); er verfällt nicht. Ist die Eingabe leer oder wechselt das Rezept, springt der Fortschritt auf 0.
 - **Tanks:** Ein Tank enthält höchstens ein Fluid und wechselt es erst, wenn er leer ist. Ein Eingangstank nimmt nur Fluide an, die in mindestens einem Rezept dieses Maschinentyps als Eingabe stehen (bei Generatoren: der Brennstoff aus den Daten). `fluid_pump` und Ausgangstanks nehmen von außen nichts an.
@@ -64,14 +65,22 @@ Die Wirkung multipliziert sich. Upgrades gelten für alle Maschinen, Generatoren
 | `refinery` | 3×3×5 | massiv; Controller unten Mitte einer Seitenfläche; Rest `refinery_casing` oder Ports |
 | `fusion_reactor` | 5×5×5 | hohle Hülle (98 Blöcke), Innenraum 3×3×3 Luft; Controller Mitte einer Seitenfläche; Rest `fusion_casing` oder Ports |
 | `fission_reactor` | 5×5×5 | wie Fusion, mit `fission_casing` |
-| `launch_pad_t1` | 5×5 Plattform | 25 `launch_pad`; dazu eine Säule `launch_tower` direkt neben der Plattform, mindestens so hoch wie die Rakete; `fuel_pump` an Plattform oder Turm angrenzend; `launch_control` im Umkreis von 8 Blöcken |
-| `launch_pad_t2` | 7×7 Plattform | wie T1 mit 49 `launch_pad` |
+| `launch_pad_t1` | 5×5 Plattform | 25 `launch_pad`; dazu eine Säule `launch_tower` direkt neben der Plattform, mindestens so hoch wie die Rakete; `fuel_pump` an Plattform oder Turm angrenzend; `launch_control` im Umkreis von 8 Blöcken (Muster unten) |
+| `launch_pad_t2` | 7×7 Plattform | wie T1 mit 49 `launch_pad` (M5) |
 
 **Muster der `refinery`:**
 
 - Der Controller steht in der untersten Schicht in der Mitte der Vorderseite (`facing`-Seite). Das Muster reicht von ihm 1 Block nach links und rechts, 2 Blöcke gegen die Blickrichtung nach hinten und 4 Blöcke nach oben.
 - Die übrigen 44 Positionen sind `refinery_casing` oder Ports (beliebig viele). Andere Blöcke im Muster sind nicht erlaubt. Der Aufbau darf frei stehen.
 - Bei einem Fehler steht die Statuslampe auf `error`. Der Status-Tooltip nennt den ersten fehlenden Block mit Koordinate (`gui.infinite_horizon.multiblock.missing`).
+
+**Muster der Startrampe `launch_pad_t1` (ab M4):** Werte in `machines.json` (`launch_pad_t1_multiblock`).
+
+- **Mitte** ist der `launch_pad` direkt unter dem Triebwerk bzw. unter der Sonde. Die 25 Felder der 5×5-Fläche um ihn sind `launch_pad` auf gleicher Höhe. Weitere `launch_pad` daneben stören nicht.
+- **Turm:** eine senkrechte Säule `launch_tower`. Ihr unterster Block steht auf Plattformhöhe an einer der 20 Positionen waagerecht neben dem Rand der 5×5-Fläche (nicht diagonal an einer Ecke). Ihre Höhe ist mindestens die Zahl der übereinander gestapelten Raketenteile (Flossen zählen nicht); für eine Sonde reicht 1.
+- **Pumpe:** Mindestens eine `fuel_pump` grenzt mit einer Fläche an die Plattform oder den Turm. Sie gehört zu dieser Rampe.
+- **Controller** ist `launch_control`; das Muster selbst hat keinen Controller-Block. `launch_control` steht höchstens `control_radius` (8 Blöcke, euklidisch) von der Mitte entfernt und steuert die nächstgelegene gültige Rampe (12.5).
+- **Prüfung** beim Öffnen von `launch_control`, beim Klick auf „Start“ und alle `structure_check_interval_ticks` (`misc.json`). Bei einem Fehler steht die Statuslampe von `launch_control` auf `error`; der Tooltip nennt den ersten Fehler. Die Raketenteile selbst prüft `RocketAssembler` (12.4).
 
 ## 4.4 Kabel und Rohre
 
@@ -91,7 +100,7 @@ Kabel und Rohre verbinden sich automatisch mit Nachbarn, die Energie bzw. Fluide
 - **Push-Prinzip:**
   - Erzeuger, Speicher und Maschinen-Ausgaben schieben jeden Tick in angrenzende Netze.
   - Das Netz verteilt gleichmäßig auf alle angeschlossenen Empfänger, die noch aufnehmen können (Rest im nächsten Tick).
-  - Verbraucher ziehen nie selbst.
+  - Verbraucher ziehen nie selbst. Das gilt auch für die `fuel_pump` (12.4): Sie nimmt von allen Seiten an.
 - **Speicherblöcke** (`battery`, `lithium_battery_bank`, `fluid_tank`, `pressure_bottle`, `gas_tank`, `tank_depot`) haben genau eine **Ausgangsseite** (Standard: die `facing`-Seite, im GUI wählbar). Nur dort schieben sie; alle anderen Seiten sind Eingänge. So gibt es kein Hin- und Herschieben zwischen Speichern, und ein Speicher verbindet zwei verschiedene Netze.
 - **Rohre** ziehen nie selbst; Fluide kommen nur über Schieben von Ausgabeseiten ins Netz.
 - Ein Rohrnetz führt nur ein Fluid gleichzeitig. Es wechselt erst, wenn es leer ist.

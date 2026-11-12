@@ -112,6 +112,8 @@
       "kind": "item",
       "fluids_at_once": 1,
       "data_component": "infinite_horizon:fluid",
+      "transfer": "immediate_partial",
+      "accepted_in": "alle Füll- und Leerslots (4.1), auch Montagetisch, fuel_pump und Raketen-GUI",
       "spec_ref": "5.2, 4.1",
       "notes": "Behälter-Item für Füll- und Leerslots."
     }

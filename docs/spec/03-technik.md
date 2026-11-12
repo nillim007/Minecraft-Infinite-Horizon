@@ -31,6 +31,8 @@ Begründung: 26.3 ist die neueste stabile Version und wird von NeoForge und Fabr
 
 **Dimensionen, Biome und Himmel (ab M3):** Felder, die 13.1 nicht nennt, haben die Werte von `minecraft:overworld` aus 26.3. Führt 26.3 einen Wert als Umgebungsattribut (environment attribute) statt als Feld, gilt der Wert dort. Zu Beginn von M3 entsteht der Spickzettel `docs/dev/api-dimensions-26.3.md` (wie `api-fluids-26.3.md`, mit Belegen aus dem 26.3-JAR, NeoForge und Fabric API): Dimensions- und Biomformat, Umgebungsattribute, Himmel, HUD-Ebenen, `SavedData`, Spieler-Attachments und Attribut-Modifikatoren.
 
+**Entities, Sitze und Menüs mit Zusatzdaten (ab M4):** Zu Beginn von M4 entsteht der Spickzettel `docs/dev/api-entities-26.3.md` (wie `api-dimensions-26.3.md`, mit Belegen aus dem 26.3-JAR, NeoForge und Fabric API): Registrierung von `EntityType` mit `ResourceKey`, Renderer mit Render-State, Blockmodelle im Entity, Sitze (`positionRider`), Dimensionswechsel mit Passagieren (`TeleportTransition`), Kamera und Bildschirmbeben, eigene Erfolgs-Auslöser, Menüs mit Entity- bzw. Zusatzdaten (Fabric `ExtendedMenuType`, NeoForge `openMenu` mit Puffer), Chunk-Attachments mit Sync und ein Strahl wie beim Leuchtfeuer.
+
 ## 3.2 Projektaufbau
 
 ```
@@ -90,13 +92,13 @@ Alles andere über Events (NeoForge) bzw. Fabric-API-Callbacks.
 
 Ressourcen erzeugt `tools/gen_resources.py` aus `spec/data` für alle IDs in `common/implemented_ids.json`; Platzhalter-Texturen erzeugt `tools/gen_placeholders.py`. Ausgabe: `common/src/generated/resources`. Die Dateien werden committet, die CI prüft, dass sie aktuell sind. Gebaut wird nur in GitHub Actions. Es gibt kein Java-`runData`.
 
-Erzeugt werden: Block-/Item-Modelle, Blockstates, Loot-Tables, Rezepte, Tags, Übersetzungen (de_de, en_us), Advancements, Worldgen (Biome, Features, Noise-Settings, Dimensionen), Forschungsknoten, Planeten-Einträge.
+Erzeugt werden: Block-/Item-Modelle, Blockstates, Loot-Tables, Rezepte, Tags, Übersetzungen (de_de, en_us), Advancements (24.3), Worldgen (Biome, Features, Noise-Settings, Dimensionen), Forschungsstufen und die sichtbaren Forschungsknoten (11.4), Raketenteile (25.5), Planeten-Einträge, Klänge (`sounds.json`, 24.6). Ab M4 führt `common/implemented_ids.json` auch die registrierten Entities (Schlüssel `entities`, 27.6).
 
 ## 3.9 Rezeptanzeige (JEI/REI/EMI)
 
 - Jeder eigene Rezepttyp (ab M2: `crushing`, `pressing`, `electric_smelting`, `refining`, `electrolysis`, `assembly`; später die übrigen aus 25.4) bekommt eine Kategorie. Vanilla-Schmelzrezepte laufen über die Vanilla-Kategorie.
 - Eine Kategorie zeigt Eingabeslots links, einen Pfeil mit Dauer (`ticks` aus Rezept oder Maschine) und Energie (J/t × ticks) und Ausgaben rechts mit Chance. Fluide erscheinen als Tank mit Menge in mB. Der Katalysator ist der Maschinenblock. Die Pressform steht als Zutat mit dem Hinweis „wird nicht verbraucht“.
-- Mengen werden mit `recipe_amount_multiplier` (24.4) angezeigt. Gesperrte Rezepte (ab M4, 11.3) sind als gesperrt markiert.
+- Mengen werden mit `recipe_amount_multiplier` (24.4) angezeigt. Gesperrte Rezepte (ab M4, 11.3) zeigen in den eigenen Kategorien ein Schloss und einen Tooltip mit dem nötigen Knoten; der Client kennt den Forschungsstand aus `AgencyStatePayload` (3A.5). Für `suit_module_install` und `suit_module_remove` zeigt die Kategorie je Modul ein Beispiel (9.2).
 - Keine Worldgen- oder Multiblock-Seiten in M2.
 - Test: Ein JUnit-Test prüft, dass die Kategorienliste aus den Rezepttypen aufgebaut wird (ohne die Anzeige-Mod zu laden). Die Darstellung wird manuell geprüft.
 - Gibt es JEI, REI oder EMI nicht für 26.3, fällt das Plugin weg und der Eintrag kommt in `docs/spec-gaps.md` (siehe 3.1).

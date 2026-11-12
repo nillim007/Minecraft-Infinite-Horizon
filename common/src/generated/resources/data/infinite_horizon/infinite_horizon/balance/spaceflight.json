@@ -19,6 +19,14 @@
       "notes": "landung(B) = factor × per_g × g(B), 0 wenn landing_requires_fuel = false",
       "spec_ref": "12.2"
     },
+    "fuel_calculation": {
+      "precision": "double",
+      "rounding": "Math.round je Summand (start, transfer, landung) auf ganze mB",
+      "same_body_allowed": true,
+      "same_body_cost": "start + landung",
+      "spec_ref": "12.2",
+      "notes": "Ä28. A = B ist ein Ziel (z. B. ein Landefeuer auf demselben Körper)."
+    },
     "thrust_to_weight": {
       "min_ratio": 1.0,
       "check_in_orbit": false,
@@ -42,10 +50,14 @@
     "rocket_flight": {
       "countdown_ticks": 200,
       "ascent_ticks": 600,
+      "ascent_height": 256,
       "arrival_height": 200,
+      "arrival_y_max": "build_height - rocket_height",
       "landing_ticks": 200,
       "beacon_landing_radius": 3,
-      "spec_ref": "12.5"
+      "no_physics_from_launch": true,
+      "spec_ref": "12.5",
+      "notes": "Ä28. Aufstieg linear um ascent_height, dann Teleport auf min(Landepunkt + arrival_height, arrival_y_max), Landung linear in landing_ticks. Ab dem Start ohne Kollision; Blöcke bleiben stehen."
     },
     "landing_search": {
       "radius": 32,
@@ -54,6 +66,20 @@
       "fallback_platform_size": 3,
       "notes": "Fallback-Plattform aus dem Gestein des Planeten auf der Fluidoberfläche",
       "spec_ref": "12.5"
+    },
+    "landing_beacon": {
+      "beam_top_y": 256,
+      "beam_color": "red",
+      "beam_requires_open_sky": true,
+      "name_max_length": 50,
+      "default_name": "Name des Items (Amboss) oder „Landefeuer X/Z“",
+      "rename_permission": "CONFIGURE",
+      "storage": "AgencyData.beacons der Besitzer-Agentur",
+      "landing_radius": "rocket_flight.beacon_landing_radius",
+      "landing_excludes_beacon_block": true,
+      "fallback": "normale Landeplatzsuche (landing_search) um das Landefeuer",
+      "spec_ref": "12.6, 12.5",
+      "notes": "Ä28. beam_top_y ist eine absolute Höhe."
     },
     "orbit_arrival": {
       "y": 100,

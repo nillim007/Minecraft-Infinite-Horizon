@@ -9,6 +9,7 @@
       "module_data_component": "infinite_horizon:suit_modules",
       "modules_fit_all_tiers": true,
       "modules_kept_on_upgrade": true,
+      "module_component_format": "Liste von Modul-IDs, höchstens module_slots_per_piece",
       "spec_ref": "9.1, 9.2"
     },
     "pressure_suit": {

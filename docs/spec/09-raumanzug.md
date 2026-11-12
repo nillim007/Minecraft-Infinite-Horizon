@@ -24,7 +24,13 @@ Alle Grenzwerte sind **inklusiv** (−200 °C ist für T2 noch sicher). **Tiefse
 
 ## 9.2 Module
 
-Module, die Komponente `suit_modules` und die Rezepttypen `suit_module_install`/`suit_module_remove` kommen mit M4 (27.4). Jedes Anzugteil hat 2 Modulslots (Data Component `suit_modules`). Einbau: Anzugteil + Modul im Montagetisch. Ausbau: Anzugteil allein im Montagetisch (Rezepttyp `suit_module_remove`) gibt das Anzugteil ohne Module und die Module in die 3 Ausgabeslots. Einbau ist Rezepttyp `suit_module_install`. Beim Aufwerten übernimmt das Ergebnis alle Komponenten des Basisteils (`copy_components_from`, 25.4). Module bleiben beim Aufwerten auf die nächste Anzugstufe erhalten. Die Spalte „Stufe“ ist die Forschungsstufe. Module passen auf jede Anzugstufe.
+Module, die Komponente `suit_modules` und die Rezepttypen `suit_module_install`/`suit_module_remove` kommen mit M4 (27.6; in M4 nur `helmet_lamp`). Jedes Anzugteil hat 2 Modulslots (Data Component `suit_modules`). Einbau: Anzugteil + Modul im Montagetisch. Ausbau: Anzugteil allein im Montagetisch (Rezepttyp `suit_module_remove`) gibt das Anzugteil ohne Module und die Module in die 3 Ausgabeslots. Einbau ist Rezepttyp `suit_module_install`. Beim Aufwerten übernimmt das Ergebnis alle Komponenten des Basisteils (`copy_components_from`, 25.4). Module bleiben beim Aufwerten auf die nächste Anzugstufe erhalten. Die Spalte „Stufe“ ist die Forschungsstufe. Module passen auf jede Anzugstufe.
+
+- **Komponente `suit_modules`:** Liste von Modul-IDs, höchstens `module_slots_per_piece` (`suits.json`).
+- **Einbau** passt im exakten Abgleich (22.3) nur bei genau 1 Anzugteil + 1 Modul, das zu diesem Teil passt (Spalte „Teil“), einem freien Modulslot und einem Modul, das noch nicht eingebaut ist. Sonst passt kein Rezept.
+- **Ausbau** passt nur bei genau 1 Anzugteil mit mindestens 1 Modul.
+- JEI/REI zeigen für beide Rezepttypen je Modul ein Beispiel (3.9).
+- **`helmet_lamp`:** Der Lichtblock entsteht nur in Luft, in Wasser (als `waterlogged`) oder an der Stelle eines `minecraft:light`-Blocks. Der alte Lichtblock verschwindet auch beim Absetzen des Helms, beim Tod, beim Abmelden und beim Dimensionswechsel (`places_in`, `removed_on` in `balance/items.json`).
 
 | ID | Teil | Stufe | Wirkung |
 | --- | --- | --- | --- |

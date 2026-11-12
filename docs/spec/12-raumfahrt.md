@@ -7,7 +7,9 @@
 
 Es gibt 21 Ziele: die Erde, 12 weitere Oberflächen (Mond, Mars, Venus, Merkur, Asteroidengürtel, Ceres, Io, Europa, Titan, Enceladus, Triton, Pluto) und 8 Orbits (Erde, Venus, Mars, Merkur, Jupiter, Saturn, Uranus, Neptun). T1 erreicht Ring 1 (ohne Orbits), T2 Ring 1 mit Orbits und das innere System bis Jupiter, T2 mit `long_range_module` das äußere System.
 
-Ein Ziel ist wählbar, wenn (1) die Agentur dort eine Sonde ankommen ließ, (2) die Rakete die Stufe hat und (3) der Treibstoff reicht. Erde und Erdorbit sind immer bekannt.
+Ein Ziel ist wählbar, wenn (1) die Agentur dort eine Sonde ankommen ließ (`probe_reached`, 23.1), (2) die Rakete die Stufe hat (`required_rocket_tier`, `requires_long_range`) und (3) der Treibstoff reicht. Erde und Erdorbit sind immer bekannt.
+
+**Zielliste (ab M4):** Die Navigationskarte (12.5) zeigt nur Planeten-Einträge, deren Dimension es gibt (M4: Erde und Mond; `earth_orbit` erscheint mit seiner Dimension in M6). Der eigene Körper ist auch ein Ziel (A = B, z. B. zu einem Landefeuer auf demselben Körper; Kosten nach 12.2).
 
 ## 12.2 Treibstoffformel
 
@@ -22,6 +24,9 @@ landung(B)    = 0,25 × 32.000 × g(B)        (0, wenn landing_requires_fuel = f
 
 Beispiele: Erde → Mond = 32.000 + 2.000 + 1.360 = 35.360 mB. Mond → Erde = 5.440 + 2.000 + 0 = 7.440 mB.
 
+- **Rechnung:** `FuelCalculator` rechnet in `double` und rundet jeden der drei Summanden mit `Math.round` auf ganze mB (`fuel_calculation` in `spaceflight.json`). Vorrang beim Start: Zonenwert → `launch_cost_override` des Planeten → Formel (`launch_cost`).
+- **A = B** ist erlaubt: Kosten = start(A) + landung(A), ohne `transfer`.
+
 **Tankgrößen je Komponente:** T1 3–5 Tanks = 48.000–80.000 mB. T2 4–8 Tanks = 64.000–128.000 mB, mit `long_range_module` +128.000 mB (max. 256.000 mB).
 
 **Hin- und Rückflug:** Die Tabelle aller Ziele (ab Erdoberfläche und ab Station im Erdorbit, mit Mindestausstattung) wird aus der Formel und `planets.json` berechnet: `docs/spec/generated/fuel_table.md` (erzeugt von `tools/render_docs.py`, geprüft von `tools/validate_spec.py`). Beispiele: Mond 42.800 mB (T1, 3 Tanks), Mars 69.200 mB (T1, 5 Tanks), Pluto 254.400 mB ab Erde bzw. 222.400 mB ab Station (T2 + Modul).
@@ -30,7 +35,7 @@ Beispiele: Erde → Mond = 32.000 + 2.000 + 1.360 = 35.360 mB. Mond → Erde = 5
 
 - Der Raketen-Computer zeigt jedes Ziel **grün** (Hin- und Rückflug reichen), **gelb** (nur Hinflug, Warnung „Rückflug nur mit Nachtanken“) oder **grau** (Hinflug reicht nicht, nicht wählbar).
 - Nachtanken ist möglich:
-  - über das Slotpaar im Raketen-GUI (4.1) oder den Knopf „Aus Frachtraum tanken“, der passende `transport_tank` aus dem Frachtraum leert,
+  - über das Slotpaar im Raketen-GUI (4.1) oder den Knopf „Aus Frachtraum tanken“. Er leert die `transport_tank` im Frachtraum, die eine Treibstoffkomponente der Stufe enthalten (T1: `kerosene` bzw. `oxygen`), in Slot-Reihenfolge, bis die Raketentanks voll sind,
   - an einer `docking_bay` aus angrenzenden Tanks,
   - an einer `fuel_pump` im Umkreis von 3 Blöcken um das gelandete Raketen-Entity.
 - Ab Stufe 3 ist die Station im Erdorbit das vorgesehene Drehkreuz: Start von der Station spart 32.000 mB je Komponente.
@@ -43,6 +48,14 @@ Beispiele: Erde → Mond = 32.000 + 2.000 + 1.360 = 35.360 mB. Mond → Erde = 5
 | `advanced_probe` | 4 | alle Ziele in Ring 2 | 1.200 + 1.200 × DP Ticks |
 
 Ablauf: Sonde als Block in die Mitte der Startplattform setzen → in `launch_control` Ziel wählen → Start (Countdown 200 t, Sonde fliegt als Entity nach oben und verschwindet). Nach der Flugzeit: Ziel für die Agentur freigeschaltet, +10 FP, Nachricht an die Agentur, Atlas-Eintrag. Eine Sonde kehrt nie zurück. Orbit-Ziele brauchen eine eigene Sonde.
+
+**Einzelheiten (ab M4, `ProbeService`):**
+
+- **Rampe:** dieselbe Prüfung wie für Raketen (4.3), mit Turmhöhe 1.
+- **Ziele:** `launch_control` erkennt die Sonde auf der Mitte und zeigt die Ziele aus `probe_targets` (23.1), die einen Planeten-Eintrag haben, auch schon erreichte (dann ohne FP). Ziele ohne Planeten-Eintrag (z. B. Mars und Venus aus `planet_probes`) bleiben bis zu ihrem Meilenstein unsichtbar. Der Start braucht das Recht `LAUNCH` (23.2).
+- **Start:** Countdown `countdown_ticks` (`probe_flight`), dann wird der Block zum `probe_entity`, das `ascent_ticks` (`rocket_flight`) lang steigt und verschwindet.
+- **Flug:** Er steht in `AgencyData.probe_flights` mit Ankunft = Overworld-Zeit beim Start + `base_ticks` + `per_dp_ticks` × DP. Der Server prüft jede Sekunde; so übersteht ein Flug Neustart und Abmelden.
+- **Ankunft:** Ziel in `probe_reached`, beim ersten Mal +10 FP (11.1), Chat-Nachricht an alle Online-Mitglieder (`message.infinite_horizon.probe.arrived`), Atlas-Status „Sonde angekommen“ (24.2), Erfolg `first_signal` an alle Mitglieder, für Offline-Mitglieder über `pending_advancements` (24.3).
 
 ## 12.4 Raketenbau
 
@@ -69,29 +82,52 @@ Kurzfassung: Kapsel (1), Tanks (T1 3–5, T2 4–8, je 16.000 mB + 16.000 mB), T
 - Stufen dürfen nicht gemischt werden (außer Frachtraum).
 - **Raketen-Computer** (GUI der Kapsel und von `launch_control`): zeigt Teileliste, Masse, Schub-Gewicht-Verhältnis, Treibstoff, erreichbare Ziele (nach 12.1/12.2).
 - **Checkliste** in `launch_control`: Struktur gültig ✓, Schub ≥ Gewicht ✓, Treibstoff für mindestens ein Ziel ✓, mindestens ein Ziel freigeschaltet ✓, Spieler mit vollständigem Anzug sitzt in der Kapsel ✓.
-- **Betanken:** `fuel_pump` zieht aus angrenzenden Tanks und Rohren und verteilt gleichmäßig auf alle Raketentanks.
+  - „Struktur gültig“ umfasst Rampe (4.3) und Raketenteile nach `rocket_parts.json` (z. B. genau 4 Flossen an N, O, S, W neben dem Triebwerk; 3 Flossen sind ein Fehler).
+  - „Vollständiger Anzug“ heißt `pieces_required` Teile (`suits.json`); der O₂-Vorrat zählt nicht. Ziele mit höherer Mindestausrüstung (13.2) zeigt die Karte mit Warnung, nicht gesperrt.
+  - „Treibstoff für mindestens ein Ziel“ zählt auch den eigenen Körper (A = B, 12.2).
+  - Jede Zeile hat einen Schlüssel `gui.infinite_horizon.launch.check.<punkt>` mit Haken oder Kreuz; eine offene Zeile nennt ihren ersten Fehler (z. B. „3 von 4 Flossen“).
+- **Betanken:** `fuel_pump` nimmt aus angrenzenden Tanks und Rohren an (4.4) und verteilt gleichmäßig auf alle Raketentanks.
+  - Maschine ohne Strom mit 2 Eingangstanks à 16.000 mB: Tank 1 nimmt die erste, Tank 2 die zweite Komponente aus `fuel` der Stufe an (T1: `kerosene` bzw. `oxygen`). Annahme von allen Seiten, dazu Füll- und Leerslot (4.1). Keine Upgrade-Slots.
+  - Je Tick gibt sie bis `transfer_per_tick` je Komponente ab (`machines.json`), gleichmäßig verteilt auf die `rocket_tank_t1` ihrer Rampe (4.3) oder auf ein gelandetes `rocket`-Entity im Umkreis `fuel_pump_radius_around_landed_rocket` (`spaceflight.json`).
+  - GUI nach 4.1 mit beiden Tanks, Füll- und Leerslot.
 
 ## 12.5 Flugablauf
 
 1. Spieler sitzt in der Kapsel, startet über `launch_control` oder das Kapsel-GUI.
 2. **Server:** prüft die Checkliste, wandelt die Raketenblöcke in ein `rocket`-Entity um (Data: Teileliste, Treibstoff, Fracht, Stufe), entfernt die Blöcke.
-3. **Client:** Countdown 200 t mit Ton, Aufstieg 600 t mit Kamera von außen, Bildschirmbeben.
+3. **Client:** Countdown 200 t mit Ton, Aufstieg 600 t mit Kamera von außen, Bildschirmbeben. Kamera: Vanilla-`CameraType.THIRD_PERSON_BACK` während der Sequenz, danach wieder der alte Wert; das Beben ist ein kleiner Kamera-Versatz im Client; das HUD ist ausgeblendet. Die Rakete hat ab dem Start keine Kollision (`noPhysics`) und lässt Blöcke stehen; sie steigt linear um `ascent_height` (`rocket_flight` in `spaceflight.json`).
 4. **Navigationskarte** (GUI `star_map`; nicht verwechseln mit dem Item `star_chart`): Ziele mit Treibstoffkosten, gesperrte Ziele grau. Auswahl des Landeorts: Landefeuer der Agentur in dieser Dimension oder Koordinaten X/Z (Standard: Spawn der Dimension = X/Z 0/0 mit der Landeplatzsuche unten; in der Overworld ihr Weltspawn).
+   - Die Karte ist ein Menü, das der Server mit Zusatzdaten öffnet: Rampen-Position bzw. Entity-ID, Treibstoff je Komponente, Masse, Schub, die Ziele (12.1) mit Hin- und Rückkosten und Farbe (grün, gelb, grau nach 12.2) und die Landefeuer der Agentur je Dimension. Der Client rechnet nichts.
+   - Wählbar sind Ziele nach 12.1. Ziele mit höherer Mindestausrüstung (13.2) zeigen eine Warnung, sind aber nicht gesperrt.
+   - Landeort: ein Landefeuer aus der Liste oder X/Z-Felder (Standard 0/0, auf der Erde der Weltspawn). Die Auswahl sendet `LaunchRequestPayload`; der Server prüft Checkliste, Ziel, Recht `LAUNCH` und den sitzenden Spieler erneut.
 5. **Server:** zieht den Treibstoff ab, teleportiert Rakete und Passagiere in die Zieldimension 200 Blöcke über dem Landepunkt. Landung in 200 t auf dem obersten festen Block (Landefeuer: innerhalb 3 Blöcken).
-6. Danach steht das `rocket`-Entity am Boden. Rechtsklick öffnet das Raketen-GUI (Treibstoff aus `transport_tank`, Fracht, Start). Sneak-Rechtsklick mit leerer Hand zerlegt die Rakete in ihre Teil-Items (Treibstoff geht verloren).
+   - Zielhöhe = min(Landepunkt + `arrival_height`, Bauhöhe − Raketenhöhe). Die Landung läuft linear in `landing_ticks`.
+   - Am Ziel hält ein Chunk-Ticket den Landeplatz `landing_ticks` lang geladen (23.5).
+   - Gelandet gilt g des Planeten (12.9).
+6. Danach steht das `rocket`-Entity am Boden. Rechtsklick mit freiem Sitz = einsteigen (unten, „Sitzen“); Rechtsklick von außen auf eine besetzte Rakete öffnet das Raketen-GUI (Treibstoff aus `transport_tank`, Fracht, Start; nach `Permissions`, 23.1). Sneak-Rechtsklick mit leerer Hand zerlegt die Rakete in ihre Teil-Items (nur mit dem Recht `BREAK`, nicht im Flug). Teile und Fracht fallen als Items, der Treibstoff geht verloren.
+
 **Sonderfälle (MUSS):**
 
 - **Reihenfolge:** Ziel und Landeort wählt man **vor** dem Start. Die Navigationskarte öffnet sich beim Klick auf „Start“, danach laufen Countdown, Aufstieg und Landung ohne Eingabe.
 - **Mehrere Insassen:** Ziel und Landeort wählt der Spieler, der „Start“ drückt.
 - **Disconnect, Tod oder Schließen des Bildschirms während des Flugs:** Der Server schließt den Flug sofort ab. Rakete und verbliebene Insassen landen am gewählten Ort; ein abgemeldeter Spieler erscheint beim nächsten Login in der Rakete.
+  - Schließen der Sequenz: Der Client sendet `RocketActionPayload` mit der Aktion `skip`.
+  - Tod: Die Rakete landet ohne den Spieler.
+  - Abmelden: Der Spieler bekommt das Attachment `pending_flight` (Dimension, Raketen-UUID, Landepunkt, 3A.4). Beim Login sitzt er wieder in der Rakete; geht das nicht, steht er daneben.
 - **Sitzen:** Rechtsklick auf den Kapselblock setzt den Spieler auf ein unsichtbares Sitz-Entity. Nach der Umwandlung sitzt er im `rocket`-Entity.
+  - **Einsteigen:** Rechtsklick auf den Kapselblock oder eine gelandete Rakete, wenn ein Sitz frei ist. Das darf jeder (23.2).
+  - **GUI im Sitz:** Die Inventartaste öffnet das Raketen-GUI bzw. auf der Rampe den Raketen-Computer (wie Pferd und Kistenboot, Vanilla `HasCustomInventoryScreen`). „Start“ öffnet die `star_map`.
+  - **Absteigen** mit Schleichen; gesperrt vom Countdown bis zur Landung.
+  - Das `seat`-Entity wird nicht gespeichert. Beim Abmelden außerhalb eines Flugs steigt der Spieler aus, die Rakete bleibt stehen.
+- **Startrecht (`LAUNCH`, 23.2):** auf der Rampe gegen den Besitzer von `launch_control`, als gelandete Rakete gegen den Besitzer der Rakete.
 - **Landepunkt:**
-  - Gesucht wird spiralförmig im Radius 32 um die gewählte X/Z-Position ein fester Block ohne Fluid darüber mit 3 Luftblöcken über sich.
+  - Gesucht wird spiralförmig im Radius 32 um die gewählte X/Z-Position ein fester Block ohne Fluid darüber mit 3 Luftblöcken über sich. Grundlage ist die Höhenkarte `WORLD_SURFACE`: Der oberste Nicht-Luft-Block muss fest sein und darf kein Fluid enthalten (`LandingService` aus M3, spec-gaps #54).
+  - Die Kollisionsbox der Rakete ist 1 × 1 × Raketenhöhe; die Flossen sind nur Darstellung.
   - Findet sich keiner (Lava, Methan, Wasser), entsteht eine 3×3-Plattform aus dem Gestein des Planeten auf der Fluidoberfläche.
   - Venus: immer in der Wolkenschicht (12.8); Landefeuer auf der Venus gelten nur in der Wolkenschicht.
 - **Neustart:** Ein gelandetes `rocket`-Entity darf überall erneut starten (ohne Rampe).
 - **Besitz:** Das `rocket`-Entity gehört der Agentur des Spielers, der den Start ausgelöst hat (23.2).
-- **Mehrere Rampen:** `launch_control` steuert genau die nächstgelegene gültige Rampe im Umkreis von 8 Blöcken.
+- **Mehrere Rampen:** `launch_control` steuert genau die nächstgelegene gültige Rampe im Umkreis von 8 Blöcken (`control_radius`, 4.3).
 - **Asteroidengürtel:** Es gibt keinen Boden. Gelandet wird auf dem höchsten Asteroidenblock der Spalte; gibt es keinen, schwebt die Rakete auf y 100 wie im Orbit (Schritt 7).
 
 7. **Orbit ohne `docking_bay` als Ziel:** Die Rakete schwebt auf y 100 an der gewählten X/Z-Position (Standard 0/0). Ist dort keine freie Säule von 5×5×12 Blöcken oder liegt ein fremder `station_core` näher als 64 Blöcke, sucht der Server spiralförmig bis Radius 256 weiter. Klickt der Spieler in der Kapsel mit einem `station_core` in der Hand, wird der Kern direkt unter die Rakete gesetzt. Die 5×5-Plattform entsteht, die Rakete steht darauf, und der Spieler kann sicher aussteigen.
@@ -99,6 +135,14 @@ Kurzfassung: Kapsel (1), Tanks (T1 3–5, T2 4–8, je 16.000 mB + 16.000 mB), T
 ## 12.6 Landefeuer
 
 `landing_beacon`: Block, Rechtsklick → Namen vergeben. Erscheint in Atlas und Landeortwahl der Agentur. Rotes Leuchtsignal bis Höhe 256.
+
+**Einzelheiten (ab M4):** Werte in `spaceflight.json` (`landing_beacon`).
+
+- Block-Entity mit Name. Beim Setzen und Umbenennen trägt der Server das Landefeuer in `AgencyData.beacons` der Besitzer-Agentur ein (Dimension, Position, Name); beim Entfernen (Abbau, Explosion) löscht er den Eintrag. So kennt die Landeortwahl auch Landefeuer in nicht geladenen Dimensionen.
+- Standardname: der Name des Items (wenn am Amboss umbenannt), sonst „Landefeuer X/Z“.
+- Rechtsklick öffnet ein Textfeld (bis `name_max_length` = 50 Zeichen wie der Amboss); Umbenennen braucht das Recht `CONFIGURE` und sendet `NamePayload`.
+- Strahl wie beim Vanilla-Leuchtfeuer, in Rot, bis zur absoluten Höhe `beam_top_y` (256), nur unter freiem Himmel.
+- **Landung:** Spiralsuche im Radius `beacon_landing_radius` um das Landefeuer (ohne seinen Block). Findet sich dort nichts, gilt die normale Landeplatzsuche (12.5) um das Landefeuer.
 
 ## 12.7 Landefähre
 

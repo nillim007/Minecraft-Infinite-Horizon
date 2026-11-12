@@ -95,6 +95,37 @@
       },
       "spec_ref": "12.5, 23.1"
     },
+    "agency_rules": {
+      "roles": {
+        "founder": "leader",
+        "joined": "engineer"
+      },
+      "invite_by": "leader",
+      "invite_targets": "online_players",
+      "invite_storage": "AgencyData.invites",
+      "invite_valid_until": "accepted_or_declined",
+      "invite_notice": "chat",
+      "accept_at": "any_research_terminal",
+      "leave_creates_new_agency": true,
+      "member_actions": [
+        "OPEN",
+        "USE_SLOTS",
+        "CONFIGURE",
+        "BUILD",
+        "BREAK",
+        "LAUNCH"
+      ],
+      "guest_actions": [
+        "OPEN"
+      ],
+      "guest_slot_clicks": "discarded",
+      "no_owner": "alle Aktionen erlaubt; wer das GUI zuerst öffnet, wird mit seiner Agentur Besitzer",
+      "dome_protection": "Nicht-Mitglieder setzen und bauen in einer aktiven fremden Kuppel keinen Block ab",
+      "operator_bypass_permission_level": 2,
+      "research_unlock_min_role": "engineer",
+      "spec_ref": "23.1, 23.2",
+      "notes": "Ä28. Rollenwechsel, Umbenennen, Partner und Handel kommen mit M9."
+    },
     "slow_fall": {
       "ticks": 400,
       "applies_to": [
@@ -140,6 +171,7 @@
         "description_de": "Anzugteil + Modul im Montagetisch → Anzugteil mit eingebautem Modul (Data Component suit_modules, max. 2 Module je Teil). Gilt für alle Anzugteile und alle Module aus 9.2, das Modul muss zum Teil passen.",
         "ticks": null,
         "energy_per_tick": null,
+        "match": "genau 1 Anzugteil + 1 passendes Modul; freier Modulslot; dieses Modul ist noch nicht eingebaut",
         "spec_ref": "9.2, 25.4"
       },
       "suit_module_remove": {
@@ -147,6 +179,7 @@
         "description_de": "Anzugteil allein im Montagetisch → Anzugteil ohne Module als Hauptergebnis, die ausgebauten Module in die Nebenausgaben (3 Ausgabeslots).",
         "ticks": null,
         "energy_per_tick": null,
+        "match": "genau 1 Anzugteil mit mindestens 1 Modul",
         "spec_ref": "9.2, 25.4"
       },
       "food_packing": {
@@ -158,6 +191,46 @@
       },
       "spec_ref": "25.4",
       "notes": "ticks/energy_per_tick null = Werte der Maschine aus balance/machines.json."
+    },
+    "advancements": {
+      "tab": "infinite_horizon:root",
+      "log_file": "logs/infinite_horizon-progress.log",
+      "log_line": "ISO-8601-Zeit, Spielername, Erfolg-ID",
+      "offline_storage": "AgencyData.pending_advancements",
+      "by_id": {
+        "infinite_horizon:root": {
+          "parent": null,
+          "icon": "infinite_horizon:engineers_handbook",
+          "trigger": "minecraft:inventory_changed",
+          "item": "infinite_horizon:engineers_handbook"
+        },
+        "infinite_horizon:ground_station": {
+          "parent": "infinite_horizon:root",
+          "icon": "infinite_horizon:research_terminal",
+          "trigger": "minecraft:placed_block",
+          "block": "infinite_horizon:research_terminal"
+        },
+        "infinite_horizon:first_signal": {
+          "parent": "infinite_horizon:ground_station",
+          "icon": "infinite_horizon:probe",
+          "trigger": "minecraft:impossible",
+          "granted_by": "code_all_members"
+        },
+        "infinite_horizon:small_step": {
+          "parent": "infinite_horizon:first_signal",
+          "icon": "infinite_horizon:moon_regolith",
+          "trigger": "minecraft:changed_dimension",
+          "to": "infinite_horizon:moon"
+        },
+        "infinite_horizon:own_air": {
+          "parent": "infinite_horizon:small_step",
+          "icon": "infinite_horizon:dome_generator_t1",
+          "trigger": "minecraft:impossible",
+          "granted_by": "code_all_members"
+        }
+      },
+      "spec_ref": "24.3",
+      "notes": "Ä28. Erzeugt werden nur Erfolge, deren Inhalte registriert sind (ab M4 diese 5); weitere kommen mit ihrem Meilenstein, der Feinschliff mit M9. Titel und Beschreibung DE/EN in lang_extra.json."
     },
     "config_defaults": {
       "file": "serverconfig/infinite_horizon.json",

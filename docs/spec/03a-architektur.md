@@ -59,32 +59,36 @@ de.infinitehorizon
 └─ util/
 ```
 
+**Raumfahrt-Klassen (ab M4):** M3 hat `LandingService` unter `spaceflight/` angelegt. Mit M4 zieht er nach `space/`; dort liegen alle M4-Klassen der Raumfahrt (`FuelCalculator`, `RocketAssembler`, `RocketConfig`, `RocketEntity`, `LaunchControlBlockEntity`, `FlightService`, `LandingService`, `ProbeService`, `Destinations`). `SeatEntity` gehört nach `vehicle/`, `ResearchRegistry` und `RocketPartRegistry` nach `data/`, `ResearchRecipeLock` nach `recipe/`.
+
 ## 3A.3 Zentrale Klassen
 
 | Klasse | Aufgabe | Wichtige Regeln |
 | --- | --- | --- |
 | `IhBlockEntity` | Basis aller eigenen Block-Entities | speichert `owner_agency` (NBT-Schlüssel `owner_agency`, UUID); setzt es in `setPlacedBy`, wenn ein Spieler platziert; liefert `OwnershipResolver.current(owner)` (berücksichtigt `merged_into`). Ab M3 Basis von `MachineBlockEntity` und `PortBlockEntity` (im Code aus M2 fehlt die Klasse noch). Fehlt der Eintrag, ist der Block ohne Besitzer (23.1). Blöcke ohne Block-Entity (Kabel, Rohre, Gehäuse) haben keinen Besitzer. |
-| `MachineBlockEntity` | Basis aller Maschinen | liest Werte aus `BalanceManager` per Block-ID; Zustände `idle`/`running`/`error` → Blockstate `status`; Upgrades; Füll-/Leerslots; Rezeptsuche ruft `ResearchRecipeLock.isUnlocked(recipe, owner)` auf (Standard `true`; die Prüfung der Forschung der Besitzer-Agentur kommt mit M4, die Agentur mit M3) |
-| `MultiblockController` | Basis für Raffinerie, Fusion, Kernreaktor, Startrampe | Musterprüfung beim Setzen, bei Nachbaränderungen und alle 100 t; nimmt an freien Seiten I/O an |
+| `MachineBlockEntity` | Basis aller Maschinen | liest Werte aus `BalanceManager` per Block-ID; Zustände `idle`/`running`/`error` → Blockstate `status`; Upgrades; Füll-/Leerslots; Rezeptsuche ruft `ResearchRecipeLock.isUnlocked(recipe, owner)` auf (in M2 und M3 immer `true`). Ab M4 prüft sie alle passenden Rezepte in der Reihenfolge der Rezept-ID und nimmt das erste freie; sind alle gesperrt, steht sie auf `idle` mit Tooltip `gui.infinite_horizon.status.locked` (11.3). Gilt auch für den Montagetisch. |
+| `ResearchRecipeLock` | Rezeptsperre (11.3) | `isUnlocked(recipe, owner)`: gesperrt, wenn ein Ergebnis in `unlocks` eines Knotens steht, den `OwnershipResolver.current(owner)` nicht erforscht hat; ohne Besitzer oder mit `research_required = false` frei (ab M4) |
+| `MultiblockController` | Basis für Raffinerie, Fusion, Kernreaktor, Startrampe | Musterprüfung beim Setzen, bei Nachbaränderungen und alle 100 t; nimmt an freien Seiten I/O an. Die Startrampe hat keinen eigenen Controller-Block: `launch_control` ist ihr Controller und prüft beim Öffnen, bei „Start“ und alle 100 t (4.3). |
 | `Transaction` | gemeinsames Transaktionsmodell | `simulate → commit/rollback`; Adapter auf NeoForge-Transfer-API und Fabric-Transfer-API |
 | `EnvironmentCalculator` | reine Funktion (8.1) | Eingabe: Planet, Zonenliste, Position, Tageszeit, Kuppeln, Ausrüstung; Ausgabe: Werte + Schutz je Gefahr |
 | `HazardTracker` | Belastung je Spieler | Spieler-Attachment; alle 10 t; läuft im Server-Tick über die Spielerliste (auch GameTest-Spieler); Zählweise 8.2; ruft `EnvironmentCalculator`; sendet `HazardStatePayload` nur bei Änderung |
 | `PlanetResolver` | Planet und Zonen an einer Position | einzige Quelle für Umwelt, Schwerkraft, Kuppeltemperatur, 8.5 und Ortsbindung; im GameTest-Betrieb fragt er zuerst `EnvironmentOverrides` (27) |
-| `Permissions` | Rechteprüfung | `can(player, owner, action)`; in M3 immer `true`, Gast-Rechte und Kuppelschutz ab M4 (23.1) |
-| `FuelCalculator` | reine Funktion (12.2) | Kosten A→B, Hin- und Rückflug, erreichbare Ziele für eine `RocketConfig` |
-| `RocketAssembler` | reine Funktion (12.4) | Block-Schnappschuss der Rampe → `RocketConfig` oder Fehlerliste (für die Checkliste) |
-| `ResearchGates` | reine Funktion (11.4, 25.3) | Agentur-Fortschritt + Tor-Definition → offen/zu |
+| `Permissions` | Rechteprüfung | `can(player, owner, action)` mit `Action` = `OPEN`, `USE_SLOTS`, `CONFIGURE`, `BUILD`, `BREAK`, `LAUNCH`; in M3 immer `true`. Ab M4: Mitglieder dürfen alles, Nicht-Mitglieder an fremden Block-Entities nur `OPEN`; ohne Besitzer ist alles erlaubt; Operatoren (Rechtestufe 2) sind ausgenommen; dazu der Kuppelschutz (23.1, 23.2) |
+| `FuelCalculator` | reine Funktion (12.2) | Kosten A→B (auch A = B), Hin- und Rückflug, erreichbare Ziele für eine `RocketConfig`; rechnet in `double` und rundet jeden Summanden mit `Math.round` auf ganze mB |
+| `RocketAssembler` | reine Funktion (12.4) | Block-Schnappschuss der Rampe → `RocketConfig` oder Fehlerliste (für die Checkliste, z. B. „3 von 4 Flossen“) |
+| `ResearchGates` | reine Funktion (11.4, 25.3) | Agentur-Fortschritt + Tor-Definition → offen/zu, für alle 5 Tor-Typen; geprüft beim Setzen eines Blocks mit Besitzer, beim Dimensionswechsel und nach dem Erforschen (ab M4) |
+| `ProbeService` | Sondenflüge (12.3) | Start, Flug in `AgencyData.probe_flights` mit Ankunft in Overworld-Zeit, Prüfung jede Sekunde, Ankunft mit FP, Nachricht, Atlas und Erfolg (ab M4) |
 | `OfflineProduction` | reine Funktion (20.1) | Snapshot (running, Rate, Eingaben, Platz) + vergangene Ticks → Ausbeute |
-| `FpLedger` | FP-Buchhaltung | Hundertstel-FP, Abnahme je Probenart, Labor-Bonus |
+| `FpLedger` | FP-Buchhaltung | Hundertstel-FP, Abnahme je Probenart und Strukturtyp (11.1), Labor-Bonus (ab M6) |
 | `GridManager` | Kabel- und Rohrnetze | Topologie nur bei Blockänderung neu berechnen; Push-Verteilung nach 4.4 |
 | `DomeManager` | Kuppeln je Dimension | räumlicher Index (Chunk → Kuppeln); Abfrage `isInsideActiveDome(pos)` |
-| `FlightService` | Raketenflug serverseitig | Prüfen, Entity umwandeln, Treibstoff abziehen, nach fester Zeit teleportieren und landen; Client-Sequenz ist nur Darstellung |
+| `FlightService` | Raketenflug serverseitig | Prüfen, Entity umwandeln, Treibstoff abziehen, nach fester Zeit teleportieren und landen; Client-Sequenz ist nur Darstellung. Ab dem Start ohne Kollision; Abbruch der Sequenz, Tod und Abmelden nach 12.5 (`pending_flight`) |
 
 ## 3A.4 Gespeicherte Daten
 
 | Name | Ort | Inhalt |
 | --- | --- | --- |
-| `AgencyData` | Overworld, `SavedData` | Agenturen, Mitglieder, Rollen, FP, erforschte Knoten, offene Stufen, Sondenziele, Atlas, Entdecker-Einträge, `chart_uuid`, `merged_into`, Partner, entdeckte Strukturinstanzen; Felder in M3 und Format: 23.1 |
+| `AgencyData` | Overworld, `SavedData` | Agenturen, Mitglieder, Rollen, FP, erforschte Knoten, offene Stufen, Sondenziele, Atlas, Entdecker-Einträge, `chart_uuid`, `merged_into`, Partner, entdeckte Strukturinstanzen; Felder in M3 und ab M4 sowie Format: 23.1 (`data_version` bleibt 1) |
 | `DomeData` | je Dimension, `SavedData` | aktive Kuppeln (Mittelpunkt, Radius, Stufe, Agentur, Zustand) |
 | `WeatherData` | je Mod-Dimension, `SavedData` | Wetterzustand, Restdauer, geplante Ereignisse |
 | `OutpostData` | Overworld, `SavedData` | Außenposten, Produzenten-Snapshots, letzter Tick |
@@ -92,8 +96,9 @@ de.infinitehorizon
 | `ShipyardData` | Overworld, `SavedData` | Fortschritt und Lager je Werft |
 | `CloneData` | Overworld, `SavedData` | Bindung je Spieler, gemeldeter Kammerzustand |
 | `WorldFlags` | je Dimension, `SavedData` | einmalige Weltereignisse (z. B. Venus-Plattformen, Boss-Beschwörungen) |
-| Chunk-Attachment `sampled_positions` | je Chunk | beprobte bzw. von Spielern gesetzte Positionen (11.2) |
+| Chunk-Attachment `sampled_positions` | je Chunk | beprobte bzw. von Spielern gesetzte Positionen (11.2) als Menge gepackter Positionen (`BlockPos#asLong`); bleibt nach dem Abbau (ab M4) |
 | Spieler-Attachment `hazard_state` | je Spieler | Belastung je Gefahr (in Ticks, 8.2; beim Tod 0), Zähler für den O₂-Verbrauch (9.1), Venus-Hitzezeit, Klon-Bindung (Kopie) |
+| Spieler-Attachment `pending_flight` | je Spieler | Flug eines Spielers, der sich während des Flugs abgemeldet hat: Dimension, Raketen-UUID, Landepunkt (12.5, ab M4) |
 
 Jede `SavedData` hat ein Feld `data_version` (Start: 1) und eine Migrationsmethode für spätere Versionen. Gespeichert wird im 26.3-Format (Codec). Neue Felder späterer Meilensteine sind optional und haben einen Standardwert.
 
@@ -103,20 +108,20 @@ Alle Payloads sind `CustomPacketPayload` mit `StreamCodec`. Jeder Client→Serve
 
 | Payload | Richtung | Inhalt | Wann |
 | --- | --- | --- | --- |
-| `SyncDataPayload` | S→C | Balance, Planeten, Forschung, Raketenteile (komprimiert, ggf. in Teilen); ab M3 mindestens der Planeten-Teil (13.1) | Join, `/reload` |
+| `SyncDataPayload` | S→C | Balance, Planeten, Forschung, Raketenteile (komprimiert, ggf. in Teilen); ab M3 mindestens der Planeten-Teil (13.1), ab M4 auch Forschung (Stufen und sichtbare Knoten) und Raketenteile | Join, `/reload` |
 | `SyncConfigPayload` | S→C | Serverkonfiguration (24.4) | Join, Änderung |
-| `AgencyStatePayload` | S→C | Agentur, Rolle, FP, Knoten, offene Stufen, Sondenziele, Atlas | Join, Änderung (ab M4) |
+| `AgencyStatePayload` | S→C | Name, Mitglieder mit Rolle, eigene Rolle, FP (Hundertstel), `researched`, `open_tiers`, `probe_targets`, `probe_reached`, offene Einladungen an den Spieler, Atlas-Teil (24.2) | an alle Online-Mitglieder bei Join und bei jeder Änderung (ab M4) |
 | `DomeStatePayload` | S→C | Kuppeln der aktuellen Dimension: je Kuppel `pos`, `radius`, `tier`, `state` (`active`, `failing`), `agency` | Dimensionswechsel, Änderung |
 | `HazardStatePayload` | S→C | Belastung je Gefahr (0–100: `oxygen`, `pressure`, `heat`, `cold`, `radiation`), `temperature`, `pressure`, `radiation`, `breathable`, `suit_oxygen` (mB) | bei Änderung, höchstens alle 10 t |
 | `WeatherStatePayload` | S→C | Wetter und Ereigniswarnung der Dimension | Dimensionswechsel, Änderung |
 | `FlightSequencePayload` | S→C | Ziel, Dauer, Sequenztyp (Start, Landung, Finale) | Flugbeginn |
-| `ResearchUnlockPayload` | C→S | Knoten-ID | Klick im Terminal |
-| `AgencyActionPayload` | C→S | Aktion (gründen, einladen, beitreten, Rolle, Partner) + Argumente | GUI |
-| `LaunchRequestPayload` | C→S | Rampen- bzw. Raketenposition, Ziel, Landeort | Klick auf „Start“ |
-| `RocketActionPayload` | C→S | Aktion (tanken aus Frachtraum, zerlegen) | Raketen-GUI |
+| `ResearchUnlockPayload` | C→S | Knoten-ID; der Server prüft: offenes Menü ist ein `research_terminal` höchstens 8 Blöcke entfernt, Rolle mindestens `engineer`, Stufe offen, `requires` erforscht, FP reichen (11.3) | Klick im Terminal |
+| `AgencyActionPayload` | C→S | Aktion + Argumente; ab M4 `invite` (Spieler), `accept`, `decline` (Agentur), `leave`; Rollenwechsel, Umbenennen und Partner ab M9 (23.1) | GUI |
+| `LaunchRequestPayload` | C→S | Rampen-Position bzw. Raketen-Entity-ID, Ziel, Landeort (Landefeuer oder X/Z); der Server prüft Checkliste, Ziel, Recht `LAUNCH` und sitzenden Spieler erneut (12.5) | Auswahl in der `star_map` |
+| `RocketActionPayload` | C→S | Aktion: tanken aus Frachtraum, zerlegen, `skip` (Flugsequenz geschlossen, 12.5) | Raketen-GUI, Flugsequenz |
 | `LogisticsEditPayload` | C→S | Route anlegen/ändern/löschen | Logistik-GUI |
 | `MachineConfigPayload` | C→S | `pos`, `side` (0–5 in der Reihenfolge Unten, Oben, Nord, Süd, West, Ost; −1 = unverändert), `tank` (Index ab 0; −1 = unverändert); der Gas-Sammler-Modus kommt als weiteres Feld mit M6 | Maschinen-GUI |
-| `NamePayload` | C→S | Name für Landefeuer | GUI |
+| `NamePayload` | C→S | Position und Name eines Landefeuers (Länge und Recht nach 12.6) | Textfeld des Landefeuers |
 | `TradingPostEditPayload` | C→S | Angebote | GUI |
 | `ShipyardStartPayload` | C→S | Werft-Position | Klick auf „Start“ |
 

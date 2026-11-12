@@ -221,21 +221,21 @@ Jede Datei ist ein Objekt `{ "schema_version": 1, "entries": { "<schlüssel>": {
 
 | Datei | Schlüssel | Felder (Mindestumfang) |
 | --- | --- | --- |
-| `machines.json` | Block-ID | `energy_per_tick`, `ticks`, `buffer`, `location` (`null` oder `{dimension_type, dimensions[]}`), `upgrade_slots`, `fluid_tanks` (Liste `{role, capacity}`), `item_slots` (`{input, output}`) |
+| `machines.json` | Block-ID bzw. `<name>_multiblock` | `energy_per_tick`, `ticks`, `buffer`, `location` (`null` oder `{dimension_type, dimensions[]}`), `upgrade_slots`, `fluid_tanks` (Liste `{role, capacity}`), `item_slots` (`{input, output}`); `fuel_pump` zusätzlich `transfer_per_tick`, `distribution`, `targets[]` und je Tank `fuel_component`. Multiblock-Muster: `multiblock_id`, `controller`, Maße bzw. bei der Startrampe `center`, `platform`, `tower`, `fuel_pump`, `control_radius`, `check_on[]` |
 | `generators.json` | Block-ID | `output_per_tick`, `fuel` (`{fluid|item, amount, per_ticks}`), `buffer`, `coolant`, `safety` |
 | `transport.json` | Block-ID | `throughput`, `unit` (`J/t` oder `mB/t`) |
-| `storage.json` | Block-ID | `capacity`, `unit`, `io_per_tick`, `accepts` (`liquid`, `gas`, `all`, `energy`) |
+| `storage.json` | Block-ID | `capacity`, `unit`, `io_per_tick`, `accepts` (`liquid`, `gas`, `all`, `energy`); Behälter-Items (`transport_tank`) zusätzlich `transfer`, `accepted_in` |
 | `environment.json` | Gefahr | `buildup_ticks`, `damage`, `damage_interval` |
 | `suits.json` | Stufe bzw. Modul-ID | Grenzwerte, Verbrauch, Slots, Wirkung |
 | `domes.json` | Block-ID bzw. Modul-ID | `radius`, `energy_per_tick`, `oxygen_per_1200`, `temp_min`, `temp_max`, `protects[]`, `o2_tank`, `buffer`, `o2_fluids`, `container_slots`, `upgrade_slots`; Regeln in `dome_rules` |
-| `spaceflight.json` | Name | Treibstoffformel, Sondenzeiten, Landefähre |
+| `spaceflight.json` | Name | Treibstoffformel und Rundung (`fuel_calculation`), Sondenzeiten, Flugablauf (`rocket_flight` mit `ascent_height`), Landeplatzsuche, Landefeuer (`landing_beacon`), Landefähre |
 | `vehicles.json` | Entity- bzw. Item-ID | Rover und Module |
 | `creatures.json` | Entity-ID | `hp`, `armor`, `damage`, `speed`, `width`, `height`, `category`, `spawn` (`{dimension, biomes[], weight, group_min, group_max, light_max}`), `behavior` (Text), `drops[]` |
 | `events.json` | Ereignis-ID | `dimensions[]`, `chance_per_1200`, `duration_min`, `duration_max`, `effects`, `protection[]`, `reward` |
 | `logistics.json` | Item-ID bzw. Name | Frachtraketen, Terminal, Flugzeit, Offline-Produktion |
 | `shipyard.json` | Abschnittsnummer | `name_de`, `materials[]` (`{id, count}` bzw. `{fluid, amount}`), `build_ticks` |
-| `research.json` | Quelle | FP-Werte, Abnahme, Labor-Bonus, Abklingzeiten |
+| `research.json` | Quelle | FP-Werte, Abnahme, Labor-Bonus, Abklingzeiten; Probenregeln (`sample_ring_rules` mit `ring0_blocks` = Inhalt des Tags `sampleable/ring0`), Erkundungsziele (`exploration_target` mit `instance_key`) |
 | `agriculture.json` | Block- bzw. Item-ID | Wachstum, Dünger, Ration |
 | `stations.json` | Block-ID | Stationskern, Schwerkraftplatte, Klon-Kammer |
 | `items.json` | Item- bzw. Block-ID | Werkzeug- und Weltwerte |
-| `misc.json` | Name | übrige Einzelwerte, `code_recipes` |
+| `misc.json` | Name | übrige Einzelwerte, `code_recipes` (mit `match`), `agency_rules` (Beitritt und Rechte, 23.1), `advancements` (Reiter, Protokoll und je Erfolg in `by_id`: `parent`, `icon`, `trigger` und dessen Felder) |

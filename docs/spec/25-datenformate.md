@@ -108,10 +108,13 @@ Stufen-Tore stehen in `research_tier/<n>.json`: `{ "tier": 2, "cost_default": 25
 
 - Stufe n setzt immer Stufe n − 1 voraus.
 - Ein einmal geöffnetes Tor bleibt offen, auch wenn z. B. das `research_terminal` abgebaut wird.
+- Wann `ResearchGates` prüft, steht in 11.4. Die Zähler für `crafted_items` und `machine_completed` kommen mit M5.
 
 **Knoten:**
 - `branch`: `industry`, `spaceflight`, `life_support`, `logistics`.
-- `unlocks`: Liste von `{ "type": "item" | "probe_target" | "multiblock", "id": … }`. `item` schaltet alle Rezepte mit diesem Ergebnis frei (11.3). `probe_target` schaltet ein Sondenziel frei (z. B. `infinite_horizon:mars`). Erde und `earth_orbit` sind immer bekannt.
+- `unlocks`: Liste von `{ "type": "item" | "probe_target" | "multiblock", "id": … }`. `item` schaltet alle Rezepte mit diesem Ergebnis frei (11.3). `probe_target` schaltet ein Sondenziel frei (z. B. `infinite_horizon:mars`): Die Sonde darf dorthin fliegen (`probe_targets`); ein Raketenziel wird es erst mit der Ankunft der Sonde (`probe_reached`, 12.1). Erde und `earth_orbit` sind immer bekannt.
+- `icon`: Item-Symbol des Knotens im Forschungsbaum (11.3).
+- Erzeugt werden ab M4 nur sichtbare Knoten (11.4).
 - Der Knoten ist die **einzige** Quelle für Freischaltungen; Rezepte haben kein eigenes Forschungsfeld.
 
 ## 25.4 Rezepte
@@ -154,7 +157,7 @@ Rollen: `capsule`, `tank`, `engine`, `fin`, `cargo`, `long_range`. `fuel_capacit
 
 Erzeugt von `tools/gen_resources.py` aus `docs/handbook/` (24.1). Andere Mods legen eigene Dateien nach demselben Schema in ihren Namespace.
 
-`unlock`: `null` = immer sichtbar. Sonst die ID eines Stufen-Tors (`infinite_horizon:research_tier/<n>`) oder eines Forschungsknotens. Bis M4 gilt jedes `unlock` als offen.
+`unlock`: `null` = immer sichtbar. Sonst die ID eines Stufen-Tors (`infinite_horizon:research_tier/<n>`) oder eines Forschungsknotens. Bis M3 gilt jedes `unlock` als offen. Ab M4 entscheidet der Forschungsstand der Agentur des Lesers (aus `AgencyStatePayload`); mit `research_required = false` ist alles offen (24.1).
 
 **Kapitel** (`<kapitel>/_chapter.json`):
 
@@ -203,19 +206,19 @@ Alle Zahlenwerte, die nicht in Rezepten, Planeten, Forschung oder Raketenteilen 
 
 | Datei | Inhalt (Quelle) | Schlüssel |
 | --- | --- | --- |
-| `machines.json` | Verbrauch, Dauer, Puffer, Ortsbindung, Upgrades (4.1, 4.2, 6.1) | Block-ID |
+| `machines.json` | Verbrauch, Dauer, Puffer, Ortsbindung, Upgrades (4.1, 4.2, 6.1), Multiblock-Muster (4.3), `fuel_pump` (12.4) | Block-ID bzw. `<name>_multiblock` |
 | `generators.json` | Leistung, Brennstoff, Speicher, Reaktor-Sicherheit (6.3) | Block-ID |
 | `transport.json` | Kabel- und Rohrdurchsatz (4.4) | Block-ID |
 | `environment.json` | Belastungszeit und Zählweise, Schadensraten und -arten, Schutz ohne Anzug, Tageslicht-Kurve, HUD (8.1–8.4) | Gefahr bzw. Name |
 | `suits.json` | Anzugstufen und Module (9.1, 9.2) | Stufe bzw. Modul-ID |
 | `domes.json` | Kuppelstufen, Module, Zustände, Verbrauchsrechnung, Ausfallzeit (10.1, 10.2) | Block-ID bzw. `dome_rules` |
-| `spaceflight.json` | Treibstoffformel, Schub, Sondenzeiten, Landefähre (12.2–12.7) | Schlüssel aus der Formel |
+| `spaceflight.json` | Treibstoffformel mit Rundung, Schub, Sondenzeiten, Flugablauf, Landeplatzsuche, Landefeuer, Landefähre (12.2–12.7) | Schlüssel aus der Formel bzw. Name |
 | `vehicles.json` | Rover, Rover-Module (16) | Entity- bzw. Item-ID |
 | `creatures.json` | Lebenspunkte, Schaden, Tempo, Spawn (18) | Entity-ID |
 | `events.json` | Ereignisse, Chancen, Dauer, Vorwarnung (19) | Ereignis-ID |
 | `logistics.json` | Frachtraketen, Flugzeit, Offline-Produktion (20) | Item-ID bzw. Schlüssel |
 | `shipyard.json` | Bauabschnitte, Bauzeit (21) | Abschnittsnummer |
-| `research.json` | FP-Werte je Quelle, Abnahme, Labor-Bonus, Abklingzeit `sample_tool` (11.1, 11.2) | Quelle |
+| `research.json` | FP-Werte je Quelle, Abnahme, Labor-Bonus, Abklingzeit `sample_tool`, beprobbare Blöcke in Ring 0 (`ring0_blocks`), Erkundungsziele (11.1, 11.2) | Quelle |
 | `agriculture.json` | Wachstumszeiten, Dünger, Gewächshaus, Ration (17, 14.2) | Block- bzw. Item-ID |
 | `stations.json` | Stationskern (Solar, O₂-Tank), Schwerkraftplatte, Klon-Kammer (14) | Block-ID |
 | `items.json` | Werkzeug- und Weltwerte: `ice_drill`, `asteroid_anchor`, `hydrothermal_vent`-Abklingzeit, Geysire (13.4) | Item- bzw. Block-ID |
@@ -232,4 +235,4 @@ Beispiel `machines.json`:
 `buffer: null` heißt „Formel aus 4.1 verwenden“.
 
 - **Zusammenführen:** Gleiche Dateien aus mehreren Datenpaketen werden pro Schlüssel zusammengeführt; bei gleichem Schlüssel gewinnt das Paket mit höherer Priorität.
-- **`misc.json`** enthält alle übrigen Einzelwerte, z. B. Wartezeit des Wolkenaufzugs (100 t, 12.8), Schwerkraftformel (12.9), Langsamer Fall nach Sturz (400 t, 14.3), Vakuum-Dämpfung (0,15, 24.6), Regeln für Welten ohne Atmosphäre (8.5), Monster auf Planeten (13.5) und Befehle (12.10, 23.1). Die Belastungszeit (200 t) steht in `environment.json`.
+- **`misc.json`** enthält alle übrigen Einzelwerte, z. B. Wartezeit des Wolkenaufzugs (100 t, 12.8), Schwerkraftformel (12.9), Langsamer Fall nach Sturz (400 t, 14.3), Vakuum-Dämpfung (0,15, 24.6), Regeln für Welten ohne Atmosphäre (8.5), Monster auf Planeten (13.5), Befehle (12.10, 23.1), Agentur-Regeln (`agency_rules`, 23.1) und Erfolge (`advancements`, 24.3). Die Belastungszeit (200 t) steht in `environment.json`.

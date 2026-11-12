@@ -851,6 +851,49 @@
       "spec_ref": "4.3",
       "notes": "Generatorwerte in balance/generators.json."
     },
+    "launch_pad_t1_multiblock": {
+      "multiblock_id": "infinite_horizon:launch_pad_t1",
+      "controller": "infinite_horizon:launch_control",
+      "center": "launch_pad direkt unter dem Triebwerk bzw. der Sonde",
+      "platform": {
+        "block": "infinite_horizon:launch_pad",
+        "size": [
+          5,
+          5
+        ],
+        "same_height": true,
+        "extra_pads_allowed": true
+      },
+      "tower": {
+        "block": "infinite_horizon:launch_tower",
+        "shape": "vertical_column",
+        "bottom": "platform_height",
+        "position": "eine der 20 Positionen waagerecht neben dem Rand der 5×5-Fläche (nicht diagonal)",
+        "min_height": "stacked_parts",
+        "min_height_probe": 1
+      },
+      "fuel_pump": {
+        "block": "infinite_horizon:fuel_pump",
+        "min_count": 1,
+        "adjacent_to": [
+          "platform",
+          "tower"
+        ],
+        "adjacency": "face"
+      },
+      "control_radius": 8,
+      "control_distance": "euclidean",
+      "control_selects": "nearest_valid_pad",
+      "check_on": [
+        "gui_open",
+        "launch",
+        "interval"
+      ],
+      "check_interval": "misc.json multiblock_rules.structure_check_interval_ticks",
+      "on_error": "Statuslampe error; der Tooltip nennt den ersten Fehler",
+      "spec_ref": "4.3, 12.3, 12.4, 12.5",
+      "notes": "Ä28. stacked_parts = Zahl der übereinander gestapelten Raketenteile (Flossen zählen nicht). Weitere launch_pad neben der 5×5-Fläche stören nicht. launch_pad_t2 (7×7) kommt mit M5."
+    },
     "infinite_horizon:research_terminal": {
       "energy_per_tick": 0,
       "ticks": null,
@@ -864,6 +907,45 @@
       },
       "notes": "GUI-Block ohne Verarbeitung und ohne Stromverbrauch (Forschungsbaum, Agentur-Verwaltung)",
       "spec_ref": "11.3"
+    },
+    "infinite_horizon:fuel_pump": {
+      "energy_per_tick": 0,
+      "ticks": null,
+      "buffer": 0,
+      "location": null,
+      "upgrade_slots": 0,
+      "fluid_tanks": [
+        {
+          "role": "input",
+          "capacity": 16000,
+          "fluids": null,
+          "fuel_component": 0
+        },
+        {
+          "role": "input",
+          "capacity": 16000,
+          "fluids": null,
+          "fuel_component": 1
+        }
+      ],
+      "item_slots": {
+        "input": 0,
+        "output": 0
+      },
+      "container_slots": {
+        "fill": 1,
+        "drain": 1
+      },
+      "recipe_types": [],
+      "accepts_from": "all_sides",
+      "transfer_per_tick": 200,
+      "distribution": "even",
+      "targets": [
+        "rocket_tank_t1 der eigenen Rampe (launch_pad_t1_multiblock)",
+        "gelandetes rocket-Entity im Umkreis spaceflight.json refueling.fuel_pump_radius_around_landed_rocket"
+      ],
+      "spec_ref": "12.4, 12.2, 4.3, 4.4",
+      "notes": "Ä28. Maschine ohne Strom und ohne Vorgang. fuel_component = Index in rocket_parts.json rules[].fuel: Tank 1 nimmt die erste, Tank 2 die zweite Komponente aller Stufen an (T1: kerosene bzw. oxygen). transfer_per_tick gilt je Komponente (wie copper_pipe) und wird gleichmäßig auf die Raketentanks verteilt. Nimmt von allen Seiten an (4.4), zieht nie selbst."
     }
   }
 }

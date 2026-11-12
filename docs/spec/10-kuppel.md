@@ -38,4 +38,4 @@ Hinweis Balance: Der Elektrolyseur (6.1) liefert O₂ deutlich günstiger als de
 
 - Fackeln, Feuer und Pflanzen funktionieren nur in einer aktiven Kuppel (siehe 8.5).
 - Vanilla-Monster mit Atemmaske können die Kuppel betreten.
-- Unter einer Kuppel dürfen nur Mitglieder der besitzenden Agentur Blöcke abbauen oder setzen (Kapitel 23; wirkt ab M4, M3 speichert nur den Besitz).
+- Unter einer aktiven Kuppel dürfen nur Mitglieder der besitzenden Agentur Blöcke abbauen oder setzen, auch Blöcke ohne Block-Entity; Operatoren sind ausgenommen (23.2; wirkt ab M4, M3 speichert nur den Besitz).
