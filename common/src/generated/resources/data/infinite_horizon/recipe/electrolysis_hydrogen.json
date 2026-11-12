@@ -1,0 +1,19 @@
+{
+  "type": "infinite_horizon:electrolysis",
+  "ingredients": [],
+  "results": [],
+  "fluid": {
+    "fluid": "minecraft:water",
+    "amount": 200
+  },
+  "fluid_results": [
+    {
+      "fluid": "infinite_horizon:hydrogen",
+      "amount": 200
+    },
+    {
+      "fluid": "infinite_horizon:oxygen",
+      "amount": 100
+    }
+  ]
+}

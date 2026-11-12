@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
   "entries": {
-    "sternenwerft:cargo_rocket": {
+    "infinite_horizon:cargo_rocket": {
       "item_holds": 4,
       "slots_per_hold": 27,
       "fluid_holds": 4,
       "fluid_hold_capacity": 64000,
       "fuel_tank": {
-        "fluid": "sternenwerft:methane",
+        "fluid": "infinite_horizon:methane",
         "capacity": 64000
       },
       "fuel_per_flight": {
@@ -20,21 +20,21 @@
       "spec_ref": "20.3",
       "notes": "Pluto hin und zurück: 2 × 29.000 = 58.000 mB (passt in den Tank)."
     },
-    "sternenwerft:heavy_freighter": {
+    "infinite_horizon:heavy_freighter": {
       "item_holds": 8,
       "slots_per_hold": 27,
       "fluid_holds": 8,
       "fluid_hold_capacity": 64000,
       "fuel": {
-        "item": "sternenwerft:fuel_rod",
+        "item": "infinite_horizon:fuel_rod",
         "count": 1,
         "flights": 10,
         "flight": "round_trip"
       },
       "flights_left_max": 10,
-      "flights_left_component": "sternenwerft:flights_left",
+      "flights_left_component": "infinite_horizon:flights_left",
       "auto_refuel": "1 fuel_rod aus dem Item-Lager des Heimatterminals, wenn flights_left = 0",
-      "drive": "sternenwerft:atomic_drive",
+      "drive": "infinite_horizon:atomic_drive",
       "spec_ref": "20.3"
     },
     "flight_time": {
@@ -43,30 +43,30 @@
       "formula": "1000 + 3950 × |ΔDP| Ticks, geteilt durch den Divisor des besten Antriebs",
       "spec_ref": "20.3"
     },
-    "sternenwerft:atomic_drive": {
+    "infinite_horizon:atomic_drive": {
       "flight_time_divisor": 2,
       "builtin_in": [
-        "sternenwerft:heavy_freighter"
+        "infinite_horizon:heavy_freighter"
       ],
       "retrofit_into": [
-        "sternenwerft:cargo_rocket"
+        "infinite_horizon:cargo_rocket"
       ],
-      "data_component": "sternenwerft:drive",
+      "data_component": "infinite_horizon:drive",
       "spec_ref": "20.3, 20.5"
     },
-    "sternenwerft:antimatter_drive": {
+    "infinite_horizon:antimatter_drive": {
       "flight_time_divisor": 10,
       "retrofit_into": [
-        "sternenwerft:cargo_rocket",
-        "sternenwerft:heavy_freighter"
+        "infinite_horizon:cargo_rocket",
+        "infinite_horizon:heavy_freighter"
       ],
-      "data_component": "sternenwerft:drive",
+      "data_component": "infinite_horizon:drive",
       "starship_required": 4,
       "spec_ref": "20.3, 20.5, 21.2"
     },
     "cargo_flight_rules": {
       "drive_selection": "best_only",
-      "retrofit_station": "sternenwerft:assembly_table",
+      "retrofit_station": "infinite_horizon:assembly_table",
       "hangar_slots_per_terminal": 4,
       "routes_start_at_home_terminal": true,
       "refuel_before_start": "aus dem Treibstofftank des Heimatterminals",
@@ -89,12 +89,12 @@
     },
     "outpost": {
       "radius": 16,
-      "center": "sternenwerft:cargo_terminal",
+      "center": "infinite_horizon:cargo_terminal",
       "producers": [
-        "sternenwerft:drilling_rig",
-        "sternenwerft:pump_station",
-        "sternenwerft:gas_collector",
-        "sternenwerft:magnetic_trap"
+        "infinite_horizon:drilling_rig",
+        "infinite_horizon:pump_station",
+        "infinite_horizon:gas_collector",
+        "infinite_horizon:magnetic_trap"
       ],
       "producer_assignment": "nearest_cargo_terminal",
       "producers_output_to_terminal": true,
@@ -120,7 +120,7 @@
       ],
       "spec_ref": "20.1, 24.4"
     },
-    "sternenwerft:drilling_rig": {
+    "infinite_horizon:drilling_rig": {
       "scan_area": "chunk_below",
       "ore_tags": [
         "#c:ores"
@@ -137,12 +137,12 @@
       "scan_on": "place",
       "spec_ref": "20.2, 6.1"
     },
-    "sternenwerft:logistics_computer": {
+    "infinite_horizon:logistics_computer": {
       "endpoints": [
-        "sternenwerft:cargo_terminal",
-        "sternenwerft:shipyard_dock",
+        "infinite_horizon:cargo_terminal",
+        "infinite_horizon:shipyard_dock",
         "partner_cargo_terminal",
-        "sternenwerft:trading_post"
+        "infinite_horizon:trading_post"
       ],
       "cargo_filter": [
         "filter_list",
@@ -163,7 +163,7 @@
       "warn_if_round_trip_exceeds_tank_without_methane_at_target": true,
       "spec_ref": "20.4, 20.3"
     },
-    "sternenwerft:trading_post": {
+    "infinite_horizon:trading_post": {
       "offers_max": 8,
       "storage_slots": 54,
       "open_to_all_players": true,

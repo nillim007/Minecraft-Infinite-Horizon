@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CCC",
+    "CMC",
+    "CKC"
+  ],
+  "key": {
+    "C": "minecraft:copper_ingot",
+    "K": "minecraft:furnace",
+    "M": "infinite_horizon:machine_frame"
+  },
+  "result": {
+    "id": "infinite_horizon:electric_furnace",
+    "count": 1
+  }
+}

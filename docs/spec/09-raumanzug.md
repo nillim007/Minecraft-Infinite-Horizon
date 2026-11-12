@@ -14,10 +14,10 @@ Alle Grenzwerte sind **inklusiv** (−200 °C ist für T2 noch sicher). **Tiefse
 
 - **Sauerstoff:** Die Brustplatte hat einen Vorrat (`oxygen`, max. 1.200 mB). Sie füllt sich automatisch aus `oxygen_canister`/`large_oxygen_canister` im Inventar (die Flasche wird dabei geleert) und in aktiven Kuppeln mit 1 mB/t aus dem O₂-Tank des Kuppelgenerators (10.1). Liegen weniger als 500 mB im Tank, wird nicht nachgefüllt, damit die Kuppel nicht ausfällt. Eine Flasche mit 600 mB = 10 min (T1/T2) bzw. 20 min (T3).
   - **Verbrauch** nur mit vollständigem Anzug und `breathable = false`. Zähler in 1/1.000 mB; je Tick `amount / per_ticks × oxygen_consumption` (24.4). Der Faktor `oxygen_consumption` gilt nur für Anzüge, nicht für Kuppeln. Kreativ und Zuschauer verbrauchen nichts.
-  - **Neue Brustplatte:** 0 mB (ohne Komponente `sternenwerft:oxygen`).
+  - **Neue Brustplatte:** 0 mB (ohne Komponente `infinite_horizon:oxygen`).
   - **Ohne O₂:** Bei 0 mB schützt der Anzug weiter gegen Druck und Temperatur; nur die Gefahr Sauerstoff entsteht.
   - **Nachfüllen aus Flaschen:** bei jeder Umweltprüfung (alle 10 t), wenn der Vorrat unter 1.200 mB liegt, aus der ersten Flasche in Slot-Reihenfolge (Inventar 0–35, dann Zweithand), so viel wie passt. Eine leere Flasche verliert die Komponente.
-  - **Anzeige:** Tooltip der Brustplatte „O₂: 600 / 1.200 mB“ (`gui.sternenwerft.oxygen`) und HUD (8.4). Werte in `suits.json` (`oxygen_supply`).
+  - **Anzeige:** Tooltip der Brustplatte „O₂: 600 / 1.200 mB“ (`gui.infinite_horizon.oxygen`) und HUD (8.4). Werte in `suits.json` (`oxygen_supply`).
 - **Ertrinken:** Ein vollständiger Anzug mit O₂ > 0 hält den Vanilla-Luftvorrat unter Wasser voll; stattdessen sinkt der Anzugvorrat normal weiter.
 - **Hitzezeit Venus-Oberfläche:** Außerhalb der Wolkenschicht (y < 180 in `venus`) läuft ein Timer von 3.600 t. Danach gilt der Spieler als ungeschützt gegen Hitze. Der Timer füllt sich oberhalb y 180 in 1.200 t wieder auf.
 - **Rüstung:** Alle Werte wie bei der Vanilla-Rüstung aus der Spalte „Rüstung wie“ (T1 Eisen: Schutz 2/6/5/2, Haltbarkeit, Verzauberbarkeit). Reparatur-Item steht in `suits.json` (`repair_item`, T1: `aluminum_plate`). Der Haltbarkeitsbalken bleibt.

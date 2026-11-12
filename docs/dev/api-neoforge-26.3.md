@@ -65,9 +65,9 @@ import net.minecraft.resources.ResourceKey;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.tags.TagKey;
 
-Identifier id   = Identifier.fromNamespaceAndPath("sternenwerft", "crusher");
+Identifier id   = Identifier.fromNamespaceAndPath("infinite_horizon", "crusher");
 Identifier mc   = Identifier.withDefaultNamespace("stone");
-Identifier p    = Identifier.parse("sternenwerft:crusher");   // Identifier.tryParse(..) -> @Nullable
+Identifier p    = Identifier.parse("infinite_horizon:crusher");   // Identifier.tryParse(..) -> @Nullable
 ResourceKey<Block> key = ResourceKey.create(Registries.BLOCK, id);
 ResourceKey<Registry<Foo>> regKey = ResourceKey.createRegistryKey(id);
 Identifier back = key.identifier();                            // NICHT location()
@@ -98,7 +98,7 @@ public static final DeferredItem<Item> IRON_PLATE = ITEMS.registerSimpleItem("ir
 public static final DeferredItem<WrenchItem> WRENCH = ITEMS.registerItem("wrench", WrenchItem::new, p -> p.stacksTo(1));
 
 public static final DeferredHolder<CreativeModeTab, CreativeModeTab> TAB = TABS.register("main", () -> CreativeModeTab.builder()
-        .title(Component.translatable("itemGroup.sternenwerft"))
+        .title(Component.translatable("itemGroup.infinite_horizon"))
         .withTabsBefore(CreativeModeTabs.COMBAT)            // NeoForge-Patch, nimmt ResourceKey<CreativeModeTab>... oder Identifier...
         .icon(() -> CRUSHER_ITEM.get().getDefaultInstance())
         .displayItems((params, output) -> { output.accept(CRUSHER_ITEM.get()); output.accept(IRON_PLATE.get()); })
@@ -405,7 +405,7 @@ sl.getServer().getRecipeManager().getRecipeFor(type, in, sl, @Nullable RecipeHol
 ```java
 public static final DeferredRegister<Consumer<GameTestHelper>> TEST_FUNCTIONS = DeferredRegister.create(Registries.TEST_FUNCTION, MODID);
 public static final DeferredHolder<Consumer<GameTestHelper>, Consumer<GameTestHelper>> CRUSHER_SMOKE =
-        TEST_FUNCTIONS.register("crusher_smoke", () -> SwGameTests::crusherSmoke);
+        TEST_FUNCTIONS.register("crusher_smoke", () -> IhGameTests::crusherSmoke);
 
 @SubscribeEvent // Mod-Bus
 static void onRegisterTests(RegisterGameTestsEvent event) {
@@ -462,7 +462,7 @@ Quellen: `nf/event/AddServerReloadListenersEvent.java` (Game-Bus `NeoForge.EVENT
 ```java
 NeoForge.EVENT_BUS.addListener((AddServerReloadListenersEvent e) -> e.addListener(
         Identifier.fromNamespaceAndPath(MODID, "planets"),
-        new SimpleJsonResourceReloadListener<>(PlanetDef.CODEC, FileToIdConverter.json("sternenwerft/planets")) {
+        new SimpleJsonResourceReloadListener<>(PlanetDef.CODEC, FileToIdConverter.json("infinite_horizon/planets")) {
             @Override protected void apply(Map<Identifier, PlanetDef> data, ResourceManager rm, ProfilerFiller profiler) { /* ... */ }
         }));
 // Einfacher: record R(ReloadableServerResources res) implements ResourceManagerReloadListener { onResourceManagerReload(ResourceManager) }

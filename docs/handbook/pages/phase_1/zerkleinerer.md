@@ -3,20 +3,20 @@ title: Zerkleinerer
 title_en: Crusher
 order: 40
 milestone: 1
-requires: ["sternenwerft:crusher"]
-icon: sternenwerft:crusher
-items: ["sternenwerft:crusher", "sternenwerft:iron_dust", "sternenwerft:copper_dust", "sternenwerft:gold_dust", "sternenwerft:aluminum_dust", "sternenwerft:titanium_dust"]
+requires: ["infinite_horizon:crusher"]
+icon: infinite_horizon:crusher
+items: ["infinite_horizon:crusher", "infinite_horizon:iron_dust", "infinite_horizon:copper_dust", "infinite_horizon:gold_dust", "infinite_horizon:aluminum_dust", "infinite_horizon:titanium_dust"]
 summary: Aus einem Roherz werden zwei Staub
 ---
-Der <item:sternenwerft:crusher> ist die erste Maschine, die du bauen solltest. Er mahlt Rohformen von Metallen zu **zwei** Staub. Schmilzt du den Staub, bekommst du aus jedem Erz zwei Barren statt einem.
+Der <item:infinite_horizon:crusher> ist die erste Maschine, die du bauen solltest. Er mahlt Rohformen von Metallen zu **zwei** Staub. Schmilzt du den Staub, bekommst du aus jedem Erz zwei Barren statt einem.
 
-@machine sternenwerft:crusher
+@machine infinite_horizon:crusher
 
 @image ../images/screenshots/gui-crusher.png | Das Fenster des Zerkleinerers: Energie links, Eingabe, Fortschrittspfeil, vier Ausgabeslots und unten rechts die Upgrade-Slots.
 
 ## Bauen
 
-@recipes_for sternenwerft:crusher
+@recipes_for infinite_horizon:crusher
 
 ## Was er verarbeitet
 

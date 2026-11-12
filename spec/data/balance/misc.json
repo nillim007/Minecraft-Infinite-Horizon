@@ -2,7 +2,7 @@
   "schema_version": 1,
   "entries": {
     "gravity": {
-      "modifier_id": "sternenwerft:planet_gravity",
+      "modifier_id": "infinite_horizon:planet_gravity",
       "update_interval_ticks": 10,
       "gravity_attribute": "minecraft:gravity",
       "gravity_per_g": 0.08,
@@ -12,8 +12,8 @@
       "orbit_g": 0.005,
       "applies_to": [
         "players",
-        "sternenwerft:rover",
-        "sternenwerft:rocket"
+        "infinite_horizon:rover",
+        "infinite_horizon:rocket"
       ],
       "projectiles_use_g": true,
       "explosion_vertical_knockback": "× 1/g bei g < 1",
@@ -34,7 +34,7 @@
       "notes": "gravity = 0,08 × g; safe_fall_distance = 3 / max(g, 0,05); fall_damage_multiplier = g. Monster und Items fallen mit Vanilla-Schwerkraft. Mond: Sprunghöhe rund 4,9 Blöcke (gewollt)."
     },
     "atmosphere_rules": {
-      "block_tag": "sternenwerft:needs_atmosphere",
+      "block_tag": "infinite_horizon:needs_atmosphere",
       "tag_contents": [
         "#minecraft:candles",
         "minecraft:torch",
@@ -51,7 +51,7 @@
         "minecraft:soul_campfire"
       ],
       "placement": "denied",
-      "denied_message": "message.sternenwerft.no_atmosphere",
+      "denied_message": "message.infinite_horizon.no_atmosphere",
       "existing_torches": "random_tick_to_extinguished_torch",
       "existing_lit_blocks": "lit_false",
       "existing_other": "removed",
@@ -76,7 +76,7 @@
     },
     "commands": {
       "goto": {
-        "syntax": "/sternenwerft goto <planet> [<x> <z>]",
+        "syntax": "/infinite_horizon goto <planet> [<x> <z>]",
         "permission_level": 2,
         "default_xz": [
           0,
@@ -86,11 +86,11 @@
         "overworld": "world_spawn"
       },
       "agency_info": {
-        "syntax": "/sternenwerft agency info [<spieler>]",
+        "syntax": "/infinite_horizon agency info [<spieler>]",
         "permission_level": 0
       },
       "agency_transfer": {
-        "syntax": "/sternenwerft agency transfer <von> <an>",
+        "syntax": "/infinite_horizon agency transfer <von> <an>",
         "permission_level": 2
       },
       "spec_ref": "12.5, 23.1"
@@ -124,7 +124,7 @@
       "spec_ref": "4.1, 4.3"
     },
     "titan_elytra": {
-      "dimension": "sternenwerft:titan",
+      "dimension": "infinite_horizon:titan",
       "glide_without_fireworks": true,
       "sink_rate_multiplier": 0.5,
       "spec_ref": "13.4"
@@ -136,21 +136,21 @@
     },
     "code_recipes": {
       "suit_module_install": {
-        "machine": "sternenwerft:assembly_table",
+        "machine": "infinite_horizon:assembly_table",
         "description_de": "Anzugteil + Modul im Montagetisch → Anzugteil mit eingebautem Modul (Data Component suit_modules, max. 2 Module je Teil). Gilt für alle Anzugteile und alle Module aus 9.2, das Modul muss zum Teil passen.",
         "ticks": null,
         "energy_per_tick": null,
         "spec_ref": "9.2, 25.4"
       },
       "suit_module_remove": {
-        "machine": "sternenwerft:assembly_table",
+        "machine": "infinite_horizon:assembly_table",
         "description_de": "Anzugteil allein im Montagetisch → Anzugteil ohne Module als Hauptergebnis, die ausgebauten Module in die Nebenausgaben (3 Ausgabeslots).",
         "ticks": null,
         "energy_per_tick": null,
         "spec_ref": "9.2, 25.4"
       },
       "food_packing": {
-        "machine": "sternenwerft:food_packer",
+        "machine": "infinite_horizon:food_packer",
         "description_de": "3 beliebige Nahrungsmittel → 1 space_ration; Nahrung und Sättigung = Summe der 3 Eingaben (max. 20), gespeichert in der Data Component nutrition.",
         "ticks": null,
         "energy_per_tick": null,
@@ -160,7 +160,7 @@
       "notes": "ticks/energy_per_tick null = Werte der Maschine aus balance/machines.json."
     },
     "config_defaults": {
-      "file": "serverconfig/sternenwerft.json",
+      "file": "serverconfig/infinite_horizon.json",
       "recipe_amount_multiplier": {
         "default": 1.0,
         "min": 0.25,

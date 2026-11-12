@@ -1,0 +1,24 @@
+{
+  "features": [
+    {
+      "feature": "infinite_horizon:bauxite_ore",
+      "biomes": "infinite_horizon:has_bauxite_ore",
+      "step": "underground_ores"
+    },
+    {
+      "feature": "infinite_horizon:titanium_ore",
+      "biomes": "infinite_horizon:has_titanium_ore",
+      "step": "underground_ores"
+    },
+    {
+      "feature": "infinite_horizon:quartz_sand",
+      "biomes": "infinite_horizon:has_quartz_sand",
+      "step": "underground_ores"
+    },
+    {
+      "feature": "infinite_horizon:oil_bubble",
+      "biomes": "infinite_horizon:has_oil_bubble",
+      "step": "lakes"
+    }
+  ]
+}

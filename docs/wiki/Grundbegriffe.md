@@ -42,7 +42,7 @@ Manche Maschinen sind so groß, dass sie aus vielen Blöcken bestehen, zum Beisp
 
 ## Phasen
 
-Sternenwerft ist in sechs **Phasen** gegliedert, von der Industrie auf der Erde bis zum Sternenschiff. Jede Phase hat im Handbuch ein eigenes Kapitel mit einer Seite „Erste Schritte“. Ab Phase 2 schaltest du neue Technik mit **Forschung** frei.
+Infinite Horizon ist in sechs **Phasen** gegliedert, von der Industrie auf der Erde bis zum Sternenschiff. Jede Phase hat im Handbuch ein eigenes Kapitel mit einer Seite „Erste Schritte“. Ab Phase 2 schaltest du neue Technik mit **Forschung** frei.
 
 > [!TIP]
 > Wenn du nur eins behältst: **Grün arbeitet, gelb wartet, rot hat ein Problem.** Ein Blick auf die Lampen zeigt dir sofort, wo deine Fabrik hakt.

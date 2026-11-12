@@ -1,0 +1,28 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:machine_frame",
+      "count": 1
+    },
+    {
+      "ingredient": "infinite_horizon:combustion_generator",
+      "count": 1
+    },
+    {
+      "ingredient": "infinite_horizon:copper_pipe",
+      "count": 4
+    },
+    {
+      "ingredient": "infinite_horizon:iron_plate",
+      "count": 4
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:fuel_generator",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

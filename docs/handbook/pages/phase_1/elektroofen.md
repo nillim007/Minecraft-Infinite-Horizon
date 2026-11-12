@@ -3,20 +3,20 @@ title: Elektroofen
 title_en: Electric Furnace
 order: 50
 milestone: 2
-requires: ["sternenwerft:electric_furnace"]
-icon: sternenwerft:electric_furnace
-items: ["sternenwerft:electric_furnace", "sternenwerft:silicon", "sternenwerft:aluminum_ingot", "sternenwerft:titanium_ingot"]
+requires: ["infinite_horizon:electric_furnace"]
+icon: infinite_horizon:electric_furnace
+items: ["infinite_horizon:electric_furnace", "infinite_horizon:silicon", "infinite_horizon:aluminum_ingot", "infinite_horizon:titanium_ingot"]
 summary: Schmilzt mit Strom statt Kohle – und macht Silizium
 ---
-Der <item:sternenwerft:electric_furnace> schmilzt alles, was auch der normale Ofen schmilzt, braucht dafür aber Strom statt Brennstoff. Dazu kann er Dinge, die kein Ofen kann, zum Beispiel <item:sternenwerft:silicon> aus Quarzsand.
+Der <item:infinite_horizon:electric_furnace> schmilzt alles, was auch der normale Ofen schmilzt, braucht dafür aber Strom statt Brennstoff. Dazu kann er Dinge, die kein Ofen kann, zum Beispiel <item:infinite_horizon:silicon> aus Quarzsand.
 
-@machine sternenwerft:electric_furnace
+@machine infinite_horizon:electric_furnace
 
 @image ../images/screenshots/gui-electric-furnace.png | Das Fenster des Elektroofens mit zwei Eingabeslots.
 
 ## Bauen
 
-@recipes_for sternenwerft:electric_furnace
+@recipes_for infinite_horizon:electric_furnace
 
 ## Nur im Elektroofen
 
@@ -24,7 +24,7 @@ Der <item:sternenwerft:electric_furnace> schmilzt alles, was auch der normale Of
 
 ## Alles aus dem normalen Ofen
 
-Der Elektroofen nimmt jedes Vanilla-Schmelzrezept an. Dazu gehören auch die Barren aus Sternenwerft:
+Der Elektroofen nimmt jedes Vanilla-Schmelzrezept an. Dazu gehören auch die Barren aus Infinite Horizon:
 
 @recipes_type smelting
 

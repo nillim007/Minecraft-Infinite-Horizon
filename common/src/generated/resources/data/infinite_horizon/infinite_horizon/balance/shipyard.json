@@ -1,0 +1,192 @@
+{
+  "schema_version": 1,
+  "entries": {
+    "1": {
+      "name_de": "Rumpf",
+      "name_en": "Hull",
+      "materials": [
+        {
+          "id": "infinite_horizon:lightweight_plate",
+          "count": 512
+        },
+        {
+          "id": "infinite_horizon:titanium_plate",
+          "count": 256
+        },
+        {
+          "id": "infinite_horizon:aluminum_plate",
+          "count": 128
+        }
+      ],
+      "build_ticks": 48000,
+      "spec_ref": "21.2, 21.1"
+    },
+    "2": {
+      "name_de": "Schilde",
+      "name_en": "Shields",
+      "materials": [
+        {
+          "id": "infinite_horizon:tungsten_plate",
+          "count": 192
+        },
+        {
+          "id": "infinite_horizon:heat_shield",
+          "count": 64
+        }
+      ],
+      "build_ticks": 48000,
+      "spec_ref": "21.2, 21.1"
+    },
+    "3": {
+      "name_de": "Hauptantrieb",
+      "name_en": "Main Drive",
+      "materials": [
+        {
+          "id": "infinite_horizon:antimatter_drive",
+          "count": 4
+        }
+      ],
+      "build_ticks": 48000,
+      "spec_ref": "21.2, 21.1"
+    },
+    "4": {
+      "name_de": "Energie",
+      "name_en": "Power",
+      "materials": [
+        {
+          "id": "infinite_horizon:fission_reactor",
+          "count": 1
+        },
+        {
+          "id": "infinite_horizon:lithium_battery",
+          "count": 64
+        },
+        {
+          "id": "infinite_horizon:fuel_rod",
+          "count": 32
+        }
+      ],
+      "build_ticks": 48000,
+      "spec_ref": "21.2, 21.1"
+    },
+    "5": {
+      "name_de": "Bordcomputer",
+      "name_en": "Flight Computer",
+      "materials": [
+        {
+          "id": "infinite_horizon:iridium_chip",
+          "count": 128
+        },
+        {
+          "id": "infinite_horizon:platinum_ingot",
+          "count": 64
+        },
+        {
+          "id": "infinite_horizon:star_chart",
+          "count": 1
+        }
+      ],
+      "build_ticks": 48000,
+      "spec_ref": "21.2, 21.1",
+      "notes": "Nur eine star_chart der eigenen Agentur (chart_owner) wird angenommen (18)."
+    },
+    "6": {
+      "name_de": "Lebenserhaltung",
+      "name_en": "Life Support",
+      "materials": [
+        {
+          "id": "infinite_horizon:dome_generator_t3",
+          "count": 1
+        },
+        {
+          "id": "infinite_horizon:oxygen_generator",
+          "count": 8
+        },
+        {
+          "id": "infinite_horizon:greenhouse",
+          "count": 1
+        },
+        {
+          "id": "infinite_horizon:clone_chamber",
+          "count": 1
+        }
+      ],
+      "build_ticks": 48000,
+      "spec_ref": "21.2, 21.1"
+    },
+    "7": {
+      "name_de": "Kühlung",
+      "name_en": "Cooling",
+      "materials": [
+        {
+          "fluid": "infinite_horizon:liquid_nitrogen",
+          "amount": 1024000
+        },
+        {
+          "fluid": "infinite_horizon:liquid_helium",
+          "amount": 512000
+        },
+        {
+          "fluid": "infinite_horizon:ammonia",
+          "amount": 512000
+        }
+      ],
+      "build_ticks": 48000,
+      "spec_ref": "21.2, 21.1",
+      "notes": "= 64 / 32 / 32 Tanks."
+    },
+    "8": {
+      "name_de": "Manövriertriebwerke",
+      "name_en": "Maneuvering Thrusters",
+      "materials": [
+        {
+          "fluid": "infinite_horizon:methane",
+          "amount": 512000
+        },
+        {
+          "fluid": "infinite_horizon:hydrogen",
+          "amount": 256000
+        },
+        {
+          "id": "infinite_horizon:sulfur",
+          "count": 64
+        }
+      ],
+      "build_ticks": 48000,
+      "spec_ref": "21.2, 21.1"
+    },
+    "shipyard_rules": {
+      "terminal": "infinite_horizon:shipyard_terminal",
+      "terminal_location": {
+        "dimension_type": "orbit",
+        "dimensions": [
+          "infinite_horizon:earth_orbit"
+        ],
+        "excluded_dimensions": []
+      },
+      "terminal_requires_station": true,
+      "requires_dock_in_same_station": true,
+      "station_core_radius": 48,
+      "warehouse": "virtual_unlimited_needed_only",
+      "accepts_for_all_open_sections": true,
+      "build_order": "sequential",
+      "time_base": "overworld",
+      "builds_offline": true,
+      "partner_deliveries": "nur mit Freigabe des Besitzers",
+      "reports_demand_to": "infinite_horizon:logistics_computer",
+      "spec_ref": "21.1, 14.2"
+    },
+    "finale": {
+      "start_after_section": 8,
+      "sequence_ticks": 1200,
+      "per_body_ticks": "1200 ÷ Anzahl besuchter Planeten",
+      "advancement": "infinite_horizon:starship",
+      "spawns_entity": "infinite_horizon:starship",
+      "texts": [
+        "assets/infinite_horizon/texts/signal_reply.txt",
+        "assets/infinite_horizon/texts/credits.txt"
+      ],
+      "spec_ref": "21.3"
+    }
+  }
+}

@@ -4,7 +4,7 @@
 
 # Ausblick – was noch kommt
 
-Sternenwerft entsteht Meilenstein für Meilenstein. Dieses Wiki zeigt immer nur, was im aktuellen Stand **schon spielbar** ist. Hier ein Blick auf das, was geplant ist.
+Infinite Horizon entsteht Meilenstein für Meilenstein. Dieses Wiki zeigt immer nur, was im aktuellen Stand **schon spielbar** ist. Hier ein Blick auf das, was geplant ist.
 
 ![Ausblick – was noch kommt](../images/solar-system.svg)
 

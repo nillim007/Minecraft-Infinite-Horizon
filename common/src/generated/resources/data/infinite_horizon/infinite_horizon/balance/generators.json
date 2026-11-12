@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "entries": {
+    "infinite_horizon:combustion_generator": {
+      "output_per_tick": 20,
+      "fuel": [
+        {
+          "item": null,
+          "item_component": "minecraft:cooking_fuel",
+          "amount": 1,
+          "per_ticks": null,
+          "per_ticks_source": "Vanilla-Brennwert des Items in Ticks (COOKING_FUEL)",
+          "example": {
+            "item": "minecraft:coal",
+            "per_ticks": 1600
+          }
+        }
+      ],
+      "buffer": 20000,
+      "coolant": [],
+      "safety": null,
+      "location": null,
+      "upgrade_slots": 0,
+      "item_slots": {
+        "fuel": 1
+      },
+      "fluid_tanks": [],
+      "container_slots": {
+        "fill": 0,
+        "drain": 0
+      },
+      "spec_ref": "6.3, 3.2",
+      "notes": null
+    },
+    "infinite_horizon:fuel_generator": {
+      "output_per_tick": 80,
+      "fuel": [
+        {
+          "fluid": "infinite_horizon:kerosene",
+          "amount": 1,
+          "per_ticks": 4
+        }
+      ],
+      "buffer": 80000,
+      "coolant": [],
+      "safety": null,
+      "location": null,
+      "upgrade_slots": 0,
+      "item_slots": {},
+      "fluid_tanks": [
+        {
+          "role": "fuel",
+          "capacity": 16000,
+          "fluids": [
+            "infinite_horizon:kerosene"
+          ]
+        }
+      ],
+      "container_slots": {
+        "fill": 1,
+        "drain": 1
+      },
+      "spec_ref": "6.3",
+      "notes": "SPEC-GAP: Tankgröße nicht angegeben; TANK_CAPACITY 16.000 mB (3.6)."
+    },
+    "infinite_horizon:solar_panel": {
+      "output_per_tick": {
+        "surface": 5,
+        "orbit": 20
+      },
+      "output_formula": {
+        "surface": "5 × solar_factor × daylight × weather_multiplier",
+        "orbit": "20 × solar_factor × weather_multiplier"
+      },
+      "condition": "sky_visible",
+      "daylight": {
+        "day": 1.0,
+        "night": 0.0,
+        "twilight": "linear"
+      },
+      "weather_multipliers": {
+        "minecraft:rain": 0.25,
+        "infinite_horizon:acid_rain": 0.25,
+        "infinite_horizon:methane_rain": 0.25,
+        "infinite_horizon:dust_storm": 0.25,
+        "infinite_horizon:solar_storm": 2.0
+      },
+      "fuel": [],
+      "buffer": 5000,
+      "coolant": [],
+      "safety": null,
+      "location": null,
+      "upgrade_slots": 0,
+      "spec_ref": "6.3, 19",
+      "notes": "solar_factor aus planets.json (inkl. Zonen). Säure- und Methanregen zählen als Regen (Lesart)."
+    },
+    "infinite_horizon:solar_wing": {
+      "output_per_tick": {
+        "orbit": 20
+      },
+      "output_formula": {
+        "orbit": "20 × solar_factor × weather_multiplier"
+      },
+      "condition": "sky_visible",
+      "weather_multipliers": {
+        "minecraft:rain": 0.25,
+        "infinite_horizon:acid_rain": 0.25,
+        "infinite_horizon:methane_rain": 0.25,
+        "infinite_horizon:dust_storm": 0.25,
+        "infinite_horizon:solar_storm": 2.0
+      },
+      "fuel": [],
+      "buffer": 5000,
+      "coolant": [],
+      "safety": null,
+      "location": {
+        "dimension_type": "orbit",
+        "dimensions": [],
+        "excluded_dimensions": []
+      },
+      "upgrade_slots": 0,
+      "spec_ref": "6.3, 14.2",
+      "notes": "Wie Solarpanel im Orbit."
+    },
+    "infinite_horizon:fusion_reactor": {
+      "output_per_tick": 1000,
+      "fuel": [
+        {
+          "fluid": "infinite_horizon:hydrogen",
+          "amount": 10,
+          "per_ticks": 20
+        },
+        {
+          "fluid": "infinite_horizon:helium",
+          "amount": 5,
+          "per_ticks": 20
+        }
+      ],
+      "buffer": 1000000,
+      "coolant": [
+        {
+          "fluid": "infinite_horizon:liquid_helium",
+          "amount": 2,
+          "per_ticks": 20,
+          "returns": {
+            "fluid": "infinite_horizon:helium",
+            "amount": 2
+          }
+        }
+      ],
+      "coolant_mode": "all",
+      "safety": {
+        "type": "cooling_shutdown",
+        "shutdown_after_ticks_without_cooling": 40,
+        "restart_after_ticks_with_cooling": 100,
+        "status_on_shutdown": "error",
+        "explosion": false
+      },
+      "location": null,
+      "upgrade_slots": 0,
+      "item_slots": {},
+      "fluid_tanks": [
+        {
+          "role": "fuel",
+          "capacity": 16000,
+          "fluids": [
+            "infinite_horizon:hydrogen"
+          ]
+        },
+        {
+          "role": "fuel",
+          "capacity": 16000,
+          "fluids": [
+            "infinite_horizon:helium"
+          ]
+        },
+        {
+          "role": "coolant",
+          "capacity": 16000,
+          "fluids": [
+            "infinite_horizon:liquid_helium"
+          ]
+        },
+        {
+          "role": "output",
+          "capacity": 16000,
+          "fluids": [
+            "infinite_horizon:helium"
+          ]
+        }
+      ],
+      "container_slots": {
+        "fill": 1,
+        "drain": 1
+      },
+      "multiblock": "fusion_reactor_multiblock",
+      "spec_ref": "6.3, 15",
+      "notes": "Struktur in machines.json. Zurückgegebenes Helium geht in einen eigenen Ausgabetank. SPEC-GAP: Tankgrößen nicht angegeben; 16.000 mB (3.6)."
+    },
+    "infinite_horizon:fission_reactor": {
+      "output_per_tick": 4000,
+      "fuel": [
+        {
+          "item": "infinite_horizon:fuel_rod",
+          "amount": 1,
+          "per_ticks": 48000
+        }
+      ],
+      "buffer": 4000000,
+      "coolant": [
+        {
+          "fluid": "minecraft:water",
+          "amount": 50,
+          "per_ticks": 1
+        },
+        {
+          "fluid": "infinite_horizon:liquid_nitrogen",
+          "amount": 5,
+          "per_ticks": 1
+        }
+      ],
+      "coolant_mode": "any_one",
+      "safety": {
+        "type": "heat",
+        "heat_min": 0,
+        "heat_max": 1000,
+        "heat_per_tick_cooled": -5,
+        "heat_per_tick_uncooled": 2,
+        "warning_at": 800,
+        "scram_at": 1000,
+        "radiation_zone": {
+          "radius": 16,
+          "radiation": 3,
+          "duration_ticks": 72000
+        },
+        "restart_below_heat": 200,
+        "explosion": false
+      },
+      "location": null,
+      "upgrade_slots": 0,
+      "item_slots": {
+        "fuel": 4
+      },
+      "fluid_tanks": [
+        {
+          "role": "coolant",
+          "capacity": 16000,
+          "fluids": [
+            "minecraft:water",
+            "infinite_horizon:liquid_nitrogen"
+          ]
+        }
+      ],
+      "container_slots": {
+        "fill": 1,
+        "drain": 1
+      },
+      "multiblock": "fission_reactor_multiblock",
+      "spec_ref": "6.3, 15",
+      "notes": "Struktur in machines.json. Ein Kühltank für Wasser oder flüssigen Stickstoff. SPEC-GAP: Tankgröße nicht angegeben; 16.000 mB (3.6)."
+    }
+  }
+}

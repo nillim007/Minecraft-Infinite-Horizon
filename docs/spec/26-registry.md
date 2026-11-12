@@ -10,6 +10,6 @@
 
 **Menüs (GUI):** je Maschine eines, dazu `research_terminal`, `launch_control`, `star_map`, `rocket`, `rover`, `logistics_computer`, `shipyard_terminal`, `trading_post`, `planetary_atlas`, `engineers_handbook`.
 
-**Data Components:** `sternenwerft:fluid` (Fluid + Menge), `oxygen`, `energy`, `suit_modules`, `sample` (Block + Dimension), `charge`, `nutrition`, `linked_pos`, `drive` (Antrieb einer Frachtrakete), `rover_data` (Fracht, Module und Energie eines abgebauten Rovers), `flights_left` (`heavy_freighter`), `chart_owner` (`star_chart`).
+**Data Components:** `infinite_horizon:fluid` (Fluid + Menge), `oxygen`, `energy`, `suit_modules`, `sample` (Block + Dimension), `charge`, `nutrition`, `linked_pos`, `drive` (Antrieb einer Frachtrakete), `rover_data` (Fracht, Module und Energie eines abgebauten Rovers), `flights_left` (`heavy_freighter`), `chart_owner` (`star_chart`).
 
-**Tags:** `sternenwerft:gases`, `needs_atmosphere` (Block-Tag, 8.5), `sampleable/ring0`, `sampleable/planet`, `analyzable` (die 15 Kreaturen aus 18), `basalt`, `crawler_food`, `vibrating`, `compostable`, `planet_soil`, alle `c:`-Materialtags.
+**Tags:** `infinite_horizon:gases`, `needs_atmosphere` (Block-Tag, 8.5), `sampleable/ring0`, `sampleable/planet`, `analyzable` (die 15 Kreaturen aus 18), `basalt`, `crawler_food`, `vibrating`, `compostable`, `planet_soil`, alle `c:`-Materialtags.

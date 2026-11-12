@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "entries": {
-    "sternenwerft:hydroponics_basin": {
+    "infinite_horizon:hydroponics_basin": {
       "plant_slots": 1,
       "ticks_per_growth_stage": 2000,
       "ticks_per_growth_stage_fertilized": 1333,
@@ -29,7 +29,7 @@
       "sapling_returns_to_plant_slot": true,
       "spec_ref": "17"
     },
-    "sternenwerft:greenhouse": {
+    "infinite_horizon:greenhouse": {
       "plant_slots": 9,
       "item_slots": {
         "input": 9,
@@ -45,7 +45,7 @@
         }
       ],
       "consumes": {
-        "item": "sternenwerft:dry_ice",
+        "item": "infinite_horizon:dry_ice",
         "count": 1,
         "per_ticks": 6000
       },
@@ -58,29 +58,29 @@
       "spec_ref": "14.2, 17",
       "notes": "SPEC-GAP: Strom, Wasser und Ausgabeslots nicht angegeben; aus „verhält sich wie 9 Becken“ (17) als 9 × Beckenwerte abgeleitet."
     },
-    "sternenwerft:ammonia_fertilizer": {
+    "infinite_horizon:ammonia_fertilizer": {
       "growth_bonus": 0.5,
       "duration_ticks": 24000,
       "use": "right_click",
       "applies_to": [
-        "sternenwerft:hydroponics_basin",
-        "sternenwerft:greenhouse"
+        "infinite_horizon:hydroponics_basin",
+        "infinite_horizon:greenhouse"
       ],
       "spec_ref": "17, 14.2"
     },
-    "sternenwerft:space_ration": {
+    "infinite_horizon:space_ration": {
       "inputs": 3,
       "nutrition": "sum_of_inputs",
       "saturation": "sum_of_inputs",
       "nutrition_max": 20,
       "saturation_max": 20,
       "max_stack": 16,
-      "data_component": "sternenwerft:nutrition",
-      "produced_by": "sternenwerft:food_packer",
+      "data_component": "infinite_horizon:nutrition",
+      "produced_by": "infinite_horizon:food_packer",
       "spec_ref": "17"
     },
-    "sternenwerft:compost_soil": {
-      "hoe_result": "sternenwerft:compost_farmland",
+    "infinite_horizon:compost_soil": {
+      "hoe_result": "infinite_horizon:compost_farmland",
       "farmland_behavior": "minecraft:farmland",
       "spec_ref": "17"
     },

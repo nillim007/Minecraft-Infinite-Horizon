@@ -118,7 +118,7 @@ Beim Betreten einer Dimension und alle 10 t:
 - `minecraft:gravity` = 0,08 × g
 - `minecraft:fall_damage_multiplier` = g
 - `minecraft:safe_fall_distance` = 3 / max(g, 0,05)
-- Umsetzung als `AttributeModifier` mit fester ID `sternenwerft:planet_gravity` (nie den Basiswert ändern), damit andere Mods ihre eigenen Modifikatoren behalten.
+- Umsetzung als `AttributeModifier` mit fester ID `infinite_horizon:planet_gravity` (nie den Basiswert ändern), damit andere Mods ihre eigenen Modifikatoren behalten.
 - Operationen: `minecraft:gravity` und `minecraft:fall_damage_multiplier` als `add_multiplied_total` mit g − 1, `minecraft:safe_fall_distance` als `add_value` mit 3 / max(g, 0,05) − 3 (Basiswerte 0,08, 1 und 3). Angewendet beim Dimensionswechsel, Respawn, Login und alle 10 t.
 - Gilt für Spieler (ab M3), Rover und Raketen (`applies_to` in `misc.json`). Monster und Items fallen mit Vanilla-Schwerkraft. Die Mixins für Projektile und Explosionen (3.7) kommen mit M5.
 - Mit g = 0,17 springt ein Spieler rund 4,9 Blöcke hoch (Vanilla 1,25). Das ist gewollt; `minecraft:jump_strength` bleibt unverändert.
@@ -127,4 +127,4 @@ Beim Betreten einer Dimension und alle 10 t:
 
 ## 12.10 Befehl `goto` (ab M3)
 
-`/sternenwerft goto <planet> [<x> <z>]` (Rechtestufe 2) bringt einen Spieler ohne Rakete in eine Planetendimension: in M3 als einziger Weg zum Mond, später für Tests. Der Landeplatz entsteht wie in 12.5 (`LandingService`, `landing_search` in `spaceflight.json`), Standard X/Z 0/0. `goto overworld` führt zum Weltspawn. Werte in `misc.json` (`commands`).
+`/infinite_horizon goto <planet> [<x> <z>]` (Rechtestufe 2) bringt einen Spieler ohne Rakete in eine Planetendimension: in M3 als einziger Weg zum Mond, später für Tests. Der Landeplatz entsteht wie in 12.5 (`LandingService`, `landing_search` in `spaceflight.json`), Standard X/Z 0/0. `goto overworld` führt zum Weltspawn. Werte in `misc.json` (`commands`).

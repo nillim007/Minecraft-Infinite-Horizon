@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "entries": {
-    "sternenwerft:combustion_generator": {
+    "infinite_horizon:combustion_generator": {
       "output_per_tick": 20,
       "fuel": [
         {
@@ -32,11 +32,11 @@
       "spec_ref": "6.3, 3.2",
       "notes": null
     },
-    "sternenwerft:fuel_generator": {
+    "infinite_horizon:fuel_generator": {
       "output_per_tick": 80,
       "fuel": [
         {
-          "fluid": "sternenwerft:kerosene",
+          "fluid": "infinite_horizon:kerosene",
           "amount": 1,
           "per_ticks": 4
         }
@@ -52,7 +52,7 @@
           "role": "fuel",
           "capacity": 16000,
           "fluids": [
-            "sternenwerft:kerosene"
+            "infinite_horizon:kerosene"
           ]
         }
       ],
@@ -63,7 +63,7 @@
       "spec_ref": "6.3",
       "notes": "SPEC-GAP: Tankgröße nicht angegeben; TANK_CAPACITY 16.000 mB (3.6)."
     },
-    "sternenwerft:solar_panel": {
+    "infinite_horizon:solar_panel": {
       "output_per_tick": {
         "surface": 5,
         "orbit": 20
@@ -80,10 +80,10 @@
       },
       "weather_multipliers": {
         "minecraft:rain": 0.25,
-        "sternenwerft:acid_rain": 0.25,
-        "sternenwerft:methane_rain": 0.25,
-        "sternenwerft:dust_storm": 0.25,
-        "sternenwerft:solar_storm": 2.0
+        "infinite_horizon:acid_rain": 0.25,
+        "infinite_horizon:methane_rain": 0.25,
+        "infinite_horizon:dust_storm": 0.25,
+        "infinite_horizon:solar_storm": 2.0
       },
       "fuel": [],
       "buffer": 5000,
@@ -94,7 +94,7 @@
       "spec_ref": "6.3, 19",
       "notes": "solar_factor aus planets.json (inkl. Zonen). Säure- und Methanregen zählen als Regen (Lesart)."
     },
-    "sternenwerft:solar_wing": {
+    "infinite_horizon:solar_wing": {
       "output_per_tick": {
         "orbit": 20
       },
@@ -104,10 +104,10 @@
       "condition": "sky_visible",
       "weather_multipliers": {
         "minecraft:rain": 0.25,
-        "sternenwerft:acid_rain": 0.25,
-        "sternenwerft:methane_rain": 0.25,
-        "sternenwerft:dust_storm": 0.25,
-        "sternenwerft:solar_storm": 2.0
+        "infinite_horizon:acid_rain": 0.25,
+        "infinite_horizon:methane_rain": 0.25,
+        "infinite_horizon:dust_storm": 0.25,
+        "infinite_horizon:solar_storm": 2.0
       },
       "fuel": [],
       "buffer": 5000,
@@ -122,16 +122,16 @@
       "spec_ref": "6.3, 14.2",
       "notes": "Wie Solarpanel im Orbit."
     },
-    "sternenwerft:fusion_reactor": {
+    "infinite_horizon:fusion_reactor": {
       "output_per_tick": 1000,
       "fuel": [
         {
-          "fluid": "sternenwerft:hydrogen",
+          "fluid": "infinite_horizon:hydrogen",
           "amount": 10,
           "per_ticks": 20
         },
         {
-          "fluid": "sternenwerft:helium",
+          "fluid": "infinite_horizon:helium",
           "amount": 5,
           "per_ticks": 20
         }
@@ -139,11 +139,11 @@
       "buffer": 1000000,
       "coolant": [
         {
-          "fluid": "sternenwerft:liquid_helium",
+          "fluid": "infinite_horizon:liquid_helium",
           "amount": 2,
           "per_ticks": 20,
           "returns": {
-            "fluid": "sternenwerft:helium",
+            "fluid": "infinite_horizon:helium",
             "amount": 2
           }
         }
@@ -164,28 +164,28 @@
           "role": "fuel",
           "capacity": 16000,
           "fluids": [
-            "sternenwerft:hydrogen"
+            "infinite_horizon:hydrogen"
           ]
         },
         {
           "role": "fuel",
           "capacity": 16000,
           "fluids": [
-            "sternenwerft:helium"
+            "infinite_horizon:helium"
           ]
         },
         {
           "role": "coolant",
           "capacity": 16000,
           "fluids": [
-            "sternenwerft:liquid_helium"
+            "infinite_horizon:liquid_helium"
           ]
         },
         {
           "role": "output",
           "capacity": 16000,
           "fluids": [
-            "sternenwerft:helium"
+            "infinite_horizon:helium"
           ]
         }
       ],
@@ -197,11 +197,11 @@
       "spec_ref": "6.3, 15",
       "notes": "Struktur in machines.json. Zurückgegebenes Helium geht in einen eigenen Ausgabetank. SPEC-GAP: Tankgrößen nicht angegeben; 16.000 mB (3.6)."
     },
-    "sternenwerft:fission_reactor": {
+    "infinite_horizon:fission_reactor": {
       "output_per_tick": 4000,
       "fuel": [
         {
-          "item": "sternenwerft:fuel_rod",
+          "item": "infinite_horizon:fuel_rod",
           "amount": 1,
           "per_ticks": 48000
         }
@@ -214,7 +214,7 @@
           "per_ticks": 1
         },
         {
-          "fluid": "sternenwerft:liquid_nitrogen",
+          "fluid": "infinite_horizon:liquid_nitrogen",
           "amount": 5,
           "per_ticks": 1
         }
@@ -247,7 +247,7 @@
           "capacity": 16000,
           "fluids": [
             "minecraft:water",
-            "sternenwerft:liquid_nitrogen"
+            "infinite_horizon:liquid_nitrogen"
           ]
         }
       ],

@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "entries": {
+    "infinite_horizon:solar_storm": {
+      "dimensions": [
+        "infinite_horizon:moon",
+        "infinite_horizon:mars",
+        "infinite_horizon:venus",
+        "infinite_horizon:mercury",
+        "infinite_horizon:asteroid_belt",
+        "infinite_horizon:ceres",
+        "infinite_horizon:io",
+        "infinite_horizon:europa",
+        "infinite_horizon:titan",
+        "infinite_horizon:enceladus",
+        "infinite_horizon:triton",
+        "infinite_horizon:pluto",
+        "infinite_horizon:earth_orbit",
+        "infinite_horizon:venus_orbit",
+        "infinite_horizon:mars_orbit",
+        "infinite_horizon:mercury_orbit",
+        "infinite_horizon:jupiter_orbit",
+        "infinite_horizon:saturn_orbit",
+        "infinite_horizon:uranus_orbit",
+        "infinite_horizon:neptune_orbit"
+      ],
+      "chance_per_1200": 0.015,
+      "chance_multipliers": {
+        "infinite_horizon:mercury": 3
+      },
+      "duration_min": 1200,
+      "duration_max": 3600,
+      "trigger": "roll",
+      "effects": {
+        "radiation_bonus": 2,
+        "machine_pause": {
+          "interval_ticks": 200,
+          "pause_ticks": 40,
+          "exempt_cover_blocks": 3,
+          "exempt_dome_min_tier": 3
+        }
+      },
+      "protection": [
+        {
+          "type": "dome",
+          "min_tier": 3
+        },
+        {
+          "type": "suit_module",
+          "id": "infinite_horizon:radiation_shield"
+        },
+        {
+          "type": "cover",
+          "blocks": 3
+        }
+      ],
+      "reward": {
+        "solar_multiplier": 2.0
+      },
+      "spec_ref": "19, 8.1",
+      "notes": "„alle außer Erde“ = alle 20 Mod-Dimensionen mit Planeten-Eintrag."
+    },
+    "infinite_horizon:meteor_shower": {
+      "dimensions": [
+        "infinite_horizon:moon",
+        "infinite_horizon:mars",
+        "infinite_horizon:asteroid_belt",
+        "infinite_horizon:earth_orbit",
+        "infinite_horizon:venus_orbit",
+        "infinite_horizon:mars_orbit",
+        "infinite_horizon:mercury_orbit",
+        "infinite_horizon:jupiter_orbit",
+        "infinite_horizon:saturn_orbit",
+        "infinite_horizon:uranus_orbit",
+        "infinite_horizon:neptune_orbit"
+      ],
+      "chance_per_1200": 0.01,
+      "duration_min": 1200,
+      "duration_max": 1200,
+      "trigger": "roll",
+      "effects": {
+        "impact_interval_ticks": 100,
+        "impact_radius": 64,
+        "per_player": true,
+        "entity": "infinite_horizon:meteor",
+        "explosion_power": 2,
+        "fire": false,
+        "block_damage_config": "meteor_block_damage",
+        "leaves_block": "infinite_horizon:meteorite_ore"
+      },
+      "protection": [
+        {
+          "type": "dome_module",
+          "id": "infinite_horizon:dome_shield_module"
+        }
+      ],
+      "reward": {
+        "block": "infinite_horizon:meteorite_ore",
+        "crushing_results": [
+          {
+            "id": "minecraft:raw_iron",
+            "count": 2,
+            "chance": 1.0
+          },
+          {
+            "id": "infinite_horizon:raw_nickel",
+            "count": 1,
+            "chance": 1.0
+          },
+          {
+            "id": "infinite_horizon:raw_platinum",
+            "count": 1,
+            "chance": 0.1
+          },
+          {
+            "id": "infinite_horizon:raw_iridium",
+            "count": 1,
+            "chance": 0.05
+          }
+        ]
+      },
+      "spec_ref": "19, 22.2, 25.4",
+      "notes": "meteorite_ore droppt sich selbst; Rohstoffe nur über den Zerkleinerer (Rezept in recipes.json)."
+    },
+    "infinite_horizon:dust_storm": {
+      "dimensions": [
+        "infinite_horizon:mars"
+      ],
+      "chance_per_1200": null,
+      "duration_min": 12000,
+      "duration_max": 24000,
+      "trigger": "weather",
+      "replaces": "rain",
+      "effects": {
+        "fog_distance": 16,
+        "solar_multiplier": 0.25,
+        "monster_spawn_multiplier": 2.0
+      },
+      "protection": [
+        {
+          "type": "dome",
+          "min_tier": 2
+        }
+      ],
+      "reward": {
+        "spawns": "infinite_horizon:dust_wraith"
+      },
+      "spec_ref": "19, 13.5",
+      "notes": "Chance und Dauer nach Vanilla-Wetter (Wetterlaufzeit aus weather)."
+    },
+    "infinite_horizon:acid_rain": {
+      "dimensions": [
+        "infinite_horizon:venus"
+      ],
+      "chance_per_1200": null,
+      "duration_min": 12000,
+      "duration_max": 24000,
+      "trigger": "weather",
+      "replaces": "rain",
+      "effects": {
+        "durability_loss": 1,
+        "interval_ticks": 40,
+        "affects": [
+          "armor",
+          "held_items"
+        ],
+        "unprotected_only": true
+      },
+      "protection": [
+        {
+          "type": "dome",
+          "min_tier": 2
+        },
+        {
+          "type": "suit",
+          "min_tier": 2
+        }
+      ],
+      "reward": null,
+      "spec_ref": "19, 1",
+      "notes": "Chance und Dauer nach Vanilla-Wetter (Wetterlaufzeit aus weather)."
+    },
+    "infinite_horizon:volcanic_eruption": {
+      "dimensions": [
+        "infinite_horizon:io"
+      ],
+      "chance_per_1200": 0.03,
+      "chance_per": "volcanic_vent_within_128_of_a_player",
+      "chance_search_radius": 128,
+      "duration_min": 200,
+      "duration_max": 200,
+      "trigger": "roll",
+      "effects": {
+        "falling_block": "infinite_horizon:io_sulfur_ore",
+        "radius": 32
+      },
+      "protection": [
+        {
+          "type": "distance"
+        }
+      ],
+      "reward": {
+        "description_de": "frischer Schwefel (gefallene io_sulfur_ore-Blöcke)"
+      },
+      "spec_ref": "19"
+    },
+    "infinite_horizon:methane_rain": {
+      "dimensions": [
+        "infinite_horizon:titan"
+      ],
+      "chance_per_1200": null,
+      "duration_min": 12000,
+      "duration_max": 24000,
+      "trigger": "weather",
+      "replaces": "rain",
+      "effects": {
+        "visibility_multiplier": 0.5
+      },
+      "protection": [],
+      "reward": {
+        "pump_station_multiplier": 1.5
+      },
+      "spec_ref": "19",
+      "notes": "Chance und Dauer nach Vanilla-Wetter (Wetterlaufzeit aus weather)."
+    },
+    "infinite_horizon:ring_debris": {
+      "dimensions": [
+        "infinite_horizon:saturn_orbit"
+      ],
+      "chance_per_1200": 0.02,
+      "duration_min": 600,
+      "duration_max": 600,
+      "trigger": "roll",
+      "effects": {
+        "impact_interval_ticks": 100,
+        "impact_radius": 64,
+        "per_player": true,
+        "entity": "infinite_horizon:meteor",
+        "explosion_power": 2,
+        "fire": false,
+        "block_damage_config": "meteor_block_damage",
+        "leaves_block": null
+      },
+      "protection": [
+        {
+          "type": "dome_module",
+          "id": "infinite_horizon:dome_shield_module"
+        }
+      ],
+      "reward": null,
+      "spec_ref": "19, 10.1",
+      "notes": "Wie Meteoritenschauer, ohne Erz."
+    },
+    "event_planning": {
+      "check_interval_ticks": 1200,
+      "schedule_ahead_ticks": 2400,
+      "warning_ticks_with_station": 2400,
+      "warning_ticks_without_station": 400,
+      "warning_station": "infinite_horizon:space_weather_station",
+      "warning_station_scope": "same_agency_same_dimension",
+      "warning_channels": [
+        "chat",
+        "sound",
+        "hud_icon"
+      ],
+      "requires_player_in_dimension": true,
+      "reroll_while_planned_or_running": false,
+      "storage": "SavedData je Dimension",
+      "applies_to_trigger": "roll",
+      "spec_ref": "19",
+      "notes": "Wetter-Ereignisse (trigger weather) starten über den Wetterzustand der Dimension."
+    },
+    "event_frequency": {
+      "config_key": "event_frequency",
+      "multipliers": {
+        "off": 0.0,
+        "rare": 0.5,
+        "normal": 1.0,
+        "frequent": 2.0
+      },
+      "spec_ref": "19, 24.4"
+    },
+    "weather": {
+      "per_dimension_state": true,
+      "clear_min": 12000,
+      "clear_max": 180000,
+      "weather_min": 12000,
+      "weather_max": 24000,
+      "weather_events": {
+        "infinite_horizon:mars": "infinite_horizon:dust_storm",
+        "infinite_horizon:venus": "infinite_horizon:acid_rain",
+        "infinite_horizon:titan": "infinite_horizon:methane_rain"
+      },
+      "other_dimensions": "always_clear",
+      "storage": "SavedData je Dimension",
+      "spec_ref": "19"
+    }
+  }
+}

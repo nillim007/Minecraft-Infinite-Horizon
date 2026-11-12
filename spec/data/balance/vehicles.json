@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "entries": {
-    "sternenwerft:rover": {
+    "infinite_horizon:rover": {
       "seats": 2,
       "size": {
         "width": 3,
@@ -18,20 +18,20 @@
       "module_slots": 6,
       "charge_rate": 512,
       "charge_from": [
-        "sternenwerft:battery",
-        "sternenwerft:lithium_battery_bank"
+        "infinite_horizon:battery",
+        "infinite_horizon:lithium_battery_bank"
       ],
       "venus_heat_timer_ticks": 3600,
       "venus_heat_timer_reset_above_y": 180,
-      "deploy_item": "sternenwerft:rover_kit",
+      "deploy_item": "infinite_horizon:rover_kit",
       "spec_ref": "16, 23.4",
       "notes": "Größe „3×2×4“ gelesen als Breite × Höhe × Länge. Nach Ablauf der Hitzezeit bleibt er stehen, bis er über y 180 ist."
     },
-    "sternenwerft:rover_kit": {
-      "deploys": "sternenwerft:rover",
+    "infinite_horizon:rover_kit": {
+      "deploys": "infinite_horizon:rover",
       "deploy": "right_click_ground",
       "dismantle": "sneak_right_click_empty_hand",
-      "data_component": "sternenwerft:rover_data",
+      "data_component": "infinite_horizon:rover_data",
       "keeps": [
         "cargo",
         "modules",
@@ -39,14 +39,14 @@
       ],
       "spec_ref": "16"
     },
-    "sternenwerft:rover_scanner": {
+    "infinite_horizon:rover_scanner": {
       "interval_ticks": 100,
       "ore_radius": 32,
       "highlight_ticks": 100,
       "exploration_radius": 128,
       "spec_ref": "16"
     },
-    "sternenwerft:rover_drill": {
+    "infinite_horizon:rover_drill": {
       "area": {
         "width": 3,
         "height": 3
@@ -57,13 +57,13 @@
       "vibration_source": true,
       "spec_ref": "16, 18"
     },
-    "sternenwerft:rover_headlight": {
+    "infinite_horizon:rover_headlight": {
       "light_level": 15,
       "technique": "wie helmet_lamp",
       "spec_ref": "16",
       "notes": "Intervall wie helmet_lamp (balance/items.json)."
     },
-    "sternenwerft:rover_pressure_cabin": {
+    "infinite_horizon:rover_pressure_cabin": {
       "o2_tank": 1800,
       "oxygen_per_occupant": {
         "amount": 1,
@@ -73,30 +73,30 @@
       "temperature": 20,
       "spec_ref": "16"
     },
-    "sternenwerft:rover_lithium_pack": {
+    "infinite_horizon:rover_lithium_pack": {
       "energy_multiplier": 2.0,
       "spec_ref": "16"
     },
-    "sternenwerft:rover_trailer": {
+    "infinite_horizon:rover_trailer": {
       "extra_cargo_slots": 27,
-      "entity": "sternenwerft:rover_trailer",
+      "entity": "infinite_horizon:rover_trailer",
       "spec_ref": "16"
     },
-    "sternenwerft:lander": {
+    "infinite_horizon:lander": {
       "seats": 2,
       "spec_ref": "12.7, 23.4",
       "notes": "Tank und Flugregeln in balance/spaceflight.json."
     },
-    "sternenwerft:starship": {
+    "infinite_horizon:starship": {
       "seats": 8,
       "crew_seats": 4,
       "passenger_seats": 4,
       "travel": "orbit_to_orbit",
       "jump_cost": {
-        "item": "sternenwerft:antimatter_cell",
+        "item": "infinite_horizon:antimatter_cell",
         "count": 1,
         "components": {
-          "sternenwerft:charge": 1
+          "infinite_horizon:charge": 1
         }
       },
       "fuel_check": false,

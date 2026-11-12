@@ -16,14 +16,14 @@ Stand: 11.11.2026. **M1 ist umgesetzt**, und der GitHub-Build ist grün:
   - `combustion_generator` (Vanilla-Brennwert über `COOKING_FUEL`)
   - `copper_cable` (`CableBlock`, Netz in `core/grid`: Push-Prinzip, gleichmäßige Verteilung, Durchsatz aus `transport.json`)
 - **Daten:**
-  - Balance-Reload aus allen Namespaces (`data/<ns>/sternenwerft/balance`)
+  - Balance-Reload aus allen Namespaces (`data/<ns>/infinite_horizon/balance`)
   - Serverconfig aus `misc.json → config_defaults`
   - `SyncConfigPayload` beim Join
-- **GameTests** (`gametest/SwGameTests`, Hüllen je Loader):
+- **GameTests** (`gametest/IhGameTests`, Hüllen je Loader):
   - Kette Generator → Kabel → Zerkleinerer ≤ 220 t
   - Balance-Änderung ändert die Dauer
   - Plattform-Verbraucher bekommt Strom
-- **Addon-Schnittstelle** `de.sternenwerft.api`, beschrieben in `docs/dev/addon-api.md`.
+- **Addon-Schnittstelle** `de.infinitehorizon.api`, beschrieben in `docs/dev/addon-api.md`.
 - **Annahmen:** `docs/spec-gaps.md` #8–#16.
 
 ## Nicht automatisch geprüft

@@ -3,16 +3,16 @@ title: Raffinerie
 title_en: Refinery
 order: 100
 milestone: 2
-requires: ["sternenwerft:refinery_controller", "sternenwerft:refinery_casing"]
-icon: sternenwerft:refinery_controller
-items: ["sternenwerft:refinery_controller", "sternenwerft:refinery_casing", "sternenwerft:plastic", "sternenwerft:kerosene", "sternenwerft:item_port", "sternenwerft:fluid_port", "sternenwerft:energy_port"]
+requires: ["infinite_horizon:refinery_controller", "infinite_horizon:refinery_casing"]
+icon: infinite_horizon:refinery_controller
+items: ["infinite_horizon:refinery_controller", "infinite_horizon:refinery_casing", "infinite_horizon:plastic", "infinite_horizon:kerosene", "infinite_horizon:item_port", "infinite_horizon:fluid_port", "infinite_horizon:energy_port"]
 summary: Dein erster Multiblock: Erdöl wird zu Kerosin und Kunststoff
 ---
 Die Raffinerie ist dein erster **Multiblock**: ein Turm aus 45 Blöcken, der aus Erdöl **Kerosin** und **Kunststoff** macht. Kerosin ist Treibstoff, Kunststoff steckt in jedem Schaltkreis.
 
 @image ../images/refinery.svg | Bauplan: Der Controller (orange) sitzt unten in der Mitte der Vorderseite, Ports (blau, gelb) ersetzen beliebige Gehäuseblöcke.
 
-@machine sternenwerft:refinery_controller
+@machine infinite_horizon:refinery_controller
 
 @image ../images/screenshots/gui-refinery.png | Das Fenster der Raffinerie: Erdöl-Tank links, Kunststoff in der Mitte, Kerosin-Tank rechts.
 
@@ -24,9 +24,9 @@ Die Raffinerie ist dein erster **Multiblock**: ein Turm aus 45 Blöcken, der aus
 
 Die Raffinerie ist **3 Blöcke breit, 3 Blöcke tief und 5 Blöcke hoch**, ganz massiv.
 
-1. Setz den Controller (<item:sternenwerft:refinery_controller>) auf den Boden. Seine Vorderseite zeigt zu dir.
+1. Setz den Controller (<item:infinite_horizon:refinery_controller>) auf den Boden. Seine Vorderseite zeigt zu dir.
 2. Der Controller ist die **Mitte der untersten Reihe auf der Vorderseite**. Der Turm reicht von ihm einen Block nach links und rechts, zwei Blöcke nach hinten und vier Blöcke nach oben.
-3. Füll alle übrigen 44 Plätze mit <item:sternenwerft:refinery_casing>.
+3. Füll alle übrigen 44 Plätze mit <item:infinite_horizon:refinery_casing>.
 4. Ersetze einzelne Gehäuseblöcke durch **Ports**, wo Rohre und Kabel andocken sollen (siehe unten).
 5. Sobald alles stimmt, springt die Statuslampe von Rot auf Gelb.
 
@@ -38,11 +38,11 @@ Die Raffinerie ist **3 Blöcke breit, 3 Blöcke tief und 5 Blöcke hoch**, ganz 
 
 Ports ersetzen Gehäuseblöcke und leiten nach außen an den Controller weiter. Rechtsklick mit leerer Hand schaltet zwischen **Eingang** und **Ausgang** um.
 
-- <item:sternenwerft:fluid_port> – Erdöl hinein (Eingang), Kerosin heraus (Ausgang).
-- <item:sternenwerft:item_port> – Kunststoff heraus (Ausgang).
-- <item:sternenwerft:energy_port> – Strom hinein.
+- <item:infinite_horizon:fluid_port> – Erdöl hinein (Eingang), Kerosin heraus (Ausgang).
+- <item:infinite_horizon:item_port> – Kunststoff heraus (Ausgang).
+- <item:infinite_horizon:energy_port> – Strom hinein.
 
-@recipes_for sternenwerft:refinery_controller sternenwerft:refinery_casing sternenwerft:fluid_port sternenwerft:item_port sternenwerft:energy_port
+@recipes_for infinite_horizon:refinery_controller infinite_horizon:refinery_casing infinite_horizon:fluid_port infinite_horizon:item_port infinite_horizon:energy_port
 
 ## Materialbedarf
 

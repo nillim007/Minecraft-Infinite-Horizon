@@ -16,7 +16,7 @@ if hasattr(sys.stdout, "reconfigure"):
 
 ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "spec" / "data"
-MOD = "sternenwerft:"
+MOD = "infinite_horizon:"
 
 TANK = 16_000
 LONG_RANGE_DEFAULT = 128_000

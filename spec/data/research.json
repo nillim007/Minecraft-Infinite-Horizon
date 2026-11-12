@@ -8,7 +8,7 @@
       "cost_default": 10,
       "gate": {
         "type": "has_block",
-        "block": "sternenwerft:research_terminal"
+        "block": "infinite_horizon:research_terminal"
       },
       "spec_ref": "11.4"
     },
@@ -19,7 +19,7 @@
       "cost_default": 25,
       "gate": {
         "type": "enter_dimension",
-        "dimension": "sternenwerft:moon"
+        "dimension": "infinite_horizon:moon"
       },
       "spec_ref": "11.4"
     },
@@ -31,11 +31,11 @@
       "gate": {
         "type": "crafted_items",
         "items": [
-          "sternenwerft:magnesium_ingot",
-          "sternenwerft:tungsten_ingot"
+          "infinite_horizon:magnesium_ingot",
+          "infinite_horizon:tungsten_ingot"
         ],
         "fluids": [
-          "sternenwerft:helium"
+          "infinite_horizon:helium"
         ]
       },
       "spec_ref": "11.4",
@@ -48,7 +48,7 @@
       "cost_default": 80,
       "gate": {
         "type": "machine_completed",
-        "block": "sternenwerft:zero_g_fabricator",
+        "block": "infinite_horizon:zero_g_fabricator",
         "recipe": null
       },
       "spec_ref": "11.4",
@@ -61,7 +61,7 @@
       "cost_default": 120,
       "gate": {
         "type": "enter_dimension",
-        "dimension": "sternenwerft:saturn_orbit"
+        "dimension": "infinite_horizon:saturn_orbit"
       },
       "spec_ref": "11.4"
     },
@@ -76,13 +76,13 @@
           {
             "type": "crafted_items",
             "items": [
-              "sternenwerft:uranium_ingot"
+              "infinite_horizon:uranium_ingot"
             ],
             "fluids": []
           },
           {
             "type": "machine_completed",
-            "block": "sternenwerft:magnetic_trap",
+            "block": "infinite_horizon:magnetic_trap",
             "recipe": null
           }
         ]
@@ -93,7 +93,7 @@
   ],
   "nodes": [
     {
-      "id": "sternenwerft:solar_power",
+      "id": "infinite_horizon:solar_power",
       "tier": 1,
       "branch": "industry",
       "cost": 10,
@@ -101,10 +101,10 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:solar_panel"
+          "id": "infinite_horizon:solar_panel"
         }
       ],
-      "icon": "sternenwerft:solar_panel",
+      "icon": "infinite_horizon:solar_panel",
       "position": {
         "column": 0,
         "row": 1,
@@ -115,7 +115,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:aluminum_wiring",
+      "id": "infinite_horizon:aluminum_wiring",
       "tier": 1,
       "branch": "logistics",
       "cost": 10,
@@ -123,10 +123,10 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:aluminum_cable"
+          "id": "infinite_horizon:aluminum_cable"
         }
       ],
-      "icon": "sternenwerft:aluminum_cable",
+      "icon": "infinite_horizon:aluminum_cable",
       "position": {
         "column": 3,
         "row": 1,
@@ -137,7 +137,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:gas_storage",
+      "id": "infinite_horizon:gas_storage",
       "tier": 1,
       "branch": "logistics",
       "cost": 10,
@@ -145,14 +145,14 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:pressure_bottle"
+          "id": "infinite_horizon:pressure_bottle"
         },
         {
           "type": "item",
-          "id": "sternenwerft:transport_tank"
+          "id": "infinite_horizon:transport_tank"
         }
       ],
-      "icon": "sternenwerft:pressure_bottle",
+      "icon": "infinite_horizon:pressure_bottle",
       "position": {
         "column": 3,
         "row": 1,
@@ -163,7 +163,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:launch_pad",
+      "id": "infinite_horizon:launch_pad",
       "tier": 1,
       "branch": "spaceflight",
       "cost": 10,
@@ -171,22 +171,22 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:launch_pad"
+          "id": "infinite_horizon:launch_pad"
         },
         {
           "type": "item",
-          "id": "sternenwerft:launch_tower"
+          "id": "infinite_horizon:launch_tower"
         },
         {
           "type": "item",
-          "id": "sternenwerft:fuel_pump"
+          "id": "infinite_horizon:fuel_pump"
         },
         {
           "type": "item",
-          "id": "sternenwerft:launch_control"
+          "id": "infinite_horizon:launch_control"
         }
       ],
-      "icon": "sternenwerft:launch_pad",
+      "icon": "infinite_horizon:launch_pad",
       "position": {
         "column": 1,
         "row": 1,
@@ -197,26 +197,26 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:moon_probe",
+      "id": "infinite_horizon:moon_probe",
       "tier": 1,
       "branch": "spaceflight",
       "cost": 10,
       "requires": [
-        "sternenwerft:launch_pad",
-        "sternenwerft:solar_power",
-        "sternenwerft:gas_storage"
+        "infinite_horizon:launch_pad",
+        "infinite_horizon:solar_power",
+        "infinite_horizon:gas_storage"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:probe"
+          "id": "infinite_horizon:probe"
         },
         {
           "type": "probe_target",
-          "id": "sternenwerft:moon"
+          "id": "infinite_horizon:moon"
         }
       ],
-      "icon": "sternenwerft:probe",
+      "icon": "infinite_horizon:probe",
       "position": {
         "column": 1,
         "row": 1,
@@ -227,36 +227,36 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:rocket_t1",
+      "id": "infinite_horizon:rocket_t1",
       "tier": 1,
       "branch": "spaceflight",
       "cost": 10,
       "requires": [
-        "sternenwerft:moon_probe"
+        "infinite_horizon:moon_probe"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:rocket_capsule_t1"
+          "id": "infinite_horizon:rocket_capsule_t1"
         },
         {
           "type": "item",
-          "id": "sternenwerft:rocket_tank_t1"
+          "id": "infinite_horizon:rocket_tank_t1"
         },
         {
           "type": "item",
-          "id": "sternenwerft:rocket_engine_t1"
+          "id": "infinite_horizon:rocket_engine_t1"
         },
         {
           "type": "item",
-          "id": "sternenwerft:rocket_fin_t1"
+          "id": "infinite_horizon:rocket_fin_t1"
         },
         {
           "type": "item",
-          "id": "sternenwerft:rocket_cargo_bay"
+          "id": "infinite_horizon:rocket_cargo_bay"
         }
       ],
-      "icon": "sternenwerft:rocket_capsule_t1",
+      "icon": "infinite_horizon:rocket_capsule_t1",
       "position": {
         "column": 1,
         "row": 1,
@@ -268,7 +268,7 @@
       "notes": "Raketenteile T1 aus 12.4 inkl. rocket_cargo_bay (gilt auch für T2)."
     },
     {
-      "id": "sternenwerft:suit_t1",
+      "id": "infinite_horizon:suit_t1",
       "tier": 1,
       "branch": "life_support",
       "cost": 10,
@@ -276,34 +276,34 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:pressure_suit_helmet"
+          "id": "infinite_horizon:pressure_suit_helmet"
         },
         {
           "type": "item",
-          "id": "sternenwerft:pressure_suit_chestplate"
+          "id": "infinite_horizon:pressure_suit_chestplate"
         },
         {
           "type": "item",
-          "id": "sternenwerft:pressure_suit_leggings"
+          "id": "infinite_horizon:pressure_suit_leggings"
         },
         {
           "type": "item",
-          "id": "sternenwerft:pressure_suit_boots"
+          "id": "infinite_horizon:pressure_suit_boots"
         },
         {
           "type": "item",
-          "id": "sternenwerft:oxygen_canister"
+          "id": "infinite_horizon:oxygen_canister"
         },
         {
           "type": "item",
-          "id": "sternenwerft:large_oxygen_canister"
+          "id": "infinite_horizon:large_oxygen_canister"
         },
         {
           "type": "item",
-          "id": "sternenwerft:helmet_lamp"
+          "id": "infinite_horizon:helmet_lamp"
         }
       ],
-      "icon": "sternenwerft:pressure_suit_helmet",
+      "icon": "infinite_horizon:pressure_suit_helmet",
       "position": {
         "column": 2,
         "row": 1,
@@ -315,7 +315,7 @@
       "notes": "pressure_suit_* = helmet, chestplate, leggings, boots."
     },
     {
-      "id": "sternenwerft:space_food",
+      "id": "infinite_horizon:space_food",
       "tier": 1,
       "branch": "life_support",
       "cost": 10,
@@ -323,10 +323,10 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:food_packer"
+          "id": "infinite_horizon:food_packer"
         }
       ],
-      "icon": "sternenwerft:food_packer",
+      "icon": "infinite_horizon:food_packer",
       "position": {
         "column": 2,
         "row": 1,
@@ -337,7 +337,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:regolith_heater",
+      "id": "infinite_horizon:regolith_heater",
       "tier": 2,
       "branch": "industry",
       "cost": 25,
@@ -345,10 +345,10 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:regolith_heater"
+          "id": "infinite_horizon:regolith_heater"
         }
       ],
-      "icon": "sternenwerft:regolith_heater",
+      "icon": "infinite_horizon:regolith_heater",
       "position": {
         "column": 0,
         "row": 2,
@@ -359,7 +359,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:high_temperature",
+      "id": "infinite_horizon:high_temperature",
       "tier": 2,
       "branch": "industry",
       "cost": 25,
@@ -367,18 +367,18 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:high_temperature_furnace"
+          "id": "infinite_horizon:high_temperature_furnace"
         },
         {
           "type": "item",
-          "id": "sternenwerft:ceramic_plate"
+          "id": "infinite_horizon:ceramic_plate"
         },
         {
           "type": "item",
-          "id": "sternenwerft:titanium_pipe"
+          "id": "infinite_horizon:titanium_pipe"
         }
       ],
-      "icon": "sternenwerft:high_temperature_furnace",
+      "icon": "infinite_horizon:high_temperature_furnace",
       "position": {
         "column": 0,
         "row": 2,
@@ -389,7 +389,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:magnesium_alloy",
+      "id": "infinite_horizon:magnesium_alloy",
       "tier": 2,
       "branch": "industry",
       "cost": 25,
@@ -397,14 +397,14 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:magnesium_alloy"
+          "id": "infinite_horizon:magnesium_alloy"
         },
         {
           "type": "item",
-          "id": "sternenwerft:lightweight_plate"
+          "id": "infinite_horizon:lightweight_plate"
         }
       ],
-      "icon": "sternenwerft:magnesium_alloy",
+      "icon": "infinite_horizon:magnesium_alloy",
       "position": {
         "column": 0,
         "row": 2,
@@ -415,24 +415,24 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:cryogenics",
+      "id": "infinite_horizon:cryogenics",
       "tier": 2,
       "branch": "industry",
       "cost": 25,
       "requires": [
-        "sternenwerft:regolith_heater"
+        "infinite_horizon:regolith_heater"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:cryo_liquefier"
+          "id": "infinite_horizon:cryo_liquefier"
         },
         {
           "type": "item",
-          "id": "sternenwerft:cooling_system"
+          "id": "infinite_horizon:cooling_system"
         }
       ],
-      "icon": "sternenwerft:cryo_liquefier",
+      "icon": "infinite_horizon:cryo_liquefier",
       "position": {
         "column": 0,
         "row": 2,
@@ -443,7 +443,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:planet_probes",
+      "id": "infinite_horizon:planet_probes",
       "tier": 2,
       "branch": "spaceflight",
       "cost": 25,
@@ -451,22 +451,22 @@
       "unlocks": [
         {
           "type": "probe_target",
-          "id": "sternenwerft:mars"
+          "id": "infinite_horizon:mars"
         },
         {
           "type": "probe_target",
-          "id": "sternenwerft:venus"
+          "id": "infinite_horizon:venus"
         },
         {
           "type": "probe_target",
-          "id": "sternenwerft:mars_orbit"
+          "id": "infinite_horizon:mars_orbit"
         },
         {
           "type": "probe_target",
-          "id": "sternenwerft:venus_orbit"
+          "id": "infinite_horizon:venus_orbit"
         }
       ],
-      "icon": "sternenwerft:probe",
+      "icon": "infinite_horizon:probe",
       "position": {
         "column": 1,
         "row": 2,
@@ -477,7 +477,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:landing_beacon",
+      "id": "infinite_horizon:landing_beacon",
       "tier": 2,
       "branch": "spaceflight",
       "cost": 25,
@@ -485,18 +485,18 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:landing_beacon"
+          "id": "infinite_horizon:landing_beacon"
         },
         {
           "type": "item",
-          "id": "sternenwerft:aerostat_platform"
+          "id": "infinite_horizon:aerostat_platform"
         },
         {
           "type": "item",
-          "id": "sternenwerft:cloud_elevator"
+          "id": "infinite_horizon:cloud_elevator"
         }
       ],
-      "icon": "sternenwerft:landing_beacon",
+      "icon": "infinite_horizon:landing_beacon",
       "position": {
         "column": 1,
         "row": 2,
@@ -507,7 +507,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:rover",
+      "id": "infinite_horizon:rover",
       "tier": 2,
       "branch": "spaceflight",
       "cost": 25,
@@ -515,30 +515,30 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:rover_kit"
+          "id": "infinite_horizon:rover_kit"
         },
         {
           "type": "item",
-          "id": "sternenwerft:rover_scanner"
+          "id": "infinite_horizon:rover_scanner"
         },
         {
           "type": "item",
-          "id": "sternenwerft:rover_drill"
+          "id": "infinite_horizon:rover_drill"
         },
         {
           "type": "item",
-          "id": "sternenwerft:rover_headlight"
+          "id": "infinite_horizon:rover_headlight"
         },
         {
           "type": "item",
-          "id": "sternenwerft:rover_pressure_cabin"
+          "id": "infinite_horizon:rover_pressure_cabin"
         },
         {
           "type": "item",
-          "id": "sternenwerft:rover_trailer"
+          "id": "infinite_horizon:rover_trailer"
         }
       ],
-      "icon": "sternenwerft:rover_kit",
+      "icon": "infinite_horizon:rover_kit",
       "position": {
         "column": 1,
         "row": 2,
@@ -550,38 +550,38 @@
       "notes": "Rover-Module aus 16 außer rover_lithium_pack (kommt mit lithium_storage)."
     },
     {
-      "id": "sternenwerft:rocket_t2",
+      "id": "infinite_horizon:rocket_t2",
       "tier": 2,
       "branch": "spaceflight",
       "cost": 25,
       "requires": [
-        "sternenwerft:magnesium_alloy",
-        "sternenwerft:cryogenics",
-        "sternenwerft:high_temperature"
+        "infinite_horizon:magnesium_alloy",
+        "infinite_horizon:cryogenics",
+        "infinite_horizon:high_temperature"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:rocket_capsule_t2"
+          "id": "infinite_horizon:rocket_capsule_t2"
         },
         {
           "type": "item",
-          "id": "sternenwerft:rocket_tank_t2"
+          "id": "infinite_horizon:rocket_tank_t2"
         },
         {
           "type": "item",
-          "id": "sternenwerft:rocket_engine_t2"
+          "id": "infinite_horizon:rocket_engine_t2"
         },
         {
           "type": "item",
-          "id": "sternenwerft:rocket_fin_t2"
+          "id": "infinite_horizon:rocket_fin_t2"
         },
         {
           "type": "multiblock",
-          "id": "sternenwerft:launch_pad_t2"
+          "id": "infinite_horizon:launch_pad_t2"
         }
       ],
-      "icon": "sternenwerft:rocket_capsule_t2",
+      "icon": "infinite_horizon:rocket_capsule_t2",
       "position": {
         "column": 1,
         "row": 2,
@@ -593,7 +593,7 @@
       "notes": "Raketenteile T2 aus 12.4 (Frachtraum schon in rocket_t1); Multiblock launch_pad_t2 als Startregel aus 12.4."
     },
     {
-      "id": "sternenwerft:dome_t1",
+      "id": "infinite_horizon:dome_t1",
       "tier": 2,
       "branch": "life_support",
       "cost": 25,
@@ -601,30 +601,30 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:dome_generator_t1"
+          "id": "infinite_horizon:dome_generator_t1"
         },
         {
           "type": "item",
-          "id": "sternenwerft:oxygen_generator"
+          "id": "infinite_horizon:oxygen_generator"
         },
         {
           "type": "item",
-          "id": "sternenwerft:dome_range_module"
+          "id": "infinite_horizon:dome_range_module"
         },
         {
           "type": "item",
-          "id": "sternenwerft:dome_efficiency_module"
+          "id": "infinite_horizon:dome_efficiency_module"
         },
         {
           "type": "item",
-          "id": "sternenwerft:dome_shield_module"
+          "id": "infinite_horizon:dome_shield_module"
         },
         {
           "type": "item",
-          "id": "sternenwerft:electric_lamp"
+          "id": "infinite_horizon:electric_lamp"
         }
       ],
-      "icon": "sternenwerft:dome_generator_t1",
+      "icon": "infinite_horizon:dome_generator_t1",
       "position": {
         "column": 2,
         "row": 2,
@@ -636,41 +636,41 @@
       "notes": "Kuppelmodule = dome_range_module, dome_efficiency_module, dome_shield_module (10.1)."
     },
     {
-      "id": "sternenwerft:suit_t2",
+      "id": "infinite_horizon:suit_t2",
       "tier": 2,
       "branch": "life_support",
       "cost": 25,
       "requires": [
-        "sternenwerft:high_temperature",
-        "sternenwerft:cryogenics"
+        "infinite_horizon:high_temperature",
+        "infinite_horizon:cryogenics"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:heat_suit_helmet"
+          "id": "infinite_horizon:heat_suit_helmet"
         },
         {
           "type": "item",
-          "id": "sternenwerft:heat_suit_chestplate"
+          "id": "infinite_horizon:heat_suit_chestplate"
         },
         {
           "type": "item",
-          "id": "sternenwerft:heat_suit_leggings"
+          "id": "infinite_horizon:heat_suit_leggings"
         },
         {
           "type": "item",
-          "id": "sternenwerft:heat_suit_boots"
+          "id": "infinite_horizon:heat_suit_boots"
         },
         {
           "type": "item",
-          "id": "sternenwerft:cooling_module"
+          "id": "infinite_horizon:cooling_module"
         },
         {
           "type": "item",
-          "id": "sternenwerft:armor_plating"
+          "id": "infinite_horizon:armor_plating"
         }
       ],
-      "icon": "sternenwerft:heat_suit_helmet",
+      "icon": "infinite_horizon:heat_suit_helmet",
       "position": {
         "column": 2,
         "row": 2,
@@ -682,22 +682,22 @@
       "notes": "heat_suit_* = helmet, chestplate, leggings, boots."
     },
     {
-      "id": "sternenwerft:dome_t2",
+      "id": "infinite_horizon:dome_t2",
       "tier": 2,
       "branch": "life_support",
       "cost": 25,
       "requires": [
-        "sternenwerft:dome_t1",
-        "sternenwerft:magnesium_alloy",
-        "sternenwerft:cryogenics"
+        "infinite_horizon:dome_t1",
+        "infinite_horizon:magnesium_alloy",
+        "infinite_horizon:cryogenics"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:dome_generator_t2"
+          "id": "infinite_horizon:dome_generator_t2"
         }
       ],
-      "icon": "sternenwerft:dome_generator_t2",
+      "icon": "infinite_horizon:dome_generator_t2",
       "position": {
         "column": 2,
         "row": 2,
@@ -708,7 +708,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:hydroponics",
+      "id": "infinite_horizon:hydroponics",
       "tier": 2,
       "branch": "life_support",
       "cost": 25,
@@ -716,18 +716,18 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:hydroponics_basin"
+          "id": "infinite_horizon:hydroponics_basin"
         },
         {
           "type": "item",
-          "id": "sternenwerft:compost_soil"
+          "id": "infinite_horizon:compost_soil"
         },
         {
           "type": "item",
-          "id": "sternenwerft:compost"
+          "id": "infinite_horizon:compost"
         }
       ],
-      "icon": "sternenwerft:hydroponics_basin",
+      "icon": "infinite_horizon:hydroponics_basin",
       "position": {
         "column": 2,
         "row": 2,
@@ -738,7 +738,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:gas_tanks",
+      "id": "infinite_horizon:gas_tanks",
       "tier": 2,
       "branch": "logistics",
       "cost": 25,
@@ -746,10 +746,10 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:gas_tank"
+          "id": "infinite_horizon:gas_tank"
         }
       ],
-      "icon": "sternenwerft:gas_tank",
+      "icon": "infinite_horizon:gas_tank",
       "position": {
         "column": 3,
         "row": 2,
@@ -760,24 +760,24 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:fusion",
+      "id": "infinite_horizon:fusion",
       "tier": 3,
       "branch": "industry",
       "cost": 50,
       "requires": [
-        "sternenwerft:superconductors"
+        "infinite_horizon:superconductors"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:fusion_reactor"
+          "id": "infinite_horizon:fusion_reactor"
         },
         {
           "type": "item",
-          "id": "sternenwerft:fusion_casing"
+          "id": "infinite_horizon:fusion_casing"
         }
       ],
-      "icon": "sternenwerft:fusion_reactor",
+      "icon": "infinite_horizon:fusion_reactor",
       "position": {
         "column": 0,
         "row": 3,
@@ -788,24 +788,24 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:superconductors",
+      "id": "infinite_horizon:superconductors",
       "tier": 3,
       "branch": "industry",
       "cost": 50,
       "requires": [
-        "sternenwerft:station_modules"
+        "infinite_horizon:station_modules"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:superconductor_wire"
+          "id": "infinite_horizon:superconductor_wire"
         },
         {
           "type": "item",
-          "id": "sternenwerft:superconductor_cable"
+          "id": "infinite_horizon:superconductor_cable"
         }
       ],
-      "icon": "sternenwerft:superconductor_wire",
+      "icon": "infinite_horizon:superconductor_wire",
       "position": {
         "column": 0,
         "row": 3,
@@ -816,7 +816,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:space_weather",
+      "id": "infinite_horizon:space_weather",
       "tier": 3,
       "branch": "industry",
       "cost": 50,
@@ -824,10 +824,10 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:space_weather_station"
+          "id": "infinite_horizon:space_weather_station"
         }
       ],
-      "icon": "sternenwerft:space_weather_station",
+      "icon": "infinite_horizon:space_weather_station",
       "position": {
         "column": 0,
         "row": 3,
@@ -838,37 +838,37 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:station_core",
+      "id": "infinite_horizon:station_core",
       "tier": 3,
       "branch": "spaceflight",
       "cost": 50,
       "requires": [
-        "sternenwerft:dome_t1",
-        "sternenwerft:magnesium_alloy"
+        "infinite_horizon:dome_t1",
+        "infinite_horizon:magnesium_alloy"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:station_core"
+          "id": "infinite_horizon:station_core"
         },
         {
           "type": "item",
-          "id": "sternenwerft:station_hull"
+          "id": "infinite_horizon:station_hull"
         },
         {
           "type": "item",
-          "id": "sternenwerft:station_window"
+          "id": "infinite_horizon:station_window"
         },
         {
           "type": "item",
-          "id": "sternenwerft:docking_bay"
+          "id": "infinite_horizon:docking_bay"
         },
         {
           "type": "item",
-          "id": "sternenwerft:magnet_boots"
+          "id": "infinite_horizon:magnet_boots"
         }
       ],
-      "icon": "sternenwerft:station_core",
+      "icon": "infinite_horizon:station_core",
       "position": {
         "column": 1,
         "row": 3,
@@ -879,32 +879,32 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:station_modules",
+      "id": "infinite_horizon:station_modules",
       "tier": 3,
       "branch": "spaceflight",
       "cost": 50,
       "requires": [
-        "sternenwerft:station_core"
+        "infinite_horizon:station_core"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:habitation_module"
+          "id": "infinite_horizon:habitation_module"
         },
         {
           "type": "item",
-          "id": "sternenwerft:research_lab"
+          "id": "infinite_horizon:research_lab"
         },
         {
           "type": "item",
-          "id": "sternenwerft:zero_g_fabricator"
+          "id": "infinite_horizon:zero_g_fabricator"
         },
         {
           "type": "item",
-          "id": "sternenwerft:solar_wing"
+          "id": "infinite_horizon:solar_wing"
         }
       ],
-      "icon": "sternenwerft:habitation_module",
+      "icon": "infinite_horizon:habitation_module",
       "position": {
         "column": 1,
         "row": 3,
@@ -915,20 +915,20 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:lander",
+      "id": "infinite_horizon:lander",
       "tier": 3,
       "branch": "spaceflight",
       "cost": 50,
       "requires": [
-        "sternenwerft:station_core"
+        "infinite_horizon:station_core"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:lander"
+          "id": "infinite_horizon:lander"
         }
       ],
-      "icon": "sternenwerft:lander",
+      "icon": "infinite_horizon:lander",
       "position": {
         "column": 1,
         "row": 3,
@@ -939,20 +939,20 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:gravity",
+      "id": "infinite_horizon:gravity",
       "tier": 3,
       "branch": "life_support",
       "cost": 50,
       "requires": [
-        "sternenwerft:fusion"
+        "infinite_horizon:fusion"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:gravity_plate"
+          "id": "infinite_horizon:gravity_plate"
         }
       ],
-      "icon": "sternenwerft:gravity_plate",
+      "icon": "infinite_horizon:gravity_plate",
       "position": {
         "column": 2,
         "row": 3,
@@ -963,21 +963,21 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:greenhouse",
+      "id": "infinite_horizon:greenhouse",
       "tier": 3,
       "branch": "life_support",
       "cost": 50,
       "requires": [
-        "sternenwerft:station_modules",
-        "sternenwerft:hydroponics"
+        "infinite_horizon:station_modules",
+        "infinite_horizon:hydroponics"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:greenhouse"
+          "id": "infinite_horizon:greenhouse"
         }
       ],
-      "icon": "sternenwerft:greenhouse",
+      "icon": "infinite_horizon:greenhouse",
       "position": {
         "column": 2,
         "row": 3,
@@ -988,7 +988,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:tank_depot",
+      "id": "infinite_horizon:tank_depot",
       "tier": 3,
       "branch": "logistics",
       "cost": 50,
@@ -996,10 +996,10 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:tank_depot"
+          "id": "infinite_horizon:tank_depot"
         }
       ],
-      "icon": "sternenwerft:tank_depot",
+      "icon": "infinite_horizon:tank_depot",
       "position": {
         "column": 3,
         "row": 3,
@@ -1010,7 +1010,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:lithium_storage",
+      "id": "infinite_horizon:lithium_storage",
       "tier": 4,
       "branch": "industry",
       "cost": 80,
@@ -1018,18 +1018,18 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:lithium_battery"
+          "id": "infinite_horizon:lithium_battery"
         },
         {
           "type": "item",
-          "id": "sternenwerft:lithium_battery_bank"
+          "id": "infinite_horizon:lithium_battery_bank"
         },
         {
           "type": "item",
-          "id": "sternenwerft:rover_lithium_pack"
+          "id": "infinite_horizon:rover_lithium_pack"
         }
       ],
-      "icon": "sternenwerft:lithium_battery",
+      "icon": "infinite_horizon:lithium_battery",
       "position": {
         "column": 0,
         "row": 4,
@@ -1040,7 +1040,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:gas_collection",
+      "id": "infinite_horizon:gas_collection",
       "tier": 4,
       "branch": "industry",
       "cost": 80,
@@ -1048,10 +1048,10 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:gas_collector"
+          "id": "infinite_horizon:gas_collector"
         }
       ],
-      "icon": "sternenwerft:gas_collector",
+      "icon": "infinite_horizon:gas_collector",
       "position": {
         "column": 0,
         "row": 4,
@@ -1062,25 +1062,25 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:magnetic_trap",
+      "id": "infinite_horizon:magnetic_trap",
       "tier": 4,
       "branch": "industry",
       "cost": 80,
       "requires": [
-        "sternenwerft:gas_collection",
-        "sternenwerft:iridium_chips"
+        "infinite_horizon:gas_collection",
+        "infinite_horizon:iridium_chips"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:magnetic_trap"
+          "id": "infinite_horizon:magnetic_trap"
         },
         {
           "type": "item",
-          "id": "sternenwerft:antimatter_cell"
+          "id": "infinite_horizon:antimatter_cell"
         }
       ],
-      "icon": "sternenwerft:magnetic_trap",
+      "icon": "infinite_horizon:magnetic_trap",
       "position": {
         "column": 0,
         "row": 4,
@@ -1091,7 +1091,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:advanced_probe",
+      "id": "infinite_horizon:advanced_probe",
       "tier": 4,
       "branch": "spaceflight",
       "cost": 20,
@@ -1099,66 +1099,66 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:advanced_probe"
+          "id": "infinite_horizon:advanced_probe"
         },
         {
           "type": "probe_target",
-          "id": "sternenwerft:mercury_orbit"
+          "id": "infinite_horizon:mercury_orbit"
         },
         {
           "type": "probe_target",
-          "id": "sternenwerft:mercury"
+          "id": "infinite_horizon:mercury"
         },
         {
           "type": "probe_target",
-          "id": "sternenwerft:asteroid_belt"
+          "id": "infinite_horizon:asteroid_belt"
         },
         {
           "type": "probe_target",
-          "id": "sternenwerft:ceres"
+          "id": "infinite_horizon:ceres"
         },
         {
           "type": "probe_target",
-          "id": "sternenwerft:jupiter_orbit"
+          "id": "infinite_horizon:jupiter_orbit"
         },
         {
           "type": "probe_target",
-          "id": "sternenwerft:io"
+          "id": "infinite_horizon:io"
         },
         {
           "type": "probe_target",
-          "id": "sternenwerft:europa"
+          "id": "infinite_horizon:europa"
         },
         {
           "type": "probe_target",
-          "id": "sternenwerft:saturn_orbit"
+          "id": "infinite_horizon:saturn_orbit"
         },
         {
           "type": "probe_target",
-          "id": "sternenwerft:titan"
+          "id": "infinite_horizon:titan"
         },
         {
           "type": "probe_target",
-          "id": "sternenwerft:enceladus"
+          "id": "infinite_horizon:enceladus"
         },
         {
           "type": "probe_target",
-          "id": "sternenwerft:uranus_orbit"
+          "id": "infinite_horizon:uranus_orbit"
         },
         {
           "type": "probe_target",
-          "id": "sternenwerft:neptune_orbit"
+          "id": "infinite_horizon:neptune_orbit"
         },
         {
           "type": "probe_target",
-          "id": "sternenwerft:triton"
+          "id": "infinite_horizon:triton"
         },
         {
           "type": "probe_target",
-          "id": "sternenwerft:pluto"
+          "id": "infinite_horizon:pluto"
         }
       ],
-      "icon": "sternenwerft:advanced_probe",
+      "icon": "infinite_horizon:advanced_probe",
       "position": {
         "column": 1,
         "row": 4,
@@ -1170,7 +1170,7 @@
       "notes": "Sondenziele = alle Ziele mit Ring 2 aus 12.1; Sonderkosten 20 FP."
     },
     {
-      "id": "sternenwerft:asteroid_anchor",
+      "id": "infinite_horizon:asteroid_anchor",
       "tier": 4,
       "branch": "spaceflight",
       "cost": 80,
@@ -1178,10 +1178,10 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:asteroid_anchor"
+          "id": "infinite_horizon:asteroid_anchor"
         }
       ],
-      "icon": "sternenwerft:asteroid_anchor",
+      "icon": "infinite_horizon:asteroid_anchor",
       "position": {
         "column": 1,
         "row": 4,
@@ -1192,21 +1192,21 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:long_range",
+      "id": "infinite_horizon:long_range",
       "tier": 4,
       "branch": "spaceflight",
       "cost": 80,
       "requires": [
-        "sternenwerft:lithium_storage",
-        "sternenwerft:iridium_chips"
+        "infinite_horizon:lithium_storage",
+        "infinite_horizon:iridium_chips"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:long_range_module"
+          "id": "infinite_horizon:long_range_module"
         }
       ],
-      "icon": "sternenwerft:long_range_module",
+      "icon": "infinite_horizon:long_range_module",
       "position": {
         "column": 1,
         "row": 4,
@@ -1217,21 +1217,21 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:dome_t3",
+      "id": "infinite_horizon:dome_t3",
       "tier": 4,
       "branch": "life_support",
       "cost": 80,
       "requires": [
-        "sternenwerft:dome_t2",
-        "sternenwerft:iridium_chips"
+        "infinite_horizon:dome_t2",
+        "infinite_horizon:iridium_chips"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:dome_generator_t3"
+          "id": "infinite_horizon:dome_generator_t3"
         }
       ],
-      "icon": "sternenwerft:dome_generator_t3",
+      "icon": "infinite_horizon:dome_generator_t3",
       "position": {
         "column": 2,
         "row": 4,
@@ -1242,24 +1242,24 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:eva",
+      "id": "infinite_horizon:eva",
       "tier": 4,
       "branch": "life_support",
       "cost": 80,
       "requires": [
-        "sternenwerft:lithium_storage"
+        "infinite_horizon:lithium_storage"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:jetpack"
+          "id": "infinite_horizon:jetpack"
         },
         {
           "type": "item",
-          "id": "sternenwerft:heat_reflector"
+          "id": "infinite_horizon:heat_reflector"
         }
       ],
-      "icon": "sternenwerft:jetpack",
+      "icon": "infinite_horizon:jetpack",
       "position": {
         "column": 2,
         "row": 4,
@@ -1270,7 +1270,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:radiation_shield",
+      "id": "infinite_horizon:radiation_shield",
       "tier": 4,
       "branch": "life_support",
       "cost": 80,
@@ -1278,10 +1278,10 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:radiation_shield"
+          "id": "infinite_horizon:radiation_shield"
         }
       ],
-      "icon": "sternenwerft:radiation_shield",
+      "icon": "infinite_horizon:radiation_shield",
       "position": {
         "column": 2,
         "row": 4,
@@ -1292,24 +1292,24 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:ice_drilling",
+      "id": "infinite_horizon:ice_drilling",
       "tier": 4,
       "branch": "life_support",
       "cost": 80,
       "requires": [
-        "sternenwerft:lithium_storage"
+        "infinite_horizon:lithium_storage"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:ice_drill"
+          "id": "infinite_horizon:ice_drill"
         },
         {
           "type": "item",
-          "id": "sternenwerft:diving_module"
+          "id": "infinite_horizon:diving_module"
         }
       ],
-      "icon": "sternenwerft:ice_drill",
+      "icon": "infinite_horizon:ice_drill",
       "position": {
         "column": 2,
         "row": 4,
@@ -1320,20 +1320,20 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:clone_chamber",
+      "id": "infinite_horizon:clone_chamber",
       "tier": 4,
       "branch": "life_support",
       "cost": 80,
       "requires": [
-        "sternenwerft:iridium_chips"
+        "infinite_horizon:iridium_chips"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:clone_chamber"
+          "id": "infinite_horizon:clone_chamber"
         }
       ],
-      "icon": "sternenwerft:clone_chamber",
+      "icon": "infinite_horizon:clone_chamber",
       "position": {
         "column": 2,
         "row": 4,
@@ -1344,7 +1344,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:iridium_chips",
+      "id": "infinite_horizon:iridium_chips",
       "tier": 4,
       "branch": "logistics",
       "cost": 80,
@@ -1352,10 +1352,10 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:iridium_chip"
+          "id": "infinite_horizon:iridium_chip"
         }
       ],
-      "icon": "sternenwerft:iridium_chip",
+      "icon": "infinite_horizon:iridium_chip",
       "position": {
         "column": 3,
         "row": 4,
@@ -1366,28 +1366,28 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:fission",
+      "id": "infinite_horizon:fission",
       "tier": 5,
       "branch": "industry",
       "cost": 120,
       "requires": [
-        "sternenwerft:iridium_chips"
+        "infinite_horizon:iridium_chips"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:fission_reactor"
+          "id": "infinite_horizon:fission_reactor"
         },
         {
           "type": "item",
-          "id": "sternenwerft:fission_casing"
+          "id": "infinite_horizon:fission_casing"
         },
         {
           "type": "item",
-          "id": "sternenwerft:fuel_rod"
+          "id": "infinite_horizon:fuel_rod"
         }
       ],
-      "icon": "sternenwerft:fission_reactor",
+      "icon": "infinite_horizon:fission_reactor",
       "position": {
         "column": 0,
         "row": 5,
@@ -1398,7 +1398,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:pump_station",
+      "id": "infinite_horizon:pump_station",
       "tier": 5,
       "branch": "industry",
       "cost": 120,
@@ -1406,14 +1406,14 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:pump_station"
+          "id": "infinite_horizon:pump_station"
         },
         {
           "type": "item",
-          "id": "sternenwerft:pontoon"
+          "id": "infinite_horizon:pontoon"
         }
       ],
-      "icon": "sternenwerft:pump_station",
+      "icon": "infinite_horizon:pump_station",
       "position": {
         "column": 0,
         "row": 5,
@@ -1424,7 +1424,7 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:drilling_rig",
+      "id": "infinite_horizon:drilling_rig",
       "tier": 5,
       "branch": "industry",
       "cost": 120,
@@ -1432,10 +1432,10 @@
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:drilling_rig"
+          "id": "infinite_horizon:drilling_rig"
         }
       ],
-      "icon": "sternenwerft:drilling_rig",
+      "icon": "infinite_horizon:drilling_rig",
       "position": {
         "column": 0,
         "row": 5,
@@ -1446,20 +1446,20 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:atomic_drive",
+      "id": "infinite_horizon:atomic_drive",
       "tier": 5,
       "branch": "spaceflight",
       "cost": 120,
       "requires": [
-        "sternenwerft:fission"
+        "infinite_horizon:fission"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:atomic_drive"
+          "id": "infinite_horizon:atomic_drive"
         }
       ],
-      "icon": "sternenwerft:atomic_drive",
+      "icon": "infinite_horizon:atomic_drive",
       "position": {
         "column": 1,
         "row": 5,
@@ -1470,42 +1470,42 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:suit_t3",
+      "id": "infinite_horizon:suit_t3",
       "tier": 5,
       "branch": "life_support",
       "cost": 120,
       "requires": [
-        "sternenwerft:suit_t2",
-        "sternenwerft:superconductors",
-        "sternenwerft:lithium_storage"
+        "infinite_horizon:suit_t2",
+        "infinite_horizon:superconductors",
+        "infinite_horizon:lithium_storage"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:deep_space_suit_helmet"
+          "id": "infinite_horizon:deep_space_suit_helmet"
         },
         {
           "type": "item",
-          "id": "sternenwerft:deep_space_suit_chestplate"
+          "id": "infinite_horizon:deep_space_suit_chestplate"
         },
         {
           "type": "item",
-          "id": "sternenwerft:deep_space_suit_leggings"
+          "id": "infinite_horizon:deep_space_suit_leggings"
         },
         {
           "type": "item",
-          "id": "sternenwerft:deep_space_suit_boots"
+          "id": "infinite_horizon:deep_space_suit_boots"
         },
         {
           "type": "item",
-          "id": "sternenwerft:insulation_fabric"
+          "id": "infinite_horizon:insulation_fabric"
         },
         {
           "type": "item",
-          "id": "sternenwerft:heating_module"
+          "id": "infinite_horizon:heating_module"
         }
       ],
-      "icon": "sternenwerft:deep_space_suit_helmet",
+      "icon": "infinite_horizon:deep_space_suit_helmet",
       "position": {
         "column": 2,
         "row": 5,
@@ -1517,20 +1517,20 @@
       "notes": "deep_space_suit_* = helmet, chestplate, leggings, boots."
     },
     {
-      "id": "sternenwerft:fertilizer",
+      "id": "infinite_horizon:fertilizer",
       "tier": 5,
       "branch": "life_support",
       "cost": 120,
       "requires": [
-        "sternenwerft:pump_station"
+        "infinite_horizon:pump_station"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:ammonia_fertilizer"
+          "id": "infinite_horizon:ammonia_fertilizer"
         }
       ],
-      "icon": "sternenwerft:ammonia_fertilizer",
+      "icon": "infinite_horizon:ammonia_fertilizer",
       "position": {
         "column": 2,
         "row": 5,
@@ -1541,33 +1541,33 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:cargo_logistics",
+      "id": "infinite_horizon:cargo_logistics",
       "tier": 5,
       "branch": "logistics",
       "cost": 120,
       "requires": [
-        "sternenwerft:iridium_chips",
-        "sternenwerft:lithium_storage"
+        "infinite_horizon:iridium_chips",
+        "infinite_horizon:lithium_storage"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:cargo_terminal"
+          "id": "infinite_horizon:cargo_terminal"
         },
         {
           "type": "item",
-          "id": "sternenwerft:cargo_rocket"
+          "id": "infinite_horizon:cargo_rocket"
         },
         {
           "type": "item",
-          "id": "sternenwerft:logistics_computer"
+          "id": "infinite_horizon:logistics_computer"
         },
         {
           "type": "item",
-          "id": "sternenwerft:trading_post"
+          "id": "infinite_horizon:trading_post"
         }
       ],
-      "icon": "sternenwerft:cargo_terminal",
+      "icon": "infinite_horizon:cargo_terminal",
       "position": {
         "column": 3,
         "row": 5,
@@ -1578,21 +1578,21 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:antimatter_drive",
+      "id": "infinite_horizon:antimatter_drive",
       "tier": 6,
       "branch": "spaceflight",
       "cost": 250,
       "requires": [
-        "sternenwerft:magnetic_trap",
-        "sternenwerft:fission"
+        "infinite_horizon:magnetic_trap",
+        "infinite_horizon:fission"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:antimatter_drive"
+          "id": "infinite_horizon:antimatter_drive"
         }
       ],
-      "icon": "sternenwerft:antimatter_drive",
+      "icon": "infinite_horizon:antimatter_drive",
       "position": {
         "column": 1,
         "row": 6,
@@ -1603,24 +1603,24 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:orbital_shipyard",
+      "id": "infinite_horizon:orbital_shipyard",
       "tier": 6,
       "branch": "spaceflight",
       "cost": 250,
       "requires": [
-        "sternenwerft:antimatter_drive"
+        "infinite_horizon:antimatter_drive"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:shipyard_terminal"
+          "id": "infinite_horizon:shipyard_terminal"
         },
         {
           "type": "item",
-          "id": "sternenwerft:shipyard_dock"
+          "id": "infinite_horizon:shipyard_dock"
         }
       ],
-      "icon": "sternenwerft:shipyard_terminal",
+      "icon": "infinite_horizon:shipyard_terminal",
       "position": {
         "column": 1,
         "row": 6,
@@ -1631,21 +1631,21 @@
       "spec_ref": "11.4"
     },
     {
-      "id": "sternenwerft:heavy_freighter",
+      "id": "infinite_horizon:heavy_freighter",
       "tier": 6,
       "branch": "logistics",
       "cost": 250,
       "requires": [
-        "sternenwerft:cargo_logistics",
-        "sternenwerft:atomic_drive"
+        "infinite_horizon:cargo_logistics",
+        "infinite_horizon:atomic_drive"
       ],
       "unlocks": [
         {
           "type": "item",
-          "id": "sternenwerft:heavy_freighter"
+          "id": "infinite_horizon:heavy_freighter"
         }
       ],
-      "icon": "sternenwerft:heavy_freighter",
+      "icon": "infinite_horizon:heavy_freighter",
       "position": {
         "column": 3,
         "row": 6,

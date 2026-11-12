@@ -1,4 +1,4 @@
-# Sternenwerft – Schema der Quelldaten
+# Infinite Horizon – Schema der Quelldaten
 
 Die Dateien in `spec/data/` sind die **einzige maßgebliche Quelle** für alle IDs, Rezepte, Forschungsknoten, Planeten- und Balance-Werte. Die Kapitel in `docs/spec/` beschreiben Regeln und Verhalten und verweisen auf diese Dateien. Bei Abweichungen gelten die Daten.
 
@@ -8,7 +8,7 @@ Die Dateien in `spec/data/` sind die **einzige maßgebliche Quelle** für alle I
 
 ## Allgemeine Regeln
 
-- **IDs:** immer mit Namespace. Eigene IDs: `sternenwerft:<snake_case>`. Vanilla: `minecraft:<id>`. Konventions-Tags: `#c:ingots/aluminum` (Tags beginnen mit `#`).
+- **IDs:** immer mit Namespace. Eigene IDs: `infinite_horizon:<snake_case>`. Vanilla: `minecraft:<id>`. Konventions-Tags: `#c:ingots/aluminum` (Tags beginnen mit `#`).
 - **Vanilla-IDs** (`minecraft:*`) gelten als vorhanden und stehen nicht in `items.json`.
 - **Mengen:** Items als ganze Zahl, Fluide in mB, Zeiten in Ticks, Energie in J bzw. J/t.
 - **`spec_ref`:** Kapitel/Abschnitt der Spezifikation, aus dem der Eintrag stammt (z. B. `"6.1"`). Pflicht in jedem Eintrag.
@@ -23,7 +23,7 @@ Die Dateien in `spec/data/` sind die **einzige maßgebliche Quelle** für alle I
   "schema_version": 1,
   "entries": [
     {
-      "id": "sternenwerft:crusher",
+      "id": "infinite_horizon:crusher",
       "kind": "block",
       "category": "machine",
       "name_de": "Zerkleinerer",
@@ -57,15 +57,15 @@ Fluide (`kind: fluid`) haben zusätzlich `"fluid_type": "liquid" | "gas"`, `"col
   "schema_version": 1,
   "recipes": [
     {
-      "id": "sternenwerft:assembly/rocket_capsule_t1",
+      "id": "infinite_horizon:assembly/rocket_capsule_t1",
       "type": "assembly",
       "ingredients": [
-        { "item": "sternenwerft:aluminum_plate", "count": 40 },
+        { "item": "infinite_horizon:aluminum_plate", "count": 40 },
         { "tag": "#c:plates/titanium", "count": 16 },
-        { "any_of": [ { "item": "minecraft:basalt" }, { "item": "sternenwerft:moon_basalt" } ], "count": 1 }
+        { "any_of": [ { "item": "minecraft:basalt" }, { "item": "infinite_horizon:moon_basalt" } ], "count": 1 }
       ],
-      "fluid": { "fluid": "sternenwerft:kerosene", "amount": 16000 },
-      "results": [ { "id": "sternenwerft:rocket_capsule_t1", "count": 1, "chance": 1.0 } ],
+      "fluid": { "fluid": "infinite_horizon:kerosene", "amount": 16000 },
+      "results": [ { "id": "infinite_horizon:rocket_capsule_t1", "count": 1, "chance": 1.0 } ],
       "fluid_results": [],
       "ticks": 200,
       "energy_per_tick": 30,
@@ -95,8 +95,8 @@ Fluide (`kind: fluid`) haben zusätzlich `"fluid_type": "liquid" | "gas"`, `"col
 | `zero_g` | Schwerelos-Fertigung | `ingredients`, optional `fluid`, `results` |
 | `assembly` | Montagetisch | `ingredients` (max. 9 Slots, eine Zutat darf mehrere Slots belegen: Slots = Summe aufgerundeter `count / 64`), optional `fluid` (max. 16.000 mB), `results` |
 
-- Eine Zutat hat genau eines von `item`, `tag`, `any_of`. Optional `"components": { "sternenwerft:charge": 1 }` (exakter Abgleich).
-- `results` ist immer eine Liste. `chance` ist 0–1, Standard 1.0. Ein Ergebnis darf `"components": { … }` tragen; diese Werte werden nach `copy_components_from` gesetzt (z. B. Frachtrakete + `atomic_drive` → Frachtrakete mit `"sternenwerft:drive": "sternenwerft:atomic_drive"`).
+- Eine Zutat hat genau eines von `item`, `tag`, `any_of`. Optional `"components": { "infinite_horizon:charge": 1 }` (exakter Abgleich).
+- `results` ist immer eine Liste. `chance` ist 0–1, Standard 1.0. Ein Ergebnis darf `"components": { … }` tragen; diese Werte werden nach `copy_components_from` gesetzt (z. B. Frachtrakete + `atomic_drive` → Frachtrakete mit `"infinite_horizon:drive": "infinite_horizon:atomic_drive"`).
 - `copy_components_from` steht auf Rezeptebene und nennt den Index der Zutat, deren Komponenten übernommen werden. Hat diese Zutat `count` > 1, wird die erste passende Einheit genommen.
 - `ticks` und `energy_per_tick` dürfen `null` sein; dann gelten die Werte der Maschine aus `balance/machines.json`.
 - **Regelrezepte** (z. B. „jedes Erz → 2 Staub“) werden **ausgeschrieben**, ein Eintrag pro Metall.
@@ -115,20 +115,20 @@ Fluide (`kind: fluid`) haben zusätzlich `"fluid_type": "liquid" | "gas"`, `"col
       "name_de": "Nahe Welten",
       "name_en": "Nearby Worlds",
       "cost_default": 25,
-      "gate": { "type": "enter_dimension", "dimension": "sternenwerft:moon" },
+      "gate": { "type": "enter_dimension", "dimension": "infinite_horizon:moon" },
       "spec_ref": "11.4"
     }
   ],
   "nodes": [
     {
-      "id": "sternenwerft:cryogenics",
+      "id": "infinite_horizon:cryogenics",
       "tier": 2,
       "branch": "industry",
       "cost": 25,
-      "requires": ["sternenwerft:regolith_heater"],
+      "requires": ["infinite_horizon:regolith_heater"],
       "unlocks": [
-        { "type": "item", "id": "sternenwerft:cryo_liquefier" },
-        { "type": "probe_target", "id": "sternenwerft:mars" }
+        { "type": "item", "id": "infinite_horizon:cryo_liquefier" },
+        { "type": "probe_target", "id": "infinite_horizon:mars" }
       ],
       "position": { "column": 0, "row": 2, "slot": 0 },
       "name_de": "Kryotechnik",
@@ -151,8 +151,8 @@ Liste `"entries"` mit einem Eintrag pro Ziel aus Kapitel 12.1 (Overworld, 12 Obe
 
 ```json
 {
-  "id": "sternenwerft:moon",
-  "dimension": "sternenwerft:moon",
+  "id": "infinite_horizon:moon",
+  "dimension": "infinite_horizon:moon",
   "type": "surface",
   "name_de": "Mond",
   "name_en": "Moon",
@@ -169,11 +169,11 @@ Liste `"entries"` mit einem Eintrag pro Ziel aus Kapitel 12.1 (Overworld, 12 Obe
   "launch_cost_override": null,
   "required_rocket_tier": 1,
   "requires_long_range": false,
-  "probe": "sternenwerft:probe",
-  "orbit": "sternenwerft:earth_orbit",
-  "lander_connects_to": "sternenwerft:earth_orbit",
+  "probe": "infinite_horizon:probe",
+  "orbit": "infinite_horizon:earth_orbit",
+  "lander_connects_to": "infinite_horizon:earth_orbit",
   "gas_collector_output": null,
-  "default_block": "sternenwerft:moon_rock",
+  "default_block": "infinite_horizon:moon_rock",
   "default_fluid": "minecraft:air",
   "sea_level": null,
   "fixed_time": null,
@@ -181,19 +181,19 @@ Liste `"entries"` mit einem Eintrag pro Ziel aus Kapitel 12.1 (Overworld, 12 Obe
   "zones": [],
   "biome_temperature_overrides": {},
   "biomes": [
-    { "id": "sternenwerft:moon_mare", "name_de": "Mare", "surface": "sternenwerft:moon_basalt", "shape": "flat", "rarity": "common", "notes": "flach, dunkel" }
+    { "id": "infinite_horizon:moon_mare", "name_de": "Mare", "surface": "infinite_horizon:moon_basalt", "shape": "flat", "rarity": "common", "notes": "flach, dunkel" }
   ],
   "ores": [
-    { "block": "sternenwerft:moon_titanium_ore", "y_min": 0, "y_max": 80, "vein_size": 6, "per_chunk": 4, "biomes": ["sternenwerft:moon_mare"], "drops": [ { "id": "sternenwerft:raw_titanium", "count": 1 } ] }
+    { "block": "infinite_horizon:moon_titanium_ore", "y_min": 0, "y_max": 80, "vein_size": 6, "per_chunk": 4, "biomes": ["infinite_horizon:moon_mare"], "drops": [ { "id": "infinite_horizon:raw_titanium", "count": 1 } ] }
   ],
   "blocks": [
-    { "id": "sternenwerft:moon_regolith", "drops": "self" }
+    { "id": "infinite_horizon:moon_regolith", "drops": "self" }
   ],
   "structures": [
-    { "id": "sternenwerft:lava_tube", "exploration_target": true, "biomes": ["sternenwerft:moon_mare"], "spacing_chunks": 16, "notes": "Tunnel 5×5, Länge 60–120, y 30–50" }
+    { "id": "infinite_horizon:lava_tube", "exploration_target": true, "biomes": ["infinite_horizon:moon_mare"], "spacing_chunks": 16, "notes": "Tunnel 5×5, Länge 60–120, y 30–50" }
   ],
   "vanilla_mobs": [ { "entity": "minecraft:zombie", "rate": 0.5 } ],
-  "events": ["sternenwerft:solar_storm", "sternenwerft:meteor_shower"],
+  "events": ["infinite_horizon:solar_storm", "infinite_horizon:meteor_shower"],
   "spec_ref": "13"
 }
 ```
@@ -210,7 +210,7 @@ Liste `"entries"` mit einem Eintrag pro Ziel aus Kapitel 12.1 (Overworld, 12 Obe
 Wie Kapitel 25.5, als Liste `"parts"`. Dazu `"rules"` je Stufe:
 
 ```json
-{ "tier": 1, "thrust": 30, "pad": "launch_pad_t1", "fuel": ["sternenwerft:kerosene", "sternenwerft:oxygen"], "tanks": [3, 5], "fins": 4, "cargo_bays": [0, 1], "long_range": [0, 0] }
+{ "tier": 1, "thrust": 30, "pad": "launch_pad_t1", "fuel": ["infinite_horizon:kerosene", "infinite_horizon:oxygen"], "tanks": [3, 5], "fins": 4, "cargo_bays": [0, 1], "long_range": [0, 0] }
 ```
 
 ---

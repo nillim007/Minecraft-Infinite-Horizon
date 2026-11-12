@@ -34,8 +34,8 @@
       "per_dp_ticks": 1200,
       "countdown_ticks": 200,
       "applies_to": [
-        "sternenwerft:probe",
-        "sternenwerft:advanced_probe"
+        "infinite_horizon:probe",
+        "infinite_horizon:advanced_probe"
       ],
       "spec_ref": "12.3"
     },
@@ -73,8 +73,8 @@
     "lander": {
       "tank_per_component": 32000,
       "fuel": [
-        "sternenwerft:hydrogen",
-        "sternenwerft:oxygen"
+        "infinite_horizon:hydrogen",
+        "infinite_horizon:oxygen"
       ],
       "seats": 2,
       "include_transfer": false,
@@ -83,7 +83,7 @@
       ],
       "placeable_in": [
         "orbit",
-        "sternenwerft:docking_bay"
+        "infinite_horizon:docking_bay"
       ],
       "spec_ref": "12.7",
       "notes": "Verbindungen über lander_connects_to in planets.json"
@@ -93,7 +93,7 @@
       "platform_size": 5,
       "check_y_min": 180,
       "check_y_max": 240,
-      "block": "sternenwerft:aerostat_platform",
+      "block": "infinite_horizon:aerostat_platform",
       "spec_ref": "12.8"
     },
     "cloud_elevator": {
@@ -101,7 +101,7 @@
       "surface_below_y": 180,
       "air_blocks_above": 2,
       "lava_platform_size": 3,
-      "lava_platform_block": "sternenwerft:venus_rock",
+      "lava_platform_block": "infinite_horizon:venus_rock",
       "vehicle_radius": 3,
       "spec_ref": "12.8"
     }

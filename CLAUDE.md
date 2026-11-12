@@ -1,4 +1,4 @@
-# Sternenwerft – Arbeitsanweisung für KI-Sitzungen
+# Infinite Horizon – Arbeitsanweisung für KI-Sitzungen
 
 Minecraft-Mod (Minecraft 26.3, Java 25, NeoForge + Fabric, MultiLoader). Die Mod wird **Meilenstein für Meilenstein** nach der Spezifikation gebaut.
 
@@ -37,7 +37,7 @@ Bei Widerspruch gilt: `spec/data` vor Text, sonst die Regeln in `docs/spec/00-le
 - **`spec/data` nur ändern, wenn ausdrücklich darum gebeten.** Danach immer `python tools/validate_spec.py` und `python tools/render_docs.py` ausführen.
 - **Reine Funktionen für Regeln** (3A.1) und JUnit-Tests dafür.
 - **Server entscheidet**, Client stellt nur dar.
-- **Addon-freundlich** (Wunsch des Auftraggebers): einfache Schnittstelle mit vielen Einstellmöglichkeiten. Einstellwerte in Daten (Balance/Config, aus allen Namespaces zusammengeführt), Basisklassen statt Kopien, öffentliche Typen in `de.sternenwerft.api`. Details: `docs/dev/addon-api.md`.
+- **Addon-freundlich** (Wunsch des Auftraggebers): einfache Schnittstelle mit vielen Einstellmöglichkeiten. Einstellwerte in Daten (Balance/Config, aus allen Namespaces zusammengeführt), Basisklassen statt Kopien, öffentliche Typen in `de.infinitehorizon.api`. Details: `docs/dev/addon-api.md`.
 - **Platzhalter-Assets** über `tools/gen_placeholders.py` (Farben in 24.5), keine echten Texturen erfinden.
 - Übersetzungen kommen aus `items.json` (`name_de`, `name_en`); kein fest eingebauter Text.
 
@@ -60,7 +60,7 @@ Ohne JDK 25 lokal nicht bauen, sondern GitHub nutzen (unten). Ein JDK nur mit Zu
 1. Änderungen committen und pushen.
 2. `python tools/ci_status.py --wait` im Hintergrund starten; es meldet GRÜN/ROT, Compiler-Fehler mit Datei und Zeile und die GameTest-Zusammenfassungen.
 3. Bei ROT die Meldungen beheben und erneut pushen. Höchstens 60 GitHub-Abfragen pro Stunde (ohne Token).
-4. **GUI prüfen:** Der Client-Test (`fabric/.../gametest/SwClientGameTests.java`) öffnet jedes Maschinen-GUI und fotografiert es; die CI legt die Bilder im Branch `ci-screenshots` ab. Abrufen ohne Anmeldung: `git clone --depth 1 -b ci-screenshots https://github.com/nillim007/Minecraft-New-Horizon.git <scratch>/shots` und die PNGs ansehen. Neue GUIs dort ergänzen.
+4. **GUI prüfen:** Der Client-Test (`fabric/.../gametest/IhClientGameTests.java`) öffnet jedes Maschinen-GUI und fotografiert es; die CI legt die Bilder im Branch `ci-screenshots` ab. Abrufen ohne Anmeldung: `git clone --depth 1 -b ci-screenshots https://github.com/nillim007/Minecraft-Infinite-Horizon.git <scratch>/shots` und die PNGs ansehen. Neue GUIs dort ergänzen.
 
 Der Projekt-Skill `.claude/skills/minecraft-mod-ci-screenshots/SKILL.md` beschreibt diesen Ablauf ausführlich (inkl. Stolperstellen in 26.3); Claude-Sitzungen in diesem Repo laden ihn automatisch.
 

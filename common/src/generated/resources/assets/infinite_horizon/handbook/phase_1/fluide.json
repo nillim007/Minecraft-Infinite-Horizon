@@ -1,0 +1,211 @@
+{
+  "id": "infinite_horizon:phase_1/fluide",
+  "chapter": "infinite_horizon:phase_1",
+  "title": "infinite_horizon.handbook.phase_1.fluide.title",
+  "icon": "infinite_horizon:fluid_tank",
+  "order": 70,
+  "unlock": null,
+  "items": [
+    "infinite_horizon:crude_oil",
+    "infinite_horizon:copper_pipe",
+    "infinite_horizon:fluid_tank",
+    "infinite_horizon:fluid_pump",
+    "infinite_horizon:crude_oil_bucket",
+    "infinite_horizon:kerosene_bucket"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.fluide.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.fluide.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.fluide.e2"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:fluid_pump",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_1.fluide.e3.0.label",
+          "infinite_horizon.handbook.phase_1.fluide.e3.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_1.fluide.e3.1.label",
+          "infinite_horizon.handbook.phase_1.fluide.e3.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_1.fluide.e3.2.label",
+          "infinite_horizon.handbook.phase_1.fluide.e3.2.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_1.fluide.e3.3.label",
+          "infinite_horizon.handbook.phase_1.fluide.e3.3.value"
+        ]
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:crafting_shaped/fluid_pump",
+          "type": "minecraft:crafting_shaped",
+          "station": "minecraft:crafting_table",
+          "pattern": [
+            "IEI",
+            "IMI",
+            "ITI"
+          ],
+          "key": {
+            "E": [
+              "minecraft:bucket"
+            ],
+            "I": [
+              "minecraft:iron_ingot"
+            ],
+            "M": [
+              "infinite_horizon:machine_frame"
+            ],
+            "T": [
+              "infinite_horizon:copper_pipe"
+            ]
+          },
+          "results": [
+            {
+              "item": "infinite_horizon:fluid_pump",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.fluide.e6",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.fluide.e7"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_1.fluide.e8.0",
+        "infinite_horizon.handbook.phase_1.fluide.e8.1"
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:crafting_shaped/copper_pipe",
+          "type": "minecraft:crafting_shaped",
+          "station": "minecraft:crafting_table",
+          "pattern": [
+            "CGC"
+          ],
+          "key": {
+            "C": [
+              "minecraft:copper_ingot"
+            ],
+            "G": [
+              "minecraft:glass"
+            ]
+          },
+          "results": [
+            {
+              "item": "infinite_horizon:copper_pipe",
+              "count": 4
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.fluide.e10",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.fluide.e11"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:fluid_tank",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_1.fluide.e12.0.label",
+          "infinite_horizon.handbook.phase_1.fluide.e12.0.value"
+        ]
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:crafting_shaped/fluid_tank",
+          "type": "minecraft:crafting_shaped",
+          "station": "minecraft:crafting_table",
+          "pattern": [
+            "IGI",
+            "G G",
+            "IGI"
+          ],
+          "key": {
+            "G": [
+              "minecraft:glass"
+            ],
+            "I": [
+              "minecraft:iron_ingot"
+            ]
+          },
+          "results": [
+            {
+              "item": "infinite_horizon:fluid_tank",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.fluide.e15",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.fluide.e16"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_1.fluide.e17.0",
+        "infinite_horizon.handbook.phase_1.fluide.e17.1"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.fluide.e18"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_1.fluide.e19",
+      "style": "tip"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_1.fluide.e20",
+      "style": "warning"
+    }
+  ]
+}

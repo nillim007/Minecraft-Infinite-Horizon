@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "entries": {
+    "launch_cost": {
+      "per_g": 32000,
+      "override_field": "launch_cost_override",
+      "notes": "start(A) = per_g × g(A) je Komponente; Vorrang: Zonenwert → Planetenwert launch_cost_override (Orbits 0, Venus-Wolkenschicht 16.000) → Formel",
+      "spec_ref": "12.2"
+    },
+    "transfer_cost": {
+      "per_dp": 6000,
+      "different_body": 2000,
+      "notes": "transfer(A,B) = per_dp × |DP(A) − DP(B)| + (A ≠ B ? different_body : 0)",
+      "spec_ref": "12.2"
+    },
+    "landing_cost": {
+      "factor": 0.25,
+      "per_g": 32000,
+      "notes": "landung(B) = factor × per_g × g(B), 0 wenn landing_requires_fuel = false",
+      "spec_ref": "12.2"
+    },
+    "thrust_to_weight": {
+      "min_ratio": 1.0,
+      "check_in_orbit": false,
+      "notes": "Start nur bei Schub / (Masse × g(Start)) ≥ min_ratio; im Orbit immer erlaubt",
+      "spec_ref": "12.4"
+    },
+    "refueling": {
+      "fuel_pump_radius_around_landed_rocket": 3,
+      "spec_ref": "12.2"
+    },
+    "probe_flight": {
+      "base_ticks": 1200,
+      "per_dp_ticks": 1200,
+      "countdown_ticks": 200,
+      "applies_to": [
+        "infinite_horizon:probe",
+        "infinite_horizon:advanced_probe"
+      ],
+      "spec_ref": "12.3"
+    },
+    "rocket_flight": {
+      "countdown_ticks": 200,
+      "ascent_ticks": 600,
+      "arrival_height": 200,
+      "landing_ticks": 200,
+      "beacon_landing_radius": 3,
+      "spec_ref": "12.5"
+    },
+    "landing_search": {
+      "radius": 32,
+      "pattern": "spiral",
+      "air_blocks_above": 3,
+      "fallback_platform_size": 3,
+      "notes": "Fallback-Plattform aus dem Gestein des Planeten auf der Fluidoberfläche",
+      "spec_ref": "12.5"
+    },
+    "orbit_arrival": {
+      "y": 100,
+      "default_x": 0,
+      "default_z": 0,
+      "clear_column": [
+        5,
+        5,
+        12
+      ],
+      "max_search_radius": 256,
+      "min_distance_foreign_station_core": 64,
+      "station_platform_size": 5,
+      "spec_ref": "12.5",
+      "notes": "gilt auch im asteroid_belt, wenn die Spalte keinen Asteroidenblock hat"
+    },
+    "lander": {
+      "tank_per_component": 32000,
+      "fuel": [
+        "infinite_horizon:hydrogen",
+        "infinite_horizon:oxygen"
+      ],
+      "seats": 2,
+      "include_transfer": false,
+      "launch_forbidden_from": [
+        "minecraft:overworld"
+      ],
+      "placeable_in": [
+        "orbit",
+        "infinite_horizon:docking_bay"
+      ],
+      "spec_ref": "12.7",
+      "notes": "Verbindungen über lander_connects_to in planets.json"
+    },
+    "venus_aerostat": {
+      "platform_y": 200,
+      "platform_size": 5,
+      "check_y_min": 180,
+      "check_y_max": 240,
+      "block": "infinite_horizon:aerostat_platform",
+      "spec_ref": "12.8"
+    },
+    "cloud_elevator": {
+      "delay_ticks": 100,
+      "surface_below_y": 180,
+      "air_blocks_above": 2,
+      "lava_platform_size": 3,
+      "lava_platform_block": "infinite_horizon:venus_rock",
+      "vehicle_radius": 3,
+      "spec_ref": "12.8"
+    }
+  }
+}

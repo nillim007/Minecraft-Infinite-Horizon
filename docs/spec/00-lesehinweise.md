@@ -22,7 +22,7 @@ Die Kapitel in `docs/spec/` und die Daten in `spec/data/` sind zusammen die **ei
 
 **Konventionen**
 
-- Mod-ID `sternenwerft`. Alle IDs englisch, `snake_case`. Im Text stehen IDs in `code`, z. B. `sternenwerft:crusher` oder kurz `crusher`.
+- Mod-ID `infinite_horizon`. Alle IDs englisch, `snake_case`. Im Text stehen IDs in `code`, z. B. `infinite_horizon:crusher` oder kurz `crusher`.
 - Ein **„Tank X“** in Rezepten bedeutet 16.000 mB des Fluids X und wird als `fluid`-Zutat kodiert (25.4). Der Montagetisch bekommt das Fluid über Rohre oder über seinen Leerslot (4.1), zum Beispiel aus einem gefüllten `transport_tank`.
 - Mengen wie „4 Aluminiumplatten“ beziehen sich auf die Item-IDs aus Kapitel 5.
 - **Assets:** Die KI erzeugt **Platzhalter-Texturen** (16×16 PNG, Grundfarbe nach Kapitel 24.5 mit 1 px dunklerem Rand, Items mit hellerem Mittelpunkt) per Skript `tools/gen_placeholders.py`. Modelle für Blöcke: Würfel (`cube_all` bzw. `orientable` für Maschinen). Kreaturen: einfache Quader-Modelle nach Größe in Kapitel 18.

@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IPI",
+    "IMI",
+    "IXI"
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "M": "infinite_horizon:machine_frame",
+    "P": "minecraft:piston",
+    "X": "minecraft:iron_block"
+  },
+  "result": {
+    "id": "infinite_horizon:press",
+    "count": 1
+  }
+}

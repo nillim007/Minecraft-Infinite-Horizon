@@ -15,7 +15,7 @@ Stand: 11.11.2026. Client-Tests: NeoForge mit JEI auf 63a2337, Fabric mit REI au
 
 Alle Beispielrezepte aus 27.2 laufen in einem GameTest-Durchlauf (Abschlusskriterium M2f): Zerkleinerer (Bauxit), Elektroofen (Quarzsand), Presse (Titanplatte), Elektrolyseur, Raffinerie, Montagetisch (Schaltkreis), Pumpe, Treibstoffgenerator, Akku, Kupferrohr, dazu die Kette Roh-Titan → Platte.
 
-## M2d: neue Server-GameTests (`SwGameTestsM2d`)
+## M2d: neue Server-GameTests (`IhGameTestsM2d`)
 
 
 | Test | Prüft | Spez. | Zeit |
@@ -32,7 +32,7 @@ Alle Beispielrezepte aus 27.2 laufen in einem GameTest-Durchlauf (Abschlusskrite
 | electrolyzer_tankselection | Tankwahl unter den 2 Ausgangstanks, begrenzt, Sync-Wert stimmt | 4.1 | 20 |
 | tank_rejects_gas | Tank nimmt Kerosin, aber keinen Wasserstoff | 6.3 | 20 |
 
-## M2e und M2f: neue Server-GameTests (`SwGameTestsM2e`, `SwGameTestsM2f`)
+## M2e und M2f: neue Server-GameTests (`IhGameTestsM2e`, `IhGameTestsM2f`)
 
 | Test | Prüft | Spez. | Zeit |
 | --- | --- | --- | --- |
@@ -41,7 +41,7 @@ Alle Beispielrezepte aus 27.2 laufen in einem GameTest-Durchlauf (Abschlusskrite
 | battery_outputsideonly | Akku gibt nur über die Ausgangsseite ab: Zerkleinerer davor bekommt Energie, der seitliche nicht | 27.3 M2e, 4.4 | 20 |
 | battery_io512_platformapi | höchstens 512 J/t Eingang je Tick über die Loader-API; Ausgangsseite nimmt nichts an; Verbraucher nur mit Loader-API bekommt 5.120 J in 10 t | 27.2, 3.3 | 20 |
 | battery_chargeslot | Ladeslot nimmt nur ladbare Items; lädt das Loader-Test-Item und einen Akku als Item (Komponente) | 6.3 | 20 |
-| battery_broken_keepsenergy | abgebauter Akku behält 123.456 J als `sternenwerft:energy`; Platzieren stellt sie wieder her | 4.1 | 20 |
+| battery_broken_keepsenergy | abgebauter Akku behält 123.456 J als `infinite_horizon:energy`; Platzieren stellt sie wieder her | 4.1 | 20 |
 | performance_100crushers_meantick | 100 laufende Zerkleinerer an 10 Kabelnetzen, Mittel der Tick-Zeit über 200 t ≤ 1 ms (GitHub 3 ms), eigene Testumgebung | 27.2 | 240 |
 | handbook_joingift_once | Handbuch-Geschenk genau einmal je Spieler | 24.1, 27.3 M2f | 20 |
 | crusher_bauxite_twoaluminumdustwithin220ticks | 1 Bauxit → 2 Aluminiumstaub | 27.2 | 220 |
@@ -77,7 +77,7 @@ Beide Client-Tests laufen bei jedem Push in der CI mit Software-Grafik (Mesa). D
 | Handbuch: öffnen, einem Link folgen, Seite des Zerkleinerers finden; Geschenk höchstens einmal | ✔ |
 | JEI: Plugin aktiv, Rezepte vom Server angekommen, Kategorien Raffinieren und Montage öffnen sich | ✔ |
 
-**Fabric** (`SwClientGameTests`, mit REI über `-PwithRei`): bestanden, 20 Bilder (Lauf für c620fae).
+**Fabric** (`IhClientGameTests`, mit REI über `-PwithRei`): bestanden, 20 Bilder (Lauf für c620fae).
 
 | Prüfung | Ergebnis |
 | --- | --- |

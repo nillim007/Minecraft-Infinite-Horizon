@@ -1,12 +1,12 @@
 <!-- Erzeugt von tools/gen_wiki.py aus docs/handbook/ und spec/data. Nicht von Hand ändern. -->
 
-# Sternenwerft – Spieler-Wiki
+# Infinite Horizon – Spieler-Wiki
 
-![Sternenwerft](../images/banner.svg)
+![Infinite Horizon](../images/banner.svg)
 
 ## Neu hier? In vier Schritten zum Start
 
-1. **[Willkommen bei Sternenwerft](Willkommen-bei-Sternenwerft.md)**: worum es in der Mod geht.
+1. **[Willkommen bei Infinite Horizon](Willkommen-bei-Infinite Horizon.md)**: worum es in der Mod geht.
 2. **[Installation](Installation.md)**: Mod einrichten und starten.
 3. **[Grundbegriffe](Grundbegriffe.md)**: Strom, Fluide, Statuslampe, Multiblöcke, in fünf Minuten.
 4. **[Erste Schritte](Erste-Schritte.md)**: der ganze Ablauf der ersten Phase, Schritt für Schritt mit allen Rezepten.
@@ -15,13 +15,13 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 ![Phase 1 auf einen Blick](../images/production-chain.svg)
 
-Das Wiki zur Raumfahrt-Mod **Minecraft New Horizon – Sternenwerft**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
+Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
 > Stand: Meilenstein 2f · Mod-Version 0.1.0
 
 ## Willkommen
 
-- [Willkommen bei Sternenwerft](Willkommen-bei-Sternenwerft.md) – Worum es geht und wie dieses Handbuch funktioniert
+- [Willkommen bei Infinite Horizon](Willkommen-bei-Infinite-Horizon.md) – Worum es geht und wie dieses Handbuch funktioniert
 - [Installation](Installation.md) – Was du brauchst und wie du die Mod startest
 - [Grundbegriffe](Grundbegriffe.md) – Strom, Ticks, Millibuckets, Statuslampe – alles in fünf Minuten
 - [Maschinen bedienen](Maschinen-bedienen.md) – GUI, Statuslampe, Ausgangsseite, Trichter und Upgrades

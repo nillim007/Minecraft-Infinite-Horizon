@@ -1,0 +1,288 @@
+{
+  "id": "infinite_horizon:phase_1/raffinerie",
+  "chapter": "infinite_horizon:phase_1",
+  "title": "infinite_horizon.handbook.phase_1.raffinerie.title",
+  "icon": "infinite_horizon:refinery_controller",
+  "order": 100,
+  "unlock": null,
+  "items": [
+    "infinite_horizon:refinery_controller",
+    "infinite_horizon:refinery_casing",
+    "infinite_horizon:plastic",
+    "infinite_horizon:kerosene",
+    "infinite_horizon:item_port",
+    "infinite_horizon:fluid_port",
+    "infinite_horizon:energy_port"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.raffinerie.e0"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:refinery_controller",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_1.raffinerie.e2.0.label",
+          "infinite_horizon.handbook.phase_1.raffinerie.e2.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_1.raffinerie.e2.1.label",
+          "infinite_horizon.handbook.phase_1.raffinerie.e2.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_1.raffinerie.e2.2.label",
+          "infinite_horizon.handbook.phase_1.raffinerie.e2.2.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_1.raffinerie.e2.3.label",
+          "infinite_horizon.handbook.phase_1.raffinerie.e2.3.value"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.raffinerie.e4",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:refining/kerosene",
+          "type": "infinite_horizon:refining",
+          "station": "infinite_horizon:refinery_controller",
+          "ingredients": [],
+          "fluid": {
+            "fluid": "infinite_horizon:crude_oil",
+            "amount": 1000
+          },
+          "results": [
+            {
+              "item": "infinite_horizon:plastic",
+              "count": 1
+            }
+          ],
+          "fluid_results": [
+            {
+              "fluid": "infinite_horizon:kerosene",
+              "amount": 600
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 40
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.raffinerie.e6",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.raffinerie.e7"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_1.raffinerie.e8.0",
+        "infinite_horizon.handbook.phase_1.raffinerie.e8.1",
+        "infinite_horizon.handbook.phase_1.raffinerie.e8.2",
+        "infinite_horizon.handbook.phase_1.raffinerie.e8.3",
+        "infinite_horizon.handbook.phase_1.raffinerie.e8.4"
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_1.raffinerie.e9",
+      "style": "tip"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.raffinerie.e11",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.raffinerie.e12"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_1.raffinerie.e13.0",
+        "infinite_horizon.handbook.phase_1.raffinerie.e13.1",
+        "infinite_horizon.handbook.phase_1.raffinerie.e13.2"
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/refinery_controller",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:machine_frame"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:iron_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "minecraft:redstone"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:refinery_controller",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/refinery_casing",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:iron_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:refinery_casing",
+              "count": 4
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/item_port",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:iron_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "minecraft:hopper"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:item_port",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/fluid_port",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:iron_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:fluid_port",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/energy_port",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:iron_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_cable"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:energy_port",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.raffinerie.e15",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.raffinerie.e16"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_1.raffinerie.e17",
+      "style": "warning"
+    }
+  ]
+}

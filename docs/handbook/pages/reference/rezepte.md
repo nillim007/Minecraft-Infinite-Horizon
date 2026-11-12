@@ -3,7 +3,7 @@ title: Alle Rezepte
 title_en: All Recipes
 order: 10
 milestone: 1
-icon: sternenwerft:circuit
+icon: infinite_horizon:circuit
 summary: Jedes Rezept des aktuellen Stands, nach Maschine sortiert
 ---
 Hier stehen alle Rezepte, die es im aktuellen Stand gibt. Die Werte kommen direkt aus den Daten der Mod. Dauer und Energie gelten ohne [[upgrades|Upgrades]].

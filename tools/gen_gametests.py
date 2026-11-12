@@ -1,7 +1,7 @@
 """Erzeugt aus common/gametests.json den gemeinsamen Testkatalog und die Fabric-Hülle.
 
-- common/src/main/java/de/sternenwerft/gametest/SwTestCatalog.java  (NeoForge registriert per Schleife)
-- fabric/src/main/java/de/sternenwerft/gametest/SwFabricGameTests.java (Fabric braucht je Test eine @GameTest-Methode)
+- common/src/main/java/de/infinitehorizon/gametest/IhTestCatalog.java  (NeoForge registriert per Schleife)
+- fabric/src/main/java/de/infinitehorizon/gametest/IhFabricGameTests.java (Fabric braucht je Test eine @GameTest-Methode)
 
 Aufruf: python tools/gen_gametests.py  (Ausgabe ist deterministisch; die CI prüft, dass sie aktuell ist)
 """
@@ -13,8 +13,8 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "common", "gametests.json")
-CATALOG = os.path.join(ROOT, "common", "src", "main", "java", "de", "sternenwerft", "gametest", "SwTestCatalog.java")
-FABRIC = os.path.join(ROOT, "fabric", "src", "main", "java", "de", "sternenwerft", "gametest", "SwFabricGameTests.java")
+CATALOG = os.path.join(ROOT, "common", "src", "main", "java", "de", "infinitehorizon", "gametest", "IhTestCatalog.java")
+FABRIC = os.path.join(ROOT, "fabric", "src", "main", "java", "de", "infinitehorizon", "gametest", "IhFabricGameTests.java")
 
 
 def camel(name):
@@ -46,7 +46,7 @@ def main():
         env = f'"{t["environment"]}"' if t.get("environment") else "null"
         lines.append(f'            new Test("{t["name"]}", {t["ticks"]}, {struct}, {env}, {t["class"]}::{t["method"]}){comma}{ref}')
     entries = "\n".join(lines)
-    catalog = f'''package de.sternenwerft.gametest;
+    catalog = f'''package de.infinitehorizon.gametest;
 
 import net.minecraft.gametest.framework.GameTestHelper;
 
@@ -56,7 +56,7 @@ import java.util.function.Consumer;
 /**
  * Alle Server-GameTests. ERZEUGT von tools/gen_gametests.py aus common/gametests.json – nicht von Hand ändern.
  */
-public final class SwTestCatalog {{
+public final class IhTestCatalog {{
 
     /**
      * Name (Registry-Pfad), Zeitgrenze in Ticks, Struktur und Testumgebung (null = Standard), Testfunktion. Tests mit
@@ -69,7 +69,7 @@ public final class SwTestCatalog {{
 {entries}
     );
 
-    private SwTestCatalog() {{
+    private IhTestCatalog() {{
     }}
 }}
 '''
@@ -78,7 +78,7 @@ public final class SwTestCatalog {{
     public void {camel(t["name"])}(GameTestHelper helper) {{
         {t["class"]}.{t["method"]}(helper);
     }}''' for t in tests)
-    fabric = f'''package de.sternenwerft.gametest;
+    fabric = f'''package de.infinitehorizon.gametest;
 
 import net.fabricmc.fabric.api.gametest.v1.GameTest;
 import net.minecraft.gametest.framework.GameTestHelper;
@@ -87,7 +87,7 @@ import net.minecraft.gametest.framework.GameTestHelper;
  * Fabric-Hülle um die gemeinsamen GameTests (Entry-Point „fabric-gametest“).
  * ERZEUGT von tools/gen_gametests.py aus common/gametests.json – nicht von Hand ändern.
  */
-public class SwFabricGameTests {{
+public class IhFabricGameTests {{
 
 {methods}
 }}

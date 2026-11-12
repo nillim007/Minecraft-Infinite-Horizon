@@ -20,7 +20,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import handbook  # noqa: E402
 import specdata as sd  # noqa: E402
 
-NS = "sternenwerft"
+NS = "infinite_horizon"
 OUT = sd.ROOT / "common" / "src" / "generated" / "resources"
 IMPL = sd.ROOT / "common" / "implemented_ids.json"
 LANG_EXTRA = sd.ROOT / "common" / "lang_extra.json"
@@ -196,8 +196,8 @@ def fluid_resources(spec, fluids, items):
         if bucket:
             containers.append({"full": f"{NS}:{bucket}", "fluid": f"{NS}:{f}", "amount": BUCKET_AMOUNT,
                                "empty": "minecraft:bucket"})
-    write_json("sternenwerft/fluids.json", {"fluids": entries})
-    write_json("sternenwerft/fluid_containers.json", {"containers": containers})
+    write_json("infinite_horizon/fluids.json", {"fluids": entries})
+    write_json("infinite_horizon/fluid_containers.json", {"containers": containers})
 
 
 def oil_bubble_worldgen():
@@ -420,7 +420,7 @@ def main():
     fluid_resources(spec, impl.get("fluids", []), items)
 
     # Liste der einfachen Blöcke für die Java-Registrierung (Reihenfolge wie in implemented_ids.json)
-    write_json("sternenwerft/simple_blocks.json", {"blocks": [
+    write_json("infinite_horizon/simple_blocks.json", {"blocks": [
         {"id": short(i), "copy": SIMPLE_BLOCKS[short(i)]["copy"], "falls": SIMPLE_BLOCKS[short(i)]["falls"]}
         for i, shape in blocks.items() if shape == "simple_block"]})
 
@@ -434,7 +434,7 @@ def main():
     # Liste der einfachen Items für die Java-Registrierung (Reihenfolge wie in implemented_ids.json)
     special = {k for k in impl.get("item_classes", {}) if not k.startswith("_")}
     simple_ids = [i for i in impl["items"] if i not in special]
-    write_json("sternenwerft/simple_items.json", {
+    write_json("infinite_horizon/simple_items.json", {
         "items": [short(i) for i in simple_ids],
         # Stapelgröße aus items.json, nur wenn sie von 64 abweicht (z. B. Eimer 1, 4.1)
         "max_stack": {short(i): spec.items[i]["max_stack"] for i in simple_ids
@@ -489,7 +489,7 @@ def main():
         if oil:
             fabric.append(oil)
     if fabric:
-        write_json("sternenwerft/biome_features.json", {"features": fabric})
+        write_json("infinite_horizon/biome_features.json", {"features": fabric})
     tags = {}
     for i in sorted(items):
         n = short(i)

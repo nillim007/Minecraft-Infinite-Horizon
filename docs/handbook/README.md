@@ -4,7 +4,7 @@ Aus diesem Ordner entstehen **zwei Ausgaben aus einer Quelle** (Kapitel 24.1, 25
 
 | Ausgabe | Erzeugt von | Ziel |
 | --- | --- | --- |
-| Ingenieurs-Handbuch im Spiel | `python tools/gen_resources.py` | `common/src/generated/resources/assets/sternenwerft/handbook/…` und Übersetzungen in `lang/*.json` |
+| Ingenieurs-Handbuch im Spiel | `python tools/gen_resources.py` | `common/src/generated/resources/assets/infinite_horizon/handbook/…` und Übersetzungen in `lang/*.json` |
 | Spieler-Wiki | `python tools/gen_wiki.py` | `docs/wiki/` (Markdown-Seiten, Einstieg `README.md`, Rezeptbilder in `images/rezepte/`) |
 
 Beide Ausgaben nie von Hand ändern. Die CI prüft, dass sie zur Quelle passen.
@@ -28,9 +28,9 @@ title: Raffinerie
 title_en: Refinery
 order: 100
 milestone: 2
-requires: ["sternenwerft:refinery_controller"]
-icon: sternenwerft:refinery_controller
-items: ["sternenwerft:refinery_controller", "sternenwerft:plastic"]
+requires: ["infinite_horizon:refinery_controller"]
+icon: infinite_horizon:refinery_controller
+items: ["infinite_horizon:refinery_controller", "infinite_horizon:plastic"]
 unlock: null
 targets: ["wiki", "game"]
 summary: Dein erster Multiblock
@@ -55,8 +55,8 @@ Normales Markdown in einfacher Form: Absätze, `##`-Überschriften, Listen (`-`,
 
 | Schreibweise | Wirkung |
 | --- | --- |
-| `[[raffinerie]]`, `[[raffinerie\|Text]]` | Link auf eine Seite (Dateiname ohne `.md`, oder volle ID `sternenwerft:phase_1/raffinerie`) |
-| `<item:sternenwerft:press>` | Name des Items in der jeweiligen Sprache, verlinkt auf seine Seite |
+| `[[raffinerie]]`, `[[raffinerie\|Text]]` | Link auf eine Seite (Dateiname ohne `.md`, oder volle ID `infinite_horizon:phase_1/raffinerie`) |
+| `<item:infinite_horizon:press>` | Name des Items in der jeweiligen Sprache, verlinkt auf seine Seite |
 | `{{value:machines:crusher.ticks}}` | Wert aus `spec/data/balance/<datei>.json`; mit `\|%` als Prozent, mit `\|t` als Ticks mit Sekunden |
 | `{{value:planet:overworld.ores.0.y_min}}` | Wert aus `planets.json` |
 
@@ -84,8 +84,8 @@ Rezepte, Steckbriefe und Tabellen zeigen nur, was registriert ist. Nicht eingeba
 
 `assets/<ns>/handbook/<kapitel>/_chapter.json` beschreibt ein Kapitel, jede andere Datei dort eine Seite (Schema 25.6). Texte sind Übersetzungsschlüssel. Die übersetzten Texte können dieses Inline-Markup enthalten, das das Handbuch-GUI auswertet:
 
-- `[[sternenwerft:phase_1/raffinerie|Text]]` → anklickbarer Link auf die Seite,
-- `<item:sternenwerft:press>` → übersetzter Item-Name, anklickbar (öffnet die Seite, die das Item in `items` nennt), Tooltip mit Item,
+- `[[infinite_horizon:phase_1/raffinerie|Text]]` → anklickbarer Link auf die Seite,
+- `<item:infinite_horizon:press>` → übersetzter Item-Name, anklickbar (öffnet die Seite, die das Item in `items` nennt), Tooltip mit Item,
 - `**fett**`.
 
 Rezepte sind als Anzeige-Daten eingebettet (`recipes[]`), weil der Client seit 1.21.2 nicht alle Rezepte kennt.

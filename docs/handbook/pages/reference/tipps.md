@@ -3,7 +3,7 @@ title: Tipps und häufige Fragen
 title_en: Tips and FAQ
 order: 30
 milestone: 1
-icon: sternenwerft:speed_upgrade
+icon: infinite_horizon:speed_upgrade
 summary: Kniffe, Fehlersuche und Antworten
 ---
 ## Tipps für den Anfang
@@ -39,5 +39,5 @@ Titan liegt unter y 0. Ohne Eisenspitzhacke droppt das Erz nichts.
 
 ## Für Modpacks und Server
 
-- Fast alle Zahlen (Verbrauch, Dauer, Durchsatz) stehen in Datenpaketen unter `data/<namespace>/sternenwerft/balance/` und lassen sich mit `/reload` ändern.
-- In `serverconfig/sternenwerft.json` lassen sich unter anderem Rezeptmengen, Sauerstoffverbrauch und Ereignisse einstellen.
+- Fast alle Zahlen (Verbrauch, Dauer, Durchsatz) stehen in Datenpaketen unter `data/<namespace>/infinite_horizon/balance/` und lassen sich mit `/reload` ändern.
+- In `serverconfig/infinite_horizon.json` lassen sich unter anderem Rezeptmengen, Sauerstoffverbrauch und Ereignisse einstellen.

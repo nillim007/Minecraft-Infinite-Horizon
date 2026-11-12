@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#infinite_horizon:has_titanium_ore",
+  "features": "infinite_horizon:titanium_ore",
+  "step": "underground_ores"
+}

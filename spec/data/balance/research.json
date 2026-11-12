@@ -26,8 +26,8 @@
       "fp": 15,
       "frequency": "once_per_creature_type_and_agency",
       "diminishing": false,
-      "tool": "sternenwerft:field_scanner",
-      "eligible_tag": "#sternenwerft:analyzable",
+      "tool": "infinite_horizon:field_scanner",
+      "eligible_tag": "#infinite_horizon:analyzable",
       "spec_ref": "11.1, 18"
     },
     "exploration_target": {
@@ -36,12 +36,12 @@
       "diminishing": true,
       "diminishing_key": "structure_type",
       "structures": [
-        "sternenwerft:lava_tube",
-        "sternenwerft:volcanic_vent",
-        "sternenwerft:meteorite_field",
-        "sternenwerft:hydrothermal_field",
-        "sternenwerft:ice_volcano",
-        "sternenwerft:signal_transmitter"
+        "infinite_horizon:lava_tube",
+        "infinite_horizon:volcanic_vent",
+        "infinite_horizon:meteorite_field",
+        "infinite_horizon:hydrothermal_field",
+        "infinite_horizon:ice_volcano",
+        "infinite_horizon:signal_transmitter"
       ],
       "spec_ref": "11.1, 13.1"
     },

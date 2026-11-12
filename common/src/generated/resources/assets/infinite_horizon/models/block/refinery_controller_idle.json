@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "infinite_horizon:block/refinery_controller_front_idle",
+    "side": "infinite_horizon:block/refinery_controller",
+    "top": "infinite_horizon:block/refinery_controller_top"
+  }
+}

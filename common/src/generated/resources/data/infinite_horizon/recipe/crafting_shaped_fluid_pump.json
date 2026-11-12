@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "IEI",
+    "IMI",
+    "ITI"
+  ],
+  "key": {
+    "E": "minecraft:bucket",
+    "I": "minecraft:iron_ingot",
+    "M": "infinite_horizon:machine_frame",
+    "T": "infinite_horizon:copper_pipe"
+  },
+  "result": {
+    "id": "infinite_horizon:fluid_pump",
+    "count": 1
+  }
+}

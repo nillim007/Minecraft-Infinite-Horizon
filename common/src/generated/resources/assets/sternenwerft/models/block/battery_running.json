@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "sternenwerft:block/battery_front_running",
-    "side": "sternenwerft:block/battery",
-    "top": "sternenwerft:block/battery_top"
-  }
-}

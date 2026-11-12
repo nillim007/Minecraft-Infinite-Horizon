@@ -1,15 +1,15 @@
 # 25. Datenformate
 
-Dateien **eigener Registries** liegen unter `data/<namespace>/sternenwerft/<typ>/`, damit andere Mods und Datenpakete Inhalte ergänzen können. Rezepte, Advancements, Loot-Tables, Tags und Worldgen liegen in den Vanilla-Ordnern (`recipe/`, `advancement/`, `loot_table/`, `tags/`, `worldgen/` …). Alle eigenen Registries sind neu ladbar (`/reload`) und werden an Clients synchronisiert. Sie sind als Reload-Listener umgesetzt, nicht als dynamische Registries von Minecraft (13.1).
+Dateien **eigener Registries** liegen unter `data/<namespace>/infinite_horizon/<typ>/`, damit andere Mods und Datenpakete Inhalte ergänzen können. Rezepte, Advancements, Loot-Tables, Tags und Worldgen liegen in den Vanilla-Ordnern (`recipe/`, `advancement/`, `loot_table/`, `tags/`, `worldgen/` …). Alle eigenen Registries sind neu ladbar (`/reload`) und werden an Clients synchronisiert. Sie sind als Reload-Listener umgesetzt, nicht als dynamische Registries von Minecraft (13.1).
 
-## 25.1 Planet (`sternenwerft:planet`, Ordner `planet/`)
+## 25.1 Planet (`infinite_horizon:planet`, Ordner `planet/`)
 
 ```json
 {
-  "dimension": "sternenwerft:moon",
+  "dimension": "infinite_horizon:moon",
   "type": "surface",
-  "orbit": "sternenwerft:earth_orbit",
-  "star_system": "sternenwerft:sol",
+  "orbit": "infinite_horizon:earth_orbit",
+  "star_system": "infinite_horizon:sol",
   "ring": 1,
   "distance_points": 0,
   "gravity": 0.17,
@@ -17,14 +17,14 @@ Dateien **eigener Registries** liegen unter `data/<namespace>/sternenwerft/<typ>
   "pressure": "vacuum",
   "temperature": { "day": 120, "night": -170 },
   "biome_temperature_offsets": {},
-  "biome_temperature_overrides": { "sternenwerft:moon_polar_crater": -190 },
+  "biome_temperature_overrides": { "infinite_horizon:moon_polar_crater": -190 },
   "radiation": 1,
   "solar_factor": 1.0,
   "water_behavior": "freeze",
   "landing_requires_fuel": true,
   "required_rocket_tier": 1,
   "requires_long_range": false,
-  "probe": "sternenwerft:probe",
+  "probe": "infinite_horizon:probe",
   "sky": {
     "color": "#000000",
     "fog_color": "#000000",
@@ -32,14 +32,14 @@ Dateien **eigener Registries** liegen unter `data/<namespace>/sternenwerft/<typ>
     "stars_in_daylight": true,
     "sun_scale": 1.0,
     "celestial_bodies": [
-      { "texture": "sternenwerft:textures/sky/earth.png", "size": 30, "azimuth": 60, "elevation": 40 }
+      { "texture": "infinite_horizon:textures/sky/earth.png", "size": 30, "azimuth": 60, "elevation": 40 }
     ]
   },
   "gas_collector_output": null,
   "zones": [
     {
       "y_min": -64, "y_max": 400,
-      "biome": "sternenwerft:moon_polar_crater",
+      "biome": "infinite_horizon:moon_polar_crater",
       "near_block": null,
       "temperature": -190, "pressure": null, "radiation": null,
       "solar_factor": null, "atmosphere": null, "water_behavior": null
@@ -60,15 +60,15 @@ Dateien **eigener Registries** liegen unter `data/<namespace>/sternenwerft/<typ>
 - **Himmel (`sky`):** `color` und `fog_color` sind Himmels- und Nebelfarbe; `fog_distance: null` = Vanilla-Nebel; `stars_in_daylight` = Sterne auch tagsüber in voller Helligkeit; `sun_scale` = Größe der Sonne relativ zu Vanilla. `celestial_bodies` stehen fest am Himmel und drehen sich nicht mit der Tageszeit: `azimuth` in Grad ab Norden im Uhrzeigersinn, `elevation` in Grad über dem Horizont (negativ = darunter), `size` in der Einheit der Vanilla-Sonne (Sonne = 30). Die Sonne läuft normal.
 - **Laufzeitfelder:** Die Datei im Spiel enthält nur die Felder dieses Beispiels und `name`. Worldgen-Felder aus `planets.json` gehen in die Vanilla-Worldgen-Dateien (13.1).
 
-## 25.2 Sonnensystem (`sternenwerft:star_system`, Ordner `star_system/`)
+## 25.2 Sonnensystem (`infinite_horizon:star_system`, Ordner `star_system/`)
 
 ```json
 {
-  "name": "sternenwerft.star_system.sol",
+  "name": "infinite_horizon.star_system.sol",
   "star_color": "#FFF4D6",
   "rings": [
     { "index": 0, "planets": ["minecraft:overworld"] },
-    { "index": 1, "planets": ["sternenwerft:moon", "sternenwerft:mars", "sternenwerft:venus"] }
+    { "index": 1, "planets": ["infinite_horizon:moon", "infinite_horizon:mars", "infinite_horizon:venus"] }
   ],
   "starship_jump_cost": 1,
   "unlock_requirement": null
@@ -84,19 +84,19 @@ Weitere Systeme setzen `unlock_requirement` (z. B. ein Item oder Advancement) un
   "tier": 2,
   "branch": "industry",
   "cost": 25,
-  "requires": ["sternenwerft:regolith_heater"],
+  "requires": ["infinite_horizon:regolith_heater"],
   "unlocks": [
-    { "type": "item", "id": "sternenwerft:cryo_liquefier" },
-    { "type": "item", "id": "sternenwerft:cooling_system" }
+    { "type": "item", "id": "infinite_horizon:cryo_liquefier" },
+    { "type": "item", "id": "infinite_horizon:cooling_system" }
   ],
-  "icon": "sternenwerft:cryo_liquefier",
+  "icon": "infinite_horizon:cryo_liquefier",
   "position": { "column": 0, "row": 2, "slot": 3 }
 }
 ```
 
 `position.column` = Ast (0 Industrie, 1 Raumfahrt, 2 Lebenserhaltung, 3 Logistik), `position.row` = Stufe (1–6), `position.slot` = Reihenfolge innerhalb der Zelle.
 
-Stufen-Tore stehen in `research_tier/<n>.json`: `{ "tier": 2, "cost_default": 25, "gate": { "type": "enter_dimension", "dimension": "sternenwerft:moon" } }`. **Gate-Typen und Felder:**
+Stufen-Tore stehen in `research_tier/<n>.json`: `{ "tier": 2, "cost_default": 25, "gate": { "type": "enter_dimension", "dimension": "infinite_horizon:moon" } }`. **Gate-Typen und Felder:**
 
 | Typ | Felder | Erfüllt, wenn |
 | --- | --- | --- |
@@ -111,23 +111,23 @@ Stufen-Tore stehen in `research_tier/<n>.json`: `{ "tier": 2, "cost_default": 25
 
 **Knoten:**
 - `branch`: `industry`, `spaceflight`, `life_support`, `logistics`.
-- `unlocks`: Liste von `{ "type": "item" | "probe_target" | "multiblock", "id": … }`. `item` schaltet alle Rezepte mit diesem Ergebnis frei (11.3). `probe_target` schaltet ein Sondenziel frei (z. B. `sternenwerft:mars`). Erde und `earth_orbit` sind immer bekannt.
+- `unlocks`: Liste von `{ "type": "item" | "probe_target" | "multiblock", "id": … }`. `item` schaltet alle Rezepte mit diesem Ergebnis frei (11.3). `probe_target` schaltet ein Sondenziel frei (z. B. `infinite_horizon:mars`). Erde und `earth_orbit` sind immer bekannt.
 - Der Knoten ist die **einzige** Quelle für Freischaltungen; Rezepte haben kein eigenes Forschungsfeld.
 
 ## 25.4 Rezepte
 
-Eigene Rezepttypen (`RecipeType` + `RecipeSerializer` über Codecs): `sternenwerft:crushing`, `electric_smelting`, `high_temp_smelting`, `pressing`, `refining`, `electrolysis`, `cryo`, `zero_g`, `assembly`.
+Eigene Rezepttypen (`RecipeType` + `RecipeSerializer` über Codecs): `infinite_horizon:crushing`, `electric_smelting`, `high_temp_smelting`, `pressing`, `refining`, `electrolysis`, `cryo`, `zero_g`, `assembly`.
 
 ```json
 {
-  "type": "sternenwerft:assembly",
+  "type": "infinite_horizon:assembly",
   "ingredients": [
-    { "item": "sternenwerft:aluminum_plate", "count": 40 },
+    { "item": "infinite_horizon:aluminum_plate", "count": 40 },
     { "tag": "c:plates/titanium", "count": 16 },
-    { "item": "sternenwerft:circuit", "count": 16 }
+    { "item": "infinite_horizon:circuit", "count": 16 }
   ],
   "fluid": null,
-  "results": [ { "id": "sternenwerft:rocket_capsule_t1", "count": 1, "chance": 1.0 } ],
+  "results": [ { "id": "infinite_horizon:rocket_capsule_t1", "count": 1, "chance": 1.0 } ],
   "time": 200,
   "energy_per_tick": 30
 }
@@ -138,14 +138,14 @@ Beim Erzeugen lässt `gen_resources.py` `ticks`/`energy_per_tick` weg, wenn sie 
 Maschinenrezepte haben zusätzlich `fluid_inputs` und `fluid_outputs` (`{ "fluid": "...", "amount": n }`). `pressing` hat `mold`. `results` erlaubt mehrere Ausgaben mit `chance` (0–1), z. B. `metal_concentrate` → Aluminium- und Titanstaub oder `meteorite_ore` mit 10 % Platin. Beim Montagetisch steht ein „Tank X“ als `"fluid": { "fluid": "X", "amount": 16000 }`. `meteorite_ore` droppt beim Abbau sich selbst, Rohstoffe gibt es nur über den Zerkleinerer.
 
 **Komponenten in Rezepten:**
-- Eine Zutat darf `"components": { … }` tragen; dann passt nur ein Item mit genau diesen Werten (z. B. `antimatter_cell` mit `"sternenwerft:charge": 1`).
+- Eine Zutat darf `"components": { … }` tragen; dann passt nur ein Item mit genau diesen Werten (z. B. `antimatter_cell` mit `"infinite_horizon:charge": 1`).
 - Ein Ergebnis darf `"copy_components_from": <Zutat-Index>` tragen; dann übernimmt es alle Data Components dieser Zutat (Anzug aufwerten: `suit_modules`, `oxygen`; Antrieb nachrüsten: Ladung der Rakete; `heavy_freighter` aus `cargo_rocket`).
 - Die Sondertypen `suit_module_install` (Anzugteil + Modul → Anzugteil mit Modul) und `suit_module_remove` (Anzugteil → Anzugteil ohne Module + Module in die Nebenausgaben) brauchen keine JSON-Einträge je Kombination; sie sind fest im Code und gelten für alle Anzugteile und Module aus 9.2.
 
 ## 25.5 Raketenteil (Ordner `rocket_part/`)
 
 ```json
-{ "block": "sternenwerft:rocket_tank_t1", "role": "tank", "tier": 1, "mass": 2.0, "fuel_capacity": 16000, "fuel_mass_full": 2.0, "thrust": 0, "cargo_slots": 0, "mass_per_slot": 0.0, "seats": 0 }
+{ "block": "infinite_horizon:rocket_tank_t1", "role": "tank", "tier": 1, "mass": 2.0, "fuel_capacity": 16000, "fuel_mass_full": 2.0, "thrust": 0, "cargo_slots": 0, "mass_per_slot": 0.0, "seats": 0 }
 ```
 
 Rollen: `capsule`, `tank`, `engine`, `fin`, `cargo`, `long_range`. `fuel_capacity` gilt je Komponente. Die Treibstoffmasse wächst linear mit dem Füllstand bis `fuel_mass_full`. Frachtraum: `mass` 1,0, `mass_per_slot` 0,05 je belegtem Slot. Kapsel: `seats` 1 (T1) bzw. 2 (T2). Fernflug-Modul: `mass` 4,0, `fuel_capacity` 128000, `fuel_mass_full` 4,0.
@@ -154,38 +154,38 @@ Rollen: `capsule`, `tank`, `engine`, `fin`, `cargo`, `long_range`. `fuel_capacit
 
 Erzeugt von `tools/gen_resources.py` aus `docs/handbook/` (24.1). Andere Mods legen eigene Dateien nach demselben Schema in ihren Namespace.
 
-`unlock`: `null` = immer sichtbar. Sonst die ID eines Stufen-Tors (`sternenwerft:research_tier/<n>`) oder eines Forschungsknotens. Bis M4 gilt jedes `unlock` als offen.
+`unlock`: `null` = immer sichtbar. Sonst die ID eines Stufen-Tors (`infinite_horizon:research_tier/<n>`) oder eines Forschungsknotens. Bis M4 gilt jedes `unlock` als offen.
 
 **Kapitel** (`<kapitel>/_chapter.json`):
 
 ```json
-{ "id": "sternenwerft:phase_1", "title": "sternenwerft.handbook.chapter.phase_1", "icon": "sternenwerft:crusher", "order": 10, "unlock": null }
+{ "id": "infinite_horizon:phase_1", "title": "infinite_horizon.handbook.chapter.phase_1", "icon": "infinite_horizon:crusher", "order": 10, "unlock": null }
 ```
 
 **Seite** (`<kapitel>/<seite>.json`):
 
 ```json
 {
-  "id": "sternenwerft:phase_1/zerkleinerer",
-  "chapter": "sternenwerft:phase_1",
-  "title": "sternenwerft.handbook.phase_1.zerkleinerer.title",
-  "icon": "sternenwerft:crusher",
+  "id": "infinite_horizon:phase_1/zerkleinerer",
+  "chapter": "infinite_horizon:phase_1",
+  "title": "infinite_horizon.handbook.phase_1.zerkleinerer.title",
+  "icon": "infinite_horizon:crusher",
   "order": 40,
   "unlock": null,
-  "items": ["sternenwerft:crusher", "sternenwerft:iron_dust"],
+  "items": ["infinite_horizon:crusher", "infinite_horizon:iron_dust"],
   "elements": [
     { "type": "heading", "key": "…e0", "level": 2 },
     { "type": "text", "key": "…e1" },
     { "type": "list", "ordered": true, "keys": ["…e2.0", "…e2.1"] },
     { "type": "callout", "style": "tip", "key": "…e3" },
-    { "type": "machine", "block": "sternenwerft:crusher", "rows": [["…e4.0.label", "…e4.0.value"]] },
+    { "type": "machine", "block": "infinite_horizon:crusher", "rows": [["…e4.0.label", "…e4.0.value"]] },
     { "type": "table", "headers": ["…e5.h0"], "rows": [["…e5.r0.0"]] },
     { "type": "recipes", "recipes": [ {
-        "id": "sternenwerft:crushing/iron_dust", "type": "sternenwerft:crushing", "station": "sternenwerft:crusher",
+        "id": "infinite_horizon:crushing/iron_dust", "type": "infinite_horizon:crushing", "station": "infinite_horizon:crusher",
         "ingredients": [ { "items": ["minecraft:raw_iron"], "count": 1 } ],
-        "results": [ { "item": "sternenwerft:iron_dust", "count": 2 } ],
+        "results": [ { "item": "infinite_horizon:iron_dust", "count": 2 } ],
         "ticks": 200, "energy_per_tick": 20 } ] },
-    { "type": "image", "texture": "sternenwerft:textures/handbook/crusher_setup.png", "width": 120, "height": 60 }
+    { "type": "image", "texture": "infinite_horizon:textures/handbook/crusher_setup.png", "width": 120, "height": 60 }
   ]
 }
 ```
@@ -197,9 +197,9 @@ Erzeugt von `tools/gen_resources.py` aus `docs/handbook/` (24.1). Andere Mods le
 
 ---
 
-## 25.7 Balance-Dateien (`data/<ns>/sternenwerft/balance/`)
+## 25.7 Balance-Dateien (`data/<ns>/infinite_horizon/balance/`)
 
-Alle Zahlenwerte, die nicht in Rezepten, Planeten, Forschung oder Raketenteilen stehen, liegen in diesen Dateien. Geladen werden die Dateien `data/<ns>/sternenwerft/balance/*.json` aus allen Namespaces: zuerst `sternenwerft`, dann alphabetisch. Gleichnamige Dateien werden eintragsweise zusammengeführt (spätere ergänzen/überschreiben); `"replace": true` ersetzt die Datei ganz. Das gilt nach `/reload`. Sie werden beim Laden und bei `/reload` eingelesen und an Clients gesendet. `gen_resources.py` kopiert sie aus `spec/data/balance/` (Quelle, Format in `spec/data/SCHEMA.md`); dazu kommen `storage.json` (Speicherblöcke) und `spaceflight.json` (Treibstoffformel, Sonden, Flugablauf).
+Alle Zahlenwerte, die nicht in Rezepten, Planeten, Forschung oder Raketenteilen stehen, liegen in diesen Dateien. Geladen werden die Dateien `data/<ns>/infinite_horizon/balance/*.json` aus allen Namespaces: zuerst `infinite_horizon`, dann alphabetisch. Gleichnamige Dateien werden eintragsweise zusammengeführt (spätere ergänzen/überschreiben); `"replace": true` ersetzt die Datei ganz. Das gilt nach `/reload`. Sie werden beim Laden und bei `/reload` eingelesen und an Clients gesendet. `gen_resources.py` kopiert sie aus `spec/data/balance/` (Quelle, Format in `spec/data/SCHEMA.md`); dazu kommen `storage.json` (Speicherblöcke) und `spaceflight.json` (Treibstoffformel, Sonden, Flugablauf).
 
 | Datei | Inhalt (Quelle) | Schlüssel |
 | --- | --- | --- |
@@ -224,8 +224,8 @@ Beispiel `machines.json`:
 
 ```json
 {
-  "sternenwerft:crusher": { "energy_per_tick": 20, "ticks": 200, "buffer": null, "location": null },
-  "sternenwerft:zero_g_fabricator": { "energy_per_tick": 100, "ticks": 200, "buffer": null, "location": { "dimension_type": "orbit" } }
+  "infinite_horizon:crusher": { "energy_per_tick": 20, "ticks": 200, "buffer": null, "location": null },
+  "infinite_horizon:zero_g_fabricator": { "energy_per_tick": 100, "ticks": 200, "buffer": null, "location": { "dimension_type": "orbit" } }
 }
 ```
 

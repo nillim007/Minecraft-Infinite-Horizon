@@ -15,20 +15,20 @@ Stand: 11.11.2026. Umfang und Teilschritte stehen in `docs/spec/27-meilensteine.
   - `ProcessingRecipe` mit `MachineRecipeInput` (mehrere Eingänge, Pressform). Rezeptarten: `crushing`, `pressing`, `electric_smelting`. Der Elektroofen nutzt zusätzlich Vanilla-`smelting`.
   - Maschinen haben eine Vorderseite mit Statuslampe (gelb/grün/rot) und werden nach `facing` gedreht (`orientable`-Modelle).
 - **M2b:** Erze, Quarzsand, Loot, Tags, Worldgen.
-  - `bauxite_ore`, `titanium_ore`, `deepslate_titanium_ore` und `quartz_sand` sind einfache Blöcke aus `sternenwerft/simple_blocks.json` (Eigenschaften wie der genannte Vanilla-Block).
+  - `bauxite_ore`, `titanium_ore`, `deepslate_titanium_ore` und `quartz_sand` sind einfache Blöcke aus `infinite_horizon/simple_blocks.json` (Eigenschaften wie der genannte Vanilla-Block).
   - Loot-Tables und Block-Provider im 26.3-Format.
   - Worldgen: `worldgen/feature` + `placed_feature`, Biom-Tags `has_<name>`. NeoForge nutzt Biome-Modifier, Fabric `BiomeModifications` aus `biome_features.json`.
   - GameTest: Werkzeugstufen und Drop.
   - Die Ölblase ist nach M2c verschoben (spec-gaps #21).
 - **M2c:** Fluide, Rohre, Tank, Pumpe, Füll- und Leerslots, Ölblase.
-  - **Kern:** `SwFluidStack` und `SwFluidTank` (ein Fluid je Tank, mit Transaktionen). `FluidGrid` ohne Puffer, ein Fluid je Netz, gilt nach 20 t ohne Übertragung als leer. `ConduitBlock` ist die Basis für `CableBlock` und `FluidPipeBlock`.
+  - **Kern:** `IhFluidStack` und `IhFluidTank` (ein Fluid je Tank, mit Transaktionen). `FluidGrid` ohne Puffer, ein Fluid je Netz, gilt nach 20 t ohne Übertragung als leer. `ConduitBlock` ist die Basis für `CableBlock` und `FluidPipeBlock`.
   - **Loader:**
-    - Fluid-Registrierung: Fabric über `SwFlowingFluid`, NeoForge über `FluidType` + `BaseFlowingFluid`. Texturen per `FluidModel`.
+    - Fluid-Registrierung: Fabric über `IhFlowingFluid`, NeoForge über `FluidType` + `BaseFlowingFluid`. Texturen per `FluidModel`.
     - Fluid-Schnittstellen nach außen: `FluidStorage.SIDED` bzw. `Capabilities.Fluid.BLOCK`.
   - **Fluide:** Erdöl als Weltfluid mit Eimer, Kerosin als reines Tank-Fluid. Die Behälterliste `fluid_containers.json` steuert die Füll- und Leerslots.
   - **Blöcke:**
     - `fluid_tank`, `fluid_pump` (verbraucht Erdöl-Quellen nur zu 10 %), `copper_pipe`.
-    - Die Ölblase ist der Feature-Typ `sternenwerft:fluid_sphere`.
+    - Die Ölblase ist der Feature-Typ `infinite_horizon:fluid_sphere`.
   - **GUI und Netzwerk:**
     - Fluidleisten, Füll- und Leerslot, Knopf „Seite“.
     - `MachineConfigPayload` als erster C→S-Payload; der Server prüft den Abstand.
@@ -59,8 +59,8 @@ Stand: 11.11.2026. Umfang und Teilschritte stehen in `docs/spec/27-meilensteine.
 - **M2e:** Treibstoffgenerator, Akku, Leistung.
   - `FluidFuelGeneratorBlockEntity`: Kerosin 1 mB je 4 t ergibt 80 J/t, Füll- und Leerslot. Das GUI zeigt die Brennzeit (Flag `generator` in `OpenData`).
   - `BatteryBlockEntity`:
-    - Ein- und Ausgang zusammen höchstens 512 J/t je Tick (`SwEnergyStorage` mit Tick-Grenze); Abgabe nur über die Ausgangsseite.
-    - Ladeslot für Items mit Loader-Item-Energie oder `sternenwerft:energy`.
+    - Ein- und Ausgang zusammen höchstens 512 J/t je Tick (`IhEnergyStorage` mit Tick-Grenze); Abgabe nur über die Ausgangsseite.
+    - Ladeslot für Items mit Loader-Item-Energie oder `infinite_horizon:energy`.
     - Die Energie bleibt beim Abbauen am Item.
   - **Loader:** Energie-Adapter je Seite; Item-Energie (NeoForge `Capabilities.Energy.ITEM`, Fabric `EnergyStorage.ITEM`). Test-Item im GameTest-Betrieb ist `minecraft:redstone_block`.
   - **Leistung:**
@@ -75,7 +75,7 @@ Stand: 11.11.2026. Umfang und Teilschritte stehen in `docs/spec/27-meilensteine.
   - **Rezeptanzeige:**
     - Der Server schickt die eigenen Rezeptarten zum Client (`ClientRecipes`). `RecipeView` bereitet sie für JEI und REI gleich auf.
     - Plugins für JEI (31.17.0.109) und REI (26.3.824), nur `compileOnly`. EMI gibt es für 26.3 nicht.
-    - Addons zeigen eigene Arten mit `SternenwerftApi.showInRecipeViewers(kind)`.
+    - Addons zeigen eigene Arten mit `InfiniteHorizonApi.showInRecipeViewers(kind)`.
   - **Handbuch:**
     - `HandbookMarkup` (reine Funktion) und `HandbookData` (Seiten aller Namespaces).
     - `HandbookScreen` mit Inhaltsverzeichnis, Suche, Links, Item-Links, Rezepten, Steckbriefen, Tabellen, Hinweiskästen, Zurück und Lesezeichen.

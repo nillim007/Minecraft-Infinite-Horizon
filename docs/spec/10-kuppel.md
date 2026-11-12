@@ -19,10 +19,10 @@
 
 **Block und Zustände (ab M3, Werte in `domes.json`):**
 
-- **Block:** Energiepuffer nach 4.1 (ohne Vorgangsdauer; T1: 20 × 40 × 100 = 80.000 J). Der O₂-Tank (2.000 mB) nimmt nur `oxygen` an, von allen Seiten; es gibt keine Ausgangsseite. Füll- und Leerslot (4.1), 3 Modulslots (nur `dome_*_module`; bis die Module kommen, nehmen sie nichts an), keine Upgrade-Slots. GUI nach 4.1 mit Energie, O₂, Status und Radius (`gui.sternenwerft.dome.radius`).
+- **Block:** Energiepuffer nach 4.1 (ohne Vorgangsdauer; T1: 20 × 40 × 100 = 80.000 J). Der O₂-Tank (2.000 mB) nimmt nur `oxygen` an, von allen Seiten; es gibt keine Ausgangsseite. Füll- und Leerslot (4.1), 3 Modulslots (nur `dome_*_module`; bis die Module kommen, nehmen sie nichts an), keine Upgrade-Slots. GUI nach 4.1 mit Energie, O₂, Status und Radius (`gui.infinite_horizon.dome.radius`).
 - **`running` (aktiv):** sobald der Puffer mindestens den Verbrauch eines Ticks, der Tank mindestens 1 mB und die Außentemperatur im Bereich liegt. Es gibt keine Anlaufzeit.
 - **O₂-Verbrauch:** Zähler in 1/1.000 mB; je Tick kommen `oxygen_per_1200` / 1.200 mB dazu, ganze mB werden abgezogen (T1: 1 mB alle 24 t). Strom wird je Tick verbraucht, solange die Kuppel `running` oder `failing` ist und Strom da ist.
-- **`failing`:** Puffer unter dem Verbrauch eines Ticks, Tank 0 mB oder Temperatur außerhalb. Die Kuppel schützt weiter. Alle 100 t erscheint bei den Spielern darin eine Warnung in der Aktionsleiste (`message.sternenwerft.dome.failing` mit Restsekunden), dazu der Ton `warning.dome`. Nach 600 t ist die Kuppel aus. Kehrt die Versorgung vorher zurück, ist sie sofort wieder `running`; der Zähler beginnt neu.
+- **`failing`:** Puffer unter dem Verbrauch eines Ticks, Tank 0 mB oder Temperatur außerhalb. Die Kuppel schützt weiter. Alle 100 t erscheint bei den Spielern darin eine Warnung in der Aktionsleiste (`message.infinite_horizon.dome.failing` mit Restsekunden), dazu der Ton `warning.dome`. Nach 600 t ist die Kuppel aus. Kehrt die Versorgung vorher zurück, ist sie sofort wieder `running`; der Zähler beginnt neu.
 - **Aus:** nicht mehr im `DomeManager`. Die Kuppel startet von selbst, sobald die Bedingungen für `running` wieder erfüllt sind.
 - **Statuslampe:** `running` grün; `failing` rot (`error`); aus: `error` bei falscher Temperatur, sonst `idle`. Den Zustand `failing` speichert `DomeData`, nicht der Blockstate. War die Kuppel nie aktiv und liegt die Temperatur außerhalb, steht sie sofort auf `error`.
 

@@ -4,7 +4,7 @@
 
 # Installation
 
-Sternenwerft ist eine Mod für **Minecraft Java Edition 26.3**. Sie läuft mit **NeoForge** oder mit **Fabric**. Beide Fassungen sind gleich; nimm den Loader, den deine anderen Mods brauchen.
+Infinite Horizon ist eine Mod für **Minecraft Java Edition 26.3**. Sie läuft mit **NeoForge** oder mit **Fabric**. Beide Fassungen sind gleich; nimm den Loader, den deine anderen Mods brauchen.
 
 ## Was du brauchst
 
@@ -15,12 +15,12 @@ Sternenwerft ist eine Mod für **Minecraft Java Edition 26.3**. Sie läuft mit *
 | Zusätzlich | – | Fabric API |
 | Java | 25 (der offizielle Launcher bringt es mit) | 25 (der offizielle Launcher bringt es mit) |
 
-Empfohlen, aber nicht nötig: eine Rezeptanzeige wie **JEI**, **REI** oder **EMI**. Sternenwerft zeigt dort alle Maschinenrezepte an.
+Empfohlen, aber nicht nötig: eine Rezeptanzeige wie **JEI**, **REI** oder **EMI**. Infinite Horizon zeigt dort alle Maschinenrezepte an.
 
 ## Mod installieren
 
 1. Installiere den Loader (NeoForge oder Fabric) für Minecraft 26.3 mit seinem Installer und starte das Spiel einmal mit dem neuen Profil.
-2. Lade die passende Sternenwerft-Datei (`.jar`) herunter. Für Fabric brauchst du zusätzlich die Fabric API.
+2. Lade die passende Infinite-Horizon-Datei (`.jar`) herunter. Für Fabric brauchst du zusätzlich die Fabric API.
 3. Lege die Datei in den Ordner `mods` deines Minecraft-Verzeichnisses (unter Windows `%appdata%\.minecraft\mods`).
 4. Starte Minecraft mit dem Loader-Profil und leg eine neue Welt an.
 
@@ -29,11 +29,11 @@ Empfohlen, aber nicht nötig: eine Rezeptanzeige wie **JEI**, **REI** oder **EMI
 
 ## Die ersten Minuten
 
-- Spiel ganz normal Minecraft: Holz, Werkzeuge, ein Ofen, eine kleine Mine. Sternenwerft ändert daran nichts.
+- Spiel ganz normal Minecraft: Holz, Werkzeuge, ein Ofen, eine kleine Mine. Infinite Horizon ändert daran nichts.
 - Sobald du **Eisen, Kupfer und etwas Redstone** hast, geht es mit [Erste Schritte](Erste-Schritte.md) los.
 - Das **Ingenieurs-Handbuch** ist dieses Wiki als Buch im Spiel. Du kannst es jederzeit aus einem Buch und einem Kupferbarren herstellen.
 
 > [!TIP]
 > Lies zuerst die [Grundbegriffe](Grundbegriffe.md). Sie erklären in fünf Minuten alles, was du für die Maschinen wissen musst.
 
-← [Willkommen bei Sternenwerft](Willkommen-bei-Sternenwerft.md) · [Grundbegriffe](Grundbegriffe.md) →
+← [Willkommen bei Infinite Horizon](Willkommen-bei-Infinite-Horizon.md) · [Grundbegriffe](Grundbegriffe.md) →

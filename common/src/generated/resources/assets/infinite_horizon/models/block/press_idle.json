@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "infinite_horizon:block/press_front_idle",
+    "side": "infinite_horizon:block/press",
+    "top": "infinite_horizon:block/press_top"
+  }
+}

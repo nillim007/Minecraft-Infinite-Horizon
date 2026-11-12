@@ -1,0 +1,9 @@
+{
+  "type": "infinite_horizon:fluid_sphere",
+  "fluid": "infinite_horizon:crude_oil",
+  "radius": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 3,
+    "max_inclusive": 5
+  }
+}

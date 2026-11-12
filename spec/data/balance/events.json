@@ -1,32 +1,32 @@
 {
   "schema_version": 1,
   "entries": {
-    "sternenwerft:solar_storm": {
+    "infinite_horizon:solar_storm": {
       "dimensions": [
-        "sternenwerft:moon",
-        "sternenwerft:mars",
-        "sternenwerft:venus",
-        "sternenwerft:mercury",
-        "sternenwerft:asteroid_belt",
-        "sternenwerft:ceres",
-        "sternenwerft:io",
-        "sternenwerft:europa",
-        "sternenwerft:titan",
-        "sternenwerft:enceladus",
-        "sternenwerft:triton",
-        "sternenwerft:pluto",
-        "sternenwerft:earth_orbit",
-        "sternenwerft:venus_orbit",
-        "sternenwerft:mars_orbit",
-        "sternenwerft:mercury_orbit",
-        "sternenwerft:jupiter_orbit",
-        "sternenwerft:saturn_orbit",
-        "sternenwerft:uranus_orbit",
-        "sternenwerft:neptune_orbit"
+        "infinite_horizon:moon",
+        "infinite_horizon:mars",
+        "infinite_horizon:venus",
+        "infinite_horizon:mercury",
+        "infinite_horizon:asteroid_belt",
+        "infinite_horizon:ceres",
+        "infinite_horizon:io",
+        "infinite_horizon:europa",
+        "infinite_horizon:titan",
+        "infinite_horizon:enceladus",
+        "infinite_horizon:triton",
+        "infinite_horizon:pluto",
+        "infinite_horizon:earth_orbit",
+        "infinite_horizon:venus_orbit",
+        "infinite_horizon:mars_orbit",
+        "infinite_horizon:mercury_orbit",
+        "infinite_horizon:jupiter_orbit",
+        "infinite_horizon:saturn_orbit",
+        "infinite_horizon:uranus_orbit",
+        "infinite_horizon:neptune_orbit"
       ],
       "chance_per_1200": 0.015,
       "chance_multipliers": {
-        "sternenwerft:mercury": 3
+        "infinite_horizon:mercury": 3
       },
       "duration_min": 1200,
       "duration_max": 3600,
@@ -47,7 +47,7 @@
         },
         {
           "type": "suit_module",
-          "id": "sternenwerft:radiation_shield"
+          "id": "infinite_horizon:radiation_shield"
         },
         {
           "type": "cover",
@@ -60,19 +60,19 @@
       "spec_ref": "19, 8.1",
       "notes": "„alle außer Erde“ = alle 20 Mod-Dimensionen mit Planeten-Eintrag."
     },
-    "sternenwerft:meteor_shower": {
+    "infinite_horizon:meteor_shower": {
       "dimensions": [
-        "sternenwerft:moon",
-        "sternenwerft:mars",
-        "sternenwerft:asteroid_belt",
-        "sternenwerft:earth_orbit",
-        "sternenwerft:venus_orbit",
-        "sternenwerft:mars_orbit",
-        "sternenwerft:mercury_orbit",
-        "sternenwerft:jupiter_orbit",
-        "sternenwerft:saturn_orbit",
-        "sternenwerft:uranus_orbit",
-        "sternenwerft:neptune_orbit"
+        "infinite_horizon:moon",
+        "infinite_horizon:mars",
+        "infinite_horizon:asteroid_belt",
+        "infinite_horizon:earth_orbit",
+        "infinite_horizon:venus_orbit",
+        "infinite_horizon:mars_orbit",
+        "infinite_horizon:mercury_orbit",
+        "infinite_horizon:jupiter_orbit",
+        "infinite_horizon:saturn_orbit",
+        "infinite_horizon:uranus_orbit",
+        "infinite_horizon:neptune_orbit"
       ],
       "chance_per_1200": 0.01,
       "duration_min": 1200,
@@ -82,20 +82,20 @@
         "impact_interval_ticks": 100,
         "impact_radius": 64,
         "per_player": true,
-        "entity": "sternenwerft:meteor",
+        "entity": "infinite_horizon:meteor",
         "explosion_power": 2,
         "fire": false,
         "block_damage_config": "meteor_block_damage",
-        "leaves_block": "sternenwerft:meteorite_ore"
+        "leaves_block": "infinite_horizon:meteorite_ore"
       },
       "protection": [
         {
           "type": "dome_module",
-          "id": "sternenwerft:dome_shield_module"
+          "id": "infinite_horizon:dome_shield_module"
         }
       ],
       "reward": {
-        "block": "sternenwerft:meteorite_ore",
+        "block": "infinite_horizon:meteorite_ore",
         "crushing_results": [
           {
             "id": "minecraft:raw_iron",
@@ -103,17 +103,17 @@
             "chance": 1.0
           },
           {
-            "id": "sternenwerft:raw_nickel",
+            "id": "infinite_horizon:raw_nickel",
             "count": 1,
             "chance": 1.0
           },
           {
-            "id": "sternenwerft:raw_platinum",
+            "id": "infinite_horizon:raw_platinum",
             "count": 1,
             "chance": 0.1
           },
           {
-            "id": "sternenwerft:raw_iridium",
+            "id": "infinite_horizon:raw_iridium",
             "count": 1,
             "chance": 0.05
           }
@@ -122,9 +122,9 @@
       "spec_ref": "19, 22.2, 25.4",
       "notes": "meteorite_ore droppt sich selbst; Rohstoffe nur über den Zerkleinerer (Rezept in recipes.json)."
     },
-    "sternenwerft:dust_storm": {
+    "infinite_horizon:dust_storm": {
       "dimensions": [
-        "sternenwerft:mars"
+        "infinite_horizon:mars"
       ],
       "chance_per_1200": null,
       "duration_min": 12000,
@@ -143,14 +143,14 @@
         }
       ],
       "reward": {
-        "spawns": "sternenwerft:dust_wraith"
+        "spawns": "infinite_horizon:dust_wraith"
       },
       "spec_ref": "19, 13.5",
       "notes": "Chance und Dauer nach Vanilla-Wetter (Wetterlaufzeit aus weather)."
     },
-    "sternenwerft:acid_rain": {
+    "infinite_horizon:acid_rain": {
       "dimensions": [
-        "sternenwerft:venus"
+        "infinite_horizon:venus"
       ],
       "chance_per_1200": null,
       "duration_min": 12000,
@@ -180,9 +180,9 @@
       "spec_ref": "19, 1",
       "notes": "Chance und Dauer nach Vanilla-Wetter (Wetterlaufzeit aus weather)."
     },
-    "sternenwerft:volcanic_eruption": {
+    "infinite_horizon:volcanic_eruption": {
       "dimensions": [
-        "sternenwerft:io"
+        "infinite_horizon:io"
       ],
       "chance_per_1200": 0.03,
       "chance_per": "volcanic_vent_within_128_of_a_player",
@@ -191,7 +191,7 @@
       "duration_max": 200,
       "trigger": "roll",
       "effects": {
-        "falling_block": "sternenwerft:io_sulfur_ore",
+        "falling_block": "infinite_horizon:io_sulfur_ore",
         "radius": 32
       },
       "protection": [
@@ -204,9 +204,9 @@
       },
       "spec_ref": "19"
     },
-    "sternenwerft:methane_rain": {
+    "infinite_horizon:methane_rain": {
       "dimensions": [
-        "sternenwerft:titan"
+        "infinite_horizon:titan"
       ],
       "chance_per_1200": null,
       "duration_min": 12000,
@@ -223,9 +223,9 @@
       "spec_ref": "19",
       "notes": "Chance und Dauer nach Vanilla-Wetter (Wetterlaufzeit aus weather)."
     },
-    "sternenwerft:ring_debris": {
+    "infinite_horizon:ring_debris": {
       "dimensions": [
-        "sternenwerft:saturn_orbit"
+        "infinite_horizon:saturn_orbit"
       ],
       "chance_per_1200": 0.02,
       "duration_min": 600,
@@ -235,7 +235,7 @@
         "impact_interval_ticks": 100,
         "impact_radius": 64,
         "per_player": true,
-        "entity": "sternenwerft:meteor",
+        "entity": "infinite_horizon:meteor",
         "explosion_power": 2,
         "fire": false,
         "block_damage_config": "meteor_block_damage",
@@ -244,7 +244,7 @@
       "protection": [
         {
           "type": "dome_module",
-          "id": "sternenwerft:dome_shield_module"
+          "id": "infinite_horizon:dome_shield_module"
         }
       ],
       "reward": null,
@@ -256,7 +256,7 @@
       "schedule_ahead_ticks": 2400,
       "warning_ticks_with_station": 2400,
       "warning_ticks_without_station": 400,
-      "warning_station": "sternenwerft:space_weather_station",
+      "warning_station": "infinite_horizon:space_weather_station",
       "warning_station_scope": "same_agency_same_dimension",
       "warning_channels": [
         "chat",
@@ -287,9 +287,9 @@
       "weather_min": 12000,
       "weather_max": 24000,
       "weather_events": {
-        "sternenwerft:mars": "sternenwerft:dust_storm",
-        "sternenwerft:venus": "sternenwerft:acid_rain",
-        "sternenwerft:titan": "sternenwerft:methane_rain"
+        "infinite_horizon:mars": "infinite_horizon:dust_storm",
+        "infinite_horizon:venus": "infinite_horizon:acid_rain",
+        "infinite_horizon:titan": "infinite_horizon:methane_rain"
       },
       "other_dimensions": "always_clear",
       "storage": "SavedData je Dimension",

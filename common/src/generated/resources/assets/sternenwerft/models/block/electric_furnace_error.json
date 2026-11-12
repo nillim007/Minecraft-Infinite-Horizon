@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "sternenwerft:block/electric_furnace_front_error",
-    "side": "sternenwerft:block/electric_furnace",
-    "top": "sternenwerft:block/electric_furnace_top"
-  }
-}

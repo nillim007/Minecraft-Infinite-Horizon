@@ -22,12 +22,12 @@ import urllib.request
 if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 
-REPO = "nillim007/Minecraft-New-Horizon"
+REPO = "nillim007/Minecraft-Infinite-Horizon"
 API = f"https://api.github.com/repos/{REPO}"
 
 
 def get(url):
-    req = urllib.request.Request(url, headers={"Accept": "application/vnd.github+json", "User-Agent": "sternenwerft-ci-status"})
+    req = urllib.request.Request(url, headers={"Accept": "application/vnd.github+json", "User-Agent": "infinite_horizon-ci-status"})
     token = os.environ.get("GITHUB_TOKEN")
     if token:
         req.add_header("Authorization", f"Bearer {token}")

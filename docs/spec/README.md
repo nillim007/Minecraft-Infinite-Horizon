@@ -1,6 +1,6 @@
-# Sternenwerft – Spezifikation
+# Infinite Horizon – Spezifikation
 
-**Version 1.2** · 11. November 2026 · Autor: Nick Monger · Grundlage: „Sternenwerft – Design-Dokument“ (9. November 2026)
+**Version 1.2** · 11. November 2026 · Autor: Nick Monger · Grundlage: „Infinite Horizon – Design-Dokument“ (9. November 2026)
 
 Raumfahrt-Mod für Minecraft 26.3 (NeoForge + Fabric) im echten Sonnensystem: Industrie auf der Erde aufbauen, Ring für Ring hinausfliegen, ein interplanetares Frachtnetz errichten und in der Orbitalwerft das Sternenschiff bauen.
 

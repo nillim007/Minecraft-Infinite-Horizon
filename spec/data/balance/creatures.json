@@ -12,13 +12,13 @@
       "monster_light_max": 7,
       "creature_ground": "any_solid_planet_block",
       "worldgen_placed_no_respawn": [
-        "sternenwerft:reef_keeper",
-        "sternenwerft:drift_mite"
+        "infinite_horizon:reef_keeper",
+        "infinite_horizon:drift_mite"
       ],
       "spec_ref": "18",
       "notes": "spawn.weight relativ zu anderen Kreaturen im Biom; weight 0 = kein natürlicher Spawn."
     },
-    "sternenwerft:rubble_crawler": {
+    "infinite_horizon:rubble_crawler": {
       "hp": 16,
       "armor": 0,
       "damage": 3,
@@ -28,27 +28,27 @@
       "category": "creature",
       "disposition": "neutral",
       "spawn": {
-        "dimension": "sternenwerft:moon",
+        "dimension": "infinite_horizon:moon",
         "biomes": [
-          "sternenwerft:moon_highlands",
-          "sternenwerft:moon_mare"
+          "infinite_horizon:moon_highlands",
+          "infinite_horizon:moon_mare"
         ],
         "weight": 10,
         "group_min": 1,
         "group_max": 2,
         "light_max": null
       },
-      "behavior": "neutral; bewegungslos und als Stein getarnt, bis ein Spieler < 3 Blöcke ist; sucht Kabel und Metallblöcke (Tag sternenwerft:crawler_food) außerhalb von Kuppeln im Radius 16 und baut alle 200 t einen ab",
+      "behavior": "neutral; bewegungslos und als Stein getarnt, bis ein Spieler < 3 Blöcke ist; sucht Kabel und Metallblöcke (Tag infinite_horizon:crawler_food) außerhalb von Kuppeln im Radius 16 und baut alle 200 t einen ab",
       "behavior_params": {
         "reveal_distance": 3,
-        "food_tag": "#sternenwerft:crawler_food",
+        "food_tag": "#infinite_horizon:crawler_food",
         "food_search_radius": 16,
         "food_outside_domes_only": true,
         "eat_interval_ticks": 200
       },
       "drops": [
         {
-          "id": "sternenwerft:metal_concentrate",
+          "id": "infinite_horizon:metal_concentrate",
           "count": 1,
           "count_max": 2
         }
@@ -57,7 +57,7 @@
       "spec_ref": "18",
       "notes": null
     },
-    "sternenwerft:shade_strider": {
+    "infinite_horizon:shade_strider": {
       "hp": 20,
       "armor": 0,
       "damage": null,
@@ -67,9 +67,9 @@
       "category": "creature",
       "disposition": "passive",
       "spawn": {
-        "dimension": "sternenwerft:moon",
+        "dimension": "infinite_horizon:moon",
         "biomes": [
-          "sternenwerft:moon_polar_crater"
+          "infinite_horizon:moon_polar_crater"
         ],
         "weight": 5,
         "group_min": 1,
@@ -82,7 +82,7 @@
         "flee_player_distance": 8,
         "follow_trigger_ticks": 200,
         "guide_targets": [
-          "sternenwerft:moon_ice",
+          "infinite_horizon:moon_ice",
           "ores"
         ],
         "guide_radius": 48
@@ -92,7 +92,7 @@
       "spec_ref": "18",
       "notes": "SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
     },
-    "sternenwerft:dune_burrower": {
+    "infinite_horizon:dune_burrower": {
       "hp": 60,
       "armor": 10,
       "damage": 8,
@@ -102,29 +102,29 @@
       "category": "monster",
       "disposition": "hostile",
       "spawn": {
-        "dimension": "sternenwerft:mars",
+        "dimension": "infinite_horizon:mars",
         "biomes": [
-          "sternenwerft:mars_red_plains"
+          "infinite_horizon:mars_red_plains"
         ],
         "weight": 4,
         "group_min": 1,
         "group_max": 1,
         "light_max": 7
       },
-      "behavior": "feindlich; gräbt unsichtbar im Sand; Vibrationsquellen im Radius 32 (Tag sternenwerft:vibrating: crusher, drilling_rig, rover_drill) ziehen ihn an; greift Spieler in der Nähe an",
+      "behavior": "feindlich; gräbt unsichtbar im Sand; Vibrationsquellen im Radius 32 (Tag infinite_horizon:vibrating: crusher, drilling_rig, rover_drill) ziehen ihn an; greift Spieler in der Nähe an",
       "behavior_params": {
         "burrowed_invisible": true,
         "vibration_radius": 32,
-        "vibration_tag": "#sternenwerft:vibrating",
+        "vibration_tag": "#infinite_horizon:vibrating",
         "vibration_sources": [
-          "sternenwerft:crusher",
-          "sternenwerft:drilling_rig",
-          "sternenwerft:rover_drill"
+          "infinite_horizon:crusher",
+          "infinite_horizon:drilling_rig",
+          "infinite_horizon:rover_drill"
         ]
       },
       "drops": [
         {
-          "id": "sternenwerft:armor_plate",
+          "id": "infinite_horizon:armor_plate",
           "count": 1,
           "count_max": 3
         }
@@ -133,7 +133,7 @@
       "spec_ref": "18",
       "notes": "SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
     },
-    "sternenwerft:dust_wraith": {
+    "infinite_horizon:dust_wraith": {
       "hp": 10,
       "armor": 0,
       "damage": null,
@@ -143,20 +143,20 @@
       "category": "creature",
       "disposition": "passive",
       "spawn": {
-        "dimension": "sternenwerft:mars",
+        "dimension": "infinite_horizon:mars",
         "biomes": [
-          "sternenwerft:mars_red_plains",
-          "sternenwerft:mars_canyon",
-          "sternenwerft:mars_volcanic_highlands",
-          "sternenwerft:mars_dry_lake",
-          "sternenwerft:mars_polar_cap",
-          "sternenwerft:mars_meteorite_field"
+          "infinite_horizon:mars_red_plains",
+          "infinite_horizon:mars_canyon",
+          "infinite_horizon:mars_volcanic_highlands",
+          "infinite_horizon:mars_dry_lake",
+          "infinite_horizon:mars_polar_cap",
+          "infinite_horizon:mars_meteorite_field"
         ],
         "weight": 3,
         "group_min": 1,
         "group_max": 1,
         "light_max": null,
-        "condition": "sternenwerft:dust_storm"
+        "condition": "infinite_horizon:dust_storm"
       },
       "behavior": "passiv, schwebend, immun gegen Projektile; führt den Spieler zu 75 % zur nächsten lava_tube- oder meteorite_field-Struktur, zu 25 % 64 Blöcke in zufällige Richtung, dann verschwindet er",
       "behavior_params": {
@@ -164,8 +164,8 @@
         "projectile_immune": true,
         "guide_structure_chance": 0.75,
         "guide_structures": [
-          "sternenwerft:lava_tube",
-          "sternenwerft:meteorite_field"
+          "infinite_horizon:lava_tube",
+          "infinite_horizon:meteorite_field"
         ],
         "random_direction_chance": 0.25,
         "random_distance": 64,
@@ -174,9 +174,9 @@
       "drops": [],
       "analyzable": true,
       "spec_ref": "18",
-      "notes": "Spawnt nur während sternenwerft:dust_storm, in allen Mars-Biomen. SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
+      "notes": "Spawnt nur während infinite_horizon:dust_storm, in allen Mars-Biomen. SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
     },
-    "sternenwerft:sulfur_snail": {
+    "infinite_horizon:sulfur_snail": {
       "hp": 12,
       "armor": 0,
       "damage": null,
@@ -186,9 +186,9 @@
       "category": "creature",
       "disposition": "passive",
       "spawn": {
-        "dimension": "sternenwerft:venus",
+        "dimension": "infinite_horizon:venus",
         "biomes": [
-          "sternenwerft:venus_lava_plains"
+          "infinite_horizon:venus_lava_plains"
         ],
         "weight": 8,
         "group_min": 1,
@@ -199,16 +199,16 @@
       "behavior_params": {
         "fireproof": true,
         "acidproof": true,
-        "trail_block": "sternenwerft:sulfur_trail",
+        "trail_block": "infinite_horizon:sulfur_trail",
         "trail_interval_ticks": 100,
-        "lay_item": "sternenwerft:sulfur",
+        "lay_item": "infinite_horizon:sulfur",
         "lay_count": 1,
         "lay_interval_ticks": 6000,
-        "breed_item": "sternenwerft:sulfur"
+        "breed_item": "infinite_horizon:sulfur"
       },
       "drops": [
         {
-          "id": "sternenwerft:sulfur",
+          "id": "infinite_horizon:sulfur",
           "count": 1
         }
       ],
@@ -216,7 +216,7 @@
       "spec_ref": "18",
       "notes": "SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
     },
-    "sternenwerft:cloud_ray": {
+    "infinite_horizon:cloud_ray": {
       "hp": 30,
       "armor": 0,
       "damage": null,
@@ -226,11 +226,11 @@
       "category": "ambient",
       "disposition": "passive",
       "spawn": {
-        "dimension": "sternenwerft:venus",
+        "dimension": "infinite_horizon:venus",
         "biomes": [
-          "sternenwerft:venus_lava_plains",
-          "sternenwerft:venus_volcanoes",
-          "sternenwerft:venus_plateau"
+          "infinite_horizon:venus_lava_plains",
+          "infinite_horizon:venus_volcanoes",
+          "infinite_horizon:venus_plateau"
         ],
         "weight": 6,
         "group_min": 1,
@@ -242,7 +242,7 @@
       "behavior": "passiv, fliegend; zähmbar mit sulfur (33 % pro Versuch); gezähmt + Sattel = fliegendes Reittier (0,6 Blöcke/t)",
       "behavior_params": {
         "flying": true,
-        "tame_item": "sternenwerft:sulfur",
+        "tame_item": "infinite_horizon:sulfur",
         "tame_chance": 0.33,
         "mount_requires": "minecraft:saddle",
         "mount_speed": 0.6
@@ -252,7 +252,7 @@
       "spec_ref": "18",
       "notes": "Spawnt nur in der Wolkenschicht (y 180–240). SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
     },
-    "sternenwerft:mirror_beetle": {
+    "infinite_horizon:mirror_beetle": {
       "hp": 20,
       "armor": 0,
       "damage": 4,
@@ -262,9 +262,9 @@
       "category": "creature",
       "disposition": "neutral",
       "spawn": {
-        "dimension": "sternenwerft:mercury",
+        "dimension": "infinite_horizon:mercury",
         "biomes": [
-          "sternenwerft:mercury_twilight_belt"
+          "infinite_horizon:mercury_twilight_belt"
         ],
         "weight": 8,
         "group_min": 1,
@@ -280,7 +280,7 @@
       },
       "drops": [
         {
-          "id": "sternenwerft:mirror_shell",
+          "id": "infinite_horizon:mirror_shell",
           "count": 1
         }
       ],
@@ -288,7 +288,7 @@
       "spec_ref": "18",
       "notes": "SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
     },
-    "sternenwerft:drift_mite": {
+    "infinite_horizon:drift_mite": {
       "hp": 4,
       "armor": 0,
       "damage": null,
@@ -298,7 +298,7 @@
       "category": "creature",
       "disposition": "passive",
       "spawn": {
-        "dimension": "sternenwerft:asteroid_belt",
+        "dimension": "infinite_horizon:asteroid_belt",
         "biomes": [],
         "weight": 0,
         "group_min": 5,
@@ -306,7 +306,7 @@
         "light_max": null,
         "spawn_mode": "worldgen",
         "respawns": false,
-        "anchor_block": "sternenwerft:asteroid_platinum_ore",
+        "anchor_block": "infinite_horizon:asteroid_platinum_ore",
         "anchor_radius": 8,
         "per": "asteroid_with_platinum_ore"
       },
@@ -319,7 +319,7 @@
       "spec_ref": "18",
       "notes": null
     },
-    "sternenwerft:sulfur_salamander": {
+    "infinite_horizon:sulfur_salamander": {
       "hp": 30,
       "armor": 0,
       "damage": 5,
@@ -329,29 +329,29 @@
       "category": "monster",
       "disposition": "hostile",
       "spawn": {
-        "dimension": "sternenwerft:io",
+        "dimension": "infinite_horizon:io",
         "biomes": [
-          "sternenwerft:io_lava_lakes"
+          "infinite_horizon:io_lava_lakes"
         ],
         "weight": 6,
         "group_min": 1,
         "group_max": 1,
         "light_max": 7,
         "structures": [
-          "sternenwerft:volcanic_vent"
+          "infinite_horizon:volcanic_vent"
         ]
       },
       "behavior": "feindlich, feuerfest; Fernkampf: Schwefelklumpen wie Lohen-Feuerball, aber ohne Feuer",
       "behavior_params": {
         "fireproof": true,
         "ranged_attack": true,
-        "projectile": "sternenwerft:sulfur_glob",
+        "projectile": "infinite_horizon:sulfur_glob",
         "projectile_like": "minecraft:small_fireball",
         "projectile_sets_fire": false
       },
       "drops": [
         {
-          "id": "sternenwerft:heat_scale",
+          "id": "infinite_horizon:heat_scale",
           "count": 0,
           "count_max": 2
         }
@@ -360,7 +360,7 @@
       "spec_ref": "18",
       "notes": "Schaden 5 = Treffer des Schwefelklumpens. SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
     },
-    "sternenwerft:ice_jelly": {
+    "infinite_horizon:ice_jelly": {
       "hp": 8,
       "armor": 0,
       "damage": null,
@@ -370,9 +370,9 @@
       "category": "water_creature",
       "disposition": "passive",
       "spawn": {
-        "dimension": "sternenwerft:europa",
+        "dimension": "infinite_horizon:europa",
         "biomes": [
-          "sternenwerft:europa_ocean"
+          "infinite_horizon:europa_ocean"
         ],
         "weight": 10,
         "group_min": 1,
@@ -382,7 +382,7 @@
       "behavior": "passiv, leuchtet (emissive Textur), schwimmt langsam in Richtung der nächsten hydrothermal_vent im Radius 64",
       "behavior_params": {
         "emissive": true,
-        "seek_block": "sternenwerft:hydrothermal_vent",
+        "seek_block": "infinite_horizon:hydrothermal_vent",
         "seek_radius": 64
       },
       "drops": [],
@@ -390,7 +390,7 @@
       "spec_ref": "18",
       "notes": "SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
     },
-    "sternenwerft:reef_keeper": {
+    "infinite_horizon:reef_keeper": {
       "hp": 120,
       "armor": 0,
       "damage": 12,
@@ -400,16 +400,16 @@
       "category": "water_creature",
       "disposition": "neutral",
       "spawn": {
-        "dimension": "sternenwerft:europa",
+        "dimension": "infinite_horizon:europa",
         "biomes": [
-          "sternenwerft:europa_vents"
+          "infinite_horizon:europa_vents"
         ],
         "weight": 0,
         "group_min": 1,
         "group_max": 1,
         "light_max": null,
         "spawn_mode": "structure",
-        "structure": "sternenwerft:hydrothermal_field",
+        "structure": "infinite_horizon:hydrothermal_field",
         "per_structure": 1,
         "respawns": false
       },
@@ -420,7 +420,7 @@
           "block_break",
           "sample_tool"
         ],
-        "pacify_item": "sternenwerft:space_ration",
+        "pacify_item": "infinite_horizon:space_ration",
         "pacify_count": 1,
         "pacify_ticks": 12000,
         "pacify_scope": "per_player"
@@ -430,7 +430,7 @@
       "spec_ref": "18",
       "notes": null
     },
-    "sternenwerft:methane_skimmer": {
+    "infinite_horizon:methane_skimmer": {
       "hp": 10,
       "armor": 0,
       "damage": null,
@@ -440,9 +440,9 @@
       "category": "water_creature",
       "disposition": "passive",
       "spawn": {
-        "dimension": "sternenwerft:titan",
+        "dimension": "infinite_horizon:titan",
         "biomes": [
-          "sternenwerft:titan_methane_lakes"
+          "infinite_horizon:titan_methane_lakes"
         ],
         "weight": 8,
         "group_min": 1,
@@ -451,12 +451,12 @@
       },
       "behavior": "passiv, läuft auf der methane-Oberfläche, flieht vor Spielern < 12 Blöcke",
       "behavior_params": {
-        "walks_on_fluid": "sternenwerft:methane",
+        "walks_on_fluid": "infinite_horizon:methane",
         "flee_player_distance": 12
       },
       "drops": [
         {
-          "id": "sternenwerft:skimmer_leg",
+          "id": "infinite_horizon:skimmer_leg",
           "count": 1,
           "count_max": 2
         }
@@ -465,7 +465,7 @@
       "spec_ref": "18",
       "notes": "SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
     },
-    "sternenwerft:geyser_moth": {
+    "infinite_horizon:geyser_moth": {
       "hp": 4,
       "armor": 0,
       "damage": null,
@@ -475,9 +475,9 @@
       "category": "ambient",
       "disposition": "passive",
       "spawn": {
-        "dimension": "sternenwerft:enceladus",
+        "dimension": "infinite_horizon:enceladus",
         "biomes": [
-          "sternenwerft:enceladus_tiger_stripes"
+          "infinite_horizon:enceladus_tiger_stripes"
         ],
         "weight": 5,
         "group_min": 1,
@@ -487,7 +487,7 @@
       "behavior": "harmlos, fliegend; kreist im Radius 6 um ammonia_geyser",
       "behavior_params": {
         "flying": true,
-        "circle_block": "sternenwerft:ammonia_geyser",
+        "circle_block": "infinite_horizon:ammonia_geyser",
         "circle_radius": 6
       },
       "drops": [],
@@ -495,7 +495,7 @@
       "spec_ref": "18",
       "notes": "SPEC-GAP: Spawn-Gewicht nicht angegeben; 5 gewählt. Biom = Geysir-Biom tiger_stripes. SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
     },
-    "sternenwerft:frost_lurker": {
+    "infinite_horizon:frost_lurker": {
       "hp": 40,
       "armor": 0,
       "damage": 7,
@@ -505,11 +505,11 @@
       "category": "monster",
       "disposition": "hostile",
       "spawn": {
-        "dimension": "sternenwerft:triton",
+        "dimension": "infinite_horizon:triton",
         "biomes": [
-          "sternenwerft:triton_cantaloupe_terrain",
-          "sternenwerft:triton_polar_cap",
-          "sternenwerft:triton_geyser_fields"
+          "infinite_horizon:triton_cantaloupe_terrain",
+          "infinite_horizon:triton_polar_cap",
+          "infinite_horizon:triton_geyser_fields"
         ],
         "weight": 5,
         "group_min": 1,
@@ -523,7 +523,7 @@
       },
       "drops": [
         {
-          "id": "sternenwerft:insulation_fabric",
+          "id": "infinite_horizon:insulation_fabric",
           "count": 0,
           "count_max": 2
         }
@@ -532,7 +532,7 @@
       "spec_ref": "18",
       "notes": "SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
     },
-    "sternenwerft:signal_sentinel": {
+    "infinite_horizon:signal_sentinel": {
       "hp": 400,
       "armor": 0,
       "damage": 10,
@@ -542,14 +542,14 @@
       "category": "monster",
       "disposition": "boss",
       "spawn": {
-        "dimension": "sternenwerft:pluto",
+        "dimension": "infinite_horizon:pluto",
         "biomes": [],
         "weight": 0,
         "group_min": 1,
         "group_max": 1,
         "light_max": null,
         "spawn_mode": "summon",
-        "summon_block": "sternenwerft:transmitter_core",
+        "summon_block": "infinite_horizon:transmitter_core",
         "summon_condition": "für die Agentur lebt keiner und keiner wurde in den letzten 24.000 t besiegt",
         "resummon_cooldown_ticks": 24000,
         "respawns": false
@@ -560,10 +560,10 @@
       },
       "drops": [
         {
-          "id": "sternenwerft:star_chart",
+          "id": "infinite_horizon:star_chart",
           "count": 1,
           "components": {
-            "sternenwerft:chart_owner": {
+            "infinite_horizon:chart_owner": {
               "agency": "<Agentur des Beschwörers>",
               "uuid": "<neue chart_uuid>"
             }
@@ -594,7 +594,7 @@
           "hp_from": 0.5,
           "hp_to": 0.0,
           "summon": {
-            "entity": "sternenwerft:frost_lurker",
+            "entity": "infinite_horizon:frost_lurker",
             "count": 3,
             "trigger": "phase_enter"
           },
@@ -609,7 +609,7 @@
         }
       ],
       "spec_ref": "18",
-      "notes": "Pflicht für die Sternenkarte; pro Agentur erneut beschwörbar (Ä4). Kartenregeln (feuerfest, kein Despawn) in balance/items.json; Admin-Befehl /sternenwerft agency reset_chart <agentur>."
+      "notes": "Pflicht für die Sternenkarte; pro Agentur erneut beschwörbar (Ä4). Kartenregeln (feuerfest, kein Despawn) in balance/items.json; Admin-Befehl /infinite_horizon agency reset_chart <agentur>."
     }
   }
 }

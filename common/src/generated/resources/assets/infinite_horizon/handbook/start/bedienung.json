@@ -1,0 +1,82 @@
+{
+  "id": "infinite_horizon:start/bedienung",
+  "chapter": "infinite_horizon:start",
+  "title": "infinite_horizon.handbook.start.bedienung.title",
+  "icon": null,
+  "order": 20,
+  "unlock": null,
+  "items": [],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.bedienung.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.start.bedienung.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.bedienung.e2"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.start.bedienung.e3.0",
+        "infinite_horizon.handbook.start.bedienung.e3.1",
+        "infinite_horizon.handbook.start.bedienung.e3.2",
+        "infinite_horizon.handbook.start.bedienung.e3.3",
+        "infinite_horizon.handbook.start.bedienung.e3.4"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.start.bedienung.e4",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.bedienung.e5"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.start.bedienung.e6.0",
+        "infinite_horizon.handbook.start.bedienung.e6.1",
+        "infinite_horizon.handbook.start.bedienung.e6.2"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.start.bedienung.e7",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.start.bedienung.e8.0",
+        "infinite_horizon.handbook.start.bedienung.e8.1",
+        "infinite_horizon.handbook.start.bedienung.e8.2",
+        "infinite_horizon.handbook.start.bedienung.e8.3"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.start.bedienung.e9",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.bedienung.e10"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.start.bedienung.e11",
+      "style": "tip"
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "entries": {
+    "infinite_horizon:ice_drill": {
+      "energy_capacity": 100000,
+      "energy_per_block": 20,
+      "ticks_per_layer": 10,
+      "shaft": {
+        "width": 3,
+        "depth": 3
+      },
+      "direction": "down",
+      "use": "hold_right_click",
+      "data_component": "infinite_horizon:energy",
+      "spec_ref": "13.4"
+    },
+    "infinite_horizon:europa_ice": {
+      "hardness": 50,
+      "efficient_tool": "infinite_horizon:ice_drill",
+      "spec_ref": "13.4"
+    },
+    "infinite_horizon:asteroid_anchor": {
+      "radius": 16,
+      "gravity_g": 1,
+      "affects": "players",
+      "placement": "on_asteroid",
+      "spec_ref": "13.4"
+    },
+    "infinite_horizon:hydrothermal_vent": {
+      "use_item": "minecraft:glass_bottle",
+      "consumes_use_item": true,
+      "result": {
+        "id": "infinite_horizon:microbe_culture",
+        "count": 1
+      },
+      "cooldown_ticks": 1200,
+      "cooldown_scope": "per_block",
+      "independent_of_sampling": true,
+      "spec_ref": "13.4"
+    },
+    "infinite_horizon:ammonia_geyser": {
+      "eruption_interval_ticks": 200,
+      "fountain_height": 40,
+      "entity_velocity_up": 2.0,
+      "spec_ref": "13.4"
+    },
+    "unbreakable_blocks": {
+      "blocks": [
+        "infinite_horizon:hydrothermal_vent",
+        "infinite_horizon:ammonia_geyser",
+        "infinite_horizon:nitrogen_geyser",
+        "infinite_horizon:transmitter_core",
+        "infinite_horizon:ancient_alloy"
+      ],
+      "like": "minecraft:bedrock",
+      "spec_ref": "13.4"
+    },
+    "infinite_horizon:sample_tool": {
+      "use": "right_click_block",
+      "result": {
+        "id": "infinite_horizon:sample",
+        "count": 1,
+        "components": [
+          "block",
+          "dimension"
+        ]
+      },
+      "keeps_block": true,
+      "once_per_block_position": true,
+      "position_storage": "chunk_data",
+      "player_placed_blocks_sampleable": false,
+      "sampleable_tags": {
+        "overworld": "#infinite_horizon:sampleable/ring0",
+        "planets": "#infinite_horizon:sampleable/planet"
+      },
+      "message_not_sampleable_de": "Keine verwertbare Probe",
+      "spec_ref": "11.2",
+      "notes": "Abklingzeit in balance/research.json (sample_tool)."
+    },
+    "infinite_horizon:field_scanner": {
+      "use": "right_click_entity",
+      "analyzable_tag": "#infinite_horizon:analyzable",
+      "spec_ref": "11.1, 18",
+      "notes": "FP-Wert in balance/research.json (creature_analysis)."
+    },
+    "infinite_horizon:helmet_lamp": {
+      "light_block": "minecraft:light",
+      "light_level": 14,
+      "update_interval_ticks": 5,
+      "position": "head",
+      "removes_previous": true,
+      "spec_ref": "9.2",
+      "notes": "Moduldaten (Teil, Stufe) in balance/suits.json. rover_headlight nutzt dieselbe Technik mit Licht 15."
+    },
+    "infinite_horizon:sulfur_trail": {
+      "lifetime_ticks": 6000,
+      "solid": false,
+      "drops": "none",
+      "like": "minecraft:snow",
+      "spec_ref": "18"
+    },
+    "infinite_horizon:pontoon": {
+      "placeable_on": "fluids",
+      "like": "minecraft:lily_pad",
+      "supports_machines": true,
+      "spec_ref": "18"
+    },
+    "infinite_horizon:star_chart": {
+      "fireproof": true,
+      "despawns": false,
+      "data_component": "infinite_horizon:chart_owner",
+      "lost_when": "item_entity_destroyed",
+      "spec_ref": "18"
+    }
+  }
+}

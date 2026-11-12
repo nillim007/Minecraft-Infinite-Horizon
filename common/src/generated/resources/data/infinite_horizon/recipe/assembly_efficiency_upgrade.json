@@ -1,0 +1,24 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:circuit",
+      "count": 1
+    },
+    {
+      "ingredient": "infinite_horizon:gold_wire",
+      "count": 2
+    },
+    {
+      "ingredient": "infinite_horizon:aluminum_plate",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:efficiency_upgrade",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

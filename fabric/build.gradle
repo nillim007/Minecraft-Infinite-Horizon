@@ -57,7 +57,7 @@ loom {
             setConfigName('Fabric Client GameTest')
             ideConfigGenerated(false)
             vmArg '-Dfabric.client.gametest'
-            vmArg "-Dsternenwerft.clienttest.rei=${project.hasProperty('withRei')}"
+            vmArg "-Dinfinite_horizon.clienttest.rei=${project.hasProperty('withRei')}"
             runDir('build/clientgametest')
         }
     }

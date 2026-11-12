@@ -24,7 +24,7 @@ Die Berechnung MUSS als reine Funktion `EnvironmentCalculator.compute(planet, zo
 - **Zählweise:** Die Belastung zählt je Gefahr in ganzen Ticks (0 bis `buildup_ticks`). Jede Prüfung (alle `interval_ticks` = 10 t, Takt je Spieler ab Ankunft in der Dimension) addiert `interval_ticks`, solange die Gefahr besteht; ohne Gefahr zieht sie `interval_ticks × buildup_ticks / decay_ticks` ab. Prozent = Wert / `buildup_ticks`. Ein ungeschützter Spieler erreicht 100 % also mit der 20. Prüfung, nach 200 t (Toleranz in Tests: ein Takt). Regeln in `environment.json` (`hazard_rules`).
 - Gefahren zählen unabhängig. Ohne Anzug im Mond-Vakuum steigen Sauerstoff und Druck, dazu je nach Tageszeit Hitze oder Kälte.
 - `HazardTracker` läuft im Server-Tick über die Spielerliste. Spieler im Kreativ- oder Zuschauermodus bekommen keine Belastung und keinen Schaden.
-- **Schaden:** Jede Gefahr hat eine eigene Schadensart (Datenpaket-Registry `damage_type`: `sternenwerft:oxygen`, `pressure`, `heat`, `cold`, `radiation`; Tiefseedruck nutzt `pressure`) mit dem Tag `minecraft:bypasses_armor` und der Todesnachricht `death.attack.sternenwerft.<gefahr>`. Schäden mehrerer Gefahren addieren sich. Die Belastung wird mit dem Spieler gespeichert und beim Tod auf 0 gesetzt.
+- **Schaden:** Jede Gefahr hat eine eigene Schadensart (Datenpaket-Registry `damage_type`: `infinite_horizon:oxygen`, `pressure`, `heat`, `cold`, `radiation`; Tiefseedruck nutzt `pressure`) mit dem Tag `minecraft:bypasses_armor` und der Todesnachricht `death.attack.infinite_horizon.<gefahr>`. Schäden mehrerer Gefahren addieren sich. Die Belastung wird mit dem Spieler gespeichert und beim Tod auf 0 gesetzt.
 
 ## 8.3 Schutz ohne Anzug
 
@@ -32,7 +32,7 @@ Spieler ohne vollständigen Anzug vertragen −20 bis +45 °C, Druck `low` bis `
 
 ## 8.4 HUD
 
-Kleine Leisten oberhalb der Hungerleiste, je 81 × 5 px, nach oben gestapelt. Sind die Vanilla-Luftblasen sichtbar, stehen die Leisten darüber. Die Client-Datei verschiebt das HUD (3.5). Werte in `environment.json` (`hud`), Daten über `HazardStatePayload` (3A.5), Texte `hud.sternenwerft.<name>` (6.4).
+Kleine Leisten oberhalb der Hungerleiste, je 81 × 5 px, nach oben gestapelt. Sind die Vanilla-Luftblasen sichtbar, stehen die Leisten darüber. Die Client-Datei verschiebt das HUD (3.5). Werte in `environment.json` (`hud`), Daten über `HazardStatePayload` (3A.5), Texte `hud.infinite_horizon.<name>` (6.4).
 
 - **Belastung je Gefahr** (`oxygen`, `pressure`, `heat`, `cold`, `radiation`): sichtbar ab 1 %. Farben nach Belastung: grün, gelb ab 50 %, rot ab 80 %. Beim Erscheinen ertönt der Warnton der Gefahr (24.6; Druck nutzt `warning.oxygen`).
 - **Anzugvorrat O₂** (mB von 1.200): sichtbar mit vollständigem Anzug außerhalb von `breathable`. Farben umgekehrt: gelb unter 50 %, rot unter 20 %.
@@ -50,7 +50,7 @@ Kleine Leisten oberhalb der Hungerleiste, je 81 × 5 px, nach oben gestapelt. Si
 
 **Umsetzung (ab M3, Werte in `misc.json` → `atmosphere_rules`):**
 
-- Betroffene Blöcke stehen im erzeugten Block-Tag `sternenwerft:needs_atmosphere` (für Addons erweiterbar): alle Fackeln außer Redstone-Fackeln (auch Wand-, Seelen- und Kupferfackeln), Feuer, Seelenfeuer, Laternen, Lagerfeuer und Kerzen. Setzen schlägt mit der Meldung `message.sternenwerft.no_atmosphere` fehl.
+- Betroffene Blöcke stehen im erzeugten Block-Tag `infinite_horizon:needs_atmosphere` (für Addons erweiterbar): alle Fackeln außer Redstone-Fackeln (auch Wand-, Seelen- und Kupferfackeln), Feuer, Seelenfeuer, Laternen, Lagerfeuer und Kerzen. Setzen schlägt mit der Meldung `message.infinite_horizon.no_atmosphere` fehl.
 - Bestehende Blöcke: Fackeln bekommen in Mod-Dimensionen Random Ticks (Mixin, 3.7) und werden zu `extinguished_torch` (Blockstate `facing`, auch an der Wand). Lagerfeuer und Kerzen gehen aus (`lit=false`), Laternen und Feuer verschwinden. `extinguished_torch` droppt sich selbst und hat kein Rezept.
 - Pflanzen: Random Tick und Knochenmehl sind für `#minecraft:crops` und `#minecraft:saplings` abgebrochen.
 - `freeze`: Platziertes Wasser (Eimer, Werfer) wird zu `minecraft:ice`; Eis schmilzt dort nicht.

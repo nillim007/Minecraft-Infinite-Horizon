@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "FPF",
+    "IMI",
+    "III"
+  ],
+  "key": {
+    "F": "minecraft:flint",
+    "I": "minecraft:iron_ingot",
+    "M": "infinite_horizon:machine_frame",
+    "P": "minecraft:piston"
+  },
+  "result": {
+    "id": "infinite_horizon:crusher",
+    "count": 1
+  }
+}

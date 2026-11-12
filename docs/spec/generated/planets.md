@@ -4,9 +4,9 @@
 
 | Ziel | Name | Typ | Ring | DP | g | Atmosphäre | Druck | Temp. Nacht/Tag | Strahlung | Solar | Rakete | Fernflug |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| `minecraft:overworld` | Erde | surface | 0 | 0 | 1 | breathable | normal | 10 / 20 | 0 | 1 | 1 | nein |
 | `earth_orbit` | Erdorbit | orbit | 0 | 0 | 0,005 | none | vacuum | -100 / 100 | 1 | 1 | 2 | nein |
 | `moon` | Mond | surface | 1 | 0 | 0,17 | none | vacuum | -170 / 120 | 1 | 1 | 1 | nein |
+| `minecraft:overworld` | Erde | surface | 0 | 0 | 1 | breathable | normal | 10 / 20 | 0 | 1 | 1 | nein |
 | `venus` | Venus | surface | 1 | 1 | 0,9 | toxic | high | 465 / 465 | 1 | 0,1 | 1 | nein |
 | `venus_orbit` | Venus-Orbit | orbit | 1 | 1 | 0,005 | none | vacuum | -100 / 100 | 1 | 2 | 2 | nein |
 | `mars` | Mars | surface | 1 | 1,5 | 0,38 | thin | low | -120 / 20 | 1 | 0,5 | 1 | nein |
@@ -26,17 +26,9 @@
 | `triton` | Triton | surface | 2 | 15 | 0,08 | thin | low | -235 / -235 | 1 | 0,02 | 2 | ja |
 | `pluto` | Pluto | surface | 2 | 18 | 0,06 | thin | low | -230 / -230 | 1 | 0,02 | 2 | ja |
 
-## Erde (`minecraft:overworld`)
-
-| Erz | y | Ader | je Chunk | Drop |
-| --- | --- | --- | --- | --- |
-| `bauxite_ore` | 50–120 | 12 | 6 | `bauxite` |
-| `titanium_ore` | -64–0 | 6 | 4 | `raw_titanium` |
-| `quartz_sand` | ––– | – | 2 |  |
-
 ## Mond (`moon`)
 
-**Zonen:** id polar_crater, y_min -64, y_max 400, biome sternenwerft:moon_polar_crater, temperature -190, solar_factor 0.0
+**Zonen:** id polar_crater, y_min -64, y_max 400, biome infinite_horizon:moon_polar_crater, temperature -190, solar_factor 0.0
 
 | Biom | Name | Oberfläche | Form | Häufigkeit |
 | --- | --- | --- | --- | --- |
@@ -56,6 +48,14 @@
 | --- | --- | --- |
 | `great_crater` | nein | Radius 40–60, Zentralberg, nur im Biom moon_great_crater, Abstand 32 Chunks, Trennung 8; Erze ×2 innerhalb der Struktur (Ä27) |
 | `lava_tube` | ja | gerader Tunnel 5×5 in zufälliger Himmelsrichtung, Länge 60–120, y 30–50, 1 je 16 Chunks (Trennung 4); Erkundungsziel ab M4 |
+
+## Erde (`minecraft:overworld`)
+
+| Erz | y | Ader | je Chunk | Drop |
+| --- | --- | --- | --- | --- |
+| `bauxite_ore` | 50–120 | 12 | 6 | `bauxite` |
+| `titanium_ore` | -64–0 | 6 | 4 | `raw_titanium` |
+| `quartz_sand` | ––– | – | 2 |  |
 
 ## Venus (`venus`)
 
@@ -102,7 +102,7 @@
 
 ## Merkur (`mercury`)
 
-**Zonen:** id scorched_plains, y_min -64, y_max 400, biome sternenwerft:mercury_scorched_plains, temperature 430; id frost_plains, y_min -64, y_max 400, biome sternenwerft:mercury_frost_plains, temperature -180; id twilight_belt, y_min -64, y_max 400, biome sternenwerft:mercury_twilight_belt, temperature 20; id shadow_crater, y_min -64, y_max 400, biome sternenwerft:mercury_shadow_crater, temperature -150
+**Zonen:** id scorched_plains, y_min -64, y_max 400, biome infinite_horizon:mercury_scorched_plains, temperature 430; id frost_plains, y_min -64, y_max 400, biome infinite_horizon:mercury_frost_plains, temperature -180; id twilight_belt, y_min -64, y_max 400, biome infinite_horizon:mercury_twilight_belt, temperature 20; id shadow_crater, y_min -64, y_max 400, biome infinite_horizon:mercury_shadow_crater, temperature -150
 
 | Biom | Name | Oberfläche | Form | Häufigkeit |
 | --- | --- | --- | --- | --- |

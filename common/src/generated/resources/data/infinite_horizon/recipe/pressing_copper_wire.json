@@ -1,0 +1,17 @@
+{
+  "type": "infinite_horizon:pressing",
+  "ingredients": [
+    {
+      "ingredient": "minecraft:copper_ingot",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:copper_wire",
+      "count": 3,
+      "chance": 1.0
+    }
+  ],
+  "mold": "infinite_horizon:press_mold_wire"
+}

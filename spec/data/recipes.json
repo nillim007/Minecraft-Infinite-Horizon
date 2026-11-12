@@ -2,13 +2,13 @@
   "schema_version": 1,
   "recipes": [
     {
-      "id": "sternenwerft:crafting_shaped/machine_frame",
+      "id": "infinite_horizon:crafting_shaped/machine_frame",
       "type": "crafting_shaped",
       "ingredients": [],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:machine_frame",
+          "id": "infinite_horizon:machine_frame",
           "count": 1,
           "chance": 1.0
         }
@@ -37,13 +37,13 @@
       "spec_ref": "22.1"
     },
     {
-      "id": "sternenwerft:crafting_shaped/crusher",
+      "id": "infinite_horizon:crafting_shaped/crusher",
       "type": "crafting_shaped",
       "ingredients": [],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:crusher",
+          "id": "infinite_horizon:crusher",
           "count": 1,
           "chance": 1.0
         }
@@ -66,7 +66,7 @@
           "item": "minecraft:iron_ingot"
         },
         "M": {
-          "item": "sternenwerft:machine_frame"
+          "item": "infinite_horizon:machine_frame"
         },
         "P": {
           "item": "minecraft:piston"
@@ -75,13 +75,13 @@
       "spec_ref": "22.1"
     },
     {
-      "id": "sternenwerft:crafting_shaped/electric_furnace",
+      "id": "infinite_horizon:crafting_shaped/electric_furnace",
       "type": "crafting_shaped",
       "ingredients": [],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:electric_furnace",
+          "id": "infinite_horizon:electric_furnace",
           "count": 1,
           "chance": 1.0
         }
@@ -104,19 +104,19 @@
           "item": "minecraft:furnace"
         },
         "M": {
-          "item": "sternenwerft:machine_frame"
+          "item": "infinite_horizon:machine_frame"
         }
       },
       "spec_ref": "22.1"
     },
     {
-      "id": "sternenwerft:crafting_shaped/press",
+      "id": "infinite_horizon:crafting_shaped/press",
       "type": "crafting_shaped",
       "ingredients": [],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:press",
+          "id": "infinite_horizon:press",
           "count": 1,
           "chance": 1.0
         }
@@ -136,7 +136,7 @@
           "item": "minecraft:iron_ingot"
         },
         "M": {
-          "item": "sternenwerft:machine_frame"
+          "item": "infinite_horizon:machine_frame"
         },
         "P": {
           "item": "minecraft:piston"
@@ -148,13 +148,13 @@
       "spec_ref": "22.1"
     },
     {
-      "id": "sternenwerft:crafting_shaped/press_mold_plate",
+      "id": "infinite_horizon:crafting_shaped/press_mold_plate",
       "type": "crafting_shaped",
       "ingredients": [],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:press_mold_plate",
+          "id": "infinite_horizon:press_mold_plate",
           "count": 1,
           "chance": 1.0
         }
@@ -176,13 +176,13 @@
       "spec_ref": "22.1"
     },
     {
-      "id": "sternenwerft:crafting_shaped/press_mold_rod",
+      "id": "infinite_horizon:crafting_shaped/press_mold_rod",
       "type": "crafting_shaped",
       "ingredients": [],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:press_mold_rod",
+          "id": "infinite_horizon:press_mold_rod",
           "count": 1,
           "chance": 1.0
         }
@@ -205,13 +205,13 @@
       "spec_ref": "22.1"
     },
     {
-      "id": "sternenwerft:crafting_shaped/press_mold_wire",
+      "id": "infinite_horizon:crafting_shaped/press_mold_wire",
       "type": "crafting_shaped",
       "ingredients": [],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:press_mold_wire",
+          "id": "infinite_horizon:press_mold_wire",
           "count": 1,
           "chance": 1.0
         }
@@ -234,13 +234,13 @@
       "spec_ref": "22.1"
     },
     {
-      "id": "sternenwerft:crafting_shaped/combustion_generator",
+      "id": "infinite_horizon:crafting_shaped/combustion_generator",
       "type": "crafting_shaped",
       "ingredients": [],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:combustion_generator",
+          "id": "infinite_horizon:combustion_generator",
           "count": 1,
           "chance": 1.0
         }
@@ -266,19 +266,19 @@
           "item": "minecraft:furnace"
         },
         "M": {
-          "item": "sternenwerft:machine_frame"
+          "item": "infinite_horizon:machine_frame"
         }
       },
       "spec_ref": "22.1"
     },
     {
-      "id": "sternenwerft:crafting_shaped/battery",
+      "id": "infinite_horizon:crafting_shaped/battery",
       "type": "crafting_shaped",
       "ingredients": [],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:battery",
+          "id": "infinite_horizon:battery",
           "count": 1,
           "chance": 1.0
         }
@@ -301,19 +301,19 @@
           "item": "minecraft:copper_ingot"
         },
         "M": {
-          "item": "sternenwerft:machine_frame"
+          "item": "infinite_horizon:machine_frame"
         }
       },
       "spec_ref": "22.1"
     },
     {
-      "id": "sternenwerft:crafting_shaped/copper_cable",
+      "id": "infinite_horizon:crafting_shaped/copper_cable",
       "type": "crafting_shaped",
       "ingredients": [],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:copper_cable",
+          "id": "infinite_horizon:copper_cable",
           "count": 6,
           "chance": 1.0
         }
@@ -334,13 +334,13 @@
       "spec_ref": "22.1"
     },
     {
-      "id": "sternenwerft:crafting_shaped/copper_pipe",
+      "id": "infinite_horizon:crafting_shaped/copper_pipe",
       "type": "crafting_shaped",
       "ingredients": [],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:copper_pipe",
+          "id": "infinite_horizon:copper_pipe",
           "count": 4,
           "chance": 1.0
         }
@@ -364,13 +364,13 @@
       "spec_ref": "22.1"
     },
     {
-      "id": "sternenwerft:crafting_shaped/fluid_tank",
+      "id": "infinite_horizon:crafting_shaped/fluid_tank",
       "type": "crafting_shaped",
       "ingredients": [],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:fluid_tank",
+          "id": "infinite_horizon:fluid_tank",
           "count": 1,
           "chance": 1.0
         }
@@ -396,13 +396,13 @@
       "spec_ref": "22.1"
     },
     {
-      "id": "sternenwerft:crafting_shaped/fluid_pump",
+      "id": "infinite_horizon:crafting_shaped/fluid_pump",
       "type": "crafting_shaped",
       "ingredients": [],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:fluid_pump",
+          "id": "infinite_horizon:fluid_pump",
           "count": 1,
           "chance": 1.0
         }
@@ -425,22 +425,22 @@
           "item": "minecraft:iron_ingot"
         },
         "M": {
-          "item": "sternenwerft:machine_frame"
+          "item": "infinite_horizon:machine_frame"
         },
         "T": {
-          "item": "sternenwerft:copper_pipe"
+          "item": "infinite_horizon:copper_pipe"
         }
       },
       "spec_ref": "22.1"
     },
     {
-      "id": "sternenwerft:crafting_shaped/assembly_table",
+      "id": "infinite_horizon:crafting_shaped/assembly_table",
       "type": "crafting_shaped",
       "ingredients": [],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:assembly_table",
+          "id": "infinite_horizon:assembly_table",
           "count": 1,
           "chance": 1.0
         }
@@ -463,7 +463,7 @@
           "item": "minecraft:iron_ingot"
         },
         "M": {
-          "item": "sternenwerft:machine_frame"
+          "item": "infinite_horizon:machine_frame"
         },
         "R": {
           "item": "minecraft:redstone"
@@ -475,7 +475,7 @@
       "spec_ref": "22.1"
     },
     {
-      "id": "sternenwerft:crafting_shapeless/engineers_handbook",
+      "id": "infinite_horizon:crafting_shapeless/engineers_handbook",
       "type": "crafting_shapeless",
       "ingredients": [
         {
@@ -490,7 +490,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:engineers_handbook",
+          "id": "infinite_horizon:engineers_handbook",
           "count": 1,
           "chance": 1.0
         }
@@ -505,7 +505,7 @@
       "spec_ref": "22.1"
     },
     {
-      "id": "sternenwerft:crafting_shapeless/planetary_atlas",
+      "id": "infinite_horizon:crafting_shapeless/planetary_atlas",
       "type": "crafting_shapeless",
       "ingredients": [
         {
@@ -520,7 +520,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:planetary_atlas",
+          "id": "infinite_horizon:planetary_atlas",
           "count": 1,
           "chance": 1.0
         }
@@ -535,18 +535,18 @@
       "spec_ref": "22.1"
     },
     {
-      "id": "sternenwerft:pressing/aluminum_plate",
+      "id": "infinite_horizon:pressing/aluminum_plate",
       "type": "pressing",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_ingot",
+          "item": "infinite_horizon:aluminum_ingot",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:aluminum_plate",
+          "id": "infinite_horizon:aluminum_plate",
           "count": 1,
           "chance": 1.0
         }
@@ -554,25 +554,25 @@
       "fluid_results": [],
       "ticks": 100,
       "energy_per_tick": 30,
-      "mold": "sternenwerft:press_mold_plate",
+      "mold": "infinite_horizon:press_mold_plate",
       "copy_components_from": null,
       "pattern": null,
       "key": null,
       "spec_ref": "6.2"
     },
     {
-      "id": "sternenwerft:pressing/aluminum_wire",
+      "id": "infinite_horizon:pressing/aluminum_wire",
       "type": "pressing",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_ingot",
+          "item": "infinite_horizon:aluminum_ingot",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:aluminum_wire",
+          "id": "infinite_horizon:aluminum_wire",
           "count": 3,
           "chance": 1.0
         }
@@ -580,25 +580,25 @@
       "fluid_results": [],
       "ticks": 100,
       "energy_per_tick": 30,
-      "mold": "sternenwerft:press_mold_wire",
+      "mold": "infinite_horizon:press_mold_wire",
       "copy_components_from": null,
       "pattern": null,
       "key": null,
       "spec_ref": "6.2"
     },
     {
-      "id": "sternenwerft:pressing/titanium_plate",
+      "id": "infinite_horizon:pressing/titanium_plate",
       "type": "pressing",
       "ingredients": [
         {
-          "item": "sternenwerft:titanium_ingot",
+          "item": "infinite_horizon:titanium_ingot",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:titanium_plate",
+          "id": "infinite_horizon:titanium_plate",
           "count": 1,
           "chance": 1.0
         }
@@ -606,25 +606,25 @@
       "fluid_results": [],
       "ticks": 100,
       "energy_per_tick": 30,
-      "mold": "sternenwerft:press_mold_plate",
+      "mold": "infinite_horizon:press_mold_plate",
       "copy_components_from": null,
       "pattern": null,
       "key": null,
       "spec_ref": "6.2"
     },
     {
-      "id": "sternenwerft:pressing/titanium_rod",
+      "id": "infinite_horizon:pressing/titanium_rod",
       "type": "pressing",
       "ingredients": [
         {
-          "item": "sternenwerft:titanium_ingot",
+          "item": "infinite_horizon:titanium_ingot",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:titanium_rod",
+          "id": "infinite_horizon:titanium_rod",
           "count": 2,
           "chance": 1.0
         }
@@ -632,14 +632,14 @@
       "fluid_results": [],
       "ticks": 100,
       "energy_per_tick": 30,
-      "mold": "sternenwerft:press_mold_rod",
+      "mold": "infinite_horizon:press_mold_rod",
       "copy_components_from": null,
       "pattern": null,
       "key": null,
       "spec_ref": "6.2"
     },
     {
-      "id": "sternenwerft:pressing/iron_plate",
+      "id": "infinite_horizon:pressing/iron_plate",
       "type": "pressing",
       "ingredients": [
         {
@@ -650,7 +650,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:iron_plate",
+          "id": "infinite_horizon:iron_plate",
           "count": 1,
           "chance": 1.0
         }
@@ -658,14 +658,14 @@
       "fluid_results": [],
       "ticks": 100,
       "energy_per_tick": 30,
-      "mold": "sternenwerft:press_mold_plate",
+      "mold": "infinite_horizon:press_mold_plate",
       "copy_components_from": null,
       "pattern": null,
       "key": null,
       "spec_ref": "6.2"
     },
     {
-      "id": "sternenwerft:pressing/iron_rod",
+      "id": "infinite_horizon:pressing/iron_rod",
       "type": "pressing",
       "ingredients": [
         {
@@ -676,7 +676,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:iron_rod",
+          "id": "infinite_horizon:iron_rod",
           "count": 2,
           "chance": 1.0
         }
@@ -684,14 +684,14 @@
       "fluid_results": [],
       "ticks": 100,
       "energy_per_tick": 30,
-      "mold": "sternenwerft:press_mold_rod",
+      "mold": "infinite_horizon:press_mold_rod",
       "copy_components_from": null,
       "pattern": null,
       "key": null,
       "spec_ref": "6.2"
     },
     {
-      "id": "sternenwerft:pressing/copper_wire",
+      "id": "infinite_horizon:pressing/copper_wire",
       "type": "pressing",
       "ingredients": [
         {
@@ -702,7 +702,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:copper_wire",
+          "id": "infinite_horizon:copper_wire",
           "count": 3,
           "chance": 1.0
         }
@@ -710,14 +710,14 @@
       "fluid_results": [],
       "ticks": 100,
       "energy_per_tick": 30,
-      "mold": "sternenwerft:press_mold_wire",
+      "mold": "infinite_horizon:press_mold_wire",
       "copy_components_from": null,
       "pattern": null,
       "key": null,
       "spec_ref": "6.2"
     },
     {
-      "id": "sternenwerft:pressing/gold_wire",
+      "id": "infinite_horizon:pressing/gold_wire",
       "type": "pressing",
       "ingredients": [
         {
@@ -728,7 +728,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:gold_wire",
+          "id": "infinite_horizon:gold_wire",
           "count": 3,
           "chance": 1.0
         }
@@ -736,25 +736,25 @@
       "fluid_results": [],
       "ticks": 100,
       "energy_per_tick": 30,
-      "mold": "sternenwerft:press_mold_wire",
+      "mold": "infinite_horizon:press_mold_wire",
       "copy_components_from": null,
       "pattern": null,
       "key": null,
       "spec_ref": "6.2"
     },
     {
-      "id": "sternenwerft:pressing/nickel_plate",
+      "id": "infinite_horizon:pressing/nickel_plate",
       "type": "pressing",
       "ingredients": [
         {
-          "item": "sternenwerft:nickel_ingot",
+          "item": "infinite_horizon:nickel_ingot",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:nickel_plate",
+          "id": "infinite_horizon:nickel_plate",
           "count": 1,
           "chance": 1.0
         }
@@ -762,25 +762,25 @@
       "fluid_results": [],
       "ticks": 100,
       "energy_per_tick": 30,
-      "mold": "sternenwerft:press_mold_plate",
+      "mold": "infinite_horizon:press_mold_plate",
       "copy_components_from": null,
       "pattern": null,
       "key": null,
       "spec_ref": "6.2"
     },
     {
-      "id": "sternenwerft:pressing/tungsten_plate",
+      "id": "infinite_horizon:pressing/tungsten_plate",
       "type": "pressing",
       "ingredients": [
         {
-          "item": "sternenwerft:tungsten_ingot",
+          "item": "infinite_horizon:tungsten_ingot",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:tungsten_plate",
+          "id": "infinite_horizon:tungsten_plate",
           "count": 1,
           "chance": 1.0
         }
@@ -788,25 +788,25 @@
       "fluid_results": [],
       "ticks": 100,
       "energy_per_tick": 30,
-      "mold": "sternenwerft:press_mold_plate",
+      "mold": "infinite_horizon:press_mold_plate",
       "copy_components_from": null,
       "pattern": null,
       "key": null,
       "spec_ref": "6.2"
     },
     {
-      "id": "sternenwerft:pressing/lightweight_plate",
+      "id": "infinite_horizon:pressing/lightweight_plate",
       "type": "pressing",
       "ingredients": [
         {
-          "item": "sternenwerft:magnesium_alloy",
+          "item": "infinite_horizon:magnesium_alloy",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:lightweight_plate",
+          "id": "infinite_horizon:lightweight_plate",
           "count": 1,
           "chance": 1.0
         }
@@ -814,25 +814,25 @@
       "fluid_results": [],
       "ticks": 100,
       "energy_per_tick": 30,
-      "mold": "sternenwerft:press_mold_plate",
+      "mold": "infinite_horizon:press_mold_plate",
       "copy_components_from": null,
       "pattern": null,
       "key": null,
       "spec_ref": "6.2"
     },
     {
-      "id": "sternenwerft:crushing/aluminum_dust",
+      "id": "infinite_horizon:crushing/aluminum_dust",
       "type": "crushing",
       "ingredients": [
         {
-          "item": "sternenwerft:bauxite",
+          "item": "infinite_horizon:bauxite",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:aluminum_dust",
+          "id": "infinite_horizon:aluminum_dust",
           "count": 2,
           "chance": 1.0
         }
@@ -847,18 +847,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:crushing/titanium_dust",
+      "id": "infinite_horizon:crushing/titanium_dust",
       "type": "crushing",
       "ingredients": [
         {
-          "item": "sternenwerft:raw_titanium",
+          "item": "infinite_horizon:raw_titanium",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:titanium_dust",
+          "id": "infinite_horizon:titanium_dust",
           "count": 2,
           "chance": 1.0
         }
@@ -873,7 +873,7 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:crushing/iron_dust",
+      "id": "infinite_horizon:crushing/iron_dust",
       "type": "crushing",
       "ingredients": [
         {
@@ -884,7 +884,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:iron_dust",
+          "id": "infinite_horizon:iron_dust",
           "count": 2,
           "chance": 1.0
         }
@@ -899,7 +899,7 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:crushing/copper_dust",
+      "id": "infinite_horizon:crushing/copper_dust",
       "type": "crushing",
       "ingredients": [
         {
@@ -910,7 +910,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:copper_dust",
+          "id": "infinite_horizon:copper_dust",
           "count": 2,
           "chance": 1.0
         }
@@ -925,7 +925,7 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:crushing/gold_dust",
+      "id": "infinite_horizon:crushing/gold_dust",
       "type": "crushing",
       "ingredients": [
         {
@@ -936,7 +936,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:gold_dust",
+          "id": "infinite_horizon:gold_dust",
           "count": 2,
           "chance": 1.0
         }
@@ -951,18 +951,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:crushing/magnesium_dust",
+      "id": "infinite_horizon:crushing/magnesium_dust",
       "type": "crushing",
       "ingredients": [
         {
-          "item": "sternenwerft:raw_magnesium",
+          "item": "infinite_horizon:raw_magnesium",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:magnesium_dust",
+          "id": "infinite_horizon:magnesium_dust",
           "count": 2,
           "chance": 1.0
         }
@@ -977,18 +977,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:crushing/nickel_dust",
+      "id": "infinite_horizon:crushing/nickel_dust",
       "type": "crushing",
       "ingredients": [
         {
-          "item": "sternenwerft:raw_nickel",
+          "item": "infinite_horizon:raw_nickel",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:nickel_dust",
+          "id": "infinite_horizon:nickel_dust",
           "count": 2,
           "chance": 1.0
         }
@@ -1003,18 +1003,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:crushing/tungsten_dust",
+      "id": "infinite_horizon:crushing/tungsten_dust",
       "type": "crushing",
       "ingredients": [
         {
-          "item": "sternenwerft:raw_tungsten",
+          "item": "infinite_horizon:raw_tungsten",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:tungsten_dust",
+          "id": "infinite_horizon:tungsten_dust",
           "count": 2,
           "chance": 1.0
         }
@@ -1029,18 +1029,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:crushing/lithium_dust",
+      "id": "infinite_horizon:crushing/lithium_dust",
       "type": "crushing",
       "ingredients": [
         {
-          "item": "sternenwerft:lithium_salt",
+          "item": "infinite_horizon:lithium_salt",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:lithium_dust",
+          "id": "infinite_horizon:lithium_dust",
           "count": 2,
           "chance": 1.0
         }
@@ -1056,18 +1056,18 @@
       "notes": "lithium_salt ist die Raw-Form von Lithium (5.1)"
     },
     {
-      "id": "sternenwerft:crushing/platinum_dust",
+      "id": "infinite_horizon:crushing/platinum_dust",
       "type": "crushing",
       "ingredients": [
         {
-          "item": "sternenwerft:raw_platinum",
+          "item": "infinite_horizon:raw_platinum",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:platinum_dust",
+          "id": "infinite_horizon:platinum_dust",
           "count": 2,
           "chance": 1.0
         }
@@ -1082,18 +1082,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:crushing/iridium_dust",
+      "id": "infinite_horizon:crushing/iridium_dust",
       "type": "crushing",
       "ingredients": [
         {
-          "item": "sternenwerft:raw_iridium",
+          "item": "infinite_horizon:raw_iridium",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:iridium_dust",
+          "id": "infinite_horizon:iridium_dust",
           "count": 2,
           "chance": 1.0
         }
@@ -1108,18 +1108,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:crushing/uranium_dust",
+      "id": "infinite_horizon:crushing/uranium_dust",
       "type": "crushing",
       "ingredients": [
         {
-          "item": "sternenwerft:raw_uranium",
+          "item": "infinite_horizon:raw_uranium",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:uranium_dust",
+          "id": "infinite_horizon:uranium_dust",
           "count": 2,
           "chance": 1.0
         }
@@ -1134,23 +1134,23 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:crushing/aluminum_dust_from_metal_concentrate",
+      "id": "infinite_horizon:crushing/aluminum_dust_from_metal_concentrate",
       "type": "crushing",
       "ingredients": [
         {
-          "item": "sternenwerft:metal_concentrate",
+          "item": "infinite_horizon:metal_concentrate",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:aluminum_dust",
+          "id": "infinite_horizon:aluminum_dust",
           "count": 1,
           "chance": 1.0
         },
         {
-          "id": "sternenwerft:titanium_dust",
+          "id": "infinite_horizon:titanium_dust",
           "count": 1,
           "chance": 1.0
         }
@@ -1165,11 +1165,11 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:crushing/raw_iron_from_meteorite_ore",
+      "id": "infinite_horizon:crushing/raw_iron_from_meteorite_ore",
       "type": "crushing",
       "ingredients": [
         {
-          "item": "sternenwerft:meteorite_ore",
+          "item": "infinite_horizon:meteorite_ore",
           "count": 1
         }
       ],
@@ -1181,17 +1181,17 @@
           "chance": 1.0
         },
         {
-          "id": "sternenwerft:raw_nickel",
+          "id": "infinite_horizon:raw_nickel",
           "count": 1,
           "chance": 1.0
         },
         {
-          "id": "sternenwerft:raw_platinum",
+          "id": "infinite_horizon:raw_platinum",
           "count": 1,
           "chance": 0.1
         },
         {
-          "id": "sternenwerft:raw_iridium",
+          "id": "infinite_horizon:raw_iridium",
           "count": 1,
           "chance": 0.05
         }
@@ -1207,18 +1207,18 @@
       "notes": "Ausbeute laut Kapitel 19 (Meteoritenschauer)"
     },
     {
-      "id": "sternenwerft:smelting/aluminum_ingot",
+      "id": "infinite_horizon:smelting/aluminum_ingot",
       "type": "smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:bauxite",
+          "item": "infinite_horizon:bauxite",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:aluminum_ingot",
+          "id": "infinite_horizon:aluminum_ingot",
           "count": 1,
           "chance": 1.0
         }
@@ -1233,18 +1233,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:smelting/titanium_ingot",
+      "id": "infinite_horizon:smelting/titanium_ingot",
       "type": "smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:raw_titanium",
+          "item": "infinite_horizon:raw_titanium",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:titanium_ingot",
+          "id": "infinite_horizon:titanium_ingot",
           "count": 1,
           "chance": 1.0
         }
@@ -1259,18 +1259,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:smelting/aluminum_ingot_from_dust",
+      "id": "infinite_horizon:smelting/aluminum_ingot_from_dust",
       "type": "smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_dust",
+          "item": "infinite_horizon:aluminum_dust",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:aluminum_ingot",
+          "id": "infinite_horizon:aluminum_ingot",
           "count": 1,
           "chance": 1.0
         }
@@ -1285,18 +1285,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:smelting/titanium_ingot_from_dust",
+      "id": "infinite_horizon:smelting/titanium_ingot_from_dust",
       "type": "smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:titanium_dust",
+          "item": "infinite_horizon:titanium_dust",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:titanium_ingot",
+          "id": "infinite_horizon:titanium_ingot",
           "count": 1,
           "chance": 1.0
         }
@@ -1311,11 +1311,11 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:smelting/iron_ingot_from_dust",
+      "id": "infinite_horizon:smelting/iron_ingot_from_dust",
       "type": "smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:iron_dust",
+          "item": "infinite_horizon:iron_dust",
           "count": 1
         }
       ],
@@ -1337,11 +1337,11 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:smelting/copper_ingot_from_dust",
+      "id": "infinite_horizon:smelting/copper_ingot_from_dust",
       "type": "smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:copper_dust",
+          "item": "infinite_horizon:copper_dust",
           "count": 1
         }
       ],
@@ -1363,11 +1363,11 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:smelting/gold_ingot_from_dust",
+      "id": "infinite_horizon:smelting/gold_ingot_from_dust",
       "type": "smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:gold_dust",
+          "item": "infinite_horizon:gold_dust",
           "count": 1
         }
       ],
@@ -1389,18 +1389,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:electric_smelting/magnesium_ingot",
+      "id": "infinite_horizon:electric_smelting/magnesium_ingot",
       "type": "electric_smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:raw_magnesium",
+          "item": "infinite_horizon:raw_magnesium",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:magnesium_ingot",
+          "id": "infinite_horizon:magnesium_ingot",
           "count": 1,
           "chance": 1.0
         }
@@ -1415,18 +1415,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:electric_smelting/magnesium_ingot_from_dust",
+      "id": "infinite_horizon:electric_smelting/magnesium_ingot_from_dust",
       "type": "electric_smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:magnesium_dust",
+          "item": "infinite_horizon:magnesium_dust",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:magnesium_ingot",
+          "id": "infinite_horizon:magnesium_ingot",
           "count": 1,
           "chance": 1.0
         }
@@ -1441,18 +1441,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:electric_smelting/nickel_ingot",
+      "id": "infinite_horizon:electric_smelting/nickel_ingot",
       "type": "electric_smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:raw_nickel",
+          "item": "infinite_horizon:raw_nickel",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:nickel_ingot",
+          "id": "infinite_horizon:nickel_ingot",
           "count": 1,
           "chance": 1.0
         }
@@ -1467,18 +1467,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:electric_smelting/nickel_ingot_from_dust",
+      "id": "infinite_horizon:electric_smelting/nickel_ingot_from_dust",
       "type": "electric_smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:nickel_dust",
+          "item": "infinite_horizon:nickel_dust",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:nickel_ingot",
+          "id": "infinite_horizon:nickel_ingot",
           "count": 1,
           "chance": 1.0
         }
@@ -1493,18 +1493,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:electric_smelting/lithium_ingot",
+      "id": "infinite_horizon:electric_smelting/lithium_ingot",
       "type": "electric_smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:lithium_salt",
+          "item": "infinite_horizon:lithium_salt",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:lithium_ingot",
+          "id": "infinite_horizon:lithium_ingot",
           "count": 1,
           "chance": 1.0
         }
@@ -1520,18 +1520,18 @@
       "notes": "lithium_salt ist die Raw-Form von Lithium (5.1)"
     },
     {
-      "id": "sternenwerft:electric_smelting/lithium_ingot_from_dust",
+      "id": "infinite_horizon:electric_smelting/lithium_ingot_from_dust",
       "type": "electric_smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:lithium_dust",
+          "item": "infinite_horizon:lithium_dust",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:lithium_ingot",
+          "id": "infinite_horizon:lithium_ingot",
           "count": 1,
           "chance": 1.0
         }
@@ -1546,18 +1546,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:electric_smelting/platinum_ingot",
+      "id": "infinite_horizon:electric_smelting/platinum_ingot",
       "type": "electric_smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:raw_platinum",
+          "item": "infinite_horizon:raw_platinum",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:platinum_ingot",
+          "id": "infinite_horizon:platinum_ingot",
           "count": 1,
           "chance": 1.0
         }
@@ -1572,18 +1572,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:electric_smelting/platinum_ingot_from_dust",
+      "id": "infinite_horizon:electric_smelting/platinum_ingot_from_dust",
       "type": "electric_smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:platinum_dust",
+          "item": "infinite_horizon:platinum_dust",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:platinum_ingot",
+          "id": "infinite_horizon:platinum_ingot",
           "count": 1,
           "chance": 1.0
         }
@@ -1598,18 +1598,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:electric_smelting/iridium_ingot",
+      "id": "infinite_horizon:electric_smelting/iridium_ingot",
       "type": "electric_smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:raw_iridium",
+          "item": "infinite_horizon:raw_iridium",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:iridium_ingot",
+          "id": "infinite_horizon:iridium_ingot",
           "count": 1,
           "chance": 1.0
         }
@@ -1624,18 +1624,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:electric_smelting/iridium_ingot_from_dust",
+      "id": "infinite_horizon:electric_smelting/iridium_ingot_from_dust",
       "type": "electric_smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:iridium_dust",
+          "item": "infinite_horizon:iridium_dust",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:iridium_ingot",
+          "id": "infinite_horizon:iridium_ingot",
           "count": 1,
           "chance": 1.0
         }
@@ -1650,18 +1650,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:electric_smelting/uranium_ingot",
+      "id": "infinite_horizon:electric_smelting/uranium_ingot",
       "type": "electric_smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:raw_uranium",
+          "item": "infinite_horizon:raw_uranium",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:uranium_ingot",
+          "id": "infinite_horizon:uranium_ingot",
           "count": 1,
           "chance": 1.0
         }
@@ -1676,18 +1676,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:electric_smelting/uranium_ingot_from_dust",
+      "id": "infinite_horizon:electric_smelting/uranium_ingot_from_dust",
       "type": "electric_smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:uranium_dust",
+          "item": "infinite_horizon:uranium_dust",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:uranium_ingot",
+          "id": "infinite_horizon:uranium_ingot",
           "count": 1,
           "chance": 1.0
         }
@@ -1702,18 +1702,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:electric_smelting/silicon",
+      "id": "infinite_horizon:electric_smelting/silicon",
       "type": "electric_smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:quartz_sand",
+          "item": "infinite_horizon:quartz_sand",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:silicon",
+          "id": "infinite_horizon:silicon",
           "count": 1,
           "chance": 1.0
         }
@@ -1728,22 +1728,22 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:electric_smelting/magnesium_alloy",
+      "id": "infinite_horizon:electric_smelting/magnesium_alloy",
       "type": "electric_smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:magnesium_ingot",
+          "item": "infinite_horizon:magnesium_ingot",
           "count": 1
         },
         {
-          "item": "sternenwerft:aluminum_ingot",
+          "item": "infinite_horizon:aluminum_ingot",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:magnesium_alloy",
+          "id": "infinite_horizon:magnesium_alloy",
           "count": 1,
           "chance": 1.0
         }
@@ -1758,18 +1758,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:high_temp_smelting/tungsten_ingot",
+      "id": "infinite_horizon:high_temp_smelting/tungsten_ingot",
       "type": "high_temp_smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:raw_tungsten",
+          "item": "infinite_horizon:raw_tungsten",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:tungsten_ingot",
+          "id": "infinite_horizon:tungsten_ingot",
           "count": 1,
           "chance": 1.0
         }
@@ -1784,18 +1784,18 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:high_temp_smelting/tungsten_ingot_from_dust",
+      "id": "infinite_horizon:high_temp_smelting/tungsten_ingot_from_dust",
       "type": "high_temp_smelting",
       "ingredients": [
         {
-          "item": "sternenwerft:tungsten_dust",
+          "item": "infinite_horizon:tungsten_dust",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:tungsten_ingot",
+          "id": "infinite_horizon:tungsten_ingot",
           "count": 1,
           "chance": 1.0
         }
@@ -1810,7 +1810,7 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:high_temp_smelting/ceramic_plate",
+      "id": "infinite_horizon:high_temp_smelting/ceramic_plate",
       "type": "high_temp_smelting",
       "ingredients": [
         {
@@ -1819,20 +1819,20 @@
               "item": "minecraft:basalt"
             },
             {
-              "item": "sternenwerft:moon_basalt"
+              "item": "infinite_horizon:moon_basalt"
             }
           ],
           "count": 1
         },
         {
-          "item": "sternenwerft:aluminum_dust",
+          "item": "infinite_horizon:aluminum_dust",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:ceramic_plate",
+          "id": "infinite_horizon:ceramic_plate",
           "count": 1,
           "chance": 1.0
         }
@@ -1845,26 +1845,26 @@
       "pattern": null,
       "key": null,
       "spec_ref": "22.2",
-      "notes": "any_of entspricht Tag sternenwerft:basalt (Vanilla-Basalt, moon_basalt)"
+      "notes": "any_of entspricht Tag infinite_horizon:basalt (Vanilla-Basalt, moon_basalt)"
     },
     {
-      "id": "sternenwerft:refining/kerosene",
+      "id": "infinite_horizon:refining/kerosene",
       "type": "refining",
       "ingredients": [],
       "fluid": {
-        "fluid": "sternenwerft:crude_oil",
+        "fluid": "infinite_horizon:crude_oil",
         "amount": 1000
       },
       "results": [
         {
-          "id": "sternenwerft:plastic",
+          "id": "infinite_horizon:plastic",
           "count": 1,
           "chance": 1.0
         }
       ],
       "fluid_results": [
         {
-          "fluid": "sternenwerft:kerosene",
+          "fluid": "infinite_horizon:kerosene",
           "amount": 600
         }
       ],
@@ -1877,7 +1877,7 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:electrolysis/hydrogen",
+      "id": "infinite_horizon:electrolysis/hydrogen",
       "type": "electrolysis",
       "ingredients": [],
       "fluid": {
@@ -1887,11 +1887,11 @@
       "results": [],
       "fluid_results": [
         {
-          "fluid": "sternenwerft:hydrogen",
+          "fluid": "infinite_horizon:hydrogen",
           "amount": 200
         },
         {
-          "fluid": "sternenwerft:oxygen",
+          "fluid": "infinite_horizon:oxygen",
           "amount": 100
         }
       ],
@@ -1904,17 +1904,17 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:cryo/liquid_helium",
+      "id": "infinite_horizon:cryo/liquid_helium",
       "type": "cryo",
       "ingredients": [],
       "fluid": {
-        "fluid": "sternenwerft:helium",
+        "fluid": "infinite_horizon:helium",
         "amount": 40
       },
       "results": [],
       "fluid_results": [
         {
-          "fluid": "sternenwerft:liquid_helium",
+          "fluid": "infinite_horizon:liquid_helium",
           "amount": 10
         }
       ],
@@ -1927,17 +1927,17 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:cryo/liquid_nitrogen",
+      "id": "infinite_horizon:cryo/liquid_nitrogen",
       "type": "cryo",
       "ingredients": [],
       "fluid": {
-        "fluid": "sternenwerft:nitrogen",
+        "fluid": "infinite_horizon:nitrogen",
         "amount": 40
       },
       "results": [],
       "fluid_results": [
         {
-          "fluid": "sternenwerft:liquid_nitrogen",
+          "fluid": "infinite_horizon:liquid_nitrogen",
           "amount": 10
         }
       ],
@@ -1950,11 +1950,11 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:regolith_heating/helium",
+      "id": "infinite_horizon:regolith_heating/helium",
       "type": "regolith_heating",
       "ingredients": [
         {
-          "item": "sternenwerft:moon_regolith",
+          "item": "infinite_horizon:moon_regolith",
           "count": 1
         }
       ],
@@ -1962,7 +1962,7 @@
       "results": [],
       "fluid_results": [
         {
-          "fluid": "sternenwerft:helium",
+          "fluid": "infinite_horizon:helium",
           "amount": 50
         }
       ],
@@ -1975,25 +1975,25 @@
       "spec_ref": "6.1"
     },
     {
-      "id": "sternenwerft:zero_g/superconductor_wire",
+      "id": "infinite_horizon:zero_g/superconductor_wire",
       "type": "zero_g",
       "ingredients": [
         {
-          "item": "sternenwerft:magnesium_ingot",
+          "item": "infinite_horizon:magnesium_ingot",
           "count": 2
         },
         {
-          "item": "sternenwerft:copper_wire",
+          "item": "infinite_horizon:copper_wire",
           "count": 2
         }
       ],
       "fluid": {
-        "fluid": "sternenwerft:liquid_helium",
+        "fluid": "infinite_horizon:liquid_helium",
         "amount": 100
       },
       "results": [
         {
-          "id": "sternenwerft:superconductor_wire",
+          "id": "infinite_horizon:superconductor_wire",
           "count": 1,
           "chance": 1.0
         }
@@ -2008,26 +2008,26 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:zero_g/iridium_chip",
+      "id": "infinite_horizon:zero_g/iridium_chip",
       "type": "zero_g",
       "ingredients": [
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 1
         },
         {
-          "item": "sternenwerft:iridium_ingot",
+          "item": "infinite_horizon:iridium_ingot",
           "count": 2
         },
         {
-          "item": "sternenwerft:platinum_ingot",
+          "item": "infinite_horizon:platinum_ingot",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:iridium_chip",
+          "id": "infinite_horizon:iridium_chip",
           "count": 1,
           "chance": 1.0
         }
@@ -2042,26 +2042,26 @@
       "spec_ref": "22.2"
     },
     {
-      "id": "sternenwerft:assembly/circuit",
+      "id": "infinite_horizon:assembly/circuit",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:silicon",
+          "item": "infinite_horizon:silicon",
           "count": 2
         },
         {
-          "item": "sternenwerft:copper_wire",
+          "item": "infinite_horizon:copper_wire",
           "count": 4
         },
         {
-          "item": "sternenwerft:plastic",
+          "item": "infinite_horizon:plastic",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:circuit",
+          "id": "infinite_horizon:circuit",
           "count": 1,
           "chance": 1.0
         }
@@ -2076,26 +2076,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/advanced_circuit",
+      "id": "infinite_horizon:assembly/advanced_circuit",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 2
         },
         {
-          "item": "sternenwerft:gold_wire",
+          "item": "infinite_horizon:gold_wire",
           "count": 4
         },
         {
-          "item": "sternenwerft:silicon",
+          "item": "infinite_horizon:silicon",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:advanced_circuit",
+          "id": "infinite_horizon:advanced_circuit",
           "count": 1,
           "chance": 1.0
         }
@@ -2110,22 +2110,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/pressure_hull",
+      "id": "infinite_horizon:assembly/pressure_hull",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:pressure_hull",
+          "id": "infinite_horizon:pressure_hull",
           "count": 1,
           "chance": 1.0
         }
@@ -2140,22 +2140,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/heat_shield",
+      "id": "infinite_horizon:assembly/heat_shield",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:tungsten_plate",
+          "item": "infinite_horizon:tungsten_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:heat_shield",
+          "id": "infinite_horizon:heat_shield",
           "count": 1,
           "chance": 1.0
         }
@@ -2170,25 +2170,25 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/cooling_system",
+      "id": "infinite_horizon:assembly/cooling_system",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 4
         },
         {
-          "item": "sternenwerft:pressure_hull",
+          "item": "infinite_horizon:pressure_hull",
           "count": 1
         }
       ],
       "fluid": {
-        "fluid": "sternenwerft:liquid_helium",
+        "fluid": "infinite_horizon:liquid_helium",
         "amount": 1000
       },
       "results": [
         {
-          "id": "sternenwerft:cooling_system",
+          "id": "infinite_horizon:cooling_system",
           "count": 1,
           "chance": 1.0
         }
@@ -2203,30 +2203,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/lithium_battery",
+      "id": "infinite_horizon:assembly/lithium_battery",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lithium_ingot",
+          "item": "infinite_horizon:lithium_ingot",
           "count": 4
         },
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 2
         },
         {
-          "item": "sternenwerft:nickel_plate",
+          "item": "infinite_horizon:nickel_plate",
           "count": 1
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:lithium_battery",
+          "id": "infinite_horizon:lithium_battery",
           "count": 1,
           "chance": 1.0
         }
@@ -2241,26 +2241,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/insulation_fabric",
+      "id": "infinite_horizon:assembly/insulation_fabric",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:plastic",
+          "item": "infinite_horizon:plastic",
           "count": 4
         },
         {
-          "item": "sternenwerft:silicon",
+          "item": "infinite_horizon:silicon",
           "count": 2
         },
         {
-          "item": "sternenwerft:lithium_ingot",
+          "item": "infinite_horizon:lithium_ingot",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:insulation_fabric",
+          "id": "infinite_horizon:insulation_fabric",
           "count": 2,
           "chance": 1.0
         }
@@ -2275,22 +2275,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/fuel_rod",
+      "id": "infinite_horizon:assembly/fuel_rod",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:uranium_ingot",
+          "item": "infinite_horizon:uranium_ingot",
           "count": 4
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:fuel_rod",
+          "id": "infinite_horizon:fuel_rod",
           "count": 1,
           "chance": 1.0
         }
@@ -2305,15 +2305,15 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/antimatter_cell",
+      "id": "infinite_horizon:assembly/antimatter_cell",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:superconductor_wire",
+          "item": "infinite_horizon:superconductor_wire",
           "count": 2
         },
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 2
         },
         {
@@ -2324,7 +2324,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:antimatter_cell",
+          "id": "infinite_horizon:antimatter_cell",
           "count": 1,
           "chance": 1.0
         }
@@ -2339,22 +2339,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/transport_tank",
+      "id": "infinite_horizon:assembly/transport_tank",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:pressure_hull",
+          "item": "infinite_horizon:pressure_hull",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:transport_tank",
+          "id": "infinite_horizon:transport_tank",
           "count": 1,
           "chance": 1.0
         }
@@ -2369,22 +2369,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/oxygen_canister",
+      "id": "infinite_horizon:assembly/oxygen_canister",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 2
         },
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:oxygen_canister",
+          "id": "infinite_horizon:oxygen_canister",
           "count": 1,
           "chance": 1.0
         }
@@ -2399,22 +2399,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/large_oxygen_canister",
+      "id": "infinite_horizon:assembly/large_oxygen_canister",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:oxygen_canister",
+          "item": "infinite_horizon:oxygen_canister",
           "count": 2
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:large_oxygen_canister",
+          "id": "infinite_horizon:large_oxygen_canister",
           "count": 1,
           "chance": 1.0
         }
@@ -2429,11 +2429,11 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/speed_upgrade",
+      "id": "infinite_horizon:assembly/speed_upgrade",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 1
         },
         {
@@ -2441,14 +2441,14 @@
           "count": 4
         },
         {
-          "item": "sternenwerft:copper_wire",
+          "item": "infinite_horizon:copper_wire",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:speed_upgrade",
+          "id": "infinite_horizon:speed_upgrade",
           "count": 1,
           "chance": 1.0
         }
@@ -2463,26 +2463,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/efficiency_upgrade",
+      "id": "infinite_horizon:assembly/efficiency_upgrade",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 1
         },
         {
-          "item": "sternenwerft:gold_wire",
+          "item": "infinite_horizon:gold_wire",
           "count": 2
         },
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:efficiency_upgrade",
+          "id": "infinite_horizon:efficiency_upgrade",
           "count": 1,
           "chance": 1.0
         }
@@ -2497,18 +2497,18 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/compost",
+      "id": "infinite_horizon:assembly/compost",
       "type": "assembly",
       "ingredients": [
         {
-          "tag": "#sternenwerft:compostable",
+          "tag": "#infinite_horizon:compostable",
           "count": 8
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:compost",
+          "id": "infinite_horizon:compost",
           "count": 1,
           "chance": 1.0
         }
@@ -2523,16 +2523,16 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/compost_soil",
+      "id": "infinite_horizon:assembly/compost_soil",
       "type": "assembly",
       "ingredients": [
         {
           "any_of": [
             {
-              "item": "sternenwerft:moon_regolith"
+              "item": "infinite_horizon:moon_regolith"
             },
             {
-              "item": "sternenwerft:mars_sand"
+              "item": "infinite_horizon:mars_sand"
             }
           ],
           "count": 4
@@ -2542,14 +2542,14 @@
           "count": 2
         },
         {
-          "item": "sternenwerft:gypsum",
+          "item": "infinite_horizon:gypsum",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:compost_soil",
+          "id": "infinite_horizon:compost_soil",
           "count": 4,
           "chance": 1.0
         }
@@ -2565,16 +2565,16 @@
       "notes": "Planetenboden = moon_regolith oder mars_sand; Alternativrezept mit 2 compost statt 1 gypsum"
     },
     {
-      "id": "sternenwerft:assembly/compost_soil_alt",
+      "id": "infinite_horizon:assembly/compost_soil_alt",
       "type": "assembly",
       "ingredients": [
         {
           "any_of": [
             {
-              "item": "sternenwerft:moon_regolith"
+              "item": "infinite_horizon:moon_regolith"
             },
             {
-              "item": "sternenwerft:mars_sand"
+              "item": "infinite_horizon:mars_sand"
             }
           ],
           "count": 4
@@ -2584,14 +2584,14 @@
           "count": 2
         },
         {
-          "item": "sternenwerft:compost",
+          "item": "infinite_horizon:compost",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:compost_soil",
+          "id": "infinite_horizon:compost_soil",
           "count": 4,
           "chance": 1.0
         }
@@ -2607,7 +2607,7 @@
       "notes": "Planetenboden = moon_regolith oder mars_sand; Alternative zu 1 gypsum"
     },
     {
-      "id": "sternenwerft:assembly/ammonia_fertilizer",
+      "id": "infinite_horizon:assembly/ammonia_fertilizer",
       "type": "assembly",
       "ingredients": [
         {
@@ -2616,12 +2616,12 @@
         }
       ],
       "fluid": {
-        "fluid": "sternenwerft:ammonia",
+        "fluid": "infinite_horizon:ammonia",
         "amount": 1000
       },
       "results": [
         {
-          "id": "sternenwerft:ammonia_fertilizer",
+          "id": "infinite_horizon:ammonia_fertilizer",
           "count": 8,
           "chance": 1.0
         }
@@ -2636,22 +2636,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/pontoon",
+      "id": "infinite_horizon:assembly/pontoon",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:skimmer_leg",
+          "item": "infinite_horizon:skimmer_leg",
           "count": 2
         },
         {
-          "item": "sternenwerft:plastic",
+          "item": "infinite_horizon:plastic",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:pontoon",
+          "id": "infinite_horizon:pontoon",
           "count": 4,
           "chance": 1.0
         }
@@ -2666,22 +2666,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/sample_tool",
+      "id": "infinite_horizon:assembly/sample_tool",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:titanium_rod",
+          "item": "infinite_horizon:titanium_rod",
           "count": 2
         },
         {
-          "item": "sternenwerft:iron_plate",
+          "item": "infinite_horizon:iron_plate",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:sample_tool",
+          "id": "infinite_horizon:sample_tool",
           "count": 1,
           "chance": 1.0
         }
@@ -2696,15 +2696,15 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/field_scanner",
+      "id": "infinite_horizon:assembly/field_scanner",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 2
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 1
         },
         {
@@ -2719,7 +2719,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:field_scanner",
+          "id": "infinite_horizon:field_scanner",
           "count": 1,
           "chance": 1.0
         }
@@ -2734,15 +2734,15 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/pressure_suit_helmet",
+      "id": "infinite_horizon:assembly/pressure_suit_helmet",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:plastic",
+          "item": "infinite_horizon:plastic",
           "count": 1
         },
         {
@@ -2750,14 +2750,14 @@
           "count": 4
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:pressure_suit_helmet",
+          "id": "infinite_horizon:pressure_suit_helmet",
           "count": 1,
           "chance": 1.0
         }
@@ -2772,26 +2772,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/pressure_suit_chestplate",
+      "id": "infinite_horizon:assembly/pressure_suit_chestplate",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 10
         },
         {
-          "item": "sternenwerft:plastic",
+          "item": "infinite_horizon:plastic",
           "count": 3
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:pressure_suit_chestplate",
+          "id": "infinite_horizon:pressure_suit_chestplate",
           "count": 1,
           "chance": 1.0
         }
@@ -2806,22 +2806,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/pressure_suit_leggings",
+      "id": "infinite_horizon:assembly/pressure_suit_leggings",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 6
         },
         {
-          "item": "sternenwerft:plastic",
+          "item": "infinite_horizon:plastic",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:pressure_suit_leggings",
+          "id": "infinite_horizon:pressure_suit_leggings",
           "count": 1,
           "chance": 1.0
         }
@@ -2836,22 +2836,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/pressure_suit_boots",
+      "id": "infinite_horizon:assembly/pressure_suit_boots",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:plastic",
+          "item": "infinite_horizon:plastic",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:pressure_suit_boots",
+          "id": "infinite_horizon:pressure_suit_boots",
           "count": 1,
           "chance": 1.0
         }
@@ -2866,26 +2866,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/heat_suit_helmet",
+      "id": "infinite_horizon:assembly/heat_suit_helmet",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:pressure_suit_helmet",
+          "item": "infinite_horizon:pressure_suit_helmet",
           "count": 1
         },
         {
-          "item": "sternenwerft:ceramic_plate",
+          "item": "infinite_horizon:ceramic_plate",
           "count": 3
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:heat_suit_helmet",
+          "id": "infinite_horizon:heat_suit_helmet",
           "count": 1,
           "chance": 1.0
         }
@@ -2900,30 +2900,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/heat_suit_chestplate",
+      "id": "infinite_horizon:assembly/heat_suit_chestplate",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:pressure_suit_chestplate",
+          "item": "infinite_horizon:pressure_suit_chestplate",
           "count": 1
         },
         {
-          "item": "sternenwerft:ceramic_plate",
+          "item": "infinite_horizon:ceramic_plate",
           "count": 6
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 2
         },
         {
-          "item": "sternenwerft:cooling_system",
+          "item": "infinite_horizon:cooling_system",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:heat_suit_chestplate",
+          "id": "infinite_horizon:heat_suit_chestplate",
           "count": 1,
           "chance": 1.0
         }
@@ -2938,26 +2938,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/heat_suit_leggings",
+      "id": "infinite_horizon:assembly/heat_suit_leggings",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:pressure_suit_leggings",
+          "item": "infinite_horizon:pressure_suit_leggings",
           "count": 1
         },
         {
-          "item": "sternenwerft:ceramic_plate",
+          "item": "infinite_horizon:ceramic_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:heat_suit_leggings",
+          "id": "infinite_horizon:heat_suit_leggings",
           "count": 1,
           "chance": 1.0
         }
@@ -2972,26 +2972,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/heat_suit_boots",
+      "id": "infinite_horizon:assembly/heat_suit_boots",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:pressure_suit_boots",
+          "item": "infinite_horizon:pressure_suit_boots",
           "count": 1
         },
         {
-          "item": "sternenwerft:ceramic_plate",
+          "item": "infinite_horizon:ceramic_plate",
           "count": 3
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:heat_suit_boots",
+          "id": "infinite_horizon:heat_suit_boots",
           "count": 1,
           "chance": 1.0
         }
@@ -3006,26 +3006,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/deep_space_suit_helmet",
+      "id": "infinite_horizon:assembly/deep_space_suit_helmet",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:heat_suit_helmet",
+          "item": "infinite_horizon:heat_suit_helmet",
           "count": 1
         },
         {
-          "item": "sternenwerft:superconductor_wire",
+          "item": "infinite_horizon:superconductor_wire",
           "count": 2
         },
         {
-          "item": "sternenwerft:insulation_fabric",
+          "item": "infinite_horizon:insulation_fabric",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:deep_space_suit_helmet",
+          "id": "infinite_horizon:deep_space_suit_helmet",
           "count": 1,
           "chance": 1.0
         }
@@ -3040,30 +3040,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/deep_space_suit_chestplate",
+      "id": "infinite_horizon:assembly/deep_space_suit_chestplate",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:heat_suit_chestplate",
+          "item": "infinite_horizon:heat_suit_chestplate",
           "count": 1
         },
         {
-          "item": "sternenwerft:superconductor_wire",
+          "item": "infinite_horizon:superconductor_wire",
           "count": 2
         },
         {
-          "item": "sternenwerft:lithium_battery",
+          "item": "infinite_horizon:lithium_battery",
           "count": 4
         },
         {
-          "item": "sternenwerft:insulation_fabric",
+          "item": "infinite_horizon:insulation_fabric",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:deep_space_suit_chestplate",
+          "id": "infinite_horizon:deep_space_suit_chestplate",
           "count": 1,
           "chance": 1.0
         }
@@ -3078,26 +3078,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/deep_space_suit_leggings",
+      "id": "infinite_horizon:assembly/deep_space_suit_leggings",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:heat_suit_leggings",
+          "item": "infinite_horizon:heat_suit_leggings",
           "count": 1
         },
         {
-          "item": "sternenwerft:superconductor_wire",
+          "item": "infinite_horizon:superconductor_wire",
           "count": 2
         },
         {
-          "item": "sternenwerft:insulation_fabric",
+          "item": "infinite_horizon:insulation_fabric",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:deep_space_suit_leggings",
+          "id": "infinite_horizon:deep_space_suit_leggings",
           "count": 1,
           "chance": 1.0
         }
@@ -3112,26 +3112,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/deep_space_suit_boots",
+      "id": "infinite_horizon:assembly/deep_space_suit_boots",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:heat_suit_boots",
+          "item": "infinite_horizon:heat_suit_boots",
           "count": 1
         },
         {
-          "item": "sternenwerft:superconductor_wire",
+          "item": "infinite_horizon:superconductor_wire",
           "count": 2
         },
         {
-          "item": "sternenwerft:insulation_fabric",
+          "item": "infinite_horizon:insulation_fabric",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:deep_space_suit_boots",
+          "id": "infinite_horizon:deep_space_suit_boots",
           "count": 1,
           "chance": 1.0
         }
@@ -3146,11 +3146,11 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/helmet_lamp",
+      "id": "infinite_horizon:assembly/helmet_lamp",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 2
         },
         {
@@ -3158,14 +3158,14 @@
           "count": 1
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:helmet_lamp",
+          "id": "infinite_horizon:helmet_lamp",
           "count": 1,
           "chance": 1.0
         }
@@ -3180,22 +3180,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/cooling_module",
+      "id": "infinite_horizon:assembly/cooling_module",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 4
         },
         {
-          "item": "sternenwerft:cooling_system",
+          "item": "infinite_horizon:cooling_system",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:cooling_module",
+          "id": "infinite_horizon:cooling_module",
           "count": 1,
           "chance": 1.0
         }
@@ -3210,22 +3210,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/cooling_module_alt",
+      "id": "infinite_horizon:assembly/cooling_module_alt",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 4
         },
         {
-          "item": "sternenwerft:heat_scale",
+          "item": "infinite_horizon:heat_scale",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:cooling_module",
+          "id": "infinite_horizon:cooling_module",
           "count": 1,
           "chance": 1.0
         }
@@ -3240,22 +3240,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/heat_reflector",
+      "id": "infinite_horizon:assembly/heat_reflector",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:mirror_shell",
+          "item": "infinite_horizon:mirror_shell",
           "count": 2
         },
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:heat_reflector",
+          "id": "infinite_horizon:heat_reflector",
           "count": 1,
           "chance": 1.0
         }
@@ -3270,26 +3270,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/heating_module",
+      "id": "infinite_horizon:assembly/heating_module",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:copper_wire",
+          "item": "infinite_horizon:copper_wire",
           "count": 4
         },
         {
-          "item": "sternenwerft:lithium_battery",
+          "item": "infinite_horizon:lithium_battery",
           "count": 2
         },
         {
-          "item": "sternenwerft:insulation_fabric",
+          "item": "infinite_horizon:insulation_fabric",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:heating_module",
+          "id": "infinite_horizon:heating_module",
           "count": 1,
           "chance": 1.0
         }
@@ -3304,22 +3304,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/armor_plating",
+      "id": "infinite_horizon:assembly/armor_plating",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:armor_plate",
+          "item": "infinite_horizon:armor_plate",
           "count": 2
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:armor_plating",
+          "id": "infinite_horizon:armor_plating",
           "count": 1,
           "chance": 1.0
         }
@@ -3334,26 +3334,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/magnet_boots",
+      "id": "infinite_horizon:assembly/magnet_boots",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:iron_plate",
+          "item": "infinite_horizon:iron_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:nickel_plate",
+          "item": "infinite_horizon:nickel_plate",
           "count": 2
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:magnet_boots",
+          "id": "infinite_horizon:magnet_boots",
           "count": 1,
           "chance": 1.0
         }
@@ -3368,30 +3368,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/jetpack",
+      "id": "infinite_horizon:assembly/jetpack",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:lithium_battery",
+          "item": "infinite_horizon:lithium_battery",
           "count": 4
         },
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 2
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:jetpack",
+          "id": "infinite_horizon:jetpack",
           "count": 1,
           "chance": 1.0
         }
@@ -3406,22 +3406,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/radiation_shield",
+      "id": "infinite_horizon:assembly/radiation_shield",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:tungsten_plate",
+          "item": "infinite_horizon:tungsten_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:plastic",
+          "item": "infinite_horizon:plastic",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:radiation_shield",
+          "id": "infinite_horizon:radiation_shield",
           "count": 1,
           "chance": 1.0
         }
@@ -3436,11 +3436,11 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/diving_module",
+      "id": "infinite_horizon:assembly/diving_module",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 4
         },
         {
@@ -3448,14 +3448,14 @@
           "count": 2
         },
         {
-          "item": "sternenwerft:oxygen_canister",
+          "item": "infinite_horizon:oxygen_canister",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:diving_module",
+          "id": "infinite_horizon:diving_module",
           "count": 1,
           "chance": 1.0
         }
@@ -3470,30 +3470,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/ice_drill",
+      "id": "infinite_horizon:assembly/ice_drill",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:tungsten_plate",
+          "item": "infinite_horizon:tungsten_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:titanium_rod",
+          "item": "infinite_horizon:titanium_rod",
           "count": 2
         },
         {
-          "item": "sternenwerft:lithium_battery",
+          "item": "infinite_horizon:lithium_battery",
           "count": 1
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:ice_drill",
+          "id": "infinite_horizon:ice_drill",
           "count": 1,
           "chance": 1.0
         }
@@ -3508,23 +3508,23 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/electrolyzer",
+      "id": "infinite_horizon:assembly/electrolyzer",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:machine_frame",
+          "item": "infinite_horizon:machine_frame",
           "count": 1
         },
         {
-          "item": "sternenwerft:copper_wire",
+          "item": "infinite_horizon:copper_wire",
           "count": 4
         },
         {
-          "item": "sternenwerft:iron_plate",
+          "item": "infinite_horizon:iron_plate",
           "count": 2
         },
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 2
         },
         {
@@ -3535,7 +3535,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:electrolyzer",
+          "id": "infinite_horizon:electrolyzer",
           "count": 1,
           "chance": 1.0
         }
@@ -3550,19 +3550,19 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/refinery_controller",
+      "id": "infinite_horizon:assembly/refinery_controller",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:machine_frame",
+          "item": "infinite_horizon:machine_frame",
           "count": 1
         },
         {
-          "item": "sternenwerft:iron_plate",
+          "item": "infinite_horizon:iron_plate",
           "count": 16
         },
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 8
         },
         {
@@ -3573,7 +3573,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:refinery_controller",
+          "id": "infinite_horizon:refinery_controller",
           "count": 1,
           "chance": 1.0
         }
@@ -3588,22 +3588,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/refinery_casing",
+      "id": "infinite_horizon:assembly/refinery_casing",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:iron_plate",
+          "item": "infinite_horizon:iron_plate",
           "count": 2
         },
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:refinery_casing",
+          "id": "infinite_horizon:refinery_casing",
           "count": 4,
           "chance": 1.0
         }
@@ -3618,11 +3618,11 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/item_port",
+      "id": "infinite_horizon:assembly/item_port",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:iron_plate",
+          "item": "infinite_horizon:iron_plate",
           "count": 4
         },
         {
@@ -3633,7 +3633,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:item_port",
+          "id": "infinite_horizon:item_port",
           "count": 1,
           "chance": 1.0
         }
@@ -3648,22 +3648,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/fluid_port",
+      "id": "infinite_horizon:assembly/fluid_port",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:iron_plate",
+          "item": "infinite_horizon:iron_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:fluid_port",
+          "id": "infinite_horizon:fluid_port",
           "count": 1,
           "chance": 1.0
         }
@@ -3678,22 +3678,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/energy_port",
+      "id": "infinite_horizon:assembly/energy_port",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:iron_plate",
+          "item": "infinite_horizon:iron_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:copper_cable",
+          "item": "infinite_horizon:copper_cable",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:energy_port",
+          "id": "infinite_horizon:energy_port",
           "count": 1,
           "chance": 1.0
         }
@@ -3708,30 +3708,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/fuel_generator",
+      "id": "infinite_horizon:assembly/fuel_generator",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:machine_frame",
+          "item": "infinite_horizon:machine_frame",
           "count": 1
         },
         {
-          "item": "sternenwerft:combustion_generator",
+          "item": "infinite_horizon:combustion_generator",
           "count": 1
         },
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 4
         },
         {
-          "item": "sternenwerft:iron_plate",
+          "item": "infinite_horizon:iron_plate",
           "count": 4
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:fuel_generator",
+          "id": "infinite_horizon:fuel_generator",
           "count": 1,
           "chance": 1.0
         }
@@ -3746,19 +3746,19 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/solar_panel",
+      "id": "infinite_horizon:assembly/solar_panel",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:silicon",
+          "item": "infinite_horizon:silicon",
           "count": 4
         },
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 2
         },
         {
-          "item": "sternenwerft:copper_wire",
+          "item": "infinite_horizon:copper_wire",
           "count": 4
         },
         {
@@ -3769,7 +3769,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:solar_panel",
+          "id": "infinite_horizon:solar_panel",
           "count": 1,
           "chance": 1.0
         }
@@ -3784,22 +3784,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/aluminum_cable",
+      "id": "infinite_horizon:assembly/aluminum_cable",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_wire",
+          "item": "infinite_horizon:aluminum_wire",
           "count": 3
         },
         {
-          "item": "sternenwerft:plastic",
+          "item": "infinite_horizon:plastic",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:aluminum_cable",
+          "id": "infinite_horizon:aluminum_cable",
           "count": 8,
           "chance": 1.0
         }
@@ -3814,22 +3814,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/pressure_bottle",
+      "id": "infinite_horizon:assembly/pressure_bottle",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:pressure_bottle",
+          "id": "infinite_horizon:pressure_bottle",
           "count": 1,
           "chance": 1.0
         }
@@ -3844,19 +3844,19 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/analyzer",
+      "id": "infinite_horizon:assembly/analyzer",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:machine_frame",
+          "item": "infinite_horizon:machine_frame",
           "count": 1
         },
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 2
         },
         {
@@ -3867,7 +3867,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:analyzer",
+          "id": "infinite_horizon:analyzer",
           "count": 1,
           "chance": 1.0
         }
@@ -3882,19 +3882,19 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/research_terminal",
+      "id": "infinite_horizon:assembly/research_terminal",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:machine_frame",
+          "item": "infinite_horizon:machine_frame",
           "count": 1
         },
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 4
         },
         {
@@ -3909,7 +3909,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:research_terminal",
+          "id": "infinite_horizon:research_terminal",
           "count": 1,
           "chance": 1.0
         }
@@ -3924,15 +3924,15 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/food_packer",
+      "id": "infinite_horizon:assembly/food_packer",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:machine_frame",
+          "item": "infinite_horizon:machine_frame",
           "count": 1
         },
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 2
         },
         {
@@ -3940,14 +3940,14 @@
           "count": 1
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:food_packer",
+          "id": "infinite_horizon:food_packer",
           "count": 1,
           "chance": 1.0
         }
@@ -3962,22 +3962,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/launch_pad",
+      "id": "infinite_horizon:assembly/launch_pad",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:iron_plate",
+          "item": "infinite_horizon:iron_plate",
           "count": 2
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:launch_pad",
+          "id": "infinite_horizon:launch_pad",
           "count": 2,
           "chance": 1.0
         }
@@ -3992,22 +3992,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/launch_tower",
+      "id": "infinite_horizon:assembly/launch_tower",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:iron_rod",
+          "item": "infinite_horizon:iron_rod",
           "count": 4
         },
         {
-          "item": "sternenwerft:iron_plate",
+          "item": "infinite_horizon:iron_plate",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:launch_tower",
+          "id": "infinite_horizon:launch_tower",
           "count": 2,
           "chance": 1.0
         }
@@ -4022,30 +4022,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/fuel_pump",
+      "id": "infinite_horizon:assembly/fuel_pump",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:machine_frame",
+          "item": "infinite_horizon:machine_frame",
           "count": 1
         },
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 4
         },
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 2
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:fuel_pump",
+          "id": "infinite_horizon:fuel_pump",
           "count": 1,
           "chance": 1.0
         }
@@ -4060,19 +4060,19 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/launch_control",
+      "id": "infinite_horizon:assembly/launch_control",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:machine_frame",
+          "item": "infinite_horizon:machine_frame",
           "count": 1
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 4
         },
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 4
         },
         {
@@ -4083,7 +4083,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:launch_control",
+          "id": "infinite_horizon:launch_control",
           "count": 1,
           "chance": 1.0
         }
@@ -4098,29 +4098,29 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/probe",
+      "id": "infinite_horizon:assembly/probe",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 2
         },
         {
-          "item": "sternenwerft:solar_panel",
+          "item": "infinite_horizon:solar_panel",
           "count": 1
         }
       ],
       "fluid": {
-        "fluid": "sternenwerft:kerosene",
+        "fluid": "infinite_horizon:kerosene",
         "amount": 16000
       },
       "results": [
         {
-          "id": "sternenwerft:probe",
+          "id": "infinite_horizon:probe",
           "count": 1,
           "chance": 1.0
         }
@@ -4135,11 +4135,11 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/electric_lamp",
+      "id": "infinite_horizon:assembly/electric_lamp",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 1
         },
         {
@@ -4147,14 +4147,14 @@
           "count": 1
         },
         {
-          "item": "sternenwerft:copper_wire",
+          "item": "infinite_horizon:copper_wire",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:electric_lamp",
+          "id": "infinite_horizon:electric_lamp",
           "count": 4,
           "chance": 1.0
         }
@@ -4169,34 +4169,34 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/regolith_heater",
+      "id": "infinite_horizon:assembly/regolith_heater",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:machine_frame",
+          "item": "infinite_horizon:machine_frame",
           "count": 1
         },
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:copper_wire",
+          "item": "infinite_horizon:copper_wire",
           "count": 4
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 2
         },
         {
-          "item": "sternenwerft:pressure_bottle",
+          "item": "infinite_horizon:pressure_bottle",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:regolith_heater",
+          "id": "infinite_horizon:regolith_heater",
           "count": 1,
           "chance": 1.0
         }
@@ -4211,15 +4211,15 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/high_temperature_furnace",
+      "id": "infinite_horizon:assembly/high_temperature_furnace",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:electric_furnace",
+          "item": "infinite_horizon:electric_furnace",
           "count": 1
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 8
         },
         {
@@ -4227,14 +4227,14 @@
           "count": 4
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:high_temperature_furnace",
+          "id": "infinite_horizon:high_temperature_furnace",
           "count": 1,
           "chance": 1.0
         }
@@ -4249,34 +4249,34 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/cryo_liquefier",
+      "id": "infinite_horizon:assembly/cryo_liquefier",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:machine_frame",
+          "item": "infinite_horizon:machine_frame",
           "count": 1
         },
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 4
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 2
         },
         {
-          "item": "sternenwerft:pressure_hull",
+          "item": "infinite_horizon:pressure_hull",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:cryo_liquefier",
+          "id": "infinite_horizon:cryo_liquefier",
           "count": 1,
           "chance": 1.0
         }
@@ -4291,11 +4291,11 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/titanium_pipe",
+      "id": "infinite_horizon:assembly/titanium_pipe",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 3
         },
         {
@@ -4306,7 +4306,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:titanium_pipe",
+          "id": "infinite_horizon:titanium_pipe",
           "count": 4,
           "chance": 1.0
         }
@@ -4321,22 +4321,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/gas_tank",
+      "id": "infinite_horizon:assembly/gas_tank",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:pressure_hull",
+          "item": "infinite_horizon:pressure_hull",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:gas_tank",
+          "id": "infinite_horizon:gas_tank",
           "count": 1,
           "chance": 1.0
         }
@@ -4351,30 +4351,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/oxygen_generator",
+      "id": "infinite_horizon:assembly/oxygen_generator",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 4
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 2
         },
         {
-          "item": "sternenwerft:pressure_hull",
+          "item": "infinite_horizon:pressure_hull",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:oxygen_generator",
+          "id": "infinite_horizon:oxygen_generator",
           "count": 1,
           "chance": 1.0
         }
@@ -4389,19 +4389,19 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/dome_generator_t1",
+      "id": "infinite_horizon:assembly/dome_generator_t1",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 16
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 4
         },
         {
@@ -4412,7 +4412,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:dome_generator_t1",
+          "id": "infinite_horizon:dome_generator_t1",
           "count": 1,
           "chance": 1.0
         }
@@ -4427,30 +4427,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/dome_generator_t2",
+      "id": "infinite_horizon:assembly/dome_generator_t2",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:dome_generator_t1",
+          "item": "infinite_horizon:dome_generator_t1",
           "count": 1
         },
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 16
         },
         {
-          "item": "sternenwerft:cooling_system",
+          "item": "infinite_horizon:cooling_system",
           "count": 4
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 4
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:dome_generator_t2",
+          "id": "infinite_horizon:dome_generator_t2",
           "count": 1,
           "chance": 1.0
         }
@@ -4465,30 +4465,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/dome_generator_t3",
+      "id": "infinite_horizon:assembly/dome_generator_t3",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:dome_generator_t2",
+          "item": "infinite_horizon:dome_generator_t2",
           "count": 1
         },
         {
-          "item": "sternenwerft:superconductor_wire",
+          "item": "infinite_horizon:superconductor_wire",
           "count": 16
         },
         {
-          "item": "sternenwerft:tungsten_plate",
+          "item": "infinite_horizon:tungsten_plate",
           "count": 16
         },
         {
-          "item": "sternenwerft:iridium_chip",
+          "item": "infinite_horizon:iridium_chip",
           "count": 4
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:dome_generator_t3",
+          "id": "infinite_horizon:dome_generator_t3",
           "count": 1,
           "chance": 1.0
         }
@@ -4503,22 +4503,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/dome_range_module",
+      "id": "infinite_horizon:assembly/dome_range_module",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:dome_range_module",
+          "id": "infinite_horizon:dome_range_module",
           "count": 1,
           "chance": 1.0
         }
@@ -4533,26 +4533,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/dome_efficiency_module",
+      "id": "infinite_horizon:assembly/dome_efficiency_module",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 2
         },
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:dome_efficiency_module",
+          "id": "infinite_horizon:dome_efficiency_module",
           "count": 1,
           "chance": 1.0
         }
@@ -4567,22 +4567,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/dome_shield_module",
+      "id": "infinite_horizon:assembly/dome_shield_module",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:dome_shield_module",
+          "id": "infinite_horizon:dome_shield_module",
           "count": 1,
           "chance": 1.0
         }
@@ -4597,15 +4597,15 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/landing_beacon",
+      "id": "infinite_horizon:assembly/landing_beacon",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 2
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 1
         },
         {
@@ -4616,7 +4616,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:landing_beacon",
+          "id": "infinite_horizon:landing_beacon",
           "count": 1,
           "chance": 1.0
         }
@@ -4631,22 +4631,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/aerostat_platform",
+      "id": "infinite_horizon:assembly/aerostat_platform",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 2
         },
         {
-          "item": "sternenwerft:plastic",
+          "item": "infinite_horizon:plastic",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:aerostat_platform",
+          "id": "infinite_horizon:aerostat_platform",
           "count": 4,
           "chance": 1.0
         }
@@ -4661,30 +4661,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/cloud_elevator",
+      "id": "infinite_horizon:assembly/cloud_elevator",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 2
         },
         {
-          "item": "sternenwerft:plastic",
+          "item": "infinite_horizon:plastic",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:cloud_elevator",
+          "id": "infinite_horizon:cloud_elevator",
           "count": 1,
           "chance": 1.0
         }
@@ -4699,34 +4699,34 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/rover_kit",
+      "id": "infinite_horizon:assembly/rover_kit",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 32
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 16
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 4
         },
         {
-          "item": "sternenwerft:solar_panel",
+          "item": "infinite_horizon:solar_panel",
           "count": 4
         },
         {
-          "item": "sternenwerft:battery",
+          "item": "infinite_horizon:battery",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:rover_kit",
+          "id": "infinite_horizon:rover_kit",
           "count": 1,
           "chance": 1.0
         }
@@ -4741,15 +4741,15 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/rover_scanner",
+      "id": "infinite_horizon:assembly/rover_scanner",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 2
         },
         {
@@ -4760,7 +4760,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:rover_scanner",
+          "id": "infinite_horizon:rover_scanner",
           "count": 1,
           "chance": 1.0
         }
@@ -4775,15 +4775,15 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/rover_drill",
+      "id": "infinite_horizon:assembly/rover_drill",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:titanium_rod",
+          "item": "infinite_horizon:titanium_rod",
           "count": 2
         },
         {
@@ -4794,7 +4794,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:rover_drill",
+          "id": "infinite_horizon:rover_drill",
           "count": 1,
           "chance": 1.0
         }
@@ -4809,11 +4809,11 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/rover_headlight",
+      "id": "infinite_horizon:assembly/rover_headlight",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 2
         },
         {
@@ -4824,7 +4824,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:rover_headlight",
+          "id": "infinite_horizon:rover_headlight",
           "count": 1,
           "chance": 1.0
         }
@@ -4839,11 +4839,11 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/rover_pressure_cabin",
+      "id": "infinite_horizon:assembly/rover_pressure_cabin",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 8
         },
         {
@@ -4851,18 +4851,18 @@
           "count": 4
         },
         {
-          "item": "sternenwerft:oxygen_canister",
+          "item": "infinite_horizon:oxygen_canister",
           "count": 2
         },
         {
-          "item": "sternenwerft:pressure_hull",
+          "item": "infinite_horizon:pressure_hull",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:rover_pressure_cabin",
+          "id": "infinite_horizon:rover_pressure_cabin",
           "count": 1,
           "chance": 1.0
         }
@@ -4877,22 +4877,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/rover_lithium_pack",
+      "id": "infinite_horizon:assembly/rover_lithium_pack",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lithium_battery",
+          "item": "infinite_horizon:lithium_battery",
           "count": 4
         },
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:rover_lithium_pack",
+          "id": "infinite_horizon:rover_lithium_pack",
           "count": 1,
           "chance": 1.0
         }
@@ -4907,11 +4907,11 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/rover_trailer",
+      "id": "infinite_horizon:assembly/rover_trailer",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 16
         },
         {
@@ -4922,7 +4922,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:rover_trailer",
+          "id": "infinite_horizon:rover_trailer",
           "count": 1,
           "chance": 1.0
         }
@@ -4937,11 +4937,11 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/hydroponics_basin",
+      "id": "infinite_horizon:assembly/hydroponics_basin",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 4
         },
         {
@@ -4953,14 +4953,14 @@
           "count": 1
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:hydroponics_basin",
+          "id": "infinite_horizon:hydroponics_basin",
           "count": 1,
           "chance": 1.0
         }
@@ -4975,30 +4975,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/station_core",
+      "id": "infinite_horizon:assembly/station_core",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 32
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 8
         },
         {
-          "item": "sternenwerft:solar_panel",
+          "item": "infinite_horizon:solar_panel",
           "count": 4
         },
         {
-          "item": "sternenwerft:dome_generator_t1",
+          "item": "infinite_horizon:dome_generator_t1",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:station_core",
+          "id": "infinite_horizon:station_core",
           "count": 1,
           "chance": 1.0
         }
@@ -5013,18 +5013,18 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/station_hull",
+      "id": "infinite_horizon:assembly/station_hull",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:station_hull",
+          "id": "infinite_horizon:station_hull",
           "count": 4,
           "chance": 1.0
         }
@@ -5039,11 +5039,11 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/station_window",
+      "id": "infinite_horizon:assembly/station_window",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 1
         },
         {
@@ -5054,7 +5054,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:station_window",
+          "id": "infinite_horizon:station_window",
           "count": 2,
           "chance": 1.0
         }
@@ -5069,26 +5069,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/docking_bay",
+      "id": "infinite_horizon:assembly/docking_bay",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 16
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 4
         },
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:docking_bay",
+          "id": "infinite_horizon:docking_bay",
           "count": 1,
           "chance": 1.0
         }
@@ -5103,26 +5103,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/tank_depot",
+      "id": "infinite_horizon:assembly/tank_depot",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 4
         },
         {
-          "item": "sternenwerft:pressure_hull",
+          "item": "infinite_horizon:pressure_hull",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:tank_depot",
+          "id": "infinite_horizon:tank_depot",
           "count": 1,
           "chance": 1.0
         }
@@ -5137,22 +5137,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/solar_wing",
+      "id": "infinite_horizon:assembly/solar_wing",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:solar_panel",
+          "item": "infinite_horizon:solar_panel",
           "count": 2
         },
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:solar_wing",
+          "id": "infinite_horizon:solar_wing",
           "count": 1,
           "chance": 1.0
         }
@@ -5167,11 +5167,11 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/habitation_module",
+      "id": "infinite_horizon:assembly/habitation_module",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 8
         },
         {
@@ -5183,14 +5183,14 @@
           "count": 1
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:habitation_module",
+          "id": "infinite_horizon:habitation_module",
           "count": 1,
           "chance": 1.0
         }
@@ -5205,26 +5205,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/research_lab",
+      "id": "infinite_horizon:assembly/research_lab",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 4
         },
         {
-          "item": "sternenwerft:analyzer",
+          "item": "infinite_horizon:analyzer",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:research_lab",
+          "id": "infinite_horizon:research_lab",
           "count": 1,
           "chance": 1.0
         }
@@ -5239,30 +5239,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/zero_g_fabricator",
+      "id": "infinite_horizon:assembly/zero_g_fabricator",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 16
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 4
         },
         {
-          "item": "sternenwerft:cooling_system",
+          "item": "infinite_horizon:cooling_system",
           "count": 2
         },
         {
-          "item": "sternenwerft:assembly_table",
+          "item": "infinite_horizon:assembly_table",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:zero_g_fabricator",
+          "id": "infinite_horizon:zero_g_fabricator",
           "count": 1,
           "chance": 1.0
         }
@@ -5277,11 +5277,11 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/greenhouse",
+      "id": "infinite_horizon:assembly/greenhouse",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 8
         },
         {
@@ -5289,18 +5289,18 @@
           "count": 8
         },
         {
-          "item": "sternenwerft:hydroponics_basin",
+          "item": "infinite_horizon:hydroponics_basin",
           "count": 1
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:greenhouse",
+          "id": "infinite_horizon:greenhouse",
           "count": 1,
           "chance": 1.0
         }
@@ -5315,30 +5315,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/lander",
+      "id": "infinite_horizon:assembly/lander",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 32
         },
         {
-          "item": "sternenwerft:heat_shield",
+          "item": "infinite_horizon:heat_shield",
           "count": 8
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 8
         },
         {
-          "item": "sternenwerft:cooling_system",
+          "item": "infinite_horizon:cooling_system",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:lander",
+          "id": "infinite_horizon:lander",
           "count": 1,
           "chance": 1.0
         }
@@ -5353,30 +5353,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/fusion_reactor",
+      "id": "infinite_horizon:assembly/fusion_reactor",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 64
         },
         {
-          "item": "sternenwerft:superconductor_wire",
+          "item": "infinite_horizon:superconductor_wire",
           "count": 16
         },
         {
-          "item": "sternenwerft:cooling_system",
+          "item": "infinite_horizon:cooling_system",
           "count": 8
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 4
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:fusion_reactor",
+          "id": "infinite_horizon:fusion_reactor",
           "count": 1,
           "chance": 1.0
         }
@@ -5392,22 +5392,22 @@
       "notes": "Controller-Block des Multiblocks fusion_reactor"
     },
     {
-      "id": "sternenwerft:assembly/fusion_casing",
+      "id": "infinite_horizon:assembly/fusion_casing",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 2
         },
         {
-          "item": "sternenwerft:copper_wire",
+          "item": "infinite_horizon:copper_wire",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:fusion_casing",
+          "id": "infinite_horizon:fusion_casing",
           "count": 4,
           "chance": 1.0
         }
@@ -5422,22 +5422,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/superconductor_cable",
+      "id": "infinite_horizon:assembly/superconductor_cable",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:superconductor_wire",
+          "item": "infinite_horizon:superconductor_wire",
           "count": 1
         },
         {
-          "item": "sternenwerft:plastic",
+          "item": "infinite_horizon:plastic",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:superconductor_cable",
+          "id": "infinite_horizon:superconductor_cable",
           "count": 4,
           "chance": 1.0
         }
@@ -5452,26 +5452,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/gravity_plate",
+      "id": "infinite_horizon:assembly/gravity_plate",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 2
         },
         {
-          "item": "sternenwerft:superconductor_wire",
+          "item": "infinite_horizon:superconductor_wire",
           "count": 2
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:gravity_plate",
+          "id": "infinite_horizon:gravity_plate",
           "count": 1,
           "chance": 1.0
         }
@@ -5486,26 +5486,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/space_weather_station",
+      "id": "infinite_horizon:assembly/space_weather_station",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 4
         },
         {
-          "item": "sternenwerft:solar_panel",
+          "item": "infinite_horizon:solar_panel",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:space_weather_station",
+          "id": "infinite_horizon:space_weather_station",
           "count": 1,
           "chance": 1.0
         }
@@ -5520,22 +5520,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/lithium_battery_bank",
+      "id": "infinite_horizon:assembly/lithium_battery_bank",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:machine_frame",
+          "item": "infinite_horizon:machine_frame",
           "count": 1
         },
         {
-          "item": "sternenwerft:lithium_battery",
+          "item": "infinite_horizon:lithium_battery",
           "count": 8
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:lithium_battery_bank",
+          "id": "infinite_horizon:lithium_battery_bank",
           "count": 1,
           "chance": 1.0
         }
@@ -5550,30 +5550,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/gas_collector",
+      "id": "infinite_horizon:assembly/gas_collector",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 16
         },
         {
-          "item": "sternenwerft:superconductor_wire",
+          "item": "infinite_horizon:superconductor_wire",
           "count": 4
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 2
         },
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 4
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:gas_collector",
+          "id": "infinite_horizon:gas_collector",
           "count": 1,
           "chance": 1.0
         }
@@ -5588,30 +5588,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/magnetic_trap",
+      "id": "infinite_horizon:assembly/magnetic_trap",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:superconductor_wire",
+          "item": "infinite_horizon:superconductor_wire",
           "count": 16
         },
         {
-          "item": "sternenwerft:tungsten_plate",
+          "item": "infinite_horizon:tungsten_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:iridium_chip",
+          "item": "infinite_horizon:iridium_chip",
           "count": 4
         },
         {
-          "item": "sternenwerft:cooling_system",
+          "item": "infinite_horizon:cooling_system",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:magnetic_trap",
+          "id": "infinite_horizon:magnetic_trap",
           "count": 1,
           "chance": 1.0
         }
@@ -5626,29 +5626,29 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/advanced_probe",
+      "id": "infinite_horizon:assembly/advanced_probe",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 4
         },
         {
-          "item": "sternenwerft:solar_panel",
+          "item": "infinite_horizon:solar_panel",
           "count": 2
         }
       ],
       "fluid": {
-        "fluid": "sternenwerft:hydrogen",
+        "fluid": "infinite_horizon:hydrogen",
         "amount": 16000
       },
       "results": [
         {
-          "id": "sternenwerft:advanced_probe",
+          "id": "infinite_horizon:advanced_probe",
           "count": 1,
           "chance": 1.0
         }
@@ -5663,26 +5663,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/asteroid_anchor",
+      "id": "infinite_horizon:assembly/asteroid_anchor",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:titanium_rod",
+          "item": "infinite_horizon:titanium_rod",
           "count": 8
         },
         {
-          "item": "sternenwerft:tungsten_plate",
+          "item": "infinite_horizon:tungsten_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:asteroid_anchor",
+          "id": "infinite_horizon:asteroid_anchor",
           "count": 1,
           "chance": 1.0
         }
@@ -5697,23 +5697,23 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/clone_chamber",
+      "id": "infinite_horizon:assembly/clone_chamber",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 16
         },
         {
-          "item": "sternenwerft:iridium_chip",
+          "item": "infinite_horizon:iridium_chip",
           "count": 4
         },
         {
-          "item": "sternenwerft:microbe_culture",
+          "item": "infinite_horizon:microbe_culture",
           "count": 8
         },
         {
-          "item": "sternenwerft:pressure_hull",
+          "item": "infinite_horizon:pressure_hull",
           "count": 1
         },
         {
@@ -5724,7 +5724,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:clone_chamber",
+          "id": "infinite_horizon:clone_chamber",
           "count": 1,
           "chance": 1.0
         }
@@ -5739,30 +5739,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/fission_reactor",
+      "id": "infinite_horizon:assembly/fission_reactor",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 96
         },
         {
-          "item": "sternenwerft:tungsten_plate",
+          "item": "infinite_horizon:tungsten_plate",
           "count": 32
         },
         {
-          "item": "sternenwerft:iridium_chip",
+          "item": "infinite_horizon:iridium_chip",
           "count": 8
         },
         {
-          "item": "sternenwerft:cooling_system",
+          "item": "infinite_horizon:cooling_system",
           "count": 8
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:fission_reactor",
+          "id": "infinite_horizon:fission_reactor",
           "count": 1,
           "chance": 1.0
         }
@@ -5778,22 +5778,22 @@
       "notes": "Controller-Block des Multiblocks fission_reactor"
     },
     {
-      "id": "sternenwerft:assembly/fission_casing",
+      "id": "infinite_horizon:assembly/fission_casing",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 2
         },
         {
-          "item": "sternenwerft:tungsten_plate",
+          "item": "infinite_horizon:tungsten_plate",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:fission_casing",
+          "id": "infinite_horizon:fission_casing",
           "count": 4,
           "chance": 1.0
         }
@@ -5808,30 +5808,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/pump_station",
+      "id": "infinite_horizon:assembly/pump_station",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:machine_frame",
+          "item": "infinite_horizon:machine_frame",
           "count": 1
         },
         {
-          "item": "sternenwerft:fluid_pump",
+          "item": "infinite_horizon:fluid_pump",
           "count": 1
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:pump_station",
+          "id": "infinite_horizon:pump_station",
           "count": 1,
           "chance": 1.0
         }
@@ -5846,34 +5846,34 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/drilling_rig",
+      "id": "infinite_horizon:assembly/drilling_rig",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:machine_frame",
+          "item": "infinite_horizon:machine_frame",
           "count": 1
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 16
         },
         {
-          "item": "sternenwerft:nickel_plate",
+          "item": "infinite_horizon:nickel_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:tungsten_plate",
+          "item": "infinite_horizon:tungsten_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 4
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:drilling_rig",
+          "id": "infinite_horizon:drilling_rig",
           "count": 1,
           "chance": 1.0
         }
@@ -5888,30 +5888,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/atomic_drive",
+      "id": "infinite_horizon:assembly/atomic_drive",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:tungsten_plate",
+          "item": "infinite_horizon:tungsten_plate",
           "count": 16
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:fuel_rod",
+          "item": "infinite_horizon:fuel_rod",
           "count": 4
         },
         {
-          "item": "sternenwerft:cooling_system",
+          "item": "infinite_horizon:cooling_system",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:atomic_drive",
+          "id": "infinite_horizon:atomic_drive",
           "count": 1,
           "chance": 1.0
         }
@@ -5926,33 +5926,33 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/antimatter_drive",
+      "id": "infinite_horizon:assembly/antimatter_drive",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:antimatter_cell",
+          "item": "infinite_horizon:antimatter_cell",
           "count": 16,
           "components": {
-            "sternenwerft:charge": 1
+            "infinite_horizon:charge": 1
           }
         },
         {
-          "item": "sternenwerft:fuel_rod",
+          "item": "infinite_horizon:fuel_rod",
           "count": 2
         },
         {
-          "item": "sternenwerft:superconductor_wire",
+          "item": "infinite_horizon:superconductor_wire",
           "count": 4
         },
         {
-          "item": "sternenwerft:tungsten_plate",
+          "item": "infinite_horizon:tungsten_plate",
           "count": 8
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:antimatter_drive",
+          "id": "infinite_horizon:antimatter_drive",
           "count": 1,
           "chance": 1.0
         }
@@ -5968,15 +5968,15 @@
       "notes": "nur gefüllte antimatter_cell (charge 1)"
     },
     {
-      "id": "sternenwerft:assembly/cargo_terminal",
+      "id": "infinite_horizon:assembly/cargo_terminal",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 16
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 4
         },
         {
@@ -5984,14 +5984,14 @@
           "count": 2
         },
         {
-          "item": "sternenwerft:copper_pipe",
+          "item": "infinite_horizon:copper_pipe",
           "count": 4
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:cargo_terminal",
+          "id": "infinite_horizon:cargo_terminal",
           "count": 1,
           "chance": 1.0
         }
@@ -6006,26 +6006,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/cargo_rocket",
+      "id": "infinite_horizon:assembly/cargo_rocket",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 64
         },
         {
-          "item": "sternenwerft:iridium_chip",
+          "item": "infinite_horizon:iridium_chip",
           "count": 2
         },
         {
-          "item": "sternenwerft:lithium_battery",
+          "item": "infinite_horizon:lithium_battery",
           "count": 8
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:cargo_rocket",
+          "id": "infinite_horizon:cargo_rocket",
           "count": 1,
           "chance": 1.0
         }
@@ -6040,22 +6040,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/heavy_freighter",
+      "id": "infinite_horizon:assembly/heavy_freighter",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:cargo_rocket",
+          "item": "infinite_horizon:cargo_rocket",
           "count": 2
         },
         {
-          "item": "sternenwerft:atomic_drive",
+          "item": "infinite_horizon:atomic_drive",
           "count": 1
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:heavy_freighter",
+          "id": "infinite_horizon:heavy_freighter",
           "count": 1,
           "chance": 1.0
         }
@@ -6071,19 +6071,19 @@
       "notes": "übernimmt die Komponenten der ersten passenden cargo_rocket"
     },
     {
-      "id": "sternenwerft:assembly/logistics_computer",
+      "id": "infinite_horizon:assembly/logistics_computer",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:machine_frame",
+          "item": "infinite_horizon:machine_frame",
           "count": 1
         },
         {
-          "item": "sternenwerft:iridium_chip",
+          "item": "infinite_horizon:iridium_chip",
           "count": 4
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 8
         },
         {
@@ -6094,7 +6094,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:logistics_computer",
+          "id": "infinite_horizon:logistics_computer",
           "count": 1,
           "chance": 1.0
         }
@@ -6109,11 +6109,11 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/trading_post",
+      "id": "infinite_horizon:assembly/trading_post",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 4
         },
         {
@@ -6121,14 +6121,14 @@
           "count": 1
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:trading_post",
+          "id": "infinite_horizon:trading_post",
           "count": 1,
           "chance": 1.0
         }
@@ -6143,26 +6143,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/shipyard_terminal",
+      "id": "infinite_horizon:assembly/shipyard_terminal",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 64
         },
         {
-          "item": "sternenwerft:iridium_chip",
+          "item": "infinite_horizon:iridium_chip",
           "count": 16
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 8
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:shipyard_terminal",
+          "id": "infinite_horizon:shipyard_terminal",
           "count": 1,
           "chance": 1.0
         }
@@ -6177,22 +6177,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/shipyard_dock",
+      "id": "infinite_horizon:assembly/shipyard_dock",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 32
         },
         {
-          "item": "sternenwerft:iridium_chip",
+          "item": "infinite_horizon:iridium_chip",
           "count": 4
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:shipyard_dock",
+          "id": "infinite_horizon:shipyard_dock",
           "count": 1,
           "chance": 1.0
         }
@@ -6207,26 +6207,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/rocket_capsule_t1",
+      "id": "infinite_horizon:assembly/rocket_capsule_t1",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 40
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 16
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 16
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:rocket_capsule_t1",
+          "id": "infinite_horizon:rocket_capsule_t1",
           "count": 1,
           "chance": 1.0
         }
@@ -6241,26 +6241,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/rocket_tank_t1",
+      "id": "infinite_horizon:assembly/rocket_tank_t1",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 30
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 4
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 2
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:rocket_tank_t1",
+          "id": "infinite_horizon:rocket_tank_t1",
           "count": 1,
           "chance": 1.0
         }
@@ -6275,26 +6275,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/rocket_engine_t1",
+      "id": "infinite_horizon:assembly/rocket_engine_t1",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 8
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 32
         },
         {
-          "item": "sternenwerft:circuit",
+          "item": "infinite_horizon:circuit",
           "count": 8
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:rocket_engine_t1",
+          "id": "infinite_horizon:rocket_engine_t1",
           "count": 1,
           "chance": 1.0
         }
@@ -6309,18 +6309,18 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/rocket_fin_t1",
+      "id": "infinite_horizon:assembly/rocket_fin_t1",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 8
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:rocket_fin_t1",
+          "id": "infinite_horizon:rocket_fin_t1",
           "count": 1,
           "chance": 1.0
         }
@@ -6335,15 +6335,15 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/rocket_cargo_bay",
+      "id": "infinite_horizon:assembly/rocket_cargo_bay",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:aluminum_plate",
+          "item": "infinite_horizon:aluminum_plate",
           "count": 16
         },
         {
-          "item": "sternenwerft:titanium_plate",
+          "item": "infinite_horizon:titanium_plate",
           "count": 2
         },
         {
@@ -6354,7 +6354,7 @@
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:rocket_cargo_bay",
+          "id": "infinite_horizon:rocket_cargo_bay",
           "count": 1,
           "chance": 1.0
         }
@@ -6369,26 +6369,26 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/rocket_capsule_t2",
+      "id": "infinite_horizon:assembly/rocket_capsule_t2",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 32
         },
         {
-          "item": "sternenwerft:heat_shield",
+          "item": "infinite_horizon:heat_shield",
           "count": 16
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 16
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:rocket_capsule_t2",
+          "id": "infinite_horizon:rocket_capsule_t2",
           "count": 1,
           "chance": 1.0
         }
@@ -6403,22 +6403,22 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/rocket_tank_t2",
+      "id": "infinite_horizon:assembly/rocket_tank_t2",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 12
         },
         {
-          "item": "sternenwerft:heat_shield",
+          "item": "infinite_horizon:heat_shield",
           "count": 4
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:rocket_tank_t2",
+          "id": "infinite_horizon:rocket_tank_t2",
           "count": 1,
           "chance": 1.0
         }
@@ -6433,30 +6433,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/rocket_engine_t2",
+      "id": "infinite_horizon:assembly/rocket_engine_t2",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 16
         },
         {
-          "item": "sternenwerft:heat_shield",
+          "item": "infinite_horizon:heat_shield",
           "count": 24
         },
         {
-          "item": "sternenwerft:advanced_circuit",
+          "item": "infinite_horizon:advanced_circuit",
           "count": 16
         },
         {
-          "item": "sternenwerft:cooling_system",
+          "item": "infinite_horizon:cooling_system",
           "count": 4
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:rocket_engine_t2",
+          "id": "infinite_horizon:rocket_engine_t2",
           "count": 1,
           "chance": 1.0
         }
@@ -6471,18 +6471,18 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/rocket_fin_t2",
+      "id": "infinite_horizon:assembly/rocket_fin_t2",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 3
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:rocket_fin_t2",
+          "id": "infinite_horizon:rocket_fin_t2",
           "count": 1,
           "chance": 1.0
         }
@@ -6497,30 +6497,30 @@
       "spec_ref": "22.3"
     },
     {
-      "id": "sternenwerft:assembly/long_range_module",
+      "id": "infinite_horizon:assembly/long_range_module",
       "type": "assembly",
       "ingredients": [
         {
-          "item": "sternenwerft:lightweight_plate",
+          "item": "infinite_horizon:lightweight_plate",
           "count": 32
         },
         {
-          "item": "sternenwerft:superconductor_wire",
+          "item": "infinite_horizon:superconductor_wire",
           "count": 16
         },
         {
-          "item": "sternenwerft:iridium_chip",
+          "item": "infinite_horizon:iridium_chip",
           "count": 8
         },
         {
-          "item": "sternenwerft:lithium_battery",
+          "item": "infinite_horizon:lithium_battery",
           "count": 8
         }
       ],
       "fluid": null,
       "results": [
         {
-          "id": "sternenwerft:long_range_module",
+          "id": "infinite_horizon:long_range_module",
           "count": 1,
           "chance": 1.0
         }

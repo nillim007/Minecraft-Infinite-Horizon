@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "infinite_horizon:block/battery_front_idle",
+    "side": "infinite_horizon:block/battery",
+    "top": "infinite_horizon:block/battery_top"
+  }
+}

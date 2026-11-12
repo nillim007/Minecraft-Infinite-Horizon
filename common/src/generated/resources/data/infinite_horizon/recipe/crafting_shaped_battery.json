@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "CBC",
+    "BMB",
+    "CBC"
+  ],
+  "key": {
+    "B": "minecraft:redstone_block",
+    "C": "minecraft:copper_ingot",
+    "M": "infinite_horizon:machine_frame"
+  },
+  "result": {
+    "id": "infinite_horizon:battery",
+    "count": 1
+  }
+}

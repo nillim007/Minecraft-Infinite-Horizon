@@ -11,7 +11,7 @@
       "spec_ref": "4.1",
       "notes": "Gilt für jeden Eintrag mit buffer = null; Maschinen ohne Vorgangsdauer rechnen mit default_duration_ticks."
     },
-    "sternenwerft:speed_upgrade": {
+    "infinite_horizon:speed_upgrade": {
       "slot": 1,
       "max_stack": 4,
       "ticks_multiplier": 0.75,
@@ -22,7 +22,7 @@
       "spec_ref": "4.2",
       "notes": null
     },
-    "sternenwerft:efficiency_upgrade": {
+    "infinite_horizon:efficiency_upgrade": {
       "slot": 2,
       "max_stack": 4,
       "ticks_multiplier": 1.0,
@@ -33,7 +33,7 @@
       "spec_ref": "4.2",
       "notes": null
     },
-    "sternenwerft:crusher": {
+    "infinite_horizon:crusher": {
       "energy_per_tick": 20,
       "ticks": 200,
       "buffer": null,
@@ -49,12 +49,12 @@
         "drain": 0
       },
       "recipe_types": [
-        "sternenwerft:crushing"
+        "infinite_horizon:crushing"
       ],
       "spec_ref": "6.1",
       "notes": "SPEC-GAP: Zahl der Ausgabeslots nicht angegeben; 4 = max. verschiedene Ergebnisse eines Zerkleinerer-Rezepts (meteorite_ore, 19/22.2)."
     },
-    "sternenwerft:electric_furnace": {
+    "infinite_horizon:electric_furnace": {
       "energy_per_tick": 20,
       "ticks": 100,
       "buffer": null,
@@ -71,12 +71,12 @@
       },
       "recipe_types": [
         "minecraft:smelting",
-        "sternenwerft:electric_smelting"
+        "infinite_horizon:electric_smelting"
       ],
       "spec_ref": "6.1",
       "notes": null
     },
-    "sternenwerft:press": {
+    "infinite_horizon:press": {
       "energy_per_tick": 30,
       "ticks": 100,
       "buffer": null,
@@ -93,12 +93,12 @@
         "drain": 0
       },
       "recipe_types": [
-        "sternenwerft:pressing"
+        "infinite_horizon:pressing"
       ],
       "spec_ref": "6.1",
       "notes": "Pressform liegt im eigenen Slot und wird nicht verbraucht (5.2)."
     },
-    "sternenwerft:refinery_controller": {
+    "infinite_horizon:refinery_controller": {
       "energy_per_tick": 40,
       "ticks": 200,
       "buffer": null,
@@ -125,13 +125,13 @@
         "drain": 1
       },
       "recipe_types": [
-        "sternenwerft:refining"
+        "infinite_horizon:refining"
       ],
       "multiblock": "refinery_multiblock",
       "spec_ref": "6.1, 4.3",
       "notes": "SPEC-GAP: Tankgröße in 6.1 nicht angegeben; TANK_CAPACITY 16.000 mB (3.6) gewählt."
     },
-    "sternenwerft:electrolyzer": {
+    "infinite_horizon:electrolyzer": {
       "energy_per_tick": 40,
       "ticks": 40,
       "buffer": null,
@@ -163,12 +163,12 @@
         "drain": 1
       },
       "recipe_types": [
-        "sternenwerft:electrolysis"
+        "infinite_horizon:electrolysis"
       ],
       "spec_ref": "6.1",
       "notes": "Ort „überall mit Wasser“ = keine Ortsbindung, Wasser kommt über den Eingangstank. SPEC-GAP: Tankgröße in 6.1 nicht angegeben; TANK_CAPACITY 16.000 mB (3.6) gewählt."
     },
-    "sternenwerft:fluid_pump": {
+    "infinite_horizon:fluid_pump": {
       "energy_per_tick": 20,
       "ticks": 40,
       "buffer": null,
@@ -197,14 +197,14 @@
         "output_per_cycle": 1000,
         "consumes_source": true,
         "source_consume_chance": {
-          "sternenwerft:crude_oil": 0.1
+          "infinite_horizon:crude_oil": 0.1
         },
         "source_selection": "nächste Quelle mit dem Fluid, das schon im Tank ist; bei leerem Tank die nächste Quelle überhaupt"
       },
       "spec_ref": "6.1",
       "notes": "SPEC-GAP: Tankgröße in 6.1 nicht angegeben; TANK_CAPACITY 16.000 mB (3.6) gewählt."
     },
-    "sternenwerft:assembly_table": {
+    "infinite_horizon:assembly_table": {
       "energy_per_tick": 30,
       "ticks": 200,
       "buffer": null,
@@ -226,14 +226,14 @@
         "drain": 1
       },
       "recipe_types": [
-        "sternenwerft:assembly",
-        "sternenwerft:suit_module_install",
-        "sternenwerft:suit_module_remove"
+        "infinite_horizon:assembly",
+        "infinite_horizon:suit_module_install",
+        "infinite_horizon:suit_module_remove"
       ],
       "spec_ref": "6.1",
       "notes": "3 Ausgabeslots: Hauptergebnis + Nebenausgaben (z. B. ausgebaute Module)."
     },
-    "sternenwerft:analyzer": {
+    "infinite_horizon:analyzer": {
       "energy_per_tick": 20,
       "ticks": 100,
       "buffer": null,
@@ -250,13 +250,13 @@
       },
       "recipe_types": [],
       "process": {
-        "input": "sternenwerft:sample",
+        "input": "infinite_horizon:sample",
         "output": "research_points"
       },
       "spec_ref": "6.1",
       "notes": "FP-Werte in balance/research.json."
     },
-    "sternenwerft:high_temperature_furnace": {
+    "infinite_horizon:high_temperature_furnace": {
       "energy_per_tick": 80,
       "ticks": 400,
       "buffer": null,
@@ -272,19 +272,19 @@
         "drain": 0
       },
       "recipe_types": [
-        "sternenwerft:high_temp_smelting"
+        "infinite_horizon:high_temp_smelting"
       ],
       "spec_ref": "6.1",
       "notes": null
     },
-    "sternenwerft:regolith_heater": {
+    "infinite_horizon:regolith_heater": {
       "energy_per_tick": 40,
       "ticks": 100,
       "buffer": null,
       "location": {
         "dimension_type": null,
         "dimensions": [
-          "sternenwerft:moon"
+          "infinite_horizon:moon"
         ],
         "excluded_dimensions": []
       },
@@ -305,12 +305,12 @@
         "drain": 1
       },
       "recipe_types": [
-        "sternenwerft:regolith_heating"
+        "infinite_horizon:regolith_heating"
       ],
       "spec_ref": "6.1",
       "notes": "SPEC-GAP: Tankgröße in 6.1 nicht angegeben; TANK_CAPACITY 16.000 mB (3.6) gewählt."
     },
-    "sternenwerft:cryo_liquefier": {
+    "infinite_horizon:cryo_liquefier": {
       "energy_per_tick": 120,
       "ticks": 20,
       "buffer": null,
@@ -337,12 +337,12 @@
         "drain": 1
       },
       "recipe_types": [
-        "sternenwerft:cryo"
+        "infinite_horizon:cryo"
       ],
       "spec_ref": "6.1",
       "notes": "SPEC-GAP: Tankgröße in 6.1 nicht angegeben; TANK_CAPACITY 16.000 mB (3.6) gewählt."
     },
-    "sternenwerft:hydroponics_basin": {
+    "infinite_horizon:hydroponics_basin": {
       "energy_per_tick": 10,
       "ticks": null,
       "buffer": null,
@@ -376,7 +376,7 @@
       "spec_ref": "6.1",
       "notes": "Eingabeslot = Pflanzslot. Wachstum, Licht- und Kuppelbedingung in balance/agriculture.json. SPEC-GAP: Tankgröße in 6.1 nicht angegeben; TANK_CAPACITY 16.000 mB (3.6) gewählt."
     },
-    "sternenwerft:food_packer": {
+    "infinite_horizon:food_packer": {
       "energy_per_tick": 10,
       "ticks": 100,
       "buffer": null,
@@ -392,12 +392,12 @@
         "drain": 0
       },
       "recipe_types": [
-        "sternenwerft:food_packing"
+        "infinite_horizon:food_packing"
       ],
       "spec_ref": "6.1",
       "notes": "Rezept fest im Code (misc.json code_recipes.food_packing)."
     },
-    "sternenwerft:zero_g_fabricator": {
+    "infinite_horizon:zero_g_fabricator": {
       "energy_per_tick": 100,
       "ticks": 200,
       "buffer": null,
@@ -423,12 +423,12 @@
         "drain": 1
       },
       "recipe_types": [
-        "sternenwerft:zero_g"
+        "infinite_horizon:zero_g"
       ],
       "spec_ref": "6.1",
       "notes": "SPEC-GAP: Zahl der Eingabeslots nicht angegeben; 3 = max. verschiedene Zutaten der zero_g-Rezepte (22.2). SPEC-GAP: Tankgröße in 6.1 nicht angegeben; TANK_CAPACITY 16.000 mB (3.6) gewählt."
     },
-    "sternenwerft:space_weather_station": {
+    "infinite_horizon:space_weather_station": {
       "energy_per_tick": 50,
       "ticks": null,
       "buffer": null,
@@ -454,7 +454,7 @@
       "spec_ref": "6.1",
       "notes": "Vorwarnzeiten in balance/events.json (event_planning)."
     },
-    "sternenwerft:gravity_plate": {
+    "infinite_horizon:gravity_plate": {
       "energy_per_tick": 400,
       "ticks": null,
       "buffer": null,
@@ -473,17 +473,17 @@
       "spec_ref": "6.1",
       "notes": "Wirkbereich in balance/stations.json."
     },
-    "sternenwerft:gas_collector": {
+    "infinite_horizon:gas_collector": {
       "energy_per_tick": 200,
       "ticks": 20,
       "buffer": null,
       "location": {
         "dimension_type": "orbit",
         "dimensions": [
-          "sternenwerft:jupiter_orbit",
-          "sternenwerft:saturn_orbit",
-          "sternenwerft:uranus_orbit",
-          "sternenwerft:neptune_orbit"
+          "infinite_horizon:jupiter_orbit",
+          "infinite_horizon:saturn_orbit",
+          "infinite_horizon:uranus_orbit",
+          "infinite_horizon:neptune_orbit"
         ],
         "excluded_dimensions": []
       },
@@ -511,14 +511,14 @@
       "spec_ref": "6.1, 13.3",
       "notes": "SPEC-GAP: Tankgröße in 6.1 nicht angegeben; TANK_CAPACITY 16.000 mB (3.6) gewählt."
     },
-    "sternenwerft:magnetic_trap": {
+    "infinite_horizon:magnetic_trap": {
       "energy_per_tick": 2000,
       "ticks": 24000,
       "buffer": null,
       "location": {
         "dimension_type": "orbit",
         "dimensions": [
-          "sternenwerft:jupiter_orbit"
+          "infinite_horizon:jupiter_orbit"
         ],
         "excluded_dimensions": []
       },
@@ -535,24 +535,24 @@
       "recipe_types": [],
       "process": {
         "input": {
-          "id": "sternenwerft:antimatter_cell",
+          "id": "infinite_horizon:antimatter_cell",
           "count": 1,
           "components": {
-            "sternenwerft:charge": 0
+            "infinite_horizon:charge": 0
           }
         },
         "output": {
-          "id": "sternenwerft:antimatter_cell",
+          "id": "infinite_horizon:antimatter_cell",
           "count": 1,
           "components": {
-            "sternenwerft:charge": 1
+            "infinite_horizon:charge": 1
           }
         }
       },
       "spec_ref": "6.1",
       "notes": null
     },
-    "sternenwerft:pump_station": {
+    "infinite_horizon:pump_station": {
       "energy_per_tick": 100,
       "ticks": 20,
       "buffer": null,
@@ -580,10 +580,10 @@
         "output_per_cycle": 100,
         "consumes_source": false,
         "source_map": {
-          "sternenwerft:nitrogen_geyser": "sternenwerft:nitrogen",
-          "sternenwerft:ammonia_geyser": "sternenwerft:ammonia",
-          "sternenwerft:methane": "sternenwerft:methane",
-          "sternenwerft:crude_oil": "sternenwerft:crude_oil",
+          "infinite_horizon:nitrogen_geyser": "infinite_horizon:nitrogen",
+          "infinite_horizon:ammonia_geyser": "infinite_horizon:ammonia",
+          "infinite_horizon:methane": "infinite_horizon:methane",
+          "infinite_horizon:crude_oil": "infinite_horizon:crude_oil",
           "minecraft:water": "minecraft:water",
           "minecraft:lava": "minecraft:lava"
         }
@@ -591,7 +591,7 @@
       "spec_ref": "6.1",
       "notes": "Methanregen-Bonus in balance/events.json. SPEC-GAP: Tankgröße in 6.1 nicht angegeben; TANK_CAPACITY 16.000 mB (3.6) gewählt."
     },
-    "sternenwerft:drilling_rig": {
+    "infinite_horizon:drilling_rig": {
       "energy_per_tick": 200,
       "ticks": 100,
       "buffer": null,
@@ -620,7 +620,7 @@
       "spec_ref": "6.1",
       "notes": "Lagerstätten-Regeln in balance/logistics.json. SPEC-GAP: Zahl der Ausgabeslots nicht angegeben; 9 gewählt, weil verschiedene Erzsorten anfallen."
     },
-    "sternenwerft:clone_chamber": {
+    "infinite_horizon:clone_chamber": {
       "energy_per_tick": 200,
       "ticks": null,
       "buffer": null,
@@ -639,7 +639,7 @@
       "spec_ref": "6.1",
       "notes": "Eingabeslot für microbe_culture. Respawn-Regeln in balance/stations.json."
     },
-    "sternenwerft:oxygen_generator": {
+    "infinite_horizon:oxygen_generator": {
       "energy_per_tick": 60,
       "ticks": 1200,
       "buffer": null,
@@ -650,7 +650,7 @@
           "role": "output",
           "capacity": 2000,
           "fluids": [
-            "sternenwerft:oxygen"
+            "infinite_horizon:oxygen"
           ]
         }
       ],
@@ -665,11 +665,11 @@
       "recipe_types": [],
       "process": {
         "output_per_cycle": 100,
-        "fluid": "sternenwerft:oxygen"
+        "fluid": "infinite_horizon:oxygen"
       },
       "fill_slot_accepts": [
-        "sternenwerft:oxygen_canister",
-        "sternenwerft:large_oxygen_canister"
+        "infinite_horizon:oxygen_canister",
+        "infinite_horizon:large_oxygen_canister"
       ],
       "outputs_to": [
         "adjacent_tanks",
@@ -679,7 +679,7 @@
       "spec_ref": "10.2, 4.1",
       "notes": "Abgabe nur über die Ausgangsseite (4.1, Standard facing); outputs_to nennt die Empfängerarten, nicht die Seiten. Der Füllslot füllt Sauerstoffflaschen. Bedarf: Kuppel T1 = 1, T2 = 2, T3 = 8 Generatoren ohne Upgrades; +1 je 2 Spieler, die regelmäßig draußen arbeiten (10.2)."
     },
-    "sternenwerft:electric_lamp": {
+    "infinite_horizon:electric_lamp": {
       "energy_per_tick": 5,
       "ticks": null,
       "buffer": null,
@@ -701,7 +701,7 @@
       "spec_ref": "8.5",
       "notes": "Kein GUI, keine Upgrade-Slots, keine Statuslampe. Puffer nach 4.1 (10.000 J), Blockstate lit, ohne Strom Licht 0."
     },
-    "sternenwerft:cargo_terminal": {
+    "infinite_horizon:cargo_terminal": {
       "energy_per_tick": 0,
       "ticks": null,
       "buffer": 0,
@@ -718,7 +718,7 @@
           "role": "fuel",
           "capacity": 64000,
           "fluids": [
-            "sternenwerft:methane"
+            "infinite_horizon:methane"
           ]
         }
       ],
@@ -741,7 +741,7 @@
       "spec_ref": "20.1, 20.3",
       "notes": "Kein Stromverbrauch spezifiziert. Eingehendes Methan (Rohr, Leerslot, Produzent) füllt zuerst den Treibstofftank, Überschuss in die Frachttanks."
     },
-    "sternenwerft:shipyard_dock": {
+    "infinite_horizon:shipyard_dock": {
       "energy_per_tick": 0,
       "ticks": null,
       "buffer": 0,
@@ -756,7 +756,7 @@
           "role": "fuel",
           "capacity": 64000,
           "fluids": [
-            "sternenwerft:methane"
+            "infinite_horizon:methane"
           ]
         }
       ],
@@ -776,8 +776,8 @@
       "notes": "Kein Stromverbrauch spezifiziert. Liefert ins Werftlager (Rohre und Trichter am Dock auch); Methan zuerst in den Treibstofftank."
     },
     "refinery_multiblock": {
-      "multiblock_id": "sternenwerft:refinery",
-      "controller": "sternenwerft:refinery_controller",
+      "multiblock_id": "infinite_horizon:refinery",
+      "controller": "infinite_horizon:refinery_controller",
       "size": {
         "width": 3,
         "depth": 3,
@@ -787,19 +787,19 @@
       "total_blocks": 45,
       "interior": null,
       "controller_position": "side_face_bottom_center",
-      "casing": "sternenwerft:refinery_casing",
+      "casing": "infinite_horizon:refinery_casing",
       "casing_replaceable_by": [
-        "sternenwerft:item_port",
-        "sternenwerft:fluid_port",
-        "sternenwerft:energy_port"
+        "infinite_horizon:item_port",
+        "infinite_horizon:fluid_port",
+        "infinite_horizon:energy_port"
       ],
       "ports_require_research": false,
       "spec_ref": "4.3",
       "notes": "total_blocks = 3 × 3 × 5 inkl. Controller."
     },
     "fusion_reactor_multiblock": {
-      "multiblock_id": "sternenwerft:fusion_reactor",
-      "controller": "sternenwerft:fusion_reactor",
+      "multiblock_id": "infinite_horizon:fusion_reactor",
+      "controller": "infinite_horizon:fusion_reactor",
       "size": {
         "width": 5,
         "depth": 5,
@@ -814,19 +814,19 @@
         "block": "minecraft:air"
       },
       "controller_position": "side_face_center",
-      "casing": "sternenwerft:fusion_casing",
+      "casing": "infinite_horizon:fusion_casing",
       "casing_replaceable_by": [
-        "sternenwerft:item_port",
-        "sternenwerft:fluid_port",
-        "sternenwerft:energy_port"
+        "infinite_horizon:item_port",
+        "infinite_horizon:fluid_port",
+        "infinite_horizon:energy_port"
       ],
       "ports_require_research": false,
       "spec_ref": "4.3",
       "notes": "Generatorwerte in balance/generators.json."
     },
     "fission_reactor_multiblock": {
-      "multiblock_id": "sternenwerft:fission_reactor",
-      "controller": "sternenwerft:fission_reactor",
+      "multiblock_id": "infinite_horizon:fission_reactor",
+      "controller": "infinite_horizon:fission_reactor",
       "size": {
         "width": 5,
         "depth": 5,
@@ -841,17 +841,17 @@
         "block": "minecraft:air"
       },
       "controller_position": "side_face_center",
-      "casing": "sternenwerft:fission_casing",
+      "casing": "infinite_horizon:fission_casing",
       "casing_replaceable_by": [
-        "sternenwerft:item_port",
-        "sternenwerft:fluid_port",
-        "sternenwerft:energy_port"
+        "infinite_horizon:item_port",
+        "infinite_horizon:fluid_port",
+        "infinite_horizon:energy_port"
       ],
       "ports_require_research": false,
       "spec_ref": "4.3",
       "notes": "Generatorwerte in balance/generators.json."
     },
-    "sternenwerft:research_terminal": {
+    "infinite_horizon:research_terminal": {
       "energy_per_tick": 0,
       "ticks": null,
       "buffer": null,

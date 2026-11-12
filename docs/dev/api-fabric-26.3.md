@@ -84,7 +84,7 @@ import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 
 ResourceKey<CreativeModeTab> TAB = ResourceKey.create(Registries.CREATIVE_MODE_TAB, Identifier.fromNamespaceAndPath(MOD_ID, "main"));
 Registry.register(BuiltInRegistries.CREATIVE_MODE_TAB, TAB, FabricCreativeModeTab.builder()   // liefert CreativeModeTab.Builder
-        .title(Component.translatable("itemGroup.sternenwerft"))                              // Pflicht, sonst IllegalStateException
+        .title(Component.translatable("itemGroup.infinite_horizon"))                              // Pflicht, sonst IllegalStateException
         .icon(() -> new ItemStack(MACHINE))
         .displayItems((params, output) -> output.accept(MACHINE))
         .build());
@@ -201,7 +201,7 @@ Registry.register(BuiltInRegistries.MENU, Identifier.fromNamespaceAndPath(MOD_ID
 // BlockEntity
 public class MachineBlockEntity extends BlockEntity implements ExtendedMenuProvider<BlockPos> {
     @Override public BlockPos getScreenOpeningData(ServerPlayer player) { return worldPosition; }
-    @Override public Component getDisplayName() { return Component.translatable("container.sternenwerft.machine"); }
+    @Override public Component getDisplayName() { return Component.translatable("container.infinite_horizon.machine"); }
     @Override public AbstractContainerMenu createMenu(int id, Inventory inv, Player player) { return new MachineMenu(id, inv, this); }
 }
 // Block (extends BaseEntityBlock) #useWithoutItem:
@@ -215,7 +215,7 @@ Für zusammengesetzte Daten: `StreamCodec.composite(ByteBufCodecs.VAR_INT, Data:
 import net.fabricmc.api.ClientModInitializer;
 import net.minecraft.client.gui.screens.MenuScreens;
 
-public class SternenwerftFabricClient implements ClientModInitializer {
+public class InfiniteHorizonFabricClient implements ClientModInitializer {
     @Override public void onInitializeClient() {
         MenuScreens.register(ModMenus.MACHINE_MENU, MachineScreen::new);   // Ctor (M menu, Inventory, Component)
     }
@@ -245,8 +245,8 @@ Imports: `net.minecraft.client.gui.GuiGraphicsExtractor`, `net.minecraft.client.
 `fabric.mod.json`:
 ```json
 "entrypoints": {
-  "main":   ["de.sternenwerft.fabric.SternenwerftFabric"],
-  "client": ["de.sternenwerft.fabric.SternenwerftFabricClient"]
+  "main":   ["de.infinitehorizon.fabric.InfiniteHorizonFabric"],
+  "client": ["de.infinitehorizon.fabric.InfiniteHorizonFabricClient"]
 }
 ```
 
@@ -330,7 +330,7 @@ public class MachineGameTests {
 ```
 Belegte `GameTestHelper`-Methoden (`FAPI .../test/gametest/ExampleFabricTestSuite.java`, `fabric-content-registries-v0/src/testmod/.../ContentRegistryGameTest.java`): `succeed()`, `succeedWhen(Runnable)`, `assertTrue(boolean, String)`, `assertTrue(boolean, Component)`, `assertBlock(BlockPos, Predicate<Block>, Function<Block, Component>)`, `setBlock(int, int, int, Block)`, `setBlock(BlockPos, BlockState)`, `getBlockEntity(BlockPos, Class<T>)`, `runAfterDelay(<ticks>, Runnable)` (mit int-Literal aufgerufen; genauer Parametertyp ungeprüft), `getLevel()`, `getTestRotation()`.
 
-`fabric.mod.json`: `"entrypoints": { "fabric-gametest": ["de.sternenwerft.fabric.test.MachineGameTests"] }`
+`fabric.mod.json`: `"entrypoints": { "fabric-gametest": ["de.infinitehorizon.fabric.test.MachineGameTests"] }`
 
 **Headless in CI – System-Properties** (`impl/gametest/GameTestSystemProperties.java`): `fabric-api.gametest` (aktiviert; EULA wird dann automatisch übersprungen, `mixin/gametest/server/MainMixin.java`), `fabric-api.gametest.report-file=<pfad>` (JUnit-XML), `fabric-api.gametest.filter=<text>`, `fabric-api.gametest.verify` (jede Drehung 100×). Startfehler beenden mit `System.exit(-1)`.
 
@@ -371,7 +371,7 @@ Methoden geprüft in `LOOM configuration/ide/RunConfigSettings.java` (`server()`
 
 - Entry-Point `"fabric-datagen"`, Klasse implementiert `net.fabricmc.fabric.api.datagen.v1.DataGeneratorEntrypoint#onInitializeDataGenerator(FabricDataGenerator gen)`; `FabricDataGenerator.Pack pack = gen.createPack(); pack.addProvider(MyRecipeProvider::new);`
 - Provider unter `net.fabricmc.fabric.api.datagen.v1.provider`: `FabricRecipeProvider`, `FabricTagsProvider`, `FabricLanguageProvider`, `FabricBlockLootSubProvider`, `FabricAdvancementProvider`, `FabricCodecDataProvider`, `FabricDynamicRegistryProvider`. **Modelle jetzt clientseitig:** `net.fabricmc.fabric.api.client.datagen.v1.provider.FabricModelProvider`.
-- Loom: `fabricApi { configureDataGeneration { client = true; modId = 'sternenwerft' } }` → Task `runDatagen`, Ausgabe `src/main/generated` (Default, wird den Ressourcen hinzugefügt).
+- Loom: `fabricApi { configureDataGeneration { client = true; modId = 'infinite_horizon' } }` → Task `runDatagen`, Ausgabe `src/main/generated` (Default, wird den Ressourcen hinzugefügt).
 - Für dieses Projekt nicht nötig: Ressourcen erzeugt `tools/gen_resources.py`.
 
 ---

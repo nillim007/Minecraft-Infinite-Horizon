@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "sternenwerft:block/fluid_pump_front_running",
-    "side": "sternenwerft:block/fluid_pump",
-    "top": "sternenwerft:block/fluid_pump_top"
-  }
-}

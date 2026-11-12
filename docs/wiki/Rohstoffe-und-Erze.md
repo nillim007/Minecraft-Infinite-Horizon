@@ -4,7 +4,7 @@
 
 # Rohstoffe und Erze
 
-Neben den Vanilla-Erzen bringt Sternenwerft drei neue Rohstoffe auf die Erde. Dazu kommt Erdöl tief im Boden.
+Neben den Vanilla-Erzen bringt Infinite Horizon drei neue Rohstoffe auf die Erde. Dazu kommt Erdöl tief im Boden.
 
 ## Fundorte
 

@@ -13,7 +13,7 @@
 | 8 `ammonia_fertilizer` | 1 `minecraft:bone_meal` + 1.000 mB `ammonia` | 200 t · 30 J/t | 22.3 |
 | 1 `analyzer` | 1 `machine_frame`, 4 `aluminum_plate`, 2 `circuit`, 1 `minecraft:glass` | 200 t · 30 J/t | 22.3 |
 | 1 `antimatter_cell` | 2 `superconductor_wire`, 2 `lightweight_plate`, 1 `minecraft:glass` | 200 t · 30 J/t | 22.3 |
-| 1 `antimatter_drive` | 16 `antimatter_cell` {'sternenwerft:charge': 1}, 2 `fuel_rod`, 4 `superconductor_wire`, 8 `tungsten_plate` | 200 t · 30 J/t | 22.3 |
+| 1 `antimatter_drive` | 16 `antimatter_cell` {'infinite_horizon:charge': 1}, 2 `fuel_rod`, 4 `superconductor_wire`, 8 `tungsten_plate` | 200 t · 30 J/t | 22.3 |
 | 1 `armor_plating` | 2 `armor_plate`, 1 `titanium_plate` | 200 t · 30 J/t | 22.3 |
 | 1 `asteroid_anchor` | 8 `titanium_rod`, 4 `tungsten_plate`, 1 `advanced_circuit` | 200 t · 30 J/t | 22.3 |
 | 1 `atomic_drive` | 16 `tungsten_plate`, 8 `titanium_plate`, 4 `fuel_rod`, 2 `cooling_system` | 200 t · 30 J/t | 22.3 |

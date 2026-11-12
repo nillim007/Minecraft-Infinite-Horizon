@@ -1,0 +1,351 @@
+{
+  "id": "infinite_horizon:phase_1/zerkleinerer",
+  "chapter": "infinite_horizon:phase_1",
+  "title": "infinite_horizon.handbook.phase_1.zerkleinerer.title",
+  "icon": "infinite_horizon:crusher",
+  "order": 40,
+  "unlock": null,
+  "items": [
+    "infinite_horizon:crusher",
+    "infinite_horizon:iron_dust",
+    "infinite_horizon:copper_dust",
+    "infinite_horizon:gold_dust",
+    "infinite_horizon:aluminum_dust",
+    "infinite_horizon:titanium_dust"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.zerkleinerer.e0"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:crusher",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_1.zerkleinerer.e1.0.label",
+          "infinite_horizon.handbook.phase_1.zerkleinerer.e1.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_1.zerkleinerer.e1.1.label",
+          "infinite_horizon.handbook.phase_1.zerkleinerer.e1.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_1.zerkleinerer.e1.2.label",
+          "infinite_horizon.handbook.phase_1.zerkleinerer.e1.2.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_1.zerkleinerer.e1.3.label",
+          "infinite_horizon.handbook.phase_1.zerkleinerer.e1.3.value"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.zerkleinerer.e3",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:crafting_shaped/crusher",
+          "type": "minecraft:crafting_shaped",
+          "station": "minecraft:crafting_table",
+          "pattern": [
+            "FPF",
+            "IMI",
+            "III"
+          ],
+          "key": {
+            "F": [
+              "minecraft:flint"
+            ],
+            "I": [
+              "minecraft:iron_ingot"
+            ],
+            "M": [
+              "infinite_horizon:machine_frame"
+            ],
+            "P": [
+              "minecraft:piston"
+            ]
+          },
+          "results": [
+            {
+              "item": "infinite_horizon:crusher",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.zerkleinerer.e5",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:crushing/aluminum_dust",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:bauxite"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:aluminum_dust",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:crushing/iron_dust",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "minecraft:raw_iron"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:iron_dust",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:crushing/gold_dust",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "minecraft:raw_gold"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:gold_dust",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:crushing/copper_dust",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "minecraft:raw_copper"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:copper_dust",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:crushing/titanium_dust",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_titanium"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:titanium_dust",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.zerkleinerer.e7",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.zerkleinerer.e8"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:smelting/aluminum_ingot",
+          "type": "minecraft:smelting",
+          "station": "minecraft:furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:bauxite"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:aluminum_ingot",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "id": "infinite_horizon:smelting/aluminum_ingot_from_dust",
+          "type": "minecraft:smelting",
+          "station": "minecraft:furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_dust"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:aluminum_ingot",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "id": "infinite_horizon:smelting/iron_ingot_from_dust",
+          "type": "minecraft:smelting",
+          "station": "minecraft:furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:iron_dust"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "minecraft:iron_ingot",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "id": "infinite_horizon:smelting/gold_ingot_from_dust",
+          "type": "minecraft:smelting",
+          "station": "minecraft:furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:gold_dust"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "minecraft:gold_ingot",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "id": "infinite_horizon:smelting/copper_ingot_from_dust",
+          "type": "minecraft:smelting",
+          "station": "minecraft:furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:copper_dust"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "minecraft:copper_ingot",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "id": "infinite_horizon:smelting/titanium_ingot",
+          "type": "minecraft:smelting",
+          "station": "minecraft:furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_titanium"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:titanium_ingot",
+              "count": 1
+            }
+          ]
+        },
+        {
+          "id": "infinite_horizon:smelting/titanium_ingot_from_dust",
+          "type": "minecraft:smelting",
+          "station": "minecraft:furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:titanium_dust"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:titanium_ingot",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_1.zerkleinerer.e10",
+      "style": "tip"
+    }
+  ]
+}

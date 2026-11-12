@@ -1,0 +1,82 @@
+{
+  "id": "infinite_horizon:phase_1/erste_schritte",
+  "chapter": "infinite_horizon:phase_1",
+  "title": "infinite_horizon.handbook.phase_1.erste_schritte.title",
+  "icon": "infinite_horizon:machine_frame",
+  "order": 10,
+  "unlock": null,
+  "items": [
+    "infinite_horizon:machine_frame"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.erste_schritte.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.erste_schritte.e2",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_1.erste_schritte.e3.0",
+        "infinite_horizon.handbook.phase_1.erste_schritte.e3.1",
+        "infinite_horizon.handbook.phase_1.erste_schritte.e3.2",
+        "infinite_horizon.handbook.phase_1.erste_schritte.e3.3",
+        "infinite_horizon.handbook.phase_1.erste_schritte.e3.4",
+        "infinite_horizon.handbook.phase_1.erste_schritte.e3.5",
+        "infinite_horizon.handbook.phase_1.erste_schritte.e3.6",
+        "infinite_horizon.handbook.phase_1.erste_schritte.e3.7",
+        "infinite_horizon.handbook.phase_1.erste_schritte.e3.8",
+        "infinite_horizon.handbook.phase_1.erste_schritte.e3.9",
+        "infinite_horizon.handbook.phase_1.erste_schritte.e3.10",
+        "infinite_horizon.handbook.phase_1.erste_schritte.e3.11"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.erste_schritte.e4",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:crafting_shaped/machine_frame",
+          "type": "minecraft:crafting_shaped",
+          "station": "minecraft:crafting_table",
+          "pattern": [
+            "ICI",
+            "CRC",
+            "ICI"
+          ],
+          "key": {
+            "C": [
+              "minecraft:copper_ingot"
+            ],
+            "I": [
+              "minecraft:iron_ingot"
+            ],
+            "R": [
+              "minecraft:redstone"
+            ]
+          },
+          "results": [
+            {
+              "item": "infinite_horizon:machine_frame",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_1.erste_schritte.e6",
+      "style": "tip"
+    }
+  ]
+}

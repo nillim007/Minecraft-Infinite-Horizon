@@ -12,11 +12,11 @@ Dieses Kapitel legt fest, **wie der Code gegliedert ist**. Jede Sitzung MUSS sic
 
 ## 3A.2 Paketstruktur (`common`)
 
-Gruppen-ID und Basispaket: `de.sternenwerft` (vor dem Start änderbar, dann überall gleich).
+Gruppen-ID und Basispaket: `de.infinitehorizon` (vor dem Start änderbar, dann überall gleich).
 
 ```
-de.sternenwerft
-├─ Sternenwerft                 Einstieg: Konstanten (MOD_ID), init() ruft alle Module in fester Reihenfolge
+de.infinitehorizon
+├─ Infinite Horizon                 Einstieg: Konstanten (MOD_ID), init() ruft alle Module in fester Reihenfolge
 ├─ platform/                    Service-Interfaces (3.2), Lader per ServiceLoader
 ├─ registry/                    ModBlocks, ModItems, ModFluids, ModEntities, ModBlockEntities, ModMenus,
 │                               ModRecipeTypes, ModRecipeSerializers, ModDataComponents, ModSounds,
@@ -25,11 +25,11 @@ de.sternenwerft
 │                               StarSystemRegistry, HandbookLoader (Client-Reload-Listener für assets/<ns>/handbook, 25.6)
 ├─ core/
 │  ├─ transaction/              Transaction (Snapshot → commit/rollback), TransactionAdapter
-│  ├─ energy/                   SwEnergyStorage
-│  ├─ fluid/                    SwFluidTank, SwFluidStack, FluidContainerItem (Füll-/Leerslot-Logik)
-│  ├─ item/                     SwItemContainer
+│  ├─ energy/                   IhEnergyStorage
+│  ├─ fluid/                    IhFluidTank, IhFluidStack, FluidContainerItem (Füll-/Leerslot-Logik)
+│  ├─ item/                     IhItemContainer
 │  └─ grid/                     GridManager, EnergyGrid, FluidGrid (Netze aus 4.4)
-├─ block/                       SwBlockEntity (Basis mit owner_agency), OwnedBlock, Statuslampe
+├─ block/                       IhBlockEntity (Basis mit owner_agency), OwnedBlock, Statuslampe
 ├─ machine/                     MachineBlock, MachineBlockEntity, MachineMenu, Upgrades, je Maschine eine Unterklasse
 ├─ multiblock/                  MultiblockController, MultiblockPattern, PortBlockEntity, GhostPreview
 ├─ environment/                 EnvironmentCalculator, EnvironmentInput, EnvironmentResult, Hazard, HazardTracker,
@@ -63,7 +63,7 @@ de.sternenwerft
 
 | Klasse | Aufgabe | Wichtige Regeln |
 | --- | --- | --- |
-| `SwBlockEntity` | Basis aller eigenen Block-Entities | speichert `owner_agency` (NBT-Schlüssel `owner_agency`, UUID); setzt es in `setPlacedBy`, wenn ein Spieler platziert; liefert `OwnershipResolver.current(owner)` (berücksichtigt `merged_into`). Ab M3 Basis von `MachineBlockEntity` und `PortBlockEntity` (im Code aus M2 fehlt die Klasse noch). Fehlt der Eintrag, ist der Block ohne Besitzer (23.1). Blöcke ohne Block-Entity (Kabel, Rohre, Gehäuse) haben keinen Besitzer. |
+| `IhBlockEntity` | Basis aller eigenen Block-Entities | speichert `owner_agency` (NBT-Schlüssel `owner_agency`, UUID); setzt es in `setPlacedBy`, wenn ein Spieler platziert; liefert `OwnershipResolver.current(owner)` (berücksichtigt `merged_into`). Ab M3 Basis von `MachineBlockEntity` und `PortBlockEntity` (im Code aus M2 fehlt die Klasse noch). Fehlt der Eintrag, ist der Block ohne Besitzer (23.1). Blöcke ohne Block-Entity (Kabel, Rohre, Gehäuse) haben keinen Besitzer. |
 | `MachineBlockEntity` | Basis aller Maschinen | liest Werte aus `BalanceManager` per Block-ID; Zustände `idle`/`running`/`error` → Blockstate `status`; Upgrades; Füll-/Leerslots; Rezeptsuche ruft `ResearchRecipeLock.isUnlocked(recipe, owner)` auf (Standard `true`; die Prüfung der Forschung der Besitzer-Agentur kommt mit M4, die Agentur mit M3) |
 | `MultiblockController` | Basis für Raffinerie, Fusion, Kernreaktor, Startrampe | Musterprüfung beim Setzen, bei Nachbaränderungen und alle 100 t; nimmt an freien Seiten I/O an |
 | `Transaction` | gemeinsames Transaktionsmodell | `simulate → commit/rollback`; Adapter auf NeoForge-Transfer-API und Fabric-Transfer-API |
@@ -128,7 +128,7 @@ Kein Payload brauchen: die Geisterprojektion (rein clientseitig, 4.1) und der Po
 spec/data/*.json ──(tools/gen_resources.py, nur IDs aus common/implemented_ids.json; Texturen: tools/gen_placeholders.py)──▶ Generator
    ├─▶ Rezepte, Tags, Loot-Tables, Advancements, Worldgen, Dimensionen (Vanilla-Ordner, 26.3-Format)
    ├─▶ lang/de_de.json, lang/en_us.json
-   └─▶ data/sternenwerft/sternenwerft/{planet,research,research_tier,rocket_part,star_system,balance}/…
+   └─▶ data/infinite_horizon/infinite_horizon/{planet,research,research_tier,rocket_part,star_system,balance}/…
 Laufzeit: Reload-Listener ─▶ BalanceManager / Registries ─▶ SyncDataPayload ─▶ Client
 ```
 
@@ -146,22 +146,22 @@ Laufzeit: Reload-Listener ─▶ BalanceManager / Registries ─▶ SyncDataPayl
 ## 3A.8 Tests
 
 - **JUnit 5** in `common/src/test` für alle reinen Funktionen (`EnvironmentCalculator`, `FuelCalculator`, `RocketAssembler`, `ResearchGates`, `OfflineProduction`, `FpLedger`). Testdaten werden aus `spec/data` geladen, damit Tests und Spezifikation dieselben Zahlen nutzen.
-- **GameTests** in `common` (Registrierung je Loader) für Verhalten in der Welt: Maschinen, Netze, Multiblöcke, Kuppeln, Raketenbau. Strukturvorlagen unter `data/sternenwerft/structure/gametest/`.
-- Teststruktur: `data/sternenwerft/structure/gametest/empty.nbt` (leer, 8×8×8, von `gen_resources.py` erzeugt). Logik in `common` (`gametest/SwGameTests`), Registrierung je Loader: NeoForge `RegisterGameTestsEvent` + `TEST_FUNCTION`, Fabric `@GameTest` + Entry-Point `fabric-gametest`. Die CI wertet „All N required tests passed“ aus.
+- **GameTests** in `common` (Registrierung je Loader) für Verhalten in der Welt: Maschinen, Netze, Multiblöcke, Kuppeln, Raketenbau. Strukturvorlagen unter `data/infinite_horizon/structure/gametest/`.
+- Teststruktur: `data/infinite_horizon/structure/gametest/empty.nbt` (leer, 8×8×8, von `gen_resources.py` erzeugt). Logik in `common` (`gametest/IhGameTests`), Registrierung je Loader: NeoForge `RegisterGameTestsEvent` + `TEST_FUNCTION`, Fabric `@GameTest` + Entry-Point `fabric-gametest`. Die CI wertet „All N required tests passed“ aus.
 - Testnamen: `<System>_<Verhalten>_<Erwartung>`, z. B. `Crusher_RawIron_TwoDustWithin220Ticks`.
 - **Umwelt-Override und Dimension (ab M3):** Umweltabhängige Tests nutzen `EnvironmentOverrides` (Einleitung von Kapitel 27). Tests, die eine echte Mod-Dimension brauchen, setzen das Dimensionsfeld von `TestData` (26.3; Fabric `@GameTest(dimension = …)`).
 
 ## 3A.9 Code-Regeln
 
 - Java 25; `record` für unveränderliche Daten; kein statischer veränderlicher Zustand außer Registries.
-- Übersetzungsschlüssel nach Vanilla-Muster (`block.sternenwerft.<id>`, `item.sternenwerft.<id>`, `gui.sternenwerft.<name>`); kein fest eingebauter Text.
-- Logging über SLF4J mit Präfix `[Sternenwerft]`; keine Ausgaben in jedem Tick.
+- Übersetzungsschlüssel nach Vanilla-Muster (`block.infinite_horizon.<id>`, `item.infinite_horizon.<id>`, `gui.infinite_horizon.<name>`); kein fest eingebauter Text.
+- Logging über SLF4J mit Präfix `[Infinite Horizon]`; keine Ausgaben in jedem Tick.
 - Jede Annahme bei fehlender Vorgabe: Kommentar `// SPEC-GAP: <Beschreibung>` **und** Eintrag in `docs/spec-gaps.md`.
 
 ## 3A.10 Addon-Schnittstelle
 
 - Ziel: Addons bauen eigene Maschinen, Generatoren, Kabel und Rezeptarten mit wenig Code und vielen Einstellmöglichkeiten.
-- Paket `de.sternenwerft.api` ist stabil; öffentliche Typen für Addons liegen nur dort.
+- Paket `de.infinitehorizon.api` ist stabil; öffentliche Typen für Addons liegen nur dort.
 - Bausteine: `MachineBlock`, `MachineBlockEntity`, `ProcessingMachineBlockEntity` (mit `ProcessingRecipe.Kind`), `CombustionGeneratorBlockEntity`, `CableBlock`, `EnergyNode`.
 - Einstellwerte stehen in Daten (25.7), nicht im Code.
 - Addons erweitern die Basisklassen, statt sie zu kopieren.

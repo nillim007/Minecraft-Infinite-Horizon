@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "entries": {
+    "infinite_horizon:battery": {
+      "capacity": 500000,
+      "unit": "J",
+      "io_per_tick": 512,
+      "accepts": "energy",
+      "charge_slots": 1,
+      "output_side": {
+        "count": 1,
+        "default": "facing",
+        "selectable_in_gui": true,
+        "other_sides": "input"
+      },
+      "spec_ref": "6.3, 4.4",
+      "notes": "Schiebt nur über die eine Ausgangsseite (4.4); alle anderen Seiten sind Eingänge. Ladeslot lädt Items (z. B. jetpack)."
+    },
+    "infinite_horizon:lithium_battery_bank": {
+      "capacity": 4000000,
+      "unit": "J",
+      "io_per_tick": 4096,
+      "accepts": "energy",
+      "charge_slots": 0,
+      "output_side": {
+        "count": 1,
+        "default": "facing",
+        "selectable_in_gui": true,
+        "other_sides": "input"
+      },
+      "spec_ref": "6.3, 4.4",
+      "notes": "Schiebt nur über die eine Ausgangsseite (4.4); alle anderen Seiten sind Eingänge."
+    },
+    "infinite_horizon:fluid_tank": {
+      "capacity": 16000,
+      "unit": "mB",
+      "io_per_tick": null,
+      "accepts": "liquid",
+      "container_slots": {
+        "fill": 1,
+        "drain": 1
+      },
+      "output_side": {
+        "count": 1,
+        "default": "facing",
+        "selectable_in_gui": true,
+        "other_sides": "input"
+      },
+      "spec_ref": "6.3, 4.4, 4.1",
+      "notes": "Schiebt nur über die eine Ausgangsseite (4.4); alle anderen Seiten sind Eingänge. io_per_tick nicht spezifiziert (begrenzt durch Rohrdurchsatz)."
+    },
+    "infinite_horizon:pressure_bottle": {
+      "capacity": 8000,
+      "unit": "mB",
+      "io_per_tick": null,
+      "accepts": "gas",
+      "container_slots": {
+        "fill": 1,
+        "drain": 1
+      },
+      "output_side": {
+        "count": 1,
+        "default": "facing",
+        "selectable_in_gui": true,
+        "other_sides": "input"
+      },
+      "spec_ref": "6.3, 4.4, 4.1",
+      "notes": "Schiebt nur über die eine Ausgangsseite (4.4); alle anderen Seiten sind Eingänge. io_per_tick nicht spezifiziert (begrenzt durch Rohrdurchsatz)."
+    },
+    "infinite_horizon:gas_tank": {
+      "capacity": 64000,
+      "unit": "mB",
+      "io_per_tick": null,
+      "accepts": "gas",
+      "container_slots": {
+        "fill": 1,
+        "drain": 1
+      },
+      "output_side": {
+        "count": 1,
+        "default": "facing",
+        "selectable_in_gui": true,
+        "other_sides": "input"
+      },
+      "spec_ref": "6.3, 4.4, 4.1",
+      "notes": "Schiebt nur über die eine Ausgangsseite (4.4); alle anderen Seiten sind Eingänge. io_per_tick nicht spezifiziert (begrenzt durch Rohrdurchsatz)."
+    },
+    "infinite_horizon:tank_depot": {
+      "capacity": 256000,
+      "unit": "mB",
+      "io_per_tick": null,
+      "accepts": "all",
+      "container_slots": {
+        "fill": 1,
+        "drain": 1
+      },
+      "output_side": {
+        "count": 1,
+        "default": "facing",
+        "selectable_in_gui": true,
+        "other_sides": "input"
+      },
+      "location": null,
+      "spec_ref": "6.3, 4.4, 4.1, 14.2",
+      "notes": "Schiebt nur über die eine Ausgangsseite (4.4); alle anderen Seiten sind Eingänge. Stationsmodul, funktioniert aber auch außerhalb von Orbit-Dimensionen."
+    },
+    "infinite_horizon:transport_tank": {
+      "capacity": 16000,
+      "unit": "mB",
+      "io_per_tick": null,
+      "accepts": "all",
+      "kind": "item",
+      "fluids_at_once": 1,
+      "data_component": "infinite_horizon:fluid",
+      "spec_ref": "5.2, 4.1",
+      "notes": "Behälter-Item für Füll- und Leerslots."
+    }
+  }
+}

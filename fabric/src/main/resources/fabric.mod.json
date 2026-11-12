@@ -8,32 +8,32 @@
     "${mod_author}"
   ],
   "contact": {
-    "homepage": "https://github.com/nillim007/Minecraft-New-Horizon",
-    "sources": "https://github.com/nillim007/Minecraft-New-Horizon"
+    "homepage": "https://github.com/nillim007/Minecraft-Infinite-Horizon",
+    "sources": "https://github.com/nillim007/Minecraft-Infinite-Horizon"
   },
   "license": "${license}",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "de.sternenwerft.SternenwerftFabric"
+      "de.infinitehorizon.InfiniteHorizonFabric"
     ],
     "client": [
-      "de.sternenwerft.SternenwerftFabricClient"
+      "de.infinitehorizon.InfiniteHorizonFabricClient"
     ],
     "fabric-gametest": [
-      "de.sternenwerft.gametest.SwFabricGameTests"
+      "de.infinitehorizon.gametest.IhFabricGameTests"
     ],
     "fabric-client-gametest": [
-      "de.sternenwerft.gametest.SwClientGameTests"
+      "de.infinitehorizon.gametest.IhClientGameTests"
     ],
     "jei_mod_plugin": [
-      "de.sternenwerft.compat.jei.SwJeiPlugin"
+      "de.infinitehorizon.compat.jei.IhJeiPlugin"
     ],
     "rei_client": [
-      "de.sternenwerft.compat.rei.SwReiClientPlugin"
+      "de.infinitehorizon.compat.rei.IhReiClientPlugin"
     ],
     "rei_common": [
-      "de.sternenwerft.compat.rei.SwReiCommonPlugin"
+      "de.infinitehorizon.compat.rei.IhReiCommonPlugin"
     ]
   },
   "mixins": [

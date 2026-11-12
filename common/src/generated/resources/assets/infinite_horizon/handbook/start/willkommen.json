@@ -1,0 +1,103 @@
+{
+  "id": "infinite_horizon:start/willkommen",
+  "chapter": "infinite_horizon:start",
+  "title": "infinite_horizon.handbook.start.willkommen.title",
+  "icon": "infinite_horizon:machine_frame",
+  "order": 10,
+  "unlock": null,
+  "items": [
+    "infinite_horizon:engineers_handbook",
+    "infinite_horizon:planetary_atlas"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.willkommen.e0"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.willkommen.e1"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.start.willkommen.e2",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.start.willkommen.e3.0",
+        "infinite_horizon.handbook.start.willkommen.e3.1",
+        "infinite_horizon.handbook.start.willkommen.e3.2",
+        "infinite_horizon.handbook.start.willkommen.e3.3",
+        "infinite_horizon.handbook.start.willkommen.e3.4",
+        "infinite_horizon.handbook.start.willkommen.e3.5"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.start.willkommen.e5",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.start.willkommen.e6.0",
+        "infinite_horizon.handbook.start.willkommen.e6.1",
+        "infinite_horizon.handbook.start.willkommen.e6.2",
+        "infinite_horizon.handbook.start.willkommen.e6.3",
+        "infinite_horizon.handbook.start.willkommen.e6.4"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.start.willkommen.e7",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.willkommen.e8"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:crafting_shapeless/engineers_handbook",
+          "type": "minecraft:crafting_shapeless",
+          "station": "minecraft:crafting_table",
+          "ingredients": [
+            {
+              "items": [
+                "minecraft:book"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "minecraft:copper_ingot"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:engineers_handbook",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.willkommen.e10"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.start.willkommen.e11",
+      "style": "tip"
+    }
+  ]
+}

@@ -30,8 +30,8 @@
 
 ## Für Modpacks und Server
 
-- Fast alle Zahlen (Verbrauch, Dauer, Durchsatz) stehen in Datenpaketen unter `data/<namespace>/sternenwerft/balance/` und lassen sich mit `/reload` ändern.
-- In `serverconfig/sternenwerft.json` lassen sich unter anderem Rezeptmengen, Sauerstoffverbrauch und Ereignisse einstellen.
+- Fast alle Zahlen (Verbrauch, Dauer, Durchsatz) stehen in Datenpaketen unter `data/<namespace>/infinite_horizon/balance/` und lassen sich mit `/reload` ändern.
+- In `serverconfig/infinite_horizon.json` lassen sich unter anderem Rezeptmengen, Sauerstoffverbrauch und Ereignisse einstellen.
 
 ---
 

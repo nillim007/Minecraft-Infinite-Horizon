@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#infinite_horizon:has_oil_bubble",
+  "features": "infinite_horizon:oil_bubble",
+  "step": "lakes"
+}

@@ -12,7 +12,7 @@ from pathlib import Path
 
 import specdata as sd
 
-TEX = sd.ROOT / "common" / "src" / "generated" / "resources" / "assets" / "sternenwerft" / "textures"
+TEX = sd.ROOT / "common" / "src" / "generated" / "resources" / "assets" / "infinite_horizon" / "textures"
 FONT = "font-family=\"'Segoe UI','Helvetica Neue',Arial,sans-serif\""
 SLOT = 36
 PAD = 14
@@ -85,7 +85,7 @@ def resolve(ctx, i: str) -> str:
         m = re.match(r"#c:(\w+)/(\w+)$", i)
         if m:
             form = {"plates": "plate", "ingots": "ingot", "rods": "rod", "wires": "wire", "dusts": "dust"}.get(m.group(1))
-            cand = f"sternenwerft:{m.group(2)}_{form}"
+            cand = f"infinite_horizon:{m.group(2)}_{form}"
             if cand in ctx.spec.items:
                 return cand
     return i
@@ -93,7 +93,7 @@ def resolve(ctx, i: str) -> str:
 
 def icon(ctx, i: str, x: float, y: float) -> str:
     i = resolve(ctx, i)
-    uri = texture(i) if i.startswith("sternenwerft:") else None
+    uri = texture(i) if i.startswith("infinite_horizon:") else None
     if uri:
         return (f'<image x="{x}" y="{y}" width="32" height="32" href="{uri}" '
                 'style="image-rendering:pixelated;image-rendering:crisp-edges" preserveAspectRatio="none"/>')
@@ -153,7 +153,7 @@ def panel(w, h, title, sub):
 def recipe_svg(ctx, r) -> str:
     from handbook import recipe_station, recipe_time, num  # noqa: PLC0415
     st = recipe_station(ctx, r)
-    station = ctx.name(st["station"]) if st["station"].startswith("sternenwerft:") else st["de"]
+    station = ctx.name(st["station"]) if st["station"].startswith("infinite_horizon:") else st["de"]
     ticks, ept = recipe_time(ctx, r)
     sub = station
     if r["type"] not in ("crafting_shaped", "crafting_shapeless", "smelting") and ticks:

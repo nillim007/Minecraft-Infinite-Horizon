@@ -1,9 +1,9 @@
 {
   "values": [
-    "sternenwerft:aluminum_dust",
-    "sternenwerft:copper_dust",
-    "sternenwerft:gold_dust",
-    "sternenwerft:iron_dust",
-    "sternenwerft:titanium_dust"
+    "infinite_horizon:aluminum_dust",
+    "infinite_horizon:copper_dust",
+    "infinite_horizon:gold_dust",
+    "infinite_horizon:iron_dust",
+    "infinite_horizon:titanium_dust"
   ]
 }

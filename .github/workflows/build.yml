@@ -29,7 +29,7 @@ jobs:
         run: |
           python tools/gen_resources.py
           python tools/gen_gametests.py
-          G="common/src/generated common/src/main/java/de/sternenwerft/gametest/SwTestCatalog.java fabric/src/main/java/de/sternenwerft/gametest/SwFabricGameTests.java"
+          G="common/src/generated common/src/main/java/de/infinitehorizon/gametest/IhTestCatalog.java fabric/src/main/java/de/infinitehorizon/gametest/IhFabricGameTests.java"
           git status --porcelain -- $G
           test -z "$(git status --porcelain -- $G)" || (echo "::error::Erzeugte Dateien veraltet – python tools/gen_resources.py und python tools/gen_gametests.py ausführen" && exit 1)
       - name: Wiki und README aktuell, alle Objekte dokumentiert?
@@ -181,7 +181,7 @@ jobs:
         if: always()
         shell: bash
         run: |
-          f=neoforge/runs/clienttest/sternenwerft-clienttest.txt
+          f=neoforge/runs/clienttest/infinite_horizon-clienttest.txt
           if [ ! -f "$f" ]; then echo "::error title=NeoForge-Client-Test::keine Ergebnisdatei (Absturz oder Zeitüberschreitung)"; python3 .github/scripts/annotate_log.py neoforge-clienttest.log; exit 1; fi
           echo "::notice title=NeoForge-Client-Zusammenfassung::$(tr '\n' ' ' < "$f")"
           grep -q '^DONE' "$f" || { echo "::error title=NeoForge-Client-Test::nicht bis zum Ende gelaufen"; exit 1; }
@@ -197,7 +197,7 @@ jobs:
           tmp=$(mktemp -d)
           cp "$dir"/*.png "$tmp"/
           cp neoforge-clienttest.log "$tmp"/ 2>/dev/null || true
-          cp neoforge/runs/clienttest/sternenwerft-clienttest.txt "$tmp"/ 2>/dev/null || true
+          cp neoforge/runs/clienttest/infinite_horizon-clienttest.txt "$tmp"/ 2>/dev/null || true
           cd "$tmp"
           git init -q -b ci-screenshots-neoforge
           git config user.name "github-actions[bot]"

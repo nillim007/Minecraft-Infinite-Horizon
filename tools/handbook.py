@@ -2,7 +2,7 @@
 
 Quelle:   docs/handbook/handbook.json  (Kapitel, Rezeptarten, Namen für Vanilla-IDs)
           docs/handbook/pages/<kapitel>/<seite>.md  (Seiten, Format in docs/handbook/README.md)
-Ausgabe:  build() liefert die Handbuch-Ressourcen (assets/sternenwerft/handbook/…) und die
+Ausgabe:  build() liefert die Handbuch-Ressourcen (assets/infinite_horizon/handbook/…) und die
           Übersetzungsschlüssel für tools/gen_resources.py sowie die Wiki-Seiten für tools/gen_wiki.py.
 
 Seiten erscheinen nur, wenn ihr Meilenstein erreicht ist und alle IDs aus `requires` registriert
@@ -20,7 +20,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import specdata as sd  # noqa: E402
 
-NS = "sternenwerft"
+NS = "infinite_horizon"
 SRC = sd.ROOT / "docs" / "handbook"
 PAGES = SRC / "pages"
 CONFIG = SRC / "handbook.json"
@@ -410,7 +410,7 @@ def link_target(ctx: Ctx, ref: str):
 
 
 def inline_game(ctx: Ctx, text: str, lang: str = "de") -> str:
-    """Markup für das Spiel: [[sternenwerft:kapitel/seite|Text]], <item:id>, **fett**.
+    """Markup für das Spiel: [[infinite_horizon:kapitel/seite|Text]], <item:id>, **fett**.
 
     <item:id> bleibt nur für registrierte eigene Items und Blöcke stehen (das Handbuch zeigt den
     übersetzten Namen und verlinkt auf die Seite, die das Objekt in `items` nennt). Alles andere
@@ -669,11 +669,11 @@ def build_wiki(ctx: Ctx, chapters: list) -> dict:
         m = re.search(r"^version=(.+)$", props.read_text(encoding="utf-8"), re.M)
         version = m.group(1).strip() if m else ""
     ctx.current = None
-    home = [GEN_NOTE.rstrip(), "", "# Sternenwerft – Spieler-Wiki", ""]
+    home = [GEN_NOTE.rstrip(), "", "# Infinite Horizon – Spieler-Wiki", ""]
     intro = SRC / "home.md"
     if intro.exists():
         home += [read_page_file(intro)[1].strip(), ""]
-    home += ["Das Wiki zur Raumfahrt-Mod **Minecraft New Horizon – Sternenwerft**. Alle Inhalte stehen auch im Spiel im "
+    home += ["Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im "
              "**Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.",
              "", f"> {status}" + (f" · Mod-Version {version}" if version else ""), ""]
     for c in chapters:

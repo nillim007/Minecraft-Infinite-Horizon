@@ -1,0 +1,73 @@
+{
+  "id": "infinite_horizon:reference/tipps",
+  "chapter": "infinite_horizon:reference",
+  "title": "infinite_horizon.handbook.reference.tipps.title",
+  "icon": "infinite_horizon:speed_upgrade",
+  "order": 30,
+  "unlock": null,
+  "items": [],
+  "elements": [
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.reference.tipps.e0",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.reference.tipps.e1.0",
+        "infinite_horizon.handbook.reference.tipps.e1.1",
+        "infinite_horizon.handbook.reference.tipps.e1.2",
+        "infinite_horizon.handbook.reference.tipps.e1.3",
+        "infinite_horizon.handbook.reference.tipps.e1.4"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.reference.tipps.e2",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.tipps.e3"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.tipps.e4"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.tipps.e5"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.tipps.e6"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.tipps.e7"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.tipps.e8"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.tipps.e9"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.reference.tipps.e10",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.reference.tipps.e11.0",
+        "infinite_horizon.handbook.reference.tipps.e11.1"
+      ]
+    }
+  ]
+}

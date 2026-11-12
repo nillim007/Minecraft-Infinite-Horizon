@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "entries": {
-    "sternenwerft:station_core": {
+    "infinite_horizon:station_core": {
       "location": {
         "dimension_type": "orbit",
         "dimensions": [],
@@ -10,7 +10,7 @@
       "air_placement_distance": 3,
       "platform": {
         "size": 5,
-        "block": "sternenwerft:station_hull",
+        "block": "infinite_horizon:station_hull",
         "only_air_positions": true,
         "blockstate": "generated=true",
         "generated_blocks_drop": false
@@ -38,33 +38,33 @@
         "excluded_dimensions": []
       },
       "location_exceptions": [
-        "sternenwerft:tank_depot"
+        "infinite_horizon:tank_depot"
       ],
       "requires_station_core_within": {
         "radius": 48,
         "blocks": [
-          "sternenwerft:shipyard_terminal",
-          "sternenwerft:shipyard_dock"
+          "infinite_horizon:shipyard_terminal",
+          "infinite_horizon:shipyard_dock"
         ]
       },
       "modules": [
-        "sternenwerft:station_hull",
-        "sternenwerft:station_window",
-        "sternenwerft:docking_bay",
-        "sternenwerft:tank_depot",
-        "sternenwerft:solar_wing",
-        "sternenwerft:habitation_module",
-        "sternenwerft:research_lab",
-        "sternenwerft:zero_g_fabricator",
-        "sternenwerft:greenhouse",
-        "sternenwerft:gas_collector",
-        "sternenwerft:magnetic_trap",
-        "sternenwerft:shipyard_terminal",
-        "sternenwerft:shipyard_dock"
+        "infinite_horizon:station_hull",
+        "infinite_horizon:station_window",
+        "infinite_horizon:docking_bay",
+        "infinite_horizon:tank_depot",
+        "infinite_horizon:solar_wing",
+        "infinite_horizon:habitation_module",
+        "infinite_horizon:research_lab",
+        "infinite_horizon:zero_g_fabricator",
+        "infinite_horizon:greenhouse",
+        "infinite_horizon:gas_collector",
+        "infinite_horizon:magnetic_trap",
+        "infinite_horizon:shipyard_terminal",
+        "infinite_horizon:shipyard_dock"
       ],
       "spec_ref": "14.2"
     },
-    "sternenwerft:gravity_plate": {
+    "infinite_horizon:gravity_plate": {
       "area": {
         "width": 9,
         "depth": 9,
@@ -75,13 +75,13 @@
       "spec_ref": "6.1, 12.9",
       "notes": "Strom in balance/machines.json."
     },
-    "sternenwerft:clone_chamber": {
+    "infinite_horizon:clone_chamber": {
       "bindings_per_player": 1,
       "bind": "right_click",
       "cross_dimension": true,
       "requires_power": true,
       "consumes_per_respawn": {
-        "item": "sternenwerft:microbe_culture",
+        "item": "infinite_horizon:microbe_culture",
         "count": 1
       },
       "state_storage": "globale SavedData",
@@ -93,21 +93,21 @@
       "bed_spawn_in_mod_dimensions": "only_in_active_dome",
       "bed_like_blocks": [
         "minecraft:bed",
-        "sternenwerft:habitation_module"
+        "infinite_horizon:habitation_module"
       ],
       "safety_check": "EnvironmentCalculator, Schutz ohne Anzug (8.3)",
       "fallback_order": [
-        "sternenwerft:clone_chamber",
+        "infinite_horizon:clone_chamber",
         "bed",
         "overworld_world_spawn"
       ],
-      "bed_denied_message": "message.sternenwerft.bed.no_air",
+      "bed_denied_message": "message.infinite_horizon.bed.no_air",
       "sleep_only_where_spawn_allowed": true,
       "missing_steps_skipped": true,
       "spec_ref": "14.4",
       "notes": "Ä27: Fehlt ein Glied der Reihenfolge (M3: keine Klon-Kammer), wird es übersprungen: Bett → Weltspawn der Overworld."
     },
-    "sternenwerft:habitation_module": {
+    "infinite_horizon:habitation_module": {
       "location": {
         "dimension_type": "orbit",
         "dimensions": [],
@@ -117,7 +117,7 @@
       "storage_slots": 27,
       "spec_ref": "14.2"
     },
-    "sternenwerft:research_lab": {
+    "infinite_horizon:research_lab": {
       "location": {
         "dimension_type": "orbit",
         "dimensions": [],
@@ -126,15 +126,15 @@
       "spec_ref": "14.2",
       "notes": "FP-Bonus in balance/research.json."
     },
-    "sternenwerft:docking_bay": {
+    "infinite_horizon:docking_bay": {
       "location": {
         "dimension_type": "orbit",
         "dimensions": [],
         "excluded_dimensions": []
       },
       "landing_target_for": [
-        "sternenwerft:rocket",
-        "sternenwerft:lander"
+        "infinite_horizon:rocket",
+        "infinite_horizon:lander"
       ],
       "refuels_from_adjacent_tanks": true,
       "spec_ref": "14.2, 12.2"
@@ -143,10 +143,10 @@
       "trigger_below_y": 0,
       "surface_planet_orbits": {
         "orbits": [
-          "sternenwerft:earth_orbit",
-          "sternenwerft:venus_orbit",
-          "sternenwerft:mars_orbit",
-          "sternenwerft:mercury_orbit"
+          "infinite_horizon:earth_orbit",
+          "infinite_horizon:venus_orbit",
+          "infinite_horizon:mars_orbit",
+          "infinite_horizon:mercury_orbit"
         ],
         "target": "surface_same_xz",
         "venus_target": "cloud_layer",
@@ -154,10 +154,10 @@
       },
       "gas_giant_orbits": {
         "orbits": [
-          "sternenwerft:jupiter_orbit",
-          "sternenwerft:saturn_orbit",
-          "sternenwerft:uranus_orbit",
-          "sternenwerft:neptune_orbit"
+          "infinite_horizon:jupiter_orbit",
+          "infinite_horizon:saturn_orbit",
+          "infinite_horizon:uranus_orbit",
+          "infinite_horizon:neptune_orbit"
         ],
         "target": "nearest_station_core",
         "fallback_position": [
@@ -167,7 +167,7 @@
         ],
         "fallback_platform": {
           "size": 3,
-          "block": "sternenwerft:station_hull"
+          "block": "infinite_horizon:station_hull"
         },
         "damage": 4
       },

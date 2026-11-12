@@ -1,0 +1,111 @@
+{
+  "id": "infinite_horizon:phase_1/upgrades",
+  "chapter": "infinite_horizon:phase_1",
+  "title": "infinite_horizon.handbook.phase_1.upgrades.title",
+  "icon": "infinite_horizon:speed_upgrade",
+  "order": 110,
+  "unlock": null,
+  "items": [
+    "infinite_horizon:speed_upgrade",
+    "infinite_horizon:efficiency_upgrade"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.upgrades.e0"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_1.upgrades.e1.0",
+        "infinite_horizon.handbook.phase_1.upgrades.e1.1"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.upgrades.e2"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/speed_upgrade",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "minecraft:redstone"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_wire"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:speed_upgrade",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/efficiency_upgrade",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:gold_wire"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:efficiency_upgrade",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_1.upgrades.e4",
+      "style": "tip"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_1.upgrades.e5",
+      "style": "note"
+    }
+  ]
+}

@@ -1,0 +1,615 @@
+{
+  "schema_version": 1,
+  "entries": {
+    "spawn_rules": {
+      "custom_spawn_predicates": true,
+      "categories": {
+        "hostile": "monster",
+        "passive_or_neutral": "creature",
+        "water_or_methane": "water_creature",
+        "flying": "ambient"
+      },
+      "monster_light_max": 7,
+      "creature_ground": "any_solid_planet_block",
+      "worldgen_placed_no_respawn": [
+        "infinite_horizon:reef_keeper",
+        "infinite_horizon:drift_mite"
+      ],
+      "spec_ref": "18",
+      "notes": "spawn.weight relativ zu anderen Kreaturen im Biom; weight 0 = kein natürlicher Spawn."
+    },
+    "infinite_horizon:rubble_crawler": {
+      "hp": 16,
+      "armor": 0,
+      "damage": 3,
+      "speed": 0.2,
+      "width": 0.8,
+      "height": 0.6,
+      "category": "creature",
+      "disposition": "neutral",
+      "spawn": {
+        "dimension": "infinite_horizon:moon",
+        "biomes": [
+          "infinite_horizon:moon_highlands",
+          "infinite_horizon:moon_mare"
+        ],
+        "weight": 10,
+        "group_min": 1,
+        "group_max": 2,
+        "light_max": null
+      },
+      "behavior": "neutral; bewegungslos und als Stein getarnt, bis ein Spieler < 3 Blöcke ist; sucht Kabel und Metallblöcke (Tag infinite_horizon:crawler_food) außerhalb von Kuppeln im Radius 16 und baut alle 200 t einen ab",
+      "behavior_params": {
+        "reveal_distance": 3,
+        "food_tag": "#infinite_horizon:crawler_food",
+        "food_search_radius": 16,
+        "food_outside_domes_only": true,
+        "eat_interval_ticks": 200
+      },
+      "drops": [
+        {
+          "id": "infinite_horizon:metal_concentrate",
+          "count": 1,
+          "count_max": 2
+        }
+      ],
+      "analyzable": true,
+      "spec_ref": "18",
+      "notes": null
+    },
+    "infinite_horizon:shade_strider": {
+      "hp": 20,
+      "armor": 0,
+      "damage": null,
+      "speed": 0.35,
+      "width": 0.6,
+      "height": 1.8,
+      "category": "creature",
+      "disposition": "passive",
+      "spawn": {
+        "dimension": "infinite_horizon:moon",
+        "biomes": [
+          "infinite_horizon:moon_polar_crater"
+        ],
+        "weight": 5,
+        "group_min": 1,
+        "group_max": 1,
+        "light_max": null
+      },
+      "behavior": "scheu; flieht vor Licht > 7 und Spielern < 8 Blöcke; folgt ihm ein Spieler 10 s lang, läuft er zum nächsten moon_ice oder Erz im Radius 48",
+      "behavior_params": {
+        "flee_light_above": 7,
+        "flee_player_distance": 8,
+        "follow_trigger_ticks": 200,
+        "guide_targets": [
+          "infinite_horizon:moon_ice",
+          "ores"
+        ],
+        "guide_radius": 48
+      },
+      "drops": [],
+      "analyzable": true,
+      "spec_ref": "18",
+      "notes": "SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
+    },
+    "infinite_horizon:dune_burrower": {
+      "hp": 60,
+      "armor": 10,
+      "damage": 8,
+      "speed": 0.25,
+      "width": 1.5,
+      "height": 1.2,
+      "category": "monster",
+      "disposition": "hostile",
+      "spawn": {
+        "dimension": "infinite_horizon:mars",
+        "biomes": [
+          "infinite_horizon:mars_red_plains"
+        ],
+        "weight": 4,
+        "group_min": 1,
+        "group_max": 1,
+        "light_max": 7
+      },
+      "behavior": "feindlich; gräbt unsichtbar im Sand; Vibrationsquellen im Radius 32 (Tag infinite_horizon:vibrating: crusher, drilling_rig, rover_drill) ziehen ihn an; greift Spieler in der Nähe an",
+      "behavior_params": {
+        "burrowed_invisible": true,
+        "vibration_radius": 32,
+        "vibration_tag": "#infinite_horizon:vibrating",
+        "vibration_sources": [
+          "infinite_horizon:crusher",
+          "infinite_horizon:drilling_rig",
+          "infinite_horizon:rover_drill"
+        ]
+      },
+      "drops": [
+        {
+          "id": "infinite_horizon:armor_plate",
+          "count": 1,
+          "count_max": 3
+        }
+      ],
+      "analyzable": true,
+      "spec_ref": "18",
+      "notes": "SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
+    },
+    "infinite_horizon:dust_wraith": {
+      "hp": 10,
+      "armor": 0,
+      "damage": null,
+      "speed": 0.3,
+      "width": 0.6,
+      "height": 1.6,
+      "category": "creature",
+      "disposition": "passive",
+      "spawn": {
+        "dimension": "infinite_horizon:mars",
+        "biomes": [
+          "infinite_horizon:mars_red_plains",
+          "infinite_horizon:mars_canyon",
+          "infinite_horizon:mars_volcanic_highlands",
+          "infinite_horizon:mars_dry_lake",
+          "infinite_horizon:mars_polar_cap",
+          "infinite_horizon:mars_meteorite_field"
+        ],
+        "weight": 3,
+        "group_min": 1,
+        "group_max": 1,
+        "light_max": null,
+        "condition": "infinite_horizon:dust_storm"
+      },
+      "behavior": "passiv, schwebend, immun gegen Projektile; führt den Spieler zu 75 % zur nächsten lava_tube- oder meteorite_field-Struktur, zu 25 % 64 Blöcke in zufällige Richtung, dann verschwindet er",
+      "behavior_params": {
+        "floating": true,
+        "projectile_immune": true,
+        "guide_structure_chance": 0.75,
+        "guide_structures": [
+          "infinite_horizon:lava_tube",
+          "infinite_horizon:meteorite_field"
+        ],
+        "random_direction_chance": 0.25,
+        "random_distance": 64,
+        "despawn_after_guiding": true
+      },
+      "drops": [],
+      "analyzable": true,
+      "spec_ref": "18",
+      "notes": "Spawnt nur während infinite_horizon:dust_storm, in allen Mars-Biomen. SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
+    },
+    "infinite_horizon:sulfur_snail": {
+      "hp": 12,
+      "armor": 0,
+      "damage": null,
+      "speed": 0.1,
+      "width": 0.6,
+      "height": 0.5,
+      "category": "creature",
+      "disposition": "passive",
+      "spawn": {
+        "dimension": "infinite_horizon:venus",
+        "biomes": [
+          "infinite_horizon:venus_lava_plains"
+        ],
+        "weight": 8,
+        "group_min": 1,
+        "group_max": 1,
+        "light_max": null
+      },
+      "behavior": "passiv, feuerfest, säurefest; legt alle 100 t eine dünne sulfur_trail-Schicht; legt wie ein Huhn alle 6.000 t 1 sulfur ab; vermehrt sich mit sulfur",
+      "behavior_params": {
+        "fireproof": true,
+        "acidproof": true,
+        "trail_block": "infinite_horizon:sulfur_trail",
+        "trail_interval_ticks": 100,
+        "lay_item": "infinite_horizon:sulfur",
+        "lay_count": 1,
+        "lay_interval_ticks": 6000,
+        "breed_item": "infinite_horizon:sulfur"
+      },
+      "drops": [
+        {
+          "id": "infinite_horizon:sulfur",
+          "count": 1
+        }
+      ],
+      "analyzable": true,
+      "spec_ref": "18",
+      "notes": "SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
+    },
+    "infinite_horizon:cloud_ray": {
+      "hp": 30,
+      "armor": 0,
+      "damage": null,
+      "speed": 0.3,
+      "width": 2.5,
+      "height": 0.6,
+      "category": "ambient",
+      "disposition": "passive",
+      "spawn": {
+        "dimension": "infinite_horizon:venus",
+        "biomes": [
+          "infinite_horizon:venus_lava_plains",
+          "infinite_horizon:venus_volcanoes",
+          "infinite_horizon:venus_plateau"
+        ],
+        "weight": 6,
+        "group_min": 1,
+        "group_max": 1,
+        "light_max": null,
+        "y_min": 180,
+        "y_max": 240
+      },
+      "behavior": "passiv, fliegend; zähmbar mit sulfur (33 % pro Versuch); gezähmt + Sattel = fliegendes Reittier (0,6 Blöcke/t)",
+      "behavior_params": {
+        "flying": true,
+        "tame_item": "infinite_horizon:sulfur",
+        "tame_chance": 0.33,
+        "mount_requires": "minecraft:saddle",
+        "mount_speed": 0.6
+      },
+      "drops": [],
+      "analyzable": true,
+      "spec_ref": "18",
+      "notes": "Spawnt nur in der Wolkenschicht (y 180–240). SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
+    },
+    "infinite_horizon:mirror_beetle": {
+      "hp": 20,
+      "armor": 0,
+      "damage": 4,
+      "speed": 0.25,
+      "width": 0.8,
+      "height": 0.5,
+      "category": "creature",
+      "disposition": "neutral",
+      "spawn": {
+        "dimension": "infinite_horizon:mercury",
+        "biomes": [
+          "infinite_horizon:mercury_twilight_belt"
+        ],
+        "weight": 8,
+        "group_min": 1,
+        "group_max": 1,
+        "light_max": null
+      },
+      "behavior": "neutral; schaut ein Spieler ihn bei Tageslicht aus < 16 Blöcken an: Blindheit 60 t; angegriffen greift er zurück",
+      "behavior_params": {
+        "gaze_distance": 16,
+        "requires_daylight": true,
+        "blindness_ticks": 60,
+        "retaliates": true
+      },
+      "drops": [
+        {
+          "id": "infinite_horizon:mirror_shell",
+          "count": 1
+        }
+      ],
+      "analyzable": true,
+      "spec_ref": "18",
+      "notes": "SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
+    },
+    "infinite_horizon:drift_mite": {
+      "hp": 4,
+      "armor": 0,
+      "damage": null,
+      "speed": 0.2,
+      "width": 0.3,
+      "height": 0.3,
+      "category": "creature",
+      "disposition": "passive",
+      "spawn": {
+        "dimension": "infinite_horizon:asteroid_belt",
+        "biomes": [],
+        "weight": 0,
+        "group_min": 5,
+        "group_max": 10,
+        "light_max": null,
+        "spawn_mode": "worldgen",
+        "respawns": false,
+        "anchor_block": "infinite_horizon:asteroid_platinum_ore",
+        "anchor_radius": 8,
+        "per": "asteroid_with_platinum_ore"
+      },
+      "behavior": "harmlos, schwebt; spawnt in Schwärmen um asteroid_platinum_ore",
+      "behavior_params": {
+        "floating": true
+      },
+      "drops": [],
+      "analyzable": true,
+      "spec_ref": "18",
+      "notes": null
+    },
+    "infinite_horizon:sulfur_salamander": {
+      "hp": 30,
+      "armor": 0,
+      "damage": 5,
+      "speed": 0.25,
+      "width": 0.8,
+      "height": 0.6,
+      "category": "monster",
+      "disposition": "hostile",
+      "spawn": {
+        "dimension": "infinite_horizon:io",
+        "biomes": [
+          "infinite_horizon:io_lava_lakes"
+        ],
+        "weight": 6,
+        "group_min": 1,
+        "group_max": 1,
+        "light_max": 7,
+        "structures": [
+          "infinite_horizon:volcanic_vent"
+        ]
+      },
+      "behavior": "feindlich, feuerfest; Fernkampf: Schwefelklumpen wie Lohen-Feuerball, aber ohne Feuer",
+      "behavior_params": {
+        "fireproof": true,
+        "ranged_attack": true,
+        "projectile": "infinite_horizon:sulfur_glob",
+        "projectile_like": "minecraft:small_fireball",
+        "projectile_sets_fire": false
+      },
+      "drops": [
+        {
+          "id": "infinite_horizon:heat_scale",
+          "count": 0,
+          "count_max": 2
+        }
+      ],
+      "analyzable": true,
+      "spec_ref": "18",
+      "notes": "Schaden 5 = Treffer des Schwefelklumpens. SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
+    },
+    "infinite_horizon:ice_jelly": {
+      "hp": 8,
+      "armor": 0,
+      "damage": null,
+      "speed": 0.1,
+      "width": 0.8,
+      "height": 0.8,
+      "category": "water_creature",
+      "disposition": "passive",
+      "spawn": {
+        "dimension": "infinite_horizon:europa",
+        "biomes": [
+          "infinite_horizon:europa_ocean"
+        ],
+        "weight": 10,
+        "group_min": 1,
+        "group_max": 1,
+        "light_max": null
+      },
+      "behavior": "passiv, leuchtet (emissive Textur), schwimmt langsam in Richtung der nächsten hydrothermal_vent im Radius 64",
+      "behavior_params": {
+        "emissive": true,
+        "seek_block": "infinite_horizon:hydrothermal_vent",
+        "seek_radius": 64
+      },
+      "drops": [],
+      "analyzable": true,
+      "spec_ref": "18",
+      "notes": "SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
+    },
+    "infinite_horizon:reef_keeper": {
+      "hp": 120,
+      "armor": 0,
+      "damage": 12,
+      "speed": 0.2,
+      "width": 2.0,
+      "height": 2.0,
+      "category": "water_creature",
+      "disposition": "neutral",
+      "spawn": {
+        "dimension": "infinite_horizon:europa",
+        "biomes": [
+          "infinite_horizon:europa_vents"
+        ],
+        "weight": 0,
+        "group_min": 1,
+        "group_max": 1,
+        "light_max": null,
+        "spawn_mode": "structure",
+        "structure": "infinite_horizon:hydrothermal_field",
+        "per_structure": 1,
+        "respawns": false
+      },
+      "behavior": "neutral, groß; wird feindlich gegen Spieler, die im Radius 16 Blöcke abbauen oder Proben nehmen, außer sie haben ihn mit 1 space_ration gefüttert (dann 12.000 t friedlich zu diesem Spieler)",
+      "behavior_params": {
+        "aggro_radius": 16,
+        "aggro_triggers": [
+          "block_break",
+          "sample_tool"
+        ],
+        "pacify_item": "infinite_horizon:space_ration",
+        "pacify_count": 1,
+        "pacify_ticks": 12000,
+        "pacify_scope": "per_player"
+      },
+      "drops": [],
+      "analyzable": true,
+      "spec_ref": "18",
+      "notes": null
+    },
+    "infinite_horizon:methane_skimmer": {
+      "hp": 10,
+      "armor": 0,
+      "damage": null,
+      "speed": 0.45,
+      "width": 0.9,
+      "height": 1.2,
+      "category": "water_creature",
+      "disposition": "passive",
+      "spawn": {
+        "dimension": "infinite_horizon:titan",
+        "biomes": [
+          "infinite_horizon:titan_methane_lakes"
+        ],
+        "weight": 8,
+        "group_min": 1,
+        "group_max": 1,
+        "light_max": null
+      },
+      "behavior": "passiv, läuft auf der methane-Oberfläche, flieht vor Spielern < 12 Blöcke",
+      "behavior_params": {
+        "walks_on_fluid": "infinite_horizon:methane",
+        "flee_player_distance": 12
+      },
+      "drops": [
+        {
+          "id": "infinite_horizon:skimmer_leg",
+          "count": 1,
+          "count_max": 2
+        }
+      ],
+      "analyzable": true,
+      "spec_ref": "18",
+      "notes": "SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
+    },
+    "infinite_horizon:geyser_moth": {
+      "hp": 4,
+      "armor": 0,
+      "damage": null,
+      "speed": 0.3,
+      "width": 0.5,
+      "height": 0.3,
+      "category": "ambient",
+      "disposition": "passive",
+      "spawn": {
+        "dimension": "infinite_horizon:enceladus",
+        "biomes": [
+          "infinite_horizon:enceladus_tiger_stripes"
+        ],
+        "weight": 5,
+        "group_min": 1,
+        "group_max": 1,
+        "light_max": null
+      },
+      "behavior": "harmlos, fliegend; kreist im Radius 6 um ammonia_geyser",
+      "behavior_params": {
+        "flying": true,
+        "circle_block": "infinite_horizon:ammonia_geyser",
+        "circle_radius": 6
+      },
+      "drops": [],
+      "analyzable": true,
+      "spec_ref": "18",
+      "notes": "SPEC-GAP: Spawn-Gewicht nicht angegeben; 5 gewählt. Biom = Geysir-Biom tiger_stripes. SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
+    },
+    "infinite_horizon:frost_lurker": {
+      "hp": 40,
+      "armor": 0,
+      "damage": 7,
+      "speed": 0.3,
+      "width": 1.0,
+      "height": 0.8,
+      "category": "monster",
+      "disposition": "hostile",
+      "spawn": {
+        "dimension": "infinite_horizon:triton",
+        "biomes": [
+          "infinite_horizon:triton_cantaloupe_terrain",
+          "infinite_horizon:triton_polar_cap",
+          "infinite_horizon:triton_geyser_fields"
+        ],
+        "weight": 5,
+        "group_min": 1,
+        "group_max": 1,
+        "light_max": 7
+      },
+      "behavior": "feindlich; unsichtbar im Eis, bricht hervor, wenn ein Spieler < 4 Blöcke ist",
+      "behavior_params": {
+        "hidden_in_ice": true,
+        "emerge_distance": 4
+      },
+      "drops": [
+        {
+          "id": "infinite_horizon:insulation_fabric",
+          "count": 0,
+          "count_max": 2
+        }
+      ],
+      "analyzable": true,
+      "spec_ref": "18",
+      "notes": "SPEC-GAP: Gruppengröße nicht angegeben; 1–1 gewählt."
+    },
+    "infinite_horizon:signal_sentinel": {
+      "hp": 400,
+      "armor": 0,
+      "damage": 10,
+      "speed": 0.25,
+      "width": 1.5,
+      "height": 3.0,
+      "category": "monster",
+      "disposition": "boss",
+      "spawn": {
+        "dimension": "infinite_horizon:pluto",
+        "biomes": [],
+        "weight": 0,
+        "group_min": 1,
+        "group_max": 1,
+        "light_max": null,
+        "spawn_mode": "summon",
+        "summon_block": "infinite_horizon:transmitter_core",
+        "summon_condition": "für die Agentur lebt keiner und keiner wurde in den letzten 24.000 t besiegt",
+        "resummon_cooldown_ticks": 24000,
+        "respawns": false
+      },
+      "behavior": "Boss mit Bossleiste. Phase 1 (100–50 % HP): Nahkampf 10 + Schockwelle (Rückstoß Radius 6, alle 100 t). Phase 2 (< 50 % HP): beschwört 3 frost_lurker, Strahl wie Wächter (6 Schaden über 40 t)",
+      "behavior_params": {
+        "boss_bar": true
+      },
+      "drops": [
+        {
+          "id": "infinite_horizon:star_chart",
+          "count": 1,
+          "components": {
+            "infinite_horizon:chart_owner": {
+              "agency": "<Agentur des Beschwörers>",
+              "uuid": "<neue chart_uuid>"
+            }
+          },
+          "condition": "Agentur-SavedData des Beschwörers hat keine gültige chart_uuid"
+        }
+      ],
+      "analyzable": true,
+      "phases": [
+        {
+          "phase": 1,
+          "hp_from": 1.0,
+          "hp_to": 0.5,
+          "attacks": [
+            {
+              "type": "melee",
+              "damage": 10
+            },
+            {
+              "type": "shockwave",
+              "knockback_radius": 6,
+              "interval_ticks": 100
+            }
+          ]
+        },
+        {
+          "phase": 2,
+          "hp_from": 0.5,
+          "hp_to": 0.0,
+          "summon": {
+            "entity": "infinite_horizon:frost_lurker",
+            "count": 3,
+            "trigger": "phase_enter"
+          },
+          "attacks": [
+            {
+              "type": "beam",
+              "like": "minecraft:guardian",
+              "damage": 6,
+              "duration_ticks": 40
+            }
+          ]
+        }
+      ],
+      "spec_ref": "18",
+      "notes": "Pflicht für die Sternenkarte; pro Agentur erneut beschwörbar (Ä4). Kartenregeln (feuerfest, kein Despawn) in balance/items.json; Admin-Befehl /infinite_horizon agency reset_chart <agentur>."
+    }
+  }
+}

@@ -2,7 +2,7 @@
   "schema_version": 1,
   "entries": [
     {
-      "id": "sternenwerft:ceres_plains",
+      "id": "infinite_horizon:ceres_plains",
       "kind": "biome",
       "category": "world",
       "name_de": "Ceres-Ebenen",
@@ -16,7 +16,7 @@
       "notes": "Dimension ceres"
     },
     {
-      "id": "sternenwerft:ceres_salt_flats",
+      "id": "infinite_horizon:ceres_salt_flats",
       "kind": "biome",
       "category": "world",
       "name_de": "Salzebenen",
@@ -30,7 +30,7 @@
       "notes": "Dimension ceres"
     },
     {
-      "id": "sternenwerft:enceladus_snowfields",
+      "id": "infinite_horizon:enceladus_snowfields",
       "kind": "biome",
       "category": "world",
       "name_de": "Schneefelder",
@@ -44,7 +44,7 @@
       "notes": "Dimension enceladus"
     },
     {
-      "id": "sternenwerft:enceladus_tiger_stripes",
+      "id": "infinite_horizon:enceladus_tiger_stripes",
       "kind": "biome",
       "category": "world",
       "name_de": "Tigerstreifen",
@@ -58,7 +58,7 @@
       "notes": "Dimension enceladus"
     },
     {
-      "id": "sternenwerft:europa_ice_plains",
+      "id": "infinite_horizon:europa_ice_plains",
       "kind": "biome",
       "category": "world",
       "name_de": "Eisebenen",
@@ -72,7 +72,7 @@
       "notes": "Dimension europa"
     },
     {
-      "id": "sternenwerft:europa_ocean",
+      "id": "infinite_horizon:europa_ocean",
       "kind": "biome",
       "category": "world",
       "name_de": "Europa-Ozean",
@@ -86,7 +86,7 @@
       "notes": "Dimension europa"
     },
     {
-      "id": "sternenwerft:europa_rifts",
+      "id": "infinite_horizon:europa_rifts",
       "kind": "biome",
       "category": "world",
       "name_de": "Eisspalten",
@@ -100,7 +100,7 @@
       "notes": "Dimension europa"
     },
     {
-      "id": "sternenwerft:europa_vents",
+      "id": "infinite_horizon:europa_vents",
       "kind": "biome",
       "category": "world",
       "name_de": "Hydrothermale Quellen",
@@ -114,7 +114,7 @@
       "notes": "Dimension europa"
     },
     {
-      "id": "sternenwerft:io_lava_lakes",
+      "id": "infinite_horizon:io_lava_lakes",
       "kind": "biome",
       "category": "world",
       "name_de": "Lavaseen",
@@ -128,7 +128,7 @@
       "notes": "Dimension io"
     },
     {
-      "id": "sternenwerft:io_sulfur_plains",
+      "id": "infinite_horizon:io_sulfur_plains",
       "kind": "biome",
       "category": "world",
       "name_de": "Schwefelebenen",
@@ -142,7 +142,7 @@
       "notes": "Dimension io"
     },
     {
-      "id": "sternenwerft:io_volcanic_fields",
+      "id": "infinite_horizon:io_volcanic_fields",
       "kind": "biome",
       "category": "world",
       "name_de": "Vulkanfelder",
@@ -156,7 +156,7 @@
       "notes": "Dimension io"
     },
     {
-      "id": "sternenwerft:mars_canyon",
+      "id": "infinite_horizon:mars_canyon",
       "kind": "biome",
       "category": "world",
       "name_de": "Mars-Canyon",
@@ -170,7 +170,7 @@
       "notes": "Dimension mars"
     },
     {
-      "id": "sternenwerft:mars_dry_lake",
+      "id": "infinite_horizon:mars_dry_lake",
       "kind": "biome",
       "category": "world",
       "name_de": "Ausgetrockneter See",
@@ -184,7 +184,7 @@
       "notes": "Dimension mars"
     },
     {
-      "id": "sternenwerft:mars_meteorite_field",
+      "id": "infinite_horizon:mars_meteorite_field",
       "kind": "biome",
       "category": "world",
       "name_de": "Mars-Meteoritenfeld",
@@ -198,7 +198,7 @@
       "notes": "Dimension mars"
     },
     {
-      "id": "sternenwerft:mars_polar_cap",
+      "id": "infinite_horizon:mars_polar_cap",
       "kind": "biome",
       "category": "world",
       "name_de": "Mars-Polkappe",
@@ -212,7 +212,7 @@
       "notes": "Dimension mars"
     },
     {
-      "id": "sternenwerft:mars_red_plains",
+      "id": "infinite_horizon:mars_red_plains",
       "kind": "biome",
       "category": "world",
       "name_de": "Rote Ebenen",
@@ -226,7 +226,7 @@
       "notes": "Dimension mars"
     },
     {
-      "id": "sternenwerft:mars_volcanic_highlands",
+      "id": "infinite_horizon:mars_volcanic_highlands",
       "kind": "biome",
       "category": "world",
       "name_de": "Vulkanisches Hochland",
@@ -240,7 +240,7 @@
       "notes": "Dimension mars"
     },
     {
-      "id": "sternenwerft:mercury_frost_plains",
+      "id": "infinite_horizon:mercury_frost_plains",
       "kind": "biome",
       "category": "world",
       "name_de": "Frostebenen",
@@ -254,7 +254,7 @@
       "notes": "Dimension mercury"
     },
     {
-      "id": "sternenwerft:mercury_scorched_plains",
+      "id": "infinite_horizon:mercury_scorched_plains",
       "kind": "biome",
       "category": "world",
       "name_de": "Glutebenen",
@@ -268,7 +268,7 @@
       "notes": "Dimension mercury"
     },
     {
-      "id": "sternenwerft:mercury_shadow_crater",
+      "id": "infinite_horizon:mercury_shadow_crater",
       "kind": "biome",
       "category": "world",
       "name_de": "Schattenkrater",
@@ -282,7 +282,7 @@
       "notes": "Dimension mercury"
     },
     {
-      "id": "sternenwerft:mercury_twilight_belt",
+      "id": "infinite_horizon:mercury_twilight_belt",
       "kind": "biome",
       "category": "world",
       "name_de": "Dämmerungsgürtel",
@@ -296,7 +296,7 @@
       "notes": "Dimension mercury"
     },
     {
-      "id": "sternenwerft:moon_great_crater",
+      "id": "infinite_horizon:moon_great_crater",
       "kind": "biome",
       "category": "world",
       "name_de": "Mond-Großkrater",
@@ -310,7 +310,7 @@
       "notes": "Dimension moon"
     },
     {
-      "id": "sternenwerft:moon_highlands",
+      "id": "infinite_horizon:moon_highlands",
       "kind": "biome",
       "category": "world",
       "name_de": "Mond-Hochland",
@@ -324,7 +324,7 @@
       "notes": "Dimension moon"
     },
     {
-      "id": "sternenwerft:moon_mare",
+      "id": "infinite_horizon:moon_mare",
       "kind": "biome",
       "category": "world",
       "name_de": "Mare",
@@ -338,7 +338,7 @@
       "notes": "Dimension moon"
     },
     {
-      "id": "sternenwerft:moon_polar_crater",
+      "id": "infinite_horizon:moon_polar_crater",
       "kind": "biome",
       "category": "world",
       "name_de": "Mond-Polarkrater",
@@ -352,7 +352,7 @@
       "notes": "Dimension moon"
     },
     {
-      "id": "sternenwerft:pluto_dark_highlands",
+      "id": "infinite_horizon:pluto_dark_highlands",
       "kind": "biome",
       "category": "world",
       "name_de": "Dunkles Hochland",
@@ -366,7 +366,7 @@
       "notes": "Dimension pluto"
     },
     {
-      "id": "sternenwerft:pluto_heart_glacier",
+      "id": "infinite_horizon:pluto_heart_glacier",
       "kind": "biome",
       "category": "world",
       "name_de": "Herzgletscher",
@@ -380,7 +380,7 @@
       "notes": "Dimension pluto"
     },
     {
-      "id": "sternenwerft:pluto_ice_mountains",
+      "id": "infinite_horizon:pluto_ice_mountains",
       "kind": "biome",
       "category": "world",
       "name_de": "Pluto-Eisgebirge",
@@ -394,7 +394,7 @@
       "notes": "Dimension pluto"
     },
     {
-      "id": "sternenwerft:titan_dunes",
+      "id": "infinite_horizon:titan_dunes",
       "kind": "biome",
       "category": "world",
       "name_de": "Titan-Dünen",
@@ -408,7 +408,7 @@
       "notes": "Dimension titan"
     },
     {
-      "id": "sternenwerft:titan_ice_mountains",
+      "id": "infinite_horizon:titan_ice_mountains",
       "kind": "biome",
       "category": "world",
       "name_de": "Titan-Eisgebirge",
@@ -422,7 +422,7 @@
       "notes": "Dimension titan"
     },
     {
-      "id": "sternenwerft:titan_methane_lakes",
+      "id": "infinite_horizon:titan_methane_lakes",
       "kind": "biome",
       "category": "world",
       "name_de": "Methanseen",
@@ -436,7 +436,7 @@
       "notes": "Dimension titan"
     },
     {
-      "id": "sternenwerft:triton_cantaloupe_terrain",
+      "id": "infinite_horizon:triton_cantaloupe_terrain",
       "kind": "biome",
       "category": "world",
       "name_de": "Cantaloupe-Terrain",
@@ -450,7 +450,7 @@
       "notes": "Dimension triton"
     },
     {
-      "id": "sternenwerft:triton_geyser_fields",
+      "id": "infinite_horizon:triton_geyser_fields",
       "kind": "biome",
       "category": "world",
       "name_de": "Geysirfelder",
@@ -464,7 +464,7 @@
       "notes": "Dimension triton"
     },
     {
-      "id": "sternenwerft:triton_polar_cap",
+      "id": "infinite_horizon:triton_polar_cap",
       "kind": "biome",
       "category": "world",
       "name_de": "Triton-Polkappe",
@@ -478,7 +478,7 @@
       "notes": "Dimension triton"
     },
     {
-      "id": "sternenwerft:venus_lava_plains",
+      "id": "infinite_horizon:venus_lava_plains",
       "kind": "biome",
       "category": "world",
       "name_de": "Lavaebenen",
@@ -492,7 +492,7 @@
       "notes": "Dimension venus"
     },
     {
-      "id": "sternenwerft:venus_plateau",
+      "id": "infinite_horizon:venus_plateau",
       "kind": "biome",
       "category": "world",
       "name_de": "Venus-Hochebene",
@@ -506,7 +506,7 @@
       "notes": "Dimension venus"
     },
     {
-      "id": "sternenwerft:venus_volcanoes",
+      "id": "infinite_horizon:venus_volcanoes",
       "kind": "biome",
       "category": "world",
       "name_de": "Venus-Vulkane",
@@ -520,7 +520,7 @@
       "notes": "Dimension venus"
     },
     {
-      "id": "sternenwerft:aluminum_cable",
+      "id": "infinite_horizon:aluminum_cable",
       "kind": "block",
       "category": "cable",
       "name_de": "Aluminiumkabel",
@@ -534,7 +534,7 @@
       "notes": "2.048 J/t"
     },
     {
-      "id": "sternenwerft:copper_cable",
+      "id": "infinite_horizon:copper_cable",
       "kind": "block",
       "category": "cable",
       "name_de": "Kupferkabel",
@@ -548,7 +548,7 @@
       "notes": "256 J/t"
     },
     {
-      "id": "sternenwerft:superconductor_cable",
+      "id": "infinite_horizon:superconductor_cable",
       "kind": "block",
       "category": "cable",
       "name_de": "Supraleiterkabel",
@@ -562,7 +562,7 @@
       "notes": "32.768 J/t"
     },
     {
-      "id": "sternenwerft:electric_lamp",
+      "id": "infinite_horizon:electric_lamp",
       "kind": "block",
       "category": "decorative",
       "name_de": "Elektrische Lampe",
@@ -576,7 +576,7 @@
       "notes": "5 J/t, Licht 15, funktioniert überall"
     },
     {
-      "id": "sternenwerft:extinguished_torch",
+      "id": "infinite_horizon:extinguished_torch",
       "kind": "block",
       "category": "decorative",
       "name_de": "Erloschene Fackel",
@@ -590,7 +590,7 @@
       "notes": "entsteht aus Fackeln außerhalb aktiver Kuppeln in Mod-Dimensionen"
     },
     {
-      "id": "sternenwerft:sulfur_trail",
+      "id": "infinite_horizon:sulfur_trail",
       "kind": "block",
       "category": "decorative",
       "name_de": "Schwefelspur",
@@ -604,7 +604,7 @@
       "notes": "von sulfur_snail gelegt, nicht fest, droppt nichts, verschwindet nach 6.000 t"
     },
     {
-      "id": "sternenwerft:combustion_generator",
+      "id": "infinite_horizon:combustion_generator",
       "kind": "block",
       "category": "generator",
       "name_de": "Verbrennungsgenerator",
@@ -618,7 +618,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:fission_reactor",
+      "id": "infinite_horizon:fission_reactor",
       "kind": "block",
       "category": "generator",
       "name_de": "Kernreaktor",
@@ -632,7 +632,7 @@
       "notes": "Controller des Multiblocks fission_reactor (5×5×5)"
     },
     {
-      "id": "sternenwerft:fuel_generator",
+      "id": "infinite_horizon:fuel_generator",
       "kind": "block",
       "category": "generator",
       "name_de": "Treibstoffgenerator",
@@ -646,7 +646,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:fusion_reactor",
+      "id": "infinite_horizon:fusion_reactor",
       "kind": "block",
       "category": "generator",
       "name_de": "Fusionsreaktor",
@@ -660,7 +660,7 @@
       "notes": "Controller des Multiblocks fusion_reactor (5×5×5)"
     },
     {
-      "id": "sternenwerft:solar_panel",
+      "id": "infinite_horizon:solar_panel",
       "kind": "block",
       "category": "generator",
       "name_de": "Solarpanel",
@@ -674,7 +674,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:solar_wing",
+      "id": "infinite_horizon:solar_wing",
       "kind": "block",
       "category": "generator",
       "name_de": "Solarflügel",
@@ -688,7 +688,7 @@
       "notes": "nur Orbit; Stationsmodul (14.2)"
     },
     {
-      "id": "sternenwerft:cargo_terminal",
+      "id": "infinite_horizon:cargo_terminal",
       "kind": "block",
       "category": "logistics",
       "name_de": "Frachtterminal",
@@ -702,7 +702,7 @@
       "notes": "216 Slots, 8 Frachttanks, Treibstofftank 64.000 mB methane"
     },
     {
-      "id": "sternenwerft:logistics_computer",
+      "id": "infinite_horizon:logistics_computer",
       "kind": "block",
       "category": "logistics",
       "name_de": "Logistik-Computer",
@@ -716,7 +716,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:trading_post",
+      "id": "infinite_horizon:trading_post",
       "kind": "block",
       "category": "logistics",
       "name_de": "Handelsposten",
@@ -730,7 +730,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:analyzer",
+      "id": "infinite_horizon:analyzer",
       "kind": "block",
       "category": "machine",
       "name_de": "Analysator",
@@ -744,7 +744,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:assembly_table",
+      "id": "infinite_horizon:assembly_table",
       "kind": "block",
       "category": "machine",
       "name_de": "Montagetisch",
@@ -758,7 +758,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:clone_chamber",
+      "id": "infinite_horizon:clone_chamber",
       "kind": "block",
       "category": "machine",
       "name_de": "Klon-Kammer",
@@ -772,7 +772,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:crusher",
+      "id": "infinite_horizon:crusher",
       "kind": "block",
       "category": "machine",
       "name_de": "Zerkleinerer",
@@ -786,7 +786,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:cryo_liquefier",
+      "id": "infinite_horizon:cryo_liquefier",
       "kind": "block",
       "category": "machine",
       "name_de": "Kryo-Verflüssiger",
@@ -800,7 +800,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:dome_generator_t1",
+      "id": "infinite_horizon:dome_generator_t1",
       "kind": "block",
       "category": "machine",
       "name_de": "Kuppelgenerator I",
@@ -814,7 +814,7 @@
       "notes": "Radius 8"
     },
     {
-      "id": "sternenwerft:dome_generator_t2",
+      "id": "infinite_horizon:dome_generator_t2",
       "kind": "block",
       "category": "machine",
       "name_de": "Kuppelgenerator II",
@@ -828,7 +828,7 @@
       "notes": "Radius 16"
     },
     {
-      "id": "sternenwerft:dome_generator_t3",
+      "id": "infinite_horizon:dome_generator_t3",
       "kind": "block",
       "category": "machine",
       "name_de": "Kuppelgenerator III",
@@ -842,7 +842,7 @@
       "notes": "Radius 32"
     },
     {
-      "id": "sternenwerft:drilling_rig",
+      "id": "infinite_horizon:drilling_rig",
       "kind": "block",
       "category": "machine",
       "name_de": "Bohrturm",
@@ -856,7 +856,7 @@
       "notes": "überall außer Erde"
     },
     {
-      "id": "sternenwerft:electric_furnace",
+      "id": "infinite_horizon:electric_furnace",
       "kind": "block",
       "category": "machine",
       "name_de": "Elektroofen",
@@ -870,7 +870,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:electrolyzer",
+      "id": "infinite_horizon:electrolyzer",
       "kind": "block",
       "category": "machine",
       "name_de": "Elektrolyseur",
@@ -884,7 +884,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:fluid_pump",
+      "id": "infinite_horizon:fluid_pump",
       "kind": "block",
       "category": "machine",
       "name_de": "Pumpe",
@@ -898,7 +898,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:food_packer",
+      "id": "infinite_horizon:food_packer",
       "kind": "block",
       "category": "machine",
       "name_de": "Nahrungspacker",
@@ -912,7 +912,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:gas_collector",
+      "id": "infinite_horizon:gas_collector",
       "kind": "block",
       "category": "machine",
       "name_de": "Gas-Sammler",
@@ -926,7 +926,7 @@
       "notes": "nur Orbits von Jupiter, Saturn, Uranus, Neptun"
     },
     {
-      "id": "sternenwerft:gravity_plate",
+      "id": "infinite_horizon:gravity_plate",
       "kind": "block",
       "category": "machine",
       "name_de": "Schwerkraftplatte",
@@ -940,7 +940,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:high_temperature_furnace",
+      "id": "infinite_horizon:high_temperature_furnace",
       "kind": "block",
       "category": "machine",
       "name_de": "Hochtemperaturofen",
@@ -954,7 +954,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:hydroponics_basin",
+      "id": "infinite_horizon:hydroponics_basin",
       "kind": "block",
       "category": "machine",
       "name_de": "Hydrokultur-Becken",
@@ -968,7 +968,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:magnetic_trap",
+      "id": "infinite_horizon:magnetic_trap",
       "kind": "block",
       "category": "machine",
       "name_de": "Magnetfalle",
@@ -982,7 +982,7 @@
       "notes": "nur jupiter_orbit"
     },
     {
-      "id": "sternenwerft:oxygen_generator",
+      "id": "infinite_horizon:oxygen_generator",
       "kind": "block",
       "category": "machine",
       "name_de": "Sauerstoffgenerator",
@@ -996,7 +996,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:press",
+      "id": "infinite_horizon:press",
       "kind": "block",
       "category": "machine",
       "name_de": "Presse",
@@ -1010,7 +1010,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:pump_station",
+      "id": "infinite_horizon:pump_station",
       "kind": "block",
       "category": "machine",
       "name_de": "Pumpstation",
@@ -1024,7 +1024,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:refinery_controller",
+      "id": "infinite_horizon:refinery_controller",
       "kind": "block",
       "category": "machine",
       "name_de": "Raffinerie",
@@ -1038,7 +1038,7 @@
       "notes": "Controller des Multiblocks refinery (3×3×5)"
     },
     {
-      "id": "sternenwerft:regolith_heater",
+      "id": "infinite_horizon:regolith_heater",
       "kind": "block",
       "category": "machine",
       "name_de": "Regolith-Erhitzer",
@@ -1052,7 +1052,7 @@
       "notes": "nur moon"
     },
     {
-      "id": "sternenwerft:research_terminal",
+      "id": "infinite_horizon:research_terminal",
       "kind": "block",
       "category": "machine",
       "name_de": "Forschungsterminal",
@@ -1066,7 +1066,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:space_weather_station",
+      "id": "infinite_horizon:space_weather_station",
       "kind": "block",
       "category": "machine",
       "name_de": "Weltraumwetter-Station",
@@ -1080,7 +1080,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:zero_g_fabricator",
+      "id": "infinite_horizon:zero_g_fabricator",
       "kind": "block",
       "category": "machine",
       "name_de": "Schwerelos-Fertigung",
@@ -1094,7 +1094,7 @@
       "notes": "nur Orbit-Dimensionen; Stationsmodul (14.2)"
     },
     {
-      "id": "sternenwerft:fission_casing",
+      "id": "infinite_horizon:fission_casing",
       "kind": "block",
       "category": "multiblock_part",
       "name_de": "Kernreaktor-Gehäuse",
@@ -1108,7 +1108,7 @@
       "notes": "Gehäuse des Multiblocks fission_reactor"
     },
     {
-      "id": "sternenwerft:fuel_pump",
+      "id": "infinite_horizon:fuel_pump",
       "kind": "block",
       "category": "multiblock_part",
       "name_de": "Treibstoffpumpe",
@@ -1122,7 +1122,7 @@
       "notes": "betankt Raketen (12.4)"
     },
     {
-      "id": "sternenwerft:fusion_casing",
+      "id": "infinite_horizon:fusion_casing",
       "kind": "block",
       "category": "multiblock_part",
       "name_de": "Fusionsreaktor-Gehäuse",
@@ -1136,7 +1136,7 @@
       "notes": "Gehäuse des Multiblocks fusion_reactor"
     },
     {
-      "id": "sternenwerft:launch_control",
+      "id": "infinite_horizon:launch_control",
       "kind": "block",
       "category": "multiblock_part",
       "name_de": "Startkontrolle",
@@ -1150,7 +1150,7 @@
       "notes": "Raketen-Computer, steuert die nächste gültige Rampe im Umkreis 8"
     },
     {
-      "id": "sternenwerft:launch_pad",
+      "id": "infinite_horizon:launch_pad",
       "kind": "block",
       "category": "multiblock_part",
       "name_de": "Startrampe",
@@ -1164,7 +1164,7 @@
       "notes": "Plattformblock für launch_pad_t1 (25) und launch_pad_t2 (49)"
     },
     {
-      "id": "sternenwerft:launch_tower",
+      "id": "infinite_horizon:launch_tower",
       "kind": "block",
       "category": "multiblock_part",
       "name_de": "Startturm",
@@ -1178,7 +1178,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:refinery_casing",
+      "id": "infinite_horizon:refinery_casing",
       "kind": "block",
       "category": "multiblock_part",
       "name_de": "Raffinerie-Gehäuse",
@@ -1192,7 +1192,7 @@
       "notes": "Gehäuse des Multiblocks refinery"
     },
     {
-      "id": "sternenwerft:asteroid_iridium_ore",
+      "id": "infinite_horizon:asteroid_iridium_ore",
       "kind": "block",
       "category": "ore",
       "name_de": "Asteroiden-Iridiumerz",
@@ -1206,7 +1206,7 @@
       "notes": "Asteroidengürtel; droppt 1 raw_iridium"
     },
     {
-      "id": "sternenwerft:asteroid_nickel_ore",
+      "id": "infinite_horizon:asteroid_nickel_ore",
       "kind": "block",
       "category": "ore",
       "name_de": "Asteroiden-Nickelerz",
@@ -1220,7 +1220,7 @@
       "notes": "Asteroidengürtel; droppt 1 raw_nickel"
     },
     {
-      "id": "sternenwerft:asteroid_platinum_ore",
+      "id": "infinite_horizon:asteroid_platinum_ore",
       "kind": "block",
       "category": "ore",
       "name_de": "Asteroiden-Platinerz",
@@ -1234,7 +1234,7 @@
       "notes": "Asteroidengürtel; droppt 1 raw_platinum"
     },
     {
-      "id": "sternenwerft:bauxite_ore",
+      "id": "infinite_horizon:bauxite_ore",
       "kind": "block",
       "category": "ore",
       "name_de": "Bauxiterz",
@@ -1248,7 +1248,7 @@
       "notes": "Erde; droppt 1 bauxite"
     },
     {
-      "id": "sternenwerft:deepslate_titanium_ore",
+      "id": "infinite_horizon:deepslate_titanium_ore",
       "kind": "block",
       "category": "ore",
       "name_de": "Tiefenschiefer-Titanerz",
@@ -1262,7 +1262,7 @@
       "notes": "Erde; droppt 1 raw_titanium"
     },
     {
-      "id": "sternenwerft:io_sulfur_ore",
+      "id": "infinite_horizon:io_sulfur_ore",
       "kind": "block",
       "category": "ore",
       "name_de": "Io-Schwefelerz",
@@ -1276,7 +1276,7 @@
       "notes": "Io; droppt 2–4 sulfur"
     },
     {
-      "id": "sternenwerft:iron_nickel_meteorite",
+      "id": "infinite_horizon:iron_nickel_meteorite",
       "kind": "block",
       "category": "ore",
       "name_de": "Eisen-Nickel-Meteorit",
@@ -1290,7 +1290,7 @@
       "notes": "Mars; droppt 1–2 raw_nickel, 50 % 1 minecraft:raw_iron"
     },
     {
-      "id": "sternenwerft:mars_iron_ore",
+      "id": "infinite_horizon:mars_iron_ore",
       "kind": "block",
       "category": "ore",
       "name_de": "Mars-Eisenerz",
@@ -1304,7 +1304,7 @@
       "notes": "Mars; droppt 1 minecraft:raw_iron"
     },
     {
-      "id": "sternenwerft:mars_magnesium_ore",
+      "id": "infinite_horizon:mars_magnesium_ore",
       "kind": "block",
       "category": "ore",
       "name_de": "Mars-Magnesiumerz",
@@ -1318,7 +1318,7 @@
       "notes": "Mars; droppt 1 raw_magnesium"
     },
     {
-      "id": "sternenwerft:mercury_iron_ore",
+      "id": "infinite_horizon:mercury_iron_ore",
       "kind": "block",
       "category": "ore",
       "name_de": "Merkur-Eisenerz",
@@ -1332,7 +1332,7 @@
       "notes": "Merkur; droppt 1 minecraft:raw_iron"
     },
     {
-      "id": "sternenwerft:mercury_lithium_salt",
+      "id": "infinite_horizon:mercury_lithium_salt",
       "kind": "block",
       "category": "ore",
       "name_de": "Merkur-Lithiumsalz",
@@ -1346,7 +1346,7 @@
       "notes": "Merkur; droppt 2 lithium_salt"
     },
     {
-      "id": "sternenwerft:mercury_titanium_ore",
+      "id": "infinite_horizon:mercury_titanium_ore",
       "kind": "block",
       "category": "ore",
       "name_de": "Merkur-Titanerz",
@@ -1360,7 +1360,7 @@
       "notes": "Merkur; droppt 1 raw_titanium"
     },
     {
-      "id": "sternenwerft:meteorite_ore",
+      "id": "infinite_horizon:meteorite_ore",
       "kind": "block",
       "category": "ore",
       "name_de": "Meteoritenerz",
@@ -1374,7 +1374,7 @@
       "notes": "aus Meteoritenschauer; droppt sich selbst, Rohstoffe nur über Zerkleinerer"
     },
     {
-      "id": "sternenwerft:moon_aluminum_ore",
+      "id": "infinite_horizon:moon_aluminum_ore",
       "kind": "block",
       "category": "ore",
       "name_de": "Mond-Aluminiumerz",
@@ -1388,7 +1388,7 @@
       "notes": "Mond; droppt 1 bauxite"
     },
     {
-      "id": "sternenwerft:moon_titanium_ore",
+      "id": "infinite_horizon:moon_titanium_ore",
       "kind": "block",
       "category": "ore",
       "name_de": "Mond-Titanerz",
@@ -1402,7 +1402,7 @@
       "notes": "Mond; droppt 1 raw_titanium"
     },
     {
-      "id": "sternenwerft:pluto_uranium_ore",
+      "id": "infinite_horizon:pluto_uranium_ore",
       "kind": "block",
       "category": "ore",
       "name_de": "Pluto-Uranerz",
@@ -1416,7 +1416,7 @@
       "notes": "Pluto, nur pluto_dark_highlands; droppt 1 raw_uranium"
     },
     {
-      "id": "sternenwerft:quartz_sand",
+      "id": "infinite_horizon:quartz_sand",
       "kind": "block",
       "category": "ore",
       "name_de": "Quarzsand",
@@ -1430,7 +1430,7 @@
       "notes": "Erde, Strand und Flussufer; Rohstoff für silicon"
     },
     {
-      "id": "sternenwerft:titanium_ore",
+      "id": "infinite_horizon:titanium_ore",
       "kind": "block",
       "category": "ore",
       "name_de": "Titanerz",
@@ -1444,7 +1444,7 @@
       "notes": "Erde; droppt 1 raw_titanium"
     },
     {
-      "id": "sternenwerft:venus_sulfur_ore",
+      "id": "infinite_horizon:venus_sulfur_ore",
       "kind": "block",
       "category": "ore",
       "name_de": "Venus-Schwefelerz",
@@ -1458,7 +1458,7 @@
       "notes": "Venus; droppt 2–4 sulfur"
     },
     {
-      "id": "sternenwerft:venus_tungsten_ore",
+      "id": "infinite_horizon:venus_tungsten_ore",
       "kind": "block",
       "category": "ore",
       "name_de": "Venus-Wolframerz",
@@ -1472,7 +1472,7 @@
       "notes": "Venus; droppt 1 raw_tungsten"
     },
     {
-      "id": "sternenwerft:copper_pipe",
+      "id": "infinite_horizon:copper_pipe",
       "kind": "block",
       "category": "pipe",
       "name_de": "Kupferrohr",
@@ -1486,7 +1486,7 @@
       "notes": "200 mB/t, Fluide und Gase"
     },
     {
-      "id": "sternenwerft:titanium_pipe",
+      "id": "infinite_horizon:titanium_pipe",
       "kind": "block",
       "category": "pipe",
       "name_de": "Titanrohr",
@@ -1500,7 +1500,7 @@
       "notes": "1.000 mB/t"
     },
     {
-      "id": "sternenwerft:ammonia_geyser",
+      "id": "infinite_horizon:ammonia_geyser",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Ammoniak-Geysir",
@@ -1514,7 +1514,7 @@
       "notes": "Enceladus; unzerstörbar"
     },
     {
-      "id": "sternenwerft:ancient_alloy",
+      "id": "infinite_horizon:ancient_alloy",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Uralte Legierung",
@@ -1528,7 +1528,7 @@
       "notes": "Pluto, signal_transmitter; unzerstörbar"
     },
     {
-      "id": "sternenwerft:asteroid_rock",
+      "id": "infinite_horizon:asteroid_rock",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Asteroidengestein",
@@ -1542,7 +1542,7 @@
       "notes": "Asteroidengürtel"
     },
     {
-      "id": "sternenwerft:ceres_rock",
+      "id": "infinite_horizon:ceres_rock",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Ceres-Gestein",
@@ -1556,7 +1556,7 @@
       "notes": "Ceres"
     },
     {
-      "id": "sternenwerft:dry_ice_block",
+      "id": "infinite_horizon:dry_ice_block",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Trockeneisblock",
@@ -1570,7 +1570,7 @@
       "notes": "Mars; droppt 4 dry_ice"
     },
     {
-      "id": "sternenwerft:enceladus_ice",
+      "id": "infinite_horizon:enceladus_ice",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Enceladus-Eis",
@@ -1584,7 +1584,7 @@
       "notes": "Enceladus"
     },
     {
-      "id": "sternenwerft:enceladus_snow",
+      "id": "infinite_horizon:enceladus_snow",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Enceladus-Schnee",
@@ -1598,7 +1598,7 @@
       "notes": "Enceladus"
     },
     {
-      "id": "sternenwerft:europa_ice",
+      "id": "infinite_horizon:europa_ice",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Europa-Eis",
@@ -1612,7 +1612,7 @@
       "notes": "Europa; Härte 50, effizient nur mit ice_drill"
     },
     {
-      "id": "sternenwerft:europa_seabed",
+      "id": "infinite_horizon:europa_seabed",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Europa-Meeresboden",
@@ -1626,7 +1626,7 @@
       "notes": "Europa"
     },
     {
-      "id": "sternenwerft:gypsum_block",
+      "id": "infinite_horizon:gypsum_block",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Gipsblock",
@@ -1640,7 +1640,7 @@
       "notes": "Mars; droppt 4 gypsum"
     },
     {
-      "id": "sternenwerft:hydrothermal_vent",
+      "id": "infinite_horizon:hydrothermal_vent",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Hydrothermale Quelle",
@@ -1654,7 +1654,7 @@
       "notes": "Europa; unzerstörbar; Glasflasche → microbe_culture"
     },
     {
-      "id": "sternenwerft:io_crust",
+      "id": "infinite_horizon:io_crust",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Io-Kruste",
@@ -1668,7 +1668,7 @@
       "notes": "Io"
     },
     {
-      "id": "sternenwerft:mars_rock",
+      "id": "infinite_horizon:mars_rock",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Marsgestein",
@@ -1682,7 +1682,7 @@
       "notes": "Mars; default_block"
     },
     {
-      "id": "sternenwerft:mars_sand",
+      "id": "infinite_horizon:mars_sand",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Marssand",
@@ -1696,7 +1696,7 @@
       "notes": "Mars"
     },
     {
-      "id": "sternenwerft:mercury_rock",
+      "id": "infinite_horizon:mercury_rock",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Merkurgestein",
@@ -1710,7 +1710,7 @@
       "notes": "Merkur"
     },
     {
-      "id": "sternenwerft:moon_basalt",
+      "id": "infinite_horizon:moon_basalt",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Mond-Basalt",
@@ -1721,10 +1721,10 @@
         "worldgen"
       ],
       "spec_ref": "13.4",
-      "notes": "Mond; im Tag sternenwerft:basalt"
+      "notes": "Mond; im Tag infinite_horizon:basalt"
     },
     {
-      "id": "sternenwerft:moon_ice",
+      "id": "infinite_horizon:moon_ice",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Mondeis",
@@ -1738,7 +1738,7 @@
       "notes": "Mond; droppt minecraft:ice"
     },
     {
-      "id": "sternenwerft:moon_regolith",
+      "id": "infinite_horizon:moon_regolith",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Mond-Regolith",
@@ -1752,7 +1752,7 @@
       "notes": "Mond; droppt sich selbst"
     },
     {
-      "id": "sternenwerft:moon_rock",
+      "id": "infinite_horizon:moon_rock",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Mondgestein",
@@ -1766,7 +1766,7 @@
       "notes": "Mond; default_block"
     },
     {
-      "id": "sternenwerft:nitrogen_geyser",
+      "id": "infinite_horizon:nitrogen_geyser",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Stickstoff-Geysir",
@@ -1780,7 +1780,7 @@
       "notes": "Triton; unzerstörbar"
     },
     {
-      "id": "sternenwerft:pluto_nitrogen_ice",
+      "id": "infinite_horizon:pluto_nitrogen_ice",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Pluto-Stickstoffeis",
@@ -1794,7 +1794,7 @@
       "notes": "Pluto"
     },
     {
-      "id": "sternenwerft:pluto_tholin",
+      "id": "infinite_horizon:pluto_tholin",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Pluto-Tholin",
@@ -1808,7 +1808,7 @@
       "notes": "Pluto"
     },
     {
-      "id": "sternenwerft:pluto_water_ice",
+      "id": "infinite_horizon:pluto_water_ice",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Pluto-Wassereis",
@@ -1822,7 +1822,7 @@
       "notes": "Pluto"
     },
     {
-      "id": "sternenwerft:salt_crust",
+      "id": "infinite_horizon:salt_crust",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Salzkruste",
@@ -1836,7 +1836,7 @@
       "notes": "Ceres; droppt sich selbst (*_crust)"
     },
     {
-      "id": "sternenwerft:titan_dune_sand",
+      "id": "infinite_horizon:titan_dune_sand",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Titan-Dünensand",
@@ -1850,7 +1850,7 @@
       "notes": "Titan"
     },
     {
-      "id": "sternenwerft:titan_ice_rock",
+      "id": "infinite_horizon:titan_ice_rock",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Titan-Eisgestein",
@@ -1864,7 +1864,7 @@
       "notes": "Titan"
     },
     {
-      "id": "sternenwerft:triton_ice",
+      "id": "infinite_horizon:triton_ice",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Triton-Eis",
@@ -1878,7 +1878,7 @@
       "notes": "Triton"
     },
     {
-      "id": "sternenwerft:venus_rock",
+      "id": "infinite_horizon:venus_rock",
       "kind": "block",
       "category": "planet_block",
       "name_de": "Venusgestein",
@@ -1892,7 +1892,7 @@
       "notes": "Venus; default_block"
     },
     {
-      "id": "sternenwerft:energy_port",
+      "id": "infinite_horizon:energy_port",
       "kind": "block",
       "category": "port",
       "name_de": "Energie-Port",
@@ -1906,7 +1906,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:fluid_port",
+      "id": "infinite_horizon:fluid_port",
       "kind": "block",
       "category": "port",
       "name_de": "Fluid-Port",
@@ -1920,7 +1920,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:item_port",
+      "id": "infinite_horizon:item_port",
       "kind": "block",
       "category": "port",
       "name_de": "Item-Port",
@@ -1934,7 +1934,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:advanced_probe",
+      "id": "infinite_horizon:advanced_probe",
       "kind": "block",
       "category": "rocket_part",
       "name_de": "Fortgeschrittene Sonde",
@@ -1948,7 +1948,7 @@
       "notes": "Ring 2"
     },
     {
-      "id": "sternenwerft:long_range_module",
+      "id": "infinite_horizon:long_range_module",
       "kind": "block",
       "category": "rocket_part",
       "name_de": "Fernflug-Modul",
@@ -1962,7 +1962,7 @@
       "notes": "nur T2, +128.000 mB je Komponente"
     },
     {
-      "id": "sternenwerft:probe",
+      "id": "infinite_horizon:probe",
       "kind": "block",
       "category": "rocket_part",
       "name_de": "Sonde",
@@ -1976,7 +1976,7 @@
       "notes": "Ring 1; Block auf der Startplattform"
     },
     {
-      "id": "sternenwerft:rocket_capsule_t1",
+      "id": "infinite_horizon:rocket_capsule_t1",
       "kind": "block",
       "category": "rocket_part",
       "name_de": "Raketenkapsel T1",
@@ -1990,7 +1990,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:rocket_capsule_t2",
+      "id": "infinite_horizon:rocket_capsule_t2",
       "kind": "block",
       "category": "rocket_part",
       "name_de": "Raketenkapsel T2",
@@ -2004,7 +2004,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:rocket_cargo_bay",
+      "id": "infinite_horizon:rocket_cargo_bay",
       "kind": "block",
       "category": "rocket_part",
       "name_de": "Raketen-Frachtraum",
@@ -2018,7 +2018,7 @@
       "notes": "27 Slots, T1 und T2"
     },
     {
-      "id": "sternenwerft:rocket_engine_t1",
+      "id": "infinite_horizon:rocket_engine_t1",
       "kind": "block",
       "category": "rocket_part",
       "name_de": "Raketentriebwerk T1",
@@ -2032,7 +2032,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:rocket_engine_t2",
+      "id": "infinite_horizon:rocket_engine_t2",
       "kind": "block",
       "category": "rocket_part",
       "name_de": "Raketentriebwerk T2",
@@ -2046,7 +2046,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:rocket_fin_t1",
+      "id": "infinite_horizon:rocket_fin_t1",
       "kind": "block",
       "category": "rocket_part",
       "name_de": "Raketenflosse T1",
@@ -2060,7 +2060,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:rocket_fin_t2",
+      "id": "infinite_horizon:rocket_fin_t2",
       "kind": "block",
       "category": "rocket_part",
       "name_de": "Raketenflosse T2",
@@ -2074,7 +2074,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:rocket_tank_t1",
+      "id": "infinite_horizon:rocket_tank_t1",
       "kind": "block",
       "category": "rocket_part",
       "name_de": "Raketentank T1",
@@ -2088,7 +2088,7 @@
       "notes": "16.000 mB je Komponente"
     },
     {
-      "id": "sternenwerft:rocket_tank_t2",
+      "id": "infinite_horizon:rocket_tank_t2",
       "kind": "block",
       "category": "rocket_part",
       "name_de": "Raketentank T2",
@@ -2102,7 +2102,7 @@
       "notes": "16.000 mB je Komponente"
     },
     {
-      "id": "sternenwerft:aerostat_platform",
+      "id": "infinite_horizon:aerostat_platform",
       "kind": "block",
       "category": "special",
       "name_de": "Aerostat-Plattform",
@@ -2117,7 +2117,7 @@
       "notes": "5×5 bei erster Venus-Landung generiert"
     },
     {
-      "id": "sternenwerft:asteroid_anchor",
+      "id": "infinite_horizon:asteroid_anchor",
       "kind": "block",
       "category": "special",
       "name_de": "Asteroiden-Anker",
@@ -2131,7 +2131,7 @@
       "notes": "1 g für Spieler im Radius 16"
     },
     {
-      "id": "sternenwerft:cloud_elevator",
+      "id": "infinite_horizon:cloud_elevator",
       "kind": "block",
       "category": "special",
       "name_de": "Wolkenaufzug",
@@ -2146,7 +2146,7 @@
       "notes": "untere Station entsteht automatisch"
     },
     {
-      "id": "sternenwerft:compost_farmland",
+      "id": "infinite_horizon:compost_farmland",
       "kind": "block",
       "category": "special",
       "name_de": "Kompost-Ackerland",
@@ -2160,7 +2160,7 @@
       "notes": "entsteht mit der Hacke aus compost_soil, verhält sich wie Vanilla-Ackerland"
     },
     {
-      "id": "sternenwerft:compost_soil",
+      "id": "infinite_horizon:compost_soil",
       "kind": "block",
       "category": "special",
       "name_de": "Kompost-Boden",
@@ -2174,7 +2174,7 @@
       "notes": "mit der Hacke → compost_farmland"
     },
     {
-      "id": "sternenwerft:landing_beacon",
+      "id": "infinite_horizon:landing_beacon",
       "kind": "block",
       "category": "special",
       "name_de": "Landefeuer",
@@ -2188,7 +2188,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:pontoon",
+      "id": "infinite_horizon:pontoon",
       "kind": "block",
       "category": "special",
       "name_de": "Ponton",
@@ -2202,7 +2202,7 @@
       "notes": "wie Seerose auf Flüssigkeiten setzbar"
     },
     {
-      "id": "sternenwerft:transmitter_core",
+      "id": "infinite_horizon:transmitter_core",
       "kind": "block",
       "category": "special",
       "name_de": "Senderkern",
@@ -2216,7 +2216,7 @@
       "notes": "Pluto, signal_transmitter; unzerstörbar; beschwört signal_sentinel"
     },
     {
-      "id": "sternenwerft:docking_bay",
+      "id": "infinite_horizon:docking_bay",
       "kind": "block",
       "category": "station_module",
       "name_de": "Andockbucht",
@@ -2230,7 +2230,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:greenhouse",
+      "id": "infinite_horizon:greenhouse",
       "kind": "block",
       "category": "station_module",
       "name_de": "Gewächshaus",
@@ -2244,7 +2244,7 @@
       "notes": "9 Pflanzslots"
     },
     {
-      "id": "sternenwerft:habitation_module",
+      "id": "infinite_horizon:habitation_module",
       "kind": "block",
       "category": "station_module",
       "name_de": "Wohnmodul",
@@ -2258,7 +2258,7 @@
       "notes": "Respawn + 27 Slots"
     },
     {
-      "id": "sternenwerft:research_lab",
+      "id": "infinite_horizon:research_lab",
       "kind": "block",
       "category": "station_module",
       "name_de": "Forschungslabor",
@@ -2272,7 +2272,7 @@
       "notes": "+50 % FP für angrenzende Analysatoren"
     },
     {
-      "id": "sternenwerft:shipyard_dock",
+      "id": "infinite_horizon:shipyard_dock",
       "kind": "block",
       "category": "station_module",
       "name_de": "Werft-Andockbucht",
@@ -2286,7 +2286,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:shipyard_terminal",
+      "id": "infinite_horizon:shipyard_terminal",
       "kind": "block",
       "category": "station_module",
       "name_de": "Werft-Terminal",
@@ -2300,7 +2300,7 @@
       "notes": "nur in einer Station im earth_orbit"
     },
     {
-      "id": "sternenwerft:station_core",
+      "id": "infinite_horizon:station_core",
       "kind": "block",
       "category": "station_module",
       "name_de": "Stationskern",
@@ -2314,7 +2314,7 @@
       "notes": "nur Orbit-Dimensionen; eingebauter Kuppelgenerator T1"
     },
     {
-      "id": "sternenwerft:station_hull",
+      "id": "infinite_horizon:station_hull",
       "kind": "block",
       "category": "station_module",
       "name_de": "Stationshülle",
@@ -2329,7 +2329,7 @@
       "notes": "5×5-Plattform beim Setzen des station_core (generated=true, droppt nichts)"
     },
     {
-      "id": "sternenwerft:station_window",
+      "id": "infinite_horizon:station_window",
       "kind": "block",
       "category": "station_module",
       "name_de": "Stationsfenster",
@@ -2343,7 +2343,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:battery",
+      "id": "infinite_horizon:battery",
       "kind": "block",
       "category": "storage",
       "name_de": "Akku",
@@ -2357,7 +2357,7 @@
       "notes": "500.000 J, 1 Ladeslot"
     },
     {
-      "id": "sternenwerft:fluid_tank",
+      "id": "infinite_horizon:fluid_tank",
       "kind": "block",
       "category": "storage",
       "name_de": "Tank",
@@ -2371,7 +2371,7 @@
       "notes": "16.000 mB, nur Flüssigkeiten"
     },
     {
-      "id": "sternenwerft:gas_tank",
+      "id": "infinite_horizon:gas_tank",
       "kind": "block",
       "category": "storage",
       "name_de": "Gastank",
@@ -2385,7 +2385,7 @@
       "notes": "64.000 mB, nur Gase"
     },
     {
-      "id": "sternenwerft:lithium_battery_bank",
+      "id": "infinite_horizon:lithium_battery_bank",
       "kind": "block",
       "category": "storage",
       "name_de": "Lithium-Akkubank",
@@ -2399,7 +2399,7 @@
       "notes": "4.000.000 J"
     },
     {
-      "id": "sternenwerft:pressure_bottle",
+      "id": "infinite_horizon:pressure_bottle",
       "kind": "block",
       "category": "storage",
       "name_de": "Druckflasche",
@@ -2413,7 +2413,7 @@
       "notes": "8.000 mB, nur Gase"
     },
     {
-      "id": "sternenwerft:tank_depot",
+      "id": "infinite_horizon:tank_depot",
       "kind": "block",
       "category": "storage",
       "name_de": "Tankdepot",
@@ -2427,7 +2427,7 @@
       "notes": "256.000 mB, alle Fluide; auch Stationsmodul (14.2)"
     },
     {
-      "id": "sternenwerft:charge",
+      "id": "infinite_horizon:charge",
       "kind": "data_component",
       "category": "special",
       "name_de": "Ladung",
@@ -2441,7 +2441,7 @@
       "notes": "antimatter_cell leer 0 / gefüllt 1"
     },
     {
-      "id": "sternenwerft:chart_owner",
+      "id": "infinite_horizon:chart_owner",
       "kind": "data_component",
       "category": "special",
       "name_de": "Kartenbesitzer",
@@ -2455,7 +2455,7 @@
       "notes": "star_chart: {agency, uuid}"
     },
     {
-      "id": "sternenwerft:drive",
+      "id": "infinite_horizon:drive",
       "kind": "data_component",
       "category": "special",
       "name_de": "Antrieb",
@@ -2469,7 +2469,7 @@
       "notes": "Antrieb einer Frachtrakete"
     },
     {
-      "id": "sternenwerft:energy",
+      "id": "infinite_horizon:energy",
       "kind": "data_component",
       "category": "special",
       "name_de": "Energie",
@@ -2483,7 +2483,7 @@
       "notes": "gespeicherte Energie (z. B. jetpack, ice_drill)"
     },
     {
-      "id": "sternenwerft:flights_left",
+      "id": "infinite_horizon:flights_left",
       "kind": "data_component",
       "category": "special",
       "name_de": "Verbleibende Flüge",
@@ -2497,7 +2497,7 @@
       "notes": "heavy_freighter, 0–10"
     },
     {
-      "id": "sternenwerft:fluid",
+      "id": "infinite_horizon:fluid",
       "kind": "data_component",
       "category": "special",
       "name_de": "Fluid",
@@ -2511,7 +2511,7 @@
       "notes": "Fluid + Menge (Behälter-Items)"
     },
     {
-      "id": "sternenwerft:linked_pos",
+      "id": "infinite_horizon:linked_pos",
       "kind": "data_component",
       "category": "special",
       "name_de": "Verknüpfte Position",
@@ -2525,7 +2525,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:nutrition",
+      "id": "infinite_horizon:nutrition",
       "kind": "data_component",
       "category": "special",
       "name_de": "Nährwert",
@@ -2539,7 +2539,7 @@
       "notes": "space_ration"
     },
     {
-      "id": "sternenwerft:oxygen",
+      "id": "infinite_horizon:oxygen",
       "kind": "data_component",
       "category": "special",
       "name_de": "Sauerstoffvorrat",
@@ -2553,7 +2553,7 @@
       "notes": "O₂-Vorrat der Anzug-Brustplatte; gleiche ID auch als Fluid"
     },
     {
-      "id": "sternenwerft:rover_data",
+      "id": "infinite_horizon:rover_data",
       "kind": "data_component",
       "category": "special",
       "name_de": "Rover-Daten",
@@ -2567,7 +2567,7 @@
       "notes": "Fracht, Module und Energie eines abgebauten Rovers"
     },
     {
-      "id": "sternenwerft:sample",
+      "id": "infinite_horizon:sample",
       "kind": "data_component",
       "category": "special",
       "name_de": "Probe",
@@ -2581,7 +2581,7 @@
       "notes": "block + dimension; gleiche ID auch als Item"
     },
     {
-      "id": "sternenwerft:suit_modules",
+      "id": "infinite_horizon:suit_modules",
       "kind": "data_component",
       "category": "special",
       "name_de": "Anzugmodule",
@@ -2595,7 +2595,7 @@
       "notes": "2 Modulslots je Anzugteil"
     },
     {
-      "id": "sternenwerft:asteroid_belt",
+      "id": "infinite_horizon:asteroid_belt",
       "kind": "dimension",
       "category": "world",
       "name_de": "Asteroidengürtel",
@@ -2609,7 +2609,7 @@
       "notes": "Oberfläche"
     },
     {
-      "id": "sternenwerft:ceres",
+      "id": "infinite_horizon:ceres",
       "kind": "dimension",
       "category": "world",
       "name_de": "Ceres",
@@ -2623,7 +2623,7 @@
       "notes": "Oberfläche"
     },
     {
-      "id": "sternenwerft:earth_orbit",
+      "id": "infinite_horizon:earth_orbit",
       "kind": "dimension",
       "category": "world",
       "name_de": "Erdorbit",
@@ -2637,7 +2637,7 @@
       "notes": "Orbit-Dimension"
     },
     {
-      "id": "sternenwerft:enceladus",
+      "id": "infinite_horizon:enceladus",
       "kind": "dimension",
       "category": "world",
       "name_de": "Enceladus",
@@ -2651,7 +2651,7 @@
       "notes": "Oberfläche"
     },
     {
-      "id": "sternenwerft:europa",
+      "id": "infinite_horizon:europa",
       "kind": "dimension",
       "category": "world",
       "name_de": "Europa",
@@ -2665,7 +2665,7 @@
       "notes": "Oberfläche"
     },
     {
-      "id": "sternenwerft:io",
+      "id": "infinite_horizon:io",
       "kind": "dimension",
       "category": "world",
       "name_de": "Io",
@@ -2679,7 +2679,7 @@
       "notes": "Oberfläche"
     },
     {
-      "id": "sternenwerft:jupiter_orbit",
+      "id": "infinite_horizon:jupiter_orbit",
       "kind": "dimension",
       "category": "world",
       "name_de": "Jupiter-Orbit",
@@ -2693,7 +2693,7 @@
       "notes": "Orbit-Dimension"
     },
     {
-      "id": "sternenwerft:mars",
+      "id": "infinite_horizon:mars",
       "kind": "dimension",
       "category": "world",
       "name_de": "Mars",
@@ -2707,7 +2707,7 @@
       "notes": "Oberfläche"
     },
     {
-      "id": "sternenwerft:mars_orbit",
+      "id": "infinite_horizon:mars_orbit",
       "kind": "dimension",
       "category": "world",
       "name_de": "Mars-Orbit",
@@ -2721,7 +2721,7 @@
       "notes": "Orbit-Dimension"
     },
     {
-      "id": "sternenwerft:mercury",
+      "id": "infinite_horizon:mercury",
       "kind": "dimension",
       "category": "world",
       "name_de": "Merkur",
@@ -2735,7 +2735,7 @@
       "notes": "Oberfläche"
     },
     {
-      "id": "sternenwerft:mercury_orbit",
+      "id": "infinite_horizon:mercury_orbit",
       "kind": "dimension",
       "category": "world",
       "name_de": "Merkur-Orbit",
@@ -2749,7 +2749,7 @@
       "notes": "Orbit-Dimension"
     },
     {
-      "id": "sternenwerft:moon",
+      "id": "infinite_horizon:moon",
       "kind": "dimension",
       "category": "world",
       "name_de": "Mond",
@@ -2763,7 +2763,7 @@
       "notes": "Oberfläche"
     },
     {
-      "id": "sternenwerft:neptune_orbit",
+      "id": "infinite_horizon:neptune_orbit",
       "kind": "dimension",
       "category": "world",
       "name_de": "Neptun-Orbit",
@@ -2777,7 +2777,7 @@
       "notes": "Orbit-Dimension"
     },
     {
-      "id": "sternenwerft:pluto",
+      "id": "infinite_horizon:pluto",
       "kind": "dimension",
       "category": "world",
       "name_de": "Pluto",
@@ -2791,7 +2791,7 @@
       "notes": "Oberfläche"
     },
     {
-      "id": "sternenwerft:saturn_orbit",
+      "id": "infinite_horizon:saturn_orbit",
       "kind": "dimension",
       "category": "world",
       "name_de": "Saturn-Orbit",
@@ -2805,7 +2805,7 @@
       "notes": "Orbit-Dimension"
     },
     {
-      "id": "sternenwerft:titan",
+      "id": "infinite_horizon:titan",
       "kind": "dimension",
       "category": "world",
       "name_de": "Titan",
@@ -2819,7 +2819,7 @@
       "notes": "Oberfläche"
     },
     {
-      "id": "sternenwerft:triton",
+      "id": "infinite_horizon:triton",
       "kind": "dimension",
       "category": "world",
       "name_de": "Triton",
@@ -2833,7 +2833,7 @@
       "notes": "Oberfläche"
     },
     {
-      "id": "sternenwerft:uranus_orbit",
+      "id": "infinite_horizon:uranus_orbit",
       "kind": "dimension",
       "category": "world",
       "name_de": "Uranus-Orbit",
@@ -2847,7 +2847,7 @@
       "notes": "Orbit-Dimension"
     },
     {
-      "id": "sternenwerft:venus",
+      "id": "infinite_horizon:venus",
       "kind": "dimension",
       "category": "world",
       "name_de": "Venus",
@@ -2861,7 +2861,7 @@
       "notes": "Oberfläche"
     },
     {
-      "id": "sternenwerft:venus_orbit",
+      "id": "infinite_horizon:venus_orbit",
       "kind": "dimension",
       "category": "world",
       "name_de": "Venus-Orbit",
@@ -2875,7 +2875,7 @@
       "notes": "Orbit-Dimension"
     },
     {
-      "id": "sternenwerft:cloud_ray",
+      "id": "infinite_horizon:cloud_ray",
       "kind": "entity",
       "category": "creature",
       "name_de": "Wolkenrochen",
@@ -2889,7 +2889,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:drift_mite",
+      "id": "infinite_horizon:drift_mite",
       "kind": "entity",
       "category": "creature",
       "name_de": "Schwebemilbe",
@@ -2903,7 +2903,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:dune_burrower",
+      "id": "infinite_horizon:dune_burrower",
       "kind": "entity",
       "category": "creature",
       "name_de": "Dünenwühler",
@@ -2917,7 +2917,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:dust_wraith",
+      "id": "infinite_horizon:dust_wraith",
       "kind": "entity",
       "category": "creature",
       "name_de": "Staubgeist",
@@ -2931,7 +2931,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:frost_lurker",
+      "id": "infinite_horizon:frost_lurker",
       "kind": "entity",
       "category": "creature",
       "name_de": "Frostkriecher",
@@ -2945,7 +2945,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:geyser_moth",
+      "id": "infinite_horizon:geyser_moth",
       "kind": "entity",
       "category": "creature",
       "name_de": "Geysirmotte",
@@ -2959,7 +2959,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:ice_jelly",
+      "id": "infinite_horizon:ice_jelly",
       "kind": "entity",
       "category": "creature",
       "name_de": "Eisqualle",
@@ -2973,7 +2973,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:methane_skimmer",
+      "id": "infinite_horizon:methane_skimmer",
       "kind": "entity",
       "category": "creature",
       "name_de": "Methanläufer",
@@ -2987,7 +2987,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:mirror_beetle",
+      "id": "infinite_horizon:mirror_beetle",
       "kind": "entity",
       "category": "creature",
       "name_de": "Spiegelkäfer",
@@ -3001,7 +3001,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:reef_keeper",
+      "id": "infinite_horizon:reef_keeper",
       "kind": "entity",
       "category": "creature",
       "name_de": "Riffwächter",
@@ -3015,7 +3015,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:rubble_crawler",
+      "id": "infinite_horizon:rubble_crawler",
       "kind": "entity",
       "category": "creature",
       "name_de": "Geröllkrabbler",
@@ -3029,7 +3029,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:shade_strider",
+      "id": "infinite_horizon:shade_strider",
       "kind": "entity",
       "category": "creature",
       "name_de": "Schattenläufer",
@@ -3043,7 +3043,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:signal_sentinel",
+      "id": "infinite_horizon:signal_sentinel",
       "kind": "entity",
       "category": "creature",
       "name_de": "Wächter des Senders",
@@ -3057,7 +3057,7 @@
       "notes": "Boss"
     },
     {
-      "id": "sternenwerft:sulfur_salamander",
+      "id": "infinite_horizon:sulfur_salamander",
       "kind": "entity",
       "category": "creature",
       "name_de": "Schwefelsalamander",
@@ -3071,7 +3071,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:sulfur_snail",
+      "id": "infinite_horizon:sulfur_snail",
       "kind": "entity",
       "category": "creature",
       "name_de": "Schwefelschnecke",
@@ -3085,7 +3085,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:meteor",
+      "id": "infinite_horizon:meteor",
       "kind": "entity",
       "category": "projectile",
       "name_de": "Meteorit",
@@ -3099,7 +3099,7 @@
       "notes": "Meteoritenschauer, Ringtrümmer"
     },
     {
-      "id": "sternenwerft:sulfur_glob",
+      "id": "infinite_horizon:sulfur_glob",
       "kind": "entity",
       "category": "projectile",
       "name_de": "Schwefelklumpen",
@@ -3113,7 +3113,7 @@
       "notes": "Projektil des sulfur_salamander"
     },
     {
-      "id": "sternenwerft:probe_entity",
+      "id": "infinite_horizon:probe_entity",
       "kind": "entity",
       "category": "special",
       "name_de": "Sonde",
@@ -3127,7 +3127,7 @@
       "notes": "fliegende Sonde nach dem Start"
     },
     {
-      "id": "sternenwerft:seat",
+      "id": "infinite_horizon:seat",
       "kind": "entity",
       "category": "special",
       "name_de": "Sitz",
@@ -3141,7 +3141,7 @@
       "notes": "unsichtbarer Sitz in der Kapsel"
     },
     {
-      "id": "sternenwerft:lander",
+      "id": "infinite_horizon:lander",
       "kind": "entity",
       "category": "vehicle",
       "name_de": "Landefähre",
@@ -3155,7 +3155,7 @@
       "notes": "2 Sitze; gleiche ID auch als Item"
     },
     {
-      "id": "sternenwerft:rocket",
+      "id": "infinite_horizon:rocket",
       "kind": "entity",
       "category": "vehicle",
       "name_de": "Rakete",
@@ -3169,7 +3169,7 @@
       "notes": "entsteht aus Raketenblöcken beim Start"
     },
     {
-      "id": "sternenwerft:rover",
+      "id": "infinite_horizon:rover",
       "kind": "entity",
       "category": "vehicle",
       "name_de": "Rover",
@@ -3183,7 +3183,7 @@
       "notes": "2 Sitze, aus rover_kit"
     },
     {
-      "id": "sternenwerft:rover_trailer",
+      "id": "infinite_horizon:rover_trailer",
       "kind": "entity",
       "category": "vehicle",
       "name_de": "Rover-Anhänger",
@@ -3197,7 +3197,7 @@
       "notes": "Anhänger-Entity; gleiche ID auch als Item"
     },
     {
-      "id": "sternenwerft:starship",
+      "id": "infinite_horizon:starship",
       "kind": "entity",
       "category": "vehicle",
       "name_de": "Sternenschiff",
@@ -3211,7 +3211,7 @@
       "notes": "Rakete T3, 8 Sitze"
     },
     {
-      "id": "sternenwerft:acid_rain",
+      "id": "infinite_horizon:acid_rain",
       "kind": "event",
       "category": "world",
       "name_de": "Säureregen",
@@ -3225,7 +3225,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:dust_storm",
+      "id": "infinite_horizon:dust_storm",
       "kind": "event",
       "category": "world",
       "name_de": "Staubsturm",
@@ -3239,7 +3239,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:meteor_shower",
+      "id": "infinite_horizon:meteor_shower",
       "kind": "event",
       "category": "world",
       "name_de": "Meteoritenschauer",
@@ -3253,7 +3253,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:methane_rain",
+      "id": "infinite_horizon:methane_rain",
       "kind": "event",
       "category": "world",
       "name_de": "Methanregen",
@@ -3267,7 +3267,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:ring_debris",
+      "id": "infinite_horizon:ring_debris",
       "kind": "event",
       "category": "world",
       "name_de": "Ringtrümmer",
@@ -3281,7 +3281,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:solar_storm",
+      "id": "infinite_horizon:solar_storm",
       "kind": "event",
       "category": "world",
       "name_de": "Sonnensturm",
@@ -3295,7 +3295,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:volcanic_eruption",
+      "id": "infinite_horizon:volcanic_eruption",
       "kind": "event",
       "category": "world",
       "name_de": "Vulkanausbruch",
@@ -3309,7 +3309,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:ammonia",
+      "id": "infinite_horizon:ammonia",
       "kind": "fluid",
       "category": "material",
       "name_de": "Ammoniak",
@@ -3327,7 +3327,7 @@
       "has_bucket": false
     },
     {
-      "id": "sternenwerft:crude_oil",
+      "id": "infinite_horizon:crude_oil",
       "kind": "fluid",
       "category": "material",
       "name_de": "Erdöl",
@@ -3345,7 +3345,7 @@
       "has_bucket": true
     },
     {
-      "id": "sternenwerft:helium",
+      "id": "infinite_horizon:helium",
       "kind": "fluid",
       "category": "material",
       "name_de": "Helium",
@@ -3363,7 +3363,7 @@
       "has_bucket": false
     },
     {
-      "id": "sternenwerft:hydrogen",
+      "id": "infinite_horizon:hydrogen",
       "kind": "fluid",
       "category": "material",
       "name_de": "Wasserstoff",
@@ -3381,7 +3381,7 @@
       "has_bucket": false
     },
     {
-      "id": "sternenwerft:kerosene",
+      "id": "infinite_horizon:kerosene",
       "kind": "fluid",
       "category": "material",
       "name_de": "Kerosin",
@@ -3399,7 +3399,7 @@
       "has_bucket": true
     },
     {
-      "id": "sternenwerft:liquid_helium",
+      "id": "infinite_horizon:liquid_helium",
       "kind": "fluid",
       "category": "material",
       "name_de": "Flüssiges Helium",
@@ -3417,7 +3417,7 @@
       "has_bucket": false
     },
     {
-      "id": "sternenwerft:liquid_nitrogen",
+      "id": "infinite_horizon:liquid_nitrogen",
       "kind": "fluid",
       "category": "material",
       "name_de": "Flüssiger Stickstoff",
@@ -3435,7 +3435,7 @@
       "has_bucket": false
     },
     {
-      "id": "sternenwerft:methane",
+      "id": "infinite_horizon:methane",
       "kind": "fluid",
       "category": "material",
       "name_de": "Methan",
@@ -3454,7 +3454,7 @@
       "has_bucket": false
     },
     {
-      "id": "sternenwerft:nitrogen",
+      "id": "infinite_horizon:nitrogen",
       "kind": "fluid",
       "category": "material",
       "name_de": "Stickstoff",
@@ -3472,7 +3472,7 @@
       "has_bucket": false
     },
     {
-      "id": "sternenwerft:oxygen",
+      "id": "infinite_horizon:oxygen",
       "kind": "fluid",
       "category": "material",
       "name_de": "Sauerstoff",
@@ -3490,7 +3490,7 @@
       "has_bucket": false
     },
     {
-      "id": "sternenwerft:deep_space_suit_boots",
+      "id": "infinite_horizon:deep_space_suit_boots",
       "kind": "item",
       "category": "armor",
       "name_de": "Tiefraumanzug-Stiefel",
@@ -3504,7 +3504,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:deep_space_suit_chestplate",
+      "id": "infinite_horizon:deep_space_suit_chestplate",
       "kind": "item",
       "category": "armor",
       "name_de": "Tiefraumanzug-Brustplatte",
@@ -3518,7 +3518,7 @@
       "notes": "O₂-Vorrat (Data Component oxygen, max. 1.200 mB)"
     },
     {
-      "id": "sternenwerft:deep_space_suit_helmet",
+      "id": "infinite_horizon:deep_space_suit_helmet",
       "kind": "item",
       "category": "armor",
       "name_de": "Tiefraumanzug-Helm",
@@ -3532,7 +3532,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:deep_space_suit_leggings",
+      "id": "infinite_horizon:deep_space_suit_leggings",
       "kind": "item",
       "category": "armor",
       "name_de": "Tiefraumanzug-Hose",
@@ -3546,7 +3546,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:heat_suit_boots",
+      "id": "infinite_horizon:heat_suit_boots",
       "kind": "item",
       "category": "armor",
       "name_de": "Hitzeanzug-Stiefel",
@@ -3560,7 +3560,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:heat_suit_chestplate",
+      "id": "infinite_horizon:heat_suit_chestplate",
       "kind": "item",
       "category": "armor",
       "name_de": "Hitzeanzug-Brustplatte",
@@ -3574,7 +3574,7 @@
       "notes": "O₂-Vorrat (Data Component oxygen, max. 1.200 mB)"
     },
     {
-      "id": "sternenwerft:heat_suit_helmet",
+      "id": "infinite_horizon:heat_suit_helmet",
       "kind": "item",
       "category": "armor",
       "name_de": "Hitzeanzug-Helm",
@@ -3588,7 +3588,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:heat_suit_leggings",
+      "id": "infinite_horizon:heat_suit_leggings",
       "kind": "item",
       "category": "armor",
       "name_de": "Hitzeanzug-Hose",
@@ -3602,7 +3602,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:pressure_suit_boots",
+      "id": "infinite_horizon:pressure_suit_boots",
       "kind": "item",
       "category": "armor",
       "name_de": "Druckanzug-Stiefel",
@@ -3616,7 +3616,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:pressure_suit_chestplate",
+      "id": "infinite_horizon:pressure_suit_chestplate",
       "kind": "item",
       "category": "armor",
       "name_de": "Druckanzug-Brustplatte",
@@ -3630,7 +3630,7 @@
       "notes": "O₂-Vorrat (Data Component oxygen, max. 1.200 mB)"
     },
     {
-      "id": "sternenwerft:pressure_suit_helmet",
+      "id": "infinite_horizon:pressure_suit_helmet",
       "kind": "item",
       "category": "armor",
       "name_de": "Druckanzug-Helm",
@@ -3644,7 +3644,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:pressure_suit_leggings",
+      "id": "infinite_horizon:pressure_suit_leggings",
       "kind": "item",
       "category": "armor",
       "name_de": "Druckanzug-Hose",
@@ -3658,7 +3658,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:advanced_circuit",
+      "id": "infinite_horizon:advanced_circuit",
       "kind": "item",
       "category": "component",
       "name_de": "Fortgeschrittener Schaltkreis",
@@ -3672,7 +3672,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:antimatter_cell",
+      "id": "infinite_horizon:antimatter_cell",
       "kind": "item",
       "category": "component",
       "name_de": "Antimaterie-Zelle",
@@ -3687,7 +3687,7 @@
       "notes": "leer/gefüllt per Data Component charge 0/1; gefüllt in magnetic_trap"
     },
     {
-      "id": "sternenwerft:circuit",
+      "id": "infinite_horizon:circuit",
       "kind": "item",
       "category": "component",
       "name_de": "Schaltkreis",
@@ -3701,7 +3701,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:cooling_system",
+      "id": "infinite_horizon:cooling_system",
       "kind": "item",
       "category": "component",
       "name_de": "Kühlsystem",
@@ -3715,7 +3715,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:fuel_rod",
+      "id": "infinite_horizon:fuel_rod",
       "kind": "item",
       "category": "component",
       "name_de": "Brennstab",
@@ -3729,7 +3729,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:heat_shield",
+      "id": "infinite_horizon:heat_shield",
       "kind": "item",
       "category": "component",
       "name_de": "Hitzeschild",
@@ -3743,7 +3743,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:insulation_fabric",
+      "id": "infinite_horizon:insulation_fabric",
       "kind": "item",
       "category": "component",
       "name_de": "Isoliergewebe",
@@ -3758,7 +3758,7 @@
       "notes": "Drop frost_lurker"
     },
     {
-      "id": "sternenwerft:iridium_chip",
+      "id": "infinite_horizon:iridium_chip",
       "kind": "item",
       "category": "component",
       "name_de": "Iridium-Chip",
@@ -3772,7 +3772,7 @@
       "notes": "Schwerelos-Fertigung"
     },
     {
-      "id": "sternenwerft:lithium_battery",
+      "id": "infinite_horizon:lithium_battery",
       "kind": "item",
       "category": "component",
       "name_de": "Lithium-Akku",
@@ -3786,7 +3786,7 @@
       "notes": "Bauteil"
     },
     {
-      "id": "sternenwerft:machine_frame",
+      "id": "infinite_horizon:machine_frame",
       "kind": "item",
       "category": "component",
       "name_de": "Maschinenrahmen",
@@ -3800,7 +3800,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:pressure_hull",
+      "id": "infinite_horizon:pressure_hull",
       "kind": "item",
       "category": "component",
       "name_de": "Druckhülle",
@@ -3814,7 +3814,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:superconductor_wire",
+      "id": "infinite_horizon:superconductor_wire",
       "kind": "item",
       "category": "component",
       "name_de": "Supraleiterdraht",
@@ -3828,7 +3828,7 @@
       "notes": "Schwerelos-Fertigung"
     },
     {
-      "id": "sternenwerft:dome_efficiency_module",
+      "id": "infinite_horizon:dome_efficiency_module",
       "kind": "item",
       "category": "dome_module",
       "name_de": "Kuppel-Effizienzmodul",
@@ -3842,7 +3842,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:dome_range_module",
+      "id": "infinite_horizon:dome_range_module",
       "kind": "item",
       "category": "dome_module",
       "name_de": "Kuppel-Reichweitenmodul",
@@ -3856,7 +3856,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:dome_shield_module",
+      "id": "infinite_horizon:dome_shield_module",
       "kind": "item",
       "category": "dome_module",
       "name_de": "Kuppel-Schildmodul",
@@ -3870,7 +3870,7 @@
       "notes": "fängt Meteoriten und Ringtrümmer ab"
     },
     {
-      "id": "sternenwerft:space_ration",
+      "id": "infinite_horizon:space_ration",
       "kind": "item",
       "category": "food",
       "name_de": "Weltraumration",
@@ -3884,7 +3884,7 @@
       "notes": "Nahrungspacker; Data Component nutrition"
     },
     {
-      "id": "sternenwerft:antimatter_drive",
+      "id": "infinite_horizon:antimatter_drive",
       "kind": "item",
       "category": "logistics",
       "name_de": "Antimaterie-Antrieb",
@@ -3898,7 +3898,7 @@
       "notes": "Flugzeit ÷ 10; Werftabschnitt 3"
     },
     {
-      "id": "sternenwerft:atomic_drive",
+      "id": "infinite_horizon:atomic_drive",
       "kind": "item",
       "category": "logistics",
       "name_de": "Atomantrieb",
@@ -3912,7 +3912,7 @@
       "notes": "Flugzeit ÷ 2"
     },
     {
-      "id": "sternenwerft:cargo_rocket",
+      "id": "infinite_horizon:cargo_rocket",
       "kind": "item",
       "category": "logistics",
       "name_de": "Frachtrakete",
@@ -3926,7 +3926,7 @@
       "notes": "Data Component drive"
     },
     {
-      "id": "sternenwerft:heavy_freighter",
+      "id": "infinite_horizon:heavy_freighter",
       "kind": "item",
       "category": "logistics",
       "name_de": "Schwerlast-Frachter",
@@ -3940,7 +3940,7 @@
       "notes": "Data Component flights_left; atomic_drive eingebaut"
     },
     {
-      "id": "sternenwerft:transport_tank",
+      "id": "infinite_horizon:transport_tank",
       "kind": "item",
       "category": "logistics",
       "name_de": "Transporttank",
@@ -3954,7 +3954,7 @@
       "notes": "16.000 mB, ein Fluid, Data Component fluid"
     },
     {
-      "id": "sternenwerft:efficiency_upgrade",
+      "id": "infinite_horizon:efficiency_upgrade",
       "kind": "item",
       "category": "machine_upgrade",
       "name_de": "Effizienz-Upgrade",
@@ -3968,7 +3968,7 @@
       "notes": "Spec 4.2: max. 4 je Upgrade-Slot (Schema erlaubt nur 1/16/64)"
     },
     {
-      "id": "sternenwerft:speed_upgrade",
+      "id": "infinite_horizon:speed_upgrade",
       "kind": "item",
       "category": "machine_upgrade",
       "name_de": "Geschwindigkeits-Upgrade",
@@ -3982,7 +3982,7 @@
       "notes": "Spec 4.2: max. 4 je Upgrade-Slot (Schema erlaubt nur 1/16/64)"
     },
     {
-      "id": "sternenwerft:aluminum_dust",
+      "id": "infinite_horizon:aluminum_dust",
       "kind": "item",
       "category": "material",
       "name_de": "Aluminiumstaub",
@@ -3996,7 +3996,7 @@
       "notes": "Zerkleinerer"
     },
     {
-      "id": "sternenwerft:aluminum_ingot",
+      "id": "infinite_horizon:aluminum_ingot",
       "kind": "item",
       "category": "material",
       "name_de": "Aluminiumbarren",
@@ -4010,7 +4010,7 @@
       "notes": "Ofen oder Elektroofen"
     },
     {
-      "id": "sternenwerft:aluminum_plate",
+      "id": "infinite_horizon:aluminum_plate",
       "kind": "item",
       "category": "material",
       "name_de": "Aluminiumplatte",
@@ -4024,7 +4024,7 @@
       "notes": "Presse + press_mold_plate"
     },
     {
-      "id": "sternenwerft:aluminum_wire",
+      "id": "infinite_horizon:aluminum_wire",
       "kind": "item",
       "category": "material",
       "name_de": "Aluminiumdraht",
@@ -4038,7 +4038,7 @@
       "notes": "Presse + press_mold_wire"
     },
     {
-      "id": "sternenwerft:armor_plate",
+      "id": "infinite_horizon:armor_plate",
       "kind": "item",
       "category": "material",
       "name_de": "Panzerplatte",
@@ -4052,7 +4052,7 @@
       "notes": "Drop dune_burrower"
     },
     {
-      "id": "sternenwerft:bauxite",
+      "id": "infinite_horizon:bauxite",
       "kind": "item",
       "category": "material",
       "name_de": "Bauxit",
@@ -4066,7 +4066,7 @@
       "notes": "Rohform von Aluminium; Drop von bauxite_ore und moon_aluminum_ore"
     },
     {
-      "id": "sternenwerft:ceramic_plate",
+      "id": "infinite_horizon:ceramic_plate",
       "kind": "item",
       "category": "material",
       "name_de": "Keramikplatte",
@@ -4080,7 +4080,7 @@
       "notes": "Hochtemperaturofen"
     },
     {
-      "id": "sternenwerft:compost",
+      "id": "infinite_horizon:compost",
       "kind": "item",
       "category": "material",
       "name_de": "Kompost",
@@ -4094,7 +4094,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:copper_dust",
+      "id": "infinite_horizon:copper_dust",
       "kind": "item",
       "category": "material",
       "name_de": "Kupferstaub",
@@ -4108,7 +4108,7 @@
       "notes": "Zerkleinerer"
     },
     {
-      "id": "sternenwerft:copper_wire",
+      "id": "infinite_horizon:copper_wire",
       "kind": "item",
       "category": "material",
       "name_de": "Kupferdraht",
@@ -4122,7 +4122,7 @@
       "notes": "Presse + press_mold_wire"
     },
     {
-      "id": "sternenwerft:dry_ice",
+      "id": "infinite_horizon:dry_ice",
       "kind": "item",
       "category": "material",
       "name_de": "Trockeneis",
@@ -4136,7 +4136,7 @@
       "notes": "dry_ice_block droppt 4"
     },
     {
-      "id": "sternenwerft:gold_dust",
+      "id": "infinite_horizon:gold_dust",
       "kind": "item",
       "category": "material",
       "name_de": "Goldstaub",
@@ -4150,7 +4150,7 @@
       "notes": "Zerkleinerer"
     },
     {
-      "id": "sternenwerft:gold_wire",
+      "id": "infinite_horizon:gold_wire",
       "kind": "item",
       "category": "material",
       "name_de": "Golddraht",
@@ -4164,7 +4164,7 @@
       "notes": "Presse + press_mold_wire"
     },
     {
-      "id": "sternenwerft:gypsum",
+      "id": "infinite_horizon:gypsum",
       "kind": "item",
       "category": "material",
       "name_de": "Gips",
@@ -4178,7 +4178,7 @@
       "notes": "gypsum_block droppt 4"
     },
     {
-      "id": "sternenwerft:heat_scale",
+      "id": "infinite_horizon:heat_scale",
       "kind": "item",
       "category": "material",
       "name_de": "Hitzeschuppe",
@@ -4192,7 +4192,7 @@
       "notes": "Drop sulfur_salamander"
     },
     {
-      "id": "sternenwerft:iridium_dust",
+      "id": "infinite_horizon:iridium_dust",
       "kind": "item",
       "category": "material",
       "name_de": "Iridiumstaub",
@@ -4206,7 +4206,7 @@
       "notes": "Zerkleinerer"
     },
     {
-      "id": "sternenwerft:iridium_ingot",
+      "id": "infinite_horizon:iridium_ingot",
       "kind": "item",
       "category": "material",
       "name_de": "Iridiumbarren",
@@ -4220,7 +4220,7 @@
       "notes": "nur Elektroofen"
     },
     {
-      "id": "sternenwerft:iron_dust",
+      "id": "infinite_horizon:iron_dust",
       "kind": "item",
       "category": "material",
       "name_de": "Eisenstaub",
@@ -4234,7 +4234,7 @@
       "notes": "Zerkleinerer"
     },
     {
-      "id": "sternenwerft:iron_plate",
+      "id": "infinite_horizon:iron_plate",
       "kind": "item",
       "category": "material",
       "name_de": "Eisenplatte",
@@ -4248,7 +4248,7 @@
       "notes": "Presse + press_mold_plate"
     },
     {
-      "id": "sternenwerft:iron_rod",
+      "id": "infinite_horizon:iron_rod",
       "kind": "item",
       "category": "material",
       "name_de": "Eisenstange",
@@ -4262,7 +4262,7 @@
       "notes": "Presse + press_mold_rod"
     },
     {
-      "id": "sternenwerft:lightweight_plate",
+      "id": "infinite_horizon:lightweight_plate",
       "kind": "item",
       "category": "material",
       "name_de": "Leichtbau-Platte",
@@ -4276,7 +4276,7 @@
       "notes": "Presse aus magnesium_alloy"
     },
     {
-      "id": "sternenwerft:lithium_dust",
+      "id": "infinite_horizon:lithium_dust",
       "kind": "item",
       "category": "material",
       "name_de": "Lithiumstaub",
@@ -4290,7 +4290,7 @@
       "notes": "Zerkleinerer"
     },
     {
-      "id": "sternenwerft:lithium_ingot",
+      "id": "infinite_horizon:lithium_ingot",
       "kind": "item",
       "category": "material",
       "name_de": "Lithiumbarren",
@@ -4304,7 +4304,7 @@
       "notes": "nur Elektroofen"
     },
     {
-      "id": "sternenwerft:lithium_salt",
+      "id": "infinite_horizon:lithium_salt",
       "kind": "item",
       "category": "material",
       "name_de": "Lithiumsalz",
@@ -4318,7 +4318,7 @@
       "notes": "Rohform von Lithium; mercury_lithium_salt droppt 2"
     },
     {
-      "id": "sternenwerft:magnesium_alloy",
+      "id": "infinite_horizon:magnesium_alloy",
       "kind": "item",
       "category": "material",
       "name_de": "Magnesium-Legierung",
@@ -4332,7 +4332,7 @@
       "notes": "Elektroofen, 2 Eingaben"
     },
     {
-      "id": "sternenwerft:magnesium_dust",
+      "id": "infinite_horizon:magnesium_dust",
       "kind": "item",
       "category": "material",
       "name_de": "Magnesiumstaub",
@@ -4346,7 +4346,7 @@
       "notes": "Zerkleinerer"
     },
     {
-      "id": "sternenwerft:magnesium_ingot",
+      "id": "infinite_horizon:magnesium_ingot",
       "kind": "item",
       "category": "material",
       "name_de": "Magnesiumbarren",
@@ -4360,7 +4360,7 @@
       "notes": "nur Elektroofen"
     },
     {
-      "id": "sternenwerft:metal_concentrate",
+      "id": "infinite_horizon:metal_concentrate",
       "kind": "item",
       "category": "material",
       "name_de": "Metallkonzentrat",
@@ -4374,7 +4374,7 @@
       "notes": "Drop rubble_crawler"
     },
     {
-      "id": "sternenwerft:microbe_culture",
+      "id": "infinite_horizon:microbe_culture",
       "kind": "item",
       "category": "material",
       "name_de": "Mikrobenkultur",
@@ -4388,7 +4388,7 @@
       "notes": "Rechtsklick mit Glasflasche auf hydrothermal_vent (13.4), Block bleibt"
     },
     {
-      "id": "sternenwerft:mirror_shell",
+      "id": "infinite_horizon:mirror_shell",
       "kind": "item",
       "category": "material",
       "name_de": "Spiegelpanzer",
@@ -4402,7 +4402,7 @@
       "notes": "Drop mirror_beetle"
     },
     {
-      "id": "sternenwerft:nickel_dust",
+      "id": "infinite_horizon:nickel_dust",
       "kind": "item",
       "category": "material",
       "name_de": "Nickelstaub",
@@ -4416,7 +4416,7 @@
       "notes": "Zerkleinerer"
     },
     {
-      "id": "sternenwerft:nickel_ingot",
+      "id": "infinite_horizon:nickel_ingot",
       "kind": "item",
       "category": "material",
       "name_de": "Nickelbarren",
@@ -4430,7 +4430,7 @@
       "notes": "nur Elektroofen"
     },
     {
-      "id": "sternenwerft:nickel_plate",
+      "id": "infinite_horizon:nickel_plate",
       "kind": "item",
       "category": "material",
       "name_de": "Nickelplatte",
@@ -4444,7 +4444,7 @@
       "notes": "Presse + press_mold_plate"
     },
     {
-      "id": "sternenwerft:plastic",
+      "id": "infinite_horizon:plastic",
       "kind": "item",
       "category": "material",
       "name_de": "Kunststoff",
@@ -4458,7 +4458,7 @@
       "notes": "Raffinerie"
     },
     {
-      "id": "sternenwerft:platinum_dust",
+      "id": "infinite_horizon:platinum_dust",
       "kind": "item",
       "category": "material",
       "name_de": "Platinstaub",
@@ -4472,7 +4472,7 @@
       "notes": "Zerkleinerer"
     },
     {
-      "id": "sternenwerft:platinum_ingot",
+      "id": "infinite_horizon:platinum_ingot",
       "kind": "item",
       "category": "material",
       "name_de": "Platinbarren",
@@ -4486,7 +4486,7 @@
       "notes": "nur Elektroofen"
     },
     {
-      "id": "sternenwerft:raw_iridium",
+      "id": "infinite_horizon:raw_iridium",
       "kind": "item",
       "category": "material",
       "name_de": "Rohiridium",
@@ -4501,7 +4501,7 @@
       "notes": "Drop von asteroid_iridium_ore; Zerkleinerer aus meteorite_ore (5 %)"
     },
     {
-      "id": "sternenwerft:raw_magnesium",
+      "id": "infinite_horizon:raw_magnesium",
       "kind": "item",
       "category": "material",
       "name_de": "Rohmagnesium",
@@ -4515,7 +4515,7 @@
       "notes": "Drop von mars_magnesium_ore"
     },
     {
-      "id": "sternenwerft:raw_nickel",
+      "id": "infinite_horizon:raw_nickel",
       "kind": "item",
       "category": "material",
       "name_de": "Rohnickel",
@@ -4530,7 +4530,7 @@
       "notes": "Drop von iron_nickel_meteorite, asteroid_nickel_ore; Zerkleinerer aus meteorite_ore"
     },
     {
-      "id": "sternenwerft:raw_platinum",
+      "id": "infinite_horizon:raw_platinum",
       "kind": "item",
       "category": "material",
       "name_de": "Rohplatin",
@@ -4545,7 +4545,7 @@
       "notes": "Drop von asteroid_platinum_ore; Zerkleinerer aus meteorite_ore (10 %)"
     },
     {
-      "id": "sternenwerft:raw_titanium",
+      "id": "infinite_horizon:raw_titanium",
       "kind": "item",
       "category": "material",
       "name_de": "Rohtitan",
@@ -4559,7 +4559,7 @@
       "notes": "Drop von titanium_ore, deepslate_titanium_ore, moon_titanium_ore, mercury_titanium_ore"
     },
     {
-      "id": "sternenwerft:raw_tungsten",
+      "id": "infinite_horizon:raw_tungsten",
       "kind": "item",
       "category": "material",
       "name_de": "Rohwolfram",
@@ -4573,7 +4573,7 @@
       "notes": "Drop von venus_tungsten_ore"
     },
     {
-      "id": "sternenwerft:raw_uranium",
+      "id": "infinite_horizon:raw_uranium",
       "kind": "item",
       "category": "material",
       "name_de": "Rohuran",
@@ -4587,7 +4587,7 @@
       "notes": "Drop von pluto_uranium_ore"
     },
     {
-      "id": "sternenwerft:silicon",
+      "id": "infinite_horizon:silicon",
       "kind": "item",
       "category": "material",
       "name_de": "Silizium",
@@ -4601,7 +4601,7 @@
       "notes": "quartz_sand im Elektroofen"
     },
     {
-      "id": "sternenwerft:skimmer_leg",
+      "id": "infinite_horizon:skimmer_leg",
       "kind": "item",
       "category": "material",
       "name_de": "Läuferbein",
@@ -4615,7 +4615,7 @@
       "notes": "Drop methane_skimmer"
     },
     {
-      "id": "sternenwerft:sulfur",
+      "id": "infinite_horizon:sulfur",
       "kind": "item",
       "category": "material",
       "name_de": "Schwefel",
@@ -4630,7 +4630,7 @@
       "notes": "Venus, Io, sulfur_snail"
     },
     {
-      "id": "sternenwerft:titanium_dust",
+      "id": "infinite_horizon:titanium_dust",
       "kind": "item",
       "category": "material",
       "name_de": "Titanstaub",
@@ -4644,7 +4644,7 @@
       "notes": "Zerkleinerer"
     },
     {
-      "id": "sternenwerft:titanium_ingot",
+      "id": "infinite_horizon:titanium_ingot",
       "kind": "item",
       "category": "material",
       "name_de": "Titanbarren",
@@ -4658,7 +4658,7 @@
       "notes": "Ofen oder Elektroofen"
     },
     {
-      "id": "sternenwerft:titanium_plate",
+      "id": "infinite_horizon:titanium_plate",
       "kind": "item",
       "category": "material",
       "name_de": "Titanplatte",
@@ -4672,7 +4672,7 @@
       "notes": "Presse + press_mold_plate"
     },
     {
-      "id": "sternenwerft:titanium_rod",
+      "id": "infinite_horizon:titanium_rod",
       "kind": "item",
       "category": "material",
       "name_de": "Titanstange",
@@ -4686,7 +4686,7 @@
       "notes": "Presse + press_mold_rod"
     },
     {
-      "id": "sternenwerft:tungsten_dust",
+      "id": "infinite_horizon:tungsten_dust",
       "kind": "item",
       "category": "material",
       "name_de": "Wolframstaub",
@@ -4700,7 +4700,7 @@
       "notes": "Zerkleinerer"
     },
     {
-      "id": "sternenwerft:tungsten_ingot",
+      "id": "infinite_horizon:tungsten_ingot",
       "kind": "item",
       "category": "material",
       "name_de": "Wolframbarren",
@@ -4714,7 +4714,7 @@
       "notes": "Hochtemperaturofen"
     },
     {
-      "id": "sternenwerft:tungsten_plate",
+      "id": "infinite_horizon:tungsten_plate",
       "kind": "item",
       "category": "material",
       "name_de": "Wolframplatte",
@@ -4728,7 +4728,7 @@
       "notes": "Presse + press_mold_plate"
     },
     {
-      "id": "sternenwerft:uranium_dust",
+      "id": "infinite_horizon:uranium_dust",
       "kind": "item",
       "category": "material",
       "name_de": "Uranstaub",
@@ -4742,7 +4742,7 @@
       "notes": "Zerkleinerer"
     },
     {
-      "id": "sternenwerft:uranium_ingot",
+      "id": "infinite_horizon:uranium_ingot",
       "kind": "item",
       "category": "material",
       "name_de": "Uranbarren",
@@ -4756,7 +4756,7 @@
       "notes": "nur Elektroofen"
     },
     {
-      "id": "sternenwerft:rover_drill",
+      "id": "infinite_horizon:rover_drill",
       "kind": "item",
       "category": "rover_module",
       "name_de": "Rover-Bohrer",
@@ -4770,7 +4770,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:rover_headlight",
+      "id": "infinite_horizon:rover_headlight",
       "kind": "item",
       "category": "rover_module",
       "name_de": "Rover-Scheinwerfer",
@@ -4784,7 +4784,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:rover_lithium_pack",
+      "id": "infinite_horizon:rover_lithium_pack",
       "kind": "item",
       "category": "rover_module",
       "name_de": "Rover-Lithiumpaket",
@@ -4798,7 +4798,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:rover_pressure_cabin",
+      "id": "infinite_horizon:rover_pressure_cabin",
       "kind": "item",
       "category": "rover_module",
       "name_de": "Rover-Druckkabine",
@@ -4812,7 +4812,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:rover_scanner",
+      "id": "infinite_horizon:rover_scanner",
       "kind": "item",
       "category": "rover_module",
       "name_de": "Rover-Scanner",
@@ -4826,7 +4826,7 @@
       "notes": null
     },
     {
-      "id": "sternenwerft:rover_trailer",
+      "id": "infinite_horizon:rover_trailer",
       "kind": "item",
       "category": "rover_module",
       "name_de": "Rover-Anhänger",
@@ -4840,7 +4840,7 @@
       "notes": "+27 Slots; gleiche ID auch als Entity"
     },
     {
-      "id": "sternenwerft:ammonia_fertilizer",
+      "id": "infinite_horizon:ammonia_fertilizer",
       "kind": "item",
       "category": "special",
       "name_de": "Ammoniak-Dünger",
@@ -4854,7 +4854,7 @@
       "notes": "Verbrauchsgut: Rechtsklick auf Hydrokultur-Becken oder Gewächshaus (17)"
     },
     {
-      "id": "sternenwerft:engineers_handbook",
+      "id": "infinite_horizon:engineers_handbook",
       "kind": "item",
       "category": "special",
       "name_de": "Ingenieurs-Handbuch",
@@ -4869,7 +4869,7 @@
       "notes": "beim ersten Join, Ersatz per Werkbank"
     },
     {
-      "id": "sternenwerft:planetary_atlas",
+      "id": "infinite_horizon:planetary_atlas",
       "kind": "item",
       "category": "special",
       "name_de": "Planetenatlas",
@@ -4884,7 +4884,7 @@
       "notes": "beim ersten Join, Ersatz per Werkbank"
     },
     {
-      "id": "sternenwerft:sample",
+      "id": "infinite_horizon:sample",
       "kind": "item",
       "category": "special",
       "name_de": "Probe",
@@ -4898,7 +4898,7 @@
       "notes": "erzeugt durch sample_tool; Data Component sample (block, dimension)"
     },
     {
-      "id": "sternenwerft:star_chart",
+      "id": "infinite_horizon:star_chart",
       "kind": "item",
       "category": "special",
       "name_de": "Sternenkarte",
@@ -4912,7 +4912,7 @@
       "notes": "Drop signal_sentinel; Data Component chart_owner; feuerfest, despawnt nie"
     },
     {
-      "id": "sternenwerft:armor_plating",
+      "id": "infinite_horizon:armor_plating",
       "kind": "item",
       "category": "suit_module",
       "name_de": "Panzerung",
@@ -4926,7 +4926,7 @@
       "notes": "Teil: Hose/Stiefel"
     },
     {
-      "id": "sternenwerft:cooling_module",
+      "id": "infinite_horizon:cooling_module",
       "kind": "item",
       "category": "suit_module",
       "name_de": "Kühlmodul",
@@ -4940,7 +4940,7 @@
       "notes": "Teil: Brust"
     },
     {
-      "id": "sternenwerft:diving_module",
+      "id": "infinite_horizon:diving_module",
       "kind": "item",
       "category": "suit_module",
       "name_de": "Tauchmodul",
@@ -4954,7 +4954,7 @@
       "notes": "Teil: Hose"
     },
     {
-      "id": "sternenwerft:heat_reflector",
+      "id": "infinite_horizon:heat_reflector",
       "kind": "item",
       "category": "suit_module",
       "name_de": "Hitzereflektor",
@@ -4968,7 +4968,7 @@
       "notes": "Teil: Brust"
     },
     {
-      "id": "sternenwerft:heating_module",
+      "id": "infinite_horizon:heating_module",
       "kind": "item",
       "category": "suit_module",
       "name_de": "Heizmodul",
@@ -4982,7 +4982,7 @@
       "notes": "Teil: Brust"
     },
     {
-      "id": "sternenwerft:helmet_lamp",
+      "id": "infinite_horizon:helmet_lamp",
       "kind": "item",
       "category": "suit_module",
       "name_de": "Helmlampe",
@@ -4996,7 +4996,7 @@
       "notes": "Teil: Helm"
     },
     {
-      "id": "sternenwerft:jetpack",
+      "id": "infinite_horizon:jetpack",
       "kind": "item",
       "category": "suit_module",
       "name_de": "Jetpack",
@@ -5010,7 +5010,7 @@
       "notes": "Teil: Brust; Data Component energy, 200.000 J"
     },
     {
-      "id": "sternenwerft:magnet_boots",
+      "id": "infinite_horizon:magnet_boots",
       "kind": "item",
       "category": "suit_module",
       "name_de": "Magnetstiefel",
@@ -5024,7 +5024,7 @@
       "notes": "Teil: Stiefel"
     },
     {
-      "id": "sternenwerft:radiation_shield",
+      "id": "infinite_horizon:radiation_shield",
       "kind": "item",
       "category": "suit_module",
       "name_de": "Strahlenschild",
@@ -5038,7 +5038,7 @@
       "notes": "Teil: Helm"
     },
     {
-      "id": "sternenwerft:crude_oil_bucket",
+      "id": "infinite_horizon:crude_oil_bucket",
       "kind": "item",
       "category": "tool",
       "name_de": "Erdöleimer",
@@ -5052,7 +5052,7 @@
       "notes": "kein Rezept; 1.000 mB crude_oil; leerer Eimer im Füllslot oder Eimer auf Quellblock crude_oil; platzierbar"
     },
     {
-      "id": "sternenwerft:field_scanner",
+      "id": "infinite_horizon:field_scanner",
       "kind": "item",
       "category": "tool",
       "name_de": "Feldscanner",
@@ -5066,7 +5066,7 @@
       "notes": "analysiert Kreaturen (+15 FP)"
     },
     {
-      "id": "sternenwerft:ice_drill",
+      "id": "infinite_horizon:ice_drill",
       "kind": "item",
       "category": "tool",
       "name_de": "Eisbohrer",
@@ -5080,7 +5080,7 @@
       "notes": "interner Akku 100.000 J"
     },
     {
-      "id": "sternenwerft:kerosene_bucket",
+      "id": "infinite_horizon:kerosene_bucket",
       "kind": "item",
       "category": "tool",
       "name_de": "Kerosineimer",
@@ -5094,7 +5094,7 @@
       "notes": "kein Rezept; 1.000 mB kerosene; leerer Eimer im Füllslot; kerosene ist nicht als Block platzierbar"
     },
     {
-      "id": "sternenwerft:large_oxygen_canister",
+      "id": "infinite_horizon:large_oxygen_canister",
       "kind": "item",
       "category": "tool",
       "name_de": "Große Sauerstoffflasche",
@@ -5108,7 +5108,7 @@
       "notes": "1.200 mB, Data Component fluid"
     },
     {
-      "id": "sternenwerft:oxygen_canister",
+      "id": "infinite_horizon:oxygen_canister",
       "kind": "item",
       "category": "tool",
       "name_de": "Sauerstoffflasche",
@@ -5122,7 +5122,7 @@
       "notes": "600 mB, Data Component fluid"
     },
     {
-      "id": "sternenwerft:press_mold_plate",
+      "id": "infinite_horizon:press_mold_plate",
       "kind": "item",
       "category": "tool",
       "name_de": "Pressform (Platte)",
@@ -5136,7 +5136,7 @@
       "notes": "wird nicht verbraucht"
     },
     {
-      "id": "sternenwerft:press_mold_rod",
+      "id": "infinite_horizon:press_mold_rod",
       "kind": "item",
       "category": "tool",
       "name_de": "Pressform (Stange)",
@@ -5150,7 +5150,7 @@
       "notes": "wird nicht verbraucht"
     },
     {
-      "id": "sternenwerft:press_mold_wire",
+      "id": "infinite_horizon:press_mold_wire",
       "kind": "item",
       "category": "tool",
       "name_de": "Pressform (Draht)",
@@ -5164,7 +5164,7 @@
       "notes": "wird nicht verbraucht"
     },
     {
-      "id": "sternenwerft:sample_tool",
+      "id": "infinite_horizon:sample_tool",
       "kind": "item",
       "category": "tool",
       "name_de": "Probenzange",
@@ -5178,7 +5178,7 @@
       "notes": "Abklingzeit 40 t"
     },
     {
-      "id": "sternenwerft:lander",
+      "id": "infinite_horizon:lander",
       "kind": "item",
       "category": "vehicle",
       "name_de": "Landefähre",
@@ -5192,7 +5192,7 @@
       "notes": "setzt das gleichnamige Entity; nur in Orbit-Dimensionen oder auf docking_bay"
     },
     {
-      "id": "sternenwerft:rover_kit",
+      "id": "infinite_horizon:rover_kit",
       "kind": "item",
       "category": "vehicle",
       "name_de": "Rover-Bausatz",
@@ -5206,7 +5206,7 @@
       "notes": "setzt Entity rover; Data Component rover_data"
     },
     {
-      "id": "sternenwerft:giant_volcano",
+      "id": "infinite_horizon:giant_volcano",
       "kind": "structure",
       "category": "world",
       "name_de": "Riesenvulkan",
@@ -5220,7 +5220,7 @@
       "notes": "mars; Radius 80"
     },
     {
-      "id": "sternenwerft:great_crater",
+      "id": "infinite_horizon:great_crater",
       "kind": "structure",
       "category": "world",
       "name_de": "Großkrater",
@@ -5234,7 +5234,7 @@
       "notes": "moon; Erze ×2 innerhalb"
     },
     {
-      "id": "sternenwerft:hydrothermal_field",
+      "id": "infinite_horizon:hydrothermal_field",
       "kind": "structure",
       "category": "world",
       "name_de": "Hydrothermalfeld",
@@ -5248,7 +5248,7 @@
       "notes": "europa; Erkundungsziel; 1 reef_keeper"
     },
     {
-      "id": "sternenwerft:ice_volcano",
+      "id": "infinite_horizon:ice_volcano",
       "kind": "structure",
       "category": "world",
       "name_de": "Eisvulkan",
@@ -5262,7 +5262,7 @@
       "notes": "ceres; Erkundungsziel"
     },
     {
-      "id": "sternenwerft:large_asteroid",
+      "id": "infinite_horizon:large_asteroid",
       "kind": "structure",
       "category": "world",
       "name_de": "Großer Asteroid",
@@ -5276,7 +5276,7 @@
       "notes": "asteroid_belt; Radius 13–20"
     },
     {
-      "id": "sternenwerft:lava_tube",
+      "id": "infinite_horizon:lava_tube",
       "kind": "structure",
       "category": "world",
       "name_de": "Lavaröhre",
@@ -5290,7 +5290,7 @@
       "notes": "moon, mars; Erkundungsziel"
     },
     {
-      "id": "sternenwerft:meteorite_field",
+      "id": "infinite_horizon:meteorite_field",
       "kind": "structure",
       "category": "world",
       "name_de": "Meteoritenfeld",
@@ -5304,7 +5304,7 @@
       "notes": "mars; Erkundungsziel"
     },
     {
-      "id": "sternenwerft:signal_transmitter",
+      "id": "infinite_horizon:signal_transmitter",
       "kind": "structure",
       "category": "world",
       "name_de": "Sender",
@@ -5318,7 +5318,7 @@
       "notes": "pluto; genau eine; Erkundungsziel"
     },
     {
-      "id": "sternenwerft:volcanic_vent",
+      "id": "infinite_horizon:volcanic_vent",
       "kind": "structure",
       "category": "world",
       "name_de": "Vulkanschlot",

@@ -1,0 +1,16 @@
+{
+  "type": "infinite_horizon:crushing",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:raw_titanium",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:titanium_dust",
+      "count": 2,
+      "chance": 1.0
+    }
+  ]
+}

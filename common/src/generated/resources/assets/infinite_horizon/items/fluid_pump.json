@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "infinite_horizon:block/fluid_pump_idle"
+  }
+}

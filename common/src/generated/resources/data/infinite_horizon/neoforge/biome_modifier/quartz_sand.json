@@ -1,0 +1,6 @@
+{
+  "type": "neoforge:add_features",
+  "biomes": "#infinite_horizon:has_quartz_sand",
+  "features": "infinite_horizon:quartz_sand",
+  "step": "underground_ores"
+}

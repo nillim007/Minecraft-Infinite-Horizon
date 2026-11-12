@@ -17,11 +17,11 @@
 
 `planetary_atlas`: Item, das jeder Spieler beim ersten Join bekommt (Ersatz per Werkbank, 22.1). Rechtsklick öffnet die GUI mit allen Zielen. Pro Ziel: Status (unbekannt, Sonde angekommen, besucht), Entdecker-Agentur, besuchte Biome, gefundene Erkundungsziele, Landefeuer. Inhalte gehören der Agentur. In M2 wird `planetary_atlas` nur registriert (Item, Rezept, Platzhalter); GUI und Geschenk beim ersten Join kommen mit M4.
 
-## 24.3 Erfolge (Advancements, Reiter `sternenwerft:root`)
+## 24.3 Erfolge (Advancements, Reiter `infinite_horizon:root`)
 
 | ID | Titel DE | Bedingung |
 | --- | --- | --- |
-| `root` | Sternenwerft | Handbuch erhalten |
+| `root` | Infinite Horizon | Handbuch erhalten |
 | `ground_station` | Bodenstation | `research_terminal` setzen |
 | `first_signal` | Erstes Signal | Sonde erreicht `moon` |
 | `small_step` | Ein kleiner Schritt | `moon` betreten |
@@ -34,13 +34,13 @@
 | `at_the_edge` | Am Rand | `pluto` betreten |
 | `the_signal` | Der Sender | `signal_sentinel` besiegen |
 | `network` | Netzwerk | 5 Routen der Agentur gleichzeitig aktiv |
-| `starship` | Sternenwerft | Rakete T3 starten |
+| `starship` | Infinite Horizon | Rakete T3 starten |
 
 Erfolge, die eine Maschine oder ein Ereignis auslöst (`first_signal`, `own_air`, `sun_in_a_bottle`, `network`), bekommen alle Mitglieder der Besitzer-Agentur, wer offline ist beim nächsten Login. Eine Route gilt für `network` als aktiv, wenn ihr mindestens 1 Rakete zugewiesen ist und keine davon „ohne Treibstoff“ meldet.
 
-Jeder Erfolg wird mit Zeitstempel in `logs/sternenwerft-progress.log` geschrieben (lokal, keine Telemetrie).
+Jeder Erfolg wird mit Zeitstempel in `logs/infinite_horizon-progress.log` geschrieben (lokal, keine Telemetrie).
 
-## 24.4 Einstellungen (`serverconfig/sternenwerft.json`)
+## 24.4 Einstellungen (`serverconfig/infinite_horizon.json`)
 
 | Schlüssel | Standard | Bereich |
 | --- | --- | --- |
@@ -89,12 +89,12 @@ Jeder Erfolg wird mit Zeitstempel in `logs/sternenwerft-progress.log` geschriebe
 
 | Sound-Event | Verwendung |
 | --- | --- |
-| `sternenwerft:suit.breath` | Schleife im Vakuum ohne Kuppel |
-| `sternenwerft:suit.radio_static` | leise Schleife im Vakuum |
-| `sternenwerft:warning.oxygen`, `.heat`, `.cold`, `.radiation`, `.dome` | eigene, klar unterscheidbare Signaltöne |
-| `sternenwerft:rocket.countdown`, `.launch`, `.landing` | Raketen |
-| `sternenwerft:machine.<id>` | Maschinengeräusch (Schleife bei `running`) |
-| `sternenwerft:music.<planet>` | ruhige Hintergrundmusik je Planet (Platzhalter: Vanilla-Musik `minecraft:music.game`) |
+| `infinite_horizon:suit.breath` | Schleife im Vakuum ohne Kuppel |
+| `infinite_horizon:suit.radio_static` | leise Schleife im Vakuum |
+| `infinite_horizon:warning.oxygen`, `.heat`, `.cold`, `.radiation`, `.dome` | eigene, klar unterscheidbare Signaltöne |
+| `infinite_horizon:rocket.countdown`, `.launch`, `.landing` | Raketen |
+| `infinite_horizon:machine.<id>` | Maschinengeräusch (Schleife bei `running`) |
+| `infinite_horizon:music.<planet>` | ruhige Hintergrundmusik je Planet (Platzhalter: Vanilla-Musik `minecraft:music.game`) |
 
 Im Vakuum ohne Kuppel werden alle Geräusche außer Anzug- und Warntönen mit Lautstärke × 0,15 abgespielt.
 

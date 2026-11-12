@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "infinite_horizon:block/electrolyzer_front_error",
+    "side": "infinite_horizon:block/electrolyzer",
+    "top": "infinite_horizon:block/electrolyzer_top"
+  }
+}

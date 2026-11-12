@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "mode=input": {
+      "model": "infinite_horizon:block/energy_port_input"
+    },
+    "mode=output": {
+      "model": "infinite_horizon:block/energy_port_output"
+    }
+  }
+}

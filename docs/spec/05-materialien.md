@@ -16,9 +16,9 @@
 
 Alle übrigen Items (Bauteile, Werkzeuge, Drops, Behälter) stehen in `items.json` mit `obtained_by` und `spec_ref`. Besondere Item-Daten:
 
-- `antimatter_cell`: Data Component `sternenwerft:charge` (0 = leer, 1 = gefüllt).
-- `transport_tank` (16.000 mB), `oxygen_canister` (600 mB), `large_oxygen_canister` (1.200 mB): Data Component `sternenwerft:fluid`.
-- `sample`: Data Component `sternenwerft:sample` mit `block` und `dimension`.
+- `antimatter_cell`: Data Component `infinite_horizon:charge` (0 = leer, 1 = gefüllt).
+- `transport_tank` (16.000 mB), `oxygen_canister` (600 mB), `large_oxygen_canister` (1.200 mB): Data Component `infinite_horizon:fluid`.
+- `sample`: Data Component `infinite_horizon:sample` mit `block` und `dimension`.
 - Pressformen werden in der Presse nicht verbraucht.
 
 ## 5.3 Fluide

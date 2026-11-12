@@ -1,7 +1,7 @@
 """Erzeugt 16×16-Platzhalter-Texturen für alle Items und Blöcke aus spec/data/items.json (Kapitel 24.5).
 
 Aufruf:  python tools/gen_placeholders.py [--only id1,id2,...]
-Ausgabe: common/src/generated/resources/assets/sternenwerft/textures/{block,item}/<id>.png
+Ausgabe: common/src/generated/resources/assets/infinite_horizon/textures/{block,item}/<id>.png
 Nur Python-Standardbibliothek. Bestehende Dateien werden überschrieben (die Ausgabe ist vollständig generiert).
 """
 from __future__ import annotations
@@ -17,7 +17,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import specdata as sd  # noqa: E402
 
-OUT = sd.ROOT / "common" / "src" / "generated" / "resources" / "assets" / "sternenwerft" / "textures"
+OUT = sd.ROOT / "common" / "src" / "generated" / "resources" / "assets" / "infinite_horizon" / "textures"
 
 PHASE = {  # Grundfarbe, Akzent (24.5)
     1: ("#6E6E6E", "#E8C020"),
@@ -253,8 +253,8 @@ def main():
             continue
         if only and name not in only:
             continue
-        if name.endswith("_bucket") and f"sternenwerft:{name[:-7]}" in spec.items:
-            fl = spec.items[f"sternenwerft:{name[:-7]}"]
+        if name.endswith("_bucket") and f"infinite_horizon:{name[:-7]}" in spec.items:
+            fl = spec.items[f"infinite_horizon:{name[:-7]}"]
             if fl.get("kind") == "fluid" and fl.get("color"):
                 (OUT / "item").mkdir(parents=True, exist_ok=True)
                 put(OUT / "item" / f"{name}.png", bucket_texture(fl))

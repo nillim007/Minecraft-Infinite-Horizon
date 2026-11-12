@@ -1,0 +1,21 @@
+{
+  "type": "infinite_horizon:refining",
+  "ingredients": [],
+  "results": [
+    {
+      "id": "infinite_horizon:plastic",
+      "count": 1,
+      "chance": 1.0
+    }
+  ],
+  "fluid": {
+    "fluid": "infinite_horizon:crude_oil",
+    "amount": 1000
+  },
+  "fluid_results": [
+    {
+      "fluid": "infinite_horizon:kerosene",
+      "amount": 600
+    }
+  ]
+}

@@ -35,7 +35,7 @@
       "type": "surface",
       "name_de": "Erde",
       "name_en": "Earth",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 0,
       "distance_points": 0,
       "gravity": 1.0,
@@ -53,8 +53,8 @@
       "required_rocket_tier": 1,
       "requires_long_range": false,
       "probe": null,
-      "orbit": "sternenwerft:earth_orbit",
-      "lander_connects_to": "sternenwerft:earth_orbit",
+      "orbit": "infinite_horizon:earth_orbit",
+      "lander_connects_to": "infinite_horizon:earth_orbit",
       "gas_collector_output": null,
       "default_block": null,
       "default_fluid": null,
@@ -68,7 +68,7 @@
       "biomes": [],
       "ores": [
         {
-          "block": "sternenwerft:bauxite_ore",
+          "block": "infinite_horizon:bauxite_ore",
           "placement": "vein",
           "y_min": 50,
           "y_max": 120,
@@ -84,7 +84,7 @@
           ],
           "drops": [
             {
-              "id": "sternenwerft:bauxite",
+              "id": "infinite_horizon:bauxite",
               "count": 1
             }
           ],
@@ -92,7 +92,7 @@
           "notes": null
         },
         {
-          "block": "sternenwerft:titanium_ore",
+          "block": "infinite_horizon:titanium_ore",
           "placement": "vein",
           "y_min": -64,
           "y_max": 0,
@@ -106,15 +106,15 @@
           ],
           "drops": [
             {
-              "id": "sternenwerft:raw_titanium",
+              "id": "infinite_horizon:raw_titanium",
               "count": 1
             }
           ],
-          "deepslate_block": "sternenwerft:deepslate_titanium_ore",
+          "deepslate_block": "infinite_horizon:deepslate_titanium_ore",
           "notes": null
         },
         {
-          "block": "sternenwerft:quartz_sand",
+          "block": "infinite_horizon:quartz_sand",
           "placement": "disk",
           "y_min": null,
           "y_max": null,
@@ -137,10 +137,10 @@
       ],
       "blocks": [
         {
-          "id": "sternenwerft:bauxite_ore",
+          "id": "infinite_horizon:bauxite_ore",
           "drops": [
             {
-              "id": "sternenwerft:bauxite",
+              "id": "infinite_horizon:bauxite",
               "count": 1
             }
           ],
@@ -150,10 +150,10 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:titanium_ore",
+          "id": "infinite_horizon:titanium_ore",
           "drops": [
             {
-              "id": "sternenwerft:raw_titanium",
+              "id": "infinite_horizon:raw_titanium",
               "count": 1
             }
           ],
@@ -163,10 +163,10 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:deepslate_titanium_ore",
+          "id": "infinite_horizon:deepslate_titanium_ore",
           "drops": [
             {
-              "id": "sternenwerft:raw_titanium",
+              "id": "infinite_horizon:raw_titanium",
               "count": 1
             }
           ],
@@ -176,7 +176,7 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:quartz_sand",
+          "id": "infinite_horizon:quartz_sand",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -190,7 +190,7 @@
           "id": null,
           "type": "fluid_sphere",
           "block": null,
-          "fluid": "sternenwerft:crude_oil",
+          "fluid": "infinite_horizon:crude_oil",
           "biomes": [
             "minecraft:desert",
             "#minecraft:is_ocean"
@@ -215,12 +215,12 @@
       "notes": "Nur Ergänzungen der Mod; Temperatur 10/20 °C nur für die Kuppelprüfung (25.1). Erreichbar mit allen Stufen; Landung per Fallschirm."
     },
     {
-      "id": "sternenwerft:moon",
-      "dimension": "sternenwerft:moon",
+      "id": "infinite_horizon:moon",
+      "dimension": "infinite_horizon:moon",
       "type": "surface",
       "name_de": "Mond",
       "name_en": "Moon",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 1,
       "distance_points": 0,
       "gravity": 0.17,
@@ -237,11 +237,11 @@
       "launch_cost_override": null,
       "required_rocket_tier": 1,
       "requires_long_range": false,
-      "probe": "sternenwerft:probe",
-      "orbit": "sternenwerft:earth_orbit",
-      "lander_connects_to": "sternenwerft:earth_orbit",
+      "probe": "infinite_horizon:probe",
+      "orbit": "infinite_horizon:earth_orbit",
+      "lander_connects_to": "infinite_horizon:earth_orbit",
       "gas_collector_output": null,
-      "default_block": "sternenwerft:moon_rock",
+      "default_block": "infinite_horizon:moon_rock",
       "default_fluid": "minecraft:air",
       "sea_level": -64,
       "fixed_time": null,
@@ -261,7 +261,7 @@
         "sunset_color": null,
         "celestial_bodies": [
           {
-            "texture": "sternenwerft:textures/sky/earth.png",
+            "texture": "infinite_horizon:textures/sky/earth.png",
             "size": 30,
             "azimuth": 60,
             "elevation": 40
@@ -273,7 +273,7 @@
           "id": "polar_crater",
           "y_min": -64,
           "y_max": 400,
-          "biome": "sternenwerft:moon_polar_crater",
+          "biome": "infinite_horizon:moon_polar_crater",
           "near_block": null,
           "temperature": -190,
           "pressure": null,
@@ -286,45 +286,45 @@
       ],
       "biome_temperature_offsets": {},
       "biome_temperature_overrides": {
-        "sternenwerft:moon_polar_crater": -190
+        "infinite_horizon:moon_polar_crater": -190
       },
       "biomes": [
         {
-          "id": "sternenwerft:moon_highlands",
+          "id": "infinite_horizon:moon_highlands",
           "name_de": "Mond-Hochland",
           "name_en": "Moon Highlands",
-          "surface": "sternenwerft:moon_regolith",
+          "surface": "infinite_horizon:moon_regolith",
           "surface_secondary": null,
           "shape": "mountainous",
           "rarity": "common",
           "notes": "zerklüftet, höhere Berge"
         },
         {
-          "id": "sternenwerft:moon_mare",
+          "id": "infinite_horizon:moon_mare",
           "name_de": "Mare",
           "name_en": "Moon Mare",
-          "surface": "sternenwerft:moon_basalt",
+          "surface": "infinite_horizon:moon_basalt",
           "surface_secondary": null,
           "shape": "flat",
           "rarity": "common",
           "notes": "flach, dunkel"
         },
         {
-          "id": "sternenwerft:moon_great_crater",
+          "id": "infinite_horizon:moon_great_crater",
           "name_de": "Mond-Großkrater",
           "name_en": "Moon Great Crater",
-          "surface": "sternenwerft:moon_regolith",
+          "surface": "infinite_horizon:moon_regolith",
           "surface_secondary": null,
           "shape": "hilly",
           "rarity": "common",
           "notes": "Struktur great_crater erscheint nur hier; Erze wie moon_mare"
         },
         {
-          "id": "sternenwerft:moon_polar_crater",
+          "id": "infinite_horizon:moon_polar_crater",
           "name_de": "Mond-Polarkrater",
           "name_en": "Moon Polar Crater",
-          "surface": "sternenwerft:moon_regolith",
-          "surface_secondary": "sternenwerft:moon_ice",
+          "surface": "infinite_horizon:moon_regolith",
+          "surface_secondary": "infinite_horizon:moon_ice",
           "shape": "rare",
           "rarity": "rare",
           "notes": "selten (5 %), Temperatur fest −190 °C, keine Sonnenenergie (solar_factor 0); moon_ice ersetzt den Oberflächenblock, wo das Noise minecraft:surface > 0 ist (13.1)"
@@ -332,7 +332,7 @@
       ],
       "ores": [
         {
-          "block": "sternenwerft:moon_titanium_ore",
+          "block": "infinite_horizon:moon_titanium_ore",
           "placement": "vein",
           "y_min": 0,
           "y_max": 100,
@@ -342,11 +342,11 @@
           "fraction": null,
           "host_block": null,
           "biomes": [
-            "sternenwerft:moon_highlands"
+            "infinite_horizon:moon_highlands"
           ],
           "drops": [
             {
-              "id": "sternenwerft:raw_titanium",
+              "id": "infinite_horizon:raw_titanium",
               "count": 1
             }
           ],
@@ -354,7 +354,7 @@
           "notes": null
         },
         {
-          "block": "sternenwerft:moon_aluminum_ore",
+          "block": "infinite_horizon:moon_aluminum_ore",
           "placement": "vein",
           "y_min": 0,
           "y_max": 80,
@@ -364,12 +364,12 @@
           "fraction": null,
           "host_block": null,
           "biomes": [
-            "sternenwerft:moon_mare",
-            "sternenwerft:moon_great_crater"
+            "infinite_horizon:moon_mare",
+            "infinite_horizon:moon_great_crater"
           ],
           "drops": [
             {
-              "id": "sternenwerft:bauxite",
+              "id": "infinite_horizon:bauxite",
               "count": 1
             }
           ],
@@ -377,7 +377,7 @@
           "notes": "auch im Biom moon_great_crater (Ä27); innerhalb der Struktur great_crater ein zweites Mal"
         },
         {
-          "block": "sternenwerft:moon_titanium_ore",
+          "block": "infinite_horizon:moon_titanium_ore",
           "placement": "vein",
           "y_min": 0,
           "y_max": 80,
@@ -387,12 +387,12 @@
           "fraction": null,
           "host_block": null,
           "biomes": [
-            "sternenwerft:moon_mare",
-            "sternenwerft:moon_great_crater"
+            "infinite_horizon:moon_mare",
+            "infinite_horizon:moon_great_crater"
           ],
           "drops": [
             {
-              "id": "sternenwerft:raw_titanium",
+              "id": "infinite_horizon:raw_titanium",
               "count": 1
             }
           ],
@@ -400,7 +400,7 @@
           "notes": "auch im Biom moon_great_crater (Ä27); innerhalb der Struktur great_crater ein zweites Mal"
         },
         {
-          "block": "sternenwerft:moon_ice",
+          "block": "infinite_horizon:moon_ice",
           "placement": "vein",
           "y_min": 40,
           "y_max": 100,
@@ -410,7 +410,7 @@
           "fraction": null,
           "host_block": null,
           "biomes": [
-            "sternenwerft:moon_polar_crater"
+            "infinite_horizon:moon_polar_crater"
           ],
           "drops": [
             {
@@ -424,7 +424,7 @@
       ],
       "blocks": [
         {
-          "id": "sternenwerft:moon_regolith",
+          "id": "infinite_horizon:moon_regolith",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -432,7 +432,7 @@
           "notes": "Oberfläche, 3 Schichten"
         },
         {
-          "id": "sternenwerft:moon_rock",
+          "id": "infinite_horizon:moon_rock",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -440,7 +440,7 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:moon_basalt",
+          "id": "infinite_horizon:moon_basalt",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -448,7 +448,7 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:moon_ice",
+          "id": "infinite_horizon:moon_ice",
           "drops": [
             {
               "id": "minecraft:ice",
@@ -461,10 +461,10 @@
           "notes": "ausdrücklich: droppt minecraft:ice (13.4)"
         },
         {
-          "id": "sternenwerft:moon_aluminum_ore",
+          "id": "infinite_horizon:moon_aluminum_ore",
           "drops": [
             {
-              "id": "sternenwerft:bauxite",
+              "id": "infinite_horizon:bauxite",
               "count": 1
             }
           ],
@@ -474,10 +474,10 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:moon_titanium_ore",
+          "id": "infinite_horizon:moon_titanium_ore",
           "drops": [
             {
-              "id": "sternenwerft:raw_titanium",
+              "id": "infinite_horizon:raw_titanium",
               "count": 1
             }
           ],
@@ -489,10 +489,10 @@
       ],
       "structures": [
         {
-          "id": "sternenwerft:great_crater",
+          "id": "infinite_horizon:great_crater",
           "exploration_target": false,
           "biomes": [
-            "sternenwerft:moon_great_crater"
+            "infinite_horizon:moon_great_crater"
           ],
           "spacing_chunks": 32,
           "separation_chunks": 8,
@@ -510,10 +510,10 @@
           "notes": "Radius 40–60, Zentralberg, nur im Biom moon_great_crater, Abstand 32 Chunks, Trennung 8; Erze ×2 innerhalb der Struktur (Ä27)"
         },
         {
-          "id": "sternenwerft:lava_tube",
+          "id": "infinite_horizon:lava_tube",
           "exploration_target": true,
           "biomes": [
-            "sternenwerft:moon_mare"
+            "infinite_horizon:moon_mare"
           ],
           "spacing_chunks": 16,
           "separation_chunks": 4,
@@ -538,15 +538,15 @@
       ],
       "features": [
         {
-          "id": "sternenwerft:small_crater",
+          "id": "infinite_horizon:small_crater",
           "type": "crater",
           "block": null,
           "fluid": null,
           "biomes": [
-            "sternenwerft:moon_highlands",
-            "sternenwerft:moon_mare",
-            "sternenwerft:moon_great_crater",
-            "sternenwerft:moon_polar_crater"
+            "infinite_horizon:moon_highlands",
+            "infinite_horizon:moon_mare",
+            "infinite_horizon:moon_great_crater",
+            "infinite_horizon:moon_polar_crater"
           ],
           "params": {
             "radius": [
@@ -588,8 +588,8 @@
         }
       ],
       "events": [
-        "sternenwerft:solar_storm",
-        "sternenwerft:meteor_shower"
+        "infinite_horizon:solar_storm",
+        "infinite_horizon:meteor_shower"
       ],
       "event_chance_multipliers": {},
       "special": {},
@@ -597,12 +597,12 @@
       "notes": "Himmel schwarz, Sterne auch am Tag, Erde groß. Farben 24.5: Gestein #8C8C8C, Basalt #3A3A3A."
     },
     {
-      "id": "sternenwerft:mars",
-      "dimension": "sternenwerft:mars",
+      "id": "infinite_horizon:mars",
+      "dimension": "infinite_horizon:mars",
       "type": "surface",
       "name_de": "Mars",
       "name_en": "Mars",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 1,
       "distance_points": 1.5,
       "gravity": 0.38,
@@ -619,11 +619,11 @@
       "launch_cost_override": null,
       "required_rocket_tier": 1,
       "requires_long_range": false,
-      "probe": "sternenwerft:probe",
-      "orbit": "sternenwerft:mars_orbit",
-      "lander_connects_to": "sternenwerft:mars_orbit",
+      "probe": "infinite_horizon:probe",
+      "orbit": "infinite_horizon:mars_orbit",
+      "lander_connects_to": "infinite_horizon:mars_orbit",
       "gas_collector_output": null,
-      "default_block": "sternenwerft:mars_rock",
+      "default_block": "infinite_horizon:mars_rock",
       "default_fluid": "minecraft:air",
       "sea_level": null,
       "fixed_time": null,
@@ -643,13 +643,13 @@
         "sunset_color": "#4A7FC1",
         "celestial_bodies": [
           {
-            "texture": "sternenwerft:textures/sky/phobos.png",
+            "texture": "infinite_horizon:textures/sky/phobos.png",
             "size": 6,
             "azimuth": 120,
             "elevation": 35
           },
           {
-            "texture": "sternenwerft:textures/sky/deimos.png",
+            "texture": "infinite_horizon:textures/sky/deimos.png",
             "size": 3,
             "azimuth": 250,
             "elevation": 50
@@ -661,60 +661,60 @@
       "biome_temperature_overrides": {},
       "biomes": [
         {
-          "id": "sternenwerft:mars_red_plains",
+          "id": "infinite_horizon:mars_red_plains",
           "name_de": "Rote Ebenen",
           "name_en": "Mars Red Plains",
-          "surface": "sternenwerft:mars_sand",
+          "surface": "infinite_horizon:mars_sand",
           "surface_secondary": null,
           "shape": "flat",
           "rarity": "common",
           "notes": "flach bis hügelig"
         },
         {
-          "id": "sternenwerft:mars_canyon",
+          "id": "infinite_horizon:mars_canyon",
           "name_de": "Mars-Canyon",
           "name_en": "Mars Canyon",
-          "surface": "sternenwerft:mars_rock",
+          "surface": "infinite_horizon:mars_rock",
           "surface_secondary": null,
           "shape": "hilly",
           "rarity": "common",
           "notes": "tiefe Schluchten bis y 0, Erzschichten freiliegend, Erze ×2"
         },
         {
-          "id": "sternenwerft:mars_volcanic_highlands",
+          "id": "infinite_horizon:mars_volcanic_highlands",
           "name_de": "Vulkanisches Hochland",
           "name_en": "Mars Volcanic Highlands",
-          "surface": "sternenwerft:mars_rock",
+          "surface": "infinite_horizon:mars_rock",
           "surface_secondary": null,
           "shape": "mountainous",
           "rarity": "common",
           "notes": "hohe Berge, Riesenvulkan-Struktur je 64 Chunks"
         },
         {
-          "id": "sternenwerft:mars_dry_lake",
+          "id": "infinite_horizon:mars_dry_lake",
           "name_de": "Ausgetrockneter See",
           "name_en": "Mars Dry Lake",
-          "surface": "sternenwerft:gypsum_block",
+          "surface": "infinite_horizon:gypsum_block",
           "surface_secondary": null,
           "shape": "flat",
           "rarity": "common",
           "notes": "flache Senke"
         },
         {
-          "id": "sternenwerft:mars_polar_cap",
+          "id": "infinite_horizon:mars_polar_cap",
           "name_de": "Mars-Polkappe",
           "name_en": "Mars Polar Cap",
-          "surface": "sternenwerft:dry_ice_block",
+          "surface": "infinite_horizon:dry_ice_block",
           "surface_secondary": null,
           "shape": "rare",
           "rarity": "rare",
           "notes": "selten"
         },
         {
-          "id": "sternenwerft:mars_meteorite_field",
+          "id": "infinite_horizon:mars_meteorite_field",
           "name_de": "Mars-Meteoritenfeld",
           "name_en": "Mars Meteorite Field",
-          "surface": "sternenwerft:mars_sand",
+          "surface": "infinite_horizon:mars_sand",
           "surface_secondary": null,
           "shape": "rare",
           "rarity": "rare",
@@ -723,7 +723,7 @@
       ],
       "ores": [
         {
-          "block": "sternenwerft:mars_magnesium_ore",
+          "block": "infinite_horizon:mars_magnesium_ore",
           "placement": "vein",
           "y_min": 0,
           "y_max": 80,
@@ -733,11 +733,11 @@
           "fraction": null,
           "host_block": null,
           "biomes": [
-            "sternenwerft:mars_red_plains"
+            "infinite_horizon:mars_red_plains"
           ],
           "drops": [
             {
-              "id": "sternenwerft:raw_magnesium",
+              "id": "infinite_horizon:raw_magnesium",
               "count": 1
             }
           ],
@@ -745,7 +745,7 @@
           "notes": null
         },
         {
-          "block": "sternenwerft:mars_iron_ore",
+          "block": "infinite_horizon:mars_iron_ore",
           "placement": "vein",
           "y_min": 0,
           "y_max": 80,
@@ -755,7 +755,7 @@
           "fraction": null,
           "host_block": null,
           "biomes": [
-            "sternenwerft:mars_red_plains"
+            "infinite_horizon:mars_red_plains"
           ],
           "drops": [
             {
@@ -767,7 +767,7 @@
           "notes": null
         },
         {
-          "block": "sternenwerft:mars_magnesium_ore",
+          "block": "infinite_horizon:mars_magnesium_ore",
           "placement": "vein",
           "y_min": 0,
           "y_max": 80,
@@ -777,11 +777,11 @@
           "fraction": null,
           "host_block": null,
           "biomes": [
-            "sternenwerft:mars_canyon"
+            "infinite_horizon:mars_canyon"
           ],
           "drops": [
             {
-              "id": "sternenwerft:raw_magnesium",
+              "id": "infinite_horizon:raw_magnesium",
               "count": 1
             }
           ],
@@ -789,7 +789,7 @@
           "notes": "Canyon: Erze ×2 (Adern je Chunk verdoppelt)"
         },
         {
-          "block": "sternenwerft:mars_iron_ore",
+          "block": "infinite_horizon:mars_iron_ore",
           "placement": "vein",
           "y_min": 0,
           "y_max": 80,
@@ -799,7 +799,7 @@
           "fraction": null,
           "host_block": null,
           "biomes": [
-            "sternenwerft:mars_canyon"
+            "infinite_horizon:mars_canyon"
           ],
           "drops": [
             {
@@ -813,7 +813,7 @@
       ],
       "blocks": [
         {
-          "id": "sternenwerft:mars_sand",
+          "id": "infinite_horizon:mars_sand",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -821,7 +821,7 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:mars_rock",
+          "id": "infinite_horizon:mars_rock",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -829,10 +829,10 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:mars_magnesium_ore",
+          "id": "infinite_horizon:mars_magnesium_ore",
           "drops": [
             {
-              "id": "sternenwerft:raw_magnesium",
+              "id": "infinite_horizon:raw_magnesium",
               "count": 1
             }
           ],
@@ -842,7 +842,7 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:mars_iron_ore",
+          "id": "infinite_horizon:mars_iron_ore",
           "drops": [
             {
               "id": "minecraft:raw_iron",
@@ -855,10 +855,10 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:gypsum_block",
+          "id": "infinite_horizon:gypsum_block",
           "drops": [
             {
-              "id": "sternenwerft:gypsum",
+              "id": "infinite_horizon:gypsum",
               "count": 4
             }
           ],
@@ -868,10 +868,10 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:dry_ice_block",
+          "id": "infinite_horizon:dry_ice_block",
           "drops": [
             {
-              "id": "sternenwerft:dry_ice",
+              "id": "infinite_horizon:dry_ice",
               "count": 4
             }
           ],
@@ -881,10 +881,10 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:iron_nickel_meteorite",
+          "id": "infinite_horizon:iron_nickel_meteorite",
           "drops": [
             {
-              "id": "sternenwerft:raw_nickel",
+              "id": "infinite_horizon:raw_nickel",
               "count": 1,
               "count_max": 2
             },
@@ -902,10 +902,10 @@
       ],
       "structures": [
         {
-          "id": "sternenwerft:giant_volcano",
+          "id": "infinite_horizon:giant_volcano",
           "exploration_target": false,
           "biomes": [
-            "sternenwerft:mars_volcanic_highlands"
+            "infinite_horizon:mars_volcanic_highlands"
           ],
           "spacing_chunks": 64,
           "count_per_dimension": null,
@@ -917,10 +917,10 @@
           "notes": "Radius 80, Höhe bis y 250"
         },
         {
-          "id": "sternenwerft:lava_tube",
+          "id": "infinite_horizon:lava_tube",
           "exploration_target": true,
           "biomes": [
-            "sternenwerft:mars_volcanic_highlands"
+            "infinite_horizon:mars_volcanic_highlands"
           ],
           "spacing_chunks": null,
           "count_per_dimension": null,
@@ -940,10 +940,10 @@
           "notes": "Hochland; Maße wie Mond (5×5, Länge 60–120, y 30–50); SPEC-GAP: Häufigkeit auf dem Mars nicht angegeben"
         },
         {
-          "id": "sternenwerft:meteorite_field",
+          "id": "infinite_horizon:meteorite_field",
           "exploration_target": true,
           "biomes": [
-            "sternenwerft:mars_meteorite_field"
+            "infinite_horizon:mars_meteorite_field"
           ],
           "spacing_chunks": 8,
           "count_per_dimension": null,
@@ -959,7 +959,7 @@
           "block": null,
           "fluid": null,
           "biomes": [
-            "sternenwerft:mars_canyon"
+            "infinite_horizon:mars_canyon"
           ],
           "params": {
             "min_y": 0,
@@ -970,10 +970,10 @@
         {
           "id": null,
           "type": "meteorite_crater",
-          "block": "sternenwerft:iron_nickel_meteorite",
+          "block": "infinite_horizon:iron_nickel_meteorite",
           "fluid": null,
           "biomes": [
-            "sternenwerft:mars_meteorite_field"
+            "infinite_horizon:mars_meteorite_field"
           ],
           "params": {},
           "notes": "kleine Krater mit iron_nickel_meteorite; SPEC-GAP: keine ID, Radius, Häufigkeit"
@@ -985,7 +985,7 @@
           "rate": 1.0,
           "y_max": null,
           "event_rates": {
-            "sternenwerft:dust_storm": 2.0
+            "infinite_horizon:dust_storm": 2.0
           }
         },
         {
@@ -993,7 +993,7 @@
           "rate": 1.0,
           "y_max": null,
           "event_rates": {
-            "sternenwerft:dust_storm": 2.0
+            "infinite_horizon:dust_storm": 2.0
           }
         },
         {
@@ -1001,7 +1001,7 @@
           "rate": 1.0,
           "y_max": null,
           "event_rates": {
-            "sternenwerft:dust_storm": 2.0
+            "infinite_horizon:dust_storm": 2.0
           }
         },
         {
@@ -1009,14 +1009,14 @@
           "rate": 1.0,
           "y_max": null,
           "event_rates": {
-            "sternenwerft:dust_storm": 2.0
+            "infinite_horizon:dust_storm": 2.0
           }
         }
       ],
       "events": [
-        "sternenwerft:solar_storm",
-        "sternenwerft:meteor_shower",
-        "sternenwerft:dust_storm"
+        "infinite_horizon:solar_storm",
+        "infinite_horizon:meteor_shower",
+        "infinite_horizon:dust_storm"
       ],
       "event_chance_multipliers": {},
       "special": {},
@@ -1024,12 +1024,12 @@
       "notes": "Himmel gelblich-braun, Sonnenuntergang blau, Phobos und Deimos. Farben 24.5: Mars #B5502A, Gips #E6DFD0, Trockeneis #F0F4F8."
     },
     {
-      "id": "sternenwerft:venus",
-      "dimension": "sternenwerft:venus",
+      "id": "infinite_horizon:venus",
+      "dimension": "infinite_horizon:venus",
       "type": "surface",
       "name_de": "Venus",
       "name_en": "Venus",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 1,
       "distance_points": 1,
       "gravity": 0.9,
@@ -1046,11 +1046,11 @@
       "launch_cost_override": null,
       "required_rocket_tier": 1,
       "requires_long_range": false,
-      "probe": "sternenwerft:probe",
-      "orbit": "sternenwerft:venus_orbit",
-      "lander_connects_to": "sternenwerft:venus_orbit",
+      "probe": "infinite_horizon:probe",
+      "orbit": "infinite_horizon:venus_orbit",
+      "lander_connects_to": "infinite_horizon:venus_orbit",
       "gas_collector_output": null,
-      "default_block": "sternenwerft:venus_rock",
+      "default_block": "infinite_horizon:venus_rock",
       "default_fluid": "minecraft:lava",
       "sea_level": 40,
       "fixed_time": null,
@@ -1090,7 +1090,7 @@
       "biome_temperature_overrides": {},
       "biomes": [
         {
-          "id": "sternenwerft:venus_lava_plains",
+          "id": "infinite_horizon:venus_lava_plains",
           "name_de": "Lavaebenen",
           "name_en": "Venus Lava Plains",
           "surface": "minecraft:basalt",
@@ -1100,20 +1100,20 @@
           "notes": "Lavaseen"
         },
         {
-          "id": "sternenwerft:venus_volcanoes",
+          "id": "infinite_horizon:venus_volcanoes",
           "name_de": "Venus-Vulkane",
           "name_en": "Venus Volcanoes",
-          "surface": "sternenwerft:venus_rock",
+          "surface": "infinite_horizon:venus_rock",
           "surface_secondary": "minecraft:magma_block",
           "shape": "mountainous",
           "rarity": "common",
           "notes": "Vulkankegel mit Lavasee"
         },
         {
-          "id": "sternenwerft:venus_plateau",
+          "id": "infinite_horizon:venus_plateau",
           "name_de": "Venus-Hochebene",
           "name_en": "Venus Plateau",
-          "surface": "sternenwerft:venus_rock",
+          "surface": "infinite_horizon:venus_rock",
           "surface_secondary": null,
           "shape": "mountainous",
           "rarity": "common",
@@ -1122,7 +1122,7 @@
       ],
       "ores": [
         {
-          "block": "sternenwerft:venus_sulfur_ore",
+          "block": "infinite_horizon:venus_sulfur_ore",
           "placement": "vein",
           "y_min": 40,
           "y_max": 100,
@@ -1132,11 +1132,11 @@
           "fraction": null,
           "host_block": null,
           "biomes": [
-            "sternenwerft:venus_lava_plains"
+            "infinite_horizon:venus_lava_plains"
           ],
           "drops": [
             {
-              "id": "sternenwerft:sulfur",
+              "id": "infinite_horizon:sulfur",
               "count": 2,
               "count_max": 4
             }
@@ -1145,7 +1145,7 @@
           "notes": null
         },
         {
-          "block": "sternenwerft:venus_tungsten_ore",
+          "block": "infinite_horizon:venus_tungsten_ore",
           "placement": "vein",
           "y_min": 40,
           "y_max": 140,
@@ -1155,11 +1155,11 @@
           "fraction": null,
           "host_block": null,
           "biomes": [
-            "sternenwerft:venus_volcanoes"
+            "infinite_horizon:venus_volcanoes"
           ],
           "drops": [
             {
-              "id": "sternenwerft:raw_tungsten",
+              "id": "infinite_horizon:raw_tungsten",
               "count": 1
             }
           ],
@@ -1169,7 +1169,7 @@
       ],
       "blocks": [
         {
-          "id": "sternenwerft:venus_rock",
+          "id": "infinite_horizon:venus_rock",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -1177,10 +1177,10 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:venus_tungsten_ore",
+          "id": "infinite_horizon:venus_tungsten_ore",
           "drops": [
             {
-              "id": "sternenwerft:raw_tungsten",
+              "id": "infinite_horizon:raw_tungsten",
               "count": 1
             }
           ],
@@ -1190,10 +1190,10 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:venus_sulfur_ore",
+          "id": "infinite_horizon:venus_sulfur_ore",
           "drops": [
             {
-              "id": "sternenwerft:sulfur",
+              "id": "infinite_horizon:sulfur",
               "count": 2,
               "count_max": 4
             }
@@ -1222,10 +1222,10 @@
       ],
       "structures": [
         {
-          "id": "sternenwerft:volcanic_vent",
+          "id": "infinite_horizon:volcanic_vent",
           "exploration_target": true,
           "biomes": [
-            "sternenwerft:venus_volcanoes"
+            "infinite_horizon:venus_volcanoes"
           ],
           "spacing_chunks": null,
           "count_per_dimension": null,
@@ -1250,8 +1250,8 @@
         }
       ],
       "events": [
-        "sternenwerft:solar_storm",
-        "sternenwerft:acid_rain"
+        "infinite_horizon:solar_storm",
+        "infinite_horizon:acid_rain"
       ],
       "event_chance_multipliers": {},
       "special": {},
@@ -1259,12 +1259,12 @@
       "notes": "Material Rule setzt alle Blöcke ab y 176 auf Luft (Wolkenschicht y 180–240 frei). Raketen landen immer in der Wolkenschicht (12.5/12.8). Farbe 24.5: Venus #3B2F2A."
     },
     {
-      "id": "sternenwerft:mercury",
-      "dimension": "sternenwerft:mercury",
+      "id": "infinite_horizon:mercury",
+      "dimension": "infinite_horizon:mercury",
       "type": "surface",
       "name_de": "Merkur",
       "name_en": "Mercury",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 2,
       "distance_points": 2,
       "gravity": 0.38,
@@ -1281,11 +1281,11 @@
       "launch_cost_override": null,
       "required_rocket_tier": 2,
       "requires_long_range": false,
-      "probe": "sternenwerft:advanced_probe",
-      "orbit": "sternenwerft:mercury_orbit",
-      "lander_connects_to": "sternenwerft:mercury_orbit",
+      "probe": "infinite_horizon:advanced_probe",
+      "orbit": "infinite_horizon:mercury_orbit",
+      "lander_connects_to": "infinite_horizon:mercury_orbit",
       "gas_collector_output": null,
-      "default_block": "sternenwerft:mercury_rock",
+      "default_block": "infinite_horizon:mercury_rock",
       "default_fluid": "minecraft:air",
       "sea_level": null,
       "fixed_time": 6000,
@@ -1296,23 +1296,23 @@
           "type": "x_bands",
           "bands": [
             {
-              "biome": "sternenwerft:mercury_frost_plains",
+              "biome": "infinite_horizon:mercury_frost_plains",
               "x_min": null,
               "x_max": -2000
             },
             {
-              "biome": "sternenwerft:mercury_twilight_belt",
+              "biome": "infinite_horizon:mercury_twilight_belt",
               "x_min": -2000,
               "x_max": 2000
             },
             {
-              "biome": "sternenwerft:mercury_scorched_plains",
+              "biome": "infinite_horizon:mercury_scorched_plains",
               "x_min": 2000,
               "x_max": null
             }
           ],
           "rare_inclusions": [
-            "sternenwerft:mercury_shadow_crater"
+            "infinite_horizon:mercury_shadow_crater"
           ]
         }
       },
@@ -1330,7 +1330,7 @@
           "id": "scorched_plains",
           "y_min": -64,
           "y_max": 400,
-          "biome": "sternenwerft:mercury_scorched_plains",
+          "biome": "infinite_horizon:mercury_scorched_plains",
           "near_block": null,
           "temperature": 430,
           "pressure": null,
@@ -1344,7 +1344,7 @@
           "id": "frost_plains",
           "y_min": -64,
           "y_max": 400,
-          "biome": "sternenwerft:mercury_frost_plains",
+          "biome": "infinite_horizon:mercury_frost_plains",
           "near_block": null,
           "temperature": -180,
           "pressure": null,
@@ -1358,7 +1358,7 @@
           "id": "twilight_belt",
           "y_min": -64,
           "y_max": 400,
-          "biome": "sternenwerft:mercury_twilight_belt",
+          "biome": "infinite_horizon:mercury_twilight_belt",
           "near_block": null,
           "temperature": 20,
           "pressure": null,
@@ -1372,7 +1372,7 @@
           "id": "shadow_crater",
           "y_min": -64,
           "y_max": 400,
-          "biome": "sternenwerft:mercury_shadow_crater",
+          "biome": "infinite_horizon:mercury_shadow_crater",
           "near_block": null,
           "temperature": -150,
           "pressure": null,
@@ -1385,47 +1385,47 @@
       ],
       "biome_temperature_offsets": {},
       "biome_temperature_overrides": {
-        "sternenwerft:mercury_scorched_plains": 430,
-        "sternenwerft:mercury_frost_plains": -180,
-        "sternenwerft:mercury_twilight_belt": 20,
-        "sternenwerft:mercury_shadow_crater": -150
+        "infinite_horizon:mercury_scorched_plains": 430,
+        "infinite_horizon:mercury_frost_plains": -180,
+        "infinite_horizon:mercury_twilight_belt": 20,
+        "infinite_horizon:mercury_shadow_crater": -150
       },
       "biomes": [
         {
-          "id": "sternenwerft:mercury_scorched_plains",
+          "id": "infinite_horizon:mercury_scorched_plains",
           "name_de": "Glutebenen",
           "name_en": "Mercury Scorched Plains",
-          "surface": "sternenwerft:mercury_rock",
+          "surface": "infinite_horizon:mercury_rock",
           "surface_secondary": null,
           "shape": "flat",
           "rarity": "common",
           "notes": "Tagseite X > 2.000, +430 °C"
         },
         {
-          "id": "sternenwerft:mercury_frost_plains",
+          "id": "infinite_horizon:mercury_frost_plains",
           "name_de": "Frostebenen",
           "name_en": "Mercury Frost Plains",
-          "surface": "sternenwerft:mercury_rock",
+          "surface": "infinite_horizon:mercury_rock",
           "surface_secondary": null,
           "shape": "flat",
           "rarity": "common",
           "notes": "Nachtseite X < −2.000, −180 °C"
         },
         {
-          "id": "sternenwerft:mercury_twilight_belt",
+          "id": "infinite_horizon:mercury_twilight_belt",
           "name_de": "Dämmerungsgürtel",
           "name_en": "Mercury Twilight Belt",
-          "surface": "sternenwerft:mercury_rock",
+          "surface": "infinite_horizon:mercury_rock",
           "surface_secondary": null,
           "shape": "hilly",
           "rarity": "common",
           "notes": "−2.000 ≤ X ≤ 2.000, +20 °C, Spawn bei (0, 0)"
         },
         {
-          "id": "sternenwerft:mercury_shadow_crater",
+          "id": "infinite_horizon:mercury_shadow_crater",
           "name_de": "Schattenkrater",
           "name_en": "Mercury Shadow Crater",
-          "surface": "sternenwerft:mercury_rock",
+          "surface": "infinite_horizon:mercury_rock",
           "surface_secondary": "minecraft:ice",
           "shape": "rare",
           "rarity": "rare",
@@ -1434,7 +1434,7 @@
       ],
       "ores": [
         {
-          "block": "sternenwerft:mercury_titanium_ore",
+          "block": "infinite_horizon:mercury_titanium_ore",
           "placement": "vein",
           "y_min": null,
           "y_max": null,
@@ -1444,11 +1444,11 @@
           "fraction": null,
           "host_block": null,
           "biomes": [
-            "sternenwerft:mercury_scorched_plains"
+            "infinite_horizon:mercury_scorched_plains"
           ],
           "drops": [
             {
-              "id": "sternenwerft:raw_titanium",
+              "id": "infinite_horizon:raw_titanium",
               "count": 1
             }
           ],
@@ -1456,7 +1456,7 @@
           "notes": "SPEC-GAP: y-Bereich, Adergröße, Adern je Chunk fehlen"
         },
         {
-          "block": "sternenwerft:mercury_iron_ore",
+          "block": "infinite_horizon:mercury_iron_ore",
           "placement": "vein",
           "y_min": null,
           "y_max": null,
@@ -1466,7 +1466,7 @@
           "fraction": null,
           "host_block": null,
           "biomes": [
-            "sternenwerft:mercury_frost_plains"
+            "infinite_horizon:mercury_frost_plains"
           ],
           "drops": [
             {
@@ -1478,7 +1478,7 @@
           "notes": "SPEC-GAP: y-Bereich, Adergröße, Adern je Chunk fehlen"
         },
         {
-          "block": "sternenwerft:mercury_lithium_salt",
+          "block": "infinite_horizon:mercury_lithium_salt",
           "placement": "surface_disk",
           "y_min": null,
           "y_max": null,
@@ -1491,11 +1491,11 @@
           "fraction": null,
           "host_block": null,
           "biomes": [
-            "sternenwerft:mercury_twilight_belt"
+            "infinite_horizon:mercury_twilight_belt"
           ],
           "drops": [
             {
-              "id": "sternenwerft:lithium_salt",
+              "id": "infinite_horizon:lithium_salt",
               "count": 2
             }
           ],
@@ -1513,7 +1513,7 @@
           "fraction": null,
           "host_block": null,
           "biomes": [
-            "sternenwerft:mercury_shadow_crater"
+            "infinite_horizon:mercury_shadow_crater"
           ],
           "drops": "vanilla",
           "deepslate_block": null,
@@ -1522,7 +1522,7 @@
       ],
       "blocks": [
         {
-          "id": "sternenwerft:mercury_rock",
+          "id": "infinite_horizon:mercury_rock",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -1530,10 +1530,10 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:mercury_lithium_salt",
+          "id": "infinite_horizon:mercury_lithium_salt",
           "drops": [
             {
-              "id": "sternenwerft:lithium_salt",
+              "id": "infinite_horizon:lithium_salt",
               "count": 2
             }
           ],
@@ -1543,7 +1543,7 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:mercury_iron_ore",
+          "id": "infinite_horizon:mercury_iron_ore",
           "drops": [
             {
               "id": "minecraft:raw_iron",
@@ -1556,10 +1556,10 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:mercury_titanium_ore",
+          "id": "infinite_horizon:mercury_titanium_ore",
           "drops": [
             {
-              "id": "sternenwerft:raw_titanium",
+              "id": "infinite_horizon:raw_titanium",
               "count": 1
             }
           ],
@@ -1581,22 +1581,22 @@
       "features": [],
       "vanilla_mobs": [],
       "events": [
-        "sternenwerft:solar_storm"
+        "infinite_horizon:solar_storm"
       ],
       "event_chance_multipliers": {
-        "sternenwerft:solar_storm": 3
+        "infinite_horizon:solar_storm": 3
       },
       "special": {},
       "spec_ref": "13",
       "notes": "Temperatur biomabhängig (Overrides); Planetenwert 20/20 = Dämmerungsgürtel als Grundwert. Sonne 3× so groß. Farbe 24.5: Merkur #5A5550."
     },
     {
-      "id": "sternenwerft:asteroid_belt",
-      "dimension": "sternenwerft:asteroid_belt",
+      "id": "infinite_horizon:asteroid_belt",
+      "dimension": "infinite_horizon:asteroid_belt",
       "type": "surface",
       "name_de": "Asteroidengürtel",
       "name_en": "Asteroid Belt",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 2,
       "distance_points": 3,
       "gravity": 0.03,
@@ -1613,7 +1613,7 @@
       "launch_cost_override": null,
       "required_rocket_tier": 2,
       "requires_long_range": false,
-      "probe": "sternenwerft:advanced_probe",
+      "probe": "infinite_horizon:advanced_probe",
       "orbit": null,
       "lander_connects_to": null,
       "gas_collector_output": null,
@@ -1640,7 +1640,7 @@
       "biomes": [],
       "ores": [
         {
-          "block": "sternenwerft:asteroid_platinum_ore",
+          "block": "infinite_horizon:asteroid_platinum_ore",
           "placement": "host_fraction",
           "y_min": 20,
           "y_max": 220,
@@ -1648,11 +1648,11 @@
           "per_chunk": null,
           "radius": null,
           "fraction": 0.04,
-          "host_block": "sternenwerft:asteroid_rock",
+          "host_block": "infinite_horizon:asteroid_rock",
           "biomes": [],
           "drops": [
             {
-              "id": "sternenwerft:raw_platinum",
+              "id": "infinite_horizon:raw_platinum",
               "count": 1
             }
           ],
@@ -1660,7 +1660,7 @@
           "notes": "4 % der Asteroidenblöcke (Feature asteroid)"
         },
         {
-          "block": "sternenwerft:asteroid_iridium_ore",
+          "block": "infinite_horizon:asteroid_iridium_ore",
           "placement": "host_fraction",
           "y_min": 20,
           "y_max": 220,
@@ -1668,11 +1668,11 @@
           "per_chunk": null,
           "radius": null,
           "fraction": 0.02,
-          "host_block": "sternenwerft:asteroid_rock",
+          "host_block": "infinite_horizon:asteroid_rock",
           "biomes": [],
           "drops": [
             {
-              "id": "sternenwerft:raw_iridium",
+              "id": "infinite_horizon:raw_iridium",
               "count": 1
             }
           ],
@@ -1680,7 +1680,7 @@
           "notes": "2 % der Asteroidenblöcke (Feature asteroid)"
         },
         {
-          "block": "sternenwerft:asteroid_nickel_ore",
+          "block": "infinite_horizon:asteroid_nickel_ore",
           "placement": "host_fraction",
           "y_min": 20,
           "y_max": 220,
@@ -1688,11 +1688,11 @@
           "per_chunk": null,
           "radius": null,
           "fraction": 0.06,
-          "host_block": "sternenwerft:asteroid_rock",
+          "host_block": "infinite_horizon:asteroid_rock",
           "biomes": [],
           "drops": [
             {
-              "id": "sternenwerft:raw_nickel",
+              "id": "infinite_horizon:raw_nickel",
               "count": 1
             }
           ],
@@ -1702,7 +1702,7 @@
       ],
       "blocks": [
         {
-          "id": "sternenwerft:asteroid_rock",
+          "id": "infinite_horizon:asteroid_rock",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -1710,10 +1710,10 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:asteroid_platinum_ore",
+          "id": "infinite_horizon:asteroid_platinum_ore",
           "drops": [
             {
-              "id": "sternenwerft:raw_platinum",
+              "id": "infinite_horizon:raw_platinum",
               "count": 1
             }
           ],
@@ -1723,10 +1723,10 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:asteroid_iridium_ore",
+          "id": "infinite_horizon:asteroid_iridium_ore",
           "drops": [
             {
-              "id": "sternenwerft:raw_iridium",
+              "id": "infinite_horizon:raw_iridium",
               "count": 1
             }
           ],
@@ -1736,10 +1736,10 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:asteroid_nickel_ore",
+          "id": "infinite_horizon:asteroid_nickel_ore",
           "drops": [
             {
-              "id": "sternenwerft:raw_nickel",
+              "id": "infinite_horizon:raw_nickel",
               "count": 1
             }
           ],
@@ -1751,7 +1751,7 @@
       ],
       "structures": [
         {
-          "id": "sternenwerft:large_asteroid",
+          "id": "infinite_horizon:large_asteroid",
           "exploration_target": false,
           "biomes": [],
           "spacing_chunks": null,
@@ -1775,9 +1775,9 @@
       ],
       "features": [
         {
-          "id": "sternenwerft:asteroid",
+          "id": "infinite_horizon:asteroid",
           "type": "asteroid",
-          "block": "sternenwerft:asteroid_rock",
+          "block": "infinite_horizon:asteroid_rock",
           "fluid": null,
           "biomes": [],
           "params": {
@@ -1796,8 +1796,8 @@
       ],
       "vanilla_mobs": [],
       "events": [
-        "sternenwerft:solar_storm",
-        "sternenwerft:meteor_shower"
+        "infinite_horizon:solar_storm",
+        "infinite_horizon:meteor_shower"
       ],
       "event_chance_multipliers": {},
       "special": {
@@ -1811,12 +1811,12 @@
       "notes": "Leere Dimension ohne Boden; Landung auf dem höchsten Asteroidenblock der Spalte, sonst Schweben auf y 100 (12.5). Farbe 24.5: Asteroiden #6B6B6B."
     },
     {
-      "id": "sternenwerft:ceres",
-      "dimension": "sternenwerft:ceres",
+      "id": "infinite_horizon:ceres",
+      "dimension": "infinite_horizon:ceres",
       "type": "surface",
       "name_de": "Ceres",
       "name_en": "Ceres",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 2,
       "distance_points": 3,
       "gravity": 0.03,
@@ -1833,11 +1833,11 @@
       "launch_cost_override": null,
       "required_rocket_tier": 2,
       "requires_long_range": false,
-      "probe": "sternenwerft:advanced_probe",
+      "probe": "infinite_horizon:advanced_probe",
       "orbit": null,
       "lander_connects_to": null,
       "gas_collector_output": null,
-      "default_block": "sternenwerft:ceres_rock",
+      "default_block": "infinite_horizon:ceres_rock",
       "default_fluid": "minecraft:air",
       "sea_level": null,
       "fixed_time": null,
@@ -1862,20 +1862,20 @@
       "biome_temperature_overrides": {},
       "biomes": [
         {
-          "id": "sternenwerft:ceres_plains",
+          "id": "infinite_horizon:ceres_plains",
           "name_de": "Ceres-Ebenen",
           "name_en": "Ceres Plains",
-          "surface": "sternenwerft:ceres_rock",
+          "surface": "infinite_horizon:ceres_rock",
           "surface_secondary": null,
           "shape": "flat",
           "rarity": "common",
           "notes": null
         },
         {
-          "id": "sternenwerft:ceres_salt_flats",
+          "id": "infinite_horizon:ceres_salt_flats",
           "name_de": "Salzebenen",
           "name_en": "Ceres Salt Flats",
-          "surface": "sternenwerft:salt_crust",
+          "surface": "infinite_horizon:salt_crust",
           "surface_secondary": null,
           "shape": "flat",
           "rarity": "common",
@@ -1885,7 +1885,7 @@
       "ores": [],
       "blocks": [
         {
-          "id": "sternenwerft:ceres_rock",
+          "id": "infinite_horizon:ceres_rock",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -1893,7 +1893,7 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:salt_crust",
+          "id": "infinite_horizon:salt_crust",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -1911,11 +1911,11 @@
       ],
       "structures": [
         {
-          "id": "sternenwerft:ice_volcano",
+          "id": "infinite_horizon:ice_volcano",
           "exploration_target": true,
           "biomes": [
-            "sternenwerft:ceres_plains",
-            "sternenwerft:ceres_salt_flats"
+            "infinite_horizon:ceres_plains",
+            "infinite_horizon:ceres_salt_flats"
           ],
           "spacing_chunks": null,
           "count_per_dimension": 1,
@@ -1932,7 +1932,7 @@
       "features": [],
       "vanilla_mobs": [],
       "events": [
-        "sternenwerft:solar_storm"
+        "infinite_horizon:solar_storm"
       ],
       "event_chance_multipliers": {},
       "special": {},
@@ -1940,12 +1940,12 @@
       "notes": "Farben 24.5: Ceres #7A776F, Salzkruste #E8E8E0."
     },
     {
-      "id": "sternenwerft:io",
-      "dimension": "sternenwerft:io",
+      "id": "infinite_horizon:io",
+      "dimension": "infinite_horizon:io",
       "type": "surface",
       "name_de": "Io",
       "name_en": "Io",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 2,
       "distance_points": 5,
       "gravity": 0.18,
@@ -1962,11 +1962,11 @@
       "launch_cost_override": null,
       "required_rocket_tier": 2,
       "requires_long_range": false,
-      "probe": "sternenwerft:advanced_probe",
-      "orbit": "sternenwerft:jupiter_orbit",
-      "lander_connects_to": "sternenwerft:jupiter_orbit",
+      "probe": "infinite_horizon:advanced_probe",
+      "orbit": "infinite_horizon:jupiter_orbit",
+      "lander_connects_to": "infinite_horizon:jupiter_orbit",
       "gas_collector_output": null,
-      "default_block": "sternenwerft:io_crust",
+      "default_block": "infinite_horizon:io_crust",
       "default_fluid": "minecraft:lava",
       "sea_level": null,
       "fixed_time": null,
@@ -1986,7 +1986,7 @@
         "sunset_color": null,
         "celestial_bodies": [
           {
-            "texture": "sternenwerft:textures/sky/jupiter.png",
+            "texture": "infinite_horizon:textures/sky/jupiter.png",
             "size": 90,
             "azimuth": 30,
             "elevation": 35
@@ -2013,30 +2013,30 @@
       "biome_temperature_overrides": {},
       "biomes": [
         {
-          "id": "sternenwerft:io_sulfur_plains",
+          "id": "infinite_horizon:io_sulfur_plains",
           "name_de": "Schwefelebenen",
           "name_en": "Io Sulfur Plains",
-          "surface": "sternenwerft:io_crust",
+          "surface": "infinite_horizon:io_crust",
           "surface_secondary": null,
           "shape": "flat",
           "rarity": "common",
           "notes": null
         },
         {
-          "id": "sternenwerft:io_lava_lakes",
+          "id": "infinite_horizon:io_lava_lakes",
           "name_de": "Lavaseen",
           "name_en": "Io Lava Lakes",
-          "surface": "sternenwerft:io_crust",
+          "surface": "infinite_horizon:io_crust",
           "surface_secondary": null,
           "shape": "flat",
           "rarity": "common",
           "notes": null
         },
         {
-          "id": "sternenwerft:io_volcanic_fields",
+          "id": "infinite_horizon:io_volcanic_fields",
           "name_de": "Vulkanfelder",
           "name_en": "Io Volcanic Fields",
-          "surface": "sternenwerft:io_crust",
+          "surface": "infinite_horizon:io_crust",
           "surface_secondary": null,
           "shape": "mountainous",
           "rarity": "common",
@@ -2045,7 +2045,7 @@
       ],
       "ores": [
         {
-          "block": "sternenwerft:io_sulfur_ore",
+          "block": "infinite_horizon:io_sulfur_ore",
           "placement": "vein",
           "y_min": null,
           "y_max": null,
@@ -2055,13 +2055,13 @@
           "fraction": null,
           "host_block": null,
           "biomes": [
-            "sternenwerft:io_sulfur_plains",
-            "sternenwerft:io_lava_lakes",
-            "sternenwerft:io_volcanic_fields"
+            "infinite_horizon:io_sulfur_plains",
+            "infinite_horizon:io_lava_lakes",
+            "infinite_horizon:io_volcanic_fields"
           ],
           "drops": [
             {
-              "id": "sternenwerft:sulfur",
+              "id": "infinite_horizon:sulfur",
               "count": 2,
               "count_max": 4
             }
@@ -2072,7 +2072,7 @@
       ],
       "blocks": [
         {
-          "id": "sternenwerft:io_crust",
+          "id": "infinite_horizon:io_crust",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -2080,10 +2080,10 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:io_sulfur_ore",
+          "id": "infinite_horizon:io_sulfur_ore",
           "drops": [
             {
-              "id": "sternenwerft:sulfur",
+              "id": "infinite_horizon:sulfur",
               "count": 2,
               "count_max": 4
             }
@@ -2096,10 +2096,10 @@
       ],
       "structures": [
         {
-          "id": "sternenwerft:volcanic_vent",
+          "id": "infinite_horizon:volcanic_vent",
           "exploration_target": true,
           "biomes": [
-            "sternenwerft:io_volcanic_fields"
+            "infinite_horizon:io_volcanic_fields"
           ],
           "spacing_chunks": null,
           "count_per_dimension": null,
@@ -2118,8 +2118,8 @@
         }
       ],
       "events": [
-        "sternenwerft:solar_storm",
-        "sternenwerft:volcanic_eruption"
+        "infinite_horizon:solar_storm",
+        "infinite_horizon:volcanic_eruption"
       ],
       "event_chance_multipliers": {},
       "special": {},
@@ -2127,12 +2127,12 @@
       "notes": "SPEC-GAP: Meeresspiegel für Lava nicht angegeben (Venus: 40). Jupiter riesig am Himmel. Farbe 24.5: Io #E8C440."
     },
     {
-      "id": "sternenwerft:europa",
-      "dimension": "sternenwerft:europa",
+      "id": "infinite_horizon:europa",
+      "dimension": "infinite_horizon:europa",
       "type": "surface",
       "name_de": "Europa",
       "name_en": "Europa",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 2,
       "distance_points": 5,
       "gravity": 0.13,
@@ -2149,11 +2149,11 @@
       "launch_cost_override": null,
       "required_rocket_tier": 2,
       "requires_long_range": false,
-      "probe": "sternenwerft:advanced_probe",
-      "orbit": "sternenwerft:jupiter_orbit",
-      "lander_connects_to": "sternenwerft:jupiter_orbit",
+      "probe": "infinite_horizon:advanced_probe",
+      "orbit": "infinite_horizon:jupiter_orbit",
+      "lander_connects_to": "infinite_horizon:jupiter_orbit",
       "gas_collector_output": null,
-      "default_block": "sternenwerft:europa_seabed",
+      "default_block": "infinite_horizon:europa_seabed",
       "default_fluid": "minecraft:water",
       "sea_level": 120,
       "fixed_time": null,
@@ -2173,7 +2173,7 @@
         "sunset_color": null,
         "celestial_bodies": [
           {
-            "texture": "sternenwerft:textures/sky/jupiter.png",
+            "texture": "infinite_horizon:textures/sky/jupiter.png",
             "size": 90,
             "azimuth": 30,
             "elevation": 35
@@ -2214,40 +2214,40 @@
       "biome_temperature_overrides": {},
       "biomes": [
         {
-          "id": "sternenwerft:europa_ice_plains",
+          "id": "infinite_horizon:europa_ice_plains",
           "name_de": "Eisebenen",
           "name_en": "Europa Ice Plains",
-          "surface": "sternenwerft:europa_ice",
+          "surface": "infinite_horizon:europa_ice",
           "surface_secondary": null,
           "shape": "flat",
           "rarity": "common",
           "notes": "geschlossene Eisdecke"
         },
         {
-          "id": "sternenwerft:europa_rifts",
+          "id": "infinite_horizon:europa_rifts",
           "name_de": "Eisspalten",
           "name_en": "Europa Rifts",
-          "surface": "sternenwerft:europa_ice",
+          "surface": "infinite_horizon:europa_ice",
           "surface_secondary": null,
           "shape": "hilly",
           "rarity": "common",
           "notes": "Spalten 3–6 Blöcke breit mit Zugang zum Wasser (ice_shell ausgespart)"
         },
         {
-          "id": "sternenwerft:europa_ocean",
+          "id": "infinite_horizon:europa_ocean",
           "name_de": "Europa-Ozean",
           "name_en": "Europa Ocean",
-          "surface": "sternenwerft:europa_seabed",
+          "surface": "infinite_horizon:europa_seabed",
           "surface_secondary": null,
           "shape": "hilly",
           "rarity": "common",
           "notes": "Unterwasserbiom unter der Eisdecke, Tiefseedruck unter y 80"
         },
         {
-          "id": "sternenwerft:europa_vents",
+          "id": "infinite_horizon:europa_vents",
           "name_de": "Hydrothermale Quellen",
           "name_en": "Europa Vents",
-          "surface": "sternenwerft:europa_seabed",
+          "surface": "infinite_horizon:europa_seabed",
           "surface_secondary": null,
           "shape": "hilly",
           "rarity": "common",
@@ -2257,7 +2257,7 @@
       "ores": [],
       "blocks": [
         {
-          "id": "sternenwerft:europa_ice",
+          "id": "infinite_horizon:europa_ice",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -2265,7 +2265,7 @@
           "notes": "nur mit ice_drill effizient abbaubar"
         },
         {
-          "id": "sternenwerft:europa_seabed",
+          "id": "infinite_horizon:europa_seabed",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -2273,7 +2273,7 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:hydrothermal_vent",
+          "id": "infinite_horizon:hydrothermal_vent",
           "drops": "none",
           "fortune": false,
           "unbreakable": true,
@@ -2283,10 +2283,10 @@
       ],
       "structures": [
         {
-          "id": "sternenwerft:hydrothermal_field",
+          "id": "infinite_horizon:hydrothermal_field",
           "exploration_target": true,
           "biomes": [
-            "sternenwerft:europa_vents"
+            "infinite_horizon:europa_vents"
           ],
           "spacing_chunks": null,
           "count_per_dimension": null,
@@ -2297,14 +2297,14 @@
       ],
       "features": [
         {
-          "id": "sternenwerft:ice_shell",
+          "id": "infinite_horizon:ice_shell",
           "type": "ice_shell",
-          "block": "sternenwerft:europa_ice",
+          "block": "infinite_horizon:europa_ice",
           "fluid": null,
           "biomes": [
-            "sternenwerft:europa_ice_plains",
-            "sternenwerft:europa_ocean",
-            "sternenwerft:europa_vents"
+            "infinite_horizon:europa_ice_plains",
+            "infinite_horizon:europa_ocean",
+            "infinite_horizon:europa_vents"
           ],
           "params": {
             "y_min": 112,
@@ -2314,7 +2314,7 @@
               6
             ],
             "excluded_biomes": [
-              "sternenwerft:europa_rifts"
+              "infinite_horizon:europa_rifts"
             ]
           },
           "notes": "füllt y 112–124 mit europa_ice außer in europa_rifts; Meeresboden etwa y −40 bis 0"
@@ -2322,7 +2322,7 @@
       ],
       "vanilla_mobs": [],
       "events": [
-        "sternenwerft:solar_storm"
+        "infinite_horizon:solar_storm"
       ],
       "event_chance_multipliers": {},
       "special": {},
@@ -2330,12 +2330,12 @@
       "notes": "Jupiter riesig am Himmel. Farben 24.5: Europa-Eis #E8EEF2 mit Rissen #8A5A3A."
     },
     {
-      "id": "sternenwerft:titan",
-      "dimension": "sternenwerft:titan",
+      "id": "infinite_horizon:titan",
+      "dimension": "infinite_horizon:titan",
       "type": "surface",
       "name_de": "Titan",
       "name_en": "Titan",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 2,
       "distance_points": 8,
       "gravity": 0.14,
@@ -2352,12 +2352,12 @@
       "launch_cost_override": null,
       "required_rocket_tier": 2,
       "requires_long_range": true,
-      "probe": "sternenwerft:advanced_probe",
-      "orbit": "sternenwerft:saturn_orbit",
-      "lander_connects_to": "sternenwerft:saturn_orbit",
+      "probe": "infinite_horizon:advanced_probe",
+      "orbit": "infinite_horizon:saturn_orbit",
+      "lander_connects_to": "infinite_horizon:saturn_orbit",
       "gas_collector_output": null,
-      "default_block": "sternenwerft:titan_ice_rock",
-      "default_fluid": "sternenwerft:methane",
+      "default_block": "infinite_horizon:titan_ice_rock",
+      "default_fluid": "infinite_horizon:methane",
       "sea_level": 62,
       "fixed_time": null,
       "generator": {
@@ -2381,30 +2381,30 @@
       "biome_temperature_overrides": {},
       "biomes": [
         {
-          "id": "sternenwerft:titan_methane_lakes",
+          "id": "infinite_horizon:titan_methane_lakes",
           "name_de": "Methanseen",
           "name_en": "Titan Methane Lakes",
-          "surface": "sternenwerft:titan_ice_rock",
+          "surface": "infinite_horizon:titan_ice_rock",
           "surface_secondary": null,
           "shape": "flat",
           "rarity": "common",
           "notes": null
         },
         {
-          "id": "sternenwerft:titan_dunes",
+          "id": "infinite_horizon:titan_dunes",
           "name_de": "Titan-Dünen",
           "name_en": "Titan Dunes",
-          "surface": "sternenwerft:titan_dune_sand",
+          "surface": "infinite_horizon:titan_dune_sand",
           "surface_secondary": null,
           "shape": "flat",
           "rarity": "common",
           "notes": null
         },
         {
-          "id": "sternenwerft:titan_ice_mountains",
+          "id": "infinite_horizon:titan_ice_mountains",
           "name_de": "Titan-Eisgebirge",
           "name_en": "Titan Ice Mountains",
-          "surface": "sternenwerft:titan_ice_rock",
+          "surface": "infinite_horizon:titan_ice_rock",
           "surface_secondary": null,
           "shape": "mountainous",
           "rarity": "common",
@@ -2414,7 +2414,7 @@
       "ores": [],
       "blocks": [
         {
-          "id": "sternenwerft:titan_dune_sand",
+          "id": "infinite_horizon:titan_dune_sand",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -2422,7 +2422,7 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:titan_ice_rock",
+          "id": "infinite_horizon:titan_ice_rock",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -2447,8 +2447,8 @@
         }
       ],
       "events": [
-        "sternenwerft:solar_storm",
-        "sternenwerft:methane_rain"
+        "infinite_horizon:solar_storm",
+        "infinite_horizon:methane_rain"
       ],
       "event_chance_multipliers": {},
       "special": {
@@ -2459,12 +2459,12 @@
       "notes": "Landung per Fallschirm. Farbe 24.5: Titan #A0622A."
     },
     {
-      "id": "sternenwerft:enceladus",
-      "dimension": "sternenwerft:enceladus",
+      "id": "infinite_horizon:enceladus",
+      "dimension": "infinite_horizon:enceladus",
       "type": "surface",
       "name_de": "Enceladus",
       "name_en": "Enceladus",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 2,
       "distance_points": 8,
       "gravity": 0.01,
@@ -2481,11 +2481,11 @@
       "launch_cost_override": null,
       "required_rocket_tier": 2,
       "requires_long_range": true,
-      "probe": "sternenwerft:advanced_probe",
-      "orbit": "sternenwerft:saturn_orbit",
-      "lander_connects_to": "sternenwerft:saturn_orbit",
+      "probe": "infinite_horizon:advanced_probe",
+      "orbit": "infinite_horizon:saturn_orbit",
+      "lander_connects_to": "infinite_horizon:saturn_orbit",
       "gas_collector_output": null,
-      "default_block": "sternenwerft:enceladus_ice",
+      "default_block": "infinite_horizon:enceladus_ice",
       "default_fluid": "minecraft:air",
       "sea_level": null,
       "fixed_time": null,
@@ -2505,7 +2505,7 @@
         "sunset_color": null,
         "celestial_bodies": [
           {
-            "texture": "sternenwerft:textures/sky/saturn.png",
+            "texture": "infinite_horizon:textures/sky/saturn.png",
             "size": 70,
             "azimuth": 45,
             "elevation": 30
@@ -2517,20 +2517,20 @@
       "biome_temperature_overrides": {},
       "biomes": [
         {
-          "id": "sternenwerft:enceladus_snowfields",
+          "id": "infinite_horizon:enceladus_snowfields",
           "name_de": "Schneefelder",
           "name_en": "Enceladus Snowfields",
-          "surface": "sternenwerft:enceladus_snow",
+          "surface": "infinite_horizon:enceladus_snow",
           "surface_secondary": null,
           "shape": "flat",
           "rarity": "common",
           "notes": null
         },
         {
-          "id": "sternenwerft:enceladus_tiger_stripes",
+          "id": "infinite_horizon:enceladus_tiger_stripes",
           "name_de": "Tigerstreifen",
           "name_en": "Enceladus Tiger Stripes",
-          "surface": "sternenwerft:enceladus_ice",
+          "surface": "infinite_horizon:enceladus_ice",
           "surface_secondary": null,
           "shape": "hilly",
           "rarity": "common",
@@ -2540,7 +2540,7 @@
       "ores": [],
       "blocks": [
         {
-          "id": "sternenwerft:enceladus_snow",
+          "id": "infinite_horizon:enceladus_snow",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -2548,7 +2548,7 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:enceladus_ice",
+          "id": "infinite_horizon:enceladus_ice",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -2556,7 +2556,7 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:ammonia_geyser",
+          "id": "infinite_horizon:ammonia_geyser",
           "drops": "none",
           "fortune": false,
           "unbreakable": true,
@@ -2569,10 +2569,10 @@
         {
           "id": null,
           "type": "geyser",
-          "block": "sternenwerft:ammonia_geyser",
+          "block": "infinite_horizon:ammonia_geyser",
           "fluid": null,
           "biomes": [
-            "sternenwerft:enceladus_tiger_stripes"
+            "infinite_horizon:enceladus_tiger_stripes"
           ],
           "params": {
             "per_chunk": 1
@@ -2582,7 +2582,7 @@
       ],
       "vanilla_mobs": [],
       "events": [
-        "sternenwerft:solar_storm"
+        "infinite_horizon:solar_storm"
       ],
       "event_chance_multipliers": {},
       "special": {},
@@ -2590,12 +2590,12 @@
       "notes": "Saturn mit Ringen am Himmel. Farbe 24.5: Enceladus #F4F8FF."
     },
     {
-      "id": "sternenwerft:triton",
-      "dimension": "sternenwerft:triton",
+      "id": "infinite_horizon:triton",
+      "dimension": "infinite_horizon:triton",
       "type": "surface",
       "name_de": "Triton",
       "name_en": "Triton",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 2,
       "distance_points": 15,
       "gravity": 0.08,
@@ -2612,11 +2612,11 @@
       "launch_cost_override": null,
       "required_rocket_tier": 2,
       "requires_long_range": true,
-      "probe": "sternenwerft:advanced_probe",
-      "orbit": "sternenwerft:neptune_orbit",
-      "lander_connects_to": "sternenwerft:neptune_orbit",
+      "probe": "infinite_horizon:advanced_probe",
+      "orbit": "infinite_horizon:neptune_orbit",
+      "lander_connects_to": "infinite_horizon:neptune_orbit",
       "gas_collector_output": null,
-      "default_block": "sternenwerft:triton_ice",
+      "default_block": "infinite_horizon:triton_ice",
       "default_fluid": "minecraft:air",
       "sea_level": null,
       "fixed_time": null,
@@ -2636,7 +2636,7 @@
         "sunset_color": null,
         "celestial_bodies": [
           {
-            "texture": "sternenwerft:textures/sky/neptune.png",
+            "texture": "infinite_horizon:textures/sky/neptune.png",
             "size": 40,
             "azimuth": 200,
             "elevation": 30
@@ -2648,30 +2648,30 @@
       "biome_temperature_overrides": {},
       "biomes": [
         {
-          "id": "sternenwerft:triton_cantaloupe_terrain",
+          "id": "infinite_horizon:triton_cantaloupe_terrain",
           "name_de": "Cantaloupe-Terrain",
           "name_en": "Triton Cantaloupe Terrain",
-          "surface": "sternenwerft:triton_ice",
+          "surface": "infinite_horizon:triton_ice",
           "surface_secondary": null,
           "shape": "hilly",
           "rarity": "common",
           "notes": "wellige Hügel"
         },
         {
-          "id": "sternenwerft:triton_polar_cap",
+          "id": "infinite_horizon:triton_polar_cap",
           "name_de": "Triton-Polkappe",
           "name_en": "Triton Polar Cap",
-          "surface": "sternenwerft:triton_ice",
+          "surface": "infinite_horizon:triton_ice",
           "surface_secondary": null,
           "shape": "rare",
           "rarity": "rare",
           "notes": null
         },
         {
-          "id": "sternenwerft:triton_geyser_fields",
+          "id": "infinite_horizon:triton_geyser_fields",
           "name_de": "Geysirfelder",
           "name_en": "Triton Geyser Fields",
-          "surface": "sternenwerft:triton_ice",
+          "surface": "infinite_horizon:triton_ice",
           "surface_secondary": null,
           "shape": "rare",
           "rarity": "rare",
@@ -2681,7 +2681,7 @@
       "ores": [],
       "blocks": [
         {
-          "id": "sternenwerft:triton_ice",
+          "id": "infinite_horizon:triton_ice",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -2689,7 +2689,7 @@
           "notes": "rosa-grau"
         },
         {
-          "id": "sternenwerft:nitrogen_geyser",
+          "id": "infinite_horizon:nitrogen_geyser",
           "drops": "none",
           "fortune": false,
           "unbreakable": true,
@@ -2702,10 +2702,10 @@
         {
           "id": null,
           "type": "geyser",
-          "block": "sternenwerft:nitrogen_geyser",
+          "block": "infinite_horizon:nitrogen_geyser",
           "fluid": null,
           "biomes": [
-            "sternenwerft:triton_geyser_fields"
+            "infinite_horizon:triton_geyser_fields"
           ],
           "params": {
             "per_chunk": null
@@ -2722,7 +2722,7 @@
         }
       ],
       "events": [
-        "sternenwerft:solar_storm"
+        "infinite_horizon:solar_storm"
       ],
       "event_chance_multipliers": {},
       "special": {},
@@ -2730,12 +2730,12 @@
       "notes": "Neptun blau am Himmel. Farbe 24.5: Triton #C9A4A4."
     },
     {
-      "id": "sternenwerft:pluto",
-      "dimension": "sternenwerft:pluto",
+      "id": "infinite_horizon:pluto",
+      "dimension": "infinite_horizon:pluto",
       "type": "surface",
       "name_de": "Pluto",
       "name_en": "Pluto",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 2,
       "distance_points": 18,
       "gravity": 0.06,
@@ -2752,11 +2752,11 @@
       "launch_cost_override": null,
       "required_rocket_tier": 2,
       "requires_long_range": true,
-      "probe": "sternenwerft:advanced_probe",
+      "probe": "infinite_horizon:advanced_probe",
       "orbit": null,
       "lander_connects_to": null,
       "gas_collector_output": null,
-      "default_block": "sternenwerft:pluto_water_ice",
+      "default_block": "infinite_horizon:pluto_water_ice",
       "default_fluid": "minecraft:air",
       "sea_level": null,
       "fixed_time": null,
@@ -2770,7 +2770,7 @@
             0
           ],
           "radius": 400,
-          "inner_biome": "sternenwerft:pluto_heart_glacier",
+          "inner_biome": "infinite_horizon:pluto_heart_glacier",
           "outside": "multi_noise"
         }
       },
@@ -2788,30 +2788,30 @@
       "biome_temperature_overrides": {},
       "biomes": [
         {
-          "id": "sternenwerft:pluto_heart_glacier",
+          "id": "infinite_horizon:pluto_heart_glacier",
           "name_de": "Herzgletscher",
           "name_en": "Pluto Heart Glacier",
-          "surface": "sternenwerft:pluto_nitrogen_ice",
+          "surface": "infinite_horizon:pluto_nitrogen_ice",
           "surface_secondary": null,
           "shape": "flat",
           "rarity": "common",
           "notes": "Radius 400 um (0, 0) über eigene BiomeSource"
         },
         {
-          "id": "sternenwerft:pluto_ice_mountains",
+          "id": "infinite_horizon:pluto_ice_mountains",
           "name_de": "Pluto-Eisgebirge",
           "name_en": "Pluto Ice Mountains",
-          "surface": "sternenwerft:pluto_water_ice",
+          "surface": "infinite_horizon:pluto_water_ice",
           "surface_secondary": null,
           "shape": "mountainous",
           "rarity": "common",
           "notes": null
         },
         {
-          "id": "sternenwerft:pluto_dark_highlands",
+          "id": "infinite_horizon:pluto_dark_highlands",
           "name_de": "Dunkles Hochland",
           "name_en": "Pluto Dark Highlands",
-          "surface": "sternenwerft:pluto_tholin",
+          "surface": "infinite_horizon:pluto_tholin",
           "surface_secondary": null,
           "shape": "mountainous",
           "rarity": "common",
@@ -2820,7 +2820,7 @@
       ],
       "ores": [
         {
-          "block": "sternenwerft:pluto_uranium_ore",
+          "block": "infinite_horizon:pluto_uranium_ore",
           "placement": "vein",
           "y_min": 0,
           "y_max": 60,
@@ -2830,11 +2830,11 @@
           "fraction": null,
           "host_block": null,
           "biomes": [
-            "sternenwerft:pluto_dark_highlands"
+            "infinite_horizon:pluto_dark_highlands"
           ],
           "drops": [
             {
-              "id": "sternenwerft:raw_uranium",
+              "id": "infinite_horizon:raw_uranium",
               "count": 1
             }
           ],
@@ -2844,7 +2844,7 @@
       ],
       "blocks": [
         {
-          "id": "sternenwerft:pluto_nitrogen_ice",
+          "id": "infinite_horizon:pluto_nitrogen_ice",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -2852,7 +2852,7 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:pluto_water_ice",
+          "id": "infinite_horizon:pluto_water_ice",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -2860,7 +2860,7 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:pluto_tholin",
+          "id": "infinite_horizon:pluto_tholin",
           "drops": "self",
           "fortune": false,
           "unbreakable": false,
@@ -2868,10 +2868,10 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:pluto_uranium_ore",
+          "id": "infinite_horizon:pluto_uranium_ore",
           "drops": [
             {
-              "id": "sternenwerft:raw_uranium",
+              "id": "infinite_horizon:raw_uranium",
               "count": 1
             }
           ],
@@ -2881,7 +2881,7 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:ancient_alloy",
+          "id": "infinite_horizon:ancient_alloy",
           "drops": "none",
           "fortune": false,
           "unbreakable": true,
@@ -2889,7 +2889,7 @@
           "notes": null
         },
         {
-          "id": "sternenwerft:transmitter_core",
+          "id": "infinite_horizon:transmitter_core",
           "drops": "none",
           "fortune": false,
           "unbreakable": true,
@@ -2899,10 +2899,10 @@
       ],
       "structures": [
         {
-          "id": "sternenwerft:signal_transmitter",
+          "id": "infinite_horizon:signal_transmitter",
           "exploration_target": true,
           "biomes": [
-            "sternenwerft:pluto_heart_glacier"
+            "infinite_horizon:pluto_heart_glacier"
           ],
           "spacing_chunks": null,
           "count_per_dimension": 1,
@@ -2926,11 +2926,11 @@
             "tunnel": {
               "width": 3,
               "height": 4,
-              "block": "sternenwerft:pluto_water_ice"
+              "block": "infinite_horizon:pluto_water_ice"
             },
             "surface_marker": {
               "size": 5,
-              "block": "sternenwerft:ancient_alloy"
+              "block": "infinite_horizon:ancient_alloy"
             }
           },
           "notes": "Halle 32×32×16 aus ancient_alloy, transmitter_core in der Mitte, Öffnung 3×4 in der Südwand, Treppentunnel (3 breit, 4 hoch) aus pluto_water_ice zur Oberfläche, oben 5×5-Ring aus ancient_alloy"
@@ -2946,7 +2946,7 @@
         }
       ],
       "events": [
-        "sternenwerft:solar_storm"
+        "infinite_horizon:solar_storm"
       ],
       "event_chance_multipliers": {},
       "special": {},
@@ -2954,12 +2954,12 @@
       "notes": "Himmel dämmrig, Sonne als heller Stern. Farben 24.5: Pluto-Eis #D8C8A8, Tholin #5A3A2A."
     },
     {
-      "id": "sternenwerft:earth_orbit",
-      "dimension": "sternenwerft:earth_orbit",
+      "id": "infinite_horizon:earth_orbit",
+      "dimension": "infinite_horizon:earth_orbit",
       "type": "orbit",
       "name_de": "Erdorbit",
       "name_en": "Earth Orbit",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 0,
       "distance_points": 0,
       "gravity": 0.005,
@@ -2998,7 +2998,7 @@
         "sunset_color": null,
         "celestial_bodies": [
           {
-            "texture": "sternenwerft:textures/sky/earth.png",
+            "texture": "infinite_horizon:textures/sky/earth.png",
             "size": 120,
             "azimuth": 0,
             "elevation": -90
@@ -3015,8 +3015,8 @@
       "features": [],
       "vanilla_mobs": [],
       "events": [
-        "sternenwerft:solar_storm",
-        "sternenwerft:meteor_shower"
+        "infinite_horizon:solar_storm",
+        "infinite_horizon:meteor_shower"
       ],
       "event_chance_multipliers": {},
       "special": {},
@@ -3024,12 +3024,12 @@
       "notes": "Planet groß unter dem Spieler (auch unterhalb des Horizonts). Immer bekannt (keine Sonde nötig)."
     },
     {
-      "id": "sternenwerft:venus_orbit",
-      "dimension": "sternenwerft:venus_orbit",
+      "id": "infinite_horizon:venus_orbit",
+      "dimension": "infinite_horizon:venus_orbit",
       "type": "orbit",
       "name_de": "Venus-Orbit",
       "name_en": "Venus Orbit",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 1,
       "distance_points": 1,
       "gravity": 0.005,
@@ -3046,7 +3046,7 @@
       "launch_cost_override": 0,
       "required_rocket_tier": 2,
       "requires_long_range": false,
-      "probe": "sternenwerft:probe",
+      "probe": "infinite_horizon:probe",
       "orbit": null,
       "lander_connects_to": null,
       "gas_collector_output": null,
@@ -3068,7 +3068,7 @@
         "sunset_color": null,
         "celestial_bodies": [
           {
-            "texture": "sternenwerft:textures/sky/venus.png",
+            "texture": "infinite_horizon:textures/sky/venus.png",
             "size": 120,
             "azimuth": 0,
             "elevation": -90
@@ -3085,8 +3085,8 @@
       "features": [],
       "vanilla_mobs": [],
       "events": [
-        "sternenwerft:solar_storm",
-        "sternenwerft:meteor_shower"
+        "infinite_horizon:solar_storm",
+        "infinite_horizon:meteor_shower"
       ],
       "event_chance_multipliers": {},
       "special": {},
@@ -3094,12 +3094,12 @@
       "notes": "Planet groß unter dem Spieler (auch unterhalb des Horizonts)."
     },
     {
-      "id": "sternenwerft:mars_orbit",
-      "dimension": "sternenwerft:mars_orbit",
+      "id": "infinite_horizon:mars_orbit",
+      "dimension": "infinite_horizon:mars_orbit",
       "type": "orbit",
       "name_de": "Mars-Orbit",
       "name_en": "Mars Orbit",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 1,
       "distance_points": 1.5,
       "gravity": 0.005,
@@ -3116,7 +3116,7 @@
       "launch_cost_override": 0,
       "required_rocket_tier": 2,
       "requires_long_range": false,
-      "probe": "sternenwerft:probe",
+      "probe": "infinite_horizon:probe",
       "orbit": null,
       "lander_connects_to": null,
       "gas_collector_output": null,
@@ -3138,7 +3138,7 @@
         "sunset_color": null,
         "celestial_bodies": [
           {
-            "texture": "sternenwerft:textures/sky/mars.png",
+            "texture": "infinite_horizon:textures/sky/mars.png",
             "size": 120,
             "azimuth": 0,
             "elevation": -90
@@ -3155,8 +3155,8 @@
       "features": [],
       "vanilla_mobs": [],
       "events": [
-        "sternenwerft:solar_storm",
-        "sternenwerft:meteor_shower"
+        "infinite_horizon:solar_storm",
+        "infinite_horizon:meteor_shower"
       ],
       "event_chance_multipliers": {},
       "special": {},
@@ -3164,12 +3164,12 @@
       "notes": "Planet groß unter dem Spieler (auch unterhalb des Horizonts)."
     },
     {
-      "id": "sternenwerft:mercury_orbit",
-      "dimension": "sternenwerft:mercury_orbit",
+      "id": "infinite_horizon:mercury_orbit",
+      "dimension": "infinite_horizon:mercury_orbit",
       "type": "orbit",
       "name_de": "Merkur-Orbit",
       "name_en": "Mercury Orbit",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 2,
       "distance_points": 2,
       "gravity": 0.005,
@@ -3186,7 +3186,7 @@
       "launch_cost_override": 0,
       "required_rocket_tier": 2,
       "requires_long_range": false,
-      "probe": "sternenwerft:advanced_probe",
+      "probe": "infinite_horizon:advanced_probe",
       "orbit": null,
       "lander_connects_to": null,
       "gas_collector_output": null,
@@ -3208,7 +3208,7 @@
         "sunset_color": null,
         "celestial_bodies": [
           {
-            "texture": "sternenwerft:textures/sky/mercury.png",
+            "texture": "infinite_horizon:textures/sky/mercury.png",
             "size": 120,
             "azimuth": 0,
             "elevation": -90
@@ -3225,8 +3225,8 @@
       "features": [],
       "vanilla_mobs": [],
       "events": [
-        "sternenwerft:solar_storm",
-        "sternenwerft:meteor_shower"
+        "infinite_horizon:solar_storm",
+        "infinite_horizon:meteor_shower"
       ],
       "event_chance_multipliers": {},
       "special": {},
@@ -3234,12 +3234,12 @@
       "notes": "Planet groß unter dem Spieler (auch unterhalb des Horizonts)."
     },
     {
-      "id": "sternenwerft:jupiter_orbit",
-      "dimension": "sternenwerft:jupiter_orbit",
+      "id": "infinite_horizon:jupiter_orbit",
+      "dimension": "infinite_horizon:jupiter_orbit",
       "type": "orbit",
       "name_de": "Jupiter-Orbit",
       "name_en": "Jupiter Orbit",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 2,
       "distance_points": 5,
       "gravity": 0.005,
@@ -3256,11 +3256,11 @@
       "launch_cost_override": 0,
       "required_rocket_tier": 2,
       "requires_long_range": false,
-      "probe": "sternenwerft:advanced_probe",
+      "probe": "infinite_horizon:advanced_probe",
       "orbit": null,
       "lander_connects_to": null,
       "gas_collector_output": {
-        "fluid": "sternenwerft:hydrogen",
+        "fluid": "infinite_horizon:hydrogen",
         "amount": 100,
         "ticks": 20,
         "alternative": null
@@ -3283,7 +3283,7 @@
         "sunset_color": null,
         "celestial_bodies": [
           {
-            "texture": "sternenwerft:textures/sky/jupiter.png",
+            "texture": "infinite_horizon:textures/sky/jupiter.png",
             "size": 120,
             "azimuth": 0,
             "elevation": -90
@@ -3300,8 +3300,8 @@
       "features": [],
       "vanilla_mobs": [],
       "events": [
-        "sternenwerft:solar_storm",
-        "sternenwerft:meteor_shower"
+        "infinite_horizon:solar_storm",
+        "infinite_horizon:meteor_shower"
       ],
       "event_chance_multipliers": {},
       "special": {},
@@ -3309,12 +3309,12 @@
       "notes": "Planet groß unter dem Spieler (auch unterhalb des Horizonts)."
     },
     {
-      "id": "sternenwerft:saturn_orbit",
-      "dimension": "sternenwerft:saturn_orbit",
+      "id": "infinite_horizon:saturn_orbit",
+      "dimension": "infinite_horizon:saturn_orbit",
       "type": "orbit",
       "name_de": "Saturn-Orbit",
       "name_en": "Saturn Orbit",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 2,
       "distance_points": 8,
       "gravity": 0.005,
@@ -3331,11 +3331,11 @@
       "launch_cost_override": 0,
       "required_rocket_tier": 2,
       "requires_long_range": true,
-      "probe": "sternenwerft:advanced_probe",
+      "probe": "infinite_horizon:advanced_probe",
       "orbit": null,
       "lander_connects_to": null,
       "gas_collector_output": {
-        "fluid": "sternenwerft:helium",
+        "fluid": "infinite_horizon:helium",
         "amount": 100,
         "ticks": 20,
         "alternative": null
@@ -3358,7 +3358,7 @@
         "sunset_color": null,
         "celestial_bodies": [
           {
-            "texture": "sternenwerft:textures/sky/saturn.png",
+            "texture": "infinite_horizon:textures/sky/saturn.png",
             "size": 120,
             "azimuth": 0,
             "elevation": -90
@@ -3375,9 +3375,9 @@
       "features": [],
       "vanilla_mobs": [],
       "events": [
-        "sternenwerft:solar_storm",
-        "sternenwerft:meteor_shower",
-        "sternenwerft:ring_debris"
+        "infinite_horizon:solar_storm",
+        "infinite_horizon:meteor_shower",
+        "infinite_horizon:ring_debris"
       ],
       "event_chance_multipliers": {},
       "special": {},
@@ -3385,12 +3385,12 @@
       "notes": "Planet groß unter dem Spieler (auch unterhalb des Horizonts)."
     },
     {
-      "id": "sternenwerft:uranus_orbit",
-      "dimension": "sternenwerft:uranus_orbit",
+      "id": "infinite_horizon:uranus_orbit",
+      "dimension": "infinite_horizon:uranus_orbit",
       "type": "orbit",
       "name_de": "Uranus-Orbit",
       "name_en": "Uranus Orbit",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 2,
       "distance_points": 12,
       "gravity": 0.005,
@@ -3407,14 +3407,14 @@
       "launch_cost_override": 0,
       "required_rocket_tier": 2,
       "requires_long_range": true,
-      "probe": "sternenwerft:advanced_probe",
+      "probe": "infinite_horizon:advanced_probe",
       "orbit": null,
       "lander_connects_to": null,
       "gas_collector_output": {
-        "fluid": "sternenwerft:methane",
+        "fluid": "infinite_horizon:methane",
         "amount": 100,
         "ticks": 20,
-        "alternative": "sternenwerft:hydrogen"
+        "alternative": "infinite_horizon:hydrogen"
       },
       "default_block": null,
       "default_fluid": "minecraft:air",
@@ -3434,7 +3434,7 @@
         "sunset_color": null,
         "celestial_bodies": [
           {
-            "texture": "sternenwerft:textures/sky/uranus.png",
+            "texture": "infinite_horizon:textures/sky/uranus.png",
             "size": 120,
             "azimuth": 0,
             "elevation": -90
@@ -3451,8 +3451,8 @@
       "features": [],
       "vanilla_mobs": [],
       "events": [
-        "sternenwerft:solar_storm",
-        "sternenwerft:meteor_shower"
+        "infinite_horizon:solar_storm",
+        "infinite_horizon:meteor_shower"
       ],
       "event_chance_multipliers": {},
       "special": {},
@@ -3460,12 +3460,12 @@
       "notes": "Planet groß unter dem Spieler (auch unterhalb des Horizonts). Gas-Sammler: Standard methane, per Knopf auf hydrogen umschaltbar."
     },
     {
-      "id": "sternenwerft:neptune_orbit",
-      "dimension": "sternenwerft:neptune_orbit",
+      "id": "infinite_horizon:neptune_orbit",
+      "dimension": "infinite_horizon:neptune_orbit",
       "type": "orbit",
       "name_de": "Neptun-Orbit",
       "name_en": "Neptune Orbit",
-      "star_system": "sternenwerft:sol",
+      "star_system": "infinite_horizon:sol",
       "ring": 2,
       "distance_points": 15,
       "gravity": 0.005,
@@ -3482,14 +3482,14 @@
       "launch_cost_override": 0,
       "required_rocket_tier": 2,
       "requires_long_range": true,
-      "probe": "sternenwerft:advanced_probe",
+      "probe": "infinite_horizon:advanced_probe",
       "orbit": null,
       "lander_connects_to": null,
       "gas_collector_output": {
-        "fluid": "sternenwerft:methane",
+        "fluid": "infinite_horizon:methane",
         "amount": 100,
         "ticks": 20,
-        "alternative": "sternenwerft:hydrogen"
+        "alternative": "infinite_horizon:hydrogen"
       },
       "default_block": null,
       "default_fluid": "minecraft:air",
@@ -3509,7 +3509,7 @@
         "sunset_color": null,
         "celestial_bodies": [
           {
-            "texture": "sternenwerft:textures/sky/neptune.png",
+            "texture": "infinite_horizon:textures/sky/neptune.png",
             "size": 120,
             "azimuth": 0,
             "elevation": -90
@@ -3526,8 +3526,8 @@
       "features": [],
       "vanilla_mobs": [],
       "events": [
-        "sternenwerft:solar_storm",
-        "sternenwerft:meteor_shower"
+        "infinite_horizon:solar_storm",
+        "infinite_horizon:meteor_shower"
       ],
       "event_chance_multipliers": {},
       "special": {},

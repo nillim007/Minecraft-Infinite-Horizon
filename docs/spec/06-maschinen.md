@@ -61,9 +61,9 @@
 
 Brennstoffe mit Behälter (z. B. Lavaeimer) hinterlassen den leeren Behälter im Brennstoffslot, wie im Vanilla-Ofen; ein Trichter kann ihn abziehen.
 
-- **`battery`:** Der Ladeslot nimmt jedes Item an, das eine Energie-Schnittstelle der Plattform (NeoForge, Team Reborn) oder die Komponente `sternenwerft:energy` trägt, und lädt es mit höchstens `io_per_tick` (512 J/t). In M2 gibt es keine eigenen ladbaren Items; der Test nutzt ein Plattform-Testitem.
+- **`battery`:** Der Ladeslot nimmt jedes Item an, das eine Energie-Schnittstelle der Plattform (NeoForge, Team Reborn) oder die Komponente `infinite_horizon:energy` trägt, und lädt es mit höchstens `io_per_tick` (512 J/t). In M2 gibt es keine eigenen ladbaren Items; der Test nutzt ein Plattform-Testitem.
 - **`fluid_tank`:** nur Flüssigkeiten. Gase (`hydrogen`, `oxygen`) bleiben in M2 im Maschinentank (5.3).
-- **`pressure_bottle` (ab M3):** nur Gase; Ausgangsseite und Füll-/Leerslot wie beim `fluid_tank`; behält beim Abbauen ihren Inhalt (`sternenwerft:fluid`).
+- **`pressure_bottle` (ab M3):** nur Gase; Ausgangsseite und Füll-/Leerslot wie beim `fluid_tank`; behält beim Abbauen ihren Inhalt (`infinite_horizon:fluid`).
 
 **Tageslicht** = 1 bei Tag, 0 bei Nacht, linear in der Dämmerung. Regen und Staubsturm: × 0,25. Sonnensturm: × 2.
 
@@ -80,28 +80,28 @@ Alle Texte stehen in `common/lang_extra.json`. Namen von Blöcken und Items komm
 
 | Schlüssel | Verwendung |
 | --- | --- |
-| `gui.sternenwerft.energy` | Tooltip der Energieleiste (Wert und Kapazität in J) |
-| `gui.sternenwerft.fluid` | Tooltip der Fluidleiste, z. B. „Wasser: 4.000 / 16.000 mB“ |
-| `gui.sternenwerft.tank` | Knopf „Tank wählen“ |
-| `gui.sternenwerft.side` | Knopf „Ausgangsseite“ |
-| `gui.sternenwerft.side.down`, `.up`, `.north`, `.south`, `.west`, `.east` | die sechs Seiten (Unten, Oben, Nord, Süd, West, Ost) |
-| `gui.sternenwerft.upgrade.speed`, `gui.sternenwerft.upgrade.efficiency` | Hinweis an den Upgrade-Slots |
-| `gui.sternenwerft.port.input`, `gui.sternenwerft.port.output` | Port-Modus |
-| `gui.sternenwerft.multiblock.missing` | fehlender Block im Multiblock (mit Koordinate) |
-| `gui.sternenwerft.status.running`, `.idle`, `.error` | Tooltip der Statuslampe |
-| `jei.sternenwerft.<rezepttyp>` | Name der Rezeptkategorie je Rezepttyp (3.9) |
+| `gui.infinite_horizon.energy` | Tooltip der Energieleiste (Wert und Kapazität in J) |
+| `gui.infinite_horizon.fluid` | Tooltip der Fluidleiste, z. B. „Wasser: 4.000 / 16.000 mB“ |
+| `gui.infinite_horizon.tank` | Knopf „Tank wählen“ |
+| `gui.infinite_horizon.side` | Knopf „Ausgangsseite“ |
+| `gui.infinite_horizon.side.down`, `.up`, `.north`, `.south`, `.west`, `.east` | die sechs Seiten (Unten, Oben, Nord, Süd, West, Ost) |
+| `gui.infinite_horizon.upgrade.speed`, `gui.infinite_horizon.upgrade.efficiency` | Hinweis an den Upgrade-Slots |
+| `gui.infinite_horizon.port.input`, `gui.infinite_horizon.port.output` | Port-Modus |
+| `gui.infinite_horizon.multiblock.missing` | fehlender Block im Multiblock (mit Koordinate) |
+| `gui.infinite_horizon.status.running`, `.idle`, `.error` | Tooltip der Statuslampe |
+| `jei.infinite_horizon.<rezepttyp>` | Name der Rezeptkategorie je Rezepttyp (3.9) |
 
 Schlüssel für Meilenstein 3:
 
 | Schlüssel | Verwendung |
 | --- | --- |
-| `hud.sternenwerft.oxygen`, `.pressure`, `.heat`, `.cold`, `.radiation` | Belastungsleisten (8.4) |
-| `hud.sternenwerft.suit_oxygen`, `.temperature` | Anzugvorrat und Temperatur im HUD (8.4) |
-| `gui.sternenwerft.oxygen` | Tooltip der Brustplatte, z. B. „O₂: 600 / 1.200 mB“ (9.1) |
-| `gui.sternenwerft.dome.radius` | Radius im Kuppel-GUI (10.1) |
-| `message.sternenwerft.no_atmosphere` | Fackel, Feuer usw. lassen sich nicht setzen (8.5) |
-| `message.sternenwerft.dome.failing` | Kuppel fällt aus, mit Restsekunden (10.1) |
-| `message.sternenwerft.bed.no_air` | „Hier kannst du nicht atmen“ (14.4) |
-| `death.attack.sternenwerft.<gefahr>` | Todesnachricht je Schadensart (8.2) |
-| `agency.sternenwerft.default_name` | „Agentur von <Name>“ (23.1) |
-| `commands.sternenwerft.goto.*`, `commands.sternenwerft.agency.*` | Rückmeldungen der Befehle (12.10, 23.1) |
+| `hud.infinite_horizon.oxygen`, `.pressure`, `.heat`, `.cold`, `.radiation` | Belastungsleisten (8.4) |
+| `hud.infinite_horizon.suit_oxygen`, `.temperature` | Anzugvorrat und Temperatur im HUD (8.4) |
+| `gui.infinite_horizon.oxygen` | Tooltip der Brustplatte, z. B. „O₂: 600 / 1.200 mB“ (9.1) |
+| `gui.infinite_horizon.dome.radius` | Radius im Kuppel-GUI (10.1) |
+| `message.infinite_horizon.no_atmosphere` | Fackel, Feuer usw. lassen sich nicht setzen (8.5) |
+| `message.infinite_horizon.dome.failing` | Kuppel fällt aus, mit Restsekunden (10.1) |
+| `message.infinite_horizon.bed.no_air` | „Hier kannst du nicht atmen“ (14.4) |
+| `death.attack.infinite_horizon.<gefahr>` | Todesnachricht je Schadensart (8.2) |
+| `agency.infinite_horizon.default_name` | „Agentur von <Name>“ (23.1) |
+| `commands.infinite_horizon.goto.*`, `commands.infinite_horizon.agency.*` | Rückmeldungen der Befehle (12.10, 23.1) |

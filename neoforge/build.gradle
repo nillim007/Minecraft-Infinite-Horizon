@@ -35,12 +35,12 @@ neoForge {
             type = "gameTestServer"
             gameDirectory = this.mkdir(this.file('runs/gametest'))
         }
-        // Automatischer Client-Test mit Screenshots (de.sternenwerft.client.NeoForgeClientTest), Task runClientTest
+        // Automatischer Client-Test mit Screenshots (de.infinitehorizon.client.NeoForgeClientTest), Task runClientTest
         clientTest {
             client()
             gameDirectory = this.mkdir(this.file('runs/clienttest'))
-            systemProperty 'sternenwerft.clienttest', 'true'
-            systemProperty 'sternenwerft.clienttest.jei', project.hasProperty('withJei') ? 'true' : 'false'
+            systemProperty 'infinite_horizon.clienttest', 'true'
+            systemProperty 'infinite_horizon.clienttest.jei', project.hasProperty('withJei') ? 'true' : 'false'
         }
     }
     mods {

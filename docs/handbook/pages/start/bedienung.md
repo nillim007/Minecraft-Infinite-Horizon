@@ -3,10 +3,10 @@ title: Maschinen bedienen
 title_en: Using Machines
 order: 20
 milestone: 2
-requires: ["sternenwerft:crusher"]
+requires: ["infinite_horizon:crusher"]
 summary: GUI, Statuslampe, Ausgangsseite, Trichter und Upgrades
 ---
-Alle Maschinen von Sternenwerft funktionieren nach denselben Regeln. Wer sie einmal verstanden hat, kommt mit jeder neuen Maschine sofort klar.
+Alle Maschinen von Infinite Horizon funktionieren nach denselben Regeln. Wer sie einmal verstanden hat, kommt mit jeder neuen Maschine sofort klar.
 
 ## Das Fenster
 
@@ -35,6 +35,6 @@ Jede Maschine hat oben eine kleine Lampe. Sie verrät dir auf einen Blick, was l
 
 ## Abbauen
 
-Maschinen baust du mit einer **Spitzhacke** ab (mindestens Stein). Sie droppen sich selbst, Items im Inneren fallen heraus. Energie und Fluide gehen dabei verloren. Nur der <item:sternenwerft:fluid_tank> behält seinen Inhalt.
+Maschinen baust du mit einer **Spitzhacke** ab (mindestens Stein). Sie droppen sich selbst, Items im Inneren fallen heraus. Energie und Fluide gehen dabei verloren. Nur der <item:infinite_horizon:fluid_tank> behält seinen Inhalt.
 
 @tip Strom verbraucht eine Maschine nur, solange sie wirklich arbeitet. Eine wartende Maschine kostet nichts. Du kannst also ruhig mehrere Maschinen an einen Generator hängen.

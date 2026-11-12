@@ -2,7 +2,7 @@
   "schema_version": 1,
   "parts": [
     {
-      "block": "sternenwerft:rocket_capsule_t1",
+      "block": "infinite_horizon:rocket_capsule_t1",
       "role": "capsule",
       "tier": 1,
       "usable_in_tiers": [
@@ -18,7 +18,7 @@
       "spec_ref": "12.4"
     },
     {
-      "block": "sternenwerft:rocket_tank_t1",
+      "block": "infinite_horizon:rocket_tank_t1",
       "role": "tank",
       "tier": 1,
       "usable_in_tiers": [
@@ -34,7 +34,7 @@
       "spec_ref": "12.4"
     },
     {
-      "block": "sternenwerft:rocket_engine_t1",
+      "block": "infinite_horizon:rocket_engine_t1",
       "role": "engine",
       "tier": 1,
       "usable_in_tiers": [
@@ -50,7 +50,7 @@
       "spec_ref": "12.4"
     },
     {
-      "block": "sternenwerft:rocket_fin_t1",
+      "block": "infinite_horizon:rocket_fin_t1",
       "role": "fin",
       "tier": 1,
       "usable_in_tiers": [
@@ -66,7 +66,7 @@
       "spec_ref": "12.4"
     },
     {
-      "block": "sternenwerft:rocket_cargo_bay",
+      "block": "infinite_horizon:rocket_cargo_bay",
       "role": "cargo",
       "tier": 1,
       "usable_in_tiers": [
@@ -83,7 +83,7 @@
       "spec_ref": "12.4"
     },
     {
-      "block": "sternenwerft:rocket_capsule_t2",
+      "block": "infinite_horizon:rocket_capsule_t2",
       "role": "capsule",
       "tier": 2,
       "usable_in_tiers": [
@@ -99,7 +99,7 @@
       "spec_ref": "12.4"
     },
     {
-      "block": "sternenwerft:rocket_tank_t2",
+      "block": "infinite_horizon:rocket_tank_t2",
       "role": "tank",
       "tier": 2,
       "usable_in_tiers": [
@@ -115,7 +115,7 @@
       "spec_ref": "12.4"
     },
     {
-      "block": "sternenwerft:rocket_engine_t2",
+      "block": "infinite_horizon:rocket_engine_t2",
       "role": "engine",
       "tier": 2,
       "usable_in_tiers": [
@@ -131,7 +131,7 @@
       "spec_ref": "12.4"
     },
     {
-      "block": "sternenwerft:rocket_fin_t2",
+      "block": "infinite_horizon:rocket_fin_t2",
       "role": "fin",
       "tier": 2,
       "usable_in_tiers": [
@@ -147,7 +147,7 @@
       "spec_ref": "12.4"
     },
     {
-      "block": "sternenwerft:long_range_module",
+      "block": "infinite_horizon:long_range_module",
       "role": "long_range",
       "tier": 2,
       "usable_in_tiers": [
@@ -167,18 +167,18 @@
     {
       "tier": 1,
       "thrust": 30,
-      "pad": "sternenwerft:launch_pad_t1",
+      "pad": "infinite_horizon:launch_pad_t1",
       "pad_size": [
         5,
         5
       ],
       "launch_sites": [
-        "sternenwerft:launch_pad_t1",
+        "infinite_horizon:launch_pad_t1",
         "landed_rocket_entity"
       ],
       "fuel": [
-        "sternenwerft:kerosene",
-        "sternenwerft:oxygen"
+        "infinite_horizon:kerosene",
+        "infinite_horizon:oxygen"
       ],
       "capsules": [
         1,
@@ -219,19 +219,19 @@
     {
       "tier": 2,
       "thrust": 48,
-      "pad": "sternenwerft:launch_pad_t2",
+      "pad": "infinite_horizon:launch_pad_t2",
       "pad_size": [
         7,
         7
       ],
       "launch_sites": [
-        "sternenwerft:launch_pad_t2",
-        "sternenwerft:docking_bay",
+        "infinite_horizon:launch_pad_t2",
+        "infinite_horizon:docking_bay",
         "landed_rocket_entity"
       ],
       "fuel": [
-        "sternenwerft:hydrogen",
-        "sternenwerft:oxygen"
+        "infinite_horizon:hydrogen",
+        "infinite_horizon:oxygen"
       ],
       "capsules": [
         1,

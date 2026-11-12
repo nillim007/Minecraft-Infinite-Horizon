@@ -41,7 +41,7 @@ Diese Entscheidungen lösen Widersprüche und Sackgassen. **Bitte prüfen**, bev
 - Exakter Abgleich im Montagetisch und Mengen-Multiplikator ab M2 (22.3).
 - Regeln für Pumpe, Elektroofen, Zerkleinerer und Akku (6.1, 6.3); Solar-Vorgabe für später (6.3); GUI-Schlüssel (6.4).
 - Worldgen der Erde (13.4) und Eigenschaften von `crude_oil` (5.3); Tag-Muster (5.1); Farbtabelle (24.5); Rezeptanzeige (3.9).
-- Forschungssperre als Schnittstelle, `SwBlockEntity` ab M2, `MachineConfigPayload`-Format (3A).
+- Forschungssperre als Schnittstelle, `IhBlockEntity` ab M2, `MachineConfigPayload`-Format (3A).
 - Beispielrezepte mit Zeitgrenzen, Leistungstest und Teilschritte M2a–M2f (27.1–27.3).
 - Offen (Kapitel 28): drei zutatengleiche Montagetisch-Paare, endliches Erdöl.
 
@@ -61,7 +61,7 @@ Diese Entscheidungen lösen Widersprüche und Sackgassen. **Bitte prüfen**, bev
 
 - Umfang von M3 als Liste: 18 Items und Blöcke, 11 Rezepte, Dimension `moon`. `pressure_bottle` gehört dazu; `helmet_lamp`, `transport_tank`, Kuppelmodule und `advanced_circuit` kommen später. Teilschritte M3a–M3e (27.4, 27.5, Matrix).
 - Abnahme M3 präzisiert: Belastung mit Prüftakt statt „genau 200 t“, Kuppel-Ausfall mit festem Startzustand; Umwelt-Override `EnvironmentOverrides` und Dimensionsfeld von `TestData` (27, 3A.8).
-- Agentur-Kern: Format von `AgencyData`, Agentur bei jedem Login ohne Agentur, Befehle `agency info` und `agency transfer`, Blöcke ohne Besitzer, Rechte erst ab M4, `visited_dimensions` (23.1, 3A). `SwBlockEntity` als Basis von Maschinen und Ports; Kabel, Rohre und Gehäuse ohne Block-Entity (3A.3, 26).
+- Agentur-Kern: Format von `AgencyData`, Agentur bei jedem Login ohne Agentur, Befehle `agency info` und `agency transfer`, Blöcke ohne Besitzer, Rechte erst ab M4, `visited_dimensions` (23.1, 3A). `IhBlockEntity` als Basis von Maschinen und Ports; Kabel, Rohre und Gehäuse ohne Block-Entity (3A.3, 26).
 - Kuppelgenerator als Block mit den Zuständen `running`, `failing` und aus, O₂-Rechnung in 1/1.000 mB, Darstellung als Halbkugel (10.1, `domes.json`). Der Sauerstoffgenerator gibt nur über die Ausgangsseite ab (10.2).
 - Belastung: Zählweise, Schadensarten, Kreativ ausgenommen (8.2). HUD mit Maßen, Leisten und Payload-Feldern (8.4, 3.5, 3A.5). Tageslicht-Kurve und Deckung (8.1). Welten ohne Atmosphäre im Einzelnen (8.5, 3.7).
 - Anzug: O₂-Verbrauch, Startwert, Nachfüllen, Rüstungswerte (9.1). Sauerstoffflaschen in Füll- und Leerslots (4.1); `pressure_bottle` behält beim Abbauen ihren Inhalt (4.1, 6.3).

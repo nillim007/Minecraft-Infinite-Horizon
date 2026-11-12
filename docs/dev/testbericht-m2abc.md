@@ -1,6 +1,6 @@
 # Testbericht: Meilenstein 1 bis M2c
 
-Stand: 11.11.2026, Commit `f683a24`, GitHub-Lauf [43018888655](https://github.com/nillim007/Minecraft-New-Horizon/actions/runs/43018888655).
+Stand: 11.11.2026, Commit `f683a24`, GitHub-Lauf [43018888655](https://github.com/nillim007/Minecraft-Infinite-Horizon/actions/runs/43018888655).
 
 ## Ergebnis
 
@@ -63,7 +63,7 @@ Alle Tests laufen auf **beiden** Loadern. Die Liste steht in `common/gametests.j
 
 ## Client-Test NeoForge (echter Client, xvfb + Mesa)
 
-`NeoForgeClientTest` läuft nur mit `-Dsternenwerft.clienttest=true` (Run `runClientTest`). Er legt selbst eine Flachland-Welt an, öffnet jedes GUI per echtem Rechtsklick über das Netzwerk und schreibt eine Ergebnisdatei. Die Bilder liegen im Branch `ci-screenshots-neoforge`.
+`NeoForgeClientTest` läuft nur mit `-Dinfinite_horizon.clienttest=true` (Run `runClientTest`). Er legt selbst eine Flachland-Welt an, öffnet jedes GUI per echtem Rechtsklick über das Netzwerk und schreibt eine Ergebnisdatei. Die Bilder liegen im Branch `ci-screenshots-neoforge`.
 
 | Prüfung | Ergebnis |
 | --- | --- |
@@ -103,7 +103,7 @@ Er öffnet eine Testwelt, setzt die Blöcke, öffnet jedes GUI per Rechtsklick u
 | Punkt | Entscheidung |
 | --- | --- |
 | Lavaeimer im Generator | umgesetzt: der leere Eimer bleibt im Slot (6.3) |
-| Tank-Inhalt beim Abbauen | umgesetzt: Komponente `sternenwerft:fluid`; der Loot kopiert sie (4.1) |
+| Tank-Inhalt beim Abbauen | umgesetzt: Komponente `infinite_horizon:fluid`; der Loot kopiert sie (4.1) |
 | Knopf „Tank“ | erst mit Maschinen mit mehreren Tanks (Elektrolyseur, M2d). Payload und Sync-Wert sind schon vorhanden |
 | Zeitgrenze der Pumpe | 50 t statt 44 t wegen des Rohrdurchsatzes (spec-gaps #23) |
 

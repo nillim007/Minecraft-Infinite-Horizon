@@ -6,7 +6,7 @@
 - [ ] Echte Texturen, Modelle und Kreaturen in Blockbench nach 24.5 erstellen (ersetzt die Platzhalter).
 - [ ] Englische Namen von einem Muttersprachler gegenlesen lassen.
 - [ ] Musik komponieren oder lizenzieren.
-- [ ] Gruppen-ID und Basispaket bestätigen (Vorschlag `de.sternenwerft`, 3A.2).
+- [ ] Gruppen-ID und Basispaket bestätigen (Vorschlag `de.infinitehorizon`, 3A.2).
 - [x] Lizenz der Mod festlegen: **MIT** (siehe `LICENSE`; in `neoforge.mods.toml` und `fabric.mod.json` eintragen).
 - [ ] Nach jedem Meilenstein `docs/spec-gaps.md` durchgehen: Annahmen übernehmen oder verwerfen.
 - [ ] Sauerstoff-Balance (Lückentest M3, Lücke 32): Der Elektrolyseur liefert 100 mB O₂ in 40 t mit 40 J/t, der Sauerstoffgenerator 100 mB in 1.200 t mit 60 J/t (30-mal langsamer, 45-mal mehr Energie je mB). Wasser lässt sich in Eimern oder im `fluid_tank` zum Mond bringen. Gewollt, oder den Generator stärken bzw. den Elektrolyseur einschränken? Bis zur Entscheidung gelten die Daten.

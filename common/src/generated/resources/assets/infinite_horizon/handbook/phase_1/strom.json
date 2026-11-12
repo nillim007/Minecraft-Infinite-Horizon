@@ -1,0 +1,265 @@
+{
+  "id": "infinite_horizon:phase_1/strom",
+  "chapter": "infinite_horizon:phase_1",
+  "title": "infinite_horizon.handbook.phase_1.strom.title",
+  "icon": "infinite_horizon:combustion_generator",
+  "order": 30,
+  "unlock": null,
+  "items": [
+    "infinite_horizon:combustion_generator",
+    "infinite_horizon:copper_cable",
+    "infinite_horizon:fuel_generator",
+    "infinite_horizon:battery"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.strom.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.strom.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.strom.e2"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:combustion_generator",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_1.strom.e3.0.label",
+          "infinite_horizon.handbook.phase_1.strom.e3.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_1.strom.e3.1.label",
+          "infinite_horizon.handbook.phase_1.strom.e3.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_1.strom.e3.2.label",
+          "infinite_horizon.handbook.phase_1.strom.e3.2.value"
+        ]
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:crafting_shaped/combustion_generator",
+          "type": "minecraft:crafting_shaped",
+          "station": "minecraft:crafting_table",
+          "pattern": [
+            "III",
+            "IMI",
+            "CKC"
+          ],
+          "key": {
+            "C": [
+              "minecraft:copper_ingot"
+            ],
+            "I": [
+              "minecraft:iron_ingot"
+            ],
+            "K": [
+              "minecraft:furnace"
+            ],
+            "M": [
+              "infinite_horizon:machine_frame"
+            ]
+          },
+          "results": [
+            {
+              "item": "infinite_horizon:combustion_generator",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.strom.e6",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.strom.e7"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:fuel_generator",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_1.strom.e8.0.label",
+          "infinite_horizon.handbook.phase_1.strom.e8.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_1.strom.e8.1.label",
+          "infinite_horizon.handbook.phase_1.strom.e8.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_1.strom.e8.2.label",
+          "infinite_horizon.handbook.phase_1.strom.e8.2.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_1.strom.e8.3.label",
+          "infinite_horizon.handbook.phase_1.strom.e8.3.value"
+        ]
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/fuel_generator",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:machine_frame"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:combustion_generator"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:iron_plate"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:fuel_generator",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.strom.e10",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.strom.e11"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:copper_cable",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_1.strom.e12.0.label",
+          "infinite_horizon.handbook.phase_1.strom.e12.0.value"
+        ]
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:crafting_shaped/copper_cable",
+          "type": "minecraft:crafting_shaped",
+          "station": "minecraft:crafting_table",
+          "pattern": [
+            "CCC"
+          ],
+          "key": {
+            "C": [
+              "minecraft:copper_ingot"
+            ]
+          },
+          "results": [
+            {
+              "item": "infinite_horizon:copper_cable",
+              "count": 6
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.strom.e14",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.strom.e15"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:battery",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_1.strom.e16.0.label",
+          "infinite_horizon.handbook.phase_1.strom.e16.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_1.strom.e16.1.label",
+          "infinite_horizon.handbook.phase_1.strom.e16.1.value"
+        ]
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:crafting_shaped/battery",
+          "type": "minecraft:crafting_shaped",
+          "station": "minecraft:crafting_table",
+          "pattern": [
+            "CBC",
+            "BMB",
+            "CBC"
+          ],
+          "key": {
+            "B": [
+              "minecraft:redstone_block"
+            ],
+            "C": [
+              "minecraft:copper_ingot"
+            ],
+            "M": [
+              "infinite_horizon:machine_frame"
+            ]
+          },
+          "results": [
+            {
+              "item": "infinite_horizon:battery",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_1.strom.e18",
+      "style": "tip"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_1.strom.e19",
+      "style": "note"
+    }
+  ]
+}

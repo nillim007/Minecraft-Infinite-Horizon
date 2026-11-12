@@ -41,7 +41,7 @@ def known(spec, i):
 def check_items(spec):
     for iid, e in spec.items.items():
         if not is_mod(iid):
-            err(f"items.json: ID ohne Namespace sternenwerft: {iid}")
+            err(f"items.json: ID ohne Namespace infinite_horizon: {iid}")
         for f in ("kind", "name_de", "name_en", "obtained_by", "spec_ref"):
             if e.get(f) in (None, "", []):
                 err(f"items.json: {iid} hat kein Feld '{f}'")
@@ -89,7 +89,7 @@ def producers(spec):
 
 
 def all_ids(obj) -> set[str]:
-    """Alle sternenwerft-IDs, die irgendwo in einem verschachtelten Objekt als Text vorkommen."""
+    """Alle infinite_horizon-IDs, die irgendwo in einem verschachtelten Objekt als Text vorkommen."""
     out, stack = set(), [obj]
     while stack:
         cur = stack.pop()

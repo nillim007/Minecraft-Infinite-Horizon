@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "entries": {
-    "sternenwerft:dome_generator_t1": {
+    "infinite_horizon:dome_generator_t1": {
       "tier": 1,
       "radius": 8,
       "energy_per_tick": 40,
@@ -16,7 +16,7 @@
       "o2_tank": 2000,
       "buffer": null,
       "o2_fluids": [
-        "sternenwerft:oxygen"
+        "infinite_horizon:oxygen"
       ],
       "o2_input_sides": "all",
       "container_slots": {
@@ -28,7 +28,7 @@
       "render_color": "white",
       "spec_ref": "10.1"
     },
-    "sternenwerft:dome_generator_t2": {
+    "infinite_horizon:dome_generator_t2": {
       "tier": 2,
       "radius": 16,
       "energy_per_tick": 200,
@@ -45,7 +45,7 @@
       "o2_tank": 2000,
       "buffer": null,
       "o2_fluids": [
-        "sternenwerft:oxygen"
+        "infinite_horizon:oxygen"
       ],
       "o2_input_sides": "all",
       "container_slots": {
@@ -57,7 +57,7 @@
       "render_color": "blue",
       "spec_ref": "10.1"
     },
-    "sternenwerft:dome_generator_t3": {
+    "infinite_horizon:dome_generator_t3": {
       "tier": 3,
       "radius": 32,
       "energy_per_tick": 1000,
@@ -77,7 +77,7 @@
       "o2_tank": 2000,
       "buffer": null,
       "o2_fluids": [
-        "sternenwerft:oxygen"
+        "infinite_horizon:oxygen"
       ],
       "o2_input_sides": "all",
       "container_slots": {
@@ -90,20 +90,20 @@
       "spec_ref": "10.1, 8.1, 19",
       "notes": "solar_storm: Maschinen unter Kuppel T3 pausieren nicht (19)."
     },
-    "sternenwerft:dome_range_module": {
+    "infinite_horizon:dome_range_module": {
       "radius_multiplier": 1.5,
       "energy_multiplier": 2.0,
       "oxygen_multiplier": 2.0,
       "spec_ref": "10.1"
     },
-    "sternenwerft:dome_efficiency_module": {
+    "infinite_horizon:dome_efficiency_module": {
       "oxygen_multiplier": 0.75,
       "spec_ref": "10.1"
     },
-    "sternenwerft:dome_shield_module": {
+    "infinite_horizon:dome_shield_module": {
       "intercepts": [
-        "sternenwerft:meteor_shower",
-        "sternenwerft:ring_debris"
+        "infinite_horizon:meteor_shower",
+        "infinite_horizon:ring_debris"
       ],
       "blocks_mobs": false,
       "spec_ref": "10.1"
@@ -144,8 +144,8 @@
       "warning": {
         "channel": "actionbar",
         "interval_ticks": 100,
-        "sound": "sternenwerft:warning.dome",
-        "key": "message.sternenwerft.dome.failing"
+        "sound": "infinite_horizon:warning.dome",
+        "key": "message.infinite_horizon.dome.failing"
       },
       "render_shape": "hemisphere",
       "out_of_range_status": "error",

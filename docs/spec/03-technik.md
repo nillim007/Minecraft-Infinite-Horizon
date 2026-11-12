@@ -34,7 +34,7 @@ Begründung: 26.3 ist die neueste stabile Version und wird von NeoForge und Fabr
 ## 3.2 Projektaufbau
 
 ```
-sternenwerft/
+infinite_horizon/
   common/     – gesamte Spiellogik, generierte Ressourcen, Netzwerk-Payloads, Services-Interfaces
   neoforge/   – Registrierung, Capabilities, Events, Sky-Renderer, Config-Pfad
   fabric/     – Registrierung, Team Reborn Energy, Fabric Transfer API, Sky-Renderer
@@ -49,16 +49,16 @@ sternenwerft/
 
 | Thema | common | NeoForge | Fabric |
 | --- | --- | --- | --- |
-| Energie | eigene Klasse `SwEnergyStorage` (long, J) | `Capabilities.Energy.BLOCK` (`EnergyHandler`, Transfer-API mit Transaktionen) | `team.reborn.energy.api.EnergyStorage.SIDED` (Team Reborn Energy 5.0.0, per `include` eingebettet) |
-| Fluide | eigene Klasse `SwFluidTank` (mB) | `Capabilities.Fluid.BLOCK` mit `ResourceHandler<FluidResource>` | `FluidStorage.SIDED` (Droplets ↔ mB umrechnen) |
-| Items | eigene Klasse `SwItemContainer` | `Capabilities.Item.BLOCK` mit `ResourceHandler<ItemResource>` | `ItemStorage.SIDED` |
+| Energie | eigene Klasse `IhEnergyStorage` (long, J) | `Capabilities.Energy.BLOCK` (`EnergyHandler`, Transfer-API mit Transaktionen) | `team.reborn.energy.api.EnergyStorage.SIDED` (Team Reborn Energy 5.0.0, per `include` eingebettet) |
+| Fluide | eigene Klasse `IhFluidTank` (mB) | `Capabilities.Fluid.BLOCK` mit `ResourceHandler<FluidResource>` | `FluidStorage.SIDED` (Droplets ↔ mB umrechnen) |
+| Items | eigene Klasse `IhItemContainer` | `Capabilities.Item.BLOCK` mit `ResourceHandler<ItemResource>` | `ItemStorage.SIDED` |
 
 - **NeoForge-Transfer-API** (seit 21.9, gilt für 26.x): `IItemHandler`, `IFluidHandler` und `FluidTank` gibt es nicht mehr. Ein- und Auslagern läuft über `ResourceHandler` in **Transaktionen**. Abgebrochene Transaktionen MÜSSEN den vorherigen Zustand wiederherstellen (Snapshot). Leere Ressourcen nie übergeben, sie werfen eine Exception.
 - **Fabric-Transfer-API** arbeitet ebenfalls mit Transaktionen. Die Klassen in `common` MÜSSEN daher ein gemeinsames Transaktionsmodell anbieten (simulieren → bestätigen/zurückrollen), das beide Plattformschichten abbilden.
 - Maschinen, die auch Vanilla-Trichter bedienen sollen, implementieren zusätzlich `Container` (Trichter prüfen das Interface vor der Capability).
 - Die Präfix-Namen `Sw…` vermeiden Namenskonflikte mit Plattformklassen.
 
-Gase sind Fluide mit dem Tag `sternenwerft:gases`. Gase haben keine platzierbaren Quellblöcke und keine Eimer.
+Gase sind Fluide mit dem Tag `infinite_horizon:gases`. Gase haben keine platzierbaren Quellblöcke und keine Eimer.
 
 ## 3.4 Netzwerk
 
@@ -66,8 +66,8 @@ Gase sind Fluide mit dem Tag `sternenwerft:gases`. Gase haben keine platzierbare
 
 ## 3.5 Konfiguration
 
-- Eigene JSON-Datei pro Welt: `<welt>/serverconfig/sternenwerft.json`. Sie wird beim ersten Start mit Standardwerten angelegt und beim Join an Clients gesendet.
-- Client-Datei `config/sternenwerft-client.json` nur für HUD-Position und Lautstärke: `hud_offset_x` und `hud_offset_y` (Verschiebung des HUD in px, Standard 0) sowie `sound_volume` (0,0–1,0, Standard 1,0, gilt für die Warntöne).
+- Eigene JSON-Datei pro Welt: `<welt>/serverconfig/infinite_horizon.json`. Sie wird beim ersten Start mit Standardwerten angelegt und beim Join an Clients gesendet.
+- Client-Datei `config/infinite_horizon-client.json` nur für HUD-Position und Lautstärke: `hud_offset_x` und `hud_offset_y` (Verschiebung des HUD in px, Standard 0) sowie `sound_volume` (0,0–1,0, Standard 1,0, gilt für die Warntöne).
 - Schlüssel: Kapitel 24.4.
 
 ## 3.6 Code-Konstanten

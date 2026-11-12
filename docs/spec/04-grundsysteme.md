@@ -17,18 +17,18 @@
   - **Füllslot:** Ein Behälter-Item (`transport_tank`, `oxygen_canister`, `large_oxygen_canister`, Eimer) wird *aus* dem Block gefüllt.
   - **Leerslot:** Ein gefülltes Behälter-Item wird *in* den Block entleert.
   - Der Behälter bleibt jeweils im Slot liegen, bis man ihn herausnimmt oder ein Trichter ihn abzieht.
-  - Behälter speichern Fluid und Menge in der Data Component `sternenwerft:fluid`.
+  - Behälter speichern Fluid und Menge in der Data Component `infinite_horizon:fluid`.
   - **Mehrere Tanks:** Der Füllslot nimmt aus dem ersten Ausgabetank, dessen Fluid zum Behälter passt; für einen leeren Behälter gilt der im GUI gewählte Tank (Knopf „Tank wählen“, Standard Tank 1). Der Leerslot gibt in den ersten passenden Eingangstank.
   - **Trichter** ziehen aus dem Füllslot nur volle und aus dem Leerslot nur leere Behälter.
   - **Eimer (ab M2):** Füll- und Leerslot nehmen `minecraft:bucket`, `minecraft:water_bucket`, `minecraft:lava_bucket`, `crude_oil_bucket` und `kerosene_bucket` an. Die Übergabe geschieht immer ganz (1.000 mB) und sofort (1 Tick). Füllslot: leerer Eimer + Tank mit mindestens 1.000 mB eines Fluids mit Eimer → gefüllter Eimer. Leerslot: gefüllter Eimer + Platz für 1.000 mB im Eingangstank → leerer Eimer (`minecraft:bucket`). Gase gibt es nicht im Eimer (3.3).
   - **Neue Eimer:** `crude_oil_bucket` und `kerosene_bucket` (`max_stack` 1) sind eigene Items ohne Komponente. `crude_oil_bucket` entsteht im Füllslot oder durch Rechtsklick eines leeren Eimers auf einen `crude_oil`-Quellblock und lässt sich platzieren. `kerosene` hat keinen Quellblock; `kerosene_bucket` entsteht nur im Füllslot und ist nicht platzierbar.
-  - **Data Component `sternenwerft:fluid`** (Kanister, `transport_tank`): `{ "fluid": "<id>", "amount": <mB> }`. Ein leerer Behälter hat die Komponente nicht (sie wird entfernt).
+  - **Data Component `infinite_horizon:fluid`** (Kanister, `transport_tank`): `{ "fluid": "<id>", "amount": <mB> }`. Ein leerer Behälter hat die Komponente nicht (sie wird entfernt).
   - **Sauerstoffflaschen (ab M3):** Die „Kanister“ aus Kapitel 27 sind `oxygen_canister` (600 mB) und `large_oxygen_canister` (1.200 mB). Sie nehmen nur `oxygen` an (`fluids` in `suits.json`). Die Übergabe geschieht sofort (1 Tick), so viel wie passt bzw. vorhanden ist; Teilfüllung ist erlaubt. „Voll“ heißt Kapazität erreicht, „leer“ heißt Komponente fehlt. Flaschen gehen in die Füll- und Leerslots aller Blöcke mit O₂-Tank (`electrolyzer`, `oxygen_generator`, `dome_generator_*`, `pressure_bottle`).
   - **Meilenstein:** Füll- und Leerslots für Eimer gehören zu M2, die für Sauerstoffflaschen zu M3 (27.4). `transport_tank` kommt mit M4.
 - **Energiepuffer:** 20 × Verbrauch (J/t) × min(Vorgangsdauer, 100), mindestens 10.000 J, höchstens 1.000.000 J. Maschinen ohne Vorgangsdauer rechnen mit 100.
 - **Energie und Fortschritt:** Eine Maschine nimmt so viel Energie auf, wie in den Puffer passt; über ein Kabel höchstens bis zu dessen Durchsatz. Verbrauch entsteht nur bei Fortschritt, nicht bei `idle` oder `error`. Enthält der Puffer weniger als den Verbrauch eines Ticks, pausiert der Fortschritt (`idle`); er verfällt nicht. Ist die Eingabe leer oder wechselt das Rezept, springt der Fortschritt auf 0.
 - **Tanks:** Ein Tank enthält höchstens ein Fluid und wechselt es erst, wenn er leer ist. Ein Eingangstank nimmt nur Fluide an, die in mindestens einem Rezept dieses Maschinentyps als Eingabe stehen (bei Generatoren: der Brennstoff aus den Daten). `fluid_pump` und Ausgangstanks nehmen von außen nichts an.
-- **Abbauen und Drops:** Alle Maschinen, Generatoren, Speicher, Ports, Gehäuse, Kabel und Rohre droppen sich selbst. Items im Inneren (auch Upgrades) fallen heraus. Fluid und Energie gehen verloren; nur `battery`, `fluid_tank` und `pressure_bottle` (ab M3) behalten ihren Inhalt in den Data Components `sternenwerft:energy` bzw. `sternenwerft:fluid` auf dem Item.
+- **Abbauen und Drops:** Alle Maschinen, Generatoren, Speicher, Ports, Gehäuse, Kabel und Rohre droppen sich selbst. Items im Inneren (auch Upgrades) fallen heraus. Fluid und Energie gehen verloren; nur `battery`, `fluid_tank` und `pressure_bottle` (ab M3) behalten ihren Inhalt in den Data Components `infinite_horizon:energy` bzw. `infinite_horizon:fluid` auf dem Item.
 - **Blockeigenschaften:** Härte, Sprengwiderstand und Klang wie ein Vanilla-Block. Maschinen, Generatoren, Speicher, Ports und Gehäuse wie `minecraft:iron_block`; Kabel und Rohre wie `minecraft:iron_block` mit Kupfer-Klang, ohne Verdeckung (keine volle Würfelform). Abbau mit der Spitzhacke (Tag `minecraft:mineable/pickaxe`), Werkzeugstufe wie `iron_block` (`minecraft:needs_stone_tool`). Kein Block leuchtet in M2.
 - **Statuslampe** (Blockstate `status`): `running` grün, `idle` gelb (wartet auf Material oder Strom), `error` rot (Ausgabe voll, falscher Ort, Struktur unvollständig).
 - **Ausrichtung:** Blockstate `facing` (horizontal), zeigt zum Spieler.
@@ -71,7 +71,7 @@ Die Wirkung multipliziert sich. Upgrades gelten für alle Maschinen, Generatoren
 
 - Der Controller steht in der untersten Schicht in der Mitte der Vorderseite (`facing`-Seite). Das Muster reicht von ihm 1 Block nach links und rechts, 2 Blöcke gegen die Blickrichtung nach hinten und 4 Blöcke nach oben.
 - Die übrigen 44 Positionen sind `refinery_casing` oder Ports (beliebig viele). Andere Blöcke im Muster sind nicht erlaubt. Der Aufbau darf frei stehen.
-- Bei einem Fehler steht die Statuslampe auf `error`. Der Status-Tooltip nennt den ersten fehlenden Block mit Koordinate (`gui.sternenwerft.multiblock.missing`).
+- Bei einem Fehler steht die Statuslampe auf `error`. Der Status-Tooltip nennt den ersten fehlenden Block mit Koordinate (`gui.infinite_horizon.multiblock.missing`).
 
 ## 4.4 Kabel und Rohre
 

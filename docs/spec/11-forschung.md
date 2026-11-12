@@ -20,7 +20,7 @@
 - `sample_tool`: Rechtsklick auf einen Block → 1 `sample` mit `block` = Block-ID und `dimension`. Der Block bleibt. 40 t Abklingzeit. Pro Block-Position nur einmal (gespeichert in Chunk-Daten).
 - **Probenart** = Block-ID + Dimension. `deepslate_`-Varianten zählen als dieselbe Art wie die normale Variante.
 - **Von Spielern gesetzte Blöcke** sind nie beprobbar: Beim Setzen wird die Position in den Chunk-Daten als „beprobt“ markiert.
-- **Beprobbar** sind in der Overworld nur Blöcke im Tag `sternenwerft:sampleable/ring0`, in Planetendimensionen nur Blöcke im Tag `sternenwerft:sampleable/planet`:
+- **Beprobbar** sind in der Overworld nur Blöcke im Tag `infinite_horizon:sampleable/ring0`, in Planetendimensionen nur Blöcke im Tag `infinite_horizon:sampleable/planet`:
   - In Ring 0 nur die 10 Erzarten `bauxite_ore`, `titanium_ore`, `quartz_sand`, Kohle-, Eisen-, Kupfer-, Gold-, Redstone-, Lapis- und Diamanterz (max. 100 FP voll).
   - In Ring 1 und 2 alle natürlichen Blöcke aus 13.4 dieser Dimension, auch dort generierte Vanilla-Blöcke wie `ice`, `basalt`, `magma_block`.
 - Ein Rechtsklick auf einen nicht beprobbaren Block zeigt „Keine verwertbare Probe“.

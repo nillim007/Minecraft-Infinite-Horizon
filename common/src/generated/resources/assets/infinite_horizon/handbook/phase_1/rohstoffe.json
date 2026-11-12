@@ -1,0 +1,101 @@
+{
+  "id": "infinite_horizon:phase_1/rohstoffe",
+  "chapter": "infinite_horizon:phase_1",
+  "title": "infinite_horizon.handbook.phase_1.rohstoffe.title",
+  "icon": "infinite_horizon:bauxite_ore",
+  "order": 20,
+  "unlock": null,
+  "items": [
+    "infinite_horizon:bauxite_ore",
+    "infinite_horizon:bauxite",
+    "infinite_horizon:titanium_ore",
+    "infinite_horizon:deepslate_titanium_ore",
+    "infinite_horizon:raw_titanium",
+    "infinite_horizon:quartz_sand"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.rohstoffe.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.rohstoffe.e1",
+      "level": 2
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.phase_1.rohstoffe.e2.h0",
+        "infinite_horizon.handbook.phase_1.rohstoffe.e2.h1",
+        "infinite_horizon.handbook.phase_1.rohstoffe.e2.h2",
+        "infinite_horizon.handbook.phase_1.rohstoffe.e2.h3",
+        "infinite_horizon.handbook.phase_1.rohstoffe.e2.h4"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_1.rohstoffe.e2.r0.0",
+          "infinite_horizon.handbook.phase_1.rohstoffe.e2.r0.1",
+          "infinite_horizon.handbook.phase_1.rohstoffe.e2.r0.2",
+          "infinite_horizon.handbook.phase_1.rohstoffe.e2.r0.3",
+          "infinite_horizon.handbook.phase_1.rohstoffe.e2.r0.4"
+        ],
+        [
+          "infinite_horizon.handbook.phase_1.rohstoffe.e2.r1.0",
+          "infinite_horizon.handbook.phase_1.rohstoffe.e2.r1.1",
+          "infinite_horizon.handbook.phase_1.rohstoffe.e2.r1.2",
+          "infinite_horizon.handbook.phase_1.rohstoffe.e2.r1.3",
+          "infinite_horizon.handbook.phase_1.rohstoffe.e2.r1.4"
+        ],
+        [
+          "infinite_horizon.handbook.phase_1.rohstoffe.e2.r2.0",
+          "infinite_horizon.handbook.phase_1.rohstoffe.e2.r2.1",
+          "infinite_horizon.handbook.phase_1.rohstoffe.e2.r2.2",
+          "infinite_horizon.handbook.phase_1.rohstoffe.e2.r2.3",
+          "infinite_horizon.handbook.phase_1.rohstoffe.e2.r2.4"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.rohstoffe.e3",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.rohstoffe.e4"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.rohstoffe.e5",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.rohstoffe.e6"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.rohstoffe.e7",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.rohstoffe.e8"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_1.rohstoffe.e9",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_1.rohstoffe.e10"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_1.rohstoffe.e11",
+      "style": "tip"
+    }
+  ]
+}

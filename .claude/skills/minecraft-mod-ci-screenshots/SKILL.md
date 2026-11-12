@@ -1,11 +1,11 @@
 ---
 name: minecraft-mod-ci-screenshots
-description: Sternenwerft-Mod (Minecraft 26.3, NeoForge + Fabric) bauen, testen und GUIs per Screenshot prüfen – lokal mit Fabric (falls JDK 25 da ist) oder über GitHub Actions (Server- und Client-GameTests, Screenshots im Branch ci-screenshots). Verwenden bei jedem Build, nach jeder Code-Änderung, bei neuen GUIs oder Blöcken und wenn der Build rot ist.
+description: Infinite-Horizon-Mod (Minecraft 26.3, NeoForge + Fabric) bauen, testen und GUIs per Screenshot prüfen – lokal mit Fabric (falls JDK 25 da ist) oder über GitHub Actions (Server- und Client-GameTests, Screenshots im Branch ci-screenshots). Verwenden bei jedem Build, nach jeder Code-Änderung, bei neuen GUIs oder Blöcken und wenn der Build rot ist.
 ---
 
 # Bauen, testen, Screenshots prüfen
 
-Repo: `nillim007/Minecraft-New-Horizon`. Alles Weitere zur Mod: `CLAUDE.md`, `docs/spec/`, `docs/dev/`.
+Repo: `nillim007/Minecraft-Infinite-Horizon`. Alles Weitere zur Mod: `CLAUDE.md`, `docs/spec/`, `docs/dev/`.
 
 ## 1. Lokal (schnell, zum Iterieren)
 
@@ -44,7 +44,7 @@ Ablauf:
 ## 3. GUI-Screenshots ansehen
 
 ```bash
-git clone --depth 1 -b ci-screenshots https://github.com/nillim007/Minecraft-New-Horizon.git <scratchpad>/shots
+git clone --depth 1 -b ci-screenshots https://github.com/nillim007/Minecraft-Infinite-Horizon.git <scratchpad>/shots
 ```
 
 - Die Commit-Nachricht nennt den geprüften Commit („Screenshots für <sha>“). Stimmt sie nicht mit dem eigenen Commit überein, ist der Client-Job noch nicht fertig oder fehlgeschlagen.
@@ -59,18 +59,18 @@ git clone --depth 1 -b ci-screenshots https://github.com/nillim007/Minecraft-New
 
 ### NeoForge-Client-Test
 
-`neoforge/.../client/NeoForgeClientTest.java` ist eine Ablaufsteuerung pro Client-Tick (Run `runClientTest`, CI-Job „Client-Test mit Screenshots (NeoForge)“ mit xvfb + Mesa). Er schreibt `runs/clienttest/sternenwerft-clienttest.txt` (PASS/FAIL, DONE). Die Bilder landen im Branch `ci-screenshots-neoforge`. Neue GUIs mit `openMachine(block, name, setup, extra)` ergänzen. Lokal nicht starten, weil sich dafür ein Fenster öffnet.
+`neoforge/.../client/NeoForgeClientTest.java` ist eine Ablaufsteuerung pro Client-Tick (Run `runClientTest`, CI-Job „Client-Test mit Screenshots (NeoForge)“ mit xvfb + Mesa). Er schreibt `runs/clienttest/infinite_horizon-clienttest.txt` (PASS/FAIL, DONE). Die Bilder landen im Branch `ci-screenshots-neoforge`. Neue GUIs mit `openMachine(block, name, setup, extra)` ergänzen. Lokal nicht starten, weil sich dafür ein Fenster öffnet.
 
 ## 4. Neue GUIs und Blöcke in den Client-Test aufnehmen
 
-Datei: `fabric/src/main/java/de/sternenwerft/gametest/SwClientGameTests.java`. Sie ist nur mit `-Dfabric.client.gametest` aktiv, Entry-Point `fabric-client-gametest`.
+Datei: `fabric/src/main/java/de/infinitehorizon/gametest/IhClientGameTests.java`. Sie ist nur mit `-Dfabric.client.gametest` aktiv, Entry-Point `fabric-client-gametest`.
 
 - **Neue Maschine:** Aufruf `machine(context, sp, ModBlocks.X.get(), "gui_x", be -> { …Beispielinhalt… })` ergänzen.
   - Die Methode setzt den Block per `setblock`, legt über `runOnServer` Items und Energie hinein, öffnet das GUI mit `pressKey(keyUse)`, leert den Chat und macht den Screenshot.
 - **Neue einfache Blöcke:** Sie erscheinen automatisch in der zweiten Reihe von `world_machines`, weil die Liste aus `ModBlocks.simpleBlocks()` kommt.
-- **Neue Server-GameTests:** in `common/gametests.json` eintragen (Name, Klasse, Methode, Ticks, Spez.-Bezug), dann `python tools/gen_gametests.py`; das erzeugt `SwTestCatalog` (NeoForge registriert per Schleife) und `SwFabricGameTests`. Die CI prüft, dass beides aktuell ist. Mock-Spieler (`makeMockServerPlayer`) haben keine Netzwerkverbindung – Menüs öffnen nur im Client-Test.
-  - Testlogik steht in `common/.../gametest/SwGameTests*.java` (statische Methoden mit `GameTestHelper`).
-  - Optionale Felder `structure` (z. B. `sternenwerft:gametest/empty_large`, 24 × 6 × 24, aus `gen_resources`) und `environment`. Ein Test mit eigener Umgebung läuft allein in einem eigenen Durchgang. Fabric braucht die Umgebung als JSON unter `fabric/src/main/resources/data/<ns>/test_environment/`; NeoForge registriert sie per `registerEnvironment`.
+- **Neue Server-GameTests:** in `common/gametests.json` eintragen (Name, Klasse, Methode, Ticks, Spez.-Bezug), dann `python tools/gen_gametests.py`; das erzeugt `IhTestCatalog` (NeoForge registriert per Schleife) und `IhFabricGameTests`. Die CI prüft, dass beides aktuell ist. Mock-Spieler (`makeMockServerPlayer`) haben keine Netzwerkverbindung – Menüs öffnen nur im Client-Test.
+  - Testlogik steht in `common/.../gametest/IhGameTests*.java` (statische Methoden mit `GameTestHelper`).
+  - Optionale Felder `structure` (z. B. `infinite_horizon:gametest/empty_large`, 24 × 6 × 24, aus `gen_resources`) und `environment`. Ein Test mit eigener Umgebung läuft allein in einem eigenen Durchgang. Fabric braucht die Umgebung als JSON unter `fabric/src/main/resources/data/<ns>/test_environment/`; NeoForge registriert sie per `registerEnvironment`.
   - **Leistung messen:** `getServer().getAverageTickTimeNanos()` (Server-eigene Messung, Mittel der letzten 100 Ticks). Abstände zwischen `onEachTick`-Aufrufen enthalten alle anderen Tests und den Testrahmen.
 - **JEI/REI:** Nur `compileOnly` über `build-logic` (die Loader-Projekte übersetzen den gemeinsamen Code mit, daher dort und nicht in `common/build.gradle`). JEI läuft zur Laufzeit nur mit `-PwithJei` (CI-Job des NeoForge-Client-Tests). ModDevGradle kennt in 26.3 keinen Zusatz-Classpath je Run mehr. JEI braucht die Gruppe `net.mezzdev` aus maven.blamejared.com.
 - **Rezepte auf dem Client:** Seit 1.21.2 schickt der Server nur ausgewählte Rezepte. Eigene Arten über `RecipeKinds.register` (NeoForge `OnDatapackSyncEvent#sendRecipes`, Fabric `RecipeSynchronization`); lesen über `ClientRecipes`.
@@ -89,7 +89,7 @@ Datei: `fabric/src/main/java/de/sternenwerft/gametest/SwClientGameTests.java`. S
   - Registrierung je Loader: NeoForge `RegisterMenuScreensEvent` in der Klasse mit `@Mod(dist = Dist.CLIENT)`; Fabric `MenuScreens.register` im Client-Entry-Point.
 - **Worldgen:** Features liegen unter `data/<ns>/worldgen/feature/` (nicht `configured_feature`), die Werte direkt im Objekt ohne `"config"`, Blockzustände als String (`"state": "ns:block"`). Placed Features sind unverändert. Fehlerbild sonst: „Unbound values in registry worldgen/feature“ beim Serverstart.
 - **Fluide:** Details in `docs/dev/api-fluids-26.3.md`.
-  - Fabric nutzt eigene `FlowingFluid`-Klassen (`SwFlowingFluid`). NeoForge braucht `FluidType` + `BaseFlowingFluid`.
+  - Fabric nutzt eigene `FlowingFluid`-Klassen (`IhFlowingFluid`). NeoForge braucht `FluidType` + `BaseFlowingFluid`.
   - Texturen kommen über `FluidModel.Unbaked`: NeoForge `RegisterFluidModelsEvent`, Fabric `FluidRenderingRegistry`.
   - Der `LiquidBlock`-Konstruktor ist auf Fabric `protected`, dort eine anonyme Unterklasse bilden.
 - **Kleinkram 26.3:**
@@ -106,5 +106,5 @@ Datei: `fabric/src/main/java/de/sternenwerft/gametest/SwClientGameTests.java`. S
 - **Rezepte ohne Items:** `RecipeInput#isEmpty()` ist standardmäßig „alle Slots leer“, dann findet der Rezeptmanager nichts. `MachineRecipeInput` zählt deshalb die Eingangstanks mit.
 - **Leere Hand im Client-Test:** Abgebaute Maschinen werfen ihren Inhalt aus, der Spieler sammelt ihn auf. Vor Prüfungen mit leerer Hand (Port umschalten, Geisterprojektion) `clear @a` bzw. `getInventory().clearContent()`.
 - **Sneak im Client-Test:** Fabric `getInput().holdKey(o -> o.keyShift)`, NeoForge-Test `mc.options.keyShift.setDown(true)` und ein paar Ticks warten.
-- **Multiblock im Test:** Aufbau mit `fill … sternenwerft:refinery_casing`, dann den Controller per `setblock …[facing=west]` mit Blick zum Spieler setzen, sonst trifft der Rechtsklick ein Gehäuse.
+- **Multiblock im Test:** Aufbau mit `fill … infinite_horizon:refinery_casing`, dann den Controller per `setblock …[facing=west]` mit Blick zum Spieler setzen, sonst trifft der Rechtsklick ein Gehäuse.
 - **Ressourcen:** Generierte Ressourcen nie von Hand ändern. Dafür gibt es `python tools/gen_resources.py`. Platzhalter-Texturen nur mit `python tools/gen_placeholders.py --only <ids>` erzeugen, sonst entstehen Texturen für alle IDs.

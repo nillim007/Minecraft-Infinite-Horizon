@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "entries": {
+    "infinite_horizon:station_core": {
+      "location": {
+        "dimension_type": "orbit",
+        "dimensions": [],
+        "excluded_dimensions": []
+      },
+      "air_placement_distance": 3,
+      "platform": {
+        "size": 5,
+        "block": "infinite_horizon:station_hull",
+        "only_air_positions": true,
+        "blockstate": "generated=true",
+        "generated_blocks_drop": false
+      },
+      "builtin_dome": {
+        "tier": 1,
+        "radius": 8
+      },
+      "builtin_solar": {
+        "panels": 4,
+        "output_per_panel": 20,
+        "multiplier": "orbit_solar_factor"
+      },
+      "o2_tank": 2000,
+      "accepts_cable_power": true,
+      "buffer": null,
+      "station_radius": 48,
+      "spec_ref": "14.1",
+      "notes": "Erdorbit: 80 J/t; ab Jupiter-Orbit reicht das nicht für die Kuppel (40 J/t). Kuppelwerte wie dome_generator_t1 (domes.json). SPEC-GAP: Energiepuffer nicht beziffert; buffer null = Formel 4.1."
+    },
+    "station_module_rules": {
+      "location": {
+        "dimension_type": "orbit",
+        "dimensions": [],
+        "excluded_dimensions": []
+      },
+      "location_exceptions": [
+        "infinite_horizon:tank_depot"
+      ],
+      "requires_station_core_within": {
+        "radius": 48,
+        "blocks": [
+          "infinite_horizon:shipyard_terminal",
+          "infinite_horizon:shipyard_dock"
+        ]
+      },
+      "modules": [
+        "infinite_horizon:station_hull",
+        "infinite_horizon:station_window",
+        "infinite_horizon:docking_bay",
+        "infinite_horizon:tank_depot",
+        "infinite_horizon:solar_wing",
+        "infinite_horizon:habitation_module",
+        "infinite_horizon:research_lab",
+        "infinite_horizon:zero_g_fabricator",
+        "infinite_horizon:greenhouse",
+        "infinite_horizon:gas_collector",
+        "infinite_horizon:magnetic_trap",
+        "infinite_horizon:shipyard_terminal",
+        "infinite_horizon:shipyard_dock"
+      ],
+      "spec_ref": "14.2"
+    },
+    "infinite_horizon:gravity_plate": {
+      "area": {
+        "width": 9,
+        "depth": 9,
+        "height": 8
+      },
+      "area_position": "above_plate",
+      "gravity_g": 1,
+      "spec_ref": "6.1, 12.9",
+      "notes": "Strom in balance/machines.json."
+    },
+    "infinite_horizon:clone_chamber": {
+      "bindings_per_player": 1,
+      "bind": "right_click",
+      "cross_dimension": true,
+      "requires_power": true,
+      "consumes_per_respawn": {
+        "item": "infinite_horizon:microbe_culture",
+        "count": 1
+      },
+      "state_storage": "globale SavedData",
+      "culture_deducted": "beim nächsten Laden des Chunks",
+      "spec_ref": "14.4",
+      "notes": "Strom in balance/machines.json."
+    },
+    "respawn_rules": {
+      "bed_spawn_in_mod_dimensions": "only_in_active_dome",
+      "bed_like_blocks": [
+        "minecraft:bed",
+        "infinite_horizon:habitation_module"
+      ],
+      "safety_check": "EnvironmentCalculator, Schutz ohne Anzug (8.3)",
+      "fallback_order": [
+        "infinite_horizon:clone_chamber",
+        "bed",
+        "overworld_world_spawn"
+      ],
+      "bed_denied_message": "message.infinite_horizon.bed.no_air",
+      "sleep_only_where_spawn_allowed": true,
+      "missing_steps_skipped": true,
+      "spec_ref": "14.4",
+      "notes": "Ä27: Fehlt ein Glied der Reihenfolge (M3: keine Klon-Kammer), wird es übersprungen: Bett → Weltspawn der Overworld."
+    },
+    "infinite_horizon:habitation_module": {
+      "location": {
+        "dimension_type": "orbit",
+        "dimensions": [],
+        "excluded_dimensions": []
+      },
+      "bed_function": true,
+      "storage_slots": 27,
+      "spec_ref": "14.2"
+    },
+    "infinite_horizon:research_lab": {
+      "location": {
+        "dimension_type": "orbit",
+        "dimensions": [],
+        "excluded_dimensions": []
+      },
+      "spec_ref": "14.2",
+      "notes": "FP-Bonus in balance/research.json."
+    },
+    "infinite_horizon:docking_bay": {
+      "location": {
+        "dimension_type": "orbit",
+        "dimensions": [],
+        "excluded_dimensions": []
+      },
+      "landing_target_for": [
+        "infinite_horizon:rocket",
+        "infinite_horizon:lander"
+      ],
+      "refuels_from_adjacent_tanks": true,
+      "spec_ref": "14.2, 12.2"
+    },
+    "orbit_fall_rules": {
+      "trigger_below_y": 0,
+      "surface_planet_orbits": {
+        "orbits": [
+          "infinite_horizon:earth_orbit",
+          "infinite_horizon:venus_orbit",
+          "infinite_horizon:mars_orbit",
+          "infinite_horizon:mercury_orbit"
+        ],
+        "target": "surface_same_xz",
+        "venus_target": "cloud_layer",
+        "slow_falling": true
+      },
+      "gas_giant_orbits": {
+        "orbits": [
+          "infinite_horizon:jupiter_orbit",
+          "infinite_horizon:saturn_orbit",
+          "infinite_horizon:uranus_orbit",
+          "infinite_horizon:neptune_orbit"
+        ],
+        "target": "nearest_station_core",
+        "fallback_position": [
+          0,
+          101,
+          0
+        ],
+        "fallback_platform": {
+          "size": 3,
+          "block": "infinite_horizon:station_hull"
+        },
+        "damage": 4
+      },
+      "spec_ref": "14.3",
+      "notes": "Dauer des Langsamen Falls in balance/misc.json (slow_fall)."
+    }
+  }
+}

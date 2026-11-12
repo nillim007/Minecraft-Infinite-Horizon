@@ -19,7 +19,7 @@ def gametest_summary(path):
         print(f"::error title=GameTest-Zusammenfassung {path}::Log fehlt")
         return 1
     rx = re.compile(r"game ?tests? complete|required tests?|tests? (are now )?running|passed|failed|timed out|"
-                    r"sternenwerft:|batch|structure|no tests", re.I)
+                    r"infinite_horizon:|batch|structure|no tests", re.I)
     hits = [l.strip()[-300:] for l in lines if rx.search(l)][-30:]
     print(f"::notice title=GameTest-Zusammenfassung {path}::{esc(' | '.join(hits)[:6000] or 'keine passenden Zeilen')}")
     # Streng: ohne Erfolgsmeldung des GameTest-Servers gilt der Lauf als fehlgeschlagen

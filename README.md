@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/images/banner.svg" alt="Sternenwerft – Minecraft New Horizon" width="100%">
+  <img src="docs/images/banner.svg" alt="Infinite Horizon – Raumfahrt-Mod für Minecraft" width="100%">
 </p>
 
 <p align="center">
@@ -7,7 +7,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/nillim007/Minecraft-New-Horizon/actions/workflows/build.yml"><img alt="Build" src="https://github.com/nillim007/Minecraft-New-Horizon/actions/workflows/build.yml/badge.svg"></a>
+  <a href="https://github.com/nillim007/Minecraft-Infinite-Horizon/actions/workflows/build.yml"><img alt="Build" src="https://github.com/nillim007/Minecraft-Infinite-Horizon/actions/workflows/build.yml/badge.svg"></a>
   <img alt="Minecraft 26.3" src="https://img.shields.io/badge/Minecraft-26.3-62B47A">
   <img alt="Loader" src="https://img.shields.io/badge/Loader-NeoForge%20%7C%20Fabric-E07B20">
   <img alt="Java 25" src="https://img.shields.io/badge/Java-25-4FB3E8">
@@ -48,7 +48,7 @@ Dazwischen liegt eine Reise durch das echte Sonnensystem: Du baust auf der Erde 
 | 📖 **Handbuch im Spiel** | Das Ingenieurs-Handbuch erklärt jede Maschine mit Rezepten und Links. Es ist dasselbe wie das [Wiki](docs/wiki/README.md). Taste **H** über einem Item öffnet seine Seite. Alle Maschinenrezepte stehen auch in **JEI** und **REI**. |
 
 <p align="center">
-  <img src="docs/images/solar-system.svg" alt="Das Sonnensystem in Sternenwerft" width="100%">
+  <img src="docs/images/solar-system.svg" alt="Das Sonnensystem in Infinite Horizon" width="100%">
 </p>
 
 ## So fängt es an
@@ -86,7 +86,7 @@ Der ganze Ablauf mit allen Rezepten steht im Wiki unter [Erste Schritte](docs/wi
 
 ## Entwicklungsstand
 
-Sternenwerft wird Meilenstein für Meilenstein nach einer festen [Spezifikation](docs/spec/README.md) gebaut. Den Code schreibt eine KI. Jeder Meilenstein muss auf beiden Loadern bauen und seine automatischen Tests im Spiel bestehen.
+Infinite Horizon wird Meilenstein für Meilenstein nach einer festen [Spezifikation](docs/spec/README.md) gebaut. Den Code schreibt eine KI. Jeder Meilenstein muss auf beiden Loadern bauen und seine automatischen Tests im Spiel bestehen.
 
 <!-- stand:start (erzeugt von tools/gen_wiki.py aus common/implemented_ids.json) -->
 | Meilenstein | Inhalt | Stand |
@@ -148,7 +148,7 @@ python tools/validate_spec.py
 python tools/gen_resources.py
 ```
 
-Addons sind ausdrücklich erwünscht: Fast alle Werte stehen in Datenpaketen, und unter `de.sternenwerft.api` gibt es eine öffentliche Schnittstelle. Details in [`docs/dev/addon-api.md`](docs/dev/addon-api.md).
+Addons sind ausdrücklich erwünscht: Fast alle Werte stehen in Datenpaketen, und unter `de.infinitehorizon.api` gibt es eine öffentliche Schnittstelle. Details in [`docs/dev/addon-api.md`](docs/dev/addon-api.md).
 
 ## Lizenz
 

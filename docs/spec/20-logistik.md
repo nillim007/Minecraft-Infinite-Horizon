@@ -23,7 +23,7 @@ Beim Platzieren zählt der Bohrturm alle Erzblöcke (Tag `c:ores` und Planeten-E
 - **Rückflug** immer leer.
 - Gestrandete Raketen („ohne Treibstoff“) versuchen alle 1.200 t erneut zu tanken.
 - Ein `trading_post` als Ziel nimmt nur Items an; Fluidfracht bleibt in der Rakete.
-- **Antriebe nachrüsten:** Rakete + `atomic_drive` bzw. `antimatter_drive` im Montagetisch. Gespeichert in der Data Component `sternenwerft:drive`; es zählt nur der beste Antrieb.
+- **Antriebe nachrüsten:** Rakete + `atomic_drive` bzw. `antimatter_drive` im Montagetisch. Gespeichert in der Data Component `infinite_horizon:drive`; es zählt nur der beste Antrieb.
 - **Flugzeit** = 1.000 + 3.950 × |ΔDP| Ticks (Erde → Mond 1.000 t, Erde → Pluto ca. 72.000 t). `atomic_drive` (eingebaut im `heavy_freighter`, nachrüstbar in `cargo_rocket`): Zeit ÷ 2. `antimatter_drive` (nachrüstbar): Zeit ÷ 10.
 - Frachtflüge sind **keine fliegenden Entities**. Ein Flug ist ein Datensatz (Rakete, Route, Startzeit, Ankunftszeit, Fracht). Beim Start und bei der Landung spielt das Terminal eine kurze Animation, wenn der Chunk geladen ist.
 - Mit vollem Tank (64.000 mB) schafft jede Frachtrakete Hin- und Rückflug zu jedem Ziel (längster: Pluto, 58.000 mB).

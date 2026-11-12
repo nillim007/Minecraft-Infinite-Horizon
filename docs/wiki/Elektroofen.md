@@ -31,7 +31,7 @@ Der Elektroofen schmilzt alles, was auch der normale Ofen schmilzt, braucht daf�
 
 ## Alles aus dem normalen Ofen
 
-Der Elektroofen nimmt jedes Vanilla-Schmelzrezept an. Dazu gehören auch die Barren aus Sternenwerft:
+Der Elektroofen nimmt jedes Vanilla-Schmelzrezept an. Dazu gehören auch die Barren aus Infinite Horizon:
 
 | Rezept | Zutaten → Ergebnis | Wo | Dauer |
 | --- | --- | --- | --- |

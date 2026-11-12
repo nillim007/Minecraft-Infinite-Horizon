@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "sternenwerft:block/crusher_front_running",
-    "side": "sternenwerft:block/crusher",
-    "top": "sternenwerft:block/crusher_top"
-  }
-}

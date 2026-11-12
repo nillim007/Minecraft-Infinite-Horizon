@@ -1,31 +1,31 @@
 {
   "schema_version": 1,
   "entries": {
-    "sternenwerft:copper_cable": {
+    "infinite_horizon:copper_cable": {
       "throughput": 256,
       "unit": "J/t",
       "carries": "energy",
       "spec_ref": "4.4"
     },
-    "sternenwerft:aluminum_cable": {
+    "infinite_horizon:aluminum_cable": {
       "throughput": 2048,
       "unit": "J/t",
       "carries": "energy",
       "spec_ref": "4.4"
     },
-    "sternenwerft:superconductor_cable": {
+    "infinite_horizon:superconductor_cable": {
       "throughput": 32768,
       "unit": "J/t",
       "carries": "energy",
       "spec_ref": "4.4"
     },
-    "sternenwerft:copper_pipe": {
+    "infinite_horizon:copper_pipe": {
       "throughput": 200,
       "unit": "mB/t",
       "carries": "fluids_and_gases",
       "spec_ref": "4.4"
     },
-    "sternenwerft:titanium_pipe": {
+    "infinite_horizon:titanium_pipe": {
       "throughput": 1000,
       "unit": "mB/t",
       "carries": "fluids_and_gases",

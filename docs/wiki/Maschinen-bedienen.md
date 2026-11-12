@@ -4,7 +4,7 @@
 
 # Maschinen bedienen
 
-Alle Maschinen von Sternenwerft funktionieren nach denselben Regeln. Wer sie einmal verstanden hat, kommt mit jeder neuen Maschine sofort klar.
+Alle Maschinen von Infinite Horizon funktionieren nach denselben Regeln. Wer sie einmal verstanden hat, kommt mit jeder neuen Maschine sofort klar.
 
 ## Das Fenster
 

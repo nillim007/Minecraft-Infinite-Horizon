@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/orientable",
-  "textures": {
-    "front": "sternenwerft:block/refinery_controller_front_running",
-    "side": "sternenwerft:block/refinery_controller",
-    "top": "sternenwerft:block/refinery_controller_top"
-  }
-}

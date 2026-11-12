@@ -5,7 +5,7 @@ milestone: 1
 targets: ["wiki"]
 summary: Die geplanten Phasen und Ziele (Entwicklungsstand)
 ---
-Sternenwerft entsteht Meilenstein für Meilenstein. Dieses Wiki zeigt immer nur, was im aktuellen Stand **schon spielbar** ist. Hier ein Blick auf das, was geplant ist.
+Infinite Horizon entsteht Meilenstein für Meilenstein. Dieses Wiki zeigt immer nur, was im aktuellen Stand **schon spielbar** ist. Hier ein Blick auf das, was geplant ist.
 
 @image ../images/solar-system.svg
 

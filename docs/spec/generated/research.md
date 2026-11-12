@@ -6,12 +6,12 @@
 
 | Stufe | Name | Kosten je Knoten | Tor |
 | --- | --- | --- | --- |
-| 1 | Raumfahrtprogramm | 10 | `{'type': 'has_block', 'block': 'sternenwerft:research_terminal'}` |
-| 2 | Nahe Welten | 25 | `{'type': 'enter_dimension', 'dimension': 'sternenwerft:moon'}` |
-| 3 | Orbit | 50 | `{'type': 'crafted_items', 'items': ['sternenwerft:magnesium_ingot', 'sternenwerft:tungsten_ingot'], 'fluids': ['sternenwerft:helium']}` |
-| 4 | Inneres System | 80 | `{'type': 'machine_completed', 'block': 'sternenwerft:zero_g_fabricator', 'recipe': None}` |
-| 5 | Äußeres System | 120 | `{'type': 'enter_dimension', 'dimension': 'sternenwerft:saturn_orbit'}` |
-| 6 | Endgame | 250 | `{'type': 'all', 'gates': [{'type': 'crafted_items', 'items': ['sternenwerft:uranium_ingot'], 'fluids': []}, {'type': 'machine_completed', 'block': 'sternenwerft:magnetic_trap', 'recipe': None}]}` |
+| 1 | Raumfahrtprogramm | 10 | `{'type': 'has_block', 'block': 'infinite_horizon:research_terminal'}` |
+| 2 | Nahe Welten | 25 | `{'type': 'enter_dimension', 'dimension': 'infinite_horizon:moon'}` |
+| 3 | Orbit | 50 | `{'type': 'crafted_items', 'items': ['infinite_horizon:magnesium_ingot', 'infinite_horizon:tungsten_ingot'], 'fluids': ['infinite_horizon:helium']}` |
+| 4 | Inneres System | 80 | `{'type': 'machine_completed', 'block': 'infinite_horizon:zero_g_fabricator', 'recipe': None}` |
+| 5 | Äußeres System | 120 | `{'type': 'enter_dimension', 'dimension': 'infinite_horizon:saturn_orbit'}` |
+| 6 | Endgame | 250 | `{'type': 'all', 'gates': [{'type': 'crafted_items', 'items': ['infinite_horizon:uranium_ingot'], 'fluids': []}, {'type': 'machine_completed', 'block': 'infinite_horizon:magnetic_trap', 'recipe': None}]}` |
 
 ## Stufe 1 (8 Knoten)
 
