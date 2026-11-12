@@ -46,6 +46,11 @@ public final class IhGameTestsM3b {
      * 190 t unter 100 %, nach 200 t (Toleranz ein Prüftakt) 100 % Sauerstoff- und Druck-Belastung.
      */
     public static void moonVacuumHazardBuildup(GameTestHelper h) {
+        // Die Umgebung moon_day setzt die Uhr per Funktion; auf Fabric kam sie in der CI einmal nicht an. Deshalb setzt
+        // der Test die Overworld-Uhr zusätzlich selbst auf Mittag.
+        var server = h.getLevel().getServer();
+        server.registryAccess().get(net.minecraft.world.clock.WorldClocks.OVERWORLD)
+                .ifPresent(clock -> server.clockManager().setTotalTicks(clock, 6000L));
         ServerPlayer p = player(h, GameType.SURVIVAL);
         EnvironmentOverrides.Entry override = EnvironmentOverrides.set(h, MOON, null, null, 400);
         AtomicBoolean checked190 = new AtomicBoolean();

@@ -17,6 +17,10 @@ public interface OwnedBlock {
         if (!level.isClientSide() && placer instanceof ServerPlayer player
                 && level.getBlockEntity(pos) instanceof IhBlockEntity be) {
             be.claimFor(player);
+            // Tor has_block (11.4): zählt beim Setzen mit Besitzer
+            if (be.storedOwner() != null && level instanceof net.minecraft.server.level.ServerLevel sl) {
+                de.infinitehorizon.research.ResearchService.onOwnedBlockPlaced(sl, pos, be.storedOwner());
+            }
         }
     }
 }

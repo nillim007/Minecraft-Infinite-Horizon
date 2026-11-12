@@ -1,0 +1,21 @@
+{
+  "tier": 6,
+  "cost_default": 250,
+  "gate": {
+    "type": "all",
+    "gates": [
+      {
+        "type": "crafted_items",
+        "items": [
+          "infinite_horizon:uranium_ingot"
+        ],
+        "fluids": []
+      },
+      {
+        "type": "machine_completed",
+        "block": "infinite_horizon:magnetic_trap",
+        "recipe": null
+      }
+    ]
+  }
+}

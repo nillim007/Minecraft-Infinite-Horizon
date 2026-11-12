@@ -23,6 +23,10 @@ Wie alle Maschinen nimmt er [[upgrades|Upgrades]].
 
 ## Herstellung
 
+@if infinite_horizon:research_terminal
+@note Den Sauerstoffgenerator schaltet der Knoten **Kuppel I** in Stufe 2 frei ([[forschung|Forschung]]).
+@endif
+
 Er braucht eine <item:infinite_horizon:pressure_hull>. Die Druckhülle ist ein Bauteil für alles, was unter Druck steht.
 
 @recipes_for infinite_horizon:oxygen_generator infinite_horizon:pressure_hull

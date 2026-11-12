@@ -55,6 +55,7 @@ public final class ModItems {
     public static final Supplier<Item> DOME_GENERATOR_T1 = blockItem("dome_generator_t1", ModBlocks.DOME_GENERATOR_T1);
     public static final Supplier<Item> ELECTRIC_LAMP = blockItem("electric_lamp", ModBlocks.ELECTRIC_LAMP);
     public static final Supplier<Item> EXTINGUISHED_TORCH = blockItem("extinguished_torch", ModBlocks.EXTINGUISHED_TORCH);
+    public static final Supplier<Item> RESEARCH_TERMINAL = blockItem("research_terminal", ModBlocks.RESEARCH_TERMINAL);
 
     /** Druckanzug T1 (9.1): Rüstung wie Eisen, Brustplatte mit O₂-Vorrat (Komponente {@code infinite_horizon:oxygen}). */
     public static final Supplier<Item> PRESSURE_SUIT_HELMET = suitPiece("pressure_suit", "helmet",

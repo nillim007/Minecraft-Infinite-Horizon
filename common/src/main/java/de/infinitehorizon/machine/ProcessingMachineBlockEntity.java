@@ -10,6 +10,7 @@ import de.infinitehorizon.data.BalanceManager.MachineStats;
 import de.infinitehorizon.data.BalanceManager.TankSpec;
 import de.infinitehorizon.recipe.MachineRecipeInput;
 import de.infinitehorizon.recipe.ProcessingRecipe;
+import de.infinitehorizon.recipe.ResearchRecipeLock;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.Identifier;
@@ -75,6 +76,8 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
     private int currentTicks;
     /** Zuletzt passendes Rezept; nach /reload ein neues Objekt aus dem neuen Rezeptmanager. */
     private @Nullable ProcessingRecipe lastRecipe;
+    /** Alle passenden Rezepte gesperrt (11.3); nur für das GUI. */
+    private boolean recipeLocked;
     private @Nullable Object lastRecipeSource;
 
     public ProcessingMachineBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state,
@@ -202,35 +205,55 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         return new MachineRecipeInput(in, mold, fluids);
     }
 
-    /** Sucht den nächsten Vorgang über alle Rezeptarten der Maschine. */
+    /**
+     * Sucht den nächsten Vorgang über alle Rezeptarten der Maschine. Ab M4 (11.3): Alle passenden Rezepte werden in der
+     * Reihenfolge der Rezept-ID geprüft, das erste für die Besitzer-Agentur freie gilt. Sind alle gesperrt, bleibt die
+     * Maschine {@code idle} und meldet {@link #recipeLocked()}.
+     */
     protected Optional<Plan> findPlan(ServerLevel level) {
         MachineRecipeInput input = recipeInput();
         if (input.isEmpty()) {
+            recipeLocked = false;
             return Optional.empty();
         }
         if (lastRecipeSource != level.recipeAccess()) {
             lastRecipe = null;
             lastRecipeSource = level.recipeAccess();
         }
+        java.util.UUID owner = owner();
         // zuerst das zuletzt passende Rezept (spart die Suche über alle Rezepte, Leistungstest 27.2)
         if (lastRecipe != null) {
             ProcessingRecipe.Match m = lastRecipe.match(input);
-            if (m != null) {
+            if (m != null && ResearchRecipeLock.isUnlocked(lastRecipe, owner, level.getServer())) {
+                recipeLocked = false;
                 return Optional.of(planOf(lastRecipe, m));
             }
         }
+        // SPEC-GAP #65: nach ID sortierte Liste je Rezeptart, gesperrt meldet SYNC_LOCKED
+        boolean locked = false;
         for (ProcessingRecipe.Kind kind : kinds.get()) {
-            Optional<RecipeHolder<ProcessingRecipe>> found = level.recipeAccess().getRecipeFor(kind.type(), input, level);
-            if (found.isPresent()) {
-                ProcessingRecipe r = found.get().value();
+            for (RecipeHolder<ProcessingRecipe> holder : ResearchRecipeLock.sorted(level, kind.type())) {
+                ProcessingRecipe r = holder.value();
                 ProcessingRecipe.Match m = r.match(input);
-                if (m != null) {
-                    lastRecipe = r;
-                    return Optional.of(planOf(r, m));
+                if (m == null) {
+                    continue;
                 }
+                if (!ResearchRecipeLock.isUnlocked(r, owner, level.getServer())) {
+                    locked = true;
+                    continue;
+                }
+                lastRecipe = r;
+                recipeLocked = false;
+                return Optional.of(planOf(r, m));
             }
         }
+        recipeLocked = locked;
         return Optional.empty();
+    }
+
+    @Override
+    public boolean recipeLocked() {
+        return recipeLocked;
     }
 
     private static Plan planOf(ProcessingRecipe r, ProcessingRecipe.Match m) {

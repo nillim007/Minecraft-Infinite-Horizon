@@ -18,6 +18,7 @@ public class InfiniteHorizonFabricClient implements ClientModInitializer {
     public void onInitializeClient() {
         FabricNetworkHelper.clientEntries().forEach(InfiniteHorizonFabricClient::register);
         MenuScreens.register(ModMenus.MACHINE.get(), MachineScreen::new);
+        MenuScreens.register(ModMenus.RESEARCH_TERMINAL.get(), de.infinitehorizon.client.ResearchTerminalScreen::new);
         net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents.END_CLIENT_TICK.register(
                 client -> de.infinitehorizon.client.DomeVisuals.tick());
         // Umwelt-HUD (8.4) über der Hungerleiste

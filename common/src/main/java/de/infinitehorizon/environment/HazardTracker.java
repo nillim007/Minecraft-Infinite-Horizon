@@ -139,7 +139,7 @@ public final class HazardTracker {
             return;
         }
         ServerLevel overworld = level.getServer().overworld();
-        BlockPos spawn = de.infinitehorizon.spaceflight.LandingService.find(overworld,
+        BlockPos spawn = de.infinitehorizon.space.LandingService.find(overworld,
                 level.getServer().getRespawnData().pos().getX(), level.getServer().getRespawnData().pos().getZ());
         player.teleport(new net.minecraft.world.level.portal.TeleportTransition(overworld,
                 net.minecraft.world.phys.Vec3.atBottomCenterOf(spawn), net.minecraft.world.phys.Vec3.ZERO, player.getYRot(),

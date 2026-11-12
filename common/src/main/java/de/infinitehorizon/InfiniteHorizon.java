@@ -78,6 +78,7 @@ public final class InfiniteHorizon {
         Map<Identifier, PreparableReloadListener> listeners = new java.util.LinkedHashMap<>();
         listeners.put(BalanceReloadListener.ID, new BalanceReloadListener());
         listeners.put(PlanetReloadListener.ID, new PlanetReloadListener());
+        listeners.put(de.infinitehorizon.data.ResearchReloadListener.ID, new de.infinitehorizon.data.ResearchReloadListener());
         return listeners;
     }
 
@@ -101,11 +102,16 @@ public final class InfiniteHorizon {
         GravityService.apply(player);
         de.infinitehorizon.dome.DomeManager.sync(player);
         giveHandbookOnce(player);
+        // Forschung (M4): Tore prüfen (auch für Welten aus M3), ausstehende Erfolge, Agentur-Stand an den Client
+        de.infinitehorizon.research.ResearchService.onMemberMoved(player);
+        de.infinitehorizon.agency.AgencyAdvancements.onLogin(player);
+        de.infinitehorizon.research.ResearchService.sendState(player);
     }
 
-    /** Datenpaket-Sync (Join und {@code /reload}): Planeten an den Client (13.1, {@code SyncDataPayload}). */
+    /** Datenpaket-Sync (Join und {@code /reload}): Planeten und Forschung an den Client (13.1, 11.4, {@code SyncDataPayload}). */
     public static void onDatapackSync(ServerPlayer player) {
-        Services.NETWORK.sendToPlayer(player, new SyncDataPayload(PlanetRegistry.get().toJson()));
+        Services.NETWORK.sendToPlayer(player, new SyncDataPayload(PlanetRegistry.get().toJson(),
+                de.infinitehorizon.data.ResearchRegistry.get().toJson()));
     }
 
     /** Jeder Server-Tick: Umwelt-Belastung (8.2) und Schwerkraft (12.9). */
@@ -124,6 +130,7 @@ public final class InfiniteHorizon {
     /** Dimensionswechsel (Portal, Befehl, später Rakete): für die Agentur als besucht merken (23.1). */
     public static void onDimensionChange(ServerPlayer player, ResourceKey<Level> destination) {
         AgencyManager.onDimensionChange(player, destination);
+        de.infinitehorizon.research.ResearchService.onMemberMoved(player);
         GravityService.apply(player);
         de.infinitehorizon.dome.DomeManager.sync(player);
     }

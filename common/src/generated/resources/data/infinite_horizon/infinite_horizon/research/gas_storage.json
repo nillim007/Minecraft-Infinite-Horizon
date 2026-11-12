@@ -1,0 +1,22 @@
+{
+  "tier": 1,
+  "branch": "logistics",
+  "cost": 10,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:pressure_bottle"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:transport_tank"
+    }
+  ],
+  "icon": "infinite_horizon:pressure_bottle",
+  "position": {
+    "column": 3,
+    "row": 1,
+    "slot": 1
+  }
+}

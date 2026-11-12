@@ -1,0 +1,33 @@
+{
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": "infinite_horizon:engineers_handbook"
+          }
+        ]
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "infinite_horizon:engineers_handbook"
+    },
+    "title": {
+      "translate": "advancements.infinite_horizon.root.title"
+    },
+    "description": {
+      "translate": "advancements.infinite_horizon.root.description"
+    },
+    "background": "minecraft:gui/advancements/backgrounds/stone",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

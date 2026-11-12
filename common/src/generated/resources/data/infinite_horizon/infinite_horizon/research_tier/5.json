@@ -1,0 +1,8 @@
+{
+  "tier": 5,
+  "cost_default": 120,
+  "gate": {
+    "type": "enter_dimension",
+    "dimension": "infinite_horizon:saturn_orbit"
+  }
+}

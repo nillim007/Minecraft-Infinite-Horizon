@@ -1,0 +1,30 @@
+{
+  "parent": "infinite_horizon:root",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "infinite_horizon:research_terminal"
+        }
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "infinite_horizon:research_terminal"
+    },
+    "title": {
+      "translate": "advancements.infinite_horizon.ground_station.title"
+    },
+    "description": {
+      "translate": "advancements.infinite_horizon.ground_station.description"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

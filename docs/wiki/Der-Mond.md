@@ -47,4 +47,4 @@ Nachts und im Dunkeln tauchen Zombies, Skelette, Spinnen und Creeper auf, aber s
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Erste Schritte ins All](Erste-Schritte-ins-All.md) · [Der Druckanzug](Der-Druckanzug.md) →
+← [Forschung](Forschung.md) · [Der Druckanzug](Der-Druckanzug.md) →

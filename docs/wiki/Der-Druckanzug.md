@@ -32,6 +32,9 @@ Die Brustplatte trägt bis zu 1.200 mB Sauerstoff. Eine neue Brustplatte ist lee
 
 ## Herstellung
 
+> [!NOTE]
+> Herstellen kann deine Agentur die Anzugteile erst, wenn sie den Knoten **Druckanzug** erforscht hat (Stufe 1, [Forschung](Forschung.md)).
+
 | Rezept | Zutaten → Ergebnis | Wo | Dauer |
 | --- | --- | --- | --- |
 | <img src="images/rezepte/assembly_pressure_suit_helmet.svg" alt="Rezept" width="300"> | 4 × [Aluminiumplatte](Presse.md), 1 × [Kunststoff](Raffinerie.md), 4 × Glas, 1 × [Schaltkreis](Montagetisch.md) → 1 × Druckanzug-Helm | Montagetisch | 200 t (10 s)<br>30 J/t |

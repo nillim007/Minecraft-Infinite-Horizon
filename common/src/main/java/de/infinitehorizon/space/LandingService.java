@@ -1,4 +1,4 @@
-package de.infinitehorizon.spaceflight;
+package de.infinitehorizon.space;
 
 import com.google.gson.JsonObject;
 import de.infinitehorizon.data.BalanceManager;

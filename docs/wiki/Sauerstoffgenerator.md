@@ -24,6 +24,9 @@ Wie alle Maschinen nimmt er [Upgrades](Upgrades.md).
 
 ## Herstellung
 
+> [!NOTE]
+> Den Sauerstoffgenerator schaltet der Knoten **Kuppel I** in Stufe 2 frei ([Forschung](Forschung.md)).
+
 Er braucht eine Druckhülle. Die Druckhülle ist ein Bauteil für alles, was unter Druck steht.
 
 ![Rezept: Druckhülle](images/rezepte/assembly_pressure_hull.svg)

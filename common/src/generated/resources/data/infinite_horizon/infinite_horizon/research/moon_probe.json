@@ -1,0 +1,26 @@
+{
+  "tier": 1,
+  "branch": "spaceflight",
+  "cost": 10,
+  "requires": [
+    "infinite_horizon:launch_pad",
+    "infinite_horizon:solar_power",
+    "infinite_horizon:gas_storage"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:probe"
+    },
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:moon"
+    }
+  ],
+  "icon": "infinite_horizon:probe",
+  "position": {
+    "column": 1,
+    "row": 1,
+    "slot": 1
+  }
+}

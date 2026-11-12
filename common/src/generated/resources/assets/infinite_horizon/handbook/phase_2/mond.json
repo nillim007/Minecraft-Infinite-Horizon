@@ -4,7 +4,7 @@
   "title": "infinite_horizon.handbook.phase_2.mond.title",
   "icon": "infinite_horizon:moon_regolith",
   "order": 20,
-  "unlock": "infinite_horizon:research_tier/1",
+  "unlock": null,
   "items": [
     "infinite_horizon:moon_rock",
     "infinite_horizon:moon_regolith",

@@ -1,0 +1,14 @@
+{
+  "tier": 3,
+  "cost_default": 50,
+  "gate": {
+    "type": "crafted_items",
+    "items": [
+      "infinite_horizon:magnesium_ingot",
+      "infinite_horizon:tungsten_ingot"
+    ],
+    "fluids": [
+      "infinite_horizon:helium"
+    ]
+  }
+}

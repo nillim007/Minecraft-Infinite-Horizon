@@ -22,11 +22,12 @@ import java.util.Map;
  */
 public final class HandbookData {
 
-    public record Chapter(String id, String titleKey, String icon, int order) {
+    /** {@code unlock}: leer = immer offen, sonst Stufen-Tor oder Forschungsknoten (25.6, ab M4). */
+    public record Chapter(String id, String titleKey, String icon, int order, String unlock) {
     }
 
     public record Page(String id, String chapter, String titleKey, String icon, int order, List<String> items,
-                       JsonArray elements) {
+                       JsonArray elements, String unlock) {
     }
 
     /** Geladenes Handbuch: Kapitel in Reihenfolge, Seiten je Kapitel, Seite je ID, Seite je Item. */
@@ -37,10 +38,16 @@ public final class HandbookData {
 
         /** Erste Seite (für ein leeres Lesezeichen). */
         public Page firstPage() {
+            return firstPage(p -> true);
+        }
+
+        /** Erste Seite, die {@code readable} erfüllt (Freischaltung nach Forschung, 24.1). */
+        public Page firstPage(java.util.function.Predicate<Page> readable) {
             for (Chapter c : chapters) {
-                List<Page> ps = pagesByChapter.getOrDefault(c.id(), List.of());
-                if (!ps.isEmpty()) {
-                    return ps.getFirst();
+                for (Page p : pagesByChapter.getOrDefault(c.id(), List.of())) {
+                    if (readable.test(p)) {
+                        return p;
+                    }
                 }
             }
             return null;
@@ -59,7 +66,7 @@ public final class HandbookData {
                 JsonObject o = JsonParser.parseReader(r).getAsJsonObject();
                 if (e.getKey().getPath().endsWith("/_chapter.json")) {
                     chapters.add(new Chapter(o.get("id").getAsString(), o.get("title").getAsString(), str(o, "icon"),
-                            o.has("order") ? o.get("order").getAsInt() : 0));
+                            o.has("order") ? o.get("order").getAsInt() : 0, str(o, "unlock")));
                 } else {
                     List<String> items = new ArrayList<>();
                     if (o.has("items") && o.get("items").isJsonArray()) {
@@ -69,7 +76,7 @@ public final class HandbookData {
                     }
                     pages.add(new Page(o.get("id").getAsString(), o.get("chapter").getAsString(), o.get("title").getAsString(),
                             str(o, "icon"), o.has("order") ? o.get("order").getAsInt() : 0, List.copyOf(items),
-                            o.has("elements") ? o.getAsJsonArray("elements") : new JsonArray()));
+                            o.has("elements") ? o.getAsJsonArray("elements") : new JsonArray(), str(o, "unlock")));
                 }
             } catch (Exception ex) {
                 InfiniteHorizon.LOG.warn("Handbuchdatei {} nicht lesbar: {}", e.getKey(), ex.getMessage());

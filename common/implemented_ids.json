@@ -1,6 +1,6 @@
 {
   "_comment": "IDs, die im Code registriert sind. tools/gen_resources.py erzeugt nur für diese Ressourcen. Mit jedem Meilenstein erweitern.",
-  "milestone": 3,
+  "milestone": 4,
   "blocks": {
     "infinite_horizon:crusher": "machine",
     "infinite_horizon:combustion_generator": "machine",
@@ -33,7 +33,8 @@
     "infinite_horizon:pressure_bottle": "machine",
     "infinite_horizon:dome_generator_t1": "machine",
     "infinite_horizon:electric_lamp": "lamp",
-    "infinite_horizon:extinguished_torch": "torch"
+    "infinite_horizon:extinguished_torch": "torch",
+    "infinite_horizon:research_terminal": "machine"
   },
   "items": [
     "infinite_horizon:aluminum_dust",
@@ -79,8 +80,10 @@
     "hydrogen",
     "oxygen"
   ],
-  "step": "3e",
+  "step": "4a",
   "dimensions": ["infinite_horizon:moon"],
+  "entities": [],
+  "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:own_air"],
   "item_classes": {
     "_comment": "Items mit eigenem Verhalten; sie fehlen in simple_items.json und werden in ModItems registriert.",
     "infinite_horizon:engineers_handbook": "handbook",

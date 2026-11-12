@@ -4,7 +4,7 @@
   "chapters": [
     { "id": "start", "title_de": "Willkommen", "title_en": "Welcome", "icon": "infinite_horizon:machine_frame", "order": 0, "unlock": null },
     { "id": "phase_1", "title_de": "Phase 1 · Erdindustrie", "title_en": "Phase 1 · Earth Industry", "icon": "infinite_horizon:crusher", "order": 10, "unlock": null },
-    { "id": "phase_2", "title_de": "Phase 2 · Raumfahrtprogramm", "title_en": "Phase 2 · Space Program", "icon": "infinite_horizon:research_terminal", "order": 20, "unlock": "infinite_horizon:research_tier/1" },
+    { "id": "phase_2", "title_de": "Phase 2 · Raumfahrtprogramm", "title_en": "Phase 2 · Space Program", "icon": "infinite_horizon:research_terminal", "order": 20, "unlock": null },
     { "id": "phase_3", "title_de": "Phase 3 · Ring 1", "title_en": "Phase 3 · Ring 1", "icon": "infinite_horizon:dome_generator_t1", "order": 30, "unlock": "infinite_horizon:research_tier/2" },
     { "id": "phase_4", "title_de": "Phase 4 · Orbit", "title_en": "Phase 4 · Orbit", "icon": "infinite_horizon:station_core", "order": 40, "unlock": "infinite_horizon:research_tier/3" },
     { "id": "phase_5", "title_de": "Phase 5 · Ring 2", "title_en": "Phase 5 · Ring 2", "icon": "infinite_horizon:deep_space_suit_helmet", "order": 50, "unlock": "infinite_horizon:research_tier/4" },
@@ -16,7 +16,7 @@
     { "nr": 1, "de": "Grundgerüst: Multiloader, Energie, erste Maschine", "steps": [] },
     { "nr": 2, "de": "Erdindustrie: Maschinen, Erze, Fluide, Raffinerie, Montagetisch, Handbuch", "steps": ["a", "b", "c", "d", "e", "f"] },
     { "nr": 3, "de": "Erste Welt: Mond, Anzug, Kuppel", "steps": ["a", "b", "c", "d", "e"] },
-    { "nr": 4, "de": "Erster Flug: Forschung, Sonde, Rakete T1 · **erste spielbare Version**", "steps": [] },
+    { "nr": 4, "de": "Erster Flug: Forschung, Sonde, Rakete T1 · **erste spielbare Version**", "steps": ["a", "b", "c", "d", "e", "f"] },
     { "nr": 5, "de": "Ring 1: Mars, Venus, Rover, Kreaturen", "steps": [] },
     { "nr": 6, "de": "Orbit: Station, Fusion", "steps": [] },
     { "nr": 7, "de": "Ring 2: Merkur bis Pluto", "steps": [] },

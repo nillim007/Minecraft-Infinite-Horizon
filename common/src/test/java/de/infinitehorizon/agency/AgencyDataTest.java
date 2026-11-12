@@ -115,4 +115,52 @@ class AgencyDataTest {
         UUID result = OwnershipResolver.current(a, id -> Optional.ofNullable(merged.get(id)));
         assertTrue(result.equals(a) || result.equals(b));
     }
+
+    /** M4a (23.1): Felder ab M4 überstehen Speichern und Laden; eine Agentur aus M3 lädt mit leeren Standardwerten. */
+    @Test
+    void m4FieldsSurviveAndDefaultEmpty() {
+        UUID p1 = UUID.randomUUID();
+        AgencyData d = new AgencyData();
+        Agency a = d.ensureFor(p1, 1L);
+        AgencyProgress pr = a.progress();
+        pr.addFp(1050);
+        pr.research(Identifier.parse("infinite_horizon:suit_t1"));
+        pr.openTier(1);
+        pr.openTier(2);
+        pr.addProbeTarget(MOON);
+        pr.addProbeReached(MOON);
+        pr.addPendingAdvancement(p1, Identifier.parse("infinite_horizon:own_air"));
+        Tag tag = AgencyData.CODEC.encodeStart(NbtOps.INSTANCE, d).getOrThrow();
+        AgencyProgress r = AgencyData.CODEC.parse(NbtOps.INSTANCE, tag).getOrThrow().agencyOf(p1).orElseThrow().progress();
+        assertEquals(1050, r.fp());
+        assertEquals(java.util.Set.of(Identifier.parse("infinite_horizon:suit_t1")), r.researched());
+        assertEquals(java.util.Set.of(1, 2), r.openTiers());
+        assertEquals(java.util.Set.of(MOON), r.probeTargets());
+        assertEquals(java.util.Set.of(MOON), r.probeReached());
+        assertEquals(java.util.List.of(Identifier.parse("infinite_horizon:own_air")), r.takePendingAdvancements(p1));
+        assertTrue(r.takePendingAdvancements(p1).isEmpty());
+
+        // Welt aus M3: nur die alten Felder (UUID als Int-Array wie in der Speicherdatei)
+        var m3 = Agency.CODEC.encodeStart(JsonOps.INSTANCE, new Agency(UUID.randomUUID(), null, java.util.List.of(), null,
+                java.util.List.of(MOON))).getOrThrow().getAsJsonObject();
+        assertTrue(!m3.has("fp") && !m3.has("researched") && !m3.has("open_tiers"), "M4-Felder mit Standardwert: " + m3);
+        var root = new com.google.gson.JsonObject();
+        root.addProperty("data_version", 1);
+        var list = new com.google.gson.JsonArray();
+        list.add(m3);
+        root.add("agencies", list);
+        var json = root;
+        AgencyProgress old = AgencyData.CODEC.parse(JsonOps.INSTANCE, json).getOrThrow().all().iterator().next().progress();
+        assertEquals(0, old.fp());
+        assertTrue(old.researched().isEmpty());
+        assertTrue(old.openTiers().isEmpty());
+    }
+
+    @Test
+    void fpNeverBelowZero() {
+        AgencyProgress p = new AgencyProgress();
+        p.addFp(500);
+        p.addFp(-800);
+        assertEquals(0, p.fp());
+    }
 }

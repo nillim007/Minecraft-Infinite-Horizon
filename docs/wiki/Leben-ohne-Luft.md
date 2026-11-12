@@ -33,6 +33,9 @@ Fällt die Kuppel aus, während du tot bist, ist dein Spawnpunkt nicht mehr sich
 
 ## Herstellung
 
+> [!NOTE]
+> Die elektrische Lampe schaltet der Knoten **Kuppel I** in Stufe 2 frei ([Forschung](Forschung.md)).
+
 ![Rezept: Elektrische Lampe](images/rezepte/assembly_electric_lamp.svg)
 
 <sub>1 × [Aluminiumplatte](Presse.md), 1 × Glowstonestaub, 1 × [Kupferdraht](Presse.md) → 4 × Elektrische Lampe</sub>

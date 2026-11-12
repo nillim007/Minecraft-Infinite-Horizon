@@ -10,7 +10,7 @@ Jeder Spieler gehört zu einer **Agentur**. Sie ist dein Raumfahrtprogramm: Spä
 
 Beim Betreten der Welt prüft der Server, ob du zu einer Agentur gehörst. Wenn nicht, gründet er eine für dich, und du bist ihr **Leiter**. Das gilt auch für Welten, die schon vor dieser Version bestanden. Solange die Agentur keinen eigenen Namen hat, heißt sie „Agentur von <dein Name>“.
 
-Die Agentur merkt sich außerdem jede Dimension, die eines ihrer Mitglieder betreten hat. Später schaltet das neue Ziele frei.
+Die Agentur merkt sich außerdem jede Dimension, die eines ihrer Mitglieder betreten hat. Das zählt für die Forschung: Betritt ein Mitglied den Mond, öffnet sich Stufe 2 (siehe [Forschung](Forschung.md)).
 
 ## Besitz
 

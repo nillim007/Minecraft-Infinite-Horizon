@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 3e · Mod-Version 0.1.0
+> Stand: Meilenstein 4a · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -45,6 +45,7 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 ## Phase 2 · Raumfahrtprogramm
 
 - [Erste Schritte ins All](Erste-Schritte-ins-All.md) – Der Ablauf des Raumfahrtprogramms, Schritt für Schritt
+- [Forschung](Forschung.md) – Forschungsterminal, Forschungspunkte, Stufen und Knoten
 - [Der Mond](Der-Mond.md) – Die erste fremde Welt: Gelände, Erze, Gefahren
 - [Der Druckanzug](Der-Druckanzug.md) – Dein Schutz im Vakuum: vier Teile, ein Sauerstoffvorrat
 - [Sauerstoff speichern](Sauerstoff-speichern.md) – Flaschen für unterwegs, Druckflaschen als Lager

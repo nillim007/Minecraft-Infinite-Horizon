@@ -31,6 +31,10 @@ Die <item:infinite_horizon:pressure_bottle> ist ein Tank nur für Gase und fasst
 
 ## Herstellung
 
+@if infinite_horizon:research_terminal
+@note Die Flaschen schaltet der Knoten **Druckanzug** frei, die Druckflasche der Knoten **Gasspeicher** (beide Stufe 1, [[forschung|Forschung]]).
+@endif
+
 @recipes_for infinite_horizon:oxygen_canister infinite_horizon:large_oxygen_canister infinite_horizon:pressure_bottle
 
 @tip Eine Druckflasche neben dem Sauerstoffgenerator sammelt seinen Überschuss. So hast du immer einen Vorrat für neue Flaschen.

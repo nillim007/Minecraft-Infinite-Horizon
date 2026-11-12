@@ -1,0 +1,219 @@
+{
+  "id": "infinite_horizon:phase_2/forschung",
+  "chapter": "infinite_horizon:phase_2",
+  "title": "infinite_horizon.handbook.phase_2.forschung.title",
+  "icon": "infinite_horizon:research_terminal",
+  "order": 15,
+  "unlock": null,
+  "items": [
+    "infinite_horizon:research_terminal"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_2.forschung.e2.0",
+        "infinite_horizon.handbook.phase_2.forschung.e2.1",
+        "infinite_horizon.handbook.phase_2.forschung.e2.2",
+        "infinite_horizon.handbook.phase_2.forschung.e2.3"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e3"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.phase_2.forschung.e4.h0",
+        "infinite_horizon.handbook.phase_2.forschung.e4.h1"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_2.forschung.e4.r0.0",
+          "infinite_horizon.handbook.phase_2.forschung.e4.r0.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.forschung.e4.r1.0",
+          "infinite_horizon.handbook.phase_2.forschung.e4.r1.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.forschung.e4.r2.0",
+          "infinite_horizon.handbook.phase_2.forschung.e4.r2.1"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e5"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e6",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e7"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.phase_2.forschung.e8.h0",
+        "infinite_horizon.handbook.phase_2.forschung.e8.h1",
+        "infinite_horizon.handbook.phase_2.forschung.e8.h2"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_2.forschung.e8.r0.0",
+          "infinite_horizon.handbook.phase_2.forschung.e8.r0.1",
+          "infinite_horizon.handbook.phase_2.forschung.e8.r0.2"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.forschung.e8.r1.0",
+          "infinite_horizon.handbook.phase_2.forschung.e8.r1.1",
+          "infinite_horizon.handbook.phase_2.forschung.e8.r1.2"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e9"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e10",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e11"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e12"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.phase_2.forschung.e13.h0",
+        "infinite_horizon.handbook.phase_2.forschung.e13.h1",
+        "infinite_horizon.handbook.phase_2.forschung.e13.h2",
+        "infinite_horizon.handbook.phase_2.forschung.e13.h3"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_2.forschung.e13.r0.0",
+          "infinite_horizon.handbook.phase_2.forschung.e13.r0.1",
+          "infinite_horizon.handbook.phase_2.forschung.e13.r0.2",
+          "infinite_horizon.handbook.phase_2.forschung.e13.r0.3"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.forschung.e13.r1.0",
+          "infinite_horizon.handbook.phase_2.forschung.e13.r1.1",
+          "infinite_horizon.handbook.phase_2.forschung.e13.r1.2",
+          "infinite_horizon.handbook.phase_2.forschung.e13.r1.3"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.forschung.e13.r2.0",
+          "infinite_horizon.handbook.phase_2.forschung.e13.r2.1",
+          "infinite_horizon.handbook.phase_2.forschung.e13.r2.2",
+          "infinite_horizon.handbook.phase_2.forschung.e13.r2.3"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e14",
+      "style": "note"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e15",
+      "style": "warning"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e16",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e17"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e18"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e19",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/research_terminal",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:machine_frame"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "minecraft:book"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:research_terminal",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e21",
+      "style": "tip"
+    }
+  ]
+}

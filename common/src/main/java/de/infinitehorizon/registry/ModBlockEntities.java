@@ -119,6 +119,13 @@ public final class ModBlockEntities {
                                     ModBlockEntities.ELECTRIC_LAMP.get(), pos, state),
                             ModBlocks.ELECTRIC_LAMP.get()));
 
+    public static final Supplier<BlockEntityType<de.infinitehorizon.research.ResearchTerminalBlockEntity>> RESEARCH_TERMINAL =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "research_terminal",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.research.ResearchTerminalBlockEntity(
+                                    ModBlockEntities.RESEARCH_TERMINAL.get(), pos, state),
+                            ModBlocks.RESEARCH_TERMINAL.get()));
+
     /** Ein Typ für alle Ports; das Verhalten folgt aus {@link de.infinitehorizon.multiblock.PortBlock.PortType}. */
     public static final Supplier<BlockEntityType<PortBlockEntity>> PORT =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "port",

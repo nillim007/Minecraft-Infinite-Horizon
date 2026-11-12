@@ -373,4 +373,19 @@ public class IhFabricGameTests {
     public void lampLitOnlywithpower(GameTestHelper helper) {
         IhGameTestsM3e.lampNeedsPower(helper);
     }
+
+    @GameTest(maxTicks = 250)
+    public void researchAssemblytableLockeduntilresearched(GameTestHelper helper) {
+        IhGameTestsM4a.assemblyLockedUntilResearched(helper);
+    }
+
+    @GameTest(maxTicks = 220, environment = "infinite_horizon:research_free")
+    public void researchNotrequiredAssemblesimmediately(GameTestHelper helper) {
+        IhGameTestsM4a.assemblyFreeWhenNotRequired(helper);
+    }
+
+    @GameTest(maxTicks = 40)
+    public void researchTerminalOpenstier1groundstation(GameTestHelper helper) {
+        IhGameTestsM4a.terminalOpensTier1(helper);
+    }
 }

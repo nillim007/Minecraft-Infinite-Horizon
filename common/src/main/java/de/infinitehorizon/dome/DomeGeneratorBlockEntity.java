@@ -156,6 +156,11 @@ public class DomeGeneratorBlockEntity extends MachineBlockEntity {
             if (entry == null || entry.failing() || entry.radius() != radius()) {
                 data.put(new DomeData.Entry(worldPosition, radius(), tier(), Optional.ofNullable(owner()), -1));
                 DomeManager.sync(level);
+                // Erfolg „Eigene Luft“ (24.3) an alle Mitglieder der Besitzer-Agentur, offline beim nächsten Login
+                if (entry == null && owner() != null) {
+                    de.infinitehorizon.agency.AgencyAdvancements.awardToAgency(level.getServer(), owner(),
+                            de.infinitehorizon.agency.AgencyAdvancements.OWN_AIR);
+                }
             }
             setStatus(MachineStatus.RUNNING);
             return;

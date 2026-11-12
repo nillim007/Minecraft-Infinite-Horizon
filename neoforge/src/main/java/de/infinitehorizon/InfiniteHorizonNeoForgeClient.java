@@ -27,7 +27,10 @@ public class InfiniteHorizonNeoForgeClient {
     }
 
     public InfiniteHorizonNeoForgeClient(IEventBus modBus) {
-        modBus.addListener((RegisterMenuScreensEvent e) -> e.register(ModMenus.MACHINE.get(), MachineScreen::new));
+        modBus.addListener((RegisterMenuScreensEvent e) -> {
+            e.register(ModMenus.MACHINE.get(), MachineScreen::new);
+            e.register(ModMenus.RESEARCH_TERMINAL.get(), de.infinitehorizon.client.ResearchTerminalScreen::new);
+        });
         NeoForge.EVENT_BUS.addListener((ClientTickEvent.Post e) -> de.infinitehorizon.client.DomeVisuals.tick());
         // Umwelt-HUD (8.4) über der Hungerleiste
         modBus.addListener((net.neoforged.neoforge.client.event.RegisterGuiLayersEvent e) -> e.registerAbove(

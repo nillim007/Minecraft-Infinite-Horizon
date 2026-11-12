@@ -82,6 +82,10 @@ public final class ModBlocks {
             p -> new de.infinitehorizon.machine.ElectricLampBlock(p, () -> ModBlockEntities.ELECTRIC_LAMP.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).lightLevel(s ->
                     s.getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.LIT) ? lampLight() : 0));
+    /** Forschungsterminal (11.3): GUI-Block ohne Strom. */
+    public static final Supplier<Block> RESEARCH_TERMINAL = register("research_terminal",
+            p -> new de.infinitehorizon.research.ResearchTerminalBlock(p, () -> ModBlockEntities.RESEARCH_TERMINAL.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     /** Erloschene Fackel (8.5): dekorativ wie eine Fackel ohne Licht. */
     public static final Supplier<Block> EXTINGUISHED_TORCH = register("extinguished_torch",
             de.infinitehorizon.world.ExtinguishedTorchBlock::new,

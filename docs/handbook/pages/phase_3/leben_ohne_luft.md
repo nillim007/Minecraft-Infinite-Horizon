@@ -34,6 +34,10 @@ Fällt die Kuppel aus, während du tot bist, ist dein Spawnpunkt nicht mehr sich
 
 ## Herstellung
 
+@if infinite_horizon:research_terminal
+@note Die elektrische Lampe schaltet der Knoten **Kuppel I** in Stufe 2 frei ([[forschung|Forschung]]).
+@endif
+
 @recipes_for infinite_horizon:electric_lamp
 
 @tip In der Kuppel funktionieren Fackeln und Lagerfeuer ganz normal. Elektrische Lampen lohnen sich vor allem draußen und in Höhlen.

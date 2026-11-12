@@ -1,0 +1,8 @@
+{
+  "tier": 1,
+  "cost_default": 10,
+  "gate": {
+    "type": "has_block",
+    "block": "infinite_horizon:research_terminal"
+  }
+}

@@ -32,6 +32,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Erdöl](Fluide-und-Rohre.md) | Fluid | Weltgenerierung |
 | [Erloschene Fackel](Leben-ohne-Luft.md) | Block | Füllslot oder Eimer |
 | [Fluid-Port](Raffinerie.md) | Block | Rezept |
+| [Forschungsterminal](Forschung.md) | Block | Rezept |
 | [Geschwindigkeits-Upgrade](Upgrades.md) | Item | Rezept |
 | [Golddraht](Presse.md) | Item | Maschine |
 | [Goldstaub](Zerkleinerer.md) | Item | Maschine |

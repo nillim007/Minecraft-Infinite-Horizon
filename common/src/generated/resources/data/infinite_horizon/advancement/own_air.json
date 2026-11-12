@@ -1,0 +1,24 @@
+{
+  "parent": "infinite_horizon:ground_station",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "infinite_horizon:dome_generator_t1"
+    },
+    "title": {
+      "translate": "advancements.infinite_horizon.own_air.title"
+    },
+    "description": {
+      "translate": "advancements.infinite_horizon.own_air.description"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

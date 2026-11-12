@@ -33,6 +33,10 @@ Fehlen Strom oder Sauerstoff oder passt die Temperatur nicht mehr, geht die Kupp
 
 ## Herstellung
 
+@if infinite_horizon:research_terminal
+@note Den Kuppelgenerator schaltet der Knoten **Kuppel I** in Stufe 2 frei ([[forschung|Forschung]]).
+@endif
+
 @recipes_for infinite_horizon:dome_generator_t1
 
 @tip Stell eine Druckflasche oder einen zweiten Sauerstoffgenerator an den Kuppelgenerator. Dann reicht der Vorrat auch, wenn du länger unterwegs bist.

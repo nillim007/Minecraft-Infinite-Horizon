@@ -61,8 +61,13 @@
       "level": 2
     },
     {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e6",
+      "style": "note"
+    },
+    {
       "type": "text",
-      "key": "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e6"
+      "key": "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e7"
     },
     {
       "type": "recipes",
@@ -137,7 +142,7 @@
     },
     {
       "type": "callout",
-      "key": "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e8",
+      "key": "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e9",
       "style": "tip"
     }
   ]

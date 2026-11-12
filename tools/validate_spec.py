@@ -220,6 +220,21 @@ def check_research(spec):
             err(f"research.json: Ziel {pid} wird von keinem Knoten als Sondenziel freigeschaltet")
 
 
+def check_visible_nodes(spec):
+    """11.4 (Ä28): Ein sichtbarer Knoten sollte keinen unsichtbaren voraussetzen (Stand common/implemented_ids.json)."""
+    try:
+        impl = sd.implemented_ids()
+    except (OSError, ValueError):
+        return
+    visible = {n["id"] for n in sd.visible_nodes(spec, impl)}
+    for n in spec.nodes:
+        if n["id"] in visible:
+            for req in n.get("requires", []):
+                if req not in visible:
+                    warn(f"research.json: sichtbarer Knoten {n['id']} verlangt unsichtbaren Knoten {req} "
+                         f"(Teilschritt {impl.get('step') or impl.get('milestone')})")
+
+
 # ---------------------------------------------------------------- planets & fuel
 
 def check_planets(spec):
@@ -335,6 +350,7 @@ def main():
         check_rocket_sums(spec)
     if spec.nodes:
         check_research(spec)
+        check_visible_nodes(spec)
     if spec.planets:
         check_planets(spec)
     if spec.balance:

@@ -669,6 +669,65 @@ def atmosphere_tag(spec):
     write_json(f"data/{tns}/tags/block/{tpath}.json", {"values": rules["tag_contents"]})
 
 
+# ---------------------------------------------------------------- Forschung (11.4, 25.3) und Erfolge (24.3)
+
+def research_resources(spec, nodes):
+    """Alle 6 Stufen und die sichtbaren Knoten als Datenpaket-Dateien (25.3)."""
+    for t in spec.tiers:
+        write_json(f"data/{NS}/{NS}/research_tier/{t['tier']}.json",
+                   {"tier": t["tier"], "cost_default": t["cost_default"], "gate": t["gate"]})
+    for n in nodes:
+        ns, path = n["id"].split(":", 1)
+        write_json(f"data/{ns}/{NS}/research/{path}.json",
+                   {k: n[k] for k in ("tier", "branch", "cost", "requires", "unlocks", "icon", "position") if k in n})
+
+
+ADVANCEMENT_BACKGROUND = "minecraft:gui/advancements/backgrounds/stone"
+
+
+def advancement_criterion(a):
+    trigger = a["trigger"]
+    if trigger == "minecraft:inventory_changed":
+        return {"trigger": trigger, "conditions": {"items": [{"items": a["item"]}]}}
+    if trigger == "minecraft:placed_block":
+        return {"trigger": trigger, "conditions": {"location": {"type": "minecraft:match_block", "blocks": a["block"]}}}
+    if trigger == "minecraft:changed_dimension":
+        return {"trigger": trigger, "conditions": {"to": a["to"]}}
+    if trigger == "minecraft:impossible":
+        return {"trigger": trigger}
+    sys.exit(f"Unbekannter Erfolgs-Auslöser {trigger}")
+
+
+def advancements(spec, impl, registered):
+    """Reiter infinite_horizon:root (24.3): nur die Erfolge aus implemented_ids.json → advancements.
+    SPEC-GAP #64: Fehlt der Elternteil, gilt der nächste erzeugte Vorfahr."""
+    by_id = spec.balance["misc"]["advancements"]["by_id"]
+    wanted = list(impl.get("advancements", []))
+    generated = set(wanted)
+    for aid in wanted:
+        a = by_id[aid]
+        for key in ("icon", "item", "block"):
+            if a.get(key) and a[key] not in registered:
+                sys.exit(f"Erfolg {aid}: {key} {a[key]} ist nicht registriert")
+        parent = a.get("parent")
+        while parent and parent not in generated:
+            parent = by_id[parent].get("parent")
+        ns, path = aid.split(":", 1)
+        display = {"icon": {"id": a["icon"]},
+                   "title": {"translate": f"advancements.{ns}.{path}.title"},
+                   "description": {"translate": f"advancements.{ns}.{path}.description"}}
+        if parent is None:
+            display.update({"background": ADVANCEMENT_BACKGROUND, "show_toast": False, "announce_to_chat": False})
+        doc = {}
+        if parent:
+            doc["parent"] = parent
+        doc["criteria"] = {"done": advancement_criterion(a)}
+        doc["display"] = display
+        doc["requirements"] = [["done"]]
+        write_json(f"data/{ns}/advancement/{path}.json", doc)
+    return wanted
+
+
 def main():
     spec = sd.load()
     impl = json.loads(IMPL.read_text(encoding="utf-8"))
@@ -692,6 +751,7 @@ def main():
     hb = handbook.build(spec, impl)
     for w in hb.warnings:
         print(f"Warnung (Handbuch): {w}")
+    nodes = sd.visible_nodes(spec, impl)  # 11.4
     for lang, field in (("de_de", "name_de"), ("en_us", "name_en")):
         data = {k: v for k, v in extra.get(lang, {}).items()}
         for i in sorted(registered):
@@ -706,6 +766,12 @@ def main():
         data.update(hb.lang[lang])  # Ingenieurs-Handbuch (24.1, 25.6)
         for pid in ["minecraft:overworld"] + list(impl.get("dimensions", [])):
             data[planet_key(pid)] = spec.planets[pid][field]
+        # Forschung (11.3): Stufen und sichtbare Knoten
+        for t in spec.tiers:
+            data[f"research.{NS}.tier.{t['tier']}"] = t[field]
+        for n in nodes:
+            ns, path = n["id"].split(":", 1)
+            data[f"research.{ns}.{path.replace('/', '.')}"] = n[field]
         write_json(f"assets/{NS}/lang/{lang}.json", dict(sorted(data.items())))
     # Handbuchseiten aus docs/handbook (dieselbe Quelle wie das Wiki, tools/gen_wiki.py)
     for rel, page in sorted(hb.files.items()):
@@ -844,6 +910,10 @@ def main():
         nbt = OUT / "data" / NS / "structure" / "gametest" / f"{sname}.nbt"
         nbt.parent.mkdir(parents=True, exist_ok=True)
         nbt.write_bytes(empty_structure_nbt(size))
+
+    # Forschung (11.4) und Erfolge (24.3)
+    research_resources(spec, nodes)
+    advancements(spec, impl, registered)
 
     # Warntöne (24.6), Anzüge (9.1), Welt ohne Atmosphäre (8.5)
     atmosphere_tag(spec)

@@ -4,7 +4,7 @@
   "title": "infinite_horizon.handbook.phase_2.erste_schritte.title",
   "icon": "infinite_horizon:moon_regolith",
   "order": 10,
-  "unlock": "infinite_horizon:research_tier/1",
+  "unlock": null,
   "items": [],
   "elements": [
     {
@@ -22,7 +22,8 @@
       "keys": [
         "infinite_horizon.handbook.phase_2.erste_schritte.e2.0",
         "infinite_horizon.handbook.phase_2.erste_schritte.e2.1",
-        "infinite_horizon.handbook.phase_2.erste_schritte.e2.2"
+        "infinite_horizon.handbook.phase_2.erste_schritte.e2.2",
+        "infinite_horizon.handbook.phase_2.erste_schritte.e2.3"
       ]
     },
     {

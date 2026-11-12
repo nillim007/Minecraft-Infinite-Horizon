@@ -7,7 +7,7 @@ import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import de.infinitehorizon.InfiniteHorizon;
 import de.infinitehorizon.data.Planet;
 import de.infinitehorizon.data.PlanetRegistry;
-import de.infinitehorizon.spaceflight.LandingService;
+import de.infinitehorizon.space.LandingService;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.SharedSuggestionProvider;

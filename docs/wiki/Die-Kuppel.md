@@ -37,6 +37,9 @@ Fehlen Strom oder Sauerstoff oder passt die Temperatur nicht mehr, geht die Kupp
 
 ## Herstellung
 
+> [!NOTE]
+> Den Kuppelgenerator schaltet der Knoten **Kuppel I** in Stufe 2 frei ([Forschung](Forschung.md)).
+
 ![Rezept: Kuppelgenerator I](images/rezepte/assembly_dome_generator_t1.svg)
 
 <sub>16 × [Aluminiumplatte](Presse.md), 8 × [Titanplatte](Presse.md), 4 × [Schaltkreis](Montagetisch.md), 4 × Glas → 1 × Kuppelgenerator I</sub>

@@ -191,9 +191,14 @@ class Ctx:
         return i
 
     def value(self, file: str, path: str):
-        """{{value:<balance-datei>:<pfad>}} oder {{value:planet:<planet>.<pfad>}}; Pfadteile ohne Namespace erlaubt."""
+        """{{value:<balance-datei>:<pfad>}}, {{value:planet:<planet>.<pfad>}}, {{value:node:<knoten>.<pfad>}} (research.json,
+        27.6) oder {{value:tier:<stufe>.<pfad>}}; Pfadteile ohne Namespace erlaubt."""
         if file == "planet":
             cur = {k.split(":", 1)[1]: v for k, v in self.spec.planets.items()}
+        elif file == "node":
+            cur = {n["id"].split(":", 1)[1]: n for n in self.spec.nodes}
+        elif file == "tier":
+            cur = {str(t["tier"]): t for t in self.spec.tiers}
         else:
             cur = self.spec.balance.get(file)
         if cur is None:

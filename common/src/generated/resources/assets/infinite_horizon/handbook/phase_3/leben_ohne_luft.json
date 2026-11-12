@@ -78,6 +78,11 @@
       "level": 2
     },
     {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.leben_ohne_luft.e12",
+      "style": "note"
+    },
+    {
       "type": "recipes",
       "recipes": [
         {
@@ -117,7 +122,7 @@
     },
     {
       "type": "callout",
-      "key": "infinite_horizon.handbook.phase_3.leben_ohne_luft.e13",
+      "key": "infinite_horizon.handbook.phase_3.leben_ohne_luft.e14",
       "style": "tip"
     }
   ]

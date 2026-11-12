@@ -35,6 +35,10 @@ Die Brustplatte trägt bis zu {{value:suits:oxygen_supply.chestplate_capacity}} 
 
 ## Herstellung
 
+@if infinite_horizon:research_terminal
+@note Herstellen kann deine Agentur die Anzugteile erst, wenn sie den Knoten **Druckanzug** erforscht hat (Stufe 1, [[forschung|Forschung]]).
+@endif
+
 @recipes_for infinite_horizon:pressure_suit_helmet infinite_horizon:pressure_suit_chestplate infinite_horizon:pressure_suit_leggings infinite_horizon:pressure_suit_boots
 
 @tip Nimm immer eine volle Flasche mehr mit, als du zu brauchen glaubst. Rechne nach: {{value:suits:infinite_horizon:oxygen_canister.capacity}} mB in einer Flasche, {{value:suits:pressure_suit.oxygen_consumption.amount}} mB Verbrauch alle {{value:suits:pressure_suit.oxygen_consumption.per_ticks|t}}.

@@ -103,6 +103,7 @@ public class IhClientGameTests implements FabricClientGameTest {
             });
             handbook(context);
             recipeViewer(context);
+            researchTree(context, sp);
 
             // Alle Blöcke nebeneinander in der Welt (Modelle, Texturen, Statuslampe)
             BlockPos base = context.computeOnClient(c -> BlockPos.containing(c.player.position()).north(3));
@@ -322,6 +323,55 @@ public class IhClientGameTests implements FabricClientGameTest {
         if (!open) {
             throw new AssertionError("REI: Kategorie Raffinieren hat sich nicht geöffnet");
         }
+    }
+
+    /**
+     * Forschungsbaum (11.3, 27.7 M4a): Stufe 1 offen, 12,34 FP, {@code suit_t1} erforscht. Das Terminal per
+     * Rechtsklick öffnen und fotografieren; ein Klick auf den verfügbaren Knoten {@code gas_storage} erforscht ihn auf
+     * dem Server (FP danach 2,34).
+     */
+    private static void researchTree(ClientGameTestContext context, TestSingleplayerContext sp) {
+        Identifier suit = InfiniteHorizon.id("suit_t1");
+        Identifier gas = InfiniteHorizon.id("gas_storage");
+        sp.getServer().runOnServer(server -> {
+            var player = server.getPlayerList().getPlayers().getFirst();
+            var data = de.infinitehorizon.agency.AgencyData.get(server);
+            var agency = data.agencyOf(player.getUUID()).orElseThrow();
+            agency.progress().openTier(1);
+            agency.progress().research(suit);
+            agency.progress().addFp(1234);
+            data.setDirty();
+            de.infinitehorizon.research.ResearchService.syncAgency(server, agency);
+        });
+        BlockPos pos = context.computeOnClient(c -> BlockPos.containing(c.player.position()).east(2).above());
+        setBlock(sp, pos, ModBlocks.RESEARCH_TERMINAL.get());
+        context.waitFor(c -> c.level.getBlockState(pos).is(ModBlocks.RESEARCH_TERMINAL.get()));
+        context.waitTicks(5);
+        context.getInput().lookAt(pos);
+        context.waitTick();
+        context.getInput().pressKey(options -> options.keyUse);
+        context.waitForScreen(de.infinitehorizon.client.ResearchTerminalScreen.class);
+        context.waitTicks(10);
+        int nodes = context.computeOnClient(c -> de.infinitehorizon.data.ResearchRegistry.client().nodes().size());
+        if (nodes == 0) {
+            throw new AssertionError("Forschungsbaum: keine Knoten auf dem Client (SyncDataPayload)");
+        }
+        clearChat(context);
+        context.takeScreenshot("gui_research_terminal");
+        boolean sent = context.computeOnClient(c -> c.gui.screen() instanceof de.infinitehorizon.client.ResearchTerminalScreen r
+                && r.clickNode(gas));
+        if (!sent) {
+            throw new AssertionError("Forschungsbaum: gas_storage nicht verfügbar");
+        }
+        context.waitTicks(10);
+        boolean researched = sp.getServer().computeOnServer(server -> de.infinitehorizon.agency.AgencyData.get(server)
+                .agencyOf(server.getPlayerList().getPlayers().getFirst().getUUID()).orElseThrow().progress().isResearched(gas));
+        int fp = context.computeOnClient(c -> de.infinitehorizon.client.AgencyClientState.fp());
+        if (!researched || fp != 234) {
+            throw new AssertionError("Forschungsbaum: gas_storage erforscht=" + researched + ", FP auf dem Client " + fp);
+        }
+        context.takeScreenshot("gui_research_terminal_after");
+        closeAndRemove(context, sp, pos);
     }
 
     /** Knopf „Tank“ im Elektrolyseur: wählt Tank 2 der Ausgänge (Sauerstoff) auf dem Server (4.1). */

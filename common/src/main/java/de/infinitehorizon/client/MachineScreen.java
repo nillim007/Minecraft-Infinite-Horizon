@@ -151,6 +151,9 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         if (inside(mouseX, mouseY, x + LAMP_X - 1, y + LAMP_Y - 1, LAMP_SIZE + 2, LAMP_SIZE + 2)) {
             tip = new ArrayList<>();
             tip.add(Component.translatable("gui.infinite_horizon.status." + status.getSerializedName()));
+            if (menu.value(MachineBlockEntity.SYNC_LOCKED) == 1) {
+                tip.add(Component.translatable("gui.infinite_horizon.status.locked"));
+            }
             if (menu.value(MachineBlockEntity.SYNC_MULTIBLOCK) == 2) {
                 BlockPos missing = BlockPos.of(menu.value(MachineBlockEntity.SYNC_MISSING));
                 tip.add(Component.translatable("gui.infinite_horizon.multiblock.missing", missing.getX(), missing.getY(), missing.getZ()));

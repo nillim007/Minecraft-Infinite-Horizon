@@ -120,7 +120,15 @@ public class HandbookScreen extends Screen {
         rebuildToc();
         String target = page != null ? page.id() : requested;
         HandbookData.Page p = target == null ? null : book.pages().get(target);
-        show(p != null ? p : book.firstPage(), false);
+        show(p != null && readable(p) ? p : book.firstPage(HandbookScreen::readable), false);
+    }
+
+    /**
+     * Freischaltung nach Forschung (24.1, ab M4): Eine Seite ist lesbar, wenn ihr {@code unlock} (sonst das des Kapitels)
+     * für die Agentur des Lesers offen ist; mit {@code research_required = false} ist alles offen.
+     */
+    public static boolean readable(HandbookData.Page p) {
+        return de.infinitehorizon.client.AgencyClientState.isUnlocked(p.unlock());
     }
 
     /** Öffnet eine Seite; {@code remember} legt die alte in den Verlauf. */
@@ -139,7 +147,7 @@ public class HandbookScreen extends Screen {
     /** Öffnet die Seite mit dieser ID (Link). */
     public boolean openPage(String id) {
         HandbookData.Page p = book.pages().get(id);
-        if (p == null) {
+        if (p == null || !readable(p)) {
             return false;
         }
         show(p, true);
@@ -149,7 +157,7 @@ public class HandbookScreen extends Screen {
     private void back() {
         while (!history.isEmpty()) {
             HandbookData.Page p = book.pages().get(history.pop());
-            if (p != null) {
+            if (p != null && readable(p)) {
                 show(p, false);
                 return;
             }
@@ -166,9 +174,17 @@ public class HandbookScreen extends Screen {
         String q = search == null ? "" : search.getValue().trim().toLowerCase(Locale.ROOT);
         for (HandbookData.Chapter c : book.chapters()) {
             List<TocEntry> entries = new ArrayList<>();
+            if (!de.infinitehorizon.client.AgencyClientState.isUnlocked(c.unlock())) {
+                // gesperrtes Kapitel (24.1): nur die Überschrift mit Hinweis
+                if (q.isEmpty() && !book.pagesByChapter().getOrDefault(c.id(), List.of()).isEmpty()) {
+                    toc.add(new TocEntry("", Component.translatable("gui." + InfiniteHorizon.MOD_ID + ".handbook.chapter_locked",
+                            Component.translatable(c.titleKey())), true));
+                }
+                continue;
+            }
             for (HandbookData.Page p : book.pagesByChapter().getOrDefault(c.id(), List.of())) {
                 Component title = Component.translatable(p.titleKey());
-                if (q.isEmpty() || matches(p, title, q)) {
+                if (readable(p) && (q.isEmpty() || matches(p, title, q))) {
                     entries.add(new TocEntry(p.id(), title, false));
                 }
             }

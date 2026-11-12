@@ -2,7 +2,8 @@
   "_info": "Liste aller Server-GameTests. Nach Änderungen: python tools/gen_gametests.py (erzeugt IhTestCatalog und IhFabricGameTests).",
   "environments": {
     "infinite_horizon:performance": {},
-    "infinite_horizon:moon_day": {"setup_function": "infinite_horizon:gametest/moon_day"}
+    "infinite_horizon:moon_day": {"setup_function": "infinite_horizon:gametest/moon_day"},
+    "infinite_horizon:research_free": {}
   },
   "tests": [
     {"name": "crusher_rawiron_twodustwithin220ticks", "class": "IhGameTests", "method": "crusherRawIronTwoDust", "ticks": 220, "ref": "27 M1"},
@@ -77,6 +78,9 @@
     {"name": "dome_torch_onlyinside", "class": "IhGameTestsM3e", "method": "torchOnlyInsideDome", "ticks": 40, "structure": "infinite_horizon:gametest/empty_large", "ref": "8.5, 27.5 M3e"},
     {"name": "atmosphere_torches_extinguish", "class": "IhGameTestsM3e", "method": "torchesExtinguish", "ticks": 20, "ref": "8.5"},
     {"name": "atmosphere_water_freezes", "class": "IhGameTestsM3e", "method": "waterFreezes", "ticks": 20, "ref": "8.5"},
-    {"name": "lamp_lit_onlywithpower", "class": "IhGameTestsM3e", "method": "lampNeedsPower", "ticks": 20, "ref": "8.5"}
+    {"name": "lamp_lit_onlywithpower", "class": "IhGameTestsM3e", "method": "lampNeedsPower", "ticks": 20, "ref": "8.5"},
+    {"name": "research_assemblytable_lockeduntilresearched", "class": "IhGameTestsM4a", "method": "assemblyLockedUntilResearched", "ticks": 250, "ref": "11.3, 27.7 M4a"},
+    {"name": "research_notrequired_assemblesimmediately", "class": "IhGameTestsM4a", "method": "assemblyFreeWhenNotRequired", "ticks": 220, "environment": "infinite_horizon:research_free", "ref": "11.3, 24.4, 27.7 M4a"},
+    {"name": "research_terminal_openstier1groundstation", "class": "IhGameTestsM4a", "method": "terminalOpensTier1", "ticks": 40, "ref": "11.4, 24.3, 27.7 M4a"}
   ]
 }

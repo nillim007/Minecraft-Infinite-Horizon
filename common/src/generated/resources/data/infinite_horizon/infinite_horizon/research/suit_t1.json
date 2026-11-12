@@ -1,0 +1,42 @@
+{
+  "tier": 1,
+  "branch": "life_support",
+  "cost": 10,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:pressure_suit_helmet"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:pressure_suit_chestplate"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:pressure_suit_leggings"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:pressure_suit_boots"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:oxygen_canister"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:large_oxygen_canister"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:helmet_lamp"
+    }
+  ],
+  "icon": "infinite_horizon:pressure_suit_helmet",
+  "position": {
+    "column": 2,
+    "row": 1,
+    "slot": 0
+  }
+}

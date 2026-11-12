@@ -4,7 +4,7 @@
   "title": "infinite_horizon.handbook.phase_2.raumanzug.title",
   "icon": "infinite_horizon:pressure_suit_helmet",
   "order": 30,
-  "unlock": "infinite_horizon:research_tier/1",
+  "unlock": null,
   "items": [
     "infinite_horizon:pressure_suit_helmet",
     "infinite_horizon:pressure_suit_chestplate",
@@ -81,6 +81,11 @@
       "type": "heading",
       "key": "infinite_horizon.handbook.phase_2.raumanzug.e9",
       "level": 2
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.raumanzug.e10",
+      "style": "note"
     },
     {
       "type": "recipes",
@@ -215,7 +220,7 @@
     },
     {
       "type": "callout",
-      "key": "infinite_horizon.handbook.phase_2.raumanzug.e11",
+      "key": "infinite_horizon.handbook.phase_2.raumanzug.e12",
       "style": "tip"
     }
   ]

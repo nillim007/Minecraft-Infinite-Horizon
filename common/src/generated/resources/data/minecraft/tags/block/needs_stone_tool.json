@@ -23,6 +23,7 @@
     "infinite_horizon:press",
     "infinite_horizon:pressure_bottle",
     "infinite_horizon:refinery_casing",
-    "infinite_horizon:refinery_controller"
+    "infinite_horizon:refinery_controller",
+    "infinite_horizon:research_terminal"
   ]
 }

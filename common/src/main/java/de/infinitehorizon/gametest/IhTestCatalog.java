@@ -91,7 +91,10 @@ public final class IhTestCatalog {
             new Test("dome_torch_onlyinside", 40, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM3e::torchOnlyInsideDome),  // 8.5, 27.5 M3e
             new Test("atmosphere_torches_extinguish", 20, null, null, null, IhGameTestsM3e::torchesExtinguish),  // 8.5
             new Test("atmosphere_water_freezes", 20, null, null, null, IhGameTestsM3e::waterFreezes),  // 8.5
-            new Test("lamp_lit_onlywithpower", 20, null, null, null, IhGameTestsM3e::lampNeedsPower)  // 8.5
+            new Test("lamp_lit_onlywithpower", 20, null, null, null, IhGameTestsM3e::lampNeedsPower),  // 8.5
+            new Test("research_assemblytable_lockeduntilresearched", 250, null, null, null, IhGameTestsM4a::assemblyLockedUntilResearched),  // 11.3, 27.7 M4a
+            new Test("research_notrequired_assemblesimmediately", 220, null, "infinite_horizon:research_free", null, IhGameTestsM4a::assemblyFreeWhenNotRequired),  // 11.3, 24.4, 27.7 M4a
+            new Test("research_terminal_openstier1groundstation", 40, null, null, null, IhGameTestsM4a::terminalOpensTier1)  // 11.4, 24.3, 27.7 M4a
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */
@@ -100,7 +103,8 @@ public final class IhTestCatalog {
 
     public static final List<Environment> ENVIRONMENTS = List.of(
             new Environment("infinite_horizon:moon_day", "infinite_horizon:gametest/moon_day"),
-            new Environment("infinite_horizon:performance", null)
+            new Environment("infinite_horizon:performance", null),
+            new Environment("infinite_horizon:research_free", null)
     );
 
     private IhTestCatalog() {

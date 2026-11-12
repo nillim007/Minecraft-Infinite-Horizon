@@ -95,6 +95,18 @@ public final class ServerConfig {
         return server;
     }
 
+    /**
+     * Nur für GameTests: setzt einen Wert der laufenden Server-Config (wird nicht gespeichert) und gibt den alten
+     * zurück (null, wenn es ihn nicht gab).
+     */
+    public static JsonElement overrideForTest(String key, JsonElement value) {
+        JsonObject copy = server.values.deepCopy();
+        JsonElement previous = copy.get(key);
+        copy.add(key, value);
+        server = new ServerConfig(copy);
+        return previous;
+    }
+
     /** Reine Funktion: prüft einen Wert gegen {@code {default, min?, max?, values?}}. */
     public static JsonElement validate(JsonObject rule, JsonElement value) {
         JsonElement def = rule.get("default");

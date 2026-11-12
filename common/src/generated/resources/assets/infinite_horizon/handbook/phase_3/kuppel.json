@@ -91,6 +91,11 @@
       "level": 2
     },
     {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e11",
+      "style": "note"
+    },
+    {
       "type": "recipes",
       "recipes": [
         {
@@ -136,7 +141,7 @@
     },
     {
       "type": "callout",
-      "key": "infinite_horizon.handbook.phase_3.kuppel.e12",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e13",
       "style": "tip"
     }
   ]

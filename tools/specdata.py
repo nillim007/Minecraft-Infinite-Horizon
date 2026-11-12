@@ -104,6 +104,27 @@ def load(data_dir: Path = DATA) -> Spec:
 
 # ---------------------------------------------------------------- Hilfen
 
+def implemented_ids() -> dict:
+    """common/implemented_ids.json (registrierte IDs, Meilenstein, Teilschritt)."""
+    return load_json(ROOT / "common" / "implemented_ids.json")
+
+
+def visible_nodes(spec: Spec, impl: dict) -> list:
+    """Sichtbare Forschungsknoten (11.4): mindestens eine registrierte Freischaltung (Item, Block, Fluid, Multiblock)
+    oder ein Sondenziel mit Planeten-Eintrag (= registrierte Dimension)."""
+    registered = set(impl.get("blocks", {})) | set(impl.get("items", [])) | \
+        {f"infinite_horizon:{f}" for f in impl.get("fluids", [])}
+    dims = set(impl.get("dimensions", []))
+    out = []
+    for n in spec.nodes:
+        for u in n.get("unlocks", []):
+            if (u.get("type") in ("item", "multiblock") and u.get("id") in registered) or \
+                    (u.get("type") == "probe_target" and u.get("id") in dims):
+                out.append(n)
+                break
+    return out
+
+
 def find_value(obj, *names, default=None):
     """Sucht den ersten Schlüssel aus `names` rekursiv in einem verschachtelten Objekt."""
     stack = [obj]

@@ -29,6 +29,9 @@ Die Druckflasche ist ein Tank nur für Gase und fasst 8.000 mB. Sie hat wie der 
 
 ## Herstellung
 
+> [!NOTE]
+> Die Flaschen schaltet der Knoten **Druckanzug** frei, die Druckflasche der Knoten **Gasspeicher** (beide Stufe 1, [Forschung](Forschung.md)).
+
 | Rezept | Zutaten → Ergebnis | Wo | Dauer |
 | --- | --- | --- | --- |
 | <img src="images/rezepte/assembly_oxygen_canister.svg" alt="Rezept" width="300"> | 2 × [Aluminiumplatte](Presse.md), 1 × [Kupferrohr](Fluide-und-Rohre.md) → 1 × Sauerstoffflasche | Montagetisch | 200 t (10 s)<br>30 J/t |

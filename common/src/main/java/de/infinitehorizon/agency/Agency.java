@@ -34,22 +34,41 @@ public final class Agency {
             Codec.STRING.optionalFieldOf("name").forGetter(a -> Optional.ofNullable(a.name)),
             Member.CODEC.listOf().fieldOf("members").forGetter(a -> List.copyOf(a.members)),
             UUIDUtil.CODEC.optionalFieldOf("merged_into").forGetter(a -> Optional.ofNullable(a.mergedInto)),
-            Identifier.CODEC.listOf().optionalFieldOf("visited_dimensions", List.of()).forGetter(a -> List.copyOf(a.visitedDimensions))
-    ).apply(i, (id, name, members, merged, visited) ->
-            new Agency(id, name.orElse(null), members, merged.orElse(null), visited)));
+            Identifier.CODEC.listOf().optionalFieldOf("visited_dimensions", List.of()).forGetter(a -> List.copyOf(a.visitedDimensions)),
+            // Felder ab M4 (23.1) flach daneben, alle optional
+            AgencyProgress.MAP_CODEC.forGetter(Agency::progress)
+    ).apply(i, (id, name, members, merged, visited, progress) ->
+            new Agency(id, name.orElse(null), members, merged.orElse(null), visited, progress)));
 
     private final UUID id;
     private @Nullable String name;
     private final List<Member> members;
     private @Nullable UUID mergedInto;
     private final Set<Identifier> visitedDimensions;
+    private final AgencyProgress progress;
 
     public Agency(UUID id, @Nullable String name, List<Member> members, @Nullable UUID mergedInto, List<Identifier> visited) {
+        this(id, name, members, mergedInto, visited, new AgencyProgress());
+    }
+
+    public Agency(UUID id, @Nullable String name, List<Member> members, @Nullable UUID mergedInto, List<Identifier> visited,
+                  AgencyProgress progress) {
         this.id = id;
         this.name = name;
         this.members = new ArrayList<>(members);
         this.mergedInto = mergedInto;
         this.visitedDimensions = new LinkedHashSet<>(visited);
+        this.progress = progress;
+    }
+
+    /** FP, Forschung, offene Stufen, Sondenziele, ausstehende Erfolge (ab M4, 23.1). */
+    public AgencyProgress progress() {
+        return progress;
+    }
+
+    /** Rolle eines Mitglieds, sonst leer. */
+    public Optional<Role> roleOf(UUID player) {
+        return members.stream().filter(m -> m.player().equals(player)).map(Member::role).findFirst();
     }
 
     public UUID id() {

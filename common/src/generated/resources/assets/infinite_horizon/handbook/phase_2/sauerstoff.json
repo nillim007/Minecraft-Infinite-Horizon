@@ -4,7 +4,7 @@
   "title": "infinite_horizon.handbook.phase_2.sauerstoff.title",
   "icon": "infinite_horizon:oxygen_canister",
   "order": 40,
-  "unlock": "infinite_horizon:research_tier/1",
+  "unlock": null,
   "items": [
     "infinite_horizon:oxygen_canister",
     "infinite_horizon:large_oxygen_canister",
@@ -73,6 +73,11 @@
       "type": "heading",
       "key": "infinite_horizon.handbook.phase_2.sauerstoff.e8",
       "level": 2
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.sauerstoff.e9",
+      "style": "note"
     },
     {
       "type": "recipes",
@@ -162,7 +167,7 @@
     },
     {
       "type": "callout",
-      "key": "infinite_horizon.handbook.phase_2.sauerstoff.e10",
+      "key": "infinite_horizon.handbook.phase_2.sauerstoff.e11",
       "style": "tip"
     }
   ]

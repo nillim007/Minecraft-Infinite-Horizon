@@ -1,0 +1,9 @@
+{
+  "tier": 4,
+  "cost_default": 80,
+  "gate": {
+    "type": "machine_completed",
+    "block": "infinite_horizon:zero_g_fabricator",
+    "recipe": null
+  }
+}

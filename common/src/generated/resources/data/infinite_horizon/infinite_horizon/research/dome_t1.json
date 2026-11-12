@@ -1,0 +1,38 @@
+{
+  "tier": 2,
+  "branch": "life_support",
+  "cost": 25,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:dome_generator_t1"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:oxygen_generator"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:dome_range_module"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:dome_efficiency_module"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:dome_shield_module"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:electric_lamp"
+    }
+  ],
+  "icon": "infinite_horizon:dome_generator_t1",
+  "position": {
+    "column": 2,
+    "row": 2,
+    "slot": 0
+  }
+}
