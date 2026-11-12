@@ -1,0 +1,9 @@
+{
+  "values": [
+    "infinite_horizon:cold",
+    "infinite_horizon:heat",
+    "infinite_horizon:oxygen",
+    "infinite_horizon:pressure",
+    "infinite_horizon:radiation"
+  ]
+}

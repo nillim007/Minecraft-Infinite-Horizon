@@ -33,4 +33,4 @@ Infinite Horizon entsteht Meilenstein für Meilenstein. Dieses Wiki zeigt immer 
 > [!NOTE]
 > Der aktuelle Stand steht oben auf der [Wiki-Startseite](README.md). Mit jedem Meilenstein kommen neue Seiten in dieses Wiki und ins Handbuch im Spiel.
 
-← [Maschinen bedienen](Maschinen-bedienen.md)
+← [Umwelt, Belastung und Schwerkraft](Umwelt-Belastung-und-Schwerkraft.md)

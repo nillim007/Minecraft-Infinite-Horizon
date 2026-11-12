@@ -25,6 +25,10 @@ Balance-Werte stehen unter `data/<namespace>/infinite_horizon/balance/<datei>.js
 
 **Rezepte** für unsere Maschinen sind normale Datapack-Rezepte, z. B. `"type": "infinite_horizon:crushing"` (Format 25.4). Fehlen `ticks` oder `energy_per_tick`, gelten die Werte der Maschine.
 
+**Planeten** (ab M3) stehen unter `data/<namespace>/infinite_horizon/planet/<name>.json` (Felder wie 25.1). Einträge werden je `dimension` zusammengeführt: Ein Addon überschreibt einzelne Felder eines unserer Planeten (z. B. nur `gravity`) oder legt eine neue Dimension an; `"replace": true` ersetzt den ganzen Eintrag. Der Client bekommt die Planeten beim Join und nach `/reload`. Dimensionen ohne Eintrag gelten wie die Erde (keine Umweltgefahren, g = 1).
+
+**Umwelt und Schwerkraft:** `EnvironmentCalculator.compute(input, rules)` ist eine reine Funktion (Paket `environment`); `PlanetResolver.at(level, pos)` liefert Planet und Zonen einer Position. Regeln stehen in `environment.json` und `misc.json → gravity`. Schwerkraft wirkt als Attribut-Modifikator `infinite_horizon:planet_gravity`, eigene Modifikatoren anderer Mods bleiben erhalten.
+
 **Serverkonfiguration:** `<welt>/serverconfig/infinite_horizon.json`. Schlüssel, Standardwerte und Grenzen kommen aus `misc.json → config_defaults`.
 
 ## Mit wenig Code: eigene Inhalte

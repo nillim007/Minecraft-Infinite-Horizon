@@ -42,4 +42,4 @@ Maschinen baust du mit einer **Spitzhacke** ab (mindestens Stein). Sie droppen s
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Grundbegriffe](Grundbegriffe.md) · [Ausblick – was noch kommt](Ausblick-was-noch-kommt.md) →
+← [Grundbegriffe](Grundbegriffe.md) · [Umwelt, Belastung und Schwerkraft](Umwelt-Belastung-und-Schwerkraft.md) →

@@ -61,7 +61,8 @@
     "hydrogen",
     "oxygen"
   ],
-  "step": "3a",
+  "step": "3b",
+  "dimensions": ["infinite_horizon:moon"],
   "item_classes": {
     "_comment": "Items mit eigenem Verhalten; sie fehlen in simple_items.json und werden in ModItems registriert.",
     "infinite_horizon:engineers_handbook": "handbook"

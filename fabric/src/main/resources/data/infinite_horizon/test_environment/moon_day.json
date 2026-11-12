@@ -1,0 +1,4 @@
+{
+  "type": "minecraft:function",
+  "setup": "infinite_horizon:gametest/moon_day"
+}

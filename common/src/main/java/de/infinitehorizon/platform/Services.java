@@ -1,6 +1,7 @@
 package de.infinitehorizon.platform;
 
 import de.infinitehorizon.InfiniteHorizon;
+import de.infinitehorizon.platform.services.IAttachmentHelper;
 import de.infinitehorizon.platform.services.IEnergyHelper;
 import de.infinitehorizon.platform.services.IFluidHelper;
 import de.infinitehorizon.platform.services.INetworkHelper;
@@ -17,6 +18,7 @@ public final class Services {
     public static final IEnergyHelper ENERGY = load(IEnergyHelper.class);
     public static final IFluidHelper FLUID = load(IFluidHelper.class);
     public static final INetworkHelper NETWORK = load(INetworkHelper.class);
+    public static final IAttachmentHelper ATTACHMENTS = load(IAttachmentHelper.class);
 
     private Services() {
     }

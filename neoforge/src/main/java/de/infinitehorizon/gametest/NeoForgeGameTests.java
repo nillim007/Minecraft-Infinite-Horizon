@@ -39,6 +39,13 @@ public final class NeoForgeGameTests {
     public static void onRegisterTests(RegisterGameTestsEvent event) {
         Holder<TestEnvironmentDefinition<?>> standard = event.registerEnvironment(InfiniteHorizon.id("default"));
         Map<String, Holder<TestEnvironmentDefinition<?>>> envs = new LinkedHashMap<>();
+        // Testumgebungen aus gametests.json (Fabric liest dieselben Werte als JSON, tools/gen_gametests.py)
+        for (IhTestCatalog.Environment e : IhTestCatalog.ENVIRONMENTS) {
+            Identifier id = Identifier.parse(e.id());
+            envs.put(e.id(), e.setupFunction() == null ? event.registerEnvironment(id)
+                    : event.registerEnvironment(id, new TestEnvironmentDefinition.Functions(
+                            java.util.Optional.of(Identifier.parse(e.setupFunction())), java.util.Optional.empty())));
+        }
         HOLDERS.forEach((test, function) -> {
             // eigene Umgebung = eigener Durchgang (Leistungstest misst sonst die anderen Tests mit)
             Holder<TestEnvironmentDefinition<?>> env = test.environment() == null ? standard

@@ -24,6 +24,9 @@ public interface IPlatformHelper {
      */
     boolean isDevelopmentEnvironment();
 
+    /** Läuft der Server im GameTest-Betrieb (Umwelt-Override, Test-Verbraucher)? */
+    boolean isGameTest();
+
     /**
      * Gets the name of the environment type as a string.
      *

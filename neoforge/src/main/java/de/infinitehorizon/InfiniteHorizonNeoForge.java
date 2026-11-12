@@ -20,6 +20,7 @@ public class InfiniteHorizonNeoForge {
         InfiniteHorizon.init();
         NeoForgeRegistryHelper.registerAll(modBus);
         NeoForgeGameTests.FUNCTIONS.register(modBus);
+        de.infinitehorizon.platform.NeoForgeAttachmentHelper.TYPES.register(modBus);
 
         modBus.addListener(NeoForgeEnergyHelper::registerCapabilities);
         modBus.addListener(NeoForgeFluidHelper::registerCapabilities);
@@ -30,8 +31,17 @@ public class InfiniteHorizonNeoForge {
                 InfiniteHorizon.serverReloadListeners().forEach(e::addListener));
         NeoForge.EVENT_BUS.addListener((ServerStartingEvent e) -> InfiniteHorizon.onServerStarting(e.getServer()));
         // Maschinenrezepte zum Client schicken (JEI/REI, 3.9); seit 1.21.2 kennt der Client sie sonst nicht
-        NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.OnDatapackSyncEvent e) ->
-                e.sendRecipes(de.infinitehorizon.compat.ClientRecipes.types()));
+        NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.OnDatapackSyncEvent e) -> {
+            e.sendRecipes(de.infinitehorizon.compat.ClientRecipes.types());
+            e.getRelevantPlayers().forEach(InfiniteHorizon::onDatapackSync);
+        });
+        NeoForge.EVENT_BUS.addListener((net.neoforged.neoforge.event.tick.ServerTickEvent.Post e) ->
+                InfiniteHorizon.onServerTick(e.getServer()));
+        NeoForge.EVENT_BUS.addListener((PlayerEvent.PlayerRespawnEvent e) -> {
+            if (e.getEntity() instanceof ServerPlayer player) {
+                InfiniteHorizon.onRespawn(player);
+            }
+        });
         NeoForge.EVENT_BUS.addListener((PlayerEvent.PlayerLoggedInEvent e) -> {
             if (e.getEntity() instanceof ServerPlayer player) {
                 InfiniteHorizon.onPlayerJoin(player);

@@ -12,6 +12,9 @@ public final class ModPayloads {
     public static void init() {
         Services.NETWORK.registerClientbound(SyncConfigPayload.TYPE, SyncConfigPayload.CODEC,
                 payload -> ServerConfig.setClient(payload.json()));
+        Services.NETWORK.registerClientbound(SyncDataPayload.TYPE, SyncDataPayload.CODEC,
+                payload -> de.infinitehorizon.data.PlanetRegistry.setClient(
+                        de.infinitehorizon.data.PlanetRegistry.fromJson(payload.planets())));
         Services.NETWORK.registerServerbound(MachineConfigPayload.TYPE, MachineConfigPayload.CODEC, MachineConfigPayload::handle);
     }
 }

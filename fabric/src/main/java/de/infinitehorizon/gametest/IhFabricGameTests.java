@@ -293,4 +293,19 @@ public class IhFabricGameTests {
     public void agencyTransfercommandSetsmergedinto(GameTestHelper helper) {
         IhGameTestsM3a.transferCommand(helper);
     }
+
+    @GameTest(maxTicks = 210, environment = "infinite_horizon:moon_day")
+    public void environmentMoonoverrideHazardfullafter200ticks(GameTestHelper helper) {
+        IhGameTestsM3b.moonVacuumHazardBuildup(helper);
+    }
+
+    @GameTest(maxTicks = 40)
+    public void gravityMoonoverrideGravityandsafefall(GameTestHelper helper) {
+        IhGameTestsM3b.moonGravity(helper);
+    }
+
+    @GameTest(maxTicks = 60)
+    public void environmentCreativeNobuildup(GameTestHelper helper) {
+        IhGameTestsM3b.creativeNoBuildup(helper);
+    }
 }

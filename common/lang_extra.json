@@ -50,7 +50,12 @@
     "command.infinite_horizon.agency.unknown": "Keine Agentur gefunden: %s",
     "command.infinite_horizon.agency.transfer.ok": "Der Besitz von %s geht an %s über.",
     "command.infinite_horizon.agency.transfer.same": "Quelle und Ziel sind dieselbe Agentur.",
-    "command.infinite_horizon.agency.transfer.cycle": "Das Ziel ist bereits in der Quelle aufgegangen."
+    "command.infinite_horizon.agency.transfer.cycle": "Das Ziel ist bereits in der Quelle aufgegangen.",
+    "death.attack.infinite_horizon.oxygen": "%1$s ist ohne Sauerstoff erstickt",
+    "death.attack.infinite_horizon.pressure": "%1$s hielt dem Druck nicht stand",
+    "death.attack.infinite_horizon.heat": "%1$s ist in der Hitze verglüht",
+    "death.attack.infinite_horizon.cold": "%1$s ist erfroren",
+    "death.attack.infinite_horizon.radiation": "%1$s starb an Strahlung"
   },
   "en_us": {
     "itemGroup.infinite_horizon": "Infinite Horizon",
@@ -102,6 +107,11 @@
     "command.infinite_horizon.agency.unknown": "No agency found: %s",
     "command.infinite_horizon.agency.transfer.ok": "Everything owned by %s now belongs to %s.",
     "command.infinite_horizon.agency.transfer.same": "Source and target are the same agency.",
-    "command.infinite_horizon.agency.transfer.cycle": "The target has already been merged into the source."
+    "command.infinite_horizon.agency.transfer.cycle": "The target has already been merged into the source.",
+    "death.attack.infinite_horizon.oxygen": "%1$s ran out of oxygen",
+    "death.attack.infinite_horizon.pressure": "%1$s could not withstand the pressure",
+    "death.attack.infinite_horizon.heat": "%1$s burned up in the heat",
+    "death.attack.infinite_horizon.cold": "%1$s froze to death",
+    "death.attack.infinite_horizon.radiation": "%1$s died of radiation"
   }
 }

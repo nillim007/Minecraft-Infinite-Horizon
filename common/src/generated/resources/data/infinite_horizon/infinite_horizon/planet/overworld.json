@@ -1,0 +1,28 @@
+{
+  "dimension": "minecraft:overworld",
+  "type": "surface",
+  "orbit": "infinite_horizon:earth_orbit",
+  "star_system": "infinite_horizon:sol",
+  "ring": 0,
+  "distance_points": 0,
+  "gravity": 1.0,
+  "atmosphere": "breathable",
+  "pressure": "normal",
+  "temperature": {
+    "day": 20,
+    "night": 10
+  },
+  "biome_temperature_offsets": {},
+  "biome_temperature_overrides": {},
+  "radiation": 0,
+  "solar_factor": 1.0,
+  "water_behavior": "normal",
+  "landing_requires_fuel": false,
+  "required_rocket_tier": 1,
+  "requires_long_range": false,
+  "probe": null,
+  "sky": null,
+  "gas_collector_output": null,
+  "zones": [],
+  "name": "planet.minecraft.overworld"
+}

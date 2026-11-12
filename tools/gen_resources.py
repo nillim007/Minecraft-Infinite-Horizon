@@ -354,6 +354,49 @@ def recipe_ids(r):
     return {i for i in ids if i.startswith(NS + ":")}
 
 
+# Laufzeitfelder eines Planeten (25.1); Zonen mit ihrer ID (für den GameTest-Override, 27)
+PLANET_FIELDS = ["dimension", "type", "orbit", "star_system", "ring", "distance_points", "gravity", "atmosphere",
+                 "pressure", "temperature", "biome_temperature_offsets", "biome_temperature_overrides", "radiation",
+                 "solar_factor", "water_behavior", "landing_requires_fuel", "required_rocket_tier", "requires_long_range",
+                 "probe", "sky", "gas_collector_output", "zones"]
+ZONE_FIELDS = ["id", "y_min", "y_max", "biome", "near_block", "temperature", "pressure", "radiation", "solar_factor",
+               "atmosphere", "water_behavior"]
+
+
+def planet_key(pid):
+    ns, path = pid.split(":", 1)
+    return f"planet.{ns}.{path}"
+
+
+def planet_runtime(p):
+    out = {k: p.get(k) for k in PLANET_FIELDS}
+    out["zones"] = [{k: z.get(k) for k in ZONE_FIELDS} for z in (p.get("zones") or [])]
+    out["name"] = planet_key(p["id"])
+    return out
+
+
+def planet_resources(spec, impl):
+    """Planeten der Overworld und aller Dimensionen in implemented_ids.json (13.1)."""
+    ids = ["minecraft:overworld"] + list(impl.get("dimensions", []))
+    for pid in ids:
+        p = spec.planets[pid]
+        write_json(f"data/{NS}/{NS}/planet/{pid.split(':', 1)[1]}.json", planet_runtime(p))
+    return ids
+
+
+def damage_types(spec):
+    """Schadensarten der Umweltgefahren (8.2) aus environment.json, mit Tag bypasses_armor."""
+    rules = spec.balance["environment"]["hazard_rules"]
+    types = sorted(set(rules["damage_types"].values()))
+    for t in types:
+        ns, path = t.split(":", 1)
+        write_json(f"data/{ns}/damage_type/{path}.json",
+                   {"exhaustion": 0.0, "message_id": f"{ns}.{path}", "scaling": "never"})
+    tag_ns, tag_path = rules["damage_type_tag"].split(":", 1)
+    write_json(f"data/{tag_ns}/tags/damage_type/{tag_path}.json", {"values": types})
+    return types
+
+
 def main():
     spec = sd.load()
     impl = json.loads(IMPL.read_text(encoding="utf-8"))
@@ -389,6 +432,8 @@ def main():
             if fe.get("has_source_block") and fe.get("has_bucket"):
                 data[f"item.{NS}.{f}_bucket"] = spec.items[f"{NS}:{f}_bucket"][field]
         data.update(hb.lang[lang])  # Ingenieurs-Handbuch (24.1, 25.6)
+        for pid in ["minecraft:overworld"] + list(impl.get("dimensions", [])):
+            data[planet_key(pid)] = spec.planets[pid][field]
         write_json(f"assets/{NS}/lang/{lang}.json", dict(sorted(data.items())))
     # Handbuchseiten aus docs/handbook (dieselbe Quelle wie das Wiki, tools/gen_wiki.py)
     for rel, page in sorted(hb.files.items()):
@@ -521,6 +566,10 @@ def main():
         nbt = OUT / "data" / NS / "structure" / "gametest" / f"{sname}.nbt"
         nbt.parent.mkdir(parents=True, exist_ok=True)
         nbt.write_bytes(empty_structure_nbt(size))
+
+    # Planeten (13.1) und Schadensarten der Umwelt (8.2)
+    planet_resources(spec, impl)
+    damage_types(spec)
 
     # Balance-Dateien (Kapitel 25.7)
     for p in sorted((sd.DATA / "balance").glob("*.json")):

@@ -21,4 +21,9 @@ public class FabricPlatformHelper implements IPlatformHelper {
 
         return FabricLoader.getInstance().isDevelopmentEnvironment();
     }
+
+    @Override
+    public boolean isGameTest() {
+        return System.getProperty("fabric-api.gametest") != null;
+    }
 }

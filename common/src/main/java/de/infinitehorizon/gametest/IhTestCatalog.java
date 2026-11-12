@@ -74,7 +74,19 @@ public final class IhTestCatalog {
             new Test("agency_placedcrusher_ownedbyplayeragency", 20, null, null, IhGameTestsM3a::placedCrusherHasOwner),  // 23.1, 27.5 M3a
             new Test("agency_setblockcrusher_noowner", 20, null, null, IhGameTestsM3a::setBlockCrusherHasNoOwner),  // 23.1, 27.5 M3a
             new Test("agency_mergechain_ownerrewritten", 20, null, null, IhGameTestsM3a::ownerFollowsMergeChain),  // 23.1, 27.5 M3a
-            new Test("agency_transfercommand_setsmergedinto", 20, null, null, IhGameTestsM3a::transferCommand)  // 23.1, 27.5 M3a
+            new Test("agency_transfercommand_setsmergedinto", 20, null, null, IhGameTestsM3a::transferCommand),  // 23.1, 27.5 M3a
+            new Test("environment_moonoverride_hazardfullafter200ticks", 210, null, "infinite_horizon:moon_day", IhGameTestsM3b::moonVacuumHazardBuildup),  // 8.2, 27.5 M3b (Abnahme 1)
+            new Test("gravity_moonoverride_gravityandsafefall", 40, null, null, IhGameTestsM3b::moonGravity),  // 12.9, 27.5 M3b
+            new Test("environment_creative_nobuildup", 60, null, null, IhGameTestsM3b::creativeNoBuildup)  // 8.2
+    );
+
+    /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */
+    public record Environment(String id, String setupFunction) {
+    }
+
+    public static final List<Environment> ENVIRONMENTS = List.of(
+            new Environment("infinite_horizon:moon_day", "infinite_horizon:gametest/moon_day"),
+            new Environment("infinite_horizon:performance", null)
     );
 
     private IhTestCatalog() {

@@ -4,6 +4,11 @@ import com.mojang.brigadier.CommandDispatcher;
 import de.infinitehorizon.agency.AgencyCommands;
 import de.infinitehorizon.agency.AgencyManager;
 import de.infinitehorizon.data.BalanceManager;
+import de.infinitehorizon.data.PlanetRegistry;
+import de.infinitehorizon.data.PlanetReloadListener;
+import de.infinitehorizon.environment.GravityService;
+import de.infinitehorizon.environment.HazardTracker;
+import de.infinitehorizon.network.SyncDataPayload;
 import de.infinitehorizon.data.BalanceReloadListener;
 import de.infinitehorizon.data.ServerConfig;
 import de.infinitehorizon.network.ModPayloads;
@@ -69,7 +74,10 @@ public final class InfiniteHorizon {
 
     /** Server-Reload-Listener (Datapack-Daten). */
     public static Map<Identifier, PreparableReloadListener> serverReloadListeners() {
-        return Map.of(BalanceReloadListener.ID, new BalanceReloadListener());
+        Map<Identifier, PreparableReloadListener> listeners = new java.util.LinkedHashMap<>();
+        listeners.put(BalanceReloadListener.ID, new BalanceReloadListener());
+        listeners.put(PlanetReloadListener.ID, new PlanetReloadListener());
+        return listeners;
     }
 
     /** Serverstart: Config aus {@code <welt>/serverconfig/infinite_horizon.json} laden (Pfad laut misc.json). */
@@ -89,12 +97,30 @@ public final class InfiniteHorizon {
     public static void onPlayerJoin(ServerPlayer player) {
         Services.NETWORK.sendToPlayer(player, new SyncConfigPayload(ServerConfig.get().toJson()));
         AgencyManager.onLogin(player);
+        GravityService.apply(player);
         giveHandbookOnce(player);
+    }
+
+    /** Datenpaket-Sync (Join und {@code /reload}): Planeten an den Client (13.1, {@code SyncDataPayload}). */
+    public static void onDatapackSync(ServerPlayer player) {
+        Services.NETWORK.sendToPlayer(player, new SyncDataPayload(PlanetRegistry.get().toJson()));
+    }
+
+    /** Jeder Server-Tick: Umwelt-Belastung (8.2) und Schwerkraft (12.9). */
+    public static void onServerTick(MinecraftServer server) {
+        HazardTracker.tick(server);
+        GravityService.tick(server);
+    }
+
+    /** Respawn: Schwerkraft sofort setzen (12.9); die Belastung beginnt nach dem Tod bei 0 (Attachment ohne Kopie). */
+    public static void onRespawn(ServerPlayer player) {
+        GravityService.apply(player);
     }
 
     /** Dimensionswechsel (Portal, Befehl, später Rakete): für die Agentur als besucht merken (23.1). */
     public static void onDimensionChange(ServerPlayer player, ResourceKey<Level> destination) {
         AgencyManager.onDimensionChange(player, destination);
+        GravityService.apply(player);
     }
 
     /** Befehle {@code /infinite_horizon …} (23.1). */

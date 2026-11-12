@@ -2,6 +2,8 @@
 
 - common/src/main/java/de/infinitehorizon/gametest/IhTestCatalog.java  (NeoForge registriert per Schleife)
 - fabric/src/main/java/de/infinitehorizon/gametest/IhFabricGameTests.java (Fabric braucht je Test eine @GameTest-Methode)
+- fabric/src/main/resources/data/<ns>/test_environment/<id>.json (Fabric lädt Testumgebungen als Datenpaket;
+  NeoForge registriert sie im Code aus IhTestCatalog.ENVIRONMENTS)
 
 Aufruf: python tools/gen_gametests.py  (Ausgabe ist deterministisch; die CI prüft, dass sie aktuell ist)
 """
@@ -15,6 +17,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC = os.path.join(ROOT, "common", "gametests.json")
 CATALOG = os.path.join(ROOT, "common", "src", "main", "java", "de", "infinitehorizon", "gametest", "IhTestCatalog.java")
 FABRIC = os.path.join(ROOT, "fabric", "src", "main", "java", "de", "infinitehorizon", "gametest", "IhFabricGameTests.java")
+FABRIC_DATA = os.path.join(ROOT, "fabric", "src", "main", "resources", "data")
 
 
 def camel(name):
@@ -30,7 +33,12 @@ def write(path, text):
 
 
 def main():
-    tests = json.load(io.open(SRC, encoding="utf-8"))["tests"]
+    src = json.load(io.open(SRC, encoding="utf-8"))
+    tests = src["tests"]
+    envs = src.get("environments", {})
+    for t in tests:
+        if t.get("environment") and t["environment"] not in envs:
+            sys.exit(f"Testumgebung {t['environment']} fehlt unter environments: {t['name']}")
     names = [t["name"] for t in tests]
     if len(set(names)) != len(names):
         sys.exit("Doppelte Testnamen in gametests.json")
@@ -46,6 +54,12 @@ def main():
         env = f'"{t["environment"]}"' if t.get("environment") else "null"
         lines.append(f'            new Test("{t["name"]}", {t["ticks"]}, {struct}, {env}, {t["class"]}::{t["method"]}){comma}{ref}')
     entries = "\n".join(lines)
+    env_lines = []
+    for i, (eid, e) in enumerate(sorted(envs.items())):
+        comma = "," if i < len(envs) - 1 else ""
+        setup = f'"{e["setup_function"]}"' if e.get("setup_function") else "null"
+        env_lines.append(f'            new Environment("{eid}", {setup}){comma}')
+    env_entries = "\n".join(env_lines)
     catalog = f'''package de.infinitehorizon.gametest;
 
 import net.minecraft.gametest.framework.GameTestHelper;
@@ -67,6 +81,14 @@ public final class IhTestCatalog {{
 
     public static final List<Test> ALL = List.of(
 {entries}
+    );
+
+    /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */
+    public record Environment(String id, String setupFunction) {{
+    }}
+
+    public static final List<Environment> ENVIRONMENTS = List.of(
+{env_entries}
     );
 
     private IhTestCatalog() {{
@@ -94,6 +116,15 @@ public class IhFabricGameTests {{
 '''
     write(CATALOG, catalog)
     write(FABRIC, fabric)
+    for eid, e in sorted(envs.items()):
+        ns, path = eid.split(":", 1)
+        if e.get("setup_function"):
+            doc = {"type": "minecraft:function", "setup": e["setup_function"]}
+        else:
+            doc = {"type": "minecraft:all_of", "definitions": []}
+        target = os.path.join(FABRIC_DATA, ns, "test_environment", path + ".json")
+        os.makedirs(os.path.dirname(target), exist_ok=True)
+        write(target, json.dumps(doc, indent=2) + "\n")
     print(f"{len(tests)} Tests")
 
 

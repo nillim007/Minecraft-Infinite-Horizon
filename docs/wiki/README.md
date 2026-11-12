@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 3a · Mod-Version 0.1.0
+> Stand: Meilenstein 3b · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -25,6 +25,7 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Installation](Installation.md) – Was du brauchst und wie du die Mod startest
 - [Grundbegriffe](Grundbegriffe.md) – Strom, Ticks, Millibuckets, Statuslampe – alles in fünf Minuten
 - [Maschinen bedienen](Maschinen-bedienen.md) – GUI, Statuslampe, Ausgangsseite, Trichter und Upgrades
+- [Umwelt, Belastung und Schwerkraft](Umwelt-Belastung-und-Schwerkraft.md) – Was fremde Welten gefährlich macht und wie lange du durchhältst
 - [Ausblick – was noch kommt](Ausblick-was-noch-kommt.md) – Die geplanten Phasen und Ziele (Entwicklungsstand)
 
 ## Phase 1 · Erdindustrie

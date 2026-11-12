@@ -1,0 +1,112 @@
+{
+  "id": "infinite_horizon:start/umwelt",
+  "chapter": "infinite_horizon:start",
+  "title": "infinite_horizon.handbook.start.umwelt.title",
+  "icon": "infinite_horizon:engineers_handbook",
+  "order": 30,
+  "unlock": null,
+  "items": [],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.umwelt.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.start.umwelt.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.umwelt.e2"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.start.umwelt.e3.0",
+        "infinite_horizon.handbook.start.umwelt.e3.1",
+        "infinite_horizon.handbook.start.umwelt.e3.2",
+        "infinite_horizon.handbook.start.umwelt.e3.3"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.umwelt.e4"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.umwelt.e5"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.start.umwelt.e6",
+      "level": 2
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.start.umwelt.e7.h0",
+        "infinite_horizon.handbook.start.umwelt.e7.h1"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.start.umwelt.e7.r0.0",
+          "infinite_horizon.handbook.start.umwelt.e7.r0.1"
+        ],
+        [
+          "infinite_horizon.handbook.start.umwelt.e7.r1.0",
+          "infinite_horizon.handbook.start.umwelt.e7.r1.1"
+        ],
+        [
+          "infinite_horizon.handbook.start.umwelt.e7.r2.0",
+          "infinite_horizon.handbook.start.umwelt.e7.r2.1"
+        ],
+        [
+          "infinite_horizon.handbook.start.umwelt.e7.r3.0",
+          "infinite_horizon.handbook.start.umwelt.e7.r3.1"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.start.umwelt.e8",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.umwelt.e9"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.umwelt.e10"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.umwelt.e11"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.start.umwelt.e12",
+      "style": "warning"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.start.umwelt.e13",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.umwelt.e14"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.umwelt.e15"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.start.umwelt.e16",
+      "style": "tip"
+    }
+  ]
+}

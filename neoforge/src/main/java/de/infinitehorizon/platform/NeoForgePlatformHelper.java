@@ -23,4 +23,9 @@ public class NeoForgePlatformHelper implements IPlatformHelper {
 
         return !FMLLoader.getCurrent().isProduction();
     }
+
+    @Override
+    public boolean isGameTest() {
+        return net.neoforged.neoforge.gametest.GameTestHooks.isGametestEnabled();
+    }
 }
