@@ -249,7 +249,7 @@ public class IhFabricGameTests {
         IhGameTestsM2e.batteryKeepsEnergyWhenBroken(helper);
     }
 
-    @GameTest(maxTicks = 240, structure = "infinite_horizon:gametest/empty_large", environment = "infinite_horizon:performance")
+    @GameTest(maxTicks = 420, structure = "infinite_horizon:gametest/empty_large", environment = "infinite_horizon:performance")
     public void performance100crushersMeantick(GameTestHelper helper) {
         IhGameTestsM2e.performanceHundredCrushers(helper);
     }
@@ -342,5 +342,35 @@ public class IhFabricGameTests {
     @GameTest(maxTicks = 20)
     public void pressurebottleOnlygas(GameTestHelper helper) {
         IhGameTestsM3d.pressureBottleOnlyGas(helper);
+    }
+
+    @GameTest(maxTicks = 60, structure = "infinite_horizon:gametest/empty_large")
+    public void domeMoonoverrideBreathable(GameTestHelper helper) {
+        IhGameTestsM3e.domeMakesAirBreathable(helper);
+    }
+
+    @GameTest(maxTicks = 720, structure = "infinite_horizon:gametest/empty_large")
+    public void dome1mbFailing24Off600(GameTestHelper helper) {
+        IhGameTestsM3e.domeFailsThenTurnsOff(helper);
+    }
+
+    @GameTest(maxTicks = 40, structure = "infinite_horizon:gametest/empty_large")
+    public void domeTorchOnlyinside(GameTestHelper helper) {
+        IhGameTestsM3e.torchOnlyInsideDome(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void atmosphereTorchesExtinguish(GameTestHelper helper) {
+        IhGameTestsM3e.torchesExtinguish(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void atmosphereWaterFreezes(GameTestHelper helper) {
+        IhGameTestsM3e.waterFreezes(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void lampLitOnlywithpower(GameTestHelper helper) {
+        IhGameTestsM3e.lampNeedsPower(helper);
     }
 }

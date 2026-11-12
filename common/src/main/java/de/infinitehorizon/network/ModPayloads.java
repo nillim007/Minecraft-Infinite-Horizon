@@ -17,6 +17,8 @@ public final class ModPayloads {
                         de.infinitehorizon.data.PlanetRegistry.fromJson(payload.planets())));
         Services.NETWORK.registerClientbound(HazardStatePayload.TYPE, HazardStatePayload.CODEC,
                 payload -> de.infinitehorizon.client.HazardHud.receive(payload));
+        Services.NETWORK.registerClientbound(DomeStatePayload.TYPE, DomeStatePayload.CODEC,
+                payload -> de.infinitehorizon.client.DomeVisuals.receive(payload));
         Services.NETWORK.registerServerbound(MachineConfigPayload.TYPE, MachineConfigPayload.CODEC, MachineConfigPayload::handle);
     }
 }

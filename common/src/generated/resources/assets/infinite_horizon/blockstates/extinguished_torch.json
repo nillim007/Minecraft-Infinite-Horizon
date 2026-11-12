@@ -1,0 +1,22 @@
+{
+  "variants": {
+    "facing=up": {
+      "model": "infinite_horizon:block/extinguished_torch"
+    },
+    "facing=east": {
+      "model": "infinite_horizon:block/extinguished_torch_wall"
+    },
+    "facing=south": {
+      "model": "infinite_horizon:block/extinguished_torch_wall",
+      "y": 90
+    },
+    "facing=west": {
+      "model": "infinite_horizon:block/extinguished_torch_wall",
+      "y": 180
+    },
+    "facing=north": {
+      "model": "infinite_horizon:block/extinguished_torch_wall",
+      "y": 270
+    }
+  }
+}

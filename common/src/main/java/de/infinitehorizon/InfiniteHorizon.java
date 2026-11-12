@@ -99,6 +99,7 @@ public final class InfiniteHorizon {
         Services.NETWORK.sendToPlayer(player, new SyncConfigPayload(ServerConfig.get().toJson()));
         AgencyManager.onLogin(player);
         GravityService.apply(player);
+        de.infinitehorizon.dome.DomeManager.sync(player);
         giveHandbookOnce(player);
     }
 
@@ -116,12 +117,15 @@ public final class InfiniteHorizon {
     /** Respawn: Schwerkraft sofort setzen (12.9); die Belastung beginnt nach dem Tod bei 0 (Attachment ohne Kopie). */
     public static void onRespawn(ServerPlayer player) {
         GravityService.apply(player);
+        HazardTracker.checkRespawn(player);
+        de.infinitehorizon.dome.DomeManager.sync(player);
     }
 
     /** Dimensionswechsel (Portal, Befehl, später Rakete): für die Agentur als besucht merken (23.1). */
     public static void onDimensionChange(ServerPlayer player, ResourceKey<Level> destination) {
         AgencyManager.onDimensionChange(player, destination);
         GravityService.apply(player);
+        de.infinitehorizon.dome.DomeManager.sync(player);
     }
 
     /** Befehle {@code /infinite_horizon …} (23.1). */

@@ -1,0 +1,17 @@
+{
+  "values": [
+    "#minecraft:candles",
+    "minecraft:torch",
+    "minecraft:wall_torch",
+    "minecraft:soul_torch",
+    "minecraft:soul_wall_torch",
+    "minecraft:copper_torch",
+    "minecraft:copper_wall_torch",
+    "minecraft:fire",
+    "minecraft:soul_fire",
+    "minecraft:lantern",
+    "minecraft:soul_lantern",
+    "minecraft:campfire",
+    "minecraft:soul_campfire"
+  ]
+}

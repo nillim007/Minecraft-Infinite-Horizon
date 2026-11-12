@@ -101,10 +101,51 @@ public final class HazardTracker {
         int cover = coverBlocks(level, pos, r.radiation().coverBlocks());
         Suits.Tier suit = Suits.worn(player);
         Protection protection = suit == null ? r.noSuit() : Suits.protection(suit, Suits.oxygen(Suits.chestplate(player)));
-        // Kuppel (M3e) und Sonnensturm (Kapitel 19) folgen
+        // Sonnensturm folgt mit Kapitel 19
         EnvironmentInput in = new EnvironmentInput(res.planet(), res.zones(), res.biome(), level.getOverworldClockTime(),
-                cover, false, null, protection);
+                cover, false, domeCover(level, pos), protection);
         return EnvironmentCalculator.compute(in, r);
+    }
+
+    /**
+     * Aktive Kuppel an der Position (10.1): Atemluft, Druck {@code normal}, Innentemperatur aus domes.json. Eine Kuppel
+     * läuft nur, wenn die Außentemperatur in ihrem Bereich liegt; sie regelt deshalb immer die Temperatur.
+     */
+    public static EnvironmentInput.@Nullable DomeCover domeCover(ServerLevel level, BlockPos pos) {
+        return de.infinitehorizon.dome.DomeManager.domeAt(level, pos).map(d -> {
+            com.google.gson.JsonObject rules = de.infinitehorizon.dome.DomeManager.rules();
+            Double inside = rules.has("inside_temperature") ? rules.get("inside_temperature").getAsDouble() : null;
+            return new EnvironmentInput.DomeCover(d.tier(), inside);
+        }).orElse(null);
+    }
+
+    /**
+     * Respawn (14.4): Ist der Zielpunkt ohne Anzug unsicher (z. B. Kuppel ausgefallen), erscheint der Spieler am
+     * Weltspawn der Overworld (Klon-Kammer kommt später), mit Meldung.
+     */
+    public static void checkRespawn(ServerPlayer player) {
+        if (BalanceManager.get().isEmpty()) {
+            return;
+        }
+        EnvironmentRules r = rules();
+        ServerLevel level = player.level();
+        PlanetResolver.Resolved res = PlanetResolver.at(level, player.blockPosition());
+        if (res.planet() == null || res.planet().dimension().equals(PlanetResolver.EARTH)) {
+            return;
+        }
+        EnvironmentResult result = EnvironmentCalculator.compute(new EnvironmentInput(res.planet(), res.zones(), res.biome(),
+                level.getOverworldClockTime(), 0, false, domeCover(level, player.blockPosition()), r.noSuit()), r);
+        if (result.hazards().isEmpty()) {
+            return;
+        }
+        ServerLevel overworld = level.getServer().overworld();
+        BlockPos spawn = de.infinitehorizon.spaceflight.LandingService.find(overworld,
+                level.getServer().getRespawnData().pos().getX(), level.getServer().getRespawnData().pos().getZ());
+        player.teleport(new net.minecraft.world.level.portal.TeleportTransition(overworld,
+                net.minecraft.world.phys.Vec3.atBottomCenterOf(spawn), net.minecraft.world.phys.Vec3.ZERO, player.getYRot(),
+                player.getXRot(), net.minecraft.world.level.portal.TeleportTransition.DO_NOTHING));
+        player.sendSystemMessage(net.minecraft.network.chat.Component.translatable(
+                "message." + de.infinitehorizon.InfiniteHorizon.MOD_ID + ".respawn.unsafe"));
     }
 
     /** Vollständiger Anzug mit O₂: Der Vanilla-Luftvorrat bleibt unter Wasser voll (9.1). */
@@ -128,6 +169,7 @@ public final class HazardTracker {
         }
         int capacity = Suits.supply().capacity();
         int oxygen = Suits.oxygen(chest);
+        oxygen = refillFromDome(player, oxygen, capacity, interval);
         if (oxygen < capacity) {
             Inventory inv = player.getInventory();
             for (int slot = 0; slot <= Inventory.INVENTORY_SIZE && oxygen < capacity; slot++) {
@@ -175,6 +217,39 @@ public final class HazardTracker {
             t.damage.put(h, timer);
         }
         sendState(player, t, state, result, r);
+    }
+
+    /**
+     * In aktiven Kuppeln füllt sich der Anzug mit {@code dome_refill_per_tick} mB/t aus dem O₂-Tank des Kuppelgenerators,
+     * solange dort mindestens {@code dome_refill_min_tank} mB liegen (9.1).
+     */
+    private static int refillFromDome(ServerPlayer player, int oxygen, int capacity, int interval) {
+        if (oxygen >= capacity) {
+            return oxygen;
+        }
+        var dome = de.infinitehorizon.dome.DomeManager.domeAt(player.level(), player.blockPosition());
+        if (dome.isEmpty() || !(player.level().getBlockEntity(dome.get().center())
+                instanceof de.infinitehorizon.dome.DomeGeneratorBlockEntity gen)) {
+            return oxygen;
+        }
+        com.google.gson.JsonObject supply = BalanceManager.get().entry("suits", "oxygen_supply").orElse(new com.google.gson.JsonObject());
+        int perTick = supply.has("dome_refill_per_tick") ? supply.get("dome_refill_per_tick").getAsInt() : 0;
+        int minTank = supply.has("dome_refill_min_tank") ? supply.get("dome_refill_min_tank").getAsInt() : 0;
+        long inTank = gen.tank().stack().amount();
+        if (inTank < minTank || perTick <= 0) {
+            return oxygen;
+        }
+        long move = Math.min((long) perTick * interval, Math.min(capacity - oxygen, inTank - minTank + 1));
+        if (move <= 0) {
+            return oxygen;
+        }
+        try (de.infinitehorizon.core.transaction.Transaction tx = de.infinitehorizon.core.transaction.Transaction.open()) {
+            gen.tank().extract(gen.tank().stack().fluid(), move, tx);
+            tx.commit();
+        }
+        int result = oxygen + (int) move;
+        Suits.setOxygen(Suits.chestplate(player), result);
+        return result;
     }
 
     /** {@code HazardStatePayload} (3A.5) bei Änderung, höchstens einmal je Prüftakt. */

@@ -25,10 +25,12 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Eisenplatte](Presse.md) | Item | Maschine |
 | [Eisenstange](Presse.md) | Item | Maschine |
 | [Eisenstaub](Zerkleinerer.md) | Item | Maschine |
+| [Elektrische Lampe](Leben-ohne-Luft.md) | Block | Rezept |
 | [Elektrolyseur](Elektrolyseur.md) | Block | Rezept |
 | [Elektroofen](Elektroofen.md) | Block | Rezept |
 | [Energie-Port](Raffinerie.md) | Block | Rezept |
 | [Erdöl](Fluide-und-Rohre.md) | Fluid | Weltgenerierung |
+| [Erloschene Fackel](Leben-ohne-Luft.md) | Block | Füllslot oder Eimer |
 | [Fluid-Port](Raffinerie.md) | Block | Rezept |
 | [Geschwindigkeits-Upgrade](Upgrades.md) | Item | Rezept |
 | [Golddraht](Presse.md) | Item | Maschine |
@@ -43,6 +45,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Kupferkabel](Strom.md) | Block | Rezept |
 | [Kupferrohr](Fluide-und-Rohre.md) | Block | Rezept |
 | [Kupferstaub](Zerkleinerer.md) | Item | Maschine |
+| [Kuppelgenerator I](Die-Kuppel.md) | Block | Rezept |
 | [Maschinenrahmen](Erste-Schritte.md) | Item | Rezept |
 | [Mond-Aluminiumerz](Der-Mond.md) | Block | Weltgenerierung |
 | [Mond-Basalt](Der-Mond.md) | Block | Weltgenerierung |

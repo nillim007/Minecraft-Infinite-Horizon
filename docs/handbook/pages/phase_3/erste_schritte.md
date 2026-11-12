@@ -14,5 +14,7 @@ In der dritten Phase lernst du, auf fremden Welten zu überleben. Zuerst mit Anz
 2. **Flaschen füllen.** Leg [[sauerstoff|Sauerstoffflaschen]] in den Füllslot und nimm sie voll wieder heraus.
 3. **Den Anzug anziehen.** Alle vier Teile des [[raumanzug|Druckanzugs]] anlegen. Die Brustplatte füllt sich aus den Flaschen im Inventar.
 4. **Raus ins Vakuum.** Achte auf das HUD: Die Leisten zeigen Belastung und Anzug-Sauerstoff (siehe [[umwelt|Umwelt, Belastung und Schwerkraft]]).
+5. **Eine Kuppel bauen.** Ein [[kuppel|Kuppelgenerator]] mit Strom und Sauerstoff schafft Atemluft für deine Basis. Dort darfst du auch schlafen.
+6. **Licht ohne Feuer.** Draußen brennt nichts. Nimm <item:infinite_horizon:electric_lamp> statt Fackeln, siehe [[leben_ohne_luft|Leben ohne Luft]].
 
 @tip Bau dir auf dem Mond schon früh einen Sauerstoffgenerator mit Druckflasche. Dann kannst du deine Flaschen vor Ort nachfüllen.

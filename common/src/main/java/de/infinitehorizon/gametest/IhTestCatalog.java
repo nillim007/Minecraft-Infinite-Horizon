@@ -67,7 +67,7 @@ public final class IhTestCatalog {
             new Test("battery_io512_platformapi", 20, null, null, null, IhGameTestsM2e::batteryIoLimitAndPlatform),  // 27.2, 3.3
             new Test("battery_chargeslot", 20, null, null, null, IhGameTestsM2e::batteryChargeSlot),  // 6.3
             new Test("battery_broken_keepsenergy", 20, null, null, null, IhGameTestsM2e::batteryKeepsEnergyWhenBroken),  // 4.1
-            new Test("performance_100crushers_meantick", 240, "infinite_horizon:gametest/empty_large", "infinite_horizon:performance", null, IhGameTestsM2e::performanceHundredCrushers),  // 27.2
+            new Test("performance_100crushers_meantick", 420, "infinite_horizon:gametest/empty_large", "infinite_horizon:performance", null, IhGameTestsM2e::performanceHundredCrushers),  // 27.2
             new Test("handbook_joingift_once", 20, null, null, null, IhGameTestsM2f::handbookGiftOnce),  // 24.1, 27.3 M2f
             new Test("crusher_bauxite_twoaluminumdustwithin220ticks", 220, null, null, null, IhGameTestsM2f::crusherBauxite),  // 27.2
             new Test("furnace_quartzsand_siliconwithin110ticks", 110, null, null, null, IhGameTestsM2f::furnaceQuartzSand),  // 27.2
@@ -85,7 +85,13 @@ public final class IhTestCatalog {
             new Test("suit_moonoverride_nostrain590mb", 220, null, null, null, IhGameTestsM3d::suitProtectsOnMoon),  // 9.1, 27.5 M3d
             new Test("suit_incomplete_noprotection", 20, null, null, null, IhGameTestsM3d::incompleteSuitDoesNotProtect),  // 9.1
             new Test("oxygengenerator_fillslot_canisterfullafter1tick", 20, null, null, null, IhGameTestsM3d::generatorFillsCanister),  // 4.1, 10.2, 27.5 M3d
-            new Test("pressurebottle_onlygas", 20, null, null, null, IhGameTestsM3d::pressureBottleOnlyGas)  // 6.3
+            new Test("pressurebottle_onlygas", 20, null, null, null, IhGameTestsM3d::pressureBottleOnlyGas),  // 6.3
+            new Test("dome_moonoverride_breathable", 60, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM3e::domeMakesAirBreathable),  // 10.1, 27.5 M3e (Abnahme 2)
+            new Test("dome_1mb_failing24_off600", 720, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM3e::domeFailsThenTurnsOff),  // 10.1, 27.5 M3e (Abnahme 3)
+            new Test("dome_torch_onlyinside", 40, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM3e::torchOnlyInsideDome),  // 8.5, 27.5 M3e
+            new Test("atmosphere_torches_extinguish", 20, null, null, null, IhGameTestsM3e::torchesExtinguish),  // 8.5
+            new Test("atmosphere_water_freezes", 20, null, null, null, IhGameTestsM3e::waterFreezes),  // 8.5
+            new Test("lamp_lit_onlywithpower", 20, null, null, null, IhGameTestsM3e::lampNeedsPower)  // 8.5
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

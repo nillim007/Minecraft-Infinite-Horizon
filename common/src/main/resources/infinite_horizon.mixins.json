@@ -4,8 +4,15 @@
   "package": "de.infinitehorizon.mixin",
   "compatibilityLevel": "JAVA_25",
   "mixins": [
+    "BaseFireBlockMixin",
+    "BlockItemMixin",
+    "BlockStateBaseMixin",
+    "BoneMealItemMixin",
     "GameTestServerMixin",
+    "IceBlockMixin",
+    "LiquidBlockMixin",
     "NaturalSpawnerMixin",
+    "ServerPlayerMixin",
     "WorldDimensionsMixin"
   ],
   "client": [

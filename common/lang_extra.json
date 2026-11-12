@@ -75,7 +75,12 @@
     "subtitles.infinite_horizon.warning.radiation": "Warnton: Strahlung",
     "subtitles.infinite_horizon.warning.dome": "Warnton: Kuppel",
     "hud.infinite_horizon.radiation_value": "Strahlung %s",
-    "hud.infinite_horizon.temperature_value": "%s °C"
+    "hud.infinite_horizon.temperature_value": "%s °C",
+    "message.infinite_horizon.no_atmosphere": "Ohne Atmosphäre brennt hier nichts.",
+    "message.infinite_horizon.dome.failing": "Kuppel fällt aus! Noch %s s",
+    "message.infinite_horizon.bed.no_air": "Hier kannst du nicht atmen",
+    "message.infinite_horizon.respawn.unsafe": "Dein Spawnpunkt ist nicht mehr sicher. Du erscheinst am Weltspawn.",
+    "gui.infinite_horizon.dome.radius": "Radius: %s"
   },
   "en_us": {
     "itemGroup.infinite_horizon": "Infinite Horizon",
@@ -152,6 +157,11 @@
     "subtitles.infinite_horizon.warning.radiation": "Warning: radiation",
     "subtitles.infinite_horizon.warning.dome": "Warning: dome",
     "hud.infinite_horizon.radiation_value": "Radiation %s",
-    "hud.infinite_horizon.temperature_value": "%s °C"
+    "hud.infinite_horizon.temperature_value": "%s °C",
+    "message.infinite_horizon.no_atmosphere": "Nothing burns without an atmosphere.",
+    "message.infinite_horizon.dome.failing": "Dome failing! %s s left",
+    "message.infinite_horizon.bed.no_air": "You cannot breathe here",
+    "message.infinite_horizon.respawn.unsafe": "Your spawn point is no longer safe. You appear at the world spawn.",
+    "gui.infinite_horizon.dome.radius": "Radius: %s"
   }
 }

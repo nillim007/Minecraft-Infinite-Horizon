@@ -374,6 +374,39 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/electric_lamp",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "minecraft:glowstone_dust"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_wire"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:electric_lamp",
+              "count": 4
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/electrolyzer",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -553,6 +586,45 @@
           "results": [
             {
               "item": "infinite_horizon:item_port",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/dome_generator_t1",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:dome_generator_t1",
               "count": 1
             }
           ],

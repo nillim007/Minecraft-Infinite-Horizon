@@ -50,6 +50,11 @@ public final class EnvironmentOverrides {
         ACTIVE.remove(e);
     }
 
+    /** Gibt es gerade überhaupt einen Override (schnelle Vorprüfung)? */
+    public static boolean anyActive() {
+        return !ACTIVE.isEmpty();
+    }
+
     /** Override an der Position, falls einer gilt. */
     public static Optional<Entry> at(ServerLevel level, BlockPos pos) {
         if (ACTIVE.isEmpty()) {

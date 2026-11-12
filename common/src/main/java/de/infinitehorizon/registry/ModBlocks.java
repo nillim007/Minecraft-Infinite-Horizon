@@ -29,6 +29,12 @@ import java.util.function.Supplier;
 /** Blöcke mit eigenem Verhalten (IDs laut spec/data/items.json); einfache Blöcke kommen aus simple_blocks.json. */
 public final class ModBlocks {
 
+    /** Lichtstufe der elektrischen Lampe aus machines.json ({@code light_level}). */
+    static int lampLight() {
+        return de.infinitehorizon.data.BalanceManager.getOrBundled().entry("machines", "infinite_horizon:electric_lamp")
+                .filter(o -> o.has("light_level")).map(o -> o.get("light_level").getAsInt()).orElse(0);
+    }
+
     public static final Supplier<Block> CRUSHER = register("crusher",
             p -> new MachineBlock(p, () -> ModBlockEntities.CRUSHER.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
@@ -68,6 +74,18 @@ public final class ModBlocks {
     public static final Supplier<Block> PRESSURE_BOTTLE = register("pressure_bottle",
             p -> new MachineBlock(p, () -> ModBlockEntities.PRESSURE_BOTTLE.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> DOME_GENERATOR_T1 = register("dome_generator_t1",
+            p -> new MachineBlock(p, () -> ModBlockEntities.DOME_GENERATOR_T1.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Elektrische Lampe (8.5): Licht nur mit Strom (Lichtstufe aus machines.json). */
+    public static final Supplier<Block> ELECTRIC_LAMP = register("electric_lamp",
+            p -> new de.infinitehorizon.machine.ElectricLampBlock(p, () -> ModBlockEntities.ELECTRIC_LAMP.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).lightLevel(s ->
+                    s.getValue(net.minecraft.world.level.block.state.properties.BlockStateProperties.LIT) ? lampLight() : 0));
+    /** Erloschene Fackel (8.5): dekorativ wie eine Fackel ohne Licht. */
+    public static final Supplier<Block> EXTINGUISHED_TORCH = register("extinguished_torch",
+            de.infinitehorizon.world.ExtinguishedTorchBlock::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.TORCH).lightLevel(s -> 0));
     public static final Supplier<Block> REFINERY_CASING = register("refinery_casing", MultiblockPartBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Supplier<Block> ITEM_PORT = register("item_port",

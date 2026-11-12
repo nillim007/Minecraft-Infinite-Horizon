@@ -213,6 +213,7 @@ public class IhClientGameTests implements FabricClientGameTest {
         if (oxygenBar <= 0) {
             throw new AssertionError("HUD: keine Sauerstoff-Belastung im Vakuum (" + oxygenBar + ")");
         }
+        clearChat(context);
         context.takeScreenshot("hud_hazard");
         for (String slot : new String[]{"head|helmet", "chest|chestplate[infinite_horizon:oxygen=600]", "legs|leggings", "feet|boots"}) {
             String[] p = slot.split("\\|");
@@ -226,8 +227,28 @@ public class IhClientGameTests implements FabricClientGameTest {
         if (suitO2 <= 0) {
             throw new AssertionError("HUD: Anzug-O₂ fehlt (" + suitO2 + ")");
         }
+        clearChat(context);
         context.takeScreenshot("hud_suit");
         sp.getServer().runCommand("gamemode creative @p");
+        // Kuppel (27.5 M3e): Generator mit Strom und Sauerstoff vor dem Spieler, Lichtpunkte auf der Hülle
+        sp.getServer().runOnServer(server -> {
+            net.minecraft.server.level.ServerPlayer pl = server.getPlayerList().getPlayers().getFirst();
+            BlockPos at = pl.blockPosition().relative(pl.getDirection(), 3);
+            pl.level().setBlockAndUpdate(at, ModBlocks.DOME_GENERATOR_T1.get().defaultBlockState());
+            if (pl.level().getBlockEntity(at) instanceof de.infinitehorizon.dome.DomeGeneratorBlockEntity dome) {
+                dome.refreshLayout();
+                dome.energyStorage().setAmountUnchecked(dome.energyStorage().getCapacity());
+                dome.tank().setStackUnchecked(de.infinitehorizon.core.fluid.IhFluidStack.of(
+                        net.minecraft.resources.Identifier.fromNamespaceAndPath("infinite_horizon", "oxygen"), 2000));
+            }
+        });
+        context.waitTicks(40);
+        int domes = context.computeOnClient(c -> de.infinitehorizon.client.DomeVisuals.domes().size());
+        if (domes == 0) {
+            throw new AssertionError("Kuppel: DomeStatePayload nicht angekommen");
+        }
+        clearChat(context);
+        context.takeScreenshot("world_moon_dome");
         // Gelände von oben, dann der Himmel mit der Erde (frei von Hängen und Wänden)
         context.runOnClient(c -> {
             c.player.getAbilities().flying = true;

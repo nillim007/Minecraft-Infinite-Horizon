@@ -53,7 +53,7 @@
     {"name": "battery_io512_platformapi", "class": "IhGameTestsM2e", "method": "batteryIoLimitAndPlatform", "ticks": 20, "ref": "27.2, 3.3"},
     {"name": "battery_chargeslot", "class": "IhGameTestsM2e", "method": "batteryChargeSlot", "ticks": 20, "ref": "6.3"},
     {"name": "battery_broken_keepsenergy", "class": "IhGameTestsM2e", "method": "batteryKeepsEnergyWhenBroken", "ticks": 20, "ref": "4.1"},
-    {"name": "performance_100crushers_meantick", "class": "IhGameTestsM2e", "method": "performanceHundredCrushers", "ticks": 240, "structure": "infinite_horizon:gametest/empty_large", "environment": "infinite_horizon:performance", "ref": "27.2"},
+    {"name": "performance_100crushers_meantick", "class": "IhGameTestsM2e", "method": "performanceHundredCrushers", "ticks": 420, "structure": "infinite_horizon:gametest/empty_large", "environment": "infinite_horizon:performance", "ref": "27.2"},
     {"name": "handbook_joingift_once", "class": "IhGameTestsM2f", "method": "handbookGiftOnce", "ticks": 20, "ref": "24.1, 27.3 M2f"},
     {"name": "crusher_bauxite_twoaluminumdustwithin220ticks", "class": "IhGameTestsM2f", "method": "crusherBauxite", "ticks": 220, "ref": "27.2"},
     {"name": "furnace_quartzsand_siliconwithin110ticks", "class": "IhGameTestsM2f", "method": "furnaceQuartzSand", "ticks": 110, "ref": "27.2"},
@@ -71,6 +71,12 @@
     {"name": "suit_moonoverride_nostrain590mb", "class": "IhGameTestsM3d", "method": "suitProtectsOnMoon", "ticks": 220, "ref": "9.1, 27.5 M3d"},
     {"name": "suit_incomplete_noprotection", "class": "IhGameTestsM3d", "method": "incompleteSuitDoesNotProtect", "ticks": 20, "ref": "9.1"},
     {"name": "oxygengenerator_fillslot_canisterfullafter1tick", "class": "IhGameTestsM3d", "method": "generatorFillsCanister", "ticks": 20, "ref": "4.1, 10.2, 27.5 M3d"},
-    {"name": "pressurebottle_onlygas", "class": "IhGameTestsM3d", "method": "pressureBottleOnlyGas", "ticks": 20, "ref": "6.3"}
+    {"name": "pressurebottle_onlygas", "class": "IhGameTestsM3d", "method": "pressureBottleOnlyGas", "ticks": 20, "ref": "6.3"},
+    {"name": "dome_moonoverride_breathable", "class": "IhGameTestsM3e", "method": "domeMakesAirBreathable", "ticks": 60, "structure": "infinite_horizon:gametest/empty_large", "ref": "10.1, 27.5 M3e (Abnahme 2)"},
+    {"name": "dome_1mb_failing24_off600", "class": "IhGameTestsM3e", "method": "domeFailsThenTurnsOff", "ticks": 720, "structure": "infinite_horizon:gametest/empty_large", "ref": "10.1, 27.5 M3e (Abnahme 3)"},
+    {"name": "dome_torch_onlyinside", "class": "IhGameTestsM3e", "method": "torchOnlyInsideDome", "ticks": 40, "structure": "infinite_horizon:gametest/empty_large", "ref": "8.5, 27.5 M3e"},
+    {"name": "atmosphere_torches_extinguish", "class": "IhGameTestsM3e", "method": "torchesExtinguish", "ticks": 20, "ref": "8.5"},
+    {"name": "atmosphere_water_freezes", "class": "IhGameTestsM3e", "method": "waterFreezes", "ticks": 20, "ref": "8.5"},
+    {"name": "lamp_lit_onlywithpower", "class": "IhGameTestsM3e", "method": "lampNeedsPower", "ticks": 20, "ref": "8.5"}
   ]
 }

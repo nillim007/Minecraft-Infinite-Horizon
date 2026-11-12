@@ -41,4 +41,4 @@ Er braucht eine Druckhülle. Die Druckhülle ist ein Bauteil für alles, was unt
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Erste Schritte auf fremden Welten](Erste-Schritte-auf-fremden-Welten.md)
+← [Erste Schritte auf fremden Welten](Erste-Schritte-auf-fremden-Welten.md) · [Die Kuppel](Die-Kuppel.md) →

@@ -210,7 +210,7 @@ class Ctx:
         return cur
 
     def machine_values(self, block: str) -> dict:
-        for f in ("machines", "generators", "storage", "transport"):
+        for f in ("machines", "generators", "storage", "transport", "domes"):
             v = self.spec.balance.get(f, {}).get(block)
             if isinstance(v, dict):
                 return {"file": f, **v}
@@ -598,6 +598,17 @@ def machine_rows(ctx: Ctx, block: str) -> list:
         rows.append(["Tanks", ", ".join(f"{num(t.get('capacity', 0))} mB" for t in tanks)])
     if v.get("upgrade_slots"):
         rows.append(["Upgrade-Slots", str(v["upgrade_slots"])])
+    # Kuppelgeneratoren (domes.json, 10.1)
+    if v.get("radius"):
+        rows.append(["Radius", f"{num(v['radius'])} Blöcke"])
+    if v.get("oxygen_per_1200"):
+        rows.append(["O₂-Verbrauch", f"{num(v['oxygen_per_1200'])} mB je {ticks_text(1200)}"])
+    if v.get("o2_tank"):
+        rows.append(["O₂-Tank", f"{num(v['o2_tank'])} mB"])
+    if "temp_min" in v and "temp_max" in v:
+        rows.append(["Außentemperatur", f"{num(v['temp_min'])} bis {num(v['temp_max'])} °C"])
+    if v.get("module_slots"):
+        rows.append(["Modul-Slots", str(v["module_slots"])])
     if v.get("location"):
         rows.append(["Ort", json.dumps(v["location"], ensure_ascii=False)])
     for f in v.get("fuel") or []:

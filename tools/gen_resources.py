@@ -634,6 +634,41 @@ def suits(spec, items):
             write_json(f"data/{NS}/tags/item/repairs_{sid}.json", {"values": [e["repair_item"]]})
 
 
+def lamp_block(name):
+    """Elektrische Lampe (8.5): Blockstate lit, ein Würfelmodell (Licht kommt aus dem Blockstate)."""
+    model = cube_block(name)
+    write_json(f"assets/{NS}/blockstates/{name}.json",
+               {"variants": {"lit=false": {"model": model}, "lit=true": {"model": model}}})
+    return model
+
+
+def torch_block(name):
+    """Erloschene Fackel (8.5): stehend und an der Wand wie Vanilla-Fackeln."""
+    tex = f"{NS}:block/{name}"
+    write_json(f"assets/{NS}/models/block/{name}.json",
+               {"parent": "minecraft:block/template_torch", "textures": {"torch": tex}})
+    write_json(f"assets/{NS}/models/block/{name}_wall.json",
+               {"parent": "minecraft:block/template_torch_wall", "textures": {"torch": tex}})
+    write_json(f"assets/{NS}/models/item/{name}.json",
+               {"parent": "minecraft:item/generated", "textures": {"layer0": tex}})
+    wall = {"east": 0, "south": 90, "west": 180, "north": 270}
+    variants = {"facing=up": {"model": f"{NS}:block/{name}"}}
+    for facing, rot in wall.items():
+        v = {"model": f"{NS}:block/{name}_wall"}
+        if rot:
+            v["y"] = rot
+        variants[f"facing={facing}"] = v
+    write_json(f"assets/{NS}/blockstates/{name}.json", {"variants": variants})
+    return f"{NS}:item/{name}"
+
+
+def atmosphere_tag(spec):
+    """Block-Tag needs_atmosphere (8.5) aus misc.json; für Addons erweiterbar."""
+    rules = spec.balance["misc"]["atmosphere_rules"]
+    tns, tpath = rules["block_tag"].split(":", 1)
+    write_json(f"data/{tns}/tags/block/{tpath}.json", {"values": rules["tag_contents"]})
+
+
 def main():
     spec = sd.load()
     impl = json.loads(IMPL.read_text(encoding="utf-8"))
@@ -690,6 +725,10 @@ def main():
             inv_model = cube_block(name)
         elif shape == "port":
             inv_model = port_block(name)
+        elif shape == "lamp":
+            inv_model = lamp_block(name)
+        elif shape == "torch":
+            inv_model = torch_block(name)
         else:
             sys.exit(f"Unbekannte Blockform {shape} für {i}")
         write_json(f"assets/{NS}/items/{name}.json", {"model": {"type": "minecraft:model", "model": inv_model}})
@@ -806,7 +845,8 @@ def main():
         nbt.parent.mkdir(parents=True, exist_ok=True)
         nbt.write_bytes(empty_structure_nbt(size))
 
-    # Warntöne (24.6) und Anzüge (9.1)
+    # Warntöne (24.6), Anzüge (9.1), Welt ohne Atmosphäre (8.5)
+    atmosphere_tag(spec)
     sounds()
     suits(spec, items)
 

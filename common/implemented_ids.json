@@ -30,7 +30,10 @@
     "infinite_horizon:moon_aluminum_ore": "simple_block",
     "infinite_horizon:moon_titanium_ore": "simple_block",
     "infinite_horizon:oxygen_generator": "machine",
-    "infinite_horizon:pressure_bottle": "machine"
+    "infinite_horizon:pressure_bottle": "machine",
+    "infinite_horizon:dome_generator_t1": "machine",
+    "infinite_horizon:electric_lamp": "lamp",
+    "infinite_horizon:extinguished_torch": "torch"
   },
   "items": [
     "infinite_horizon:aluminum_dust",
@@ -76,7 +79,7 @@
     "hydrogen",
     "oxygen"
   ],
-  "step": "3d",
+  "step": "3e",
   "dimensions": ["infinite_horizon:moon"],
   "item_classes": {
     "_comment": "Items mit eigenem Verhalten; sie fehlen in simple_items.json und werden in ModItems registriert.",

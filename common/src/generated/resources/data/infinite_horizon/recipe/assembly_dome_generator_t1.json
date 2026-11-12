@@ -1,0 +1,28 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:aluminum_plate",
+      "count": 16
+    },
+    {
+      "ingredient": "infinite_horizon:titanium_plate",
+      "count": 8
+    },
+    {
+      "ingredient": "infinite_horizon:circuit",
+      "count": 4
+    },
+    {
+      "ingredient": "minecraft:glass",
+      "count": 4
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:dome_generator_t1",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

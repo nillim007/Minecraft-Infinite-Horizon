@@ -1,0 +1,143 @@
+{
+  "id": "infinite_horizon:phase_3/kuppel",
+  "chapter": "infinite_horizon:phase_3",
+  "title": "infinite_horizon.handbook.phase_3.kuppel.title",
+  "icon": "infinite_horizon:dome_generator_t1",
+  "order": 30,
+  "unlock": "infinite_horizon:research_tier/2",
+  "items": [
+    "infinite_horizon:dome_generator_t1"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e0"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:dome_generator_t1",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_3.kuppel.e1.0.label",
+          "infinite_horizon.handbook.phase_3.kuppel.e1.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.kuppel.e1.1.label",
+          "infinite_horizon.handbook.phase_3.kuppel.e1.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.kuppel.e1.2.label",
+          "infinite_horizon.handbook.phase_3.kuppel.e1.2.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.kuppel.e1.3.label",
+          "infinite_horizon.handbook.phase_3.kuppel.e1.3.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.kuppel.e1.4.label",
+          "infinite_horizon.handbook.phase_3.kuppel.e1.4.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.kuppel.e1.5.label",
+          "infinite_horizon.handbook.phase_3.kuppel.e1.5.value"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e2",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_3.kuppel.e3.0",
+        "infinite_horizon.handbook.phase_3.kuppel.e3.1",
+        "infinite_horizon.handbook.phase_3.kuppel.e3.2",
+        "infinite_horizon.handbook.phase_3.kuppel.e3.3"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e4"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e5",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e6"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e7",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e8"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e9",
+      "style": "warning"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e10",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/dome_generator_t1",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:dome_generator_t1",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e12",
+      "style": "tip"
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "lit=false": {
+      "model": "infinite_horizon:block/electric_lamp"
+    },
+    "lit=true": {
+      "model": "infinite_horizon:block/electric_lamp"
+    }
+  }
+}

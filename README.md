@@ -94,7 +94,7 @@ Infinite Horizon wird Meilenstein für Meilenstein nach einer festen [Spezifikat
 | --- | --- | --- |
 | 1 | Grundgerüst: Multiloader, Energie, erste Maschine | ✅ fertig |
 | 2 | Erdindustrie: Maschinen, Erze, Fluide, Raffinerie, Montagetisch, Handbuch | ✅ fertig |
-| 3 | Erste Welt: Mond, Anzug, Kuppel | 🔨 in Arbeit (3a–3d fertig, 3e offen) |
+| 3 | Erste Welt: Mond, Anzug, Kuppel | 🔨 in Arbeit (3a–3e fertig, Abnahme offen) |
 | 4 | Erster Flug: Forschung, Sonde, Rakete T1 · **erste spielbare Version** | ⏳ geplant |
 | 5 | Ring 1: Mars, Venus, Rover, Kreaturen | ⏳ geplant |
 | 6 | Orbit: Station, Fusion | ⏳ geplant |

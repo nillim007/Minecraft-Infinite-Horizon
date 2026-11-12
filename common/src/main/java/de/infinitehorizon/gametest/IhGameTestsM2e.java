@@ -175,7 +175,8 @@ public final class IhGameTestsM2e {
     private static final double CI_FACTOR = 3.0;
     private static final int ROWS = 10;
     private static final int PER_ROW = 10;
-    private static final int WARMUP = 20;
+    /** Aufwärmen vor der Messung: läuft auf Fabric als letzter Durchgang, Reste vorheriger Tests klingen ab. */
+    private static final int WARMUP = 200;
     private static final int MEASURE = 200;
 
     /**

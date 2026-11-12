@@ -105,6 +105,20 @@ public final class ModBlockEntities {
                             (pos, state) -> new FluidTankBlockEntity(ModBlockEntities.PRESSURE_BOTTLE.get(), pos, state),
                             ModBlocks.PRESSURE_BOTTLE.get()));
 
+    public static final Supplier<BlockEntityType<de.infinitehorizon.dome.DomeGeneratorBlockEntity>> DOME_GENERATOR_T1 =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "dome_generator_t1",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.dome.DomeGeneratorBlockEntity(
+                                    ModBlockEntities.DOME_GENERATOR_T1.get(), pos, state),
+                            ModBlocks.DOME_GENERATOR_T1.get()));
+
+    public static final Supplier<BlockEntityType<de.infinitehorizon.machine.ElectricLampBlockEntity>> ELECTRIC_LAMP =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "electric_lamp",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.machine.ElectricLampBlockEntity(
+                                    ModBlockEntities.ELECTRIC_LAMP.get(), pos, state),
+                            ModBlocks.ELECTRIC_LAMP.get()));
+
     /** Ein Typ für alle Ports; das Verhalten folgt aus {@link de.infinitehorizon.multiblock.PortBlock.PortType}. */
     public static final Supplier<BlockEntityType<PortBlockEntity>> PORT =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "port",
@@ -135,6 +149,9 @@ public final class ModBlockEntities {
         Services.ENERGY.expose(OXYGEN_GENERATOR);
         Services.FLUID.expose(OXYGEN_GENERATOR);
         Services.FLUID.expose(PRESSURE_BOTTLE);
+        Services.ENERGY.expose(DOME_GENERATOR_T1);
+        Services.FLUID.expose(DOME_GENERATOR_T1);
+        Services.ENERGY.expose(ELECTRIC_LAMP);
         Services.FLUID.expose(PORT);
     }
 }

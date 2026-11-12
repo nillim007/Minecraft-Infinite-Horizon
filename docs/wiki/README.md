@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 3d · Mod-Version 0.1.0
+> Stand: Meilenstein 3e · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -53,6 +53,8 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 
 - [Erste Schritte auf fremden Welten](Erste-Schritte-auf-fremden-Welten.md) – Überleben außerhalb der Erde, Schritt für Schritt
 - [Sauerstoffgenerator](Sauerstoffgenerator.md) – Sauerstoff aus Strom, überall im Sonnensystem
+- [Die Kuppel](Die-Kuppel.md) – Atemluft für deine Basis auf fremden Welten
+- [Leben ohne Luft](Leben-ohne-Luft.md) – Was auf fremden Welten außerhalb der Kuppel nicht funktioniert
 
 ## Nachschlagen
 
