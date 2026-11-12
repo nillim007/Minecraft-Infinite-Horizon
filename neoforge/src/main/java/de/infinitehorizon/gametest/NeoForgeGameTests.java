@@ -50,7 +50,10 @@ public final class NeoForgeGameTests {
             // eigene Umgebung = eigener Durchgang (Leistungstest misst sonst die anderen Tests mit)
             Holder<TestEnvironmentDefinition<?>> env = test.environment() == null ? standard
                     : envs.computeIfAbsent(test.environment(), id -> event.registerEnvironment(Identifier.parse(id)));
-            TestData<Holder<TestEnvironmentDefinition<?>>> data = new TestData<>(env, Level.OVERWORLD,
+            net.minecraft.resources.ResourceKey<Level> dim = test.dimension() == null ? Level.OVERWORLD
+                    : net.minecraft.resources.ResourceKey.create(net.minecraft.core.registries.Registries.DIMENSION,
+                    Identifier.parse(test.dimension()));
+            TestData<Holder<TestEnvironmentDefinition<?>>> data = new TestData<>(env, dim,
                     Identifier.parse(test.structure() != null ? test.structure() : IhGameTests.STRUCTURE), test.maxTicks(), 0, true,
                     Rotation.NONE, false, 1, 1, false, 0);
             event.registerTest(function.key().identifier(), new FunctionGameTestInstance(function.key(), data));

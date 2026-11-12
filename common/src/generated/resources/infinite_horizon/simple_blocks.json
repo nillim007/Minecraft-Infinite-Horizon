@@ -19,6 +19,36 @@
       "id": "quartz_sand",
       "copy": "minecraft:sand",
       "falls": false
+    },
+    {
+      "id": "moon_rock",
+      "copy": "minecraft:stone",
+      "falls": false
+    },
+    {
+      "id": "moon_basalt",
+      "copy": "minecraft:basalt",
+      "falls": false
+    },
+    {
+      "id": "moon_regolith",
+      "copy": "minecraft:gravel",
+      "falls": false
+    },
+    {
+      "id": "moon_ice",
+      "copy": "minecraft:packed_ice",
+      "falls": false
+    },
+    {
+      "id": "moon_aluminum_ore",
+      "copy": "minecraft:iron_ore",
+      "falls": false
+    },
+    {
+      "id": "moon_titanium_ore",
+      "copy": "minecraft:iron_ore",
+      "falls": false
     }
   ]
 }

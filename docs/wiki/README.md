@@ -42,6 +42,11 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Raffinerie](Raffinerie.md) – Dein erster Multiblock: Erdöl wird zu Kerosin und Kunststoff
 - [Upgrades](Upgrades.md) – Maschinen schneller oder sparsamer machen
 
+## Phase 2 · Raumfahrtprogramm
+
+- [Erste Schritte ins All](Erste-Schritte-ins-All.md) – Der Ablauf des Raumfahrtprogramms, Schritt für Schritt
+- [Der Mond](Der-Mond.md) – Die erste fremde Welt: Gelände, Erze, Gefahren
+
 ## Nachschlagen
 
 - [Alle Rezepte](Alle-Rezepte.md) – Jedes Rezept des aktuellen Stands, nach Maschine sortiert

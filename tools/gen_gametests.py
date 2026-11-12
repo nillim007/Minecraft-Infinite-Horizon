@@ -52,7 +52,8 @@ def main():
         ref = f"  // {t['ref']}" if t.get("ref") else ""
         struct = f'"{t["structure"]}"' if t.get("structure") else "null"
         env = f'"{t["environment"]}"' if t.get("environment") else "null"
-        lines.append(f'            new Test("{t["name"]}", {t["ticks"]}, {struct}, {env}, {t["class"]}::{t["method"]}){comma}{ref}')
+        dim = f'"{t["dimension"]}"' if t.get("dimension") else "null"
+        lines.append(f'            new Test("{t["name"]}", {t["ticks"]}, {struct}, {env}, {dim}, {t["class"]}::{t["method"]}){comma}{ref}')
     entries = "\n".join(lines)
     env_lines = []
     for i, (eid, e) in enumerate(sorted(envs.items())):
@@ -73,10 +74,11 @@ import java.util.function.Consumer;
 public final class IhTestCatalog {{
 
     /**
-     * Name (Registry-Pfad), Zeitgrenze in Ticks, Struktur und Testumgebung (null = Standard), Testfunktion. Tests mit
-     * eigener Umgebung laufen in einem eigenen Durchgang (Leistungstest).
+     * Name (Registry-Pfad), Zeitgrenze in Ticks, Struktur, Testumgebung und Dimension (null = Standard bzw.
+     * Overworld), Testfunktion. Tests mit eigener Umgebung laufen in einem eigenen Durchgang (Leistungstest).
      */
-    public record Test(String name, int maxTicks, String structure, String environment, Consumer<GameTestHelper> run) {{
+    public record Test(String name, int maxTicks, String structure, String environment, String dimension,
+                       Consumer<GameTestHelper> run) {{
     }}
 
     public static final List<Test> ALL = List.of(
@@ -96,7 +98,7 @@ public final class IhTestCatalog {{
 }}
 '''
     methods = "\n\n".join(
-        f'''    @GameTest(maxTicks = {t["ticks"]}{', structure = "' + t["structure"] + '"' if t.get("structure") else ""}{', environment = "' + t["environment"] + '"' if t.get("environment") else ""})
+        f'''    @GameTest(maxTicks = {t["ticks"]}{', structure = "' + t["structure"] + '"' if t.get("structure") else ""}{', environment = "' + t["environment"] + '"' if t.get("environment") else ""}{', dimension = "' + t["dimension"] + '"' if t.get("dimension") else ""})
     public void {camel(t["name"])}(GameTestHelper helper) {{
         {t["class"]}.{t["method"]}(helper);
     }}''' for t in tests)

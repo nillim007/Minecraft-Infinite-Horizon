@@ -308,4 +308,19 @@ public class IhFabricGameTests {
     public void environmentCreativeNobuildup(GameTestHelper helper) {
         IhGameTestsM3b.creativeNoBuildup(helper);
     }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:moon")
+    public void moonAluminumoreDropsonebauxite(GameTestHelper helper) {
+        IhGameTestsM3c.moonAluminumOreDrops(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:moon")
+    public void moonPlayerGravitywithoutoverride(GameTestHelper helper) {
+        IhGameTestsM3c.moonGravityWithoutOverride(helper);
+    }
+
+    @GameTest(maxTicks = 200)
+    public void moonGotoLandsonsolidground(GameTestHelper helper) {
+        IhGameTestsM3c.gotoLandsOnSolidGround(helper);
+    }
 }

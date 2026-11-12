@@ -126,6 +126,7 @@ public final class InfiniteHorizon {
     /** Befehle {@code /infinite_horizon …} (23.1). */
     public static void registerCommands(CommandDispatcher<CommandSourceStack> dispatcher) {
         AgencyCommands.register(dispatcher);
+        de.infinitehorizon.world.GotoCommand.register(dispatcher);
     }
 
     /** Ingenieurs-Handbuch beim ersten Join (24.1); genau einmal je Spieler. */

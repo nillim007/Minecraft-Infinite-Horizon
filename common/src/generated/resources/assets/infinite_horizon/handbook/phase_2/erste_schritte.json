@@ -1,0 +1,34 @@
+{
+  "id": "infinite_horizon:phase_2/erste_schritte",
+  "chapter": "infinite_horizon:phase_2",
+  "title": "infinite_horizon.handbook.phase_2.erste_schritte.title",
+  "icon": "infinite_horizon:moon_regolith",
+  "order": 10,
+  "unlock": "infinite_horizon:research_tier/1",
+  "items": [],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.erste_schritte.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.erste_schritte.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_2.erste_schritte.e2.0",
+        "infinite_horizon.handbook.phase_2.erste_schritte.e2.1",
+        "infinite_horizon.handbook.phase_2.erste_schritte.e2.2"
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.erste_schritte.e3",
+      "style": "tip"
+    }
+  ]
+}

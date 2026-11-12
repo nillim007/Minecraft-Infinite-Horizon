@@ -1,0 +1,124 @@
+{
+  "id": "infinite_horizon:phase_2/mond",
+  "chapter": "infinite_horizon:phase_2",
+  "title": "infinite_horizon.handbook.phase_2.mond.title",
+  "icon": "infinite_horizon:moon_regolith",
+  "order": 20,
+  "unlock": "infinite_horizon:research_tier/1",
+  "items": [
+    "infinite_horizon:moon_rock",
+    "infinite_horizon:moon_regolith",
+    "infinite_horizon:moon_basalt",
+    "infinite_horizon:moon_ice",
+    "infinite_horizon:moon_aluminum_ore",
+    "infinite_horizon:moon_titanium_ore"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.mond.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.mond.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_2.mond.e2.0",
+        "infinite_horizon.handbook.phase_2.mond.e2.1",
+        "infinite_horizon.handbook.phase_2.mond.e2.2",
+        "infinite_horizon.handbook.phase_2.mond.e2.3"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.mond.e3",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_2.mond.e4.0",
+        "infinite_horizon.handbook.phase_2.mond.e4.1",
+        "infinite_horizon.handbook.phase_2.mond.e4.2",
+        "infinite_horizon.handbook.phase_2.mond.e4.3"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.mond.e5"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.mond.e6",
+      "level": 2
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.phase_2.mond.e7.h0",
+        "infinite_horizon.handbook.phase_2.mond.e7.h1",
+        "infinite_horizon.handbook.phase_2.mond.e7.h2",
+        "infinite_horizon.handbook.phase_2.mond.e7.h3",
+        "infinite_horizon.handbook.phase_2.mond.e7.h4"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_2.mond.e7.r0.0",
+          "infinite_horizon.handbook.phase_2.mond.e7.r0.1",
+          "infinite_horizon.handbook.phase_2.mond.e7.r0.2",
+          "infinite_horizon.handbook.phase_2.mond.e7.r0.3",
+          "infinite_horizon.handbook.phase_2.mond.e7.r0.4"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.mond.e7.r1.0",
+          "infinite_horizon.handbook.phase_2.mond.e7.r1.1",
+          "infinite_horizon.handbook.phase_2.mond.e7.r1.2",
+          "infinite_horizon.handbook.phase_2.mond.e7.r1.3",
+          "infinite_horizon.handbook.phase_2.mond.e7.r1.4"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.mond.e7.r2.0",
+          "infinite_horizon.handbook.phase_2.mond.e7.r2.1",
+          "infinite_horizon.handbook.phase_2.mond.e7.r2.2",
+          "infinite_horizon.handbook.phase_2.mond.e7.r2.3",
+          "infinite_horizon.handbook.phase_2.mond.e7.r2.4"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.mond.e7.r3.0",
+          "infinite_horizon.handbook.phase_2.mond.e7.r3.1",
+          "infinite_horizon.handbook.phase_2.mond.e7.r3.2",
+          "infinite_horizon.handbook.phase_2.mond.e7.r3.3",
+          "infinite_horizon.handbook.phase_2.mond.e7.r3.4"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.mond.e8"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.mond.e9",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.mond.e10"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.mond.e11",
+      "style": "warning"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.mond.e12",
+      "style": "tip"
+    }
+  ]
+}

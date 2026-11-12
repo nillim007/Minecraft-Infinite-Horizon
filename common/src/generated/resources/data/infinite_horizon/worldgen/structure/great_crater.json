@@ -1,0 +1,16 @@
+{
+  "type": "infinite_horizon:great_crater",
+  "biomes": "#infinite_horizon:has_structure/great_crater",
+  "spawn_overrides": {},
+  "step": "local_modifications",
+  "radius": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 40,
+    "max_inclusive": 60
+  },
+  "ore_multiplier": 2,
+  "depth_divisor": 3,
+  "rim_height": 1,
+  "peak_radius_divisor": 5,
+  "peak_height_divisor": 3
+}

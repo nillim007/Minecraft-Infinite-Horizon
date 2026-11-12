@@ -55,7 +55,13 @@
     "death.attack.infinite_horizon.pressure": "%1$s hielt dem Druck nicht stand",
     "death.attack.infinite_horizon.heat": "%1$s ist in der Hitze verglüht",
     "death.attack.infinite_horizon.cold": "%1$s ist erfroren",
-    "death.attack.infinite_horizon.radiation": "%1$s starb an Strahlung"
+    "death.attack.infinite_horizon.radiation": "%1$s starb an Strahlung",
+    "command.infinite_horizon.goto.ok": "Gelandet in %s bei %s, %s, %s.",
+    "command.infinite_horizon.goto.unknown": "Unbekannter Planet: %s",
+    "biome.infinite_horizon.moon_highlands": "Mond-Hochland",
+    "biome.infinite_horizon.moon_mare": "Mare",
+    "biome.infinite_horizon.moon_great_crater": "Mond-Großkrater",
+    "biome.infinite_horizon.moon_polar_crater": "Mond-Polarkrater"
   },
   "en_us": {
     "itemGroup.infinite_horizon": "Infinite Horizon",
@@ -112,6 +118,12 @@
     "death.attack.infinite_horizon.pressure": "%1$s could not withstand the pressure",
     "death.attack.infinite_horizon.heat": "%1$s burned up in the heat",
     "death.attack.infinite_horizon.cold": "%1$s froze to death",
-    "death.attack.infinite_horizon.radiation": "%1$s died of radiation"
+    "death.attack.infinite_horizon.radiation": "%1$s died of radiation",
+    "command.infinite_horizon.goto.ok": "Landed in %s at %s, %s, %s.",
+    "command.infinite_horizon.goto.unknown": "Unknown planet: %s",
+    "biome.infinite_horizon.moon_highlands": "Moon Highlands",
+    "biome.infinite_horizon.moon_mare": "Moon Mare",
+    "biome.infinite_horizon.moon_great_crater": "Moon Great Crater",
+    "biome.infinite_horizon.moon_polar_crater": "Moon Polar Crater"
   }
 }

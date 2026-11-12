@@ -15,6 +15,7 @@
     "infinite_horizon:fluid_tank",
     "infinite_horizon:fuel_generator",
     "infinite_horizon:item_port",
+    "infinite_horizon:moon_aluminum_ore",
     "infinite_horizon:press",
     "infinite_horizon:refinery_casing",
     "infinite_horizon:refinery_controller"

@@ -1,0 +1,10 @@
+{
+  "type": "infinite_horizon:crater",
+  "radius": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 4,
+    "max_inclusive": 12
+  },
+  "depth_divisor": 3,
+  "rim_height": 1
+}

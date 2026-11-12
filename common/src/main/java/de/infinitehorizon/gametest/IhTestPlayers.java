@@ -37,6 +37,11 @@ public final class IhTestPlayers {
         server.getPlayerList().placeNewPlayer(connection, player, cookie);
         player.setGameMode(mode);
         Vec3 pos = h.absoluteVec(relative);
+        if (player.level() != level) {
+            // placeNewPlayer setzt neue Spieler in die Overworld; Tests in anderen Dimensionen holen ihn herüber
+            return (ServerPlayer) player.teleport(new net.minecraft.world.level.portal.TeleportTransition(level, pos,
+                    Vec3.ZERO, 0, 0, net.minecraft.world.level.portal.TeleportTransition.DO_NOTHING));
+        }
         player.teleportTo(pos.x, pos.y, pos.z);
         return player;
     }

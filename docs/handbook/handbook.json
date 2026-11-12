@@ -39,6 +39,11 @@
     "assembly": { "station": "infinite_horizon:assembly_table", "de": "Montagetisch", "en": "Assembly Table" }
   },
   "names": {
+    "minecraft:ice": { "de": "Eis", "en": "Ice" },
+    "infinite_horizon:moon_highlands": { "de": "Mond-Hochland", "en": "Moon Highlands" },
+    "infinite_horizon:moon_mare": { "de": "Mare", "en": "Moon Mare" },
+    "infinite_horizon:moon_great_crater": { "de": "Mond-Großkrater", "en": "Moon Great Crater" },
+    "infinite_horizon:moon_polar_crater": { "de": "Mond-Polarkrater", "en": "Moon Polar Crater" },
     "minecraft:book": { "de": "Buch", "en": "Book" },
     "minecraft:bucket": { "de": "Eimer", "en": "Bucket" },
     "minecraft:coal": { "de": "Kohle", "en": "Coal" },

@@ -24,5 +24,6 @@
   "sky": null,
   "gas_collector_output": null,
   "zones": [],
+  "vanilla_mobs": [],
   "name": "planet.minecraft.overworld"
 }

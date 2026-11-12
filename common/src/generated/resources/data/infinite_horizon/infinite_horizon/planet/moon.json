@@ -55,5 +55,31 @@
       "water_behavior": null
     }
   ],
+  "vanilla_mobs": [
+    {
+      "entity": "minecraft:zombie",
+      "rate": 0.5,
+      "y_max": null,
+      "event_rates": {}
+    },
+    {
+      "entity": "minecraft:skeleton",
+      "rate": 0.5,
+      "y_max": null,
+      "event_rates": {}
+    },
+    {
+      "entity": "minecraft:spider",
+      "rate": 0.5,
+      "y_max": null,
+      "event_rates": {}
+    },
+    {
+      "entity": "minecraft:creeper",
+      "rate": 0.5,
+      "y_max": null,
+      "event_rates": {}
+    }
+  ],
   "name": "planet.infinite_horizon.moon"
 }

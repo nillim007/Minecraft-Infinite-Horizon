@@ -22,7 +22,13 @@
     "infinite_horizon:fluid_port": "port",
     "infinite_horizon:energy_port": "port",
     "infinite_horizon:fuel_generator": "machine",
-    "infinite_horizon:battery": "machine"
+    "infinite_horizon:battery": "machine",
+    "infinite_horizon:moon_rock": "simple_block",
+    "infinite_horizon:moon_basalt": "simple_block",
+    "infinite_horizon:moon_regolith": "simple_block",
+    "infinite_horizon:moon_ice": "simple_block",
+    "infinite_horizon:moon_aluminum_ore": "simple_block",
+    "infinite_horizon:moon_titanium_ore": "simple_block"
   },
   "items": [
     "infinite_horizon:aluminum_dust",

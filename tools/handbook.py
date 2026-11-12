@@ -149,6 +149,7 @@ class Ctx:
         self.items = set(impl["items"])
         self.fluids = {f"{NS}:{f}" for f in impl.get("fluids", [])}
         self.registered = self.blocks | self.items | self.fluids
+        self.dimensions = set(impl.get("dimensions", []))  # @if <dimension> (27.4)
         self.milestone = impl.get("milestone", 1)
         self.step = impl.get("step") or str(self.milestone)
         self.warnings = []
@@ -158,7 +159,7 @@ class Ctx:
 
     # -- Sichtbarkeit
     def known(self, i: str) -> bool:
-        return not i.startswith(NS + ":") or i in self.registered
+        return not i.startswith(NS + ":") or i in self.registered or i in self.dimensions
 
     def recipe_ok(self, r) -> bool:
         ids = set(sd.recipe_results(r)) | set(sd.recipe_inputs(r))

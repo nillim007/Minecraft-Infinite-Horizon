@@ -1,0 +1,7 @@
+{
+  "id": "infinite_horizon:phase_2",
+  "title": "infinite_horizon.handbook.chapter.phase_2",
+  "icon": "infinite_horizon:research_terminal",
+  "order": 20,
+  "unlock": "infinite_horizon:research_tier/1"
+}

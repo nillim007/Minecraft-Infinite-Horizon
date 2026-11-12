@@ -1,0 +1,17 @@
+{
+  "type": "infinite_horizon:lava_tube",
+  "biomes": "#infinite_horizon:has_structure/lava_tube",
+  "spawn_overrides": {},
+  "step": "underground_structures",
+  "size": 5,
+  "length": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 60,
+    "max_inclusive": 120
+  },
+  "y": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 30,
+    "max_inclusive": 50
+  }
+}

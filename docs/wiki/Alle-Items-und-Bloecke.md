@@ -37,6 +37,12 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Kupferrohr](Fluide-und-Rohre.md) | Block | Rezept |
 | [Kupferstaub](Zerkleinerer.md) | Item | Maschine |
 | [Maschinenrahmen](Erste-Schritte.md) | Item | Rezept |
+| [Mond-Aluminiumerz](Der-Mond.md) | Block | Weltgenerierung |
+| [Mond-Basalt](Der-Mond.md) | Block | Weltgenerierung |
+| [Mond-Regolith](Der-Mond.md) | Block | Weltgenerierung |
+| [Mond-Titanerz](Der-Mond.md) | Block | Weltgenerierung |
+| [Mondeis](Der-Mond.md) | Block | Weltgenerierung |
+| [Mondgestein](Der-Mond.md) | Block | Weltgenerierung |
 | [Montagetisch](Montagetisch.md) | Block | Rezept |
 | [Planetenatlas](Willkommen-bei-Infinite-Horizon.md) | Item | Geschenk beim ersten Betreten, Rezept |
 | [Presse](Presse.md) | Block | Rezept |

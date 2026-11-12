@@ -230,8 +230,8 @@ def oil_bubble_worldgen():
 COPY_COMPONENTS = {"fluid_tank": [f"{NS}:fluid"], "battery": [f"{NS}:energy"]}
 
 
-def block_loot(name):
-    entry = {"type": "minecraft:item", "name": f"{NS}:{name}"}
+def block_loot(name, drop=None):
+    entry = {"type": "minecraft:item", "name": drop or f"{NS}:{name}"}
     if name in COPY_COMPONENTS:
         # 26.3-Format wie Vanilla furnace: "modifier" mit copy_components aus der Block-Entity
         entry["modifier"] = {"type": "minecraft:copy_components", "include": COPY_COMPONENTS[name],
@@ -252,6 +252,17 @@ SIMPLE_BLOCKS = {
     "titanium_ore": {"copy": "minecraft:iron_ore", "falls": False, "tool": "pickaxe", "needs": "iron", "ore": ("titanium", "raw_titanium")},
     "deepslate_titanium_ore": {"copy": "minecraft:deepslate_iron_ore", "falls": False, "tool": "pickaxe", "needs": "iron", "ore": ("titanium", "raw_titanium")},
     "quartz_sand": {"copy": "minecraft:sand", "falls": False, "tool": "shovel", "needs": None, "ore": None},
+    # Mond (13.4): Gestein wie Stein, Basalt wie Basalt, Regolith wie Kies ohne Fallen, Eis wie Packeis (droppt Eis)
+    "moon_rock": {"copy": "minecraft:stone", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
+    "moon_basalt": {"copy": "minecraft:basalt", "falls": False, "tool": "pickaxe", "needs": None, "ore": None,
+                    "tags": ["infinite_horizon:basalt"]},
+    "moon_regolith": {"copy": "minecraft:gravel", "falls": False, "tool": "shovel", "needs": None, "ore": None},
+    "moon_ice": {"copy": "minecraft:packed_ice", "falls": False, "tool": "pickaxe", "needs": None, "ore": None,
+                 "drop": "minecraft:ice"},
+    "moon_aluminum_ore": {"copy": "minecraft:iron_ore", "falls": False, "tool": "pickaxe", "needs": "stone",
+                          "ore": ("aluminum", "bauxite")},
+    "moon_titanium_ore": {"copy": "minecraft:iron_ore", "falls": False, "tool": "pickaxe", "needs": "iron",
+                          "ore": ("titanium", "raw_titanium")},
 }
 
 
@@ -358,7 +369,7 @@ def recipe_ids(r):
 PLANET_FIELDS = ["dimension", "type", "orbit", "star_system", "ring", "distance_points", "gravity", "atmosphere",
                  "pressure", "temperature", "biome_temperature_offsets", "biome_temperature_overrides", "radiation",
                  "solar_factor", "water_behavior", "landing_requires_fuel", "required_rocket_tier", "requires_long_range",
-                 "probe", "sky", "gas_collector_output", "zones"]
+                 "probe", "sky", "gas_collector_output", "zones", "vanilla_mobs"]
 ZONE_FIELDS = ["id", "y_min", "y_max", "biome", "near_block", "temperature", "pressure", "radiation", "solar_factor",
                "atmosphere", "water_behavior"]
 
@@ -395,6 +406,206 @@ def damage_types(spec):
     tag_ns, tag_path = rules["damage_type_tag"].split(":", 1)
     write_json(f"data/{tag_ns}/tags/damage_type/{tag_path}.json", {"values": types})
     return types
+
+
+# Vanilla 26.3 minecraft:overworld (dimension_type ohne attributes, noise_settings ohne aquifers/material_rule):
+# Grundlage der Planetendimensionen (13.1 "alle hier nicht genannten Felder wie minecraft:overworld")
+OVERWORLD_DIMENSION_TYPE = {
+    "ambient_light": 0.0, "coordinate_scale": 1.0, "default_clock": "minecraft:overworld", "has_ceiling": False,
+    "has_ender_dragon_fight": False, "has_skylight": True, "infiniburn": "#minecraft:infiniburn_overworld",
+    "monster_spawn_block_light_limit": 0,
+    "monster_spawn_light_level": {"type": "minecraft:uniform", "max_inclusive": 7, "min_inclusive": 0},
+    "timelines": "#minecraft:in_overworld",
+}
+OVERWORLD_BED_RULE = {"can_set_spawn": "always", "can_sleep": "when_dark",
+                      "error_message": {"translate": "block.minecraft.bed.no_sleep"}}
+OVERWORLD_NOISE_ROUTER = {k: f"minecraft:overworld/{k}" for k in (
+    "chunk_surface_level", "continents", "depth", "erosion", "final_density", "ridges", "temperature", "vegetation")}
+OVERWORLD_SPAWN_TARGET = [
+    {"minecraft:overworld/continents": [-0.11, 1.0], "minecraft:overworld/erosion": [-1.0, 1.0],
+     "minecraft:overworld/ridges": [-1.0, -0.16], "minecraft:overworld/temperature": [-1.0, 1.0],
+     "minecraft:overworld/vegetation": [-1.0, 1.0]},
+    {"minecraft:overworld/continents": [-0.11, 1.0], "minecraft:overworld/erosion": [-1.0, 1.0],
+     "minecraft:overworld/ridges": [0.16, 1.0], "minecraft:overworld/temperature": [-1.0, 1.0],
+     "minecraft:overworld/vegetation": [-1.0, 1.0]},
+]
+# Spawngewichte der Overworld (Vanilla 26.3 plains, Kategorie monster); 13.5 "Biome tragen die Spawngewichte der Overworld"
+OVERWORLD_MONSTER_SPAWNS = {
+    "minecraft:spider": {"count": 4, "weight": 100}, "minecraft:zombie": {"count": 4, "weight": 90},
+    "minecraft:skeleton": {"count": 4, "weight": 100}, "minecraft:creeper": {"count": 4, "weight": 100},
+    "minecraft:slime": {"count": 4, "weight": 100}, "minecraft:witch": {"count": 1, "weight": 5},
+}
+VANILLA_CARVERS = ["minecraft:cave", "minecraft:cave_extra_underground", "minecraft:canyon"]
+FEATURE_STEPS = 11  # GenerationStep.Decoration
+STEP_LOCAL_MODIFICATIONS = 2
+STEP_UNDERGROUND_ORES = 6
+# Biom-Parameter (13.1): Erosion je Form, seltene Biome über Temperatur bzw. Weirdness
+EROSION = {"mountainous": [-1.0, -0.2], "flat": [0.45, 1.0], "hilly": [-0.2, 0.45]}
+RARE_AXES = [("temperature", [-1.0, -0.8], [-0.8, 1.0]), ("weirdness", [0.8, 1.0], [-1.0, 0.8])]
+# SPEC-GAP #46: Form des Großkraters (Tiefe, Zentralberg) steht nicht in planets.json; Werte wie small_crater
+GREAT_CRATER_SHAPE = {"depth_divisor": 3, "rim_height": 1, "peak_radius_divisor": 5, "peak_height_divisor": 3}
+
+
+def short_id(i):
+    return i.split(":", 1)[1]
+
+
+def biome_parameters(biomes):
+    rare = [b for b in biomes if b.get("rarity") == "rare"]
+    used = {axis: (b["id"], inside, rest) for (axis, inside, rest), b in zip(RARE_AXES, rare)}
+    out = []
+    for b in biomes:
+        prm = {"temperature": [-1.0, 1.0], "humidity": [-1.0, 1.0], "continentalness": [-1.0, 1.0],
+               "erosion": [-1.0, 1.0], "depth": [-1.0, 1.0], "weirdness": [-1.0, 1.0], "offset": 0.0}
+        if b.get("rarity") != "rare":
+            prm["erosion"] = EROSION.get(b.get("shape"), EROSION["hilly"])
+        for axis, (rid, inside, rest) in used.items():
+            prm[axis] = inside if b["id"] == rid else rest
+        out.append({"biome": b["id"], "parameters": prm})
+    return out
+
+
+def surface_rule(biomes):
+    """Material Rule (13.1): Grundgestein wie Overworld, obere 3 Blöcke aus dem Oberflächenblock des Bioms,
+    surface_secondary dort, wo das Noise minecraft:surface > 0 ist."""
+    top3 = {"type": "minecraft:stone_depth", "offset": 2, "add_surface_depth": False, "secondary_depth_range": 0,
+            "surface_type": "floor"}
+    seq = []
+    for b in biomes:
+        layers = []
+        if b.get("surface_secondary"):
+            layers.append({"type": "minecraft:condition",
+                           "if_true": {"type": "minecraft:noise_threshold", "noise": "minecraft:surface",
+                                       "min_threshold": 0.0, "max_threshold": 1.7976931348623157e308},
+                           "then_run": {"type": "minecraft:block", "result_state": b["surface_secondary"]}})
+        layers.append({"type": "minecraft:block", "result_state": b["surface"]})
+        seq.append({"type": "minecraft:condition",
+                    "if_true": {"type": "minecraft:biome", "biome_is": b["id"]},
+                    "then_run": {"type": "minecraft:condition", "if_true": top3,
+                                 "then_run": {"type": "minecraft:sequence", "sequence": layers}}})
+    # wie Vanilla: Oberflächenblöcke nur über der vorläufigen Oberfläche, nicht auf Höhlenböden
+    return {"type": "minecraft:sequence", "sequence": [
+        "minecraft:bedrock_floor",
+        {"type": "minecraft:condition", "if_true": {"type": "minecraft:above_preliminary_surface"},
+         "then_run": {"type": "minecraft:sequence", "sequence": seq}}]}
+
+
+def ore_feature_name(dim, i, ore):
+    return f"{short_id(dim)}_ore_{i}_{short_id(ore['block'])}"
+
+
+def planet_worldgen(spec, impl, blocks):
+    """Dimension, Typ, Noise-Settings, Material Rule, Biome, Erze, Krater und Strukturen je Planetendimension."""
+    defaults = json.loads((sd.DATA / "planets.json").read_text(encoding="utf-8"))["dimension_defaults"]["surface"]
+    out = {}
+    for dim in impl.get("dimensions", []):
+        p = spec.planets[dim]
+        ns, path = dim.split(":", 1)
+        sky = p.get("sky") or {}
+        # dimension_type (13.1, 26.3-Attribute statt bed_works/has_raids/natural/piglin_safe)
+        attrs = {"minecraft:gameplay/respawn_anchor_works": defaults["respawn_anchor_works"],
+                 "minecraft:gameplay/can_start_raid": defaults["has_raids"],
+                 "minecraft:gameplay/nether_portal_spawns_piglin": defaults["natural"]}
+        if defaults["bed_works"]:
+            attrs["minecraft:gameplay/bed_rule"] = OVERWORLD_BED_RULE
+        if sky.get("color"):
+            attrs["minecraft:visual/sky_color"] = sky["color"]
+        if sky.get("fog_color"):
+            attrs["minecraft:visual/fog_color"] = sky["fog_color"]
+        if sky.get("stars_in_daylight"):
+            attrs["minecraft:visual/star_brightness"] = 1.0
+        dt = dict(OVERWORLD_DIMENSION_TYPE)
+        dt.update({"min_y": defaults["min_y"], "height": defaults["height"], "logical_height": defaults["height"],
+                   "attributes": attrs})
+        write_json(f"data/{ns}/dimension_type/{path}.json", dt)
+        # Noise-Settings: Overworld-Router unverändert, ohne Aquifere und Erzadern (13.1)
+        write_json(f"data/{ns}/worldgen/noise_settings/{path}.json", {
+            "noise": {"min_y": defaults["min_y"], "height": defaults["height"]},
+            "default_block": p["default_block"], "default_fluid": p["default_fluid"] or "minecraft:air",
+            "noise_router": OVERWORLD_NOISE_ROUTER, "material_rule": dim, "spawn_target": OVERWORLD_SPAWN_TARGET,
+            "sea_level": p["sea_level"], "disable_mob_generation": False, "legacy_random_source": False})
+        write_json(f"data/{ns}/worldgen/material_rule/{path}.json", surface_rule(p["biomes"]))
+        write_json(f"data/{ns}/dimension/{path}.json", {
+            "type": dim,
+            "generator": {"type": "minecraft:noise", "settings": dim,
+                          "biome_source": {"type": "minecraft:multi_noise", "biomes": biome_parameters(p["biomes"])}}})
+        # Erze (13.4): uniform, "je Chunk" = count, Wirtsblock = default_block
+        per_biome = {b["id"]: [[] for _ in range(FEATURE_STEPS)] for b in p["biomes"]}
+        ore_features = []
+        for i, ore in enumerate(p.get("ores", [])):
+            if ore["block"] not in blocks:
+                continue
+            name = ore_feature_name(dim, i, ore)
+            host = ore.get("host_block") or p["default_block"]
+            write_json(f"data/{NS}/worldgen/feature/{name}.json", {
+                "type": "minecraft:ore", "size": ore["vein_size"], "discard_chance_on_air_exposure": 0.0,
+                "targets": [{"target": {"predicate_type": "minecraft:block_match", "block": host},
+                             "state": ore["block"]}]})
+            write_json(f"data/{NS}/worldgen/placed_feature/{name}.json", {
+                "feature": f"{NS}:{name}", "placement": [
+                    {"type": "minecraft:count", "count": ore["per_chunk"]}, {"type": "minecraft:in_square"},
+                    {"type": "minecraft:height_range", "height": {
+                        "type": "minecraft:uniform", "min_inclusive": {"absolute": ore["y_min"]},
+                        "max_inclusive": {"absolute": ore["y_max"]}}},
+                    {"type": "minecraft:biome"}]})
+            ore_features.append({"feature": f"{NS}:{name}", "biomes": ore["biomes"]})
+            for b in ore["biomes"]:
+                per_biome[b][STEP_UNDERGROUND_ORES].append(f"{NS}:{name}")
+        # Eigene Features (13.4): Krater
+        for f in p.get("features", []):
+            if f["type"] != "crater":
+                continue
+            name = short_id(f["id"])
+            prm = f["params"]
+            write_json(f"data/{NS}/worldgen/feature/{name}.json", {
+                "type": f"{NS}:crater",
+                "radius": {"type": "minecraft:uniform", "min_inclusive": prm["radius"][0], "max_inclusive": prm["radius"][1]},
+                "depth_divisor": prm["depth_divisor"], "rim_height": prm["rim_height"]})
+            write_json(f"data/{NS}/worldgen/placed_feature/{name}.json", {
+                "feature": f"{NS}:{name}", "placement": [
+                    {"type": "minecraft:rarity_filter", "chance": prm["rarity_chunks"]}, {"type": "minecraft:in_square"},
+                    {"type": "minecraft:heightmap", "heightmap": "WORLD_SURFACE_WG"}, {"type": "minecraft:biome"}]})
+            for b in f["biomes"]:
+                per_biome[b][STEP_LOCAL_MODIFICATIONS].append(f"{NS}:{name}")
+        # Biome (13.1): nur Mod-Features, kein Niederschlag, Spawngewichte der Overworld für die Monster aus planets.json
+        monsters = [dict(type=m["entity"], **OVERWORLD_MONSTER_SPAWNS[m["entity"]])
+                    for m in p.get("vanilla_mobs", []) if m["entity"] in OVERWORLD_MONSTER_SPAWNS]
+        for b in p["biomes"]:
+            attrs = {}
+            if monsters:
+                attrs["minecraft:gameplay/natural_mob_spawns"] = {"modifier": "overlay", "argument": {
+                    "spawn_costs": {}, "spawns_by_category": {"monster": monsters}}}
+            write_json(f"data/{NS}/worldgen/biome/{short_id(b['id'])}.json", {
+                "temperature": 0.5, "downfall": 0.0, "has_precipitation": False,
+                "effects": {"water_color": "#3f76e4"}, "attributes": attrs,
+                "carvers": VANILLA_CARVERS, "features": per_biome[b["id"]]})
+        # Strukturen (13.4): Großkrater und Lavaröhre als eigene Strukturtypen
+        for st in p.get("structures", []):
+            name = short_id(st["id"])
+            prm = st["params"]
+            write_json(f"data/{NS}/tags/worldgen/biome/has_structure/{name}.json", {"values": st["biomes"]})
+            body = {"type": f"{NS}:{name}", "biomes": f"#{NS}:has_structure/{name}", "spawn_overrides": {}}
+            if name == "great_crater":
+                body.update({"step": "local_modifications",
+                             "radius": {"type": "minecraft:uniform", "min_inclusive": prm["radius"][0],
+                                        "max_inclusive": prm["radius"][1]},
+                             "ore_multiplier": prm["ore_multiplier"], **GREAT_CRATER_SHAPE})
+            elif name == "lava_tube":
+                body.update({"step": "underground_structures", "size": prm["cross_section"][0],
+                             "length": {"type": "minecraft:uniform", "min_inclusive": prm["length"][0],
+                                        "max_inclusive": prm["length"][1]},
+                             "y": {"type": "minecraft:uniform", "min_inclusive": prm["y_min"],
+                                   "max_inclusive": prm["y_max"]}})
+            else:
+                continue
+            write_json(f"data/{NS}/worldgen/structure/{name}.json", body)
+            salt = sum(ord(c) * 31 ** k for k, c in enumerate(st["id"])) % 2_000_000_000
+            write_json(f"data/{NS}/worldgen/structure_set/{name}.json", {
+                "placement": {"type": "minecraft:random_spread", "salt": salt,
+                              "separation": st["separation_chunks"], "spacing": st["spacing_chunks"]},
+                "structures": [{"structure": f"{NS}:{name}", "weight": 1}]})
+        out[dim] = ore_features
+    return out
 
 
 def main():
@@ -458,6 +669,8 @@ def main():
         write_json(f"assets/{NS}/items/{name}.json", {"model": {"type": "minecraft:model", "model": inv_model}})
         if shape == "simple_block" and SIMPLE_BLOCKS[name]["ore"]:
             ore_loot(name, SIMPLE_BLOCKS[name]["ore"][1])
+        elif shape == "simple_block" and SIMPLE_BLOCKS[name].get("drop"):
+            block_loot(name, SIMPLE_BLOCKS[name]["drop"])
         else:
             block_loot(name)
 
@@ -567,8 +780,18 @@ def main():
         nbt.parent.mkdir(parents=True, exist_ok=True)
         nbt.write_bytes(empty_structure_nbt(size))
 
-    # Planeten (13.1) und Schadensarten der Umwelt (8.2)
+    # Planeten (13.1), ihre Weltgenerierung (13.4) und Schadensarten der Umwelt (8.2)
     planet_resources(spec, impl)
+    planet_worldgen(spec, impl, blocks)
+    extra_tags = {}
+    for i, shape in blocks.items():
+        if shape == "simple_block":
+            for t in SIMPLE_BLOCKS[short(i)].get("tags", []):
+                extra_tags.setdefault(t, []).append(i)
+    for t, vals in sorted(extra_tags.items()):
+        tns, tpath = t.split(":", 1)
+        write_json(f"data/{tns}/tags/block/{tpath}.json", {"values": sorted(vals)})
+        write_json(f"data/{tns}/tags/item/{tpath}.json", {"values": sorted(vals)})
     damage_types(spec)
 
     # Balance-Dateien (Kapitel 25.7)
