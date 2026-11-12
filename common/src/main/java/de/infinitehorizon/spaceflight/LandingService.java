@@ -54,10 +54,12 @@ public final class LandingService {
 
     private static BlockPos standable(ServerLevel level, int x, int z, int airAbove) {
         level.getChunk(x >> 4, z >> 4, ChunkStatus.FULL);
-        int y = level.getHeight(Heightmap.Types.MOTION_BLOCKING, x, z);
+        // oberster Nicht-Luft-Block der Spalte; MOTION_BLOCKING lieferte auf dem Mond teils den Grund einer
+        // Höhlentasche tief im Gestein (SPEC-GAP #54)
+        int y = level.getHeight(Heightmap.Types.WORLD_SURFACE, x, z);
         BlockPos ground = new BlockPos(x, y - 1, z);
         BlockState below = level.getBlockState(ground);
-        if (below.isAir() || !below.getFluidState().isEmpty() || level.isOutsideBuildHeight(ground)) {
+        if (below.isAir() || !below.getFluidState().isEmpty() || !below.isSolid() || level.isOutsideBuildHeight(ground)) {
             return null;
         }
         for (int i = 0; i < airAbove; i++) {

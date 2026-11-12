@@ -68,6 +68,8 @@ public final class IhGameTestsM3c {
         BlockState ground = moon.getBlockState(feet.below());
         h.assertTrue(!ground.isAir() && ground.getFluidState().isEmpty(), "kein fester Boden: " + ground);
         h.assertTrue(moon.getBlockState(feet).isAir() && moon.getBlockState(feet.above()).isAir(), "kein Platz über dem Boden");
+        int surface = moon.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.WORLD_SURFACE, feet.getX(), feet.getZ());
+        h.assertTrue(feet.getY() == surface, "Landung bei y " + feet.getY() + " statt auf der Oberfläche (y " + surface + ")");
         IhTestPlayers.remove(moved);
         h.succeed();
     }

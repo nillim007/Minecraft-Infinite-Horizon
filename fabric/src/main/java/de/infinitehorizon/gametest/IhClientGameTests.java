@@ -185,6 +185,10 @@ public class IhClientGameTests implements FabricClientGameTest {
                         .getKey(moon.getBlockState(new BlockPos(at.getX(), y, at.getZ())).getBlock()).getPath());
             }
             de.infinitehorizon.InfiniteHorizon.LOG.info(col.toString());
+            int surface = moon.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.WORLD_SURFACE, at.getX(), at.getZ());
+            if (at.getY() < surface) {
+                throw new AssertionError("goto moon: Landung bei y " + at.getY() + " unter der Oberfläche (y " + surface + ")");
+            }
         });
         sp.getServer().runCommand("effect give @p minecraft:night_vision infinite 0 true");
         context.runOnClient(c -> {
@@ -204,7 +208,7 @@ public class IhClientGameTests implements FabricClientGameTest {
             c.player.getAbilities().flying = true;
             c.player.onUpdateAbilities();
         });
-        sp.getServer().runCommand("execute as @p at @s run tp @s ~ 160 ~ 0 35");
+        sp.getServer().runCommand("execute as @p at @s run tp @s ~ ~24 ~-8 0 35");
         context.waitTicks(40);
         sp.getConnection().waitForChunksRender();
         context.runOnClient(c -> {
