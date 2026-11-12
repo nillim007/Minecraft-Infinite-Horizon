@@ -115,7 +115,8 @@
     "advancements.infinite_horizon.ground_station.description": "Setze ein Forschungsterminal",
     "advancements.infinite_horizon.own_air.title": "Eigene Luft",
     "advancements.infinite_horizon.own_air.description": "Aktiviere deinen ersten Kuppelgenerator",
-    "gui.infinite_horizon.handbook.chapter_locked": "%s (gesperrt)"
+    "gui.infinite_horizon.handbook.chapter_locked": "%s (gesperrt)",
+    "gui.infinite_horizon.research.unlocks_later": "%s weitere kommen später"
   },
   "en_us": {
     "itemGroup.infinite_horizon": "Infinite Horizon",
@@ -232,6 +233,7 @@
     "advancements.infinite_horizon.ground_station.description": "Place a research terminal",
     "advancements.infinite_horizon.own_air.title": "Air of Your Own",
     "advancements.infinite_horizon.own_air.description": "Activate your first dome generator",
-    "gui.infinite_horizon.handbook.chapter_locked": "%s (locked)"
+    "gui.infinite_horizon.handbook.chapter_locked": "%s (locked)",
+    "gui.infinite_horizon.research.unlocks_later": "%s more coming later"
   }
 }

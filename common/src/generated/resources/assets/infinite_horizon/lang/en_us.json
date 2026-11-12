@@ -113,6 +113,7 @@
   "gui.infinite_horizon.research.tab.research": "Research",
   "gui.infinite_horizon.research.unknown_unlock": "(coming later)",
   "gui.infinite_horizon.research.unlocks": "Unlocks:",
+  "gui.infinite_horizon.research.unlocks_later": "%s more coming later",
   "gui.infinite_horizon.side": "Output side",
   "gui.infinite_horizon.side.down": "Down",
   "gui.infinite_horizon.side.east": "East",

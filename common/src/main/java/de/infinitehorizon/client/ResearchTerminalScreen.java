@@ -125,9 +125,14 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
         });
         columnX = new int[columns + 1];
         columnX[0] = ROW_HEADER_W;
+        int[] inset = new int[columns];
         for (int c = 0; c < columns; c++) {
             int n = Math.max(1, perColumn[c]);
-            columnX[c + 1] = columnX[c] + 2 * CELL_PAD + n * NODE + (n - 1) * GAP;
+            int nodesW = 2 * CELL_PAD + n * NODE + (n - 1) * GAP;
+            int headW = font.width(branchName(c)) + 2 * CELL_PAD;
+            int w = Math.max(nodesW, headW);
+            columnX[c + 1] = columnX[c] + w;
+            inset[c] = (w - nodesW) / 2;
         }
         rowH = NODE + 2 * CELL_PAD;
         contentW = columnX[columns];
@@ -136,7 +141,7 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
             list.sort(java.util.Comparator.comparingInt(ResearchRegistry.Node::slot).thenComparing(n -> n.id().toString()));
             for (int i = 0; i < list.size(); i++) {
                 ResearchRegistry.Node n = list.get(i);
-                int x = columnX[n.column()] + CELL_PAD + i * (NODE + GAP);
+                int x = columnX[n.column()] + inset[n.column()] + CELL_PAD + i * (NODE + GAP);
                 int y = COL_HEADER_H + (n.row() - 1) * rowH + CELL_PAD;
                 layout.put(n.id(), new int[]{x, y});
             }
@@ -184,8 +189,7 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
         // Raster, Spalten- und Zeilenköpfe
         for (int c = 0; c < ResearchRegistry.BRANCHES.size(); c++) {
             g.fill(ox + columnX[c], oy, ox + columnX[c + 1] - 1, oy + COL_HEADER_H - 1, HEAD);
-            Component branch = Component.translatable("gui.infinite_horizon.research.branch." + ResearchRegistry.BRANCHES.get(c));
-            g.centeredText(font, branch, ox + (columnX[c] + columnX[c + 1]) / 2, oy + 3, LIGHT_TEXT);
+            g.centeredText(font, branchName(c), ox + (columnX[c] + columnX[c + 1]) / 2, oy + 3, LIGHT_TEXT);
         }
         int rows = (contentH - COL_HEADER_H) / Math.max(1, rowH);
         for (int r = 1; r <= rows; r++) {
@@ -218,7 +222,7 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
             for (Identifier req : n.requires()) {
                 int[] from = layout.get(req);
                 if (from != null) {
-                    connect(g, ox + from[0] + NODE / 2, oy + from[1] + NODE / 2, ox + to[0] + NODE / 2, oy + to[1] + NODE / 2);
+                    connect(g, ox + from[0] + NODE / 2, oy + from[1] + NODE, ox + to[0] + NODE / 2, oy + to[1], oy + to[1] + NODE);
                 }
             }
         }
@@ -250,17 +254,33 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
         }
     }
 
+    private static Component branchName(int column) {
+        return Component.translatable("gui.infinite_horizon.research.branch." + ResearchRegistry.BRANCHES.get(column));
+    }
+
     @Override
     protected void extractLabels(GuiGraphicsExtractor g, int mouseX, int mouseY) {
         // Titel und Inventar-Beschriftung entfallen (eigener Kopf)
     }
 
-    /** Linie im rechten Winkel (waagerecht, senkrecht, waagerecht), 1 px. */
-    private static void connect(GuiGraphicsExtractor g, int x1, int y1, int x2, int y2) {
-        int mid = (x1 + x2) / 2;
-        g.fill(Math.min(x1, mid), y1, Math.max(x1, mid) + 1, y1 + 1, LINE);
-        g.fill(mid, Math.min(y1, y2), mid + 1, Math.max(y1, y2) + 1, LINE);
-        g.fill(Math.min(mid, x2), y2, Math.max(mid, x2) + 1, y2 + 1, LINE);
+    /**
+     * Linie von der Unterkante der Voraussetzung zum Knoten, 1 px, im rechten Winkel durch den freien Streifen unter
+     * bzw. über den Knoten (nicht quer durch andere Knoten derselben Zeile).
+     */
+    private static void connect(GuiGraphicsExtractor g, int fromX, int fromBottom, int toX, int toTop, int toBottom) {
+        if (fromBottom > toTop) {
+            // gleiche Zeile: unter den Knoten entlang und von unten in den Knoten
+            int lane = toBottom + CELL_PAD / 2;
+            g.fill(fromX, fromBottom, fromX + 1, lane + 1, LINE);
+            g.fill(Math.min(fromX, toX), lane, Math.max(fromX, toX) + 1, lane + 1, LINE);
+            g.fill(toX, toBottom, toX + 1, lane + 1, LINE);
+        } else {
+            // Voraussetzung in einer früheren Zeile: bis kurz über den Knoten, dann waagerecht, dann hinein
+            int lane = toTop - CELL_PAD / 2;
+            g.fill(fromX, fromBottom, fromX + 1, lane + 1, LINE);
+            g.fill(Math.min(fromX, toX), lane, Math.max(fromX, toX) + 1, lane + 1, LINE);
+            g.fill(toX, lane, toX + 1, toTop, LINE);
+        }
     }
 
     private static ItemStack icon(ResearchRegistry.Node n) {
@@ -282,8 +302,18 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
                         : state == ResearchService.NodeState.AVAILABLE ? ChatFormatting.YELLOW : ChatFormatting.DARK_GRAY));
         if (!n.unlocks().isEmpty()) {
             tip.add(Component.translatable("gui.infinite_horizon.research.unlocks").withStyle(ChatFormatting.GRAY));
+            int later = 0;
             for (ResearchRegistry.Unlock u : n.unlocks()) {
-                tip.add(Component.literal(" • ").append(unlockName(u)).withStyle(ChatFormatting.GRAY));
+                Component name = unlockName(u);
+                if (name == null) {
+                    later++;
+                } else {
+                    tip.add(Component.literal(" • ").append(name).withStyle(ChatFormatting.GRAY));
+                }
+            }
+            if (later > 0) {
+                tip.add(Component.literal(" • ").append(Component.translatable("gui.infinite_horizon.research.unlocks_later", later))
+                        .withStyle(ChatFormatting.DARK_GRAY));
             }
         }
         List<Identifier> missing = new ArrayList<>();
@@ -303,28 +333,50 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
         return tip;
     }
 
-    private static Component unlockName(ResearchRegistry.Unlock u) {
+    /** Name einer Freischaltung oder null, wenn sie noch nicht registriert ist (kommt mit einem späteren Meilenstein). */
+    private static @Nullable Component unlockName(ResearchRegistry.Unlock u) {
         if (u.type().equals(ResearchRegistry.Unlock.PROBE_TARGET)) {
-            return Component.translatable("gui.infinite_horizon.research.probe_target",
-                    Component.translatable("planet." + u.id().getNamespace() + "." + u.id().getPath()));
+            return planetName(u.id());
         }
-        return BuiltInRegistries.ITEM.getOptional(u.id()).filter(i -> i != Items.AIR)
-                .<Component>map(i -> i.getName(new ItemStack(i)))
-                .orElse(Component.translatable("gui.infinite_horizon.research.unknown_unlock"));
+        return itemName(u.id());
     }
 
-    /** Tor-Text (25.3) für den Zeilenkopf. */
+    private static @Nullable Component itemName(Identifier id) {
+        return BuiltInRegistries.ITEM.getOptional(id).filter(i -> i != Items.AIR)
+                .<Component>map(i -> i.getName(new ItemStack(i))).orElse(null);
+    }
+
+    private static @Nullable Component planetName(Identifier dimension) {
+        if (de.infinitehorizon.data.PlanetRegistry.client().planet(dimension).isEmpty()) {
+            return null;
+        }
+        return Component.translatable("gui.infinite_horizon.research.probe_target",
+                Component.translatable("planet." + dimension.getNamespace() + "." + dimension.getPath()));
+    }
+
+    /** Tor-Text (25.3) für den Zeilenkopf; Tore mit noch nicht registrierten Inhalten zeigen „(kommt später)“. */
     private static Component gateText(JsonObject gate) {
         if (gate == null || !gate.has("type")) {
             return Component.empty();
         }
-        String type = gate.get("type").getAsString();
+        Component text = gateTextOrNull(gate);
+        return text != null ? text : Component.translatable("gui.infinite_horizon.research.unknown_unlock");
+    }
+
+    private static @Nullable Component gateTextOrNull(JsonObject gate) {
+        String type = gate.has("type") ? gate.get("type").getAsString() : "";
         String key = "gui.infinite_horizon.research.gate." + type;
-        return switch (type) {
-            case "has_block", "machine_completed" -> Component.translatable(key, blockName(gate.get("block").getAsString()));
+        switch (type) {
+            case "has_block", "machine_completed" -> {
+                Component block = itemName(Identifier.parse(gate.get("block").getAsString()));
+                return block == null ? null : Component.translatable(key, block);
+            }
             case "enter_dimension" -> {
                 Identifier d = Identifier.parse(gate.get("dimension").getAsString());
-                yield Component.translatable(key, Component.translatable("planet." + d.getNamespace() + "." + d.getPath()));
+                if (de.infinitehorizon.data.PlanetRegistry.client().planet(d).isEmpty()) {
+                    return null;
+                }
+                return Component.translatable(key, Component.translatable("planet." + d.getNamespace() + "." + d.getPath()));
             }
             case "crafted_items" -> {
                 MutableComponent list = Component.empty();
@@ -332,31 +384,37 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
                 for (String k : new String[]{"items", "fluids"}) {
                     if (gate.has(k) && gate.get(k).isJsonArray()) {
                         for (JsonElement e : gate.getAsJsonArray(k)) {
-                            list.append(first ? Component.empty() : Component.literal(", ")).append(blockName(e.getAsString()));
+                            Identifier id = Identifier.parse(e.getAsString());
+                            Component name = k.equals("items") ? itemName(id)
+                                    : BuiltInRegistries.FLUID.containsKey(id)
+                                    ? Component.translatable("fluid_type." + id.getNamespace() + "." + id.getPath()) : null;
+                            if (name == null) {
+                                return null;
+                            }
+                            list.append(first ? Component.empty() : Component.literal(", ")).append(name);
                             first = false;
                         }
                     }
                 }
-                yield Component.translatable(key, list);
+                return Component.translatable(key, list);
             }
             case "all" -> {
                 MutableComponent all = Component.empty();
                 boolean first = true;
                 for (JsonElement e : gate.getAsJsonArray("gates")) {
-                    all.append(first ? Component.empty() : Component.literal(" + ")).append(gateText(e.getAsJsonObject()));
+                    Component part = gateTextOrNull(e.getAsJsonObject());
+                    if (part == null) {
+                        return null;
+                    }
+                    all.append(first ? Component.empty() : Component.literal(" + ")).append(part);
                     first = false;
                 }
-                yield all;
+                return all;
             }
-            default -> Component.literal(type);
-        };
-    }
-
-    private static Component blockName(String id) {
-        Identifier i = Identifier.parse(id);
-        return BuiltInRegistries.ITEM.getOptional(i).filter(it -> it != Items.AIR)
-                .<Component>map(it -> it.getName(new ItemStack(it)))
-                .orElse(Component.translatable("block." + i.getNamespace() + "." + i.getPath()));
+            default -> {
+                return null;
+            }
+        }
     }
 
     // ------------------------------------------------------------------ Eingaben
