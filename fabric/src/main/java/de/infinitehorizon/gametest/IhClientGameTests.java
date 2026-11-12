@@ -172,6 +172,21 @@ public class IhClientGameTests implements FabricClientGameTest {
         if (bodies == 0) {
             throw new AssertionError("Mondhimmel: keine Himmelskörper (Planeten-Sync?)");
         }
+        // Landeplatz protokollieren (Spalte, Höhenkarten), Nachtsicht für helle Screenshots
+        sp.getServer().runOnServer(server -> {
+            net.minecraft.server.level.ServerPlayer p = server.getPlayerList().getPlayers().getFirst();
+            net.minecraft.server.level.ServerLevel moon = p.level();
+            BlockPos at = p.blockPosition();
+            StringBuilder col = new StringBuilder("Mond-Landeplatz " + at + ", Höhenkarte WORLD_SURFACE "
+                    + moon.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.WORLD_SURFACE, at.getX(), at.getZ())
+                    + ", Spalte:");
+            for (int y = at.getY() + 64; y >= moon.getMinY(); y -= 8) {
+                col.append(' ').append(y).append('=').append(net.minecraft.core.registries.BuiltInRegistries.BLOCK
+                        .getKey(moon.getBlockState(new BlockPos(at.getX(), y, at.getZ())).getBlock()).getPath());
+            }
+            de.infinitehorizon.InfiniteHorizon.LOG.info(col.toString());
+        });
+        sp.getServer().runCommand("effect give @p minecraft:night_vision infinite 0 true");
         context.runOnClient(c -> {
             c.player.setYRot(0);
             c.player.setXRot(10);
@@ -184,6 +199,20 @@ public class IhClientGameTests implements FabricClientGameTest {
         context.waitTicks(20);
         clearChat(context);
         context.takeScreenshot("world_moon_mobs");
+        // Gelände von oben, dann der Himmel mit der Erde (frei von Hängen und Wänden)
+        context.runOnClient(c -> {
+            c.player.getAbilities().flying = true;
+            c.player.onUpdateAbilities();
+        });
+        sp.getServer().runCommand("execute as @p at @s run tp @s ~ 160 ~ 0 35");
+        context.waitTicks(40);
+        sp.getConnection().waitForChunksRender();
+        context.runOnClient(c -> {
+            c.player.setYRot(0);
+            c.player.setXRot(35);
+        });
+        context.waitTicks(10);
+        context.takeScreenshot("world_moon_terrain");
         context.runOnClient(c -> {
             c.player.setYRot(240);
             c.player.setXRot(-40);
