@@ -1,0 +1,20 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:aluminum_plate",
+      "count": 6
+    },
+    {
+      "ingredient": "infinite_horizon:plastic",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:pressure_suit_leggings",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

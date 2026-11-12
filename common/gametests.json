@@ -67,6 +67,10 @@
     {"name": "environment_creative_nobuildup", "class": "IhGameTestsM3b", "method": "creativeNoBuildup", "ticks": 60, "ref": "8.2"},
     {"name": "moon_aluminumore_dropsonebauxite", "class": "IhGameTestsM3c", "method": "moonAluminumOreDrops", "ticks": 20, "dimension": "infinite_horizon:moon", "ref": "13.4, 27.5 M3c"},
     {"name": "moon_player_gravitywithoutoverride", "class": "IhGameTestsM3c", "method": "moonGravityWithoutOverride", "ticks": 20, "dimension": "infinite_horizon:moon", "ref": "12.9, 27.5 M3c"},
-    {"name": "moon_goto_landsonsolidground", "class": "IhGameTestsM3c", "method": "gotoLandsOnSolidGround", "ticks": 200, "ref": "12.10, 27.5 M3c"}
+    {"name": "moon_goto_landsonsolidground", "class": "IhGameTestsM3c", "method": "gotoLandsOnSolidGround", "ticks": 200, "ref": "12.10, 27.5 M3c"},
+    {"name": "suit_moonoverride_nostrain590mb", "class": "IhGameTestsM3d", "method": "suitProtectsOnMoon", "ticks": 220, "ref": "9.1, 27.5 M3d"},
+    {"name": "suit_incomplete_noprotection", "class": "IhGameTestsM3d", "method": "incompleteSuitDoesNotProtect", "ticks": 20, "ref": "9.1"},
+    {"name": "oxygengenerator_fillslot_canisterfullafter1tick", "class": "IhGameTestsM3d", "method": "generatorFillsCanister", "ticks": 20, "ref": "4.1, 10.2, 27.5 M3d"},
+    {"name": "pressurebottle_onlygas", "class": "IhGameTestsM3d", "method": "pressureBottleOnlyGas", "ticks": 20, "ref": "6.3"}
   ]
 }

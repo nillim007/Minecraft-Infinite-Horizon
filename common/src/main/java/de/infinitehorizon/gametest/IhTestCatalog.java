@@ -81,7 +81,11 @@ public final class IhTestCatalog {
             new Test("environment_creative_nobuildup", 60, null, null, null, IhGameTestsM3b::creativeNoBuildup),  // 8.2
             new Test("moon_aluminumore_dropsonebauxite", 20, null, null, "infinite_horizon:moon", IhGameTestsM3c::moonAluminumOreDrops),  // 13.4, 27.5 M3c
             new Test("moon_player_gravitywithoutoverride", 20, null, null, "infinite_horizon:moon", IhGameTestsM3c::moonGravityWithoutOverride),  // 12.9, 27.5 M3c
-            new Test("moon_goto_landsonsolidground", 200, null, null, null, IhGameTestsM3c::gotoLandsOnSolidGround)  // 12.10, 27.5 M3c
+            new Test("moon_goto_landsonsolidground", 200, null, null, null, IhGameTestsM3c::gotoLandsOnSolidGround),  // 12.10, 27.5 M3c
+            new Test("suit_moonoverride_nostrain590mb", 220, null, null, null, IhGameTestsM3d::suitProtectsOnMoon),  // 9.1, 27.5 M3d
+            new Test("suit_incomplete_noprotection", 20, null, null, null, IhGameTestsM3d::incompleteSuitDoesNotProtect),  // 9.1
+            new Test("oxygengenerator_fillslot_canisterfullafter1tick", 20, null, null, null, IhGameTestsM3d::generatorFillsCanister),  // 4.1, 10.2, 27.5 M3d
+            new Test("pressurebottle_onlygas", 20, null, null, null, IhGameTestsM3d::pressureBottleOnlyGas)  // 6.3
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

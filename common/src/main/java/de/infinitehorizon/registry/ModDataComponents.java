@@ -32,6 +32,17 @@ public final class ModDataComponents {
                     .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_LONG)
                     .build());
 
+    /**
+     * {@code infinite_horizon:oxygen} (9.1): O₂-Vorrat einer Anzug-Brustplatte in mB. Eine neue Brustplatte hat die
+     * Komponente nicht (0 mB).
+     */
+    public static final Supplier<DataComponentType<Integer>> OXYGEN = Services.REGISTRY.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE, "oxygen",
+            () -> DataComponentType.<Integer>builder()
+                    .persistent(com.mojang.serialization.Codec.INT)
+                    .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_INT)
+                    .build());
+
     private ModDataComponents() {
     }
 

@@ -227,7 +227,7 @@ def oil_bubble_worldgen():
 
 
 # Blöcke, deren Inhalt beim Abbauen als Komponente am Item bleibt (4.1: fluid_tank, später battery)
-COPY_COMPONENTS = {"fluid_tank": [f"{NS}:fluid"], "battery": [f"{NS}:energy"]}
+COPY_COMPONENTS = {"fluid_tank": [f"{NS}:fluid"], "pressure_bottle": [f"{NS}:fluid"], "battery": [f"{NS}:energy"]}
 
 
 def block_loot(name, drop=None):
@@ -610,6 +610,30 @@ def planet_worldgen(spec, impl, blocks):
     return out
 
 
+# Warntöne (24.6): M3 registriert warning.oxygen/heat/cold/radiation/dome; Platzhalter = Vanilla-Klangdateien
+WARNING_SOUNDS = {"warning.oxygen": "minecraft:note/pling", "warning.heat": "minecraft:note/bit",
+                  "warning.cold": "minecraft:note/icechime", "warning.radiation": "minecraft:note/didgeridoo",
+                  "warning.dome": "minecraft:note/bell"}
+
+
+def sounds():
+    write_json(f"assets/{NS}/sounds.json", {name: {"subtitle": f"subtitles.{NS}.{name}", "sounds": [file]}
+                                            for name, file in WARNING_SOUNDS.items()})
+    write_json(f"{NS}/sound_events.json", {"events": sorted(WARNING_SOUNDS)})
+
+
+def suits(spec, items):
+    """Anzüge (9.1): Equipment-Asset und Reparatur-Tag je Anzug, dessen Teile registriert sind."""
+    for sid, e in spec.balance.get("suits", {}).items():
+        if not isinstance(e, dict) or "pieces" not in e or not set(e["pieces"]) <= items:
+            continue
+        tex = f"{NS}:{sid}"
+        write_json(f"assets/{NS}/equipment/{sid}.json",
+                   {"layers": {"humanoid": [{"texture": tex}], "humanoid_leggings": [{"texture": tex}]}})
+        if e.get("repair_item"):
+            write_json(f"data/{NS}/tags/item/repairs_{sid}.json", {"values": [e["repair_item"]]})
+
+
 def main():
     spec = sd.load()
     impl = json.loads(IMPL.read_text(encoding="utf-8"))
@@ -781,6 +805,10 @@ def main():
         nbt = OUT / "data" / NS / "structure" / "gametest" / f"{sname}.nbt"
         nbt.parent.mkdir(parents=True, exist_ok=True)
         nbt.write_bytes(empty_structure_nbt(size))
+
+    # Warntöne (24.6) und Anzüge (9.1)
+    sounds()
+    suits(spec, items)
 
     # Planeten (13.1), ihre Weltgenerierung (13.4) und Schadensarten der Umwelt (8.2)
     planet_resources(spec, impl)

@@ -70,6 +70,7 @@ public final class InfiniteHorizon {
         ModMenus.init();
         ModCreativeTabs.init();
         ModPayloads.init();
+        de.infinitehorizon.registry.ModSounds.init();
     }
 
     /** Server-Reload-Listener (Datapack-Daten). */

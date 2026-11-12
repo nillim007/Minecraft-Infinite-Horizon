@@ -1,0 +1,20 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:oxygen_canister",
+      "count": 2
+    },
+    {
+      "ingredient": "infinite_horizon:titanium_plate",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:large_oxygen_canister",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

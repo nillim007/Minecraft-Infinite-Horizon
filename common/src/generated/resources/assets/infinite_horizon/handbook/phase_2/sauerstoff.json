@@ -1,0 +1,169 @@
+{
+  "id": "infinite_horizon:phase_2/sauerstoff",
+  "chapter": "infinite_horizon:phase_2",
+  "title": "infinite_horizon.handbook.phase_2.sauerstoff.title",
+  "icon": "infinite_horizon:oxygen_canister",
+  "order": 40,
+  "unlock": "infinite_horizon:research_tier/1",
+  "items": [
+    "infinite_horizon:oxygen_canister",
+    "infinite_horizon:large_oxygen_canister",
+    "infinite_horizon:pressure_bottle"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.sauerstoff.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.sauerstoff.e1",
+      "level": 2
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.phase_2.sauerstoff.e2.h0",
+        "infinite_horizon.handbook.phase_2.sauerstoff.e2.h1"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_2.sauerstoff.e2.r0.0",
+          "infinite_horizon.handbook.phase_2.sauerstoff.e2.r0.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.sauerstoff.e2.r1.0",
+          "infinite_horizon.handbook.phase_2.sauerstoff.e2.r1.1"
+        ]
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_2.sauerstoff.e3.0",
+        "infinite_horizon.handbook.phase_2.sauerstoff.e3.1",
+        "infinite_horizon.handbook.phase_2.sauerstoff.e3.2"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.sauerstoff.e4"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.sauerstoff.e5",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.sauerstoff.e6"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:pressure_bottle",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_2.sauerstoff.e7.0.label",
+          "infinite_horizon.handbook.phase_2.sauerstoff.e7.0.value"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.sauerstoff.e8",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/oxygen_canister",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:oxygen_canister",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/large_oxygen_canister",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:oxygen_canister"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:large_oxygen_canister",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/pressure_bottle",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:pressure_bottle",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.sauerstoff.e10",
+      "style": "tip"
+    }
+  ]
+}

@@ -268,6 +268,20 @@ def breathing_mask(entity):
     return png_sized(out)
 
 
+# Anzug-Schichten (Equipment-Asset, 64 x 32) in #E8E8E8 mit Akzent #E07B20 (24.5)
+def suit_layer(seed):
+    r = rng(seed)
+    base, accent = rgb("#E8E8E8"), rgb("#E07B20")
+    out = []
+    for y in range(32):
+        row = []
+        for x in range(64):
+            c = accent if (y % 8 == 7 or x % 16 == 0) else base
+            row.append(shade(c, 0.9 + (next(r) % 20) / 100) + (255,))
+        out.append(row)
+    return png_sized(out)
+
+
 def put(path, data):
     """Schreibt eine Platzhalter-Textur; vorhandene Dateien (z. B. fertige Grafiken) bleiben ohne --force erhalten."""
     if path.exists() and not FORCE:
@@ -340,6 +354,15 @@ def main():
                 continue
             (OUT / "entity" / "breathing_mask").mkdir(parents=True, exist_ok=True)
             n += put(OUT / "entity" / "breathing_mask" / f"{name}.png", breathing_mask(mob["entity"]))
+    registered = set(impl.get("items", []))
+    for sid, e in spec.balance.get("suits", {}).items():
+        if not isinstance(e, dict) or "pieces" not in e or not set(e["pieces"]) <= registered:
+            continue
+        if only and f"equipment_{sid}" not in only:
+            continue
+        for layer in ("humanoid", "humanoid_leggings"):
+            (OUT / "entity" / "equipment" / layer).mkdir(parents=True, exist_ok=True)
+            n += put(OUT / "entity" / "equipment" / layer / f"{sid}.png", suit_layer(sid + layer))
     print(f"{n} Platzhalter-Texturen erzeugt in {OUT.relative_to(sd.ROOT)}")
 
 

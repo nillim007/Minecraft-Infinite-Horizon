@@ -61,7 +61,21 @@
     "biome.infinite_horizon.moon_highlands": "Mond-Hochland",
     "biome.infinite_horizon.moon_mare": "Mare",
     "biome.infinite_horizon.moon_great_crater": "Mond-Großkrater",
-    "biome.infinite_horizon.moon_polar_crater": "Mond-Polarkrater"
+    "biome.infinite_horizon.moon_polar_crater": "Mond-Polarkrater",
+    "gui.infinite_horizon.oxygen": "O₂: %s / %s mB",
+    "hud.infinite_horizon.oxygen": "Sauerstoff",
+    "hud.infinite_horizon.pressure": "Druck",
+    "hud.infinite_horizon.heat": "Hitze",
+    "hud.infinite_horizon.cold": "Kälte",
+    "hud.infinite_horizon.suit_oxygen": "Anzug-O₂ %s / %s mB",
+    "hud.infinite_horizon.radiation": "Strahlung",
+    "subtitles.infinite_horizon.warning.oxygen": "Warnton: Sauerstoff",
+    "subtitles.infinite_horizon.warning.heat": "Warnton: Hitze",
+    "subtitles.infinite_horizon.warning.cold": "Warnton: Kälte",
+    "subtitles.infinite_horizon.warning.radiation": "Warnton: Strahlung",
+    "subtitles.infinite_horizon.warning.dome": "Warnton: Kuppel",
+    "hud.infinite_horizon.radiation_value": "Strahlung %s",
+    "hud.infinite_horizon.temperature_value": "%s °C"
   },
   "en_us": {
     "itemGroup.infinite_horizon": "Infinite Horizon",
@@ -124,6 +138,20 @@
     "biome.infinite_horizon.moon_highlands": "Moon Highlands",
     "biome.infinite_horizon.moon_mare": "Moon Mare",
     "biome.infinite_horizon.moon_great_crater": "Moon Great Crater",
-    "biome.infinite_horizon.moon_polar_crater": "Moon Polar Crater"
+    "biome.infinite_horizon.moon_polar_crater": "Moon Polar Crater",
+    "gui.infinite_horizon.oxygen": "O₂: %s / %s mB",
+    "hud.infinite_horizon.oxygen": "Oxygen",
+    "hud.infinite_horizon.pressure": "Pressure",
+    "hud.infinite_horizon.heat": "Heat",
+    "hud.infinite_horizon.cold": "Cold",
+    "hud.infinite_horizon.suit_oxygen": "Suit O₂ %s / %s mB",
+    "hud.infinite_horizon.radiation": "Radiation",
+    "subtitles.infinite_horizon.warning.oxygen": "Warning: oxygen",
+    "subtitles.infinite_horizon.warning.heat": "Warning: heat",
+    "subtitles.infinite_horizon.warning.cold": "Warning: cold",
+    "subtitles.infinite_horizon.warning.radiation": "Warning: radiation",
+    "subtitles.infinite_horizon.warning.dome": "Warning: dome",
+    "hud.infinite_horizon.radiation_value": "Radiation %s",
+    "hud.infinite_horizon.temperature_value": "%s °C"
   }
 }

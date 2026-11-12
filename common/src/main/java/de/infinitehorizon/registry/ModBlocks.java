@@ -62,6 +62,12 @@ public final class ModBlocks {
     public static final Supplier<Block> REFINERY_CONTROLLER = register("refinery_controller",
             p -> new MachineBlock(p, () -> ModBlockEntities.REFINERY_CONTROLLER.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> OXYGEN_GENERATOR = register("oxygen_generator",
+            p -> new MachineBlock(p, () -> ModBlockEntities.OXYGEN_GENERATOR.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> PRESSURE_BOTTLE = register("pressure_bottle",
+            p -> new MachineBlock(p, () -> ModBlockEntities.PRESSURE_BOTTLE.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Supplier<Block> REFINERY_CASING = register("refinery_casing", MultiblockPartBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Supplier<Block> ITEM_PORT = register("item_port",

@@ -27,7 +27,10 @@
     "titanium_dust",
     "titanium_ingot",
     "titanium_plate",
-    "titanium_rod"
+    "titanium_rod",
+    "pressure_hull",
+    "oxygen_canister",
+    "large_oxygen_canister"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,
@@ -36,6 +39,8 @@
     "press_mold_plate": 1,
     "press_mold_rod": 1,
     "press_mold_wire": 1,
-    "speed_upgrade": 16
+    "speed_upgrade": 16,
+    "oxygen_canister": 1,
+    "large_oxygen_canister": 1
   }
 }

@@ -113,9 +113,25 @@ public final class HandbookClient {
 
     /** Hinweis „H: Handbuch“ an Items mit eigener Seite. */
     public static void appendTooltip(ItemStack stack, List<Component> lines) {
+        oxygenTooltip(stack, lines);
         if (pageFor(stack) != null) {
             lines.add(Component.translatable("gui." + InfiniteHorizon.MOD_ID + ".handbook.hint", KEY.getTranslatedKeyMessage())
                     .withStyle(ChatFormatting.GRAY));
+        }
+    }
+
+    /** O₂ in Anzug-Brustplatten und Sauerstoffflaschen (9.1, {@code gui.infinite_horizon.oxygen}). */
+    private static void oxygenTooltip(ItemStack stack, List<Component> lines) {
+        String key = "gui." + InfiniteHorizon.MOD_ID + ".oxygen";
+        if (de.infinitehorizon.environment.Suits.tierOf(stack, 1) != null) {
+            lines.add(Component.translatable(key, de.infinitehorizon.environment.Suits.oxygen(stack),
+                    de.infinitehorizon.environment.Suits.supply().capacity()).withStyle(ChatFormatting.AQUA));
+            return;
+        }
+        var spec = de.infinitehorizon.core.fluid.ComponentContainers.spec(stack);
+        if (spec != null) {
+            lines.add(Component.translatable(key, de.infinitehorizon.core.fluid.ComponentContainers.content(stack).amount(),
+                    spec.capacity()).withStyle(ChatFormatting.AQUA));
         }
     }
 

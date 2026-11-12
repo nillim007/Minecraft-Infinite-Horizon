@@ -28,6 +28,10 @@ public class InfiniteHorizonNeoForgeClient {
 
     public InfiniteHorizonNeoForgeClient(IEventBus modBus) {
         modBus.addListener((RegisterMenuScreensEvent e) -> e.register(ModMenus.MACHINE.get(), MachineScreen::new));
+        // Umwelt-HUD (8.4) über der Hungerleiste
+        modBus.addListener((net.neoforged.neoforge.client.event.RegisterGuiLayersEvent e) -> e.registerAbove(
+                net.neoforged.neoforge.client.gui.VanillaGuiLayers.FOOD_LEVEL, de.infinitehorizon.InfiniteHorizon.id("hazards"),
+                de.infinitehorizon.client.HazardHud::render));
         // Atemmaske der Planetenmonster (13.5)
         modBus.addListener((net.neoforged.neoforge.client.event.EntityRenderersEvent.AddLayers e) -> {
             for (net.minecraft.world.entity.EntityType<?> type : de.infinitehorizon.client.BreathingMaskLayer.types()) {

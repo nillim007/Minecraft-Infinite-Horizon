@@ -91,6 +91,20 @@ public final class ModBlockEntities {
                             (pos, state) -> new BatteryBlockEntity(ModBlockEntities.BATTERY.get(), pos, state),
                             ModBlocks.BATTERY.get()));
 
+    public static final Supplier<BlockEntityType<de.infinitehorizon.machine.OxygenGeneratorBlockEntity>> OXYGEN_GENERATOR =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "oxygen_generator",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.machine.OxygenGeneratorBlockEntity(
+                                    ModBlockEntities.OXYGEN_GENERATOR.get(), pos, state),
+                            ModBlocks.OXYGEN_GENERATOR.get()));
+
+    /** Druckflasche (6.3): Tank nur für Gase, Werte aus storage.json; behält beim Abbauen den Inhalt. */
+    public static final Supplier<BlockEntityType<FluidTankBlockEntity>> PRESSURE_BOTTLE =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "pressure_bottle",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new FluidTankBlockEntity(ModBlockEntities.PRESSURE_BOTTLE.get(), pos, state),
+                            ModBlocks.PRESSURE_BOTTLE.get()));
+
     /** Ein Typ für alle Ports; das Verhalten folgt aus {@link de.infinitehorizon.multiblock.PortBlock.PortType}. */
     public static final Supplier<BlockEntityType<PortBlockEntity>> PORT =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "port",
@@ -118,6 +132,9 @@ public final class ModBlockEntities {
         Services.ENERGY.expose(FUEL_GENERATOR);
         Services.FLUID.expose(FUEL_GENERATOR);
         Services.ENERGY.expose(BATTERY);
+        Services.ENERGY.expose(OXYGEN_GENERATOR);
+        Services.FLUID.expose(OXYGEN_GENERATOR);
+        Services.FLUID.expose(PRESSURE_BOTTLE);
         Services.FLUID.expose(PORT);
     }
 }

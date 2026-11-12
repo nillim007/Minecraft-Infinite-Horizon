@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "infinite_horizon:block/pressure_bottle_front_idle",
+    "side": "infinite_horizon:block/pressure_bottle",
+    "top": "infinite_horizon:block/pressure_bottle_top"
+  }
+}

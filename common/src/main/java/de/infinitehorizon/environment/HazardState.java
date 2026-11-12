@@ -16,11 +16,26 @@ import java.util.Map;
 public final class HazardState {
 
     public static final MapCodec<HazardState> MAP_CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
-            Codec.unboundedMap(Codec.STRING, Codec.INT).optionalFieldOf("buildup", Map.of()).forGetter(HazardState::encode)
-    ).apply(i, HazardState::decode));
+            Codec.unboundedMap(Codec.STRING, Codec.INT).optionalFieldOf("buildup", Map.of()).forGetter(HazardState::encode),
+            Codec.LONG.optionalFieldOf("suit_oxygen_counter", 0L).forGetter(HazardState::suitOxygenCounter)
+    ).apply(i, (map, counter) -> {
+        HazardState s = decode(map);
+        s.suitOxygenCounter = counter;
+        return s;
+    }));
     public static final Codec<HazardState> CODEC = MAP_CODEC.codec();
 
     private final EnumMap<Hazard, Integer> buildup = new EnumMap<>(Hazard.class);
+    /** Zähler für den O₂-Verbrauch des Anzugs in 1/1.000 mB (9.1). */
+    private long suitOxygenCounter;
+
+    public long suitOxygenCounter() {
+        return suitOxygenCounter;
+    }
+
+    public void setSuitOxygenCounter(long value) {
+        suitOxygenCounter = value;
+    }
 
     public int buildup(Hazard h) {
         return buildup.getOrDefault(h, 0);
@@ -41,6 +56,7 @@ public final class HazardState {
 
     public void reset() {
         buildup.clear();
+        suitOxygenCounter = 0;
     }
 
     private Map<String, Integer> encode() {

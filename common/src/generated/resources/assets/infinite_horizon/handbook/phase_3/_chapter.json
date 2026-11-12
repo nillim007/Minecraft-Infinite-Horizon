@@ -1,0 +1,7 @@
+{
+  "id": "infinite_horizon:phase_3",
+  "title": "infinite_horizon.handbook.chapter.phase_3",
+  "icon": "infinite_horizon:dome_generator_t1",
+  "order": 30,
+  "unlock": "infinite_horizon:research_tier/2"
+}

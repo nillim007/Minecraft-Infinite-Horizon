@@ -104,8 +104,21 @@
       "key": "infinite_horizon.handbook.start.umwelt.e15"
     },
     {
-      "type": "callout",
+      "type": "heading",
       "key": "infinite_horizon.handbook.start.umwelt.e16",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.umwelt.e17"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.start.umwelt.e18"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.start.umwelt.e19",
       "style": "tip"
     }
   ]

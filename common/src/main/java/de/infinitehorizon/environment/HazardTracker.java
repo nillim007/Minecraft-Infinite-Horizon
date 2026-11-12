@@ -13,6 +13,12 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.levelgen.Heightmap;
 import org.jspecify.annotations.Nullable;
+import de.infinitehorizon.core.fluid.ComponentContainers;
+import de.infinitehorizon.data.ServerConfig;
+import de.infinitehorizon.network.HazardStatePayload;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.world.entity.player.Inventory;
+import net.minecraft.world.item.ItemStack;
 
 import java.util.EnumMap;
 import java.util.HashMap;
@@ -32,7 +38,13 @@ public final class HazardTracker {
         @Nullable ResourceKey<Level> dimension;
         final Map<Hazard, Integer> damage = new EnumMap<>(Hazard.class);
         @Nullable EnvironmentResult last;
+        @Nullable HazardStatePayload lastSent;
     }
+
+    /** Schlüssel der Server-Config für den O₂-Verbrauchsfaktor der Anzüge (24.4). */
+    public static final String OXYGEN_CONSUMPTION_KEY = "oxygen_consumption";
+    /** Der Verbrauchszähler rechnet in 1/1.000 mB (9.1). */
+    private static final long MILLI = 1000;
 
     private static final Map<UUID, Timers> TIMERS = new HashMap<>();
     private static @Nullable BalanceManager rulesSource;
@@ -63,6 +75,7 @@ public final class HazardTracker {
                 t.dimension = dim;
                 t.untilCheck = r.intervalTicks();
             }
+            keepAirWithSuit(player);
             if (--t.untilCheck > 0) {
                 continue;
             }
@@ -80,16 +93,62 @@ public final class HazardTracker {
         return t == null ? null : t.last;
     }
 
-    /** Umweltwerte an der Position des Spielers mit seinem Schutz (in M3b: ohne Anzug). */
+    /** Umweltwerte an der Position des Spielers mit seinem Schutz (Anzug 9.1, sonst Schutz ohne Anzug 8.3). */
     public static EnvironmentResult evaluate(ServerPlayer player, EnvironmentRules r) {
         ServerLevel level = player.level();
         BlockPos pos = player.blockPosition();
         PlanetResolver.Resolved res = PlanetResolver.at(level, pos);
         int cover = coverBlocks(level, pos, r.radiation().coverBlocks());
-        // TODO(M3d): Schutz aus dem Anzug; M3e: Kuppel; Kapitel 19: Sonnensturm
+        Suits.Tier suit = Suits.worn(player);
+        Protection protection = suit == null ? r.noSuit() : Suits.protection(suit, Suits.oxygen(Suits.chestplate(player)));
+        // Kuppel (M3e) und Sonnensturm (Kapitel 19) folgen
         EnvironmentInput in = new EnvironmentInput(res.planet(), res.zones(), res.biome(), level.getOverworldClockTime(),
-                cover, false, null, r.noSuit());
+                cover, false, null, protection);
         return EnvironmentCalculator.compute(in, r);
+    }
+
+    /** Vollständiger Anzug mit O₂: Der Vanilla-Luftvorrat bleibt unter Wasser voll (9.1). */
+    private static void keepAirWithSuit(ServerPlayer player) {
+        if (player.getAirSupply() >= player.getMaxAirSupply()) {
+            return;
+        }
+        if (Suits.worn(player) != null && Suits.oxygen(Suits.chestplate(player)) > 0) {
+            player.setAirSupply(player.getMaxAirSupply());
+        }
+    }
+
+    /**
+     * O₂ des Anzugs (9.1): Nachfüllen aus Flaschen im Inventar (0–35, dann Zweithand), dann Verbrauch mit vollständigem
+     * Anzug außerhalb von {@code breathable}. Kreativ und Zuschauer verbrauchen nichts.
+     */
+    static void suitOxygen(ServerPlayer player, HazardState state, EnvironmentResult result, boolean exempt, int interval) {
+        ItemStack chest = Suits.chestplate(player);
+        if (Suits.tierOf(chest, 1) == null) {
+            return;
+        }
+        int capacity = Suits.supply().capacity();
+        int oxygen = Suits.oxygen(chest);
+        if (oxygen < capacity) {
+            Inventory inv = player.getInventory();
+            for (int slot = 0; slot <= Inventory.INVENTORY_SIZE && oxygen < capacity; slot++) {
+                ItemStack can = slot < Inventory.INVENTORY_SIZE ? inv.getItem(slot) : player.getOffhandItem();
+                if (!ComponentContainers.hasContent(can)
+                        || !Suits.supply().refillItems().contains(BuiltInRegistries.ITEM.getKey(can.getItem()).toString())) {
+                    continue;
+                }
+                oxygen += (int) ComponentContainers.drain(can, capacity - oxygen).amount();
+            }
+            Suits.setOxygen(chest, oxygen);
+        }
+        Suits.Tier suit = Suits.worn(player);
+        if (suit == null || result.breathable() || exempt || oxygen <= 0) {
+            return;
+        }
+        double factor = ServerConfig.get().getDouble(OXYGEN_CONSUMPTION_KEY);
+        long counter = state.suitOxygenCounter() + Suits.consumptionMilli(suit, interval, factor);
+        int used = (int) Math.min(oxygen, counter / MILLI);
+        state.setSuitOxygenCounter(used < oxygen ? counter - (long) used * MILLI : 0);
+        Suits.setOxygen(chest, oxygen - used);
     }
 
     private static void check(ServerPlayer player, Timers t, EnvironmentRules r) {
@@ -97,6 +156,7 @@ public final class HazardTracker {
         t.last = result;
         HazardState state = Services.ATTACHMENTS.hazardState(player);
         boolean exempt = player.isCreative() || player.isSpectator();
+        suitOxygen(player, state, result, exempt, r.intervalTicks());
         for (Hazard h : Hazard.values()) {
             EnvironmentRules.HazardRule rule = r.hazards().get(h);
             boolean active = !exempt && result.has(h);
@@ -113,6 +173,27 @@ public final class HazardTracker {
                 timer -= d.damageInterval();
             }
             t.damage.put(h, timer);
+        }
+        sendState(player, t, state, result, r);
+    }
+
+    /** {@code HazardStatePayload} (3A.5) bei Änderung, höchstens einmal je Prüftakt. */
+    private static void sendState(ServerPlayer player, Timers t, HazardState state, EnvironmentResult result,
+                                  EnvironmentRules r) {
+        byte[] percent = new byte[HazardStatePayload.BARS.length];
+        for (int i = 0; i < percent.length; i++) {
+            double f = 0;
+            for (Hazard h : HazardStatePayload.BARS[i]) {
+                f = Math.max(f, state.fraction(h, r.hazards().get(h).buildupTicks()));
+            }
+            percent[i] = (byte) Math.round(f * 100);
+        }
+        int suitOxygen = Suits.worn(player) == null ? -1 : Suits.oxygen(Suits.chestplate(player));
+        HazardStatePayload payload = new HazardStatePayload(percent, (int) Math.round(result.temperature()),
+                (byte) result.pressure().ordinal(), (byte) result.radiation(), result.breathable(), suitOxygen);
+        if (!payload.equals(t.lastSent)) {
+            t.lastSent = payload;
+            Services.NETWORK.sendToPlayer(player, payload);
         }
     }
 

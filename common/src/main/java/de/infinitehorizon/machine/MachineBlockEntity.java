@@ -6,6 +6,7 @@ import de.infinitehorizon.api.energy.EnergyTarget;
 import de.infinitehorizon.api.fluid.FluidNode;
 import de.infinitehorizon.api.fluid.FluidTarget;
 import de.infinitehorizon.block.FluidPipeBlock;
+import de.infinitehorizon.core.fluid.ComponentContainers;
 import de.infinitehorizon.core.fluid.FluidContainers;
 import de.infinitehorizon.core.fluid.FluidIds;
 import de.infinitehorizon.core.fluid.IhFluidStack;
@@ -435,10 +436,23 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
         List<IhFluidTank> sources = fillSources();
         for (int i = l.fillStart(); i < l.drainStart() && i < items.size() && !sources.isEmpty(); i++) {
             ItemStack empty = items.get(i);
+            IhFluidTank tank = sources.get(Math.min(selectedTank, sources.size() - 1));
+            // Behälter mit Komponente (Sauerstoffflaschen, ab M3): sofort, so viel wie passt
+            if (ComponentContainers.canFill(empty, tank.stack().fluid()) && !tank.stack().isEmpty()) {
+                long want = ComponentContainers.spec(empty).capacity() - ComponentContainers.content(empty).amount();
+                try (Transaction tx = Transaction.open()) {
+                    IhFluidStack got = tank.extract(tank.stack().fluid(), want, tx);
+                    if (!got.isEmpty()) {
+                        ComponentContainers.fill(empty, got.fluid(), got.amount());
+                        tx.commit();
+                        setChanged();
+                    }
+                }
+                continue;
+            }
             if (empty.getCount() != 1 || !FluidContainers.isEmptyContainer(empty)) {
                 continue;
             }
-            IhFluidTank tank = sources.get(Math.min(selectedTank, sources.size() - 1));
             FluidContainers.Entry e = FluidContainers.fillable(empty, tank.stack().fluid());
             if (e != null && tank.stack().amount() >= e.amount()) {
                 try (Transaction tx = Transaction.open()) {
@@ -451,6 +465,24 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
         }
         for (int i = l.drainStart(); i < l.total() && i < items.size(); i++) {
             ItemStack full = items.get(i);
+            if (ComponentContainers.hasContent(full)) {
+                IhFluidStack c = ComponentContainers.content(full);
+                for (IhFluidTank tank : inputTanks()) {
+                    if (!tank.accepts(c.fluid()) || tank.space() <= 0) {
+                        continue;
+                    }
+                    try (Transaction tx = Transaction.open()) {
+                        long moved = tank.insert(IhFluidStack.of(c.fluid(), Math.min(c.amount(), tank.space())), tx);
+                        if (moved > 0) {
+                            ComponentContainers.drain(full, moved);
+                            tx.commit();
+                            setChanged();
+                        }
+                    }
+                    break;
+                }
+                continue;
+            }
             FluidContainers.Entry e = full.getCount() == 1 ? FluidContainers.ofFull(full) : null;
             if (e == null) {
                 continue;
@@ -592,8 +624,8 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
             case UPGRADE -> BalanceManager.get().upgradeSlotOf(BuiltInRegistries.ITEM.getKey(stack.getItem()).toString())
                     == slot - l.upgradeStart() + 1;
             case FUEL -> FuelHelper.isFuel(stack);
-            case FILL -> FluidContainers.isEmptyContainer(stack);
-            case DRAIN -> FluidContainers.ofFull(stack) != null;
+            case FILL -> FluidContainers.isEmptyContainer(stack) || ComponentContainers.canFill(stack, null);
+            case DRAIN -> FluidContainers.ofFull(stack) != null || ComponentContainers.hasContent(stack);
             default -> false;
         };
     }
@@ -621,8 +653,9 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
         return switch (layout().role(slot)) {
             case OUTPUT -> true;
             // Trichter ziehen aus dem Füllslot nur volle, aus dem Leerslot nur leere Behälter (4.1)
-            case FILL -> FluidContainers.ofFull(stack) != null;
-            case DRAIN -> FluidContainers.isEmptyContainer(stack);
+            case FILL -> FluidContainers.ofFull(stack) != null || ComponentContainers.isFull(stack);
+            case DRAIN -> FluidContainers.isEmptyContainer(stack)
+                    || (ComponentContainers.spec(stack) != null && !ComponentContainers.hasContent(stack));
             default -> false;
         };
     }

@@ -40,6 +40,12 @@ Im Kreativ- und im Zuschauermodus gibt es keine Belastung. Nach dem Tod beginnt 
 
 @warning Die Belastung kündigt sich nur kurz an: Nach {{value:environment:oxygen.buildup_ticks|t}} im Vakuum beginnt der Schaden. Geh nie ohne Plan nach draußen.
 
+## Die Anzeige im HUD
+
+Über der Hungerleiste erscheint für jede Gefahr eine eigene Leiste, sobald ihre Belastung steigt. Sie ist grün, wird ab {{value:environment:hud.yellow_from|%}} gelb und ab {{value:environment:hud.red_from|%}} rot. Beim Erscheinen ertönt ein Warnton.
+
+Trägst du einen vollständigen [[raumanzug|Druckanzug]] außerhalb atembarer Luft, zeigt eine weitere Leiste seinen Sauerstoffvorrat. Liegen Temperatur oder Strahlung außerhalb dessen, was du ohne Anzug verträgst, stehen ihre Werte darüber.
+
 ## Schwerkraft
 
 Jede Welt hat ihre eigene Schwerkraft. Auf dem Mond beträgt sie das {{value:planet:moon.gravity}}-Fache der Erde. Du fällst langsamer, springst viel höher und überstehst tiefe Stürze ohne Schaden: Die sichere Fallhöhe ({{value:misc:gravity.safe_fall_distance_numerator}} Blöcke auf der Erde) wird durch die Schwerkraft geteilt, und Fallschaden wird im selben Maß kleiner.

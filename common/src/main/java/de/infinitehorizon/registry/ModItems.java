@@ -50,6 +50,18 @@ public final class ModItems {
     public static final Supplier<Item> ITEM_PORT = blockItem("item_port", ModBlocks.ITEM_PORT);
     public static final Supplier<Item> FLUID_PORT = blockItem("fluid_port", ModBlocks.FLUID_PORT);
     public static final Supplier<Item> ENERGY_PORT = blockItem("energy_port", ModBlocks.ENERGY_PORT);
+    public static final Supplier<Item> OXYGEN_GENERATOR = blockItem("oxygen_generator", ModBlocks.OXYGEN_GENERATOR);
+    public static final Supplier<Item> PRESSURE_BOTTLE = blockItem("pressure_bottle", ModBlocks.PRESSURE_BOTTLE);
+
+    /** Druckanzug T1 (9.1): Rüstung wie Eisen, Brustplatte mit O₂-Vorrat (Komponente {@code infinite_horizon:oxygen}). */
+    public static final Supplier<Item> PRESSURE_SUIT_HELMET = suitPiece("pressure_suit", "helmet",
+            net.minecraft.world.item.equipment.ArmorType.HELMET);
+    public static final Supplier<Item> PRESSURE_SUIT_CHESTPLATE = suitPiece("pressure_suit", "chestplate",
+            net.minecraft.world.item.equipment.ArmorType.CHESTPLATE);
+    public static final Supplier<Item> PRESSURE_SUIT_LEGGINGS = suitPiece("pressure_suit", "leggings",
+            net.minecraft.world.item.equipment.ArmorType.LEGGINGS);
+    public static final Supplier<Item> PRESSURE_SUIT_BOOTS = suitPiece("pressure_suit", "boots",
+            net.minecraft.world.item.equipment.ArmorType.BOOTS);
 
     /** Ingenieurs-Handbuch (24.1): Rechtsklick öffnet das Buch-GUI. */
     public static final Supplier<Item> ENGINEERS_HANDBOOK = register("engineers_handbook",
@@ -63,6 +75,12 @@ public final class ModItems {
             int max = stacks.has(id) ? stacks.get(id).getAsInt() : 0;
             SIMPLE.put(id, max > 0 ? register(id, p -> new Item(p.stacksTo(max))) : item(id));
         }
+    }
+
+    /** Anzugteil {@code <anzug>_<teil>} mit dem Rüstungsmaterial aus suits.json. */
+    public static Supplier<Item> suitPiece(String suit, String piece, net.minecraft.world.item.equipment.ArmorType type) {
+        return register(suit + "_" + piece, p -> new Item(p.stacksTo(1).humanoidArmor(
+                de.infinitehorizon.item.SuitArmor.material(suit), type)));
     }
 
     /** Registriert ein Item mit eigener Fabrik (Eigenschaften mit gesetzter ID). */

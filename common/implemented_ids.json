@@ -28,7 +28,9 @@
     "infinite_horizon:moon_regolith": "simple_block",
     "infinite_horizon:moon_ice": "simple_block",
     "infinite_horizon:moon_aluminum_ore": "simple_block",
-    "infinite_horizon:moon_titanium_ore": "simple_block"
+    "infinite_horizon:moon_titanium_ore": "simple_block",
+    "infinite_horizon:oxygen_generator": "machine",
+    "infinite_horizon:pressure_bottle": "machine"
   },
   "items": [
     "infinite_horizon:aluminum_dust",
@@ -59,7 +61,14 @@
     "infinite_horizon:titanium_dust",
     "infinite_horizon:titanium_ingot",
     "infinite_horizon:titanium_plate",
-    "infinite_horizon:titanium_rod"
+    "infinite_horizon:titanium_rod",
+    "infinite_horizon:pressure_hull",
+    "infinite_horizon:oxygen_canister",
+    "infinite_horizon:large_oxygen_canister",
+    "infinite_horizon:pressure_suit_helmet",
+    "infinite_horizon:pressure_suit_chestplate",
+    "infinite_horizon:pressure_suit_leggings",
+    "infinite_horizon:pressure_suit_boots"
   ],
   "fluids": [
     "crude_oil",
@@ -67,10 +76,14 @@
     "hydrogen",
     "oxygen"
   ],
-  "step": "3c",
+  "step": "3d",
   "dimensions": ["infinite_horizon:moon"],
   "item_classes": {
     "_comment": "Items mit eigenem Verhalten; sie fehlen in simple_items.json und werden in ModItems registriert.",
-    "infinite_horizon:engineers_handbook": "handbook"
+    "infinite_horizon:engineers_handbook": "handbook",
+    "infinite_horizon:pressure_suit_helmet": "suit",
+    "infinite_horizon:pressure_suit_chestplate": "suit",
+    "infinite_horizon:pressure_suit_leggings": "suit",
+    "infinite_horizon:pressure_suit_boots": "suit"
   }
 }

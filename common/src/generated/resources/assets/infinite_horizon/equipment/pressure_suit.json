@@ -1,0 +1,14 @@
+{
+  "layers": {
+    "humanoid": [
+      {
+        "texture": "infinite_horizon:pressure_suit"
+      }
+    ],
+    "humanoid_leggings": [
+      {
+        "texture": "infinite_horizon:pressure_suit"
+      }
+    ]
+  }
+}

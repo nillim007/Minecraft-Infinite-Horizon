@@ -323,4 +323,24 @@ public class IhFabricGameTests {
     public void moonGotoLandsonsolidground(GameTestHelper helper) {
         IhGameTestsM3c.gotoLandsOnSolidGround(helper);
     }
+
+    @GameTest(maxTicks = 220)
+    public void suitMoonoverrideNostrain590mb(GameTestHelper helper) {
+        IhGameTestsM3d.suitProtectsOnMoon(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void suitIncompleteNoprotection(GameTestHelper helper) {
+        IhGameTestsM3d.incompleteSuitDoesNotProtect(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void oxygengeneratorFillslotCanisterfullafter1tick(GameTestHelper helper) {
+        IhGameTestsM3d.generatorFillsCanister(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void pressurebottleOnlygas(GameTestHelper helper) {
+        IhGameTestsM3d.pressureBottleOnlyGas(helper);
+    }
 }

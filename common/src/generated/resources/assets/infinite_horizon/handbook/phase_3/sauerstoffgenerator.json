@@ -1,0 +1,144 @@
+{
+  "id": "infinite_horizon:phase_3/sauerstoffgenerator",
+  "chapter": "infinite_horizon:phase_3",
+  "title": "infinite_horizon.handbook.phase_3.sauerstoffgenerator.title",
+  "icon": "infinite_horizon:oxygen_generator",
+  "order": 20,
+  "unlock": "infinite_horizon:research_tier/2",
+  "items": [
+    "infinite_horizon:oxygen_generator",
+    "infinite_horizon:pressure_hull"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e0"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:oxygen_generator",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e1.0.label",
+          "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e1.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e1.1.label",
+          "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e1.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e1.2.label",
+          "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e1.2.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e1.3.label",
+          "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e1.3.value"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e2",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e3.0",
+        "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e3.1",
+        "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e3.2",
+        "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e3.3"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e4"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e5",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e6"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/pressure_hull",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:pressure_hull",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/oxygen_generator",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:pressure_hull"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:oxygen_generator",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.sauerstoffgenerator.e8",
+      "style": "tip"
+    }
+  ]
+}

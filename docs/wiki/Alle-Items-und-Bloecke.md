@@ -15,6 +15,12 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Aluminiumstaub](Zerkleinerer.md) | Item | Maschine |
 | [Bauxit](Rohstoffe-und-Erze.md) | Item | Abbau |
 | [Bauxiterz](Rohstoffe-und-Erze.md) | Block | Weltgenerierung |
+| [Druckanzug-Brustplatte](Der-Druckanzug.md) | Item | Rezept |
+| [Druckanzug-Helm](Der-Druckanzug.md) | Item | Rezept |
+| [Druckanzug-Hose](Der-Druckanzug.md) | Item | Rezept |
+| [Druckanzug-Stiefel](Der-Druckanzug.md) | Item | Rezept |
+| [Druckflasche](Sauerstoff-speichern.md) | Block | Rezept |
+| [Druckhülle](Sauerstoffgenerator.md) | Item | Rezept |
 | [Effizienz-Upgrade](Upgrades.md) | Item | Rezept |
 | [Eisenplatte](Presse.md) | Item | Maschine |
 | [Eisenstange](Presse.md) | Item | Maschine |
@@ -27,6 +33,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Geschwindigkeits-Upgrade](Upgrades.md) | Item | Rezept |
 | [Golddraht](Presse.md) | Item | Maschine |
 | [Goldstaub](Zerkleinerer.md) | Item | Maschine |
+| [Große Sauerstoffflasche](Sauerstoff-speichern.md) | Item | Rezept |
 | [Ingenieurs-Handbuch](Willkommen-bei-Infinite-Horizon.md) | Item | Geschenk beim ersten Betreten, Rezept |
 | [Item-Port](Raffinerie.md) | Block | Rezept |
 | [Kerosin](Raffinerie.md) | Fluid | Maschine |
@@ -55,6 +62,8 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Raffinerie-Gehäuse](Raffinerie.md) | Block | Rezept |
 | [Rohtitan](Rohstoffe-und-Erze.md) | Item | Abbau |
 | [Sauerstoff](Elektrolyseur.md) | Fluid | Maschine |
+| [Sauerstoffflasche](Sauerstoff-speichern.md) | Item | Rezept |
+| [Sauerstoffgenerator](Sauerstoffgenerator.md) | Block | Rezept |
 | [Schaltkreis](Montagetisch.md) | Item | Rezept |
 | [Silizium](Elektroofen.md) | Item | Maschine |
 | [Tank](Fluide-und-Rohre.md) | Block | Rezept |

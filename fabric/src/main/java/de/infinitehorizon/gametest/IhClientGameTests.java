@@ -203,6 +203,31 @@ public class IhClientGameTests implements FabricClientGameTest {
         context.waitTicks(20);
         clearChat(context);
         context.takeScreenshot("world_moon_mobs");
+        // HUD (27.5 M3d): im Vakuum ohne Anzug steigt die Belastung, mit Anzug zeigt die Leiste den O₂-Vorrat
+        sp.getServer().runCommand("gamemode survival @p");
+        context.waitTicks(60);
+        int oxygenBar = context.computeOnClient(c -> {
+            var st = de.infinitehorizon.client.HazardHud.state();
+            return st == null ? -1 : st.percentOf(0);
+        });
+        if (oxygenBar <= 0) {
+            throw new AssertionError("HUD: keine Sauerstoff-Belastung im Vakuum (" + oxygenBar + ")");
+        }
+        context.takeScreenshot("hud_hazard");
+        for (String slot : new String[]{"head|helmet", "chest|chestplate[infinite_horizon:oxygen=600]", "legs|leggings", "feet|boots"}) {
+            String[] p = slot.split("\\|");
+            sp.getServer().runCommand("item replace entity @p armor." + p[0] + " with infinite_horizon:pressure_suit_" + p[1]);
+        }
+        context.waitTicks(40);
+        int suitO2 = context.computeOnClient(c -> {
+            var st = de.infinitehorizon.client.HazardHud.state();
+            return st == null ? -2 : st.suitOxygen();
+        });
+        if (suitO2 <= 0) {
+            throw new AssertionError("HUD: Anzug-O₂ fehlt (" + suitO2 + ")");
+        }
+        context.takeScreenshot("hud_suit");
+        sp.getServer().runCommand("gamemode creative @p");
         // Gelände von oben, dann der Himmel mit der Erde (frei von Hängen und Wänden)
         context.runOnClient(c -> {
             c.player.getAbilities().flying = true;

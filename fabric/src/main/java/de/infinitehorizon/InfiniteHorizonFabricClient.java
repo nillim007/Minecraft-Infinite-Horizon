@@ -18,6 +18,10 @@ public class InfiniteHorizonFabricClient implements ClientModInitializer {
     public void onInitializeClient() {
         FabricNetworkHelper.clientEntries().forEach(InfiniteHorizonFabricClient::register);
         MenuScreens.register(ModMenus.MACHINE.get(), MachineScreen::new);
+        // Umwelt-HUD (8.4) über der Hungerleiste
+        net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry.attachElementAfter(
+                net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements.FOOD_BAR,
+                de.infinitehorizon.InfiniteHorizon.id("hazards"), de.infinitehorizon.client.HazardHud::render);
         // Atemmaske der Planetenmonster (13.5)
         java.util.List<net.minecraft.world.entity.EntityType<?>> masked = de.infinitehorizon.client.BreathingMaskLayer.types();
         net.fabricmc.fabric.api.client.rendering.v1.LivingEntityRenderLayerRegistrationCallback.EVENT.register(

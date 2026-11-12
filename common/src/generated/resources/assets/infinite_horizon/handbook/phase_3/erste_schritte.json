@@ -1,0 +1,35 @@
+{
+  "id": "infinite_horizon:phase_3/erste_schritte",
+  "chapter": "infinite_horizon:phase_3",
+  "title": "infinite_horizon.handbook.phase_3.erste_schritte.title",
+  "icon": "infinite_horizon:oxygen_generator",
+  "order": 10,
+  "unlock": "infinite_horizon:research_tier/2",
+  "items": [],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.erste_schritte.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.erste_schritte.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_3.erste_schritte.e2.0",
+        "infinite_horizon.handbook.phase_3.erste_schritte.e2.1",
+        "infinite_horizon.handbook.phase_3.erste_schritte.e2.2",
+        "infinite_horizon.handbook.phase_3.erste_schritte.e2.3"
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.erste_schritte.e3",
+      "style": "tip"
+    }
+  ]
+}

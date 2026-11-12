@@ -1,0 +1,32 @@
+{
+  "warning.oxygen": {
+    "subtitle": "subtitles.infinite_horizon.warning.oxygen",
+    "sounds": [
+      "minecraft:note/pling"
+    ]
+  },
+  "warning.heat": {
+    "subtitle": "subtitles.infinite_horizon.warning.heat",
+    "sounds": [
+      "minecraft:note/bit"
+    ]
+  },
+  "warning.cold": {
+    "subtitle": "subtitles.infinite_horizon.warning.cold",
+    "sounds": [
+      "minecraft:note/icechime"
+    ]
+  },
+  "warning.radiation": {
+    "subtitle": "subtitles.infinite_horizon.warning.radiation",
+    "sounds": [
+      "minecraft:note/didgeridoo"
+    ]
+  },
+  "warning.dome": {
+    "subtitle": "subtitles.infinite_horizon.warning.dome",
+    "sounds": [
+      "minecraft:note/bell"
+    ]
+  }
+}

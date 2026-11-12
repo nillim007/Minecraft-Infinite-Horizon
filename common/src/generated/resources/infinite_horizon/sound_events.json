@@ -1,0 +1,9 @@
+{
+  "events": [
+    "warning.cold",
+    "warning.dome",
+    "warning.heat",
+    "warning.oxygen",
+    "warning.radiation"
+  ]
+}
