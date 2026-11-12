@@ -78,6 +78,7 @@ Der ganze Ablauf mit allen Rezepten steht im Wiki unter [Erste Schritte](docs/wi
 <p align="center">
   <img src="docs/images/screenshots/handbook.png" alt="Ingenieurs-Handbuch im Spiel: Seite des Zerkleinerers" width="32%">
   <img src="docs/images/screenshots/gui-electrolyzer.png" alt="Elektrolyseur mit drei Tanks" width="32%">
+  <img src="docs/images/screenshots/recipe-viewer.png" alt="Raffinerie-Rezept in der Rezeptanzeige (REI)" width="32%">
 </p>
 
 <p align="center">
