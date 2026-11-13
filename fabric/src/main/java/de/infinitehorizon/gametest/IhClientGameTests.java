@@ -424,7 +424,8 @@ public class IhClientGameTests implements FabricClientGameTest {
                 tower.getZ(), tower.getX(), tower.getY() + 4, tower.getZ()));
         BlockPos pump = tower.north();
         setBlock(sp, pump, ModBlocks.FUEL_PUMP.get());
-        BlockPos control = center.south(3).west(3).above();
+        // in Klickweite des Spielers (er steht 9 Blöcke südlich der Mitte) und im Umkreis von 8 Blöcken um die Mitte
+        BlockPos control = center.south(5).west(1).above();
         sp.getServer().runCommand("setblock %d %d %d infinite_horizon:launch_control[facing=south]".formatted(
                 control.getX(), control.getY(), control.getZ()));
         BlockPos engine = center.above();
