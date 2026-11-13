@@ -49,7 +49,9 @@
     "magnesium_alloy",
     "lightweight_plate",
     "cooling_system",
-    "advanced_circuit"
+    "advanced_circuit",
+    "heat_shield",
+    "tungsten_plate"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,

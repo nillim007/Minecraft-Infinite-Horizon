@@ -62,6 +62,28 @@ public final class LaunchPad {
         return rules().has("control_radius") ? rules().get("control_radius").getAsInt() : 0;
     }
 
+    /** Größte Plattform aller Stufen (für die Suche von der Pumpe aus). */
+    static int maxSize() {
+        int max = size();
+        for (RocketPartRegistry.Rule r : RocketPartRegistry.get().rules()) {
+            max = Math.max(max, r.padSize());
+        }
+        return max;
+    }
+
+    /**
+     * Nötige Kantenlänge für die Last (12.4): Rakete nach der Stufe ihres untersten Teils ({@code pad_size} der Regel,
+     * T1 5×5, T2 7×7), Sonde und leere Rampe wie {@code launch_pad_t1}.
+     */
+    static int sizeFor(Level level, BlockPos center, Load load) {
+        if (load != Load.ROCKET) {
+            return size();
+        }
+        RocketPartRegistry reg = RocketPartRegistry.get();
+        return reg.part(BuiltInRegistries.BLOCK.getKey(level.getBlockState(center.above()).getBlock()))
+                .flatMap(p -> reg.rule(p.tier())).map(r -> Math.max(size(), r.padSize())).orElse(size());
+    }
+
     /** Mindesthöhe des Turms für eine Sonde (1). */
     private static int probeTowerHeight() {
         JsonObject t = rules().has("tower") ? rules().getAsJsonObject("tower") : new JsonObject();
@@ -104,7 +126,9 @@ public final class LaunchPad {
     /** Prüft die Rampe mit dieser Mitte (4.3). */
     public static Check check(Level level, BlockPos center) {
         List<RocketAssembler.Problem> problems = new ArrayList<>();
-        int half = size() / 2;
+        Load load = loadAt(level, center);
+        int edge = sizeFor(level, center, load);
+        int half = edge / 2;
         int pads = 0;
         for (int dx = -half; dx <= half; dx++) {
             for (int dz = -half; dz <= half; dz++) {
@@ -113,11 +137,10 @@ public final class LaunchPad {
                 }
             }
         }
-        int needPads = size() * size();
+        int needPads = edge * edge;
         if (pads < needPads) {
             problems.add(new RocketAssembler.Problem("platform", pads, needPads));
         }
-        Load load = loadAt(level, center);
         List<BlockPos> stack = new ArrayList<>();
         if (load == Load.PROBE) {
             stack.add(center.above());
@@ -211,7 +234,7 @@ public final class LaunchPad {
      * suchen, deren Prüfung diese Pumpe enthält.
      */
     public static @Nullable Check forPump(Level level, BlockPos pump) {
-        int half = size() / 2;
+        int half = maxSize() / 2;
         int reach = half * 2 + 2;
         Check best = null;
         for (BlockPos p : BlockPos.betweenClosed(pump.offset(-reach, -1, -reach), pump.offset(reach, 1, reach))) {

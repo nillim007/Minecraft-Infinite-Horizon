@@ -139,6 +139,17 @@ public final class ModBlocks {
     /** Sonde als Block auf der Rampe (12.3). */
     public static final Supplier<Block> PROBE = register("probe", Block::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Raketenteile T2 (12.4, M5c): von der 7×7-Rampe, Wasserstoff und Sauerstoff, 2 Sitze. */
+    public static final Supplier<Block> ROCKET_CAPSULE_T2 = register("rocket_capsule_t2",
+            de.infinitehorizon.space.CapsuleBlock::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).isSuffocating((s, l, p) -> false));
+    public static final Supplier<Block> ROCKET_TANK_T2 = register("rocket_tank_t2",
+            p -> new de.infinitehorizon.space.RocketPartBlock(p, () -> ModBlockEntities.ROCKET_TANK_T2.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> ROCKET_ENGINE_T2 = register("rocket_engine_t2", Block::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> ROCKET_FIN_T2 = register("rocket_fin_t2", Block::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     /** Raketenteile T1 (12.4). */
     public static final Supplier<Block> ROCKET_CAPSULE_T1 = register("rocket_capsule_t1",
             de.infinitehorizon.space.CapsuleBlock::new,

@@ -119,7 +119,9 @@ public final class IhTestCatalog {
             new Test("regolithheater_overworld_errorlocation", 40, null, null, null, IhGameTestsM5b::regolithHeaterNeedsMoon),  // 6.1, M5b
             new Test("regolithheater_moonoverride_50mbhelium", 120, null, null, null, IhGameTestsM5b::regolithHeaterMoonHelium),  // 6.1, M5b
             new Test("cryoliquefier_40helium_10liquid", 40, null, null, null, IhGameTestsM5b::cryoLiquefiesHelium),  // 6.1, M5b
-            new Test("research_tier3gate_magnesiumtungstenhelium", 20, null, null, null, IhGameTestsM5b::tierThreeGate)  // 11.4, M5b
+            new Test("research_tier3gate_magnesiumtungstenhelium", 20, null, null, null, IhGameTestsM5b::tierThreeGate),  // 11.4, M5b
+            new Test("rocket_t2_fivepad_rejected", 20, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM5c::t2NeedsSevenPad),  // 12.4, M5c
+            new Test("rocket_t2_sevenpad_flightmars", 20, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM5c::t2FlightToMars)  // 12.4, M5c
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

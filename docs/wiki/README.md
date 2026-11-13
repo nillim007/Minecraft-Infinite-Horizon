@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 5b · Mod-Version 0.1.0
+> Stand: Meilenstein 5c · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -66,6 +66,7 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Die Venus](Die-Venus.md) – Glühende Hölle unter giftigen Wolken: Wolfram und Schwefel
 - [Der Hochtemperaturofen](Der-Hochtemperaturofen.md) – Wolfram schmelzen, Keramik brennen, Werkstoffe der Stufe 2
 - [Helium und Kryotechnik](Helium-und-Kryotechnik.md) – Helium aus Mondregolith gewinnen und verflüssigen
+- [Die Rakete T2](Die-Rakete-T2.md) – Größere Rakete für Mars und Venus, mit Wasserstoff
 
 ## Nachschlagen
 

@@ -41,10 +41,14 @@
     "infinite_horizon:regolith_heater",
     "infinite_horizon:research_terminal",
     "infinite_horizon:rocket_capsule_t1",
+    "infinite_horizon:rocket_capsule_t2",
     "infinite_horizon:rocket_cargo_bay",
     "infinite_horizon:rocket_engine_t1",
+    "infinite_horizon:rocket_engine_t2",
     "infinite_horizon:rocket_fin_t1",
+    "infinite_horizon:rocket_fin_t2",
     "infinite_horizon:rocket_tank_t1",
+    "infinite_horizon:rocket_tank_t2",
     "infinite_horizon:solar_panel",
     "infinite_horizon:venus_sulfur_ore"
   ]

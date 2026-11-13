@@ -1,0 +1,38 @@
+{
+  "tier": 2,
+  "branch": "spaceflight",
+  "cost": 25,
+  "requires": [
+    "infinite_horizon:magnesium_alloy",
+    "infinite_horizon:cryogenics",
+    "infinite_horizon:high_temperature"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:rocket_capsule_t2"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:rocket_tank_t2"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:rocket_engine_t2"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:rocket_fin_t2"
+    },
+    {
+      "type": "multiblock",
+      "id": "infinite_horizon:launch_pad_t2"
+    }
+  ],
+  "icon": "infinite_horizon:rocket_capsule_t2",
+  "position": {
+    "column": 1,
+    "row": 2,
+    "slot": 3
+  }
+}

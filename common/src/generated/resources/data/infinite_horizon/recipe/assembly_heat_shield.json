@@ -1,0 +1,20 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:tungsten_plate",
+      "count": 4
+    },
+    {
+      "ingredient": "infinite_horizon:titanium_plate",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:heat_shield",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

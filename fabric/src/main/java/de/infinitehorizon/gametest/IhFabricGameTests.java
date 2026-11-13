@@ -513,4 +513,14 @@ public class IhFabricGameTests {
     public void researchTier3gateMagnesiumtungstenhelium(GameTestHelper helper) {
         IhGameTestsM5b.tierThreeGate(helper);
     }
+
+    @GameTest(maxTicks = 20, structure = "infinite_horizon:gametest/empty_large")
+    public void rocketT2FivepadRejected(GameTestHelper helper) {
+        IhGameTestsM5c.t2NeedsSevenPad(helper);
+    }
+
+    @GameTest(maxTicks = 20, structure = "infinite_horizon:gametest/empty_large")
+    public void rocketT2SevenpadFlightmars(GameTestHelper helper) {
+        IhGameTestsM5c.t2FlightToMars(helper);
+    }
 }

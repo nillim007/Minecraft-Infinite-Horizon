@@ -47,6 +47,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Große Sauerstoffflasche](Sauerstoff-speichern.md) | Item | Rezept |
 | [Helium](Helium-und-Kryotechnik.md) | Fluid | Maschine |
 | [Helmlampe](Der-Druckanzug.md) | Item | Rezept |
+| [Hitzeschild](Die-Rakete-T2.md) | Item | Rezept |
 | [Hochtemperaturofen](Der-Hochtemperaturofen.md) | Block | Rezept |
 | [Ingenieurs-Handbuch](Willkommen-bei-Infinite-Horizon.md) | Item | Geschenk beim ersten Betreten, Rezept |
 | [Item-Port](Raffinerie.md) | Block | Rezept |
@@ -93,9 +94,13 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Raffinerie-Gehäuse](Raffinerie.md) | Block | Rezept |
 | [Raketen-Frachtraum](Die-Rakete.md) | Block | Rezept |
 | [Raketenflosse T1](Die-Rakete.md) | Block | Rezept |
+| [Raketenflosse T2](Die-Rakete-T2.md) | Block | Rezept |
 | [Raketenkapsel T1](Die-Rakete.md) | Block | Rezept |
+| [Raketenkapsel T2](Die-Rakete-T2.md) | Block | Rezept |
 | [Raketentank T1](Die-Rakete.md) | Block | Rezept |
+| [Raketentank T2](Die-Rakete-T2.md) | Block | Rezept |
 | [Raketentriebwerk T1](Die-Rakete.md) | Block | Rezept |
+| [Raketentriebwerk T2](Die-Rakete-T2.md) | Block | Rezept |
 | [Regolith-Erhitzer](Helium-und-Kryotechnik.md) | Block | Rezept |
 | [Rohmagnesium](Der-Mars.md) | Item | Abbau |
 | [Rohnickel](Der-Mars.md) | Item | Abbau, Maschine |
@@ -131,6 +136,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Verbrennungsgenerator](Strom.md) | Block | Rezept |
 | [Wasserstoff](Elektrolyseur.md) | Fluid | Maschine |
 | [Wolframbarren](Der-Hochtemperaturofen.md) | Item | Maschine |
+| [Wolframplatte](Die-Rakete-T2.md) | Item | Maschine |
 | [Wolframstaub](Die-Venus.md) | Item | Maschine |
 | [Zerkleinerer](Zerkleinerer.md) | Block | Rezept |
 

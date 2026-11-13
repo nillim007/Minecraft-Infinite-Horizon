@@ -5,6 +5,7 @@
     "infinite_horizon:iron_plate",
     "infinite_horizon:lightweight_plate",
     "infinite_horizon:press_mold_plate",
-    "infinite_horizon:titanium_plate"
+    "infinite_horizon:titanium_plate",
+    "infinite_horizon:tungsten_plate"
   ]
 }

@@ -48,6 +48,7 @@ Die Presse formt Barren um. Welche Form herauskommt, bestimmt die **Pressform** 
 | <img src="images/rezepte/pressing_lightweight_plate.svg" alt="Rezept" width="300"> | 1 × [Magnesium-Legierung](Der-Hochtemperaturofen.md), Form: Pressform (Platte) → 1 × [Leichtbau-Platte](Der-Hochtemperaturofen.md) | Presse | 100 t (5 s)<br>30 J/t |
 | <img src="images/rezepte/pressing_titanium_plate.svg" alt="Rezept" width="300"> | 1 × [Titanbarren](Elektroofen.md), Form: Pressform (Platte) → 1 × Titanplatte | Presse | 100 t (5 s)<br>30 J/t |
 | <img src="images/rezepte/pressing_titanium_rod.svg" alt="Rezept" width="300"> | 1 × [Titanbarren](Elektroofen.md), Form: Pressform (Stange) → 2 × Titanstange | Presse | 100 t (5 s)<br>30 J/t |
+| <img src="images/rezepte/pressing_tungsten_plate.svg" alt="Rezept" width="300"> | 1 × [Wolframbarren](Der-Hochtemperaturofen.md), Form: Pressform (Platte) → 1 × [Wolframplatte](Die-Rakete-T2.md) | Presse | 100 t (5 s)<br>30 J/t |
 
 > [!TIP]
 > Bau mehrere Pressen und lass jede mit ihrer eigenen Form laufen. Dann musst du die Form nie wechseln. Vor allem Kupferdraht und Eisenplatte brauchst du in großen Mengen.

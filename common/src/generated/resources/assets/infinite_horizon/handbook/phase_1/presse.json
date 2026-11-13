@@ -372,6 +372,28 @@
           ],
           "ticks": 100,
           "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:pressing/tungsten_plate",
+          "type": "infinite_horizon:pressing",
+          "station": "infinite_horizon:press",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:tungsten_ingot"
+              ],
+              "count": 1
+            }
+          ],
+          "mold": "infinite_horizon:press_mold_plate",
+          "results": [
+            {
+              "item": "infinite_horizon:tungsten_plate",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 30
         }
       ]
     },

@@ -44,6 +44,10 @@
     "infinite_horizon:launch_control": "machine",
     "infinite_horizon:probe": "casing",
     "infinite_horizon:landing_beacon": "casing",
+    "infinite_horizon:rocket_capsule_t2": "casing",
+    "infinite_horizon:rocket_tank_t2": "casing",
+    "infinite_horizon:rocket_engine_t2": "casing",
+    "infinite_horizon:rocket_fin_t2": "casing",
     "infinite_horizon:regolith_heater": "machine",
     "infinite_horizon:high_temperature_furnace": "machine",
     "infinite_horizon:cryo_liquefier": "machine",
@@ -122,7 +126,9 @@
     "infinite_horizon:magnesium_alloy",
     "infinite_horizon:lightweight_plate",
     "infinite_horizon:cooling_system",
-    "infinite_horizon:advanced_circuit"
+    "infinite_horizon:advanced_circuit",
+    "infinite_horizon:heat_shield",
+    "infinite_horizon:tungsten_plate"
   ],
   "fluids": [
     "crude_oil",
@@ -132,7 +138,7 @@
     "helium",
     "liquid_helium"
   ],
-  "step": "5b",
+  "step": "5c",
   "dimensions": ["infinite_horizon:moon", "infinite_horizon:mars", "infinite_horizon:venus"],
   "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket"],
   "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:first_signal", "infinite_horizon:small_step", "infinite_horizon:own_air"],

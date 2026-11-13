@@ -1,0 +1,15 @@
+{
+  "block": "infinite_horizon:rocket_engine_t2",
+  "role": "engine",
+  "tier": 2,
+  "usable_in_tiers": [
+    2
+  ],
+  "mass": 4.0,
+  "fuel_capacity": 0,
+  "fuel_mass_full": 0.0,
+  "thrust": 48,
+  "cargo_slots": 0,
+  "mass_per_slot": 0.0,
+  "seats": 0
+}

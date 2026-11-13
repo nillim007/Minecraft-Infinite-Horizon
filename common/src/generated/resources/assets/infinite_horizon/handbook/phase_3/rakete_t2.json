@@ -1,0 +1,242 @@
+{
+  "id": "infinite_horizon:phase_3/rakete_t2",
+  "chapter": "infinite_horizon:phase_3",
+  "title": "infinite_horizon.handbook.phase_3.rakete_t2.title",
+  "icon": "infinite_horizon:rocket_capsule_t2",
+  "order": 100,
+  "unlock": "infinite_horizon:research_tier/2",
+  "items": [
+    "infinite_horizon:rocket_capsule_t2",
+    "infinite_horizon:rocket_tank_t2",
+    "infinite_horizon:rocket_engine_t2",
+    "infinite_horizon:rocket_fin_t2",
+    "infinite_horizon:heat_shield",
+    "infinite_horizon:tungsten_plate"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.rakete_t2.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.rakete_t2.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.rakete_t2.e2"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.rakete_t2.e3",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_3.rakete_t2.e4.0",
+        "infinite_horizon.handbook.phase_3.rakete_t2.e4.1",
+        "infinite_horizon.handbook.phase_3.rakete_t2.e4.2"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.rakete_t2.e5"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.rakete_t2.e6",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.rakete_t2.e7"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.rakete_t2.e8",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:pressing/tungsten_plate",
+          "type": "infinite_horizon:pressing",
+          "station": "infinite_horizon:press",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:tungsten_ingot"
+              ],
+              "count": 1
+            }
+          ],
+          "mold": "infinite_horizon:press_mold_plate",
+          "results": [
+            {
+              "item": "infinite_horizon:tungsten_plate",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/heat_shield",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:tungsten_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:heat_shield",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/rocket_capsule_t2",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 32
+            },
+            {
+              "items": [
+                "infinite_horizon:heat_shield"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 16
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:rocket_capsule_t2",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/rocket_tank_t2",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 12
+            },
+            {
+              "items": [
+                "infinite_horizon:heat_shield"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:rocket_tank_t2",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/rocket_engine_t2",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:heat_shield"
+              ],
+              "count": 24
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:cooling_system"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:rocket_engine_t2",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/rocket_fin_t2",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 3
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:rocket_fin_t2",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.rakete_t2.e10",
+      "style": "tip"
+    }
+  ]
+}

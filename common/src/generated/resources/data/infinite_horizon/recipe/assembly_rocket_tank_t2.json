@@ -1,0 +1,20 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:lightweight_plate",
+      "count": 12
+    },
+    {
+      "ingredient": "infinite_horizon:heat_shield",
+      "count": 4
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:rocket_tank_t2",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

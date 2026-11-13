@@ -770,6 +770,33 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/heat_shield",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:tungsten_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:heat_shield",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/high_temperature_furnace",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -1131,6 +1158,27 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/rocket_fin_t2",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 3
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:rocket_fin_t2",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/rocket_capsule_t1",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -1157,6 +1205,39 @@
           "results": [
             {
               "item": "infinite_horizon:rocket_capsule_t1",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/rocket_capsule_t2",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 32
+            },
+            {
+              "items": [
+                "infinite_horizon:heat_shield"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 16
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:rocket_capsule_t2",
               "count": 1
             }
           ],
@@ -1197,6 +1278,33 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/rocket_tank_t2",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 12
+            },
+            {
+              "items": [
+                "infinite_horizon:heat_shield"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:rocket_tank_t2",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/rocket_engine_t1",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -1223,6 +1331,45 @@
           "results": [
             {
               "item": "infinite_horizon:rocket_engine_t1",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/rocket_engine_t2",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:heat_shield"
+              ],
+              "count": 24
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:cooling_system"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:rocket_engine_t2",
               "count": 1
             }
           ],

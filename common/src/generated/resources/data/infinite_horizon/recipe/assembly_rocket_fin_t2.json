@@ -1,0 +1,16 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:lightweight_plate",
+      "count": 3
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:rocket_fin_t2",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

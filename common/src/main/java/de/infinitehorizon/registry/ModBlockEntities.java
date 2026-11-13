@@ -192,6 +192,13 @@ public final class ModBlockEntities {
                                     ModBlockEntities.ROCKET_TANK_T1.get(), pos, state),
                             ModBlocks.ROCKET_TANK_T1.get()));
 
+    public static final Supplier<BlockEntityType<de.infinitehorizon.space.RocketTankBlockEntity>> ROCKET_TANK_T2 =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "rocket_tank_t2",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.space.RocketTankBlockEntity(
+                                    ModBlockEntities.ROCKET_TANK_T2.get(), pos, state),
+                            ModBlocks.ROCKET_TANK_T2.get()));
+
     public static final Supplier<BlockEntityType<de.infinitehorizon.space.CargoBayBlockEntity>> ROCKET_CARGO_BAY =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "rocket_cargo_bay",
                     () -> Services.REGISTRY.blockEntityType(
