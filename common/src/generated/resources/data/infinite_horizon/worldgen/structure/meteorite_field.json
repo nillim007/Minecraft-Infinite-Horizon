@@ -1,0 +1,27 @@
+{
+  "type": "infinite_horizon:meteorite_field",
+  "biomes": "#infinite_horizon:has_structure/meteorite_field",
+  "spawn_overrides": {},
+  "step": "surface_structures",
+  "kind": "meteorite_field",
+  "radius": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 20,
+    "max_inclusive": 20
+  },
+  "height": 0,
+  "divisor": 3,
+  "block": "infinite_horizon:mars_rock",
+  "core": "infinite_horizon:iron_nickel_meteorite",
+  "fluid": "minecraft:air",
+  "count": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 3,
+    "max_inclusive": 5
+  },
+  "part_radius": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 3,
+    "max_inclusive": 6
+  }
+}

@@ -173,6 +173,48 @@
           "energy_per_tick": 20
         },
         {
+          "id": "infinite_horizon:crushing/magnesium_dust",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_magnesium"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:magnesium_dust",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:crushing/nickel_dust",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_nickel"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:nickel_dust",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
           "id": "infinite_horizon:crushing/titanium_dust",
           "type": "infinite_horizon:crushing",
           "station": "infinite_horizon:crusher",
@@ -187,6 +229,27 @@
           "results": [
             {
               "item": "infinite_horizon:titanium_dust",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:crushing/tungsten_dust",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_tungsten"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:tungsten_dust",
               "count": 2
             }
           ],

@@ -1,0 +1,65 @@
+{
+  "dimension": "infinite_horizon:venus",
+  "type": "surface",
+  "orbit": "infinite_horizon:venus_orbit",
+  "star_system": "infinite_horizon:sol",
+  "ring": 1,
+  "distance_points": 1,
+  "gravity": 0.9,
+  "atmosphere": "toxic",
+  "pressure": "high",
+  "temperature": {
+    "day": 465,
+    "night": 465
+  },
+  "biome_temperature_offsets": {},
+  "biome_temperature_overrides": {},
+  "radiation": 1,
+  "solar_factor": 0.1,
+  "water_behavior": "evaporate",
+  "landing_requires_fuel": false,
+  "launch_cost_override": null,
+  "required_rocket_tier": 1,
+  "requires_long_range": false,
+  "probe": "infinite_horizon:probe",
+  "sky": {
+    "color": "#D9A441",
+    "fog_color": "#E0A040",
+    "fog_distance": 24,
+    "stars_in_daylight": false,
+    "sun_scale": 1.0,
+    "sunset_color": null,
+    "celestial_bodies": []
+  },
+  "gas_collector_output": null,
+  "zones": [
+    {
+      "id": "cloud_layer",
+      "y_min": 180,
+      "y_max": 240,
+      "biome": null,
+      "near_block": null,
+      "temperature": 20,
+      "pressure": "normal",
+      "radiation": null,
+      "solar_factor": 2.0,
+      "atmosphere": null,
+      "water_behavior": null
+    }
+  ],
+  "vanilla_mobs": [
+    {
+      "entity": "minecraft:blaze",
+      "rate": 1.0,
+      "y_max": 179,
+      "event_rates": {}
+    },
+    {
+      "entity": "minecraft:magma_cube",
+      "rate": 1.0,
+      "y_max": 179,
+      "event_rates": {}
+    }
+  ],
+  "name": "planet.infinite_horizon.venus"
+}

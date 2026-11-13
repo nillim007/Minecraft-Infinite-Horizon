@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 1110091649,
+    "separation": 2,
+    "spacing": 8
+  },
+  "structures": [
+    {
+      "structure": "infinite_horizon:meteorite_field",
+      "weight": 1
+    }
+  ]
+}

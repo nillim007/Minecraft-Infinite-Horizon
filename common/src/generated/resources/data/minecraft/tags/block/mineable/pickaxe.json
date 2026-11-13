@@ -11,6 +11,7 @@
     "infinite_horizon:crusher",
     "infinite_horizon:deepslate_titanium_ore",
     "infinite_horizon:dome_generator_t1",
+    "infinite_horizon:dry_ice_block",
     "infinite_horizon:electric_furnace",
     "infinite_horizon:electric_lamp",
     "infinite_horizon:electrolyzer",
@@ -21,11 +22,16 @@
     "infinite_horizon:fluid_tank",
     "infinite_horizon:fuel_generator",
     "infinite_horizon:fuel_pump",
+    "infinite_horizon:gypsum_block",
+    "infinite_horizon:iron_nickel_meteorite",
     "infinite_horizon:item_port",
     "infinite_horizon:landing_beacon",
     "infinite_horizon:launch_control",
     "infinite_horizon:launch_pad",
     "infinite_horizon:launch_tower",
+    "infinite_horizon:mars_iron_ore",
+    "infinite_horizon:mars_magnesium_ore",
+    "infinite_horizon:mars_rock",
     "infinite_horizon:moon_aluminum_ore",
     "infinite_horizon:moon_basalt",
     "infinite_horizon:moon_ice",
@@ -44,6 +50,9 @@
     "infinite_horizon:rocket_fin_t1",
     "infinite_horizon:rocket_tank_t1",
     "infinite_horizon:solar_panel",
-    "infinite_horizon:titanium_ore"
+    "infinite_horizon:titanium_ore",
+    "infinite_horizon:venus_rock",
+    "infinite_horizon:venus_sulfur_ore",
+    "infinite_horizon:venus_tungsten_ore"
   ]
 }

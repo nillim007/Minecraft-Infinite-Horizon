@@ -1,0 +1,30 @@
+{
+  "tier": 2,
+  "branch": "spaceflight",
+  "cost": 25,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:mars"
+    },
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:venus"
+    },
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:mars_orbit"
+    },
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:venus_orbit"
+    }
+  ],
+  "icon": "infinite_horizon:probe",
+  "position": {
+    "column": 1,
+    "row": 2,
+    "slot": 0
+  }
+}

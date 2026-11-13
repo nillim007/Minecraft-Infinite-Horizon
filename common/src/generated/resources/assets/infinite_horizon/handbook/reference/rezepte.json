@@ -584,6 +584,90 @@
       "type": "recipes",
       "recipes": [
         {
+          "id": "infinite_horizon:electric_smelting/magnesium_ingot",
+          "type": "infinite_horizon:electric_smelting",
+          "station": "infinite_horizon:electric_furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_magnesium"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:magnesium_ingot",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:electric_smelting/magnesium_ingot_from_dust",
+          "type": "infinite_horizon:electric_smelting",
+          "station": "infinite_horizon:electric_furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:magnesium_dust"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:magnesium_ingot",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:electric_smelting/nickel_ingot",
+          "type": "infinite_horizon:electric_smelting",
+          "station": "infinite_horizon:electric_furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_nickel"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:nickel_ingot",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:electric_smelting/nickel_ingot_from_dust",
+          "type": "infinite_horizon:electric_smelting",
+          "station": "infinite_horizon:electric_furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:nickel_dust"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:nickel_ingot",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 20
+        },
+        {
           "id": "infinite_horizon:electric_smelting/silicon",
           "type": "infinite_horizon:electric_smelting",
           "station": "infinite_horizon:electric_furnace",
@@ -699,6 +783,48 @@
           "energy_per_tick": 20
         },
         {
+          "id": "infinite_horizon:crushing/magnesium_dust",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_magnesium"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:magnesium_dust",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:crushing/nickel_dust",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_nickel"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:nickel_dust",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
           "id": "infinite_horizon:crushing/titanium_dust",
           "type": "infinite_horizon:crushing",
           "station": "infinite_horizon:crusher",
@@ -713,6 +839,27 @@
           "results": [
             {
               "item": "infinite_horizon:titanium_dust",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:crushing/tungsten_dust",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_tungsten"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:tungsten_dust",
               "count": 2
             }
           ],

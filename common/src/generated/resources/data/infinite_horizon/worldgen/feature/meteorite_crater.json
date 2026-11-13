@@ -1,0 +1,11 @@
+{
+  "type": "infinite_horizon:crater",
+  "radius": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 2,
+    "max_inclusive": 4
+  },
+  "depth_divisor": 2,
+  "rim_height": 1,
+  "core": "infinite_horizon:iron_nickel_meteorite"
+}

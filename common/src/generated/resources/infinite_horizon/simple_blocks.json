@@ -49,6 +49,56 @@
       "id": "moon_titanium_ore",
       "copy": "minecraft:iron_ore",
       "falls": false
+    },
+    {
+      "id": "mars_sand",
+      "copy": "minecraft:red_sand",
+      "falls": false
+    },
+    {
+      "id": "mars_rock",
+      "copy": "minecraft:stone",
+      "falls": false
+    },
+    {
+      "id": "mars_magnesium_ore",
+      "copy": "minecraft:iron_ore",
+      "falls": false
+    },
+    {
+      "id": "mars_iron_ore",
+      "copy": "minecraft:iron_ore",
+      "falls": false
+    },
+    {
+      "id": "gypsum_block",
+      "copy": "minecraft:calcite",
+      "falls": false
+    },
+    {
+      "id": "dry_ice_block",
+      "copy": "minecraft:packed_ice",
+      "falls": false
+    },
+    {
+      "id": "iron_nickel_meteorite",
+      "copy": "minecraft:iron_ore",
+      "falls": false
+    },
+    {
+      "id": "venus_rock",
+      "copy": "minecraft:blackstone",
+      "falls": false
+    },
+    {
+      "id": "venus_tungsten_ore",
+      "copy": "minecraft:deepslate_iron_ore",
+      "falls": false
+    },
+    {
+      "id": "venus_sulfur_ore",
+      "copy": "minecraft:nether_quartz_ore",
+      "falls": false
     }
   ]
 }

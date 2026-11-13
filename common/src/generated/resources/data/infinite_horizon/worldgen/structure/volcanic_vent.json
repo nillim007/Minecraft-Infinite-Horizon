@@ -1,0 +1,17 @@
+{
+  "type": "infinite_horizon:volcanic_vent",
+  "biomes": "#infinite_horizon:has_structure/volcanic_vent",
+  "spawn_overrides": {},
+  "step": "surface_structures",
+  "kind": "volcanic_vent",
+  "radius": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 4,
+    "max_inclusive": 6
+  },
+  "height": 3,
+  "divisor": 4,
+  "block": "minecraft:basalt",
+  "core": "minecraft:magma_block",
+  "fluid": "minecraft:lava"
+}

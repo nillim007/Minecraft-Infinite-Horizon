@@ -16,12 +16,14 @@ import net.minecraft.world.level.levelgen.feature.Feature;
  * Rand {@code rim_height} Blöcke aus dem Oberflächenblock. JSON:
  * {@code {"type": "infinite_horizon:crater", "radius": <int provider>, "depth_divisor": 3, "rim_height": 1}}.
  */
-public record CraterFeature(IntProvider radius, int depthDivisor, int rimHeight) implements Feature {
+public record CraterFeature(IntProvider radius, int depthDivisor, int rimHeight,
+                            java.util.Optional<net.minecraft.resources.Identifier> core) implements Feature {
 
     public static final MapCodec<CraterFeature> CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
             IntProviders.CODEC.fieldOf("radius").forGetter(CraterFeature::radius),
             Codec.INT.fieldOf("depth_divisor").forGetter(CraterFeature::depthDivisor),
-            Codec.INT.fieldOf("rim_height").forGetter(CraterFeature::rimHeight)
+            Codec.INT.fieldOf("rim_height").forGetter(CraterFeature::rimHeight),
+            net.minecraft.resources.Identifier.CODEC.optionalFieldOf("core").forGetter(CraterFeature::core)
     ).apply(i, CraterFeature::new));
 
     @Override
@@ -39,6 +41,13 @@ public record CraterFeature(IntProvider radius, int depthDivisor, int rimHeight)
                         rimHeight, 0, 0, null);
             }
         }
+        // Meteoritenkrater (13.4): Kernblock in der Mitte des Kraterbodens
+        core.ifPresent(id -> {
+            BlockPos bottom = new BlockPos(origin.getX(),
+                    level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.WORLD_SURFACE_WG, origin.getX(), origin.getZ()) - 1,
+                    origin.getZ());
+            level.setBlock(bottom, net.minecraft.core.registries.BuiltInRegistries.BLOCK.getValue(id).defaultBlockState(), net.minecraft.world.level.block.Block.UPDATE_CLIENTS);
+        });
         return true;
     }
 }

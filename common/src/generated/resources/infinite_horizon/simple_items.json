@@ -31,7 +31,18 @@
     "oxygen_canister",
     "large_oxygen_canister",
     "transport_tank",
-    "helmet_lamp"
+    "helmet_lamp",
+    "raw_magnesium",
+    "raw_nickel",
+    "raw_tungsten",
+    "gypsum",
+    "dry_ice",
+    "sulfur",
+    "magnesium_dust",
+    "magnesium_ingot",
+    "nickel_dust",
+    "nickel_ingot",
+    "tungsten_dust"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,

@@ -31,4 +31,4 @@ Wählst du ein Landefeuer als Landeort, landet die Rakete höchstens 3 Blöcke d
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Leben ohne Luft](Leben-ohne-Luft.md)
+← [Leben ohne Luft](Leben-ohne-Luft.md) · [Der Mars](Der-Mars.md) →

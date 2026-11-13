@@ -165,6 +165,8 @@ public class IhClientGameTests implements FabricClientGameTest {
 
             moon(context, sp);
             flight(context, sp);
+            planetView(context, sp, "mars");
+            planetView(context, sp, "venus");
         }
     }
 
@@ -282,6 +284,27 @@ public class IhClientGameTests implements FabricClientGameTest {
         });
         context.waitTicks(20);
         context.takeScreenshot("world_moon_sky");
+    }
+
+    /** Ring 1 (M5a): {@code goto <planet>}, von oben auf das Gelände schauen und fotografieren. */
+    private static void planetView(ClientGameTestContext context, TestSingleplayerContext sp, String planet) {
+        sp.getServer().runCommand("execute as @p run infinite_horizon goto " + planet);
+        context.waitTicks(40);
+        String dim = context.computeOnClient(c -> c.level.dimension().identifier().toString());
+        if (!("infinite_horizon:" + planet).equals(dim)) {
+            throw new AssertionError("goto " + planet + ": Spieler ist in " + dim);
+        }
+        sp.getServer().runCommand("effect give @p minecraft:night_vision infinite 0 true");
+        context.runOnClient(c -> {
+            c.player.getAbilities().flying = true;
+            c.player.onUpdateAbilities();
+        });
+        sp.getServer().runCommand("execute as @p at @s run tp @s ~ ~30 ~-20 0 30");
+        context.waitTicks(40);
+        sp.getConnection().waitForChunksRender();
+        context.waitTicks(20);
+        clearChat(context);
+        context.takeScreenshot("world_" + planet + "_terrain");
     }
 
     /** Handbuch (24.1, 27.3 M2f): öffnen, einem Link folgen, Seite eines Items finden; Screenshots. */

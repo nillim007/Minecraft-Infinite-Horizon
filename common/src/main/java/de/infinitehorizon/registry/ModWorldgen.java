@@ -21,6 +21,16 @@ public final class ModWorldgen {
             BuiltInRegistries.STRUCTURE_TYPE, "great_crater", () -> () -> GreatCraterStructure.CODEC);
     public static final Supplier<StructureType<LavaTubeStructure>> LAVA_TUBE = Services.REGISTRY.register(
             BuiltInRegistries.STRUCTURE_TYPE, "lava_tube", () -> () -> LavaTubeStructure.CODEC);
+    /** Ring 1 (13.4): Riesenvulkan, Vulkanschlot, Meteoritenfeld mit einer gemeinsamen Klasse. */
+    public static final Supplier<StructureType<de.infinitehorizon.world.SurfaceStructure>> GIANT_VOLCANO = Services.REGISTRY.register(
+            BuiltInRegistries.STRUCTURE_TYPE, "giant_volcano", () -> () -> de.infinitehorizon.world.SurfaceStructure.CODEC);
+    public static final Supplier<StructureType<de.infinitehorizon.world.SurfaceStructure>> VOLCANIC_VENT = Services.REGISTRY.register(
+            BuiltInRegistries.STRUCTURE_TYPE, "volcanic_vent", () -> () -> de.infinitehorizon.world.SurfaceStructure.CODEC);
+    public static final Supplier<StructureType<de.infinitehorizon.world.SurfaceStructure>> METEORITE_FIELD = Services.REGISTRY.register(
+            BuiltInRegistries.STRUCTURE_TYPE, "meteorite_field", () -> () -> de.infinitehorizon.world.SurfaceStructure.CODEC);
+    public static final Supplier<StructurePieceType> SURFACE_PIECE = Services.REGISTRY.register(
+            BuiltInRegistries.STRUCTURE_PIECE, "surface_structure",
+            () -> (StructurePieceType.ContextlessType) de.infinitehorizon.world.SurfaceStructure.Piece::new);
     public static final Supplier<StructurePieceType> GREAT_CRATER_PIECE = Services.REGISTRY.register(
             BuiltInRegistries.STRUCTURE_PIECE, "great_crater",
             () -> (StructurePieceType.ContextlessType) GreatCraterStructure.Piece::new);

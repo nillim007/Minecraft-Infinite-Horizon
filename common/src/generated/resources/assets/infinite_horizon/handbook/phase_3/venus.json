@@ -1,0 +1,117 @@
+{
+  "id": "infinite_horizon:phase_3/venus",
+  "chapter": "infinite_horizon:phase_3",
+  "title": "infinite_horizon.handbook.phase_3.venus.title",
+  "icon": "infinite_horizon:venus_rock",
+  "order": 80,
+  "unlock": "infinite_horizon:research_tier/2",
+  "items": [
+    "infinite_horizon:venus_rock",
+    "infinite_horizon:venus_tungsten_ore",
+    "infinite_horizon:venus_sulfur_ore",
+    "infinite_horizon:raw_tungsten",
+    "infinite_horizon:sulfur",
+    "infinite_horizon:tungsten_dust"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.venus.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.venus.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_3.venus.e2.0",
+        "infinite_horizon.handbook.phase_3.venus.e2.1",
+        "infinite_horizon.handbook.phase_3.venus.e2.2",
+        "infinite_horizon.handbook.phase_3.venus.e2.3"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.venus.e3",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_3.venus.e4.0",
+        "infinite_horizon.handbook.phase_3.venus.e4.1",
+        "infinite_horizon.handbook.phase_3.venus.e4.2"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.venus.e5",
+      "level": 2
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.phase_3.venus.e6.h0",
+        "infinite_horizon.handbook.phase_3.venus.e6.h1",
+        "infinite_horizon.handbook.phase_3.venus.e6.h2",
+        "infinite_horizon.handbook.phase_3.venus.e6.h3",
+        "infinite_horizon.handbook.phase_3.venus.e6.h4"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_3.venus.e6.r0.0",
+          "infinite_horizon.handbook.phase_3.venus.e6.r0.1",
+          "infinite_horizon.handbook.phase_3.venus.e6.r0.2",
+          "infinite_horizon.handbook.phase_3.venus.e6.r0.3",
+          "infinite_horizon.handbook.phase_3.venus.e6.r0.4"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.venus.e6.r1.0",
+          "infinite_horizon.handbook.phase_3.venus.e6.r1.1",
+          "infinite_horizon.handbook.phase_3.venus.e6.r1.2",
+          "infinite_horizon.handbook.phase_3.venus.e6.r1.3",
+          "infinite_horizon.handbook.phase_3.venus.e6.r1.4"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.venus.e7"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:crushing/tungsten_dust",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_tungsten"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:tungsten_dust",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.venus.e9",
+      "style": "warning"
+    }
+  ]
+}

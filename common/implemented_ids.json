@@ -1,6 +1,6 @@
 {
   "_comment": "IDs, die im Code registriert sind. tools/gen_resources.py erzeugt nur für diese Ressourcen. Mit jedem Meilenstein erweitern.",
-  "milestone": 4,
+  "milestone": 5,
   "blocks": {
     "infinite_horizon:crusher": "machine",
     "infinite_horizon:combustion_generator": "machine",
@@ -44,6 +44,16 @@
     "infinite_horizon:launch_control": "machine",
     "infinite_horizon:probe": "casing",
     "infinite_horizon:landing_beacon": "casing",
+    "infinite_horizon:mars_sand": "simple_block",
+    "infinite_horizon:mars_rock": "simple_block",
+    "infinite_horizon:mars_magnesium_ore": "simple_block",
+    "infinite_horizon:mars_iron_ore": "simple_block",
+    "infinite_horizon:gypsum_block": "simple_block",
+    "infinite_horizon:dry_ice_block": "simple_block",
+    "infinite_horizon:iron_nickel_meteorite": "simple_block",
+    "infinite_horizon:venus_rock": "simple_block",
+    "infinite_horizon:venus_tungsten_ore": "simple_block",
+    "infinite_horizon:venus_sulfur_ore": "simple_block",
     "infinite_horizon:rocket_capsule_t1": "casing",
     "infinite_horizon:rocket_tank_t1": "casing",
     "infinite_horizon:rocket_engine_t1": "casing",
@@ -90,7 +100,18 @@
     "infinite_horizon:sample_tool",
     "infinite_horizon:sample",
     "infinite_horizon:transport_tank",
-    "infinite_horizon:helmet_lamp"
+    "infinite_horizon:helmet_lamp",
+    "infinite_horizon:raw_magnesium",
+    "infinite_horizon:raw_nickel",
+    "infinite_horizon:raw_tungsten",
+    "infinite_horizon:gypsum",
+    "infinite_horizon:dry_ice",
+    "infinite_horizon:sulfur",
+    "infinite_horizon:magnesium_dust",
+    "infinite_horizon:magnesium_ingot",
+    "infinite_horizon:nickel_dust",
+    "infinite_horizon:nickel_ingot",
+    "infinite_horizon:tungsten_dust"
   ],
   "fluids": [
     "crude_oil",
@@ -98,8 +119,8 @@
     "hydrogen",
     "oxygen"
   ],
-  "step": "4f",
-  "dimensions": ["infinite_horizon:moon"],
+  "step": "5a",
+  "dimensions": ["infinite_horizon:moon", "infinite_horizon:mars", "infinite_horizon:venus"],
   "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket"],
   "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:first_signal", "infinite_horizon:small_step", "infinite_horizon:own_air"],
   "item_classes": {

@@ -43,6 +43,10 @@ Hier stehen alle Rezepte, die es im aktuellen Stand gibt. Die Werte kommen direk
 
 | Rezept | Zutaten → Ergebnis | Wo | Dauer |
 | --- | --- | --- | --- |
+| <img src="images/rezepte/electric_smelting_magnesium_ingot.svg" alt="Rezept" width="300"> | 1 × [Rohmagnesium](Der-Mars.md) → 1 × [Magnesiumbarren](Der-Mars.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
+| <img src="images/rezepte/electric_smelting_magnesium_ingot_from_dust.svg" alt="Rezept" width="300"> | 1 × [Magnesiumstaub](Der-Mars.md) → 1 × [Magnesiumbarren](Der-Mars.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
+| <img src="images/rezepte/electric_smelting_nickel_ingot.svg" alt="Rezept" width="300"> | 1 × [Rohnickel](Der-Mars.md) → 1 × [Nickelbarren](Der-Mars.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
+| <img src="images/rezepte/electric_smelting_nickel_ingot_from_dust.svg" alt="Rezept" width="300"> | 1 × [Nickelstaub](Der-Mars.md) → 1 × [Nickelbarren](Der-Mars.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
 | <img src="images/rezepte/electric_smelting_silicon.svg" alt="Rezept" width="300"> | 1 × [Quarzsand](Rohstoffe-und-Erze.md) → 1 × [Silizium](Elektroofen.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
 
 ## Zerkleinerer
@@ -53,7 +57,10 @@ Hier stehen alle Rezepte, die es im aktuellen Stand gibt. Die Werte kommen direk
 | <img src="images/rezepte/crushing_iron_dust.svg" alt="Rezept" width="300"> | 1 × Roheisen → 2 × [Eisenstaub](Zerkleinerer.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_gold_dust.svg" alt="Rezept" width="300"> | 1 × Rohgold → 2 × [Goldstaub](Zerkleinerer.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_copper_dust.svg" alt="Rezept" width="300"> | 1 × Rohkupfer → 2 × [Kupferstaub](Zerkleinerer.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
+| <img src="images/rezepte/crushing_magnesium_dust.svg" alt="Rezept" width="300"> | 1 × [Rohmagnesium](Der-Mars.md) → 2 × [Magnesiumstaub](Der-Mars.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
+| <img src="images/rezepte/crushing_nickel_dust.svg" alt="Rezept" width="300"> | 1 × [Rohnickel](Der-Mars.md) → 2 × [Nickelstaub](Der-Mars.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_titanium_dust.svg" alt="Rezept" width="300"> | 1 × [Rohtitan](Rohstoffe-und-Erze.md) → 2 × [Titanstaub](Zerkleinerer.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
+| <img src="images/rezepte/crushing_tungsten_dust.svg" alt="Rezept" width="300"> | 1 × [Rohwolfram](Die-Venus.md) → 2 × [Wolframstaub](Die-Venus.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 
 ## Presse
 

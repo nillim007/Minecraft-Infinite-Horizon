@@ -478,4 +478,14 @@ public class IhFabricGameTests {
     public void helmetlampLight14Gonewhenremoved(GameTestHelper helper) {
         IhGameTestsM4f.helmetLampLight(helper);
     }
+
+    @GameTest(maxTicks = 20)
+    public void ringoneOredrops(GameTestHelper helper) {
+        IhGameTestsM5a.ringOneOreDrops(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void venusLandingSolidground(GameTestHelper helper) {
+        IhGameTestsM5a.venusLandingOnSolidGround(helper);
+    }
 }

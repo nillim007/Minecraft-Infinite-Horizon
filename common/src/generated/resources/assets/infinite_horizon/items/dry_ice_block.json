@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "infinite_horizon:block/dry_ice_block"
+  }
+}

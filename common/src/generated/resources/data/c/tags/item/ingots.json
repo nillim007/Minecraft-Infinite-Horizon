@@ -1,6 +1,8 @@
 {
   "values": [
     "infinite_horizon:aluminum_ingot",
+    "infinite_horizon:magnesium_ingot",
+    "infinite_horizon:nickel_ingot",
     "infinite_horizon:titanium_ingot"
   ]
 }

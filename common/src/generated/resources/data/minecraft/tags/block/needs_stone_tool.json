@@ -20,11 +20,14 @@
     "infinite_horizon:fluid_tank",
     "infinite_horizon:fuel_generator",
     "infinite_horizon:fuel_pump",
+    "infinite_horizon:iron_nickel_meteorite",
     "infinite_horizon:item_port",
     "infinite_horizon:landing_beacon",
     "infinite_horizon:launch_control",
     "infinite_horizon:launch_pad",
     "infinite_horizon:launch_tower",
+    "infinite_horizon:mars_iron_ore",
+    "infinite_horizon:mars_magnesium_ore",
     "infinite_horizon:moon_aluminum_ore",
     "infinite_horizon:oxygen_generator",
     "infinite_horizon:press",
@@ -38,6 +41,7 @@
     "infinite_horizon:rocket_engine_t1",
     "infinite_horizon:rocket_fin_t1",
     "infinite_horizon:rocket_tank_t1",
-    "infinite_horizon:solar_panel"
+    "infinite_horizon:solar_panel",
+    "infinite_horizon:venus_sulfur_ore"
   ]
 }

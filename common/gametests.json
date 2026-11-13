@@ -99,6 +99,8 @@
     {"name": "atlas_gift_onceevenwithouttag", "class": "IhGameTestsM4f", "method": "atlasGiftOnce", "ticks": 20, "ref": "24.2, 27.7 M4f"},
     {"name": "atlas_moonvisit_discoverer", "class": "IhGameTestsM4f", "method": "moonVisitDiscoverer", "ticks": 40, "ref": "23.3, 24.2, 27.7 M4f"},
     {"name": "suitmodule_helmetlamp_installremove", "class": "IhGameTestsM4f", "method": "moduleInstallRemove", "ticks": 300, "ref": "9.2, 27.7 M4f"},
-    {"name": "helmetlamp_light14_gonewhenremoved", "class": "IhGameTestsM4f", "method": "helmetLampLight", "ticks": 60, "ref": "9.2, 27.7 M4f"}
+    {"name": "helmetlamp_light14_gonewhenremoved", "class": "IhGameTestsM4f", "method": "helmetLampLight", "ticks": 60, "ref": "9.2, 27.7 M4f"},
+    {"name": "ringone_oredrops", "class": "IhGameTestsM5a", "method": "ringOneOreDrops", "ticks": 20, "ref": "13.4, M5a"},
+    {"name": "venus_landing_solidground", "class": "IhGameTestsM5a", "method": "venusLandingOnSolidGround", "ticks": 20, "ref": "12.5, 13.4, M5a"}
   ]
 }

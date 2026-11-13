@@ -1,0 +1,17 @@
+{
+  "type": "infinite_horizon:giant_volcano",
+  "biomes": "#infinite_horizon:has_structure/giant_volcano",
+  "spawn_overrides": {},
+  "step": "surface_structures",
+  "kind": "giant_volcano",
+  "radius": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 80,
+    "max_inclusive": 80
+  },
+  "height": 250,
+  "divisor": 8,
+  "block": "infinite_horizon:mars_rock",
+  "core": "infinite_horizon:mars_rock",
+  "fluid": "minecraft:lava"
+}

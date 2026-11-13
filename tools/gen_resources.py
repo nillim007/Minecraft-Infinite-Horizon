@@ -263,7 +263,50 @@ SIMPLE_BLOCKS = {
                           "ore": ("aluminum", "bauxite")},
     "moon_titanium_ore": {"copy": "minecraft:iron_ore", "falls": False, "tool": "pickaxe", "needs": "iron",
                           "ore": ("titanium", "raw_titanium")},
+    # M5 (13.4): Mars und Venus; Drops aus planets.json (planet_drops). SPEC-GAP #86: Härte und Werkzeugstufe wie die
+    # Vanilla-Vorlage, Erze wie Eisenerz (Stein), Wolfram wie Titan (Eisen)
+    "mars_sand": {"copy": "minecraft:red_sand", "falls": False, "tool": "shovel", "needs": None, "ore": None},
+    "mars_rock": {"copy": "minecraft:stone", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
+    "mars_magnesium_ore": {"copy": "minecraft:iron_ore", "falls": False, "tool": "pickaxe", "needs": "stone", "ore": None,
+                           "planet_drops": True},
+    "mars_iron_ore": {"copy": "minecraft:iron_ore", "falls": False, "tool": "pickaxe", "needs": "stone", "ore": None,
+                      "planet_drops": True},
+    "gypsum_block": {"copy": "minecraft:calcite", "falls": False, "tool": "pickaxe", "needs": None, "ore": None,
+                     "planet_drops": True},
+    "dry_ice_block": {"copy": "minecraft:packed_ice", "falls": False, "tool": "pickaxe", "needs": None, "ore": None,
+                      "planet_drops": True},
+    "iron_nickel_meteorite": {"copy": "minecraft:iron_ore", "falls": False, "tool": "pickaxe", "needs": "stone", "ore": None,
+                              "planet_drops": True},
+    "venus_rock": {"copy": "minecraft:blackstone", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
+    "venus_tungsten_ore": {"copy": "minecraft:deepslate_iron_ore", "falls": False, "tool": "pickaxe", "needs": "iron",
+                           "ore": None, "planet_drops": True},
+    "venus_sulfur_ore": {"copy": "minecraft:nether_quartz_ore", "falls": False, "tool": "pickaxe", "needs": "stone",
+                         "ore": None, "planet_drops": True},
 }
+
+
+def drops_loot(name, drops, fortune):
+    """Loot aus den Drops eines Planetenblocks (13.4): je Drop ein Pool, Mengenbereich, Chance, Glück; der erste Pool
+    gibt mit Behuehrung den Block selbst."""
+    pools = []
+    for k, dr in enumerate(drops):
+        mods = []
+        if dr.get("count_max"):
+            mods.append({"type": "minecraft:set_count",
+                         "count": {"type": "minecraft:uniform", "min": dr["count"], "max": dr["count_max"]}})
+        elif dr.get("count", 1) != 1:
+            mods.append({"type": "minecraft:set_count", "count": dr["count"]})
+        if fortune:
+            mods.append({"type": "minecraft:apply_bonus", "enchantment": "minecraft:fortune", "formula": "minecraft:ore_drops"})
+        mods.append({"type": "minecraft:explosion_decay"})
+        item = {"type": "minecraft:item", "modifier": mods, "name": dr["id"]}
+        if dr.get("chance"):
+            item["condition"] = {"type": "minecraft:random_chance", "chance": dr["chance"]}
+        entry = item if k else {"type": "minecraft:alternatives", "children": [
+            {"type": "minecraft:item", "condition": "minecraft:tool/can_silk_touch", "name": f"{NS}:{name}"}, item]}
+        pools.append({"entries": [entry], "rolls": 1})
+    write_json(f"data/{NS}/loot_table/blocks/{name}.json",
+               {"type": "minecraft:block", "pools": pools, "random_sequence": f"{NS}:blocks/{name}"})
 
 
 def simple_block(name):
@@ -437,6 +480,22 @@ OVERWORLD_MONSTER_SPAWNS = {
     "minecraft:slime": {"count": 4, "weight": 100}, "minecraft:witch": {"count": 1, "weight": 5},
 }
 VANILLA_CARVERS = ["minecraft:cave", "minecraft:cave_extra_underground", "minecraft:canyon"]
+# SPEC-GAP #87: Werte, die planets.json für Ring 1 offen lässt (Form der Strukturen, Häufigkeit, Krater)
+RING1_SHAPES = {
+    # Riesenvulkan: Krater oben mit Radius radius / divisor
+    "giant_volcano": {"divisor": 8, "block": "default_block", "core": "default_block", "fluid": "minecraft:lava"},
+    # Vulkanschlot: Hügel aus Basalt mit Magmarand und Lavaschlot
+    "volcanic_vent": {"radius": [4, 6], "height": 3, "divisor": 4, "block": "minecraft:basalt",
+                      "core": "minecraft:magma_block", "fluid": "minecraft:lava"},
+    # Meteoritenfeld: 3–5 Krater mit Radius 3–6 im Umkreis 20, Meteoritenblock in der Mitte
+    "meteorite_field": {"radius": [20, 20], "height": 0, "divisor": 3, "count": [3, 5], "part_radius": [3, 6],
+                        "block": "default_block", "core": "infinite_horizon:iron_nickel_meteorite",
+                        "fluid": "minecraft:air"},
+}
+# Meteoritenkrater als Feature im Biom: Radius 2–4, 1 Versuch je 2 Chunks
+METEORITE_CRATER = {"radius": [2, 4], "rarity_chunks": 2, "depth_divisor": 2, "rim_height": 1}
+# Mars-Canyon: Häufigkeit je Chunk (Vanilla 0,01)
+CANYON_PROBABILITY = 0.1
 FEATURE_STEPS = 11  # GenerationStep.Decoration
 STEP_LOCAL_MODIFICATIONS = 2
 STEP_UNDERGROUND_ORES = 6
@@ -499,6 +558,9 @@ def planet_worldgen(spec, impl, blocks):
     """Dimension, Typ, Noise-Settings, Material Rule, Biome, Erze, Krater und Strukturen je Planetendimension."""
     defaults = json.loads((sd.DATA / "planets.json").read_text(encoding="utf-8"))["dimension_defaults"]["surface"]
     out = {}
+    extra_carvers = {}
+    struct_biomes = {}
+    moon_tube = next((s for s in spec.planets[f"{NS}:moon"].get("structures", []) if s["id"] == f"{NS}:lava_tube"), {})
     for dim in impl.get("dimensions", []):
         p = spec.planets[dim]
         ns, path = dim.split(":", 1)
@@ -524,7 +586,7 @@ def planet_worldgen(spec, impl, blocks):
             "noise": {"min_y": defaults["min_y"], "height": defaults["height"]},
             "default_block": p["default_block"], "default_fluid": p["default_fluid"] or "minecraft:air",
             "noise_router": OVERWORLD_NOISE_ROUTER, "material_rule": dim, "spawn_target": OVERWORLD_SPAWN_TARGET,
-            "sea_level": p["sea_level"], "disable_mob_generation": False, "legacy_random_source": False})
+            "sea_level": p["sea_level"] if p.get("sea_level") is not None else defaults["min_y"], "disable_mob_generation": False, "legacy_random_source": False})
         write_json(f"data/{ns}/worldgen/material_rule/{path}.json", surface_rule(p["biomes"]))
         write_json(f"data/{ns}/dimension/{path}.json", {
             "type": dim,
@@ -554,14 +616,36 @@ def planet_worldgen(spec, impl, blocks):
                 per_biome[b][STEP_UNDERGROUND_ORES].append(f"{NS}:{name}")
         # Eigene Features (13.4): Krater
         for f in p.get("features", []):
-            if f["type"] != "crater":
+            if f["type"] == "canyon_carver":
+                # 13.4: Vanilla-Canyon bis y min_y, Breite × width_multiplier
+                prm = f["params"]
+                w = prm["width_multiplier"]
+                write_json(f"data/{NS}/worldgen/carver/{path}_canyon.json", {
+                    "type": "minecraft:canyon", "probability": CANYON_PROBABILITY,
+                    "shape": {"distance_factor": {"type": "minecraft:uniform", "min_inclusive": 0.75, "max_exclusive": 1.0},
+                              "horizontal_radius_factor": {"type": "minecraft:uniform", "min_inclusive": 0.75 * w,
+                                                           "max_exclusive": 1.0 * w},
+                              "thickness": {"type": "minecraft:trapezoid", "min": 0.0, "max": 6.0, "plateau": 2.0},
+                              "vertical_radius_center_factor": 0.0, "vertical_radius_default_factor": 1.0,
+                              "width_smoothness": 3, "y_scale": 3.0},
+                    "vertical_rotation": {"type": "minecraft:uniform", "min_inclusive": -0.125, "max_exclusive": 0.125},
+                    "y": {"type": "minecraft:uniform", "min_inclusive": {"absolute": prm["min_y"]},
+                          "max_inclusive": {"absolute": 67}}})
+                for b in f["biomes"]:
+                    extra_carvers.setdefault(b, []).append(f"{NS}:{path}_canyon")
+                continue
+            if f["type"] == "meteorite_crater":
+                f = dict(f, id=f"{NS}:meteorite_crater", params=dict(METEORITE_CRATER))
+            elif f["type"] != "crater":
                 continue
             name = short_id(f["id"])
             prm = f["params"]
-            write_json(f"data/{NS}/worldgen/feature/{name}.json", {
-                "type": f"{NS}:crater",
-                "radius": {"type": "minecraft:uniform", "min_inclusive": prm["radius"][0], "max_inclusive": prm["radius"][1]},
-                "depth_divisor": prm["depth_divisor"], "rim_height": prm["rim_height"]})
+            body = {"type": f"{NS}:crater",
+                    "radius": {"type": "minecraft:uniform", "min_inclusive": prm["radius"][0], "max_inclusive": prm["radius"][1]},
+                    "depth_divisor": prm["depth_divisor"], "rim_height": prm["rim_height"]}
+            if f.get("block"):
+                body["core"] = f["block"]
+            write_json(f"data/{NS}/worldgen/feature/{name}.json", body)
             write_json(f"data/{NS}/worldgen/placed_feature/{name}.json", {
                 "feature": f"{NS}:{name}", "placement": [
                     {"type": "minecraft:rarity_filter", "chance": prm["rarity_chunks"]}, {"type": "minecraft:in_square"},
@@ -579,18 +663,34 @@ def planet_worldgen(spec, impl, blocks):
             write_json(f"data/{NS}/worldgen/biome/{short_id(b['id'])}.json", {
                 "temperature": 0.5, "downfall": 0.0, "has_precipitation": False,
                 "effects": {"water_color": "#3f76e4"}, "attributes": attrs,
-                "carvers": VANILLA_CARVERS, "features": per_biome[b["id"]]})
+                "carvers": VANILLA_CARVERS + extra_carvers.get(b["id"], []), "features": per_biome[b["id"]]})
         # Strukturen (13.4): Großkrater und Lavaröhre als eigene Strukturtypen
         for st in p.get("structures", []):
             name = short_id(st["id"])
             prm = st["params"]
-            write_json(f"data/{NS}/tags/worldgen/biome/has_structure/{name}.json", {"values": st["biomes"]})
+            # gleiche Struktur auf mehreren Planeten (Lavaröhre): Biome zusammenführen
+            struct_biomes.setdefault(name, [])
+            struct_biomes[name] += [b for b in st["biomes"] if b not in struct_biomes[name]]
+            write_json(f"data/{NS}/tags/worldgen/biome/has_structure/{name}.json", {"values": struct_biomes[name]})
             body = {"type": f"{NS}:{name}", "biomes": f"#{NS}:has_structure/{name}", "spawn_overrides": {}}
             if name == "great_crater":
                 body.update({"step": "local_modifications",
                              "radius": {"type": "minecraft:uniform", "min_inclusive": prm["radius"][0],
                                         "max_inclusive": prm["radius"][1]},
                              "ore_multiplier": prm["ore_multiplier"], **GREAT_CRATER_SHAPE})
+            elif name in RING1_SHAPES:
+                shape = RING1_SHAPES[name]
+                rad = prm.get("radius", shape.get("radius"))
+                rad = rad if isinstance(rad, list) else [rad, rad]
+                pick = lambda v: p["default_block"] if v == "default_block" else v
+                body.update({"step": "surface_structures", "kind": name,
+                             "radius": {"type": "minecraft:uniform", "min_inclusive": rad[0], "max_inclusive": rad[1]},
+                             "height": prm.get("max_y", shape.get("height", 0)), "divisor": shape["divisor"],
+                             "block": pick(shape["block"]), "core": pick(shape["core"]), "fluid": shape["fluid"]})
+                for key in ("count", "part_radius"):
+                    if key in shape:
+                        body[key] = {"type": "minecraft:uniform", "min_inclusive": shape[key][0],
+                                     "max_inclusive": shape[key][1]}
             elif name == "lava_tube":
                 body.update({"step": "underground_structures", "size": prm["cross_section"][0],
                              "length": {"type": "minecraft:uniform", "min_inclusive": prm["length"][0],
@@ -601,9 +701,12 @@ def planet_worldgen(spec, impl, blocks):
                 continue
             write_json(f"data/{NS}/worldgen/structure/{name}.json", body)
             salt = sum(ord(c) * 31 ** k for k, c in enumerate(st["id"])) % 2_000_000_000
+            # SPEC-GAP #87: ohne Angabe Abstand wie die Lavaröhre des Mondes, Trennung = Abstand / 4
+            spacing = st.get("spacing_chunks") or moon_tube.get("spacing_chunks")
+            separation = st.get("separation_chunks") or max(1, spacing // 4)
             write_json(f"data/{NS}/worldgen/structure_set/{name}.json", {
                 "placement": {"type": "minecraft:random_spread", "salt": salt,
-                              "separation": st["separation_chunks"], "spacing": st["spacing_chunks"]},
+                              "separation": separation, "spacing": spacing},
                 "structures": [{"structure": f"{NS}:{name}", "weight": 1}]})
         out[dim] = ore_features
     mobs = sorted({m['entity'] for dim in impl.get('dimensions', []) for m in spec.planets[dim].get('vanilla_mobs', [])})
@@ -847,7 +950,10 @@ def main():
         else:
             sys.exit(f"Unbekannte Blockform {shape} für {i}")
         write_json(f"assets/{NS}/items/{name}.json", {"model": {"type": "minecraft:model", "model": inv_model}})
-        if shape == "simple_block" and SIMPLE_BLOCKS[name]["ore"]:
+        if shape == "simple_block" and SIMPLE_BLOCKS[name].get("planet_drops"):
+            pb = next(b for pl in spec.planets.values() for b in (pl.get("blocks") or []) if b["id"] == i)
+            drops_loot(name, pb["drops"], pb.get("fortune", False))
+        elif shape == "simple_block" and SIMPLE_BLOCKS[name]["ore"]:
             ore_loot(name, SIMPLE_BLOCKS[name]["ore"][1])
         elif shape == "simple_block" and SIMPLE_BLOCKS[name].get("drop"):
             block_loot(name, SIMPLE_BLOCKS[name]["drop"])

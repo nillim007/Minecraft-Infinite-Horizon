@@ -1,10 +1,22 @@
 {
   "values": [
+    "infinite_horizon:dry_ice_block",
+    "infinite_horizon:gypsum_block",
+    "infinite_horizon:iron_nickel_meteorite",
+    "infinite_horizon:mars_iron_ore",
+    "infinite_horizon:mars_magnesium_ore",
+    "infinite_horizon:mars_rock",
+    "infinite_horizon:mars_sand",
     "infinite_horizon:moon_aluminum_ore",
     "infinite_horizon:moon_basalt",
     "infinite_horizon:moon_ice",
     "infinite_horizon:moon_regolith",
     "infinite_horizon:moon_rock",
-    "infinite_horizon:moon_titanium_ore"
+    "infinite_horizon:moon_titanium_ore",
+    "infinite_horizon:venus_rock",
+    "infinite_horizon:venus_sulfur_ore",
+    "infinite_horizon:venus_tungsten_ore",
+    "minecraft:basalt",
+    "minecraft:magma_block"
   ]
 }

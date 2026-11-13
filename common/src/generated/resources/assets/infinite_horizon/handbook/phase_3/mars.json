@@ -1,0 +1,252 @@
+{
+  "id": "infinite_horizon:phase_3/mars",
+  "chapter": "infinite_horizon:phase_3",
+  "title": "infinite_horizon.handbook.phase_3.mars.title",
+  "icon": "infinite_horizon:mars_sand",
+  "order": 70,
+  "unlock": "infinite_horizon:research_tier/2",
+  "items": [
+    "infinite_horizon:mars_sand",
+    "infinite_horizon:mars_rock",
+    "infinite_horizon:mars_magnesium_ore",
+    "infinite_horizon:mars_iron_ore",
+    "infinite_horizon:gypsum_block",
+    "infinite_horizon:dry_ice_block",
+    "infinite_horizon:iron_nickel_meteorite",
+    "infinite_horizon:raw_magnesium",
+    "infinite_horizon:raw_nickel",
+    "infinite_horizon:gypsum",
+    "infinite_horizon:dry_ice",
+    "infinite_horizon:magnesium_dust",
+    "infinite_horizon:magnesium_ingot",
+    "infinite_horizon:nickel_dust",
+    "infinite_horizon:nickel_ingot"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.mars.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.mars.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_3.mars.e2.0",
+        "infinite_horizon.handbook.phase_3.mars.e2.1",
+        "infinite_horizon.handbook.phase_3.mars.e2.2"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.mars.e3",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_3.mars.e4.0",
+        "infinite_horizon.handbook.phase_3.mars.e4.1",
+        "infinite_horizon.handbook.phase_3.mars.e4.2",
+        "infinite_horizon.handbook.phase_3.mars.e4.3",
+        "infinite_horizon.handbook.phase_3.mars.e4.4",
+        "infinite_horizon.handbook.phase_3.mars.e4.5"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.mars.e5",
+      "level": 2
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.phase_3.mars.e6.h0",
+        "infinite_horizon.handbook.phase_3.mars.e6.h1",
+        "infinite_horizon.handbook.phase_3.mars.e6.h2",
+        "infinite_horizon.handbook.phase_3.mars.e6.h3",
+        "infinite_horizon.handbook.phase_3.mars.e6.h4"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_3.mars.e6.r0.0",
+          "infinite_horizon.handbook.phase_3.mars.e6.r0.1",
+          "infinite_horizon.handbook.phase_3.mars.e6.r0.2",
+          "infinite_horizon.handbook.phase_3.mars.e6.r0.3",
+          "infinite_horizon.handbook.phase_3.mars.e6.r0.4"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.mars.e6.r1.0",
+          "infinite_horizon.handbook.phase_3.mars.e6.r1.1",
+          "infinite_horizon.handbook.phase_3.mars.e6.r1.2",
+          "infinite_horizon.handbook.phase_3.mars.e6.r1.3",
+          "infinite_horizon.handbook.phase_3.mars.e6.r1.4"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.mars.e6.r2.0",
+          "infinite_horizon.handbook.phase_3.mars.e6.r2.1",
+          "infinite_horizon.handbook.phase_3.mars.e6.r2.2",
+          "infinite_horizon.handbook.phase_3.mars.e6.r2.3",
+          "infinite_horizon.handbook.phase_3.mars.e6.r2.4"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.mars.e6.r3.0",
+          "infinite_horizon.handbook.phase_3.mars.e6.r3.1",
+          "infinite_horizon.handbook.phase_3.mars.e6.r3.2",
+          "infinite_horizon.handbook.phase_3.mars.e6.r3.3",
+          "infinite_horizon.handbook.phase_3.mars.e6.r3.4"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.mars.e7"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:crushing/magnesium_dust",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_magnesium"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:magnesium_dust",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:crushing/nickel_dust",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_nickel"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:nickel_dust",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:electric_smelting/magnesium_ingot",
+          "type": "infinite_horizon:electric_smelting",
+          "station": "infinite_horizon:electric_furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_magnesium"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:magnesium_ingot",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:electric_smelting/magnesium_ingot_from_dust",
+          "type": "infinite_horizon:electric_smelting",
+          "station": "infinite_horizon:electric_furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:magnesium_dust"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:magnesium_ingot",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:electric_smelting/nickel_ingot",
+          "type": "infinite_horizon:electric_smelting",
+          "station": "infinite_horizon:electric_furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_nickel"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:nickel_ingot",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:electric_smelting/nickel_ingot_from_dust",
+          "type": "infinite_horizon:electric_smelting",
+          "station": "infinite_horizon:electric_furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:nickel_dust"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:nickel_ingot",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 20
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.mars.e9",
+      "style": "warning"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.mars.e10",
+      "style": "tip"
+    }
+  ]
+}

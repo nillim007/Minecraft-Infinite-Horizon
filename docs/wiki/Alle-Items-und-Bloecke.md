@@ -24,6 +24,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Druckflasche](Sauerstoff-speichern.md) | Block | Rezept |
 | [Druckhülle](Sauerstoffgenerator.md) | Item | Rezept |
 | [Effizienz-Upgrade](Upgrades.md) | Item | Rezept |
+| [Eisen-Nickel-Meteorit](Der-Mars.md) | Block | Weltgenerierung |
 | [Eisenplatte](Presse.md) | Item | Maschine |
 | [Eisenstange](Presse.md) | Item | Maschine |
 | [Eisenstaub](Zerkleinerer.md) | Item | Maschine |
@@ -36,6 +37,8 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Fluid-Port](Raffinerie.md) | Block | Rezept |
 | [Forschungsterminal](Forschung.md) | Block | Rezept |
 | [Geschwindigkeits-Upgrade](Upgrades.md) | Item | Rezept |
+| [Gips](Der-Mars.md) | Item | Abbau |
+| [Gipsblock](Der-Mars.md) | Block | Weltgenerierung |
 | [Golddraht](Presse.md) | Item | Maschine |
 | [Goldstaub](Zerkleinerer.md) | Item | Maschine |
 | [Große Sauerstoffflasche](Sauerstoff-speichern.md) | Item | Rezept |
@@ -51,6 +54,12 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Kupferstaub](Zerkleinerer.md) | Item | Maschine |
 | [Kuppelgenerator I](Die-Kuppel.md) | Block | Rezept |
 | [Landefeuer](Das-Landefeuer.md) | Block | Rezept |
+| [Magnesiumbarren](Der-Mars.md) | Item | Maschine |
+| [Magnesiumstaub](Der-Mars.md) | Item | Maschine |
+| [Mars-Eisenerz](Der-Mars.md) | Block | Weltgenerierung |
+| [Mars-Magnesiumerz](Der-Mars.md) | Block | Weltgenerierung |
+| [Marsgestein](Der-Mars.md) | Block | Weltgenerierung |
+| [Marssand](Der-Mars.md) | Block | Weltgenerierung |
 | [Maschinenrahmen](Erste-Schritte.md) | Item | Rezept |
 | [Mond-Aluminiumerz](Der-Mond.md) | Block | Weltgenerierung |
 | [Mond-Basalt](Der-Mond.md) | Block | Weltgenerierung |
@@ -59,6 +68,8 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Mondeis](Der-Mond.md) | Block | Weltgenerierung |
 | [Mondgestein](Der-Mond.md) | Block | Weltgenerierung |
 | [Montagetisch](Montagetisch.md) | Block | Rezept |
+| [Nickelbarren](Der-Mars.md) | Item | Maschine |
+| [Nickelstaub](Der-Mars.md) | Item | Maschine |
 | [Planetenatlas](Der-Planetenatlas.md) | Item | Geschenk beim ersten Betreten, Rezept |
 | [Presse](Presse.md) | Block | Rezept |
 | [Pressform (Draht)](Presse.md) | Item | Rezept |
@@ -75,11 +86,15 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Raketenkapsel T1](Die-Rakete.md) | Block | Rezept |
 | [Raketentank T1](Die-Rakete.md) | Block | Rezept |
 | [Raketentriebwerk T1](Die-Rakete.md) | Block | Rezept |
+| [Rohmagnesium](Der-Mars.md) | Item | Abbau |
+| [Rohnickel](Der-Mars.md) | Item | Abbau, Maschine |
 | [Rohtitan](Rohstoffe-und-Erze.md) | Item | Abbau |
+| [Rohwolfram](Die-Venus.md) | Item | Abbau |
 | [Sauerstoff](Elektrolyseur.md) | Fluid | Maschine |
 | [Sauerstoffflasche](Sauerstoff-speichern.md) | Item | Rezept |
 | [Sauerstoffgenerator](Sauerstoffgenerator.md) | Block | Rezept |
 | [Schaltkreis](Montagetisch.md) | Item | Rezept |
+| [Schwefel](Die-Venus.md) | Item | Abbau, Kreatur |
 | [Silizium](Elektroofen.md) | Item | Maschine |
 | [Solarpanel](Strom-im-All.md) | Block | Rezept |
 | [Sonde](Startrampe-und-Sonde.md) | Block | Rezept |
@@ -96,8 +111,14 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Transporttank](Sauerstoff-speichern.md) | Item | Rezept |
 | [Treibstoffgenerator](Strom.md) | Block | Rezept |
 | [Treibstoffpumpe](Startrampe-und-Sonde.md) | Block | Rezept |
+| [Trockeneis](Der-Mars.md) | Item | Abbau |
+| [Trockeneisblock](Der-Mars.md) | Block | Weltgenerierung |
+| [Venus-Schwefelerz](Die-Venus.md) | Block | Weltgenerierung |
+| [Venus-Wolframerz](Die-Venus.md) | Block | Weltgenerierung |
+| [Venusgestein](Die-Venus.md) | Block | Weltgenerierung |
 | [Verbrennungsgenerator](Strom.md) | Block | Rezept |
 | [Wasserstoff](Elektrolyseur.md) | Fluid | Maschine |
+| [Wolframstaub](Die-Venus.md) | Item | Maschine |
 | [Zerkleinerer](Zerkleinerer.md) | Block | Rezept |
 
 ---
