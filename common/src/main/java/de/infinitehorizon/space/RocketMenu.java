@@ -21,7 +21,7 @@ import net.minecraft.world.item.ItemStack;
 
 /**
  * Raketen-GUI einer gelandeten Rakete (12.5): Frachtraum-Slots, Treibstoff (aus den synchronisierten Entity-Daten),
- * Knöpfe „Start“ (Navigationskarte) und „Aus Frachtraum tanken“. SPEC-GAP #76: das Slotpaar für Behälter kommt später;
+ * Knöpfe „Start“ (Navigationskarte) und „Nachtanken“. SPEC-GAP #76: das Slotpaar für Behälter kommt später;
  * nachgetankt wird über den Knopf aus {@code transport_tank} im Frachtraum.
  */
 public class RocketMenu extends AbstractContainerMenu {
@@ -124,7 +124,7 @@ public class RocketMenu extends AbstractContainerMenu {
     }
 
     /**
-     * „Aus Frachtraum tanken“ (12.2): leert die {@code transport_tank} im Frachtraum, die eine Treibstoffkomponente der
+     * „Nachtanken“ (12.2): leert die {@code transport_tank} im Frachtraum, die eine Treibstoffkomponente der
      * Stufe enthalten, in Slot-Reihenfolge, bis die Raketentanks voll sind.
      */
     public static void refuelFromCargo(RocketEntity rocket) {

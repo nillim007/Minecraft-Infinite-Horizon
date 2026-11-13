@@ -38,7 +38,7 @@ Die Rakete bleibt als Fahrzeug stehen.
 
 - **Aussteigen:** Schleichen.
 - **Einsteigen:** Rechtsklick, solange ein Platz frei ist.
-- **Raketen-GUI:** Inventartaste im Sitz oder Rechtsklick von außen. Dort siehst du den Treibstoff, den Frachtraum und die Knöpfe **Start** und **Aus Frachtraum tanken**. Das Tanken leert <item:infinite_horizon:transport_tank> im Frachtraum in die Raketentanks.
+- **Raketen-GUI:** Inventartaste im Sitz oder Rechtsklick von außen. Dort siehst du den Treibstoff, den Frachtraum und die Knöpfe **Start** und **Nachtanken**. Nachtanken leert <item:infinite_horizon:transport_tank> im Frachtraum in die Raketentanks.
 - **Zerlegen:** Schleichen und Rechtsklick mit leerer Hand. Alle Teile und die Fracht fallen als Items heraus, der Treibstoff ist verloren.
 
 ## Der Rückflug

@@ -14,7 +14,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.Slot;
 
 /**
- * Raketen-GUI (12.5): Treibstoff je Komponente, Frachtraum, „Start“ (Navigationskarte) und „Aus Frachtraum tanken“.
+ * Raketen-GUI (12.5): Treibstoff je Komponente, Frachtraum, „Start“ (Navigationskarte) und „Nachtanken“.
  * Aus Rechtecken gezeichnet wie das Maschinen-GUI.
  */
 public class RocketScreen extends AbstractContainerScreen<RocketMenu> {

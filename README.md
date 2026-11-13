@@ -82,6 +82,12 @@ Der ganze Ablauf mit allen Rezepten steht im Wiki unter [Erste Schritte](docs/wi
 </p>
 
 <p align="center">
+  <img src="docs/images/screenshots/gui-star-map.png" alt="Navigationskarte mit Zielen, Treibstoffkosten und Landeort" width="32%">
+  <img src="docs/images/screenshots/rocket-countdown.png" alt="Countdown einer Rakete T1, Ansicht von außen" width="32%">
+  <img src="docs/images/screenshots/moon-rocket.png" alt="Gelandete Rakete auf dem Mond vor einer Kuppel" width="32%">
+</p>
+
+<p align="center">
   <img src="docs/images/refinery.svg" alt="Bauplan der Raffinerie" width="70%">
 </p>
 
