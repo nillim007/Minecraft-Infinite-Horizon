@@ -46,6 +46,10 @@ public final class IhGameTestsM5f {
         T e = type.create(h.getLevel(), EntitySpawnReason.TRIGGERED);
         Vec3 at = h.absoluteVec(Vec3.atBottomCenterOf(rel));
         e.setPos(at.x, at.y, at.z);
+        // sonst verschwindet die Kreatur sofort, wenn andere Tests weit entfernt Spieler haben (Despawn wie Vanilla)
+        if (e instanceof net.minecraft.world.entity.Mob mob) {
+            mob.setPersistenceRequired();
+        }
         h.getLevel().addFreshEntity(e);
         return e;
     }
