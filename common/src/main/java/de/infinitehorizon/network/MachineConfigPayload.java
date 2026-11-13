@@ -36,7 +36,9 @@ public record MachineConfigPayload(BlockPos pos, int side, int tank) implements 
         if (player.distanceToSqr(net.minecraft.world.phys.Vec3.atCenterOf(p.pos)) > MAX_DISTANCE * MAX_DISTANCE) {
             return;
         }
-        if (!(player.level().getBlockEntity(p.pos) instanceof MachineBlockEntity be)) {
+        if (!(player.level().getBlockEntity(p.pos) instanceof MachineBlockEntity be)
+                || !de.infinitehorizon.agency.Permissions.can(player, be.storedOwner(),
+                de.infinitehorizon.agency.Permissions.Action.CONFIGURE)) {
             return;
         }
         if (p.side >= 0 && p.side < Direction.values().length) {

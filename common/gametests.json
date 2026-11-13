@@ -85,6 +85,9 @@
     {"name": "sample_naturalbauxite_oncepereposition", "class": "IhGameTestsM4b", "method": "sampleToolOncePerPosition", "ticks": 20, "ref": "11.2, 27.7 M4b"},
     {"name": "analyzer_onesample_onefpwithin110ticks", "class": "IhGameTestsM4b", "method": "analyzerOneSampleOneFp", "ticks": 110, "ref": "6.1, 11.1, 27.7 M4b"},
     {"name": "solar_moonoverride_5jt_polarcrater0", "class": "IhGameTestsM4b", "method": "solarPanelMoon", "ticks": 60, "environment": "infinite_horizon:moon_day", "ref": "6.3, 27.7 M4b"},
-    {"name": "exploration_lavatube_20fp", "class": "IhGameTestsM4b", "method": "lavaTubeGivesFp", "ticks": 60, "dimension": "infinite_horizon:moon", "ref": "11.1, 27.7 M4b"}
+    {"name": "exploration_lavatube_20fp", "class": "IhGameTestsM4b", "method": "lavaTubeGivesFp", "ticks": 60, "dimension": "infinite_horizon:moon", "ref": "11.1, 27.7 M4b"},
+    {"name": "agency_guest_noslotsnobreak_thenjoin", "class": "IhGameTestsM4c", "method": "guestThenMember", "ticks": 20, "ref": "23.1, 27.7 M4c"},
+    {"name": "agency_moonoverride_domeprotection", "class": "IhGameTestsM4c", "method": "domeProtection", "ticks": 40, "ref": "23.2, 10.3, 27.7 M4c"},
+    {"name": "agency_unownedcrusher_claimedonopen", "class": "IhGameTestsM4c", "method": "unownedClaimedOnOpen", "ticks": 20, "ref": "23.1, 27.7 M4c"}
   ]
 }

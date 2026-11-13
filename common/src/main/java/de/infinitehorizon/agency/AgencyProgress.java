@@ -18,7 +18,7 @@ import java.util.UUID;
 /**
  * Geteilter Fortschritt einer Agentur ab M4 (23.1, Tabelle „Agentur-Felder ab M4“). Alle Felder sind optional mit
  * leerem Standard; sie stehen in der gespeicherten Agentur flach neben {@code id}, {@code name} usw.
- * ({@code data_version} bleibt 1). Weitere Felder (Sondenflüge, besuchte Biome, Landefeuer, Einladungen) kommen mit
+ * ({@code data_version} bleibt 1). Weitere Felder (Sondenflüge, besuchte Biome, Landefeuer) kommen mit
  * ihren Teilschritten dazu.
  * <p>
  * Änderungen hier markieren die {@link AgencyData} nicht selbst; Aufrufer rufen danach {@code AgencyData#setDirty()}.
@@ -48,7 +48,8 @@ public final class AgencyProgress {
             Codec.unboundedMap(Codec.STRING, Codec.INT).optionalFieldOf("structure_counts", Map.of())
                     .forGetter(p -> Map.copyOf(p.structureCounts)),
             FoundStructure.CODEC.listOf().optionalFieldOf("found_structures", List.of())
-                    .forGetter(p -> List.copyOf(p.foundStructures))
+                    .forGetter(p -> List.copyOf(p.foundStructures)),
+            UUIDUtil.CODEC.listOf().optionalFieldOf("invites", List.of()).forGetter(p -> List.copyOf(p.invites))
     ).apply(i, AgencyProgress::new));
 
     private int fp;
@@ -60,14 +61,16 @@ public final class AgencyProgress {
     private final Map<String, Integer> sampleCounts;
     private final Map<String, Integer> structureCounts;
     private final List<FoundStructure> foundStructures;
+    private final Set<UUID> invites;
 
     public AgencyProgress() {
-        this(0, List.of(), List.of(), List.of(), List.of(), Map.of(), Map.of(), Map.of(), List.of());
+        this(0, List.of(), List.of(), List.of(), List.of(), Map.of(), Map.of(), Map.of(), List.of(), List.of());
     }
 
     private AgencyProgress(int fp, List<Identifier> researched, List<Integer> openTiers, List<Identifier> probeTargets,
                            List<Identifier> probeReached, Map<UUID, List<Identifier>> pending, Map<String, Integer> samples,
-                           Map<String, Integer> structures, List<FoundStructure> found) {
+                           Map<String, Integer> structures, List<FoundStructure> found, List<UUID> invites) {
+        this.invites = new LinkedHashSet<>(invites);
         this.sampleCounts = new LinkedHashMap<>(samples);
         this.structureCounts = new LinkedHashMap<>(structures);
         this.foundStructures = new java.util.ArrayList<>(found);
@@ -172,6 +175,23 @@ public final class AgencyProgress {
         }
         foundStructures.add(found);
         return true;
+    }
+
+    /** Offene Einladungen dieser Agentur (Spieler-UUIDs, 23.1). */
+    public Set<UUID> invites() {
+        return Set.copyOf(invites);
+    }
+
+    public boolean isInvited(UUID player) {
+        return invites.contains(player);
+    }
+
+    public boolean addInvite(UUID player) {
+        return invites.add(player);
+    }
+
+    public boolean removeInvite(UUID player) {
+        return invites.remove(player);
     }
 
     /** Nimmt die offenen Erfolge eines Spielers heraus (beim Login). */

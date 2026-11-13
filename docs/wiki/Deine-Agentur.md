@@ -4,7 +4,7 @@
 
 # Deine Agentur
 
-Jeder Spieler gehört zu einer **Agentur**. Sie ist dein Raumfahrtprogramm: Später teilen alle Mitglieder Forschung, Atlas, Routen und Stationen. Spielst du allein, bist du deine eigene Agentur.
+Jeder Spieler gehört zu einer **Agentur**. Sie ist dein Raumfahrtprogramm: Alle Mitglieder teilen Forschungspunkte und Forschung, später auch Atlas, Routen und Stationen. Spielst du allein, bist du deine eigene Agentur.
 
 ## So entsteht sie
 
@@ -16,18 +16,35 @@ Die Agentur merkt sich außerdem jede Dimension, die eines ihrer Mitglieder betr
 
 Setzt du eine Maschine, einen Generator, einen Speicher oder einen Port, gehört er deiner Agentur. Kabel, Rohre und Gehäuseblöcke haben keinen Besitzer.
 
-Blöcke, die nicht von einem Spieler gesetzt wurden (per Befehl, aus einem Werfer oder aus älteren Welten), sind **ohne Besitzer**. Das hat im Moment keine Folgen.
+Blöcke, die nicht von einem Spieler gesetzt wurden (per Befehl, aus einem Werfer oder aus älteren Welten), sind **ohne Besitzer**. Jeder darf sie benutzen. Wer ihr GUI als Erster öffnet, wird mit seiner Agentur Besitzer.
+
+## Beitreten und Austreten
+
+Alles läuft am [Forschungsterminal](Forschung.md) im Reiter **Agentur**. Dort siehst du die Mitglieder mit ihrer Rolle.
+
+1. **Einladen:** Der Leiter sieht rechts alle Spieler, die gerade online und nicht Mitglied sind, und lädt sie per Knopf ein. Der Eingeladene bekommt eine Nachricht im Chat.
+2. **Annehmen oder Ablehnen:** Unten rechts stehen deine offenen Einladungen. Annehmen kannst du an **jedem** Forschungsterminal, auch an einem fremden.
+3. **Beitritt:** Du verlässt deine alte Agentur und wirst Ingenieur der neuen. Wird die alte dadurch leer, gehört ihr ganzer Besitz (Maschinen, Kuppeln, Terminals) ab sofort der neuen. Forschungspunkte und Forschung der alten Agentur werden **nicht** übertragen.
+4. **Austreten:** Du gründest sofort eine neue eigene Agentur und bist ihr Leiter. Allein kannst du nicht austreten.
+
+Tritt der Leiter aus, wird der Ingenieur Leiter, der am längsten dabei ist.
+
+> [!WARNING]
+> Wer einer anderen Agentur beitritt, nimmt seine Forschungspunkte und seine Forschung nicht mit. Es gilt der Stand der neuen Agentur.
+
+## Rechte
+
+| Rolle | Darf |
+| --- | --- |
+| Leiter | alles, dazu einladen |
+| Ingenieur | bauen, Maschinen bedienen und einstellen, forschen, später Raketen starten |
+| Nicht-Mitglied | fremde Maschinen und Behälter öffnen und ansehen, aber nichts herausnehmen, hineinlegen, einstellen oder abbauen |
+
+- **Kuppelschutz:** In einer aktiven fremden [Kuppel](Die-Kuppel.md) setzen und bauen Nicht-Mitglieder keinen Block ab, auch keine Erde oder Steine. Atmen darf dort jeder.
+- **Operatoren** des Servers sind von diesen Regeln ausgenommen, wie beim Spawnschutz.
 
 > [!NOTE]
-> Noch kann jeder alle Maschinen bedienen. Rollen, Gast-Rechte und der Schutz in Kuppeln kommen, sobald man am Forschungsterminal einer Agentur beitreten kann.
-
-## Rollen
-
-| Rolle | Darf später |
-| --- | --- |
-| Leiter | alles, einladen, Rollen vergeben, Partner freigeben |
-| Ingenieur | bauen, Maschinen bedienen, Raketen starten, Routen ändern, forschen |
-| Gast | Kuppeln betreten, Behälter ansehen, aber nichts nehmen, setzen oder abbauen |
+> Rollen wechseln, die Agentur umbenennen und Partnerschaften kommen in einer späteren Version.
 
 ## Befehle
 

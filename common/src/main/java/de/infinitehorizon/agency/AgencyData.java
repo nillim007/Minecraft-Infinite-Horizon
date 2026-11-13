@@ -93,6 +93,89 @@ public final class AgencyData extends SavedData {
         });
     }
 
+    /** Ergebnis von {@link #invite}, {@link #accept}, {@link #decline} und {@link #leave}. */
+    public enum ActionResult { OK, NOT_LEADER, ALREADY_MEMBER, NOT_INVITED, UNKNOWN_AGENCY, ALONE }
+
+    /** Der Leiter {@code leader} lädt {@code target} in seine Agentur ein (23.1). */
+    public ActionResult invite(UUID leader, UUID target) {
+        Agency a = agencyOf(leader).orElse(null);
+        if (a == null || a.roleOf(leader).orElse(Role.GUEST) != Role.LEADER) {
+            return ActionResult.NOT_LEADER;
+        }
+        if (a.isMember(target)) {
+            return ActionResult.ALREADY_MEMBER;
+        }
+        if (a.progress().addInvite(target)) {
+            setDirty();
+        }
+        return ActionResult.OK;
+    }
+
+    /**
+     * {@code player} nimmt die Einladung von {@code agency} an (23.1 „Beitritt“): Er verlässt seine alte Agentur (der
+     * Leiter wird dort ggf. ersetzt) und wird {@code engineer}. Ist die alte Agentur danach leer, geht ihr Besitz über
+     * {@code merged_into} an die neue; FP, Forschung und Atlas werden nicht übertragen.
+     */
+    public ActionResult accept(UUID player, UUID agency, long tick) {
+        Agency target = agencies.get(agency);
+        if (target == null || target.mergedInto() != null) {
+            return ActionResult.UNKNOWN_AGENCY;
+        }
+        if (target.isMember(player)) {
+            return ActionResult.ALREADY_MEMBER;
+        }
+        if (!target.progress().removeInvite(player)) {
+            return ActionResult.NOT_INVITED;
+        }
+        agencyOf(player).ifPresent(old -> {
+            old.removeMember(player);
+            if (old.members().isEmpty()) {
+                old.setMergedInto(target.id());
+            }
+        });
+        target.addMember(new Agency.Member(player, Role.ENGINEER, tick));
+        setDirty();
+        return ActionResult.OK;
+    }
+
+    /** {@code player} lehnt die Einladung von {@code agency} ab. */
+    public ActionResult decline(UUID player, UUID agency) {
+        Agency target = agencies.get(agency);
+        if (target == null) {
+            return ActionResult.UNKNOWN_AGENCY;
+        }
+        if (!target.progress().removeInvite(player)) {
+            return ActionResult.NOT_INVITED;
+        }
+        setDirty();
+        return ActionResult.OK;
+    }
+
+    /**
+     * {@code player} tritt aus (23.1): Er bekommt sofort eine neue eigene Agentur als {@code leader}; in der alten
+     * folgt ggf. ein neuer Leiter. Wer allein ist, kann nicht austreten (SPEC-GAP #70).
+     */
+    public ActionResult leave(UUID player, long tick) {
+        Agency old = agencyOf(player).orElse(null);
+        if (old == null) {
+            return ActionResult.UNKNOWN_AGENCY;
+        }
+        if (old.members().size() <= 1) {
+            return ActionResult.ALONE;
+        }
+        old.removeMember(player);
+        Agency created = new Agency(UUID.randomUUID(), null, List.of(new Agency.Member(player, Role.LEADER, tick)),
+                null, List.of());
+        agencies.put(created.id(), created);
+        setDirty();
+        return ActionResult.OK;
+    }
+
+    /** Agenturen, die {@code player} eingeladen haben. */
+    public List<Agency> invitesFor(UUID player) {
+        return agencies.values().stream().filter(a -> a.mergedInto() == null && a.progress().isInvited(player)).toList();
+    }
+
     /**
      * Überträgt den Besitz von {@code from} an {@code to} (Befehl {@code agency transfer}, 23.1): {@code from} bekommt
      * {@code merged_into}, {@code owner_agency} wird beim nächsten Zugriff umgeschrieben.

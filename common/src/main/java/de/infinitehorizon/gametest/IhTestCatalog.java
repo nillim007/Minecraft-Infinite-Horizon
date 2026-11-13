@@ -98,7 +98,10 @@ public final class IhTestCatalog {
             new Test("sample_naturalbauxite_oncepereposition", 20, null, null, null, IhGameTestsM4b::sampleToolOncePerPosition),  // 11.2, 27.7 M4b
             new Test("analyzer_onesample_onefpwithin110ticks", 110, null, null, null, IhGameTestsM4b::analyzerOneSampleOneFp),  // 6.1, 11.1, 27.7 M4b
             new Test("solar_moonoverride_5jt_polarcrater0", 60, null, "infinite_horizon:moon_day", null, IhGameTestsM4b::solarPanelMoon),  // 6.3, 27.7 M4b
-            new Test("exploration_lavatube_20fp", 60, null, null, "infinite_horizon:moon", IhGameTestsM4b::lavaTubeGivesFp)  // 11.1, 27.7 M4b
+            new Test("exploration_lavatube_20fp", 60, null, null, "infinite_horizon:moon", IhGameTestsM4b::lavaTubeGivesFp),  // 11.1, 27.7 M4b
+            new Test("agency_guest_noslotsnobreak_thenjoin", 20, null, null, null, IhGameTestsM4c::guestThenMember),  // 23.1, 27.7 M4c
+            new Test("agency_moonoverride_domeprotection", 40, null, null, null, IhGameTestsM4c::domeProtection),  // 23.2, 10.3, 27.7 M4c
+            new Test("agency_unownedcrusher_claimedonopen", 20, null, null, null, IhGameTestsM4c::unownedClaimedOnOpen)  // 23.1, 27.7 M4c
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

@@ -11,7 +11,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 /**
  * 8.5: Blöcke aus {@code needs_atmosphere} lassen sich ohne Atmosphäre nicht setzen. 11.2: Von Spielern gesetzte Blöcke
- * aus den {@code sampleable}-Tags werden als nicht beprobbar markiert.
+ * aus den {@code sampleable}-Tags werden als nicht beprobbar markiert. 23.2: Kuppelschutz.
  */
 @Mixin(BlockItem.class)
 public abstract class BlockItemMixin {
@@ -19,6 +19,14 @@ public abstract class BlockItemMixin {
     @Inject(method = "placeBlock", at = @At("HEAD"), cancellable = true)
     private void infinite_horizon$noAtmosphere(BlockPlaceContext context, BlockState state, CallbackInfoReturnable<Boolean> cir) {
         if (AtmosphereRules.denyPlacement(context.getLevel(), context.getClickedPos(), state, context.getPlayer())) {
+            cir.setReturnValue(false);
+            return;
+        }
+        // Kuppelschutz (23.2): in einer aktiven fremden Kuppel setzen Nicht-Mitglieder keinen Block
+        if (context.getPlayer() instanceof net.minecraft.server.level.ServerPlayer sp
+                && context.getLevel() instanceof net.minecraft.server.level.ServerLevel sl
+                && !de.infinitehorizon.agency.Permissions.mayBuild(sp, sl, context.getClickedPos())) {
+            sp.sendOverlayMessage(net.minecraft.network.chat.Component.translatable("message.infinite_horizon.agency.protected"));
             cir.setReturnValue(false);
         }
     }

@@ -182,10 +182,15 @@ public final class ResearchService {
                 AgencyManager.playerName(server, m.player()), m.role().getSerializedName())));
         String founder = agency.founder().map(m -> AgencyManager.playerName(server, m.player())).orElse("?");
         AgencyProgress p = agency.progress();
+        List<AgencyStatePayload.Invite> invites = new ArrayList<>();
+        for (Agency inviting : AgencyData.get(server).invitesFor(viewer)) {
+            invites.add(new AgencyStatePayload.Invite(inviting.id(), inviting.name() == null ? "" : inviting.name(),
+                    inviting.founder().map(m -> AgencyManager.playerName(server, m.player())).orElse("?")));
+        }
         return new AgencyStatePayload(agency.id(), agency.name() == null ? "" : agency.name(), founder, members,
                 agency.roleOf(viewer).map(Role::getSerializedName).orElse(Role.GUEST.getSerializedName()), p.fp(),
                 List.copyOf(p.researched()), List.copyOf(p.openTiers()), List.copyOf(p.probeTargets()),
-                List.copyOf(p.probeReached()));
+                List.copyOf(p.probeReached()), invites);
     }
 
     /** Schickt dem Spieler den Stand seiner Agentur. */

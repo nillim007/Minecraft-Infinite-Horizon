@@ -146,6 +146,20 @@ public class MachineMenu extends AbstractContainerMenu {
         return v;
     }
 
+    /**
+     * Gast-Rechte (23.1): Slot-Klicks von Nicht-Mitgliedern an fremden Block-Entities verwirft der Server; die
+     * Vanilla-Synchronisierung setzt die Vorhersage des Clients zurück.
+     */
+    @Override
+    public void clicked(int slotId, int button, net.minecraft.world.inventory.ContainerInput input, Player player) {
+        if (!player.level().isClientSide() && container instanceof de.infinitehorizon.block.IhBlockEntity be
+                && !de.infinitehorizon.agency.Permissions.can(player, be.storedOwner(),
+                de.infinitehorizon.agency.Permissions.Action.USE_SLOTS)) {
+            return;
+        }
+        super.clicked(slotId, button, input, player);
+    }
+
     @Override
     public boolean stillValid(Player player) {
         return container.stillValid(player);

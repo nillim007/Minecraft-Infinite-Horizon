@@ -163,4 +163,49 @@ class AgencyDataTest {
         p.addFp(-800);
         assertEquals(0, p.fp());
     }
+
+    /** M4c (23.1): Nachfolge des Leiters: ältestes {@code engineer}-Mitglied, sonst ältestes Mitglied. */
+    @Test
+    void leaderSuccession() {
+        UUID p1 = UUID.randomUUID(), p2 = UUID.randomUUID(), p3 = UUID.randomUUID();
+        var members = java.util.List.of(new Agency.Member(p1, Role.GUEST, 5L), new Agency.Member(p2, Role.ENGINEER, 30L),
+                new Agency.Member(p3, Role.ENGINEER, 20L));
+        assertEquals(p3, Agency.successor(members).orElseThrow().player());
+        var guests = java.util.List.of(new Agency.Member(p2, Role.GUEST, 30L), new Agency.Member(p1, Role.GUEST, 5L));
+        assertEquals(p1, Agency.successor(guests).orElseThrow().player());
+        assertTrue(Agency.successor(java.util.List.of()).isEmpty());
+
+        AgencyData d = new AgencyData();
+        Agency a = d.ensureFor(p1, 0L);
+        a.addMember(new Agency.Member(p2, Role.ENGINEER, 30L));
+        a.addMember(new Agency.Member(p3, Role.ENGINEER, 20L));
+        assertEquals(AgencyData.ActionResult.OK, d.leave(p1, 40L));
+        assertEquals(Role.LEADER, a.roleOf(p3).orElseThrow());
+        assertEquals(Role.ENGINEER, a.roleOf(p2).orElseThrow());
+        Agency own = d.agencyOf(p1).orElseThrow();
+        assertEquals(Role.LEADER, own.roleOf(p1).orElseThrow());
+        assertEquals(AgencyData.ActionResult.ALONE, d.leave(p1, 50L));
+    }
+
+    /** M4c (23.1): Einladen nur durch den Leiter; Beitritt leert die alte Agentur, die dann merged_into bekommt. */
+    @Test
+    void inviteAcceptMerges() {
+        UUID leader = UUID.randomUUID(), other = UUID.randomUUID();
+        AgencyData d = new AgencyData();
+        Agency a = d.ensureFor(leader, 0L);
+        Agency b = d.ensureFor(other, 1L);
+        assertEquals(AgencyData.ActionResult.NOT_INVITED, d.accept(other, a.id(), 2L));
+        UUID engineer = UUID.randomUUID();
+        a.addMember(new Agency.Member(engineer, Role.ENGINEER, 1L));
+        assertEquals(AgencyData.ActionResult.NOT_LEADER, d.invite(engineer, other));
+        assertEquals(AgencyData.ActionResult.ALREADY_MEMBER, d.invite(leader, engineer));
+        assertEquals(AgencyData.ActionResult.OK, d.invite(leader, other));
+        assertEquals(java.util.List.of(a), d.invitesFor(other));
+        assertEquals(AgencyData.ActionResult.OK, d.accept(other, a.id(), 3L));
+        assertEquals(Role.ENGINEER, a.roleOf(other).orElseThrow());
+        assertEquals(a.id(), b.mergedInto());
+        assertTrue(b.members().isEmpty());
+        assertTrue(d.invitesFor(other).isEmpty());
+        assertEquals(a.id(), d.resolve(b.id()));
+    }
 }

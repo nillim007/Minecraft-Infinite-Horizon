@@ -381,6 +381,31 @@ public class IhClientGameTests implements FabricClientGameTest {
             throw new AssertionError("Forschungsbaum: gas_storage erforscht=" + researched + ", FP auf dem Client " + fp);
         }
         context.takeScreenshot("gui_research_terminal_after");
+
+        // Reiter „Agentur“ (M4c): eine fremde Agentur lädt den Spieler ein
+        sp.getServer().runOnServer(server -> {
+            var player = server.getPlayerList().getPlayers().getFirst();
+            var data = de.infinitehorizon.agency.AgencyData.get(server);
+            java.util.UUID other = java.util.UUID.randomUUID();
+            data.ensureFor(other, 0L).setName("Mondbasis Alpha");
+            data.invite(other, player.getUUID());
+            de.infinitehorizon.research.ResearchService.sendState(player);
+        });
+        context.waitTicks(5);
+        context.runOnClient(c -> {
+            if (c.gui.screen() instanceof de.infinitehorizon.client.ResearchTerminalScreen r) {
+                r.selectTab(true);
+            }
+        });
+        context.waitTicks(5);
+        int invites = context.computeOnClient(c -> {
+            var st = de.infinitehorizon.client.AgencyClientState.get();
+            return st == null ? -1 : st.invites().size();
+        });
+        if (invites != 1) {
+            throw new AssertionError("Agentur-Reiter: Einladungen auf dem Client " + invites + ", erwartet 1");
+        }
+        context.takeScreenshot("gui_research_agency");
         closeAndRemove(context, sp, pos);
     }
 

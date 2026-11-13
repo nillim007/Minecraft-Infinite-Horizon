@@ -14,14 +14,23 @@ import java.util.UUID;
 /**
  * S→C: Stand der eigenen Agentur (3A.5, 23.1) an alle Online-Mitglieder bei Join und bei jeder Änderung. M4a: Name,
  * Mitglieder mit Rolle, eigene Rolle, FP (Hundertstel), {@code researched}, {@code open_tiers}, {@code probe_targets},
- * {@code probe_reached}. Einladungen (M4c) und der Atlas-Teil (M4f) kommen dazu.
+ * {@code probe_reached}; ab M4c die offenen Einladungen an den Spieler. Der Atlas-Teil kommt mit M4f.
  *
  * @param name    eigener Name oder leer (dann „Agentur von &lt;founder&gt;“)
  * @param founder Name des Gründers
  */
 public record AgencyStatePayload(UUID agency, String name, String founder, List<Member> members, String ownRole, int fp,
                                  List<Identifier> researched, List<Integer> openTiers, List<Identifier> probeTargets,
-                                 List<Identifier> probeReached) implements CustomPacketPayload {
+                                 List<Identifier> probeReached, List<Invite> invites) implements CustomPacketPayload {
+
+    /** Offene Einladung an den Spieler: Agentur, eigener Name (oder leer) und Gründer. */
+    public record Invite(UUID agency, String name, String founder) {
+        public static final StreamCodec<ByteBuf, Invite> CODEC = StreamCodec.composite(
+                UUIDUtil.STREAM_CODEC, Invite::agency,
+                ByteBufCodecs.STRING_UTF8, Invite::name,
+                ByteBufCodecs.STRING_UTF8, Invite::founder,
+                Invite::new);
+    }
 
     /** Ein Mitglied mit Anzeigename und Rolle ({@code leader}, {@code engineer}, {@code guest}). */
     public record Member(UUID player, String name, String role) {
@@ -44,6 +53,7 @@ public record AgencyStatePayload(UUID agency, String name, String founder, List<
             ByteBufCodecs.VAR_INT.apply(ByteBufCodecs.list()), AgencyStatePayload::openTiers,
             Identifier.STREAM_CODEC.apply(ByteBufCodecs.list()), AgencyStatePayload::probeTargets,
             Identifier.STREAM_CODEC.apply(ByteBufCodecs.list()), AgencyStatePayload::probeReached,
+            Invite.CODEC.apply(ByteBufCodecs.list()), AgencyStatePayload::invites,
             AgencyStatePayload::new);
 
     @Override

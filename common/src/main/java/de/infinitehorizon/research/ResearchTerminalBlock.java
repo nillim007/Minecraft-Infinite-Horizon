@@ -60,6 +60,7 @@ public class ResearchTerminalBlock extends BaseEntityBlock implements OwnedBlock
     @Override
     public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
         if (!level.isClientSide() && player instanceof ServerPlayer sp && level.getBlockEntity(pos) instanceof ResearchTerminalBlockEntity be) {
+            OwnedBlock.claimOnOpen(level, pos, sp);
             ResearchService.sendState(sp);
             Services.REGISTRY.openMenu(sp, be, pos, BlockPos.STREAM_CODEC);
         }

@@ -85,7 +85,7 @@
     "hydrogen",
     "oxygen"
   ],
-  "step": "4b",
+  "step": "4c",
   "dimensions": ["infinite_horizon:moon"],
   "entities": [],
   "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:own_air"],

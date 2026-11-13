@@ -38,57 +38,93 @@
       "key": "infinite_horizon.handbook.reference.agentur.e6"
     },
     {
-      "type": "callout",
+      "type": "heading",
       "key": "infinite_horizon.handbook.reference.agentur.e7",
-      "style": "note"
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.agentur.e8"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.reference.agentur.e9.0",
+        "infinite_horizon.handbook.reference.agentur.e9.1",
+        "infinite_horizon.handbook.reference.agentur.e9.2",
+        "infinite_horizon.handbook.reference.agentur.e9.3"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.agentur.e10"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.reference.agentur.e11",
+      "style": "warning"
     },
     {
       "type": "heading",
-      "key": "infinite_horizon.handbook.reference.agentur.e8",
+      "key": "infinite_horizon.handbook.reference.agentur.e12",
       "level": 2
     },
     {
       "type": "table",
       "headers": [
-        "infinite_horizon.handbook.reference.agentur.e9.h0",
-        "infinite_horizon.handbook.reference.agentur.e9.h1"
+        "infinite_horizon.handbook.reference.agentur.e13.h0",
+        "infinite_horizon.handbook.reference.agentur.e13.h1"
       ],
       "rows": [
         [
-          "infinite_horizon.handbook.reference.agentur.e9.r0.0",
-          "infinite_horizon.handbook.reference.agentur.e9.r0.1"
+          "infinite_horizon.handbook.reference.agentur.e13.r0.0",
+          "infinite_horizon.handbook.reference.agentur.e13.r0.1"
         ],
         [
-          "infinite_horizon.handbook.reference.agentur.e9.r1.0",
-          "infinite_horizon.handbook.reference.agentur.e9.r1.1"
+          "infinite_horizon.handbook.reference.agentur.e13.r1.0",
+          "infinite_horizon.handbook.reference.agentur.e13.r1.1"
         ],
         [
-          "infinite_horizon.handbook.reference.agentur.e9.r2.0",
-          "infinite_horizon.handbook.reference.agentur.e9.r2.1"
+          "infinite_horizon.handbook.reference.agentur.e13.r2.0",
+          "infinite_horizon.handbook.reference.agentur.e13.r2.1"
         ]
       ]
     },
     {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.reference.agentur.e14.0",
+        "infinite_horizon.handbook.reference.agentur.e14.1"
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.reference.agentur.e15",
+      "style": "note"
+    },
+    {
       "type": "heading",
-      "key": "infinite_horizon.handbook.reference.agentur.e10",
+      "key": "infinite_horizon.handbook.reference.agentur.e16",
       "level": 2
     },
     {
       "type": "list",
       "ordered": false,
       "keys": [
-        "infinite_horizon.handbook.reference.agentur.e11.0",
-        "infinite_horizon.handbook.reference.agentur.e11.1"
+        "infinite_horizon.handbook.reference.agentur.e17.0",
+        "infinite_horizon.handbook.reference.agentur.e17.1"
       ]
     },
     {
       "type": "callout",
-      "key": "infinite_horizon.handbook.reference.agentur.e12",
+      "key": "infinite_horizon.handbook.reference.agentur.e18",
       "style": "tip"
     },
     {
       "type": "callout",
-      "key": "infinite_horizon.handbook.reference.agentur.e13",
+      "key": "infinite_horizon.handbook.reference.agentur.e19",
       "style": "warning"
     }
   ]

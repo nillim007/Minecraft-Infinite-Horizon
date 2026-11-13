@@ -71,6 +71,15 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
     private int rowH;
     private int panelW = MAX_W;
     private int panelH = MAX_H;
+    /** Reiter „Agentur“ statt „Forschung“ (23.1). */
+    private boolean agencyTab;
+    /** Stand, für den die Knöpfe des Agentur-Reiters gebaut wurden. */
+    private @Nullable Object agencyWidgetsFor;
+    private final List<net.minecraft.client.gui.components.AbstractWidget> agencyWidgets = new ArrayList<>();
+    private static final int TAB_INACTIVE = 0xFFA8A8A8;
+    private static final int LINE_H = 12;
+    private static final int BUTTON_H = 12;
+    private static final int INVITE_H = LINE_H + BUTTON_H + 2;
 
     public ResearchTerminalScreen(ResearchTerminalMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title, MAX_W, MAX_H);
@@ -84,6 +93,124 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
         panelH = Math.min(MAX_H, height - 2 * MARGIN);
         leftPos = (width - panelW) / 2;
         topPos = (height - panelH) / 2;
+        agencyWidgetsFor = null;
+        rebuildAgencyWidgets();
+    }
+
+    /** Reiter wählen (auch für Tests): {@code true} = „Agentur“. */
+    public void selectTab(boolean agency) {
+        agencyTab = agency;
+        agencyWidgetsFor = null;
+        rebuildAgencyWidgets();
+    }
+
+    public boolean agencyTab() {
+        return agencyTab;
+    }
+
+    @Override
+    protected void containerTick() {
+        super.containerTick();
+        if (agencyWidgetsFor != AgencyClientState.get()) {
+            rebuildAgencyWidgets();
+        }
+    }
+
+    private Component tabLabel(boolean agency) {
+        return Component.translatable("gui.infinite_horizon.research.tab." + (agency ? "agency" : "research"));
+    }
+
+    private int tabWidth(boolean agency) {
+        return font.width(tabLabel(agency)) + 12;
+    }
+
+    /** Knöpfe des Agentur-Reiters (Einladen, Annehmen, Ablehnen, Austreten) nach dem aktuellen Stand. */
+    private void rebuildAgencyWidgets() {
+        agencyWidgets.forEach(this::removeWidget);
+        agencyWidgets.clear();
+        de.infinitehorizon.network.AgencyStatePayload st = AgencyClientState.get();
+        agencyWidgetsFor = st;
+        if (!agencyTab || st == null || minecraft == null) {
+            return;
+        }
+        int x = leftPos + MARGIN;
+        int colW = (panelW - 3 * MARGIN) / 2;
+        int rightX = x + colW + MARGIN;
+        int y = topPos + TAB_H + HEADER_H + LINE_H;
+        // Einladen (nur Leiter): Spieler online, die nicht Mitglied sind
+        if ("leader".equals(st.ownRole()) && minecraft.getConnection() != null) {
+            java.util.Set<java.util.UUID> members = new java.util.HashSet<>();
+            st.members().forEach(m -> members.add(m.player()));
+            int iy = y;
+            for (var info : minecraft.getConnection().getOnlinePlayers()) {
+                java.util.UUID id = info.getProfile().id();
+                if (members.contains(id) || iy > topPos + panelH - 3 * BUTTON_H) {
+                    continue;
+                }
+                Component label = Component.translatable("gui.infinite_horizon.agency.invite", info.getProfile().name());
+                addAgencyButton(rightX, iy, colW, label, de.infinitehorizon.agency.AgencyActions.INVITE, id);
+                iy += BUTTON_H + 2;
+            }
+        }
+        // Einladungen an den Spieler: je Einladung eine Zeile Name, darunter Annehmen / Ablehnen
+        int jy = invitesTop(st);
+        for (var inv : st.invites()) {
+            int half = (colW - 4) / 2;
+            int by = jy + LINE_H - 2;
+            addAgencyButton(rightX, by, half, Component.translatable("gui.infinite_horizon.agency.accept"),
+                    de.infinitehorizon.agency.AgencyActions.ACCEPT, inv.agency());
+            addAgencyButton(rightX + half + 4, by, half, Component.translatable("gui.infinite_horizon.agency.decline"),
+                    de.infinitehorizon.agency.AgencyActions.DECLINE, inv.agency());
+            jy += INVITE_H;
+        }
+        // Austreten (nicht allein)
+        if (st.members().size() > 1) {
+            addAgencyButton(x, topPos + panelH - MARGIN - BUTTON_H, colW, Component.translatable("gui.infinite_horizon.agency.leave"),
+                    de.infinitehorizon.agency.AgencyActions.LEAVE, de.infinitehorizon.network.AgencyActionPayload.NONE);
+        }
+    }
+
+    private void addAgencyButton(int x, int y, int w, Component label, String action, java.util.UUID target) {
+        var b = net.minecraft.client.gui.components.Button.builder(label, btn -> Services.NETWORK.sendToServer(
+                new de.infinitehorizon.network.AgencyActionPayload(action, target))).bounds(x, y, w, BUTTON_H).build();
+        agencyWidgets.add(addRenderableWidget(b));
+    }
+
+    /** Agentur-Reiter: Name, FP, Mitglieder mit Rolle, Einladen, offene Einladungen. */
+    private void drawAgency(GuiGraphicsExtractor g) {
+        de.infinitehorizon.network.AgencyStatePayload st = AgencyClientState.get();
+        int x = leftPos + MARGIN;
+        int colW = (panelW - 3 * MARGIN) / 2;
+        int rightX = x + colW + MARGIN;
+        int y = topPos + TAB_H + HEADER_H;
+        g.text(font, Component.translatable("gui.infinite_horizon.agency.members"), x, y, TEXT, false);
+        if (st == null) {
+            return;
+        }
+        int my = y + LINE_H;
+        for (var m : st.members()) {
+            Component role = Component.translatable("gui.infinite_horizon.agency.role." + m.role());
+            g.text(font, Component.literal(m.name() + " · ").append(role), x, my, TEXT, false);
+            my += LINE_H;
+        }
+        if ("leader".equals(st.ownRole())) {
+            g.text(font, Component.translatable("gui.infinite_horizon.agency.invite_title"), rightX, y, TEXT, false);
+        }
+        if (!st.invites().isEmpty()) {
+            int jy = invitesTop(st);
+            g.text(font, Component.translatable("gui.infinite_horizon.agency.invites"), rightX, jy - LINE_H, TEXT, false);
+            for (var inv : st.invites()) {
+                Component name = inv.name().isEmpty() ? Component.translatable(de.infinitehorizon.agency.AgencyManager.DEFAULT_NAME_KEY,
+                        inv.founder()) : Component.literal(inv.name());
+                g.text(font, font.substrByWidth(name, colW).getString(), rightX, jy, 0xFF2060A0, false);
+                jy += INVITE_H;
+            }
+        }
+    }
+
+    /** Oberkante des Einladungs-Blocks (unten rechts, über dem Rand). */
+    private int invitesTop(de.infinitehorizon.network.AgencyStatePayload st) {
+        return topPos + panelH - MARGIN - st.invites().size() * INVITE_H;
     }
 
     // ------------------------------------------------------------------ Aufbau
@@ -162,15 +289,22 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
         computeLayout(reg);
         int x = leftPos;
         int y = topPos;
-        // Reiter „Forschung“ (M4c: „Agentur“)
-        int tabW = font.width(Component.translatable("gui.infinite_horizon.research.tab.research")) + 12;
-        g.fill(x, y, x + tabW, y + TAB_H + 1, PANEL);
-        g.text(font, Component.translatable("gui.infinite_horizon.research.tab.research"), x + 6, y + 3, TEXT, false);
+        // Reiter „Forschung“ und „Agentur“ (23.1)
+        int tab0 = tabWidth(false);
+        int tab1 = tabWidth(true);
+        g.fill(x, y, x + tab0, y + TAB_H + 1, agencyTab ? TAB_INACTIVE : PANEL);
+        g.text(font, tabLabel(false), x + 6, y + 3, TEXT, false);
+        g.fill(x + tab0 + 2, y, x + tab0 + 2 + tab1, y + TAB_H + 1, agencyTab ? PANEL : TAB_INACTIVE);
+        g.text(font, tabLabel(true), x + tab0 + 8, y + 3, TEXT, false);
         g.fill(x, y + TAB_H, x + panelW, y + panelH, PANEL);
         // Kopf: Agentur und FP
         g.text(font, AgencyClientState.name(), x + MARGIN, y + TAB_H + 4, TEXT, false);
         Component fp = Component.translatable("gui.infinite_horizon.research.fp", formatFp(AgencyClientState.fp()));
         g.text(font, fp, x + panelW - MARGIN - font.width(fp), y + TAB_H + 4, TEXT, false);
+        if (agencyTab) {
+            drawAgency(g);
+            return;
+        }
         if (!AgencyClientState.researchRequired()) {
             Component free = Component.translatable("gui.infinite_horizon.research.not_required");
             g.text(font, free, x + MARGIN, y + TAB_H + 13, TEXT, false);
@@ -451,6 +585,21 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
 
     @Override
     public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick) {
+        // Reiter
+        if (event.button() == 0 && event.y() >= topPos && event.y() < topPos + TAB_H) {
+            int t0 = tabWidth(false);
+            if (event.x() >= leftPos && event.x() < leftPos + t0) {
+                selectTab(false);
+                return true;
+            }
+            if (event.x() >= leftPos + t0 + 2 && event.x() < leftPos + t0 + 2 + tabWidth(true)) {
+                selectTab(true);
+                return true;
+            }
+        }
+        if (agencyTab) {
+            return super.mouseClicked(event, doubleClick);
+        }
         if (event.button() == 0) {
             ResearchRegistry.Node n = nodeAt(event.x(), event.y());
             if (n != null) {
@@ -484,7 +633,7 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
 
     @Override
     public boolean mouseScrolled(double mx, double my, double dx, double dy) {
-        if (inView(mx, my)) {
+        if (!agencyTab && inView(mx, my)) {
             // Umschalt = waagerecht (wie Vanilla-Listen)
             if (dx != 0 || minecraft != null && minecraft.hasShiftDown()) {
                 scrollX -= (dx != 0 ? dx : dy) * NODE;

@@ -73,6 +73,7 @@ public class MachineBlock extends BaseEntityBlock implements de.infinitehorizon.
             return InteractionResult.SUCCESS;
         }
         if (!level.isClientSide() && player instanceof ServerPlayer sp && level.getBlockEntity(pos) instanceof MachineBlockEntity be) {
+            de.infinitehorizon.block.OwnedBlock.claimOnOpen(level, pos, sp);
             Services.REGISTRY.openMenu(sp, be, be.openData(), MachineMenu.OpenData.STREAM_CODEC);
         }
         return InteractionResult.SUCCESS;

@@ -101,9 +101,43 @@ public final class Agency {
         members.clear();
     }
 
+    /**
+     * Nimmt ein Mitglied heraus (Austreten, Beitritt woanders). War es der Leiter, wird {@link #successor} Leiter
+     * (23.1). True, wenn es Mitglied war.
+     */
+    boolean removeMember(UUID player) {
+        Optional<Member> gone = members.stream().filter(m -> m.player().equals(player)).findFirst();
+        if (gone.isEmpty()) {
+            return false;
+        }
+        members.remove(gone.get());
+        if (gone.get().role() == Role.LEADER && members.stream().noneMatch(m -> m.role() == Role.LEADER)) {
+            successor(members).ifPresent(s -> {
+                int i = members.indexOf(s);
+                members.set(i, new Member(s.player(), Role.LEADER, s.joinedTick()));
+            });
+        }
+        return true;
+    }
+
+    /**
+     * Nachfolge des Leiters (23.1) als reine Funktion: das am längsten beigetretene {@code engineer}-Mitglied, sonst
+     * das am längsten beigetretene Mitglied.
+     */
+    public static Optional<Member> successor(List<Member> remaining) {
+        java.util.Comparator<Member> byJoin = java.util.Comparator.comparingLong(Member::joinedTick);
+        return remaining.stream().filter(m -> m.role() == Role.ENGINEER).min(byJoin)
+                .or(() -> remaining.stream().min(byJoin));
+    }
+
     /** Gründer: das am längsten beigetretene Mitglied mit Rolle {@code leader}, sonst das älteste. */
     public Optional<Member> founder() {
         return members.stream().filter(m -> m.role() == Role.LEADER).findFirst().or(() -> members.stream().findFirst());
+    }
+
+    /** Leiter (Rolle {@code leader}). */
+    public Optional<Member> leader() {
+        return members.stream().filter(m -> m.role() == Role.LEADER).findFirst();
     }
 
     public @Nullable UUID mergedInto() {

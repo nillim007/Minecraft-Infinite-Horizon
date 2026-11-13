@@ -408,4 +408,19 @@ public class IhFabricGameTests {
     public void explorationLavatube20fp(GameTestHelper helper) {
         IhGameTestsM4b.lavaTubeGivesFp(helper);
     }
+
+    @GameTest(maxTicks = 20)
+    public void agencyGuestNoslotsnobreakThenjoin(GameTestHelper helper) {
+        IhGameTestsM4c.guestThenMember(helper);
+    }
+
+    @GameTest(maxTicks = 40)
+    public void agencyMoonoverrideDomeprotection(GameTestHelper helper) {
+        IhGameTestsM4c.domeProtection(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void agencyUnownedcrusherClaimedonopen(GameTestHelper helper) {
+        IhGameTestsM4c.unownedClaimedOnOpen(helper);
+    }
 }

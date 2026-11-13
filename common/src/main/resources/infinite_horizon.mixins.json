@@ -12,6 +12,7 @@
     "IceBlockMixin",
     "LiquidBlockMixin",
     "NaturalSpawnerMixin",
+    "ServerPlayerGameModeMixin",
     "ServerPlayerMixin",
     "WorldDimensionsMixin"
   ],

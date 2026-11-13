@@ -13,6 +13,20 @@ import org.jspecify.annotations.Nullable;
  */
 public interface OwnedBlock {
 
+    /**
+     * Besitzübernahme (23.1, ab M4): Hat der Block keinen Besitzer, wird der erste Spieler, der sein GUI öffnet, mit
+     * seiner Agentur Besitzer. Danach zählt der Block wie gesetzt (Tor {@code has_block}).
+     */
+    static void claimOnOpen(Level level, BlockPos pos, net.minecraft.world.entity.player.Player player) {
+        if (!level.isClientSide() && player instanceof ServerPlayer sp && !sp.isSpectator()
+                && level.getBlockEntity(pos) instanceof IhBlockEntity be && be.storedOwner() == null) {
+            be.claimFor(sp);
+            if (be.storedOwner() != null && level instanceof net.minecraft.server.level.ServerLevel sl) {
+                de.infinitehorizon.research.ResearchService.onOwnedBlockPlaced(sl, pos, be.storedOwner());
+            }
+        }
+    }
+
     static void claim(Level level, BlockPos pos, @Nullable LivingEntity placer) {
         if (!level.isClientSide() && placer instanceof ServerPlayer player
                 && level.getBlockEntity(pos) instanceof IhBlockEntity be) {
