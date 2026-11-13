@@ -55,6 +55,11 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
     @Override
     public <D> void openMenu(ServerPlayer player, MenuProvider provider, D data,
                              StreamCodec<? super RegistryFriendlyByteBuf, D> codec) {
+        // Clients ohne NeoForge-Kanal (GameTest-Mock-Spieler) bekommen das Vanilla-Paket; das Menü entsteht trotzdem
+        if (!player.connection.hasChannel(net.neoforged.neoforge.network.payload.AdvancedOpenScreenPayload.TYPE)) {
+            player.openMenu(provider);
+            return;
+        }
         player.openMenu(provider, buf -> codec.encode(buf, data));
     }
 
