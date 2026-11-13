@@ -21,7 +21,7 @@ import java.util.UUID;
  */
 public record AgencyStatePayload(UUID agency, String name, String founder, List<Member> members, String ownRole, int fp,
                                  List<Identifier> researched, List<Integer> openTiers, List<Identifier> probeTargets,
-                                 List<Identifier> probeReached, List<Invite> invites) implements CustomPacketPayload {
+                                 List<Identifier> probeReached, List<Invite> invites, String atlas) implements CustomPacketPayload {
 
     /** Offene Einladung an den Spieler: Agentur, eigener Name (oder leer) und Gründer. */
     public record Invite(UUID agency, String name, String founder) {
@@ -54,6 +54,7 @@ public record AgencyStatePayload(UUID agency, String name, String founder, List<
             Identifier.STREAM_CODEC.apply(ByteBufCodecs.list()), AgencyStatePayload::probeTargets,
             Identifier.STREAM_CODEC.apply(ByteBufCodecs.list()), AgencyStatePayload::probeReached,
             Invite.CODEC.apply(ByteBufCodecs.list()), AgencyStatePayload::invites,
+            ByteBufCodecs.STRING_UTF8, AgencyStatePayload::atlas,
             AgencyStatePayload::new);
 
     @Override

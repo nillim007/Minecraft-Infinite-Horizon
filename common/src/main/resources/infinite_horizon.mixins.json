@@ -13,6 +13,7 @@
     "IceBlockMixin",
     "LiquidBlockMixin",
     "NaturalSpawnerMixin",
+    "PlayerAdvancementsMixin",
     "PlayerListMixin",
     "ServerPlayerGameModeMixin",
     "ServerPlayerMixin",

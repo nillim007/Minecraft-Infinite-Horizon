@@ -28,8 +28,10 @@ public final class AgencyData extends SavedData {
     public static final Codec<AgencyData> CODEC = RecordCodecBuilder.create(i -> i.group(
             // immer schreiben (optionalFieldOf mit Standardwert ließe den Wert weg); fehlt er beim Laden, gilt 1
             Codec.INT.optionalFieldOf("data_version").forGetter(d -> Optional.of(DATA_VERSION)),
-            Agency.CODEC.listOf().optionalFieldOf("agencies", List.of()).forGetter(d -> List.copyOf(d.agencies.values()))
-    ).apply(i, (version, list) -> new AgencyData(list)));
+            Agency.CODEC.listOf().optionalFieldOf("agencies", List.of()).forGetter(d -> List.copyOf(d.agencies.values())),
+            Codec.unboundedMap(Identifier.CODEC, net.minecraft.core.UUIDUtil.STRING_CODEC).optionalFieldOf("discoverers", Map.of())
+                    .forGetter(d -> Map.copyOf(d.discoverers))
+    ).apply(i, (version, list, discoverers) -> new AgencyData(list, discoverers)));
 
     // Vanilla verlangt einen DataFixTypes-Wert (null stürzt beim Laden ab). Die Fixes für Command-Storage berühren
     // unsere Felder nicht. SPEC-GAP: eigener Datenfix erst bei data_version 2.
@@ -40,12 +42,32 @@ public final class AgencyData extends SavedData {
     public enum TransferResult { OK, SAME, UNKNOWN_FROM, UNKNOWN_TO, CYCLE }
 
     private final Map<UUID, Agency> agencies = new LinkedHashMap<>();
+    /** Entdecker je Dimension (23.3): erste Agentur, deren Mitglied sie ab M4 betreten hat. */
+    private final Map<Identifier, UUID> discoverers = new LinkedHashMap<>();
 
     public AgencyData() {
     }
 
-    private AgencyData(List<Agency> list) {
+    private AgencyData(List<Agency> list, Map<Identifier, UUID> discoverers) {
         list.forEach(a -> agencies.put(a.id(), a));
+        this.discoverers.putAll(discoverers);
+    }
+
+    public Map<Identifier, UUID> discoverers() {
+        return Map.copyOf(discoverers);
+    }
+
+    public @org.jspecify.annotations.Nullable UUID discoverer(Identifier dimension) {
+        return discoverers.get(dimension);
+    }
+
+    public void setDiscoverer(Identifier dimension, @org.jspecify.annotations.Nullable UUID agency) {
+        if (agency == null) {
+            discoverers.remove(dimension);
+        } else {
+            discoverers.put(dimension, agency);
+        }
+        setDirty();
     }
 
     /** Agenturen der laufenden Welt (Overworld-Datenspeicher). */

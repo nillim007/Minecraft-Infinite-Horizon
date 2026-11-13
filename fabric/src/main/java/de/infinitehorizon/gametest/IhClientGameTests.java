@@ -574,6 +574,15 @@ public class IhClientGameTests implements FabricClientGameTest {
         clearChat(context);
         context.takeScreenshot("gui_rocket");
         context.setScreen(() -> null);
+
+        // Planetenatlas (27.7 M4f): Mond besucht, Entdecker, Biome, Landefeuer der Agentur
+        context.runOnClient(c -> de.infinitehorizon.client.AtlasScreen.open());
+        context.waitForScreen(de.infinitehorizon.client.AtlasScreen.class);
+        context.runOnClient(c -> ((de.infinitehorizon.client.AtlasScreen) c.gui.screen()).select(moonId));
+        context.waitTicks(10);
+        clearChat(context);
+        context.takeScreenshot("gui_atlas");
+        context.setScreen(() -> null);
     }
 
     /** Knopf „Tank“ im Elektrolyseur: wählt Tank 2 der Ausgänge (Sauerstoff) auf dem Server (4.1). */

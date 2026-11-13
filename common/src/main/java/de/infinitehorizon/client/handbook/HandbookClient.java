@@ -40,6 +40,7 @@ public final class HandbookClient {
 
     public static void init() {
         HandbookItem.opener = HandbookClient::open;
+        de.infinitehorizon.item.AtlasItem.opener = de.infinitehorizon.client.AtlasScreen::open;
     }
 
     public static HandbookData.Handbook handbook() {
@@ -114,6 +115,10 @@ public final class HandbookClient {
     /** Hinweis „H: Handbuch“ an Items mit eigener Seite. */
     public static void appendTooltip(ItemStack stack, List<Component> lines) {
         oxygenTooltip(stack, lines);
+        for (net.minecraft.resources.Identifier m : de.infinitehorizon.suit.SuitModules.modules(stack)) {
+            lines.add(Component.translatable("tooltip." + InfiniteHorizon.MOD_ID + ".suit_module",
+                    net.minecraft.core.registries.BuiltInRegistries.ITEM.getValue(m).getDefaultInstance().getHoverName()).withStyle(ChatFormatting.AQUA));
+        }
         if (pageFor(stack) != null) {
             lines.add(Component.translatable("gui." + InfiniteHorizon.MOD_ID + ".handbook.hint", KEY.getTranslatedKeyMessage())
                     .withStyle(ChatFormatting.GRAY));

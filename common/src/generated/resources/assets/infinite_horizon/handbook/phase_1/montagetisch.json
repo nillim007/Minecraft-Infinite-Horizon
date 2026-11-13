@@ -677,6 +677,39 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/helmet_lamp",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "minecraft:glowstone_dust"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:helmet_lamp",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/item_port",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",

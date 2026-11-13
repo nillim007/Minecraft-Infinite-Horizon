@@ -56,11 +56,16 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
      */
     public record Plan(int[] consumeSlots, int[] consumeCounts, List<ProcessingRecipe.ChanceResult> results,
                        Optional<Integer> ticks, Optional<Long> energyPerTick, IhFluidStack fluidIn,
-                       List<IhFluidStack> fluidResults) {
+                       List<IhFluidStack> fluidResults, List<ItemStack> stacks) {
+
+        public Plan(int[] consumeSlots, int[] consumeCounts, List<ProcessingRecipe.ChanceResult> results,
+                    Optional<Integer> ticks, Optional<Long> energyPerTick, IhFluidStack fluidIn, List<IhFluidStack> fluidResults) {
+            this(consumeSlots, consumeCounts, results, ticks, energyPerTick, fluidIn, fluidResults, List.of());
+        }
 
         public Plan(int[] consumeSlots, int[] consumeCounts, List<ProcessingRecipe.ChanceResult> results,
                     Optional<Integer> ticks, Optional<Long> energyPerTick) {
-            this(consumeSlots, consumeCounts, results, ticks, energyPerTick, IhFluidStack.EMPTY, List.of());
+            this(consumeSlots, consumeCounts, results, ticks, energyPerTick, IhFluidStack.EMPTY, List.of(), List.of());
         }
     }
 
@@ -319,7 +324,7 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         }
         Plan plan = found.get();
         int[] fluidTargets = fluidTargets(plan.fluidResults());
-        if (!outputsFit(plan.results()) || fluidTargets == null) {
+        if (!outputsFit(plan) || fluidTargets == null) {
             setStatus(MachineStatus.ERROR);
             return;
         }
@@ -355,6 +360,9 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
                     insertOutput(r.toStack());
                 }
             }
+            for (ItemStack s : plan.stacks()) {
+                insertOutput(s.copy());
+            }
         }
         setStatus(MachineStatus.RUNNING);
         setChanged();
@@ -389,14 +397,17 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         return targets;
     }
 
-    private boolean outputsFit(List<ProcessingRecipe.ChanceResult> results) {
+    private boolean outputsFit(Plan plan) {
         MachineLayout l = layout();
         List<ItemStack> copy = new ArrayList<>();
         for (int i = l.outputStart(); i < l.upgradeStart(); i++) {
             copy.add(items.get(i).copy());
         }
-        for (ProcessingRecipe.ChanceResult r : results) {
-            ItemStack rest = r.toStack();
+        List<ItemStack> wanted = new ArrayList<>();
+        plan.results().forEach(r -> wanted.add(r.toStack()));
+        plan.stacks().forEach(s -> wanted.add(s.copy()));
+        for (ItemStack want : wanted) {
+            ItemStack rest = want;
             for (int i = 0; i < copy.size() && !rest.isEmpty(); i++) {
                 rest = merge(copy, i, rest);
             }

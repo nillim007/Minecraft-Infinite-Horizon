@@ -86,6 +86,10 @@ public final class ModItems {
     public static final Supplier<Item> PRESSURE_SUIT_BOOTS = suitPiece("pressure_suit", "boots",
             net.minecraft.world.item.equipment.ArmorType.BOOTS);
 
+    /** Planetenatlas (24.2): Rechtsklick öffnet das Atlas-GUI. */
+    public static final Supplier<Item> PLANETARY_ATLAS = register("planetary_atlas",
+            p -> new de.infinitehorizon.item.AtlasItem(p.stacksTo(1)));
+
     /** Ingenieurs-Handbuch (24.1): Rechtsklick öffnet das Buch-GUI. */
     public static final Supplier<Item> ENGINEERS_HANDBOOK = register("engineers_handbook",
             p -> new de.infinitehorizon.item.HandbookItem(p.stacksTo(1)));

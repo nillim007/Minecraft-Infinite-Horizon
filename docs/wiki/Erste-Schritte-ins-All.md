@@ -15,6 +15,7 @@ In der zweiten Phase verlässt du die Erde. Ziel ist der Mond: Dort warten neue 
 5. **Die Gefahren kennen.** Lies, was dich auf fremden Welten erwartet: [Umwelt, Belastung und Schwerkraft](Umwelt-Belastung-und-Schwerkraft.md).
 6. **Zum Mond fliegen.** Setz dich im Anzug in die Kapsel, öffne mit der Inventartaste den Raketen-Computer und drück „Start“. Auf der Navigationskarte wählst du den Mond und den Landeort, siehe [Der Flug](Der-Flug.md).
 7. **Den Mond erkunden.** Hochland, Mare und Krater haben eigene Erze, und in den Lavaröhren des Mare warten Forschungspunkte. Siehe [Der Mond](Der-Mond.md). Strom liefern dort [Solarpanels](Strom-im-All.md).
+8. **Den Atlas füllen.** Der [Planetenatlas](Der-Planetenatlas.md) zeigt, welche Biome und Erkundungsziele deine Agentur schon kennt. Eine Helmlampe im [Druckanzug](Der-Druckanzug.md) hilft in dunklen Kratern.
 
 > [!TIP]
 > Stell vor dem Abflug ein [Landefeuer](Das-Landefeuer.md) an deiner Basis auf. Dann bringt dich der Rückflug nach Hause statt zum Weltspawn.

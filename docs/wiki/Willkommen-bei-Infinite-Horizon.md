@@ -35,7 +35,7 @@ Das Ingenieurs-Handbuch bekommst du beim ersten Betreten der Welt. Rechtsklick �
 
 <sub>1 × Buch, 1 × Kupferbarren → 1 × Ingenieurs-Handbuch</sub>
 
-Der Planetenatlas sammelt später, was du über die Planeten herausfindest. Er lässt sich schon herstellen, wird aber erst mit dem ersten Raumflug lebendig.
+Der [Planetenatlas](Der-Planetenatlas.md) sammelt später, was du über die Planeten herausfindest. Du bekommst ihn beim ersten Login, Rechtsklick öffnet ihn. Siehe [Der Planetenatlas](Der-Planetenatlas.md).
 
 > [!TIP]
 > Fang mit [Erste Schritte](Erste-Schritte.md) an. Dort steht der ganze Ablauf der ersten Phase Schritt für Schritt.

@@ -18,5 +18,6 @@ public abstract class PlayerListMixin {
     @Inject(method = "remove", at = @At("HEAD"))
     private void infinite_horizon$leaveRocket(ServerPlayer player, CallbackInfo ci) {
         FlightService.onLogout(player);
+        de.infinitehorizon.suit.HelmetLamp.remove(player);
     }
 }

@@ -9,7 +9,8 @@
     "infinite_horizon:pressure_suit_helmet",
     "infinite_horizon:pressure_suit_chestplate",
     "infinite_horizon:pressure_suit_leggings",
-    "infinite_horizon:pressure_suit_boots"
+    "infinite_horizon:pressure_suit_boots",
+    "infinite_horizon:helmet_lamp"
   ],
   "elements": [
     {
@@ -83,8 +84,71 @@
       "level": 2
     },
     {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.raumanzug.e10"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_2.raumanzug.e11.0",
+        "infinite_horizon.handbook.phase_2.raumanzug.e11.1"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.raumanzug.e12"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.raumanzug.e13"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/helmet_lamp",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "minecraft:glowstone_dust"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:helmet_lamp",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.raumanzug.e15",
+      "level": 2
+    },
+    {
       "type": "callout",
-      "key": "infinite_horizon.handbook.phase_2.raumanzug.e10",
+      "key": "infinite_horizon.handbook.phase_2.raumanzug.e16",
       "style": "note"
     },
     {
@@ -220,7 +284,7 @@
     },
     {
       "type": "callout",
-      "key": "infinite_horizon.handbook.phase_2.raumanzug.e12",
+      "key": "infinite_horizon.handbook.phase_2.raumanzug.e18",
       "style": "tip"
     }
   ]

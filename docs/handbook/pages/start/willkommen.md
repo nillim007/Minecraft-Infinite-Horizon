@@ -4,7 +4,7 @@ title_en: Welcome to Infinite Horizon
 order: 10
 milestone: 1
 icon: infinite_horizon:machine_frame
-items: ["infinite_horizon:engineers_handbook", "infinite_horizon:planetary_atlas"]
+items: ["infinite_horizon:engineers_handbook"]
 summary: Worum es geht und wie dieses Handbuch funktioniert
 ---
 Willkommen, Ingenieurin, willkommen, Ingenieur! Du stehst am Anfang einer langen Reise: von einer kleinen Werkstatt auf der Erde bis zur **Orbitalwerft**, in der du am Ende das Sternenschiff baust.
@@ -39,7 +39,7 @@ Das <item:infinite_horizon:engineers_handbook> bekommst du beim ersten Betreten 
 @endif
 
 @if infinite_horizon:planetary_atlas
-Der <item:infinite_horizon:planetary_atlas> sammelt später, was du über die Planeten herausfindest. Er lässt sich schon herstellen, wird aber erst mit dem ersten Raumflug lebendig.
+Der <item:infinite_horizon:planetary_atlas> sammelt später, was du über die Planeten herausfindest. Du bekommst ihn beim ersten Login, Rechtsklick öffnet ihn. Siehe [[atlas|Der Planetenatlas]].
 @endif
 
 @tip Fang mit [[erste_schritte|Erste Schritte]] an. Dort steht der ganze Ablauf der ersten Phase Schritt für Schritt.

@@ -16,7 +16,6 @@
     "iron_rod",
     "kerosene_bucket",
     "machine_frame",
-    "planetary_atlas",
     "plastic",
     "press_mold_plate",
     "press_mold_rod",
@@ -31,18 +30,19 @@
     "pressure_hull",
     "oxygen_canister",
     "large_oxygen_canister",
-    "transport_tank"
+    "transport_tank",
+    "helmet_lamp"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,
     "kerosene_bucket": 1,
-    "planetary_atlas": 1,
     "press_mold_plate": 1,
     "press_mold_rod": 1,
     "press_mold_wire": 1,
     "speed_upgrade": 16,
     "oxygen_canister": 1,
     "large_oxygen_canister": 1,
-    "transport_tank": 1
+    "transport_tank": 1,
+    "helmet_lamp": 1
   }
 }

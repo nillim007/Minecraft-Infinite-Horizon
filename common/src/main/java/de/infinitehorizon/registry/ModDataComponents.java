@@ -43,6 +43,15 @@ public final class ModDataComponents {
                     .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_INT)
                     .build());
 
+    /** {@code infinite_horizon:suit_modules} (9.2): eingebaute Module eines Anzugteils. */
+    public static final Supplier<DataComponentType<java.util.List<net.minecraft.resources.Identifier>>> SUIT_MODULES =
+            Services.REGISTRY.register(BuiltInRegistries.DATA_COMPONENT_TYPE, "suit_modules",
+                    () -> DataComponentType.<java.util.List<net.minecraft.resources.Identifier>>builder()
+                            .persistent(net.minecraft.resources.Identifier.CODEC.listOf())
+                            .networkSynchronized(net.minecraft.resources.Identifier.STREAM_CODEC.apply(
+                                    net.minecraft.network.codec.ByteBufCodecs.list()))
+                            .build());
+
     /** {@code infinite_horizon:sample} (11.2): Block und Dimension einer Probe. */
     public static final Supplier<DataComponentType<de.infinitehorizon.research.SampleData>> SAMPLE = Services.REGISTRY.register(
             BuiltInRegistries.DATA_COMPONENT_TYPE, "sample",

@@ -190,7 +190,7 @@ public final class ResearchService {
         return new AgencyStatePayload(agency.id(), agency.name() == null ? "" : agency.name(), founder, members,
                 agency.roleOf(viewer).map(Role::getSerializedName).orElse(Role.GUEST.getSerializedName()), p.fp(),
                 List.copyOf(p.researched()), List.copyOf(p.openTiers()), List.copyOf(p.probeTargets()),
-                List.copyOf(p.probeReached()), invites);
+                List.copyOf(p.probeReached()), invites, de.infinitehorizon.agency.AtlasService.json(server, agency));
     }
 
     /** Schickt dem Spieler den Stand seiner Agentur. */

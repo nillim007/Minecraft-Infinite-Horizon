@@ -83,6 +83,7 @@ public final class HazardTracker {
             check(player, t, r);
             // Erkundungsziele (11.1) zusammen mit der Umweltprüfung
             de.infinitehorizon.research.ExplorationService.check(player);
+            de.infinitehorizon.agency.AtlasService.recordBiome(player);
         }
         if (server.getTickCount() % r.intervalTicks() == 0) {
             TIMERS.keySet().removeIf(id -> server.getPlayerList().getPlayer(id) == null);

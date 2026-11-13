@@ -458,4 +458,24 @@ public class IhFabricGameTests {
     public void flightLogoutinflightReloginseated(GameTestHelper helper) {
         IhGameTestsM4e.logoutInFlightRelogSeated(helper);
     }
+
+    @GameTest(maxTicks = 20)
+    public void atlasGiftOnceevenwithouttag(GameTestHelper helper) {
+        IhGameTestsM4f.atlasGiftOnce(helper);
+    }
+
+    @GameTest(maxTicks = 40)
+    public void atlasMoonvisitDiscoverer(GameTestHelper helper) {
+        IhGameTestsM4f.moonVisitDiscoverer(helper);
+    }
+
+    @GameTest(maxTicks = 300)
+    public void suitmoduleHelmetlampInstallremove(GameTestHelper helper) {
+        IhGameTestsM4f.moduleInstallRemove(helper);
+    }
+
+    @GameTest(maxTicks = 60)
+    public void helmetlampLight14Gonewhenremoved(GameTestHelper helper) {
+        IhGameTestsM4f.helmetLampLight(helper);
+    }
 }

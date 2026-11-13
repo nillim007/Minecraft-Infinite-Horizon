@@ -108,7 +108,11 @@ public final class IhTestCatalog {
             new Test("probe_moon_arriveswithin1320ticks", 1320, null, null, null, IhGameTestsM4d::probeReachesMoon),  // 12.3, 27.7 M4d
             new Test("flight_t1_moonandback_fuel_disassemble", 20, null, null, null, IhGameTestsM4e::flightToMoonAndBack),  // 12.5, 27.7 M4e
             new Test("flight_beacon_moon100_within3", 20, null, null, null, IhGameTestsM4e::beaconLandingWithinRadius),  // 12.6, 27.7 M4e
-            new Test("flight_logoutinflight_reloginseated", 20, null, null, null, IhGameTestsM4e::logoutInFlightRelogSeated)  // 12.5, 27.7 M4e
+            new Test("flight_logoutinflight_reloginseated", 20, null, null, null, IhGameTestsM4e::logoutInFlightRelogSeated),  // 12.5, 27.7 M4e
+            new Test("atlas_gift_onceevenwithouttag", 20, null, null, null, IhGameTestsM4f::atlasGiftOnce),  // 24.2, 27.7 M4f
+            new Test("atlas_moonvisit_discoverer", 40, null, null, null, IhGameTestsM4f::moonVisitDiscoverer),  // 23.3, 24.2, 27.7 M4f
+            new Test("suitmodule_helmetlamp_installremove", 300, null, null, null, IhGameTestsM4f::moduleInstallRemove),  // 9.2, 27.7 M4f
+            new Test("helmetlamp_light14_gonewhenremoved", 60, null, null, null, IhGameTestsM4f::helmetLampLight)  // 9.2, 27.7 M4f
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

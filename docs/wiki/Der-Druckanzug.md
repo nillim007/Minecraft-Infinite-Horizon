@@ -30,6 +30,21 @@ Die Brustplatte trägt bis zu 1.200 mB Sauerstoff. Eine neue Brustplatte ist lee
 > [!WARNING]
 > Ist der Sauerstoff aufgebraucht, schützt der Anzug weiter vor Druck und Temperatur, aber du erstickst. Behalte die Anzeige im Blick.
 
+## Module
+
+Jedes Anzugteil hat 2 Modulslots. Module bauen sich im [Montagetisch](Montagetisch.md) ein und aus, Strom braucht er dafür wie für jedes andere Rezept:
+
+1. **Einbau:** das Anzugteil und das passende Modul allein in die Eingänge legen. Heraus kommt das Teil mit eingebautem Modul.
+2. **Ausbau:** das Anzugteil allein hineinlegen. Heraus kommen das Teil ohne Module und alle Module in den Nebenausgaben.
+
+Eingebaute Module stehen im Tooltip des Teils und bleiben beim Aufwerten auf eine höhere Anzugstufe erhalten.
+
+**Helmlampe:** Die Helmlampe gehört in den Helm. Solange du ihn trägst, leuchtet es an deinem Kopf mit Lichtstufe 14, auch unter Wasser. Setzt du den Helm ab, ist das Licht weg.
+
+![Rezept: Helmlampe](images/rezepte/assembly_helmet_lamp.svg)
+
+<sub>2 × [Aluminiumplatte](Presse.md), 1 × Glowstonestaub, 1 × [Schaltkreis](Montagetisch.md) → 1 × Helmlampe</sub>
+
 ## Herstellung
 
 > [!NOTE]

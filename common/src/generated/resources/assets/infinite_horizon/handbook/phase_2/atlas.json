@@ -1,0 +1,78 @@
+{
+  "id": "infinite_horizon:phase_2/atlas",
+  "chapter": "infinite_horizon:phase_2",
+  "title": "infinite_horizon.handbook.phase_2.atlas.title",
+  "icon": "infinite_horizon:planetary_atlas",
+  "order": 80,
+  "unlock": null,
+  "items": [
+    "infinite_horizon:planetary_atlas"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.atlas.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.atlas.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.atlas.e2"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_2.atlas.e3.0",
+        "infinite_horizon.handbook.phase_2.atlas.e3.1",
+        "infinite_horizon.handbook.phase_2.atlas.e3.2",
+        "infinite_horizon.handbook.phase_2.atlas.e3.3",
+        "infinite_horizon.handbook.phase_2.atlas.e3.4",
+        "infinite_horizon.handbook.phase_2.atlas.e3.5"
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.atlas.e4",
+      "style": "tip"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.atlas.e5",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:crafting_shapeless/planetary_atlas",
+          "type": "minecraft:crafting_shapeless",
+          "station": "minecraft:crafting_table",
+          "ingredients": [
+            {
+              "items": [
+                "minecraft:book"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "minecraft:compass"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:planetary_atlas",
+              "count": 1
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

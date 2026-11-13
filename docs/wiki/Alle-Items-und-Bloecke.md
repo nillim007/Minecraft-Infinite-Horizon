@@ -39,6 +39,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Golddraht](Presse.md) | Item | Maschine |
 | [Goldstaub](Zerkleinerer.md) | Item | Maschine |
 | [Große Sauerstoffflasche](Sauerstoff-speichern.md) | Item | Rezept |
+| [Helmlampe](Der-Druckanzug.md) | Item | Rezept |
 | [Ingenieurs-Handbuch](Willkommen-bei-Infinite-Horizon.md) | Item | Geschenk beim ersten Betreten, Rezept |
 | [Item-Port](Raffinerie.md) | Block | Rezept |
 | [Kerosin](Raffinerie.md) | Fluid | Maschine |
@@ -58,7 +59,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Mondeis](Der-Mond.md) | Block | Weltgenerierung |
 | [Mondgestein](Der-Mond.md) | Block | Weltgenerierung |
 | [Montagetisch](Montagetisch.md) | Block | Rezept |
-| [Planetenatlas](Willkommen-bei-Infinite-Horizon.md) | Item | Geschenk beim ersten Betreten, Rezept |
+| [Planetenatlas](Der-Planetenatlas.md) | Item | Geschenk beim ersten Betreten, Rezept |
 | [Presse](Presse.md) | Block | Rezept |
 | [Pressform (Draht)](Presse.md) | Item | Rezept |
 | [Pressform (Platte)](Presse.md) | Item | Rezept |

@@ -5,7 +5,7 @@ order: 30
 milestone: 3
 requires: ["infinite_horizon:pressure_suit_chestplate"]
 icon: infinite_horizon:pressure_suit_helmet
-items: ["infinite_horizon:pressure_suit_helmet", "infinite_horizon:pressure_suit_chestplate", "infinite_horizon:pressure_suit_leggings", "infinite_horizon:pressure_suit_boots"]
+items: ["infinite_horizon:pressure_suit_helmet", "infinite_horizon:pressure_suit_chestplate", "infinite_horizon:pressure_suit_leggings", "infinite_horizon:pressure_suit_boots", "infinite_horizon:helmet_lamp"]
 summary: Dein Schutz im Vakuum: vier Teile, ein Sauerstoffvorrat
 ---
 Ohne Anzug überlebst du auf dem Mond nur Sekunden. Der **Druckanzug** ist die erste Stufe und schützt dich vor Vakuum, Hitze und Kälte, solange er Sauerstoff hat.
@@ -33,6 +33,21 @@ Die Brustplatte trägt bis zu {{value:suits:oxygen_supply.chestplate_capacity}} 
 
 @warning Ist der Sauerstoff aufgebraucht, schützt der Anzug weiter vor Druck und Temperatur, aber du erstickst. Behalte die Anzeige im Blick.
 
+@if infinite_horizon:helmet_lamp
+## Module
+
+Jedes Anzugteil hat {{value:suits:suit_rules.module_slots_per_piece}} Modulslots. Module bauen sich im <item:infinite_horizon:assembly_table> ein und aus, Strom braucht er dafür wie für jedes andere Rezept:
+
+1. **Einbau:** das Anzugteil und das passende Modul allein in die Eingänge legen. Heraus kommt das Teil mit eingebautem Modul.
+2. **Ausbau:** das Anzugteil allein hineinlegen. Heraus kommen das Teil ohne Module und alle Module in den Nebenausgaben.
+
+Eingebaute Module stehen im Tooltip des Teils und bleiben beim Aufwerten auf eine höhere Anzugstufe erhalten.
+
+**Helmlampe:** Die <item:infinite_horizon:helmet_lamp> gehört in den Helm. Solange du ihn trägst, leuchtet es an deinem Kopf mit Lichtstufe {{value:items:infinite_horizon:helmet_lamp.light_level}}, auch unter Wasser. Setzt du den Helm ab, ist das Licht weg.
+
+@recipes_for infinite_horizon:helmet_lamp
+
+@endif
 ## Herstellung
 
 @if infinite_horizon:research_terminal

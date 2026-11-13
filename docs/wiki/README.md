@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 4e · Mod-Version 0.1.0
+> Stand: Meilenstein 4f · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -53,6 +53,7 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Startrampe und Sonde](Startrampe-und-Sonde.md) – Startrampe bauen, betanken und die erste Sonde schicken
 - [Die Rakete](Die-Rakete.md) – Raketenteile, Aufbau, Schub und Treibstoff
 - [Der Flug](Der-Flug.md) – Navigationskarte, Start, Landung und Rückflug
+- [Der Planetenatlas](Der-Planetenatlas.md) – Was deine Agentur über die Himmelskörper weiß
 
 ## Phase 3 · Ring 1
 

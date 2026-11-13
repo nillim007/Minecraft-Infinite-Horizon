@@ -61,8 +61,8 @@ public final class ModBlockEntities {
     public static final Supplier<BlockEntityType<ProcessingMachineBlockEntity>> ASSEMBLY_TABLE =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "assembly_table",
                     () -> Services.REGISTRY.blockEntityType(
-                            (pos, state) -> new ProcessingMachineBlockEntity(ModBlockEntities.ASSEMBLY_TABLE.get(), pos, state,
-                                    () -> List.of(ModRecipeTypes.ASSEMBLY)),
+                            (pos, state) -> new de.infinitehorizon.machine.AssemblyTableBlockEntity(
+                                    ModBlockEntities.ASSEMBLY_TABLE.get(), pos, state, () -> List.of(ModRecipeTypes.ASSEMBLY)),
                             ModBlocks.ASSEMBLY_TABLE.get()));
 
     public static final Supplier<BlockEntityType<ProcessingMachineBlockEntity>> ELECTROLYZER =

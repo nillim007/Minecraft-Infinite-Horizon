@@ -89,7 +89,8 @@
     "infinite_horizon:pressure_suit_boots",
     "infinite_horizon:sample_tool",
     "infinite_horizon:sample",
-    "infinite_horizon:transport_tank"
+    "infinite_horizon:transport_tank",
+    "infinite_horizon:helmet_lamp"
   ],
   "fluids": [
     "crude_oil",
@@ -97,13 +98,14 @@
     "hydrogen",
     "oxygen"
   ],
-  "step": "4e",
+  "step": "4f",
   "dimensions": ["infinite_horizon:moon"],
   "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket"],
   "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:first_signal", "infinite_horizon:small_step", "infinite_horizon:own_air"],
   "item_classes": {
     "_comment": "Items mit eigenem Verhalten; sie fehlen in simple_items.json und werden in ModItems registriert.",
     "infinite_horizon:engineers_handbook": "handbook",
+    "infinite_horizon:planetary_atlas": "atlas",
     "infinite_horizon:pressure_suit_helmet": "suit",
     "infinite_horizon:pressure_suit_chestplate": "suit",
     "infinite_horizon:pressure_suit_leggings": "suit",
