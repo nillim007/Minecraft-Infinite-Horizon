@@ -135,8 +135,10 @@ public class AtlasScreen extends Screen {
         if (p != null && (visited || probe)) {
             g.text(font, Component.translatable("gui.infinite_horizon.atlas.values",
                     String.format(Locale.ROOT, "%.2f", p.gravity()),
-                    String.format(Locale.ROOT, "%.0f", p.temperatureDay()), String.format(Locale.ROOT, "%.0f", p.temperatureNight()),
-                    Component.translatableWithFallback("gui.infinite_horizon.atlas.pressure." + p.pressure().name().toLowerCase(Locale.ROOT),
+                    String.format(Locale.ROOT, "%.0f", p.temperatureDay()), String.format(Locale.ROOT, "%.0f", p.temperatureNight())),
+                    x, y, TEXT, false);
+            y += LINE;
+            g.text(font, Component.translatable("gui.infinite_horizon.atlas.values2", Component.translatableWithFallback("gui.infinite_horizon.atlas.pressure." + p.pressure().name().toLowerCase(Locale.ROOT),
                             p.pressure().name().toLowerCase(Locale.ROOT)), p.radiation()), x, y, TEXT, false);
             y += LINE + 2;
         }
