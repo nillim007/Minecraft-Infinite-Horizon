@@ -39,4 +39,4 @@ Venus-Wolframerz braucht eine Eisenspitzhacke. Schwefelerz gibt mehrere Stücke 
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Der Mars](Der-Mars.md)
+← [Der Mars](Der-Mars.md) · [Der Hochtemperaturofen](Der-Hochtemperaturofen.md) →

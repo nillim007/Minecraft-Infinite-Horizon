@@ -488,4 +488,29 @@ public class IhFabricGameTests {
     public void venusLandingSolidground(GameTestHelper helper) {
         IhGameTestsM5a.venusLandingOnSolidGround(helper);
     }
+
+    @GameTest(maxTicks = 440)
+    public void hightempfurnaceRawtungstenIngotwithin440(GameTestHelper helper) {
+        IhGameTestsM5b.highTempFurnaceTungsten(helper);
+    }
+
+    @GameTest(maxTicks = 40)
+    public void regolithheaterOverworldErrorlocation(GameTestHelper helper) {
+        IhGameTestsM5b.regolithHeaterNeedsMoon(helper);
+    }
+
+    @GameTest(maxTicks = 120)
+    public void regolithheaterMoonoverride50mbhelium(GameTestHelper helper) {
+        IhGameTestsM5b.regolithHeaterMoonHelium(helper);
+    }
+
+    @GameTest(maxTicks = 40)
+    public void cryoliquefier40helium10liquid(GameTestHelper helper) {
+        IhGameTestsM5b.cryoLiquefiesHelium(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void researchTier3gateMagnesiumtungstenhelium(GameTestHelper helper) {
+        IhGameTestsM5b.tierThreeGate(helper);
+    }
 }

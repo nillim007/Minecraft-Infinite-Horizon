@@ -1,0 +1,20 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:aluminum_plate",
+      "count": 8
+    },
+    {
+      "ingredient": "infinite_horizon:pressure_hull",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:gas_tank",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

@@ -27,6 +27,7 @@ Der Elektroofen schmilzt alles, was auch der normale Ofen schmilzt, braucht daf�
 
 | Rezept | Zutaten → Ergebnis | Wo | Dauer |
 | --- | --- | --- | --- |
+| <img src="images/rezepte/electric_smelting_magnesium_alloy.svg" alt="Rezept" width="300"> | 1 × [Magnesiumbarren](Der-Mars.md), 1 × Aluminiumbarren → 1 × [Magnesium-Legierung](Der-Hochtemperaturofen.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
 | <img src="images/rezepte/electric_smelting_magnesium_ingot.svg" alt="Rezept" width="300"> | 1 × [Rohmagnesium](Der-Mars.md) → 1 × [Magnesiumbarren](Der-Mars.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
 | <img src="images/rezepte/electric_smelting_magnesium_ingot_from_dust.svg" alt="Rezept" width="300"> | 1 × [Magnesiumstaub](Der-Mars.md) → 1 × [Magnesiumbarren](Der-Mars.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
 | <img src="images/rezepte/electric_smelting_nickel_ingot.svg" alt="Rezept" width="300"> | 1 × [Rohnickel](Der-Mars.md) → 1 × [Nickelbarren](Der-Mars.md) | Elektroofen | 100 t (5 s)<br>20 J/t |

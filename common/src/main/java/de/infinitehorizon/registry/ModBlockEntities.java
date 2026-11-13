@@ -65,6 +65,31 @@ public final class ModBlockEntities {
                                     ModBlockEntities.ASSEMBLY_TABLE.get(), pos, state, () -> List.of(ModRecipeTypes.ASSEMBLY)),
                             ModBlocks.ASSEMBLY_TABLE.get()));
 
+    public static final Supplier<BlockEntityType<ProcessingMachineBlockEntity>> REGOLITH_HEATER =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "regolith_heater",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new ProcessingMachineBlockEntity(ModBlockEntities.REGOLITH_HEATER.get(), pos, state,
+                                    () -> List.of(ModRecipeTypes.REGOLITH_HEATING)),
+                            ModBlocks.REGOLITH_HEATER.get()));
+    public static final Supplier<BlockEntityType<ProcessingMachineBlockEntity>> HIGH_TEMPERATURE_FURNACE =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "high_temperature_furnace",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new ProcessingMachineBlockEntity(ModBlockEntities.HIGH_TEMPERATURE_FURNACE.get(), pos,
+                                    state, () -> List.of(ModRecipeTypes.HIGH_TEMP_SMELTING)),
+                            ModBlocks.HIGH_TEMPERATURE_FURNACE.get()));
+    public static final Supplier<BlockEntityType<ProcessingMachineBlockEntity>> CRYO_LIQUEFIER =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "cryo_liquefier",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new ProcessingMachineBlockEntity(ModBlockEntities.CRYO_LIQUEFIER.get(), pos, state,
+                                    () -> List.of(ModRecipeTypes.CRYO)),
+                            ModBlocks.CRYO_LIQUEFIER.get()));
+    /** Gastank (6.3): wie der Flüssigkeitstank, nimmt nur Gase ({@code accepts} = gas). */
+    public static final Supplier<BlockEntityType<FluidTankBlockEntity>> GAS_TANK =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "gas_tank",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new FluidTankBlockEntity(ModBlockEntities.GAS_TANK.get(), pos, state),
+                            ModBlocks.GAS_TANK.get()));
+
     public static final Supplier<BlockEntityType<ProcessingMachineBlockEntity>> ELECTROLYZER =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "electrolyzer",
                     () -> Services.REGISTRY.blockEntityType(
@@ -191,9 +216,11 @@ public final class ModBlockEntities {
         Services.ENERGY.expose(PRESS);
         Services.ENERGY.expose(FLUID_PUMP);
         Services.FLUID.expose(FLUID_TANK);
+        Services.FLUID.expose(GAS_TANK);
         Services.FLUID.expose(FLUID_PUMP);
         for (Supplier<? extends BlockEntityType<? extends ProcessingMachineBlockEntity>> t
-                : List.of(ASSEMBLY_TABLE, ELECTROLYZER, REFINERY_CONTROLLER)) {
+                : List.of(ASSEMBLY_TABLE, ELECTROLYZER, REFINERY_CONTROLLER, REGOLITH_HEATER, HIGH_TEMPERATURE_FURNACE,
+                CRYO_LIQUEFIER)) {
             Services.ENERGY.expose(t);
             Services.FLUID.expose(t);
         }

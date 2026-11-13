@@ -65,6 +65,10 @@ public final class ModItems {
     public static final Supplier<Item> LAUNCH_CONTROL = blockItem("launch_control", ModBlocks.LAUNCH_CONTROL);
     public static final Supplier<Item> PROBE = blockItem("probe", ModBlocks.PROBE);
     public static final Supplier<Item> LANDING_BEACON = blockItem("landing_beacon", ModBlocks.LANDING_BEACON);
+    public static final Supplier<Item> REGOLITH_HEATER = blockItem("regolith_heater", ModBlocks.REGOLITH_HEATER);
+    public static final Supplier<Item> HIGH_TEMPERATURE_FURNACE = blockItem("high_temperature_furnace", ModBlocks.HIGH_TEMPERATURE_FURNACE);
+    public static final Supplier<Item> CRYO_LIQUEFIER = blockItem("cryo_liquefier", ModBlocks.CRYO_LIQUEFIER);
+    public static final Supplier<Item> GAS_TANK = blockItem("gas_tank", ModBlocks.GAS_TANK);
     public static final Supplier<Item> ROCKET_CAPSULE_T1 = blockItem("rocket_capsule_t1", ModBlocks.ROCKET_CAPSULE_T1);
     public static final Supplier<Item> ROCKET_TANK_T1 = blockItem("rocket_tank_t1", ModBlocks.ROCKET_TANK_T1);
     public static final Supplier<Item> ROCKET_ENGINE_T1 = blockItem("rocket_engine_t1", ModBlocks.ROCKET_ENGINE_T1);

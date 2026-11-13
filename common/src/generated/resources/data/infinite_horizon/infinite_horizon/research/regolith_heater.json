@@ -1,0 +1,18 @@
+{
+  "tier": 2,
+  "branch": "industry",
+  "cost": 25,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:regolith_heater"
+    }
+  ],
+  "icon": "infinite_horizon:regolith_heater",
+  "position": {
+    "column": 0,
+    "row": 2,
+    "slot": 0
+  }
+}

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "infinite_horizon:block/regolith_heater_front_running",
+    "side": "infinite_horizon:block/regolith_heater",
+    "top": "infinite_horizon:block/regolith_heater_top"
+  }
+}

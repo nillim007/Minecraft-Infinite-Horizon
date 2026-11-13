@@ -42,7 +42,14 @@
     "magnesium_ingot",
     "nickel_dust",
     "nickel_ingot",
-    "tungsten_dust"
+    "tungsten_dust",
+    "tungsten_ingot",
+    "ceramic_plate",
+    "titanium_pipe",
+    "magnesium_alloy",
+    "lightweight_plate",
+    "cooling_system",
+    "advanced_circuit"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,

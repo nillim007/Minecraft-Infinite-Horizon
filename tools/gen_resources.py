@@ -1055,7 +1055,8 @@ def main():
         if not recipe_ids(r) or not recipe_ids(r) <= with_fluids:
             continue
         if r["type"] not in ("crafting_shaped", "crafting_shapeless", "smelting", "crushing", "electric_smelting", "pressing",
-                             "refining", "electrolysis", "assembly"):
+                             "refining", "electrolysis", "assembly", "high_temp_smelting", "cryo",
+                             "regolith_heating"):
             continue  # weitere Typen folgen mit ihren Maschinen
         write_json(f"data/{NS}/recipe/{r['id'].split(':', 1)[1].replace('/', '_')}.json", recipe_json(r, registered))
         n_rec += 1

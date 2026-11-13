@@ -29,6 +29,10 @@ public final class ResearchGates {
     public record Facts(Set<Identifier> blocks, Set<Identifier> dimensions, Set<Identifier> craftedItems,
                         Set<Identifier> craftedFluids, Set<String> completedMachines) {
 
+        public static Facts of(Set<Identifier> blocks, Set<Identifier> dimensions, Set<Identifier> crafted) {
+            return new Facts(blocks, dimensions, crafted, crafted, Set.of());
+        }
+
         public static Facts of(Set<Identifier> blocks, Set<Identifier> dimensions) {
             return new Facts(blocks, dimensions, Set.of(), Set.of(), Set.of());
         }

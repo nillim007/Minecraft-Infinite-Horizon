@@ -35,25 +35,35 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Erdöl](Fluide-und-Rohre.md) | Fluid | Weltgenerierung |
 | [Erloschene Fackel](Leben-ohne-Luft.md) | Block | Füllslot oder Eimer |
 | [Fluid-Port](Raffinerie.md) | Block | Rezept |
+| [Flüssiges Helium](Helium-und-Kryotechnik.md) | Fluid | Maschine |
 | [Forschungsterminal](Forschung.md) | Block | Rezept |
+| [Fortgeschrittener Schaltkreis](Der-Hochtemperaturofen.md) | Item | Rezept |
+| [Gastank](Helium-und-Kryotechnik.md) | Block | Rezept |
 | [Geschwindigkeits-Upgrade](Upgrades.md) | Item | Rezept |
 | [Gips](Der-Mars.md) | Item | Abbau |
 | [Gipsblock](Der-Mars.md) | Block | Weltgenerierung |
 | [Golddraht](Presse.md) | Item | Maschine |
 | [Goldstaub](Zerkleinerer.md) | Item | Maschine |
 | [Große Sauerstoffflasche](Sauerstoff-speichern.md) | Item | Rezept |
+| [Helium](Helium-und-Kryotechnik.md) | Fluid | Maschine |
 | [Helmlampe](Der-Druckanzug.md) | Item | Rezept |
+| [Hochtemperaturofen](Der-Hochtemperaturofen.md) | Block | Rezept |
 | [Ingenieurs-Handbuch](Willkommen-bei-Infinite-Horizon.md) | Item | Geschenk beim ersten Betreten, Rezept |
 | [Item-Port](Raffinerie.md) | Block | Rezept |
+| [Keramikplatte](Der-Hochtemperaturofen.md) | Item | Maschine |
 | [Kerosin](Raffinerie.md) | Fluid | Maschine |
 | [Kerosineimer](Fluide-und-Rohre.md) | Item | Füllslot oder Eimer |
+| [Kryo-Verflüssiger](Helium-und-Kryotechnik.md) | Block | Rezept |
 | [Kunststoff](Raffinerie.md) | Item | Maschine |
 | [Kupferdraht](Presse.md) | Item | Maschine |
 | [Kupferkabel](Strom.md) | Block | Rezept |
 | [Kupferrohr](Fluide-und-Rohre.md) | Block | Rezept |
 | [Kupferstaub](Zerkleinerer.md) | Item | Maschine |
 | [Kuppelgenerator I](Die-Kuppel.md) | Block | Rezept |
+| [Kühlsystem](Helium-und-Kryotechnik.md) | Item | Rezept |
 | [Landefeuer](Das-Landefeuer.md) | Block | Rezept |
+| [Leichtbau-Platte](Der-Hochtemperaturofen.md) | Item | Maschine |
+| [Magnesium-Legierung](Der-Hochtemperaturofen.md) | Item | Maschine |
 | [Magnesiumbarren](Der-Mars.md) | Item | Maschine |
 | [Magnesiumstaub](Der-Mars.md) | Item | Maschine |
 | [Mars-Eisenerz](Der-Mars.md) | Block | Weltgenerierung |
@@ -86,6 +96,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Raketenkapsel T1](Die-Rakete.md) | Block | Rezept |
 | [Raketentank T1](Die-Rakete.md) | Block | Rezept |
 | [Raketentriebwerk T1](Die-Rakete.md) | Block | Rezept |
+| [Regolith-Erhitzer](Helium-und-Kryotechnik.md) | Block | Rezept |
 | [Rohmagnesium](Der-Mars.md) | Item | Abbau |
 | [Rohnickel](Der-Mars.md) | Item | Abbau, Maschine |
 | [Rohtitan](Rohstoffe-und-Erze.md) | Item | Abbau |
@@ -106,6 +117,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Titanbarren](Elektroofen.md) | Item | Maschine |
 | [Titanerz](Rohstoffe-und-Erze.md) | Block | Weltgenerierung |
 | [Titanplatte](Presse.md) | Item | Maschine |
+| [Titanrohr](Der-Hochtemperaturofen.md) | Block | Rezept |
 | [Titanstange](Presse.md) | Item | Maschine |
 | [Titanstaub](Zerkleinerer.md) | Item | Maschine |
 | [Transporttank](Sauerstoff-speichern.md) | Item | Rezept |
@@ -118,6 +130,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Venusgestein](Die-Venus.md) | Block | Weltgenerierung |
 | [Verbrennungsgenerator](Strom.md) | Block | Rezept |
 | [Wasserstoff](Elektrolyseur.md) | Fluid | Maschine |
+| [Wolframbarren](Der-Hochtemperaturofen.md) | Item | Maschine |
 | [Wolframstaub](Die-Venus.md) | Item | Maschine |
 | [Zerkleinerer](Zerkleinerer.md) | Block | Rezept |
 

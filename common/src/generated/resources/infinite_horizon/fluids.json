@@ -43,6 +43,28 @@
       "slope_find_distance": 4,
       "drop_off": 2,
       "explosion_resistance": 100
+    },
+    {
+      "id": "helium",
+      "color": "#F2A2C8",
+      "source_block": false,
+      "bucket": null,
+      "gas": true,
+      "tick_delay": 30,
+      "slope_find_distance": 4,
+      "drop_off": 2,
+      "explosion_resistance": 100
+    },
+    {
+      "id": "liquid_helium",
+      "color": "#F9D0E4",
+      "source_block": false,
+      "bucket": null,
+      "gas": false,
+      "tick_delay": 30,
+      "slope_find_distance": 4,
+      "drop_off": 2,
+      "explosion_resistance": 100
     }
   ]
 }

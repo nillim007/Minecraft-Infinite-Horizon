@@ -114,6 +114,19 @@ public class IhClientGameTests implements FabricClientGameTest {
                 fillEnergy(be, 2);
             });
             machine(context, sp, ModBlocks.SOLAR_PANEL.get(), "gui_solar_panel", be -> fillEnergy(be, 4));
+            // M5b: Maschinen der Stufe 2 (Regolith-Erhitzer außerhalb des Mondes: rote Lampe, Hinweis Ort)
+            machine(context, sp, ModBlocks.HIGH_TEMPERATURE_FURNACE.get(), "gui_high_temperature_furnace", be -> {
+                be.setItem(0, new ItemStack(ModItems.simple("raw_tungsten").get(), 4));
+                fillEnergy(be, 2);
+            });
+            machine(context, sp, ModBlocks.CRYO_LIQUEFIER.get(), "gui_cryo_liquefier", be -> {
+                be.fluidTanks().get(0).setStackUnchecked(IhFluidStack.of(InfiniteHorizon.id("helium"), 8000));
+                fillEnergy(be, 2);
+            });
+            machine(context, sp, ModBlocks.REGOLITH_HEATER.get(), "gui_regolith_heater", be -> {
+                be.setItem(0, new ItemStack(ModBlocks.simple("moon_regolith").get(), 8));
+                fillEnergy(be, 2);
+            });
             launchPad(context, sp);
 
             // Alle Blöcke nebeneinander in der Welt (Modelle, Texturen, Statuslampe)
@@ -305,6 +318,14 @@ public class IhClientGameTests implements FabricClientGameTest {
         context.waitTicks(20);
         clearChat(context);
         context.takeScreenshot("world_" + planet + "_terrain");
+        // Diagnose: Block an der Kamera und Höhe der Oberfläche
+        sp.getServer().runOnServer(server -> {
+            net.minecraft.server.level.ServerPlayer p = server.getPlayerList().getPlayers().getFirst();
+            BlockPos eye = BlockPos.containing(p.getEyePosition());
+            de.infinitehorizon.InfiniteHorizon.LOG.info("{}: Kamera {} in {}, Oberfläche y {}", planet, eye,
+                    BuiltInRegistries.BLOCK.getKey(p.level().getBlockState(eye).getBlock()),
+                    p.level().getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.WORLD_SURFACE, eye.getX(), eye.getZ()));
+        });
     }
 
     /** Handbuch (24.1, 27.3 M2f): öffnen, einem Link folgen, Seite eines Items finden; Screenshots. */

@@ -89,6 +89,8 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
     public static final int HINT_LOCKED = 1;
     /** Die Maschine braucht einen Besitzer (Analysator, 6.1, Tooltip {@code status.no_owner}). */
     public static final int HINT_NO_OWNER = 2;
+    /** Falscher Ort (Ortsbindung, z. B. Regolith-Erhitzer nur auf dem Mond). */
+    public static final int HINT_LOCATION = 3;
 
     protected NonNullList<ItemStack> items = NonNullList.withSize(0, ItemStack.EMPTY);
     protected final IhEnergyStorage energy = new IhEnergyStorage(0, 0, 0, this::setChanged);

@@ -154,6 +154,8 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
             long hint = menu.value(MachineBlockEntity.SYNC_HINT);
             if (hint == MachineBlockEntity.HINT_LOCKED) {
                 tip.add(Component.translatable("gui.infinite_horizon.status.locked"));
+            } else if (hint == MachineBlockEntity.HINT_LOCATION) {
+                tip.add(Component.translatable("gui.infinite_horizon.status.location"));
             } else if (hint == MachineBlockEntity.HINT_NO_OWNER) {
                 tip.add(Component.translatable("gui.infinite_horizon.status.no_owner"));
             }

@@ -1,0 +1,15 @@
+{
+  "type": "infinite_horizon:cryo",
+  "ingredients": [],
+  "results": [],
+  "fluid": {
+    "fluid": "infinite_horizon:helium",
+    "amount": 40
+  },
+  "fluid_results": [
+    {
+      "fluid": "infinite_horizon:liquid_helium",
+      "amount": 10
+    }
+  ]
+}

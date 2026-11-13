@@ -1,0 +1,22 @@
+{
+  "tier": 2,
+  "branch": "industry",
+  "cost": 25,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:magnesium_alloy"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:lightweight_plate"
+    }
+  ],
+  "icon": "infinite_horizon:magnesium_alloy",
+  "position": {
+    "column": 0,
+    "row": 2,
+    "slot": 2
+  }
+}

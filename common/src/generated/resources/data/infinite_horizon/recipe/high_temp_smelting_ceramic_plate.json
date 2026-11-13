@@ -1,0 +1,23 @@
+{
+  "type": "infinite_horizon:high_temp_smelting",
+  "ingredients": [
+    {
+      "ingredient": [
+        "minecraft:basalt",
+        "infinite_horizon:moon_basalt"
+      ],
+      "count": 1
+    },
+    {
+      "ingredient": "infinite_horizon:aluminum_dust",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:ceramic_plate",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

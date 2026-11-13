@@ -45,6 +45,7 @@ Die Presse formt Barren um. Welche Form herauskommt, bestimmt die **Pressform** 
 | <img src="images/rezepte/pressing_iron_rod.svg" alt="Rezept" width="300"> | 1 × Eisenbarren, Form: Pressform (Stange) → 2 × Eisenstange | Presse | 100 t (5 s)<br>30 J/t |
 | <img src="images/rezepte/pressing_gold_wire.svg" alt="Rezept" width="300"> | 1 × Goldbarren, Form: Pressform (Draht) → 3 × Golddraht | Presse | 100 t (5 s)<br>30 J/t |
 | <img src="images/rezepte/pressing_copper_wire.svg" alt="Rezept" width="300"> | 1 × Kupferbarren, Form: Pressform (Draht) → 3 × Kupferdraht | Presse | 100 t (5 s)<br>30 J/t |
+| <img src="images/rezepte/pressing_lightweight_plate.svg" alt="Rezept" width="300"> | 1 × [Magnesium-Legierung](Der-Hochtemperaturofen.md), Form: Pressform (Platte) → 1 × [Leichtbau-Platte](Der-Hochtemperaturofen.md) | Presse | 100 t (5 s)<br>30 J/t |
 | <img src="images/rezepte/pressing_titanium_plate.svg" alt="Rezept" width="300"> | 1 × [Titanbarren](Elektroofen.md), Form: Pressform (Platte) → 1 × Titanplatte | Presse | 100 t (5 s)<br>30 J/t |
 | <img src="images/rezepte/pressing_titanium_rod.svg" alt="Rezept" width="300"> | 1 × [Titanbarren](Elektroofen.md), Form: Pressform (Stange) → 2 × Titanstange | Presse | 100 t (5 s)<br>30 J/t |
 

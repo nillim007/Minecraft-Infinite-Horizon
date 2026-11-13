@@ -44,6 +44,10 @@
     "infinite_horizon:launch_control": "machine",
     "infinite_horizon:probe": "casing",
     "infinite_horizon:landing_beacon": "casing",
+    "infinite_horizon:regolith_heater": "machine",
+    "infinite_horizon:high_temperature_furnace": "machine",
+    "infinite_horizon:cryo_liquefier": "machine",
+    "infinite_horizon:gas_tank": "machine",
     "infinite_horizon:mars_sand": "simple_block",
     "infinite_horizon:mars_rock": "simple_block",
     "infinite_horizon:mars_magnesium_ore": "simple_block",
@@ -111,15 +115,24 @@
     "infinite_horizon:magnesium_ingot",
     "infinite_horizon:nickel_dust",
     "infinite_horizon:nickel_ingot",
-    "infinite_horizon:tungsten_dust"
+    "infinite_horizon:tungsten_dust",
+    "infinite_horizon:tungsten_ingot",
+    "infinite_horizon:ceramic_plate",
+    "infinite_horizon:titanium_pipe",
+    "infinite_horizon:magnesium_alloy",
+    "infinite_horizon:lightweight_plate",
+    "infinite_horizon:cooling_system",
+    "infinite_horizon:advanced_circuit"
   ],
   "fluids": [
     "crude_oil",
     "kerosene",
     "hydrogen",
-    "oxygen"
+    "oxygen",
+    "helium",
+    "liquid_helium"
   ],
-  "step": "5a",
+  "step": "5b",
   "dimensions": ["infinite_horizon:moon", "infinite_horizon:mars", "infinite_horizon:venus"],
   "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket"],
   "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:first_signal", "infinite_horizon:small_step", "infinite_horizon:own_air"],

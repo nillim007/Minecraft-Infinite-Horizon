@@ -1,0 +1,217 @@
+{
+  "id": "infinite_horizon:phase_3/hochtemperaturofen",
+  "chapter": "infinite_horizon:phase_3",
+  "title": "infinite_horizon.handbook.phase_3.hochtemperaturofen.title",
+  "icon": "infinite_horizon:high_temperature_furnace",
+  "order": 90,
+  "unlock": "infinite_horizon:research_tier/2",
+  "items": [
+    "infinite_horizon:high_temperature_furnace",
+    "infinite_horizon:tungsten_ingot",
+    "infinite_horizon:ceramic_plate",
+    "infinite_horizon:titanium_pipe",
+    "infinite_horizon:magnesium_alloy",
+    "infinite_horizon:lightweight_plate",
+    "infinite_horizon:advanced_circuit"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.hochtemperaturofen.e0"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:high_temperature_furnace",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_3.hochtemperaturofen.e1.0.label",
+          "infinite_horizon.handbook.phase_3.hochtemperaturofen.e1.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.hochtemperaturofen.e1.1.label",
+          "infinite_horizon.handbook.phase_3.hochtemperaturofen.e1.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.hochtemperaturofen.e1.2.label",
+          "infinite_horizon.handbook.phase_3.hochtemperaturofen.e1.2.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.hochtemperaturofen.e1.3.label",
+          "infinite_horizon.handbook.phase_3.hochtemperaturofen.e1.3.value"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.hochtemperaturofen.e2",
+      "level": 2
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.hochtemperaturofen.e3",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.hochtemperaturofen.e4"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:pressing/lightweight_plate",
+          "type": "infinite_horizon:pressing",
+          "station": "infinite_horizon:press",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:magnesium_alloy"
+              ],
+              "count": 1
+            }
+          ],
+          "mold": "infinite_horizon:press_mold_plate",
+          "results": [
+            {
+              "item": "infinite_horizon:lightweight_plate",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:electric_smelting/magnesium_alloy",
+          "type": "infinite_horizon:electric_smelting",
+          "station": "infinite_horizon:electric_furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:magnesium_ingot"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:aluminum_ingot"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:magnesium_alloy",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:assembly/advanced_circuit",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:gold_wire"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:silicon"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:advanced_circuit",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/high_temperature_furnace",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:electric_furnace"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "minecraft:brick"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:high_temperature_furnace",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/titanium_pipe",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 3
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:titanium_pipe",
+              "count": 4
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.hochtemperaturofen.e6",
+      "style": "tip"
+    }
+  ]
+}

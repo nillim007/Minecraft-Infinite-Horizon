@@ -1,0 +1,18 @@
+{
+  "tier": 2,
+  "branch": "logistics",
+  "cost": 25,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:gas_tank"
+    }
+  ],
+  "icon": "infinite_horizon:gas_tank",
+  "position": {
+    "column": 3,
+    "row": 2,
+    "slot": 0
+  }
+}

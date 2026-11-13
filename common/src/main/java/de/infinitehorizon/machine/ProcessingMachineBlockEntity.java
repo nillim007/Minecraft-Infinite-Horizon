@@ -261,6 +261,14 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         return recipeLocked;
     }
 
+    /** Steht die Maschine außerhalb ihrer Ortsbindung ({@code location} in machines.json)? */
+    private boolean wrongLocation;
+
+    @Override
+    public int statusHint() {
+        return wrongLocation ? HINT_LOCATION : super.statusHint();
+    }
+
     /** Ende eines Vorgangs, bevor die Zutaten verbraucht werden (z. B. FP des Analysators, 11.1). */
     protected void beforeConsume(Plan plan, ServerLevel level) {
     }
@@ -315,6 +323,14 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
 
     /** Ein Verarbeitungsschritt (Rezept suchen, Strom verbrauchen, Fortschritt, Ergebnis ablegen). */
     protected void process(ServerLevel level) {
+        if (!MachineLocation.allowed(de.infinitehorizon.data.BalanceManager.get().entry("machines", machineId())
+                .orElse(null), level, getBlockPos())) {
+            progress = 0;
+            wrongLocation = true;
+            setStatus(MachineStatus.ERROR);
+            return;
+        }
+        wrongLocation = false;
         Optional<Plan> found = findPlan(level);
         if (found.isEmpty()) {
             progress = 0;
@@ -363,6 +379,12 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
             for (ItemStack s : plan.stacks()) {
                 insertOutput(s.copy());
             }
+            // Tor crafted_items (11.4): hergestellte Items und Fluide für die Besitzer-Agentur
+            List<Identifier> made = new ArrayList<>();
+            plan.results().forEach(r -> made.add(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(r.item())));
+            plan.stacks().forEach(s -> made.add(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(s.getItem())));
+            plan.fluidResults().forEach(f -> made.add(f.fluid()));
+            de.infinitehorizon.research.ResearchService.onCrafted(level.getServer(), owner(), made);
         }
         setStatus(MachineStatus.RUNNING);
         setChanged();

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "infinite_horizon:block/high_temperature_furnace_front_running",
+    "side": "infinite_horizon:block/high_temperature_furnace",
+    "top": "infinite_horizon:block/high_temperature_furnace_top"
+  }
+}

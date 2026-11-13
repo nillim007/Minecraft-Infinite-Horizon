@@ -101,6 +101,11 @@
     {"name": "suitmodule_helmetlamp_installremove", "class": "IhGameTestsM4f", "method": "moduleInstallRemove", "ticks": 300, "ref": "9.2, 27.7 M4f"},
     {"name": "helmetlamp_light14_gonewhenremoved", "class": "IhGameTestsM4f", "method": "helmetLampLight", "ticks": 60, "ref": "9.2, 27.7 M4f"},
     {"name": "ringone_oredrops", "class": "IhGameTestsM5a", "method": "ringOneOreDrops", "ticks": 20, "ref": "13.4, M5a"},
-    {"name": "venus_landing_solidground", "class": "IhGameTestsM5a", "method": "venusLandingOnSolidGround", "ticks": 20, "ref": "12.5, 13.4, M5a"}
+    {"name": "venus_landing_solidground", "class": "IhGameTestsM5a", "method": "venusLandingOnSolidGround", "ticks": 20, "ref": "12.5, 13.4, M5a"},
+    {"name": "hightempfurnace_rawtungsten_ingotwithin440", "class": "IhGameTestsM5b", "method": "highTempFurnaceTungsten", "ticks": 440, "ref": "6.1, M5b"},
+    {"name": "regolithheater_overworld_errorlocation", "class": "IhGameTestsM5b", "method": "regolithHeaterNeedsMoon", "ticks": 40, "ref": "6.1, M5b"},
+    {"name": "regolithheater_moonoverride_50mbhelium", "class": "IhGameTestsM5b", "method": "regolithHeaterMoonHelium", "ticks": 120, "ref": "6.1, M5b"},
+    {"name": "cryoliquefier_40helium_10liquid", "class": "IhGameTestsM5b", "method": "cryoLiquefiesHelium", "ticks": 40, "ref": "6.1, M5b"},
+    {"name": "research_tier3gate_magnesiumtungstenhelium", "class": "IhGameTestsM5b", "method": "tierThreeGate", "ticks": 20, "ref": "11.4, M5b"}
   ]
 }

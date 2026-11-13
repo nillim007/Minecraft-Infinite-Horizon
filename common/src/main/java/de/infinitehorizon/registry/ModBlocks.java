@@ -119,6 +119,19 @@ public final class ModBlocks {
     public static final Supplier<Block> LAUNCH_CONTROL = register("launch_control",
             p -> new de.infinitehorizon.space.LaunchControlBlock(p, () -> ModBlockEntities.LAUNCH_CONTROL.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Ring 1 (M5b): Maschinen der Stufe 2 und Gastank. */
+    public static final Supplier<Block> REGOLITH_HEATER = register("regolith_heater",
+            p -> new MachineBlock(p, () -> ModBlockEntities.REGOLITH_HEATER.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> HIGH_TEMPERATURE_FURNACE = register("high_temperature_furnace",
+            p -> new MachineBlock(p, () -> ModBlockEntities.HIGH_TEMPERATURE_FURNACE.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> CRYO_LIQUEFIER = register("cryo_liquefier",
+            p -> new MachineBlock(p, () -> ModBlockEntities.CRYO_LIQUEFIER.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> GAS_TANK = register("gas_tank",
+            p -> new MachineBlock(p, () -> ModBlockEntities.GAS_TANK.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     /** Landefeuer (12.6): roter Strahl, Landeziel in der Navigationskarte. */
     public static final Supplier<Block> LANDING_BEACON = register("landing_beacon",
             p -> new de.infinitehorizon.space.LandingBeaconBlock(p, () -> ModBlockEntities.LANDING_BEACON.get()),

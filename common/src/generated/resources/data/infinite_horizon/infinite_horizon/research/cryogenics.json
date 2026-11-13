@@ -1,0 +1,24 @@
+{
+  "tier": 2,
+  "branch": "industry",
+  "cost": 25,
+  "requires": [
+    "infinite_horizon:regolith_heater"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:cryo_liquefier"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:cooling_system"
+    }
+  ],
+  "icon": "infinite_horizon:cryo_liquefier",
+  "position": {
+    "column": 0,
+    "row": 2,
+    "slot": 3
+  }
+}

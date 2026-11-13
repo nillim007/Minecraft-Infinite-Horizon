@@ -1,0 +1,17 @@
+{
+  "type": "infinite_horizon:pressing",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:magnesium_alloy",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:lightweight_plate",
+      "count": 1,
+      "chance": 1.0
+    }
+  ],
+  "mold": "infinite_horizon:press_mold_plate"
+}

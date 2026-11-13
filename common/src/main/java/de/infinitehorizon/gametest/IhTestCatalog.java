@@ -114,7 +114,12 @@ public final class IhTestCatalog {
             new Test("suitmodule_helmetlamp_installremove", 300, null, null, null, IhGameTestsM4f::moduleInstallRemove),  // 9.2, 27.7 M4f
             new Test("helmetlamp_light14_gonewhenremoved", 60, null, null, null, IhGameTestsM4f::helmetLampLight),  // 9.2, 27.7 M4f
             new Test("ringone_oredrops", 20, null, null, null, IhGameTestsM5a::ringOneOreDrops),  // 13.4, M5a
-            new Test("venus_landing_solidground", 20, null, null, null, IhGameTestsM5a::venusLandingOnSolidGround)  // 12.5, 13.4, M5a
+            new Test("venus_landing_solidground", 20, null, null, null, IhGameTestsM5a::venusLandingOnSolidGround),  // 12.5, 13.4, M5a
+            new Test("hightempfurnace_rawtungsten_ingotwithin440", 440, null, null, null, IhGameTestsM5b::highTempFurnaceTungsten),  // 6.1, M5b
+            new Test("regolithheater_overworld_errorlocation", 40, null, null, null, IhGameTestsM5b::regolithHeaterNeedsMoon),  // 6.1, M5b
+            new Test("regolithheater_moonoverride_50mbhelium", 120, null, null, null, IhGameTestsM5b::regolithHeaterMoonHelium),  // 6.1, M5b
+            new Test("cryoliquefier_40helium_10liquid", 40, null, null, null, IhGameTestsM5b::cryoLiquefiesHelium),  // 6.1, M5b
+            new Test("research_tier3gate_magnesiumtungstenhelium", 20, null, null, null, IhGameTestsM5b::tierThreeGate)  // 11.4, M5b
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

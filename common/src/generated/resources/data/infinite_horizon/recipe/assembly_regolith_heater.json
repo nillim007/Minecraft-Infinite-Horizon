@@ -1,0 +1,32 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:machine_frame",
+      "count": 1
+    },
+    {
+      "ingredient": "infinite_horizon:aluminum_plate",
+      "count": 8
+    },
+    {
+      "ingredient": "infinite_horizon:copper_wire",
+      "count": 4
+    },
+    {
+      "ingredient": "infinite_horizon:circuit",
+      "count": 2
+    },
+    {
+      "ingredient": "infinite_horizon:pressure_bottle",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:regolith_heater",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

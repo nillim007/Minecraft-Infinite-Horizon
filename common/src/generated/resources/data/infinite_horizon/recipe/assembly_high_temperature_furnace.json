@@ -1,0 +1,28 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:electric_furnace",
+      "count": 1
+    },
+    {
+      "ingredient": "infinite_horizon:titanium_plate",
+      "count": 8
+    },
+    {
+      "ingredient": "minecraft:brick",
+      "count": 4
+    },
+    {
+      "ingredient": "infinite_horizon:advanced_circuit",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:high_temperature_furnace",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

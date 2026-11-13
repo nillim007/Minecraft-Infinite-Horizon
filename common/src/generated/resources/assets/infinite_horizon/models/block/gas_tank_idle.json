@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "infinite_horizon:block/gas_tank_front_idle",
+    "side": "infinite_horizon:block/gas_tank",
+    "top": "infinite_horizon:block/gas_tank_top"
+  }
+}

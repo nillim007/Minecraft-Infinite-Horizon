@@ -584,6 +584,33 @@
       "type": "recipes",
       "recipes": [
         {
+          "id": "infinite_horizon:electric_smelting/magnesium_alloy",
+          "type": "infinite_horizon:electric_smelting",
+          "station": "infinite_horizon:electric_furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:magnesium_ingot"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:aluminum_ingot"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:magnesium_alloy",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 20
+        },
+        {
           "id": "infinite_horizon:electric_smelting/magnesium_ingot",
           "type": "infinite_horizon:electric_smelting",
           "station": "infinite_horizon:electric_furnace",
@@ -1003,6 +1030,28 @@
             {
               "item": "infinite_horizon:copper_wire",
               "count": 3
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:pressing/lightweight_plate",
+          "type": "infinite_horizon:pressing",
+          "station": "infinite_horizon:press",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:magnesium_alloy"
+              ],
+              "count": 1
+            }
+          ],
+          "mold": "infinite_horizon:press_mold_plate",
+          "results": [
+            {
+              "item": "infinite_horizon:lightweight_plate",
+              "count": 1
             }
           ],
           "ticks": 100,
@@ -1519,6 +1568,66 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/advanced_circuit",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:gold_wire"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:silicon"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:advanced_circuit",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/gas_tank",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:pressure_hull"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:gas_tank",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/speed_upgrade",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -1612,6 +1721,45 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/high_temperature_furnace",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:electric_furnace"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "minecraft:brick"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:high_temperature_furnace",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/item_port",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -1632,6 +1780,51 @@
           "results": [
             {
               "item": "infinite_horizon:item_port",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/cryo_liquefier",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:machine_frame"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:pressure_hull"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:cryo_liquefier",
               "count": 1
             }
           ],
@@ -1671,6 +1864,37 @@
           "results": [
             {
               "item": "infinite_horizon:dome_generator_t1",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/cooling_system",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:pressure_hull"
+              ],
+              "count": 1
+            }
+          ],
+          "fluid": {
+            "fluid": "infinite_horizon:liquid_helium",
+            "amount": 1000
+          },
+          "results": [
+            {
+              "item": "infinite_horizon:cooling_system",
               "count": 1
             }
           ],
@@ -1957,6 +2181,51 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/regolith_heater",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:machine_frame"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_wire"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:pressure_bottle"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:regolith_heater",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/oxygen_canister",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -2219,6 +2488,33 @@
             {
               "item": "infinite_horizon:launch_tower",
               "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/titanium_pipe",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 3
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:titanium_pipe",
+              "count": 4
             }
           ],
           "ticks": 200,
