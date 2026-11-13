@@ -32,6 +32,17 @@
               "count": 4,
               "weight": 100
             }
+          ],
+          "creature": [
+            {
+              "type": "infinite_horizon:rubble_crawler",
+              "count": {
+                "type": "minecraft:uniform",
+                "min_inclusive": 1,
+                "max_inclusive": 2
+              },
+              "weight": 10
+            }
           ]
         }
       }

@@ -563,4 +563,44 @@ public class IhFabricGameTests {
     public void roverCabinBreathable(GameTestHelper helper) {
         IhGameTestsM5e.cabinBreathable(helper);
     }
+
+    @GameTest(maxTicks = 30, structure = "infinite_horizon:gametest/empty_large")
+    public void creatureCrawlerReveals(GameTestHelper helper) {
+        IhGameTestsM5f.crawlerReveals(helper);
+    }
+
+    @GameTest(maxTicks = 600, structure = "infinite_horizon:gametest/empty_large")
+    public void creatureCrawlerEatscable(GameTestHelper helper) {
+        IhGameTestsM5f.crawlerEatsCable(helper);
+    }
+
+    @GameTest(maxTicks = 400, structure = "infinite_horizon:gametest/empty_large")
+    public void creatureBurrowerSeeksvibration(GameTestHelper helper) {
+        IhGameTestsM5f.burrowerSeeksVibration(helper);
+    }
+
+    @GameTest(maxTicks = 20, structure = "infinite_horizon:gametest/empty_large")
+    public void creatureSnailTrail(GameTestHelper helper) {
+        IhGameTestsM5f.snailTrail(helper);
+    }
+
+    @GameTest(maxTicks = 20, structure = "infinite_horizon:gametest/empty_large")
+    public void creatureCloudrayTamesaddlemount(GameTestHelper helper) {
+        IhGameTestsM5f.cloudRayMount(helper);
+    }
+
+    @GameTest(maxTicks = 20, structure = "infinite_horizon:gametest/empty_large")
+    public void creatureFieldscannerOncepertype(GameTestHelper helper) {
+        IhGameTestsM5f.fieldScannerOnce(helper);
+    }
+
+    @GameTest(maxTicks = 20, structure = "infinite_horizon:gametest/empty_large")
+    public void creatureWraithProjectileimmune(GameTestHelper helper) {
+        IhGameTestsM5f.wraithProjectileImmune(helper);
+    }
+
+    @GameTest(maxTicks = 20, structure = "infinite_horizon:gametest/empty_large", environment = "infinite_horizon:moon_day")
+    public void creatureMonsterNeedsdarkness(GameTestHelper helper) {
+        IhGameTestsM5f.monsterNeedsDarkness(helper);
+    }
 }

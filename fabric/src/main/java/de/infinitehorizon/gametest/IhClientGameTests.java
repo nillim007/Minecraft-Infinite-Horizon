@@ -309,14 +309,18 @@ public class IhClientGameTests implements FabricClientGameTest {
             throw new AssertionError("goto " + planet + ": Spieler ist in " + dim);
         }
         sp.getServer().runCommand("effect give @p minecraft:night_vision infinite 0 true");
+        // erst in der Luft fliegen lassen: am Boden schaltet Vanilla das Fliegen sofort wieder ab
+        sp.getServer().runCommand("execute as @p at @s run tp @s ~ ~40 ~-25 0 30");
         sp.getServer().runOnServer(server -> {
             net.minecraft.server.level.ServerPlayer p = server.getPlayerList().getPlayers().getFirst();
             p.getAbilities().mayfly = true;
             p.getAbilities().flying = true;
             p.onUpdateAbilities();
         });
-        context.waitTicks(2);
-        sp.getServer().runCommand("execute as @p at @s run tp @s ~ ~40 ~-25 0 30");
+        context.runOnClient(c -> {
+            c.player.getAbilities().flying = true;
+            c.player.onUpdateAbilities();
+        });
         context.waitTicks(40);
         sp.getConnection().waitForChunksRender();
         context.waitTicks(20);

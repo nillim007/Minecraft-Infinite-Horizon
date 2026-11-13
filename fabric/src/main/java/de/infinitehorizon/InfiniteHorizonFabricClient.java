@@ -32,6 +32,18 @@ public class InfiniteHorizonFabricClient implements ClientModInitializer {
                 de.infinitehorizon.registry.ModEntities.ROCKET.get(), de.infinitehorizon.client.RocketRenderer::new);
         net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(
                 de.infinitehorizon.registry.ModEntities.ROVER.get(), de.infinitehorizon.client.RoverRenderer::new);
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(de.infinitehorizon.registry.ModEntities.RUBBLE_CRAWLER.get(),
+                ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::crawler));
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(de.infinitehorizon.registry.ModEntities.SHADE_STRIDER.get(),
+                ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::strider));
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(de.infinitehorizon.registry.ModEntities.DUNE_BURROWER.get(),
+                ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::burrower));
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(de.infinitehorizon.registry.ModEntities.DUST_WRAITH.get(),
+                ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::wraith));
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(de.infinitehorizon.registry.ModEntities.SULFUR_SNAIL.get(),
+                ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::snail));
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(de.infinitehorizon.registry.ModEntities.CLOUD_RAY.get(),
+                ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::ray));
         net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry.register(
                 de.infinitehorizon.registry.ModBlockEntities.LANDING_BEACON.get(), ctx -> new de.infinitehorizon.client.LandingBeaconRenderer());
         net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents.END_CLIENT_TICK.register(

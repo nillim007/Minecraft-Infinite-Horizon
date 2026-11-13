@@ -44,6 +44,10 @@ public interface IRegistryHelper {
     /** Öffnet ein Menü und schickt {@code data} an den Client. */
     <D> void openMenu(ServerPlayer player, MenuProvider provider, D data, StreamCodec<? super RegistryFriendlyByteBuf, D> codec);
 
+    /** Standard-Attribute eines Lebewesen-Typs (Fabric sofort, NeoForge über {@code EntityAttributeCreationEvent}). */
+    void registerAttributes(Supplier<? extends net.minecraft.world.entity.EntityType<? extends net.minecraft.world.entity.LivingEntity>> type,
+                            Supplier<net.minecraft.world.entity.ai.attributes.AttributeSupplier.Builder> attributes);
+
     CreativeModeTab creativeTab(Component title, Supplier<ItemStack> icon, Supplier<List<ItemStack>> items);
 
     /**

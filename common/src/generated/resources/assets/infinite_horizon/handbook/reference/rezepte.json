@@ -747,6 +747,31 @@
           "energy_per_tick": 20
         },
         {
+          "id": "infinite_horizon:crushing/aluminum_dust_from_metal_concentrate",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:metal_concentrate"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:aluminum_dust",
+              "count": 1
+            },
+            {
+              "item": "infinite_horizon:titanium_dust",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
           "id": "infinite_horizon:crushing/iron_dust",
           "type": "infinite_horizon:crushing",
           "station": "infinite_horizon:crusher",
@@ -1538,6 +1563,45 @@
           "results": [
             {
               "item": "infinite_horizon:energy_port",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/field_scanner",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "minecraft:redstone"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:field_scanner",
               "count": 1
             }
           ],

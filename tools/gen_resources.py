@@ -668,11 +668,21 @@ def planet_worldgen(spec, impl, blocks):
         # Biome (13.1): nur Mod-Features, kein Niederschlag, Spawngewichte der Overworld für die Monster aus planets.json
         monsters = [dict(type=m["entity"], **OVERWORLD_MONSTER_SPAWNS[m["entity"]])
                     for m in p.get("vanilla_mobs", []) if m["entity"] in OVERWORLD_MONSTER_SPAWNS]
+        creatures = spec.balance.get("creatures", {})
         for b in p["biomes"]:
             attrs = {}
-            if monsters:
+            by_cat = {"monster": list(monsters)} if monsters else {}
+            for eid in impl.get("entities", []):
+                c = creatures.get(eid)
+                sp = (c or {}).get("spawn") or {}
+                if not c or sp.get("dimension") != dim or b["id"] not in (sp.get("biomes") or []) or not sp.get("weight"):
+                    continue
+                count = sp["group_min"] if sp["group_min"] == sp["group_max"] else {
+                    "type": "minecraft:uniform", "min_inclusive": sp["group_min"], "max_inclusive": sp["group_max"]}
+                by_cat.setdefault(c["category"], []).append({"type": eid, "count": count, "weight": sp["weight"]})
+            if by_cat:
                 attrs["minecraft:gameplay/natural_mob_spawns"] = {"modifier": "overlay", "argument": {
-                    "spawn_costs": {}, "spawns_by_category": {"monster": monsters}}}
+                    "spawn_costs": {}, "spawns_by_category": by_cat}}
             write_json(f"data/{NS}/worldgen/biome/{short_id(b['id'])}.json", {
                 "temperature": 0.5, "downfall": 0.0, "has_precipitation": False,
                 "effects": {"water_color": "#3f76e4"}, "attributes": attrs,
@@ -755,6 +765,53 @@ def suits(spec, items):
                    {"layers": {"humanoid": [{"texture": tex}], "humanoid_leggings": [{"texture": tex}]}})
         if e.get("repair_item"):
             write_json(f"data/{NS}/tags/item/repairs_{sid}.json", {"values": [e["repair_item"]]})
+
+
+def layer_block(name):
+    """Dünne Schicht wie ein Teppich (18: sulfur_trail), ohne Loot."""
+    tex = f"{NS}:block/{name}"
+    write_json(f"assets/{NS}/models/block/{name}.json",
+               {"parent": "minecraft:block/carpet", "textures": {"wool": tex, "particle": tex}})
+    write_json(f"assets/{NS}/blockstates/{name}.json", {"variants": {"": {"model": f"{NS}:block/{name}"}}})
+    return f"{NS}:block/{name}"
+
+
+def creature_data(spec, impl):
+    """Kreaturen (18): Loot aus drops, Tags analyzable, crawler_food, vibrating, wraith_guide (SPEC-GAP #92)."""
+    creatures = spec.balance.get("creatures", {})
+    ents = [e for e in impl.get("entities", []) if e in creatures]
+    for eid in ents:
+        pools = []
+        for dr in creatures[eid].get("drops") or []:
+            mods = []
+            if dr.get("count_max"):
+                mods.append({"type": "minecraft:set_count",
+                             "count": {"type": "minecraft:uniform", "min": dr["count"], "max": dr["count_max"]}})
+            elif dr.get("count", 1) != 1:
+                mods.append({"type": "minecraft:set_count", "count": dr["count"]})
+            pools.append({"rolls": 1, "entries": [{"type": "minecraft:item", "name": dr["id"], "modifier": mods}]})
+        write_json(f"data/{NS}/loot_table/entities/{short_id(eid)}.json",
+                   {"type": "minecraft:entity", "pools": pools, "random_sequence": f"{NS}:entities/{short_id(eid)}"})
+    write_json(f"data/{NS}/tags/entity_type/analyzable.json", {"values": ents})
+    reg = set(impl["blocks"])
+    food = [b for b in CRAWLER_FOOD if b.startswith("minecraft:") or b in reg]
+    write_json(f"data/{NS}/tags/block/crawler_food.json", {"values": food})
+    vib = []
+    for eid in ents:
+        for s in (creatures[eid].get("behavior_params") or {}).get("vibration_sources", []):
+            if s in reg:
+                vib.append(s)
+    write_json(f"data/{NS}/tags/block/vibrating.json", {"values": sorted(set(vib))})
+    guide = []
+    for eid in ents:
+        for s in (creatures[eid].get("behavior_params") or {}).get("guide_structures", []):
+            guide.append(s)
+    write_json(f"data/{NS}/tags/worldgen/structure/wraith_guide.json", {"values": sorted(set(guide))})
+
+
+# SPEC-GAP #92: Inhalt von crawler_food steht nicht in spec/data (Kabel und Metallblöcke)
+CRAWLER_FOOD = ["infinite_horizon:copper_cable", "infinite_horizon:aluminum_cable", "minecraft:iron_block",
+                "minecraft:copper_block"]
 
 
 def lamp_block(name):
@@ -960,6 +1017,8 @@ def main():
             inv_model = lamp_block(name)
         elif shape == "torch":
             inv_model = torch_block(name)
+        elif shape == "layer":
+            inv_model = layer_block(name)
         else:
             sys.exit(f"Unbekannte Blockform {shape} für {i}")
         write_json(f"assets/{NS}/items/{name}.json", {"model": {"type": "minecraft:model", "model": inv_model}})
@@ -970,7 +1029,7 @@ def main():
             ore_loot(name, SIMPLE_BLOCKS[name]["ore"][1])
         elif shape == "simple_block" and SIMPLE_BLOCKS[name].get("drop"):
             block_loot(name, SIMPLE_BLOCKS[name]["drop"])
-        else:
+        elif shape != "layer":
             block_loot(name)
 
     # Fluide (M2c): Weltfluid-Block, Eimer, Übersetzungen, Listen für den Java-Code
@@ -1089,6 +1148,7 @@ def main():
     # Warntöne (24.6), Anzüge (9.1), Welt ohne Atmosphäre (8.5)
     atmosphere_tag(spec)
     sounds(impl)
+    creature_data(spec, impl)
     suits(spec, items)
 
     # Planeten (13.1), ihre Weltgenerierung (13.4) und Schadensarten der Umwelt (8.2)

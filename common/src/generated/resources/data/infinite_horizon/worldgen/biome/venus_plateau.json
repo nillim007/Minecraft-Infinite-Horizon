@@ -5,7 +5,23 @@
   "effects": {
     "water_color": "#3f76e4"
   },
-  "attributes": {},
+  "attributes": {
+    "minecraft:gameplay/natural_mob_spawns": {
+      "modifier": "overlay",
+      "argument": {
+        "spawn_costs": {},
+        "spawns_by_category": {
+          "ambient": [
+            {
+              "type": "infinite_horizon:cloud_ray",
+              "count": 1,
+              "weight": 6
+            }
+          ]
+        }
+      }
+    }
+  },
   "carvers": [
     "minecraft:cave",
     "minecraft:cave_extra_underground",

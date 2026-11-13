@@ -28,6 +28,7 @@ Der Zerkleinerer ist die erste Maschine, die du bauen solltest. Er mahlt Rohform
 | Rezept | Zutaten → Ergebnis | Wo | Dauer |
 | --- | --- | --- | --- |
 | <img src="images/rezepte/crushing_aluminum_dust.svg" alt="Rezept" width="300"> | 1 × [Bauxit](Rohstoffe-und-Erze.md) → 2 × Aluminiumstaub | Zerkleinerer | 200 t (10 s)<br>20 J/t |
+| <img src="images/rezepte/crushing_aluminum_dust_from_metal_concentrate.svg" alt="Rezept" width="300"> | 1 × [Metallkonzentrat](Kreaturen-des-inneren-Sonnensystems.md) → 1 × Aluminiumstaub, 1 × Titanstaub | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_iron_dust.svg" alt="Rezept" width="300"> | 1 × Roheisen → 2 × Eisenstaub | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_gold_dust.svg" alt="Rezept" width="300"> | 1 × Rohgold → 2 × Goldstaub | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_copper_dust.svg" alt="Rezept" width="300"> | 1 × Rohkupfer → 2 × Kupferstaub | Zerkleinerer | 200 t (10 s)<br>20 J/t |

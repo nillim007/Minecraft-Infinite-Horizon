@@ -110,6 +110,31 @@
           "energy_per_tick": 20
         },
         {
+          "id": "infinite_horizon:crushing/aluminum_dust_from_metal_concentrate",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:metal_concentrate"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:aluminum_dust",
+              "count": 1
+            },
+            {
+              "item": "infinite_horizon:titanium_dust",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
           "id": "infinite_horizon:crushing/iron_dust",
           "type": "infinite_horizon:crushing",
           "station": "infinite_horizon:crusher",

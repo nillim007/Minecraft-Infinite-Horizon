@@ -572,6 +572,45 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/field_scanner",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "minecraft:redstone"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:field_scanner",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/fluid_port",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",

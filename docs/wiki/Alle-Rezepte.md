@@ -55,6 +55,7 @@ Hier stehen alle Rezepte, die es im aktuellen Stand gibt. Die Werte kommen direk
 | Rezept | Zutaten → Ergebnis | Wo | Dauer |
 | --- | --- | --- | --- |
 | <img src="images/rezepte/crushing_aluminum_dust.svg" alt="Rezept" width="300"> | 1 × [Bauxit](Rohstoffe-und-Erze.md) → 2 × [Aluminiumstaub](Zerkleinerer.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
+| <img src="images/rezepte/crushing_aluminum_dust_from_metal_concentrate.svg" alt="Rezept" width="300"> | 1 × [Metallkonzentrat](Kreaturen-des-inneren-Sonnensystems.md) → 1 × [Aluminiumstaub](Zerkleinerer.md), 1 × [Titanstaub](Zerkleinerer.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_iron_dust.svg" alt="Rezept" width="300"> | 1 × Roheisen → 2 × [Eisenstaub](Zerkleinerer.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_gold_dust.svg" alt="Rezept" width="300"> | 1 × Rohgold → 2 × [Goldstaub](Zerkleinerer.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_copper_dust.svg" alt="Rezept" width="300"> | 1 × Rohkupfer → 2 × [Kupferstaub](Zerkleinerer.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
@@ -95,6 +96,7 @@ Hier stehen alle Rezepte, die es im aktuellen Stand gibt. Die Werte kommen direk
 | <img src="images/rezepte/assembly_electric_lamp.svg" alt="Rezept" width="300"> | 1 × [Aluminiumplatte](Presse.md), 1 × Glowstonestaub, 1 × [Kupferdraht](Presse.md) → 4 × [Elektrische Lampe](Leben-ohne-Luft.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_electrolyzer.svg" alt="Rezept" width="300"> | 1 × [Maschinenrahmen](Erste-Schritte.md), 4 × [Kupferdraht](Presse.md), 2 × [Eisenplatte](Presse.md), 2 × [Kupferrohr](Fluide-und-Rohre.md), 1 × Glas → 1 × [Elektrolyseur](Elektrolyseur.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_energy_port.svg" alt="Rezept" width="300"> | 4 × [Eisenplatte](Presse.md), 1 × [Kupferkabel](Strom.md) → 1 × [Energie-Port](Raffinerie.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_field_scanner.svg" alt="Rezept" width="300"> | 2 × [Aluminiumplatte](Presse.md), 1 × [Schaltkreis](Montagetisch.md), 1 × Glas, 1 × Redstone-Staub → 1 × [Feldscanner](Kreaturen-des-inneren-Sonnensystems.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_fluid_port.svg" alt="Rezept" width="300"> | 4 × [Eisenplatte](Presse.md), 1 × [Kupferrohr](Fluide-und-Rohre.md) → 1 × [Fluid-Port](Raffinerie.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_research_terminal.svg" alt="Rezept" width="300"> | 1 × [Maschinenrahmen](Erste-Schritte.md), 4 × [Aluminiumplatte](Presse.md), 4 × [Schaltkreis](Montagetisch.md), 2 × Glas, 1 × Buch → 1 × [Forschungsterminal](Forschung.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_advanced_circuit.svg" alt="Rezept" width="300"> | 2 × [Schaltkreis](Montagetisch.md), 4 × [Golddraht](Presse.md), 2 × [Silizium](Elektroofen.md) → 1 × [Fortgeschrittener Schaltkreis](Der-Hochtemperaturofen.md) | Montagetisch | 200 t (10 s)<br>30 J/t |

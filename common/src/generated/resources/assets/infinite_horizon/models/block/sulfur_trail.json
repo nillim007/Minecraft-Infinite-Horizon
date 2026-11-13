@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "infinite_horizon:block/sulfur_trail",
+    "particle": "infinite_horizon:block/sulfur_trail"
+  }
+}

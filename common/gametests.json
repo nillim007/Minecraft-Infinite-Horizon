@@ -116,6 +116,14 @@
     {"name": "rover_kit_roundtrip", "class": "IhGameTestsM5e", "method": "kitRoundTrip", "ticks": 20, "ref": "16, M5e"},
     {"name": "rover_charges_atbattery", "class": "IhGameTestsM5e", "method": "chargesAtBattery", "ticks": 30, "ref": "16, M5e"},
     {"name": "rover_drill_tocargo", "class": "IhGameTestsM5e", "method": "drillToCargo", "ticks": 20, "ref": "16, M5e"},
-    {"name": "rover_cabin_breathable", "class": "IhGameTestsM5e", "method": "cabinBreathable", "ticks": 20, "ref": "16, M5e"}
+    {"name": "rover_cabin_breathable", "class": "IhGameTestsM5e", "method": "cabinBreathable", "ticks": 20, "ref": "16, M5e"},
+    {"name": "creature_crawler_reveals", "class": "IhGameTestsM5f", "method": "crawlerReveals", "ticks": 30, "structure": "infinite_horizon:gametest/empty_large", "ref": "18, M5f"},
+    {"name": "creature_crawler_eatscable", "class": "IhGameTestsM5f", "method": "crawlerEatsCable", "ticks": 600, "structure": "infinite_horizon:gametest/empty_large", "ref": "18, M5f"},
+    {"name": "creature_burrower_seeksvibration", "class": "IhGameTestsM5f", "method": "burrowerSeeksVibration", "ticks": 400, "structure": "infinite_horizon:gametest/empty_large", "ref": "18, M5f"},
+    {"name": "creature_snail_trail", "class": "IhGameTestsM5f", "method": "snailTrail", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "18, M5f"},
+    {"name": "creature_cloudray_tamesaddlemount", "class": "IhGameTestsM5f", "method": "cloudRayMount", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "18, M5f"},
+    {"name": "creature_fieldscanner_oncepertype", "class": "IhGameTestsM5f", "method": "fieldScannerOnce", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "11.1, 18, M5f"},
+    {"name": "creature_wraith_projectileimmune", "class": "IhGameTestsM5f", "method": "wraithProjectileImmune", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "18, M5f"},
+    {"name": "creature_monster_needsdarkness", "class": "IhGameTestsM5f", "method": "monsterNeedsDarkness", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "environment": "infinite_horizon:moon_day", "ref": "18, M5f"}
   ]
 }

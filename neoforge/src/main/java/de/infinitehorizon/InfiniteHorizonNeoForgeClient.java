@@ -40,6 +40,18 @@ public class InfiniteHorizonNeoForgeClient {
             e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.SEAT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
             e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.ROCKET.get(), de.infinitehorizon.client.RocketRenderer::new);
             e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.ROVER.get(), de.infinitehorizon.client.RoverRenderer::new);
+            e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.RUBBLE_CRAWLER.get(),
+                    ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::crawler));
+            e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.SHADE_STRIDER.get(),
+                    ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::strider));
+            e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.DUNE_BURROWER.get(),
+                    ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::burrower));
+            e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.DUST_WRAITH.get(),
+                    ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::wraith));
+            e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.SULFUR_SNAIL.get(),
+                    ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::snail));
+            e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.CLOUD_RAY.get(),
+                    ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::ray));
             e.registerBlockEntityRenderer(de.infinitehorizon.registry.ModBlockEntities.LANDING_BEACON.get(),
                     ctx -> new de.infinitehorizon.client.LandingBeaconRenderer());
         });

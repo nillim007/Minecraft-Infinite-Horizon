@@ -38,6 +38,12 @@ public class FabricRegistryHelper implements IRegistryHelper {
     }
 
     @Override
+    public void registerAttributes(Supplier<? extends net.minecraft.world.entity.EntityType<? extends net.minecraft.world.entity.LivingEntity>> type,
+                                   Supplier<net.minecraft.world.entity.ai.attributes.AttributeSupplier.Builder> attributes) {
+        net.fabricmc.fabric.api.object.builder.v1.entity.FabricDefaultAttributeRegistry.register(type.get(), attributes.get());
+    }
+
+    @Override
     public <T extends BlockEntity> BlockEntityType<T> blockEntityType(BiFunction<BlockPos, BlockState, T> factory, Block... blocks) {
         return FabricBlockEntityTypeBuilder.<T>create(factory::apply, blocks).build();
     }

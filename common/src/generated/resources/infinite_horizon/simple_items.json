@@ -56,7 +56,9 @@
     "rover_drill",
     "rover_headlight",
     "rover_pressure_cabin",
-    "rover_trailer"
+    "rover_trailer",
+    "metal_concentrate",
+    "armor_plate"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,

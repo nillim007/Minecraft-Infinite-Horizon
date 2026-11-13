@@ -136,6 +136,9 @@ public final class ModBlocks {
     public static final Supplier<Block> CLOUD_ELEVATOR = register("cloud_elevator",
             p -> new de.infinitehorizon.space.CloudElevatorBlock(p, () -> ModBlockEntities.CLOUD_ELEVATOR.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Schwefelspur der Schwefelschnecke (18): dünne, nicht feste Schicht ohne Drop. */
+    public static final Supplier<Block> SULFUR_TRAIL = register("sulfur_trail", de.infinitehorizon.creature.SulfurTrailBlock::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW).noCollision().noLootTable().replaceable());
     /** Landefeuer (12.6): roter Strahl, Landeziel in der Navigationskarte. */
     public static final Supplier<Block> LANDING_BEACON = register("landing_beacon",
             p -> new de.infinitehorizon.space.LandingBeaconBlock(p, () -> ModBlockEntities.LANDING_BEACON.get()),

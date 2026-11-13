@@ -56,4 +56,4 @@ Schleichen und Rechtsklick mit leerer Hand: Der Rover wird wieder zum Bausatz. E
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Der Hitzeanzug](Der-Hitzeanzug.md)
+← [Der Hitzeanzug](Der-Hitzeanzug.md) · [Kreaturen des inneren Sonnensystems](Kreaturen-des-inneren-Sonnensystems.md) →

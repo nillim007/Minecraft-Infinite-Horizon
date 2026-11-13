@@ -35,6 +35,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Energie-Port](Raffinerie.md) | Block | Rezept |
 | [Erdöl](Fluide-und-Rohre.md) | Fluid | Weltgenerierung |
 | [Erloschene Fackel](Leben-ohne-Luft.md) | Block | Füllslot oder Eimer |
+| [Feldscanner](Kreaturen-des-inneren-Sonnensystems.md) | Item | Rezept |
 | [Fluid-Port](Raffinerie.md) | Block | Rezept |
 | [Flüssiges Helium](Helium-und-Kryotechnik.md) | Fluid | Maschine |
 | [Forschungsterminal](Forschung.md) | Block | Rezept |
@@ -77,6 +78,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Marsgestein](Der-Mars.md) | Block | Weltgenerierung |
 | [Marssand](Der-Mars.md) | Block | Weltgenerierung |
 | [Maschinenrahmen](Erste-Schritte.md) | Item | Rezept |
+| [Metallkonzentrat](Kreaturen-des-inneren-Sonnensystems.md) | Item | Kreatur |
 | [Mond-Aluminiumerz](Der-Mond.md) | Block | Weltgenerierung |
 | [Mond-Basalt](Der-Mond.md) | Block | Weltgenerierung |
 | [Mond-Regolith](Der-Mond.md) | Block | Weltgenerierung |
@@ -86,6 +88,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Montagetisch](Montagetisch.md) | Block | Rezept |
 | [Nickelbarren](Der-Mars.md) | Item | Maschine |
 | [Nickelstaub](Der-Mars.md) | Item | Maschine |
+| [Panzerplatte](Kreaturen-des-inneren-Sonnensystems.md) | Item | Kreatur |
 | [Planetenatlas](Der-Planetenatlas.md) | Item | Geschenk beim ersten Betreten, Rezept |
 | [Presse](Presse.md) | Block | Rezept |
 | [Pressform (Draht)](Presse.md) | Item | Rezept |
@@ -122,6 +125,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Sauerstoffgenerator](Sauerstoffgenerator.md) | Block | Rezept |
 | [Schaltkreis](Montagetisch.md) | Item | Rezept |
 | [Schwefel](Die-Venus.md) | Item | Abbau, Kreatur |
+| [Schwefelspur](Kreaturen-des-inneren-Sonnensystems.md) | Block | not_obtainable |
 | [Silizium](Elektroofen.md) | Item | Maschine |
 | [Solarpanel](Strom-im-All.md) | Block | Rezept |
 | [Sonde](Startrampe-und-Sonde.md) | Block | Rezept |

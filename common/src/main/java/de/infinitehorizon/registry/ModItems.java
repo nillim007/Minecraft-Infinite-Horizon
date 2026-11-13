@@ -104,6 +104,10 @@ public final class ModItems {
     public static final Supplier<Item> HEAT_SUIT_BOOTS = suitPiece("heat_suit", "boots",
             net.minecraft.world.item.equipment.ArmorType.BOOTS);
 
+    /** Feldscanner (11.1, 18): Kreaturen analysieren. */
+    public static final Supplier<Item> FIELD_SCANNER = register("field_scanner",
+            p -> new de.infinitehorizon.creature.FieldScannerItem(p.stacksTo(1)));
+
     /** Rover-Bausatz (16): Rechtsklick auf den Boden stellt den Rover auf. */
     public static final Supplier<Item> ROVER_KIT = register("rover_kit",
             p -> new de.infinitehorizon.vehicle.RoverKitItem(p.stacksTo(1)));

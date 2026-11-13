@@ -49,6 +49,44 @@ public final class ModEntities {
                         .build(key("rover"));
             });
 
+    // ---------------------------------------------------------------- Kreaturen Ring 1 (18, M5f)
+    public static final Supplier<EntityType<de.infinitehorizon.creature.RubbleCrawler>> RUBBLE_CRAWLER =
+            creature("rubble_crawler", de.infinitehorizon.creature.RubbleCrawler::new);
+    public static final Supplier<EntityType<de.infinitehorizon.creature.ShadeStrider>> SHADE_STRIDER =
+            creature("shade_strider", de.infinitehorizon.creature.ShadeStrider::new);
+    public static final Supplier<EntityType<de.infinitehorizon.creature.DuneBurrower>> DUNE_BURROWER =
+            creature("dune_burrower", de.infinitehorizon.creature.DuneBurrower::new);
+    public static final Supplier<EntityType<de.infinitehorizon.creature.DustWraith>> DUST_WRAITH =
+            creature("dust_wraith", de.infinitehorizon.creature.DustWraith::new);
+    public static final Supplier<EntityType<de.infinitehorizon.creature.SulfurSnail>> SULFUR_SNAIL =
+            creature("sulfur_snail", de.infinitehorizon.creature.SulfurSnail::new);
+    public static final Supplier<EntityType<de.infinitehorizon.creature.CloudRay>> CLOUD_RAY =
+            creature("cloud_ray", de.infinitehorizon.creature.CloudRay::new);
+
+    /** Kreatur mit Größe, Kategorie und Feuerfestigkeit aus creatures.json und Attributen je Loader. */
+    private static <T extends net.minecraft.world.entity.LivingEntity> Supplier<EntityType<T>> creature(String name,
+            EntityType.EntityFactory<T> factory) {
+        com.google.gson.JsonObject e = de.infinitehorizon.creature.CreatureRules.entry(InfiniteHorizon.id(name));
+        float w = (float) de.infinitehorizon.creature.CreatureRules.num(e, "width");
+        float h = (float) de.infinitehorizon.creature.CreatureRules.num(e, "height");
+        MobCategory category = switch (e.has("category") ? e.get("category").getAsString() : "creature") {
+            case "monster" -> MobCategory.MONSTER;
+            case "ambient" -> MobCategory.AMBIENT;
+            case "water_creature" -> MobCategory.WATER_CREATURE;
+            default -> MobCategory.CREATURE;
+        };
+        boolean fireproof = e.has("behavior_params") && e.getAsJsonObject("behavior_params").has("fireproof");
+        Supplier<EntityType<T>> type = Services.REGISTRY.register(BuiltInRegistries.ENTITY_TYPE, name, () -> {
+            EntityType.Builder<T> b = EntityType.Builder.of(factory, category).sized(w, h).clientTrackingRange(8);
+            if (fireproof) {
+                b = b.fireImmune();
+            }
+            return b.build(key(name));
+        });
+        Services.REGISTRY.registerAttributes(type, () -> de.infinitehorizon.creature.CreatureRules.attributes(InfiniteHorizon.id(name)));
+        return type;
+    }
+
     private ModEntities() {
     }
 

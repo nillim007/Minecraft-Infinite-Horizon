@@ -1,0 +1,8 @@
+{
+  "values": [
+    "infinite_horizon:copper_cable",
+    "infinite_horizon:aluminum_cable",
+    "minecraft:iron_block",
+    "minecraft:copper_block"
+  ]
+}

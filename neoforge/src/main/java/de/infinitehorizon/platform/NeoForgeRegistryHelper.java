@@ -72,7 +72,18 @@ public class NeoForgeRegistryHelper implements IRegistryHelper {
                 .build();
     }
 
+    private static final java.util.List<java.util.Map.Entry<Supplier<? extends net.minecraft.world.entity.EntityType<? extends net.minecraft.world.entity.LivingEntity>>,
+            Supplier<net.minecraft.world.entity.ai.attributes.AttributeSupplier.Builder>>> ATTRIBUTES = new java.util.ArrayList<>();
+
+    @Override
+    public void registerAttributes(Supplier<? extends net.minecraft.world.entity.EntityType<? extends net.minecraft.world.entity.LivingEntity>> type,
+                                   Supplier<net.minecraft.world.entity.ai.attributes.AttributeSupplier.Builder> attributes) {
+        ATTRIBUTES.add(java.util.Map.entry(type, attributes));
+    }
+
     public static void registerAll(IEventBus modBus) {
+        modBus.addListener((net.neoforged.neoforge.event.entity.EntityAttributeCreationEvent e) ->
+                ATTRIBUTES.forEach(a -> e.put(a.getKey().get(), a.getValue().get().build())));
         REGISTERS.values().forEach(r -> r.register(modBus));
     }
 }

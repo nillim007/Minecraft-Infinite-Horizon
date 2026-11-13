@@ -129,7 +129,15 @@ public final class IhTestCatalog {
             new Test("rover_kit_roundtrip", 20, null, null, null, IhGameTestsM5e::kitRoundTrip),  // 16, M5e
             new Test("rover_charges_atbattery", 30, null, null, null, IhGameTestsM5e::chargesAtBattery),  // 16, M5e
             new Test("rover_drill_tocargo", 20, null, null, null, IhGameTestsM5e::drillToCargo),  // 16, M5e
-            new Test("rover_cabin_breathable", 20, null, null, null, IhGameTestsM5e::cabinBreathable)  // 16, M5e
+            new Test("rover_cabin_breathable", 20, null, null, null, IhGameTestsM5e::cabinBreathable),  // 16, M5e
+            new Test("creature_crawler_reveals", 30, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM5f::crawlerReveals),  // 18, M5f
+            new Test("creature_crawler_eatscable", 600, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM5f::crawlerEatsCable),  // 18, M5f
+            new Test("creature_burrower_seeksvibration", 400, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM5f::burrowerSeeksVibration),  // 18, M5f
+            new Test("creature_snail_trail", 20, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM5f::snailTrail),  // 18, M5f
+            new Test("creature_cloudray_tamesaddlemount", 20, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM5f::cloudRayMount),  // 18, M5f
+            new Test("creature_fieldscanner_oncepertype", 20, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM5f::fieldScannerOnce),  // 11.1, 18, M5f
+            new Test("creature_wraith_projectileimmune", 20, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM5f::wraithProjectileImmune),  // 18, M5f
+            new Test("creature_monster_needsdarkness", 20, "infinite_horizon:gametest/empty_large", "infinite_horizon:moon_day", null, IhGameTestsM5f::monsterNeedsDarkness)  // 18, M5f
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

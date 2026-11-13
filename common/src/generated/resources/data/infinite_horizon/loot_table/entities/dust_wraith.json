@@ -1,0 +1,5 @@
+{
+  "type": "minecraft:entity",
+  "pools": [],
+  "random_sequence": "infinite_horizon:entities/dust_wraith"
+}

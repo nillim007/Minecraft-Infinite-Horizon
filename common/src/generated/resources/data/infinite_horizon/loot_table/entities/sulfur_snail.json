@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:entity",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "infinite_horizon:sulfur",
+          "modifier": []
+        }
+      ]
+    }
+  ],
+  "random_sequence": "infinite_horizon:entities/sulfur_snail"
+}

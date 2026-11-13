@@ -44,6 +44,7 @@
     "infinite_horizon:launch_control": "machine",
     "infinite_horizon:probe": "casing",
     "infinite_horizon:landing_beacon": "casing",
+    "infinite_horizon:sulfur_trail": "layer",
     "infinite_horizon:cloud_elevator": "casing",
     "infinite_horizon:aerostat_platform": "simple_block",
     "infinite_horizon:rocket_capsule_t2": "casing",
@@ -140,7 +141,10 @@
     "infinite_horizon:rover_drill",
     "infinite_horizon:rover_headlight",
     "infinite_horizon:rover_pressure_cabin",
-    "infinite_horizon:rover_trailer"
+    "infinite_horizon:rover_trailer",
+    "infinite_horizon:field_scanner",
+    "infinite_horizon:metal_concentrate",
+    "infinite_horizon:armor_plate"
   ],
   "fluids": [
     "crude_oil",
@@ -150,15 +154,16 @@
     "helium",
     "liquid_helium"
   ],
-  "step": "5e",
+  "step": "5f",
   "dimensions": ["infinite_horizon:moon", "infinite_horizon:mars", "infinite_horizon:venus"],
-  "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket", "infinite_horizon:rover"],
+  "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket", "infinite_horizon:rover", "infinite_horizon:rubble_crawler", "infinite_horizon:shade_strider", "infinite_horizon:dune_burrower", "infinite_horizon:dust_wraith", "infinite_horizon:sulfur_snail", "infinite_horizon:cloud_ray"],
   "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:first_signal", "infinite_horizon:small_step", "infinite_horizon:own_air"],
   "item_classes": {
     "_comment": "Items mit eigenem Verhalten; sie fehlen in simple_items.json und werden in ModItems registriert.",
     "infinite_horizon:engineers_handbook": "handbook",
     "infinite_horizon:planetary_atlas": "atlas",
     "infinite_horizon:rover_kit": "rover",
+    "infinite_horizon:field_scanner": "scanner",
     "infinite_horizon:heat_suit_helmet": "suit",
     "infinite_horizon:heat_suit_chestplate": "suit",
     "infinite_horizon:heat_suit_leggings": "suit",
