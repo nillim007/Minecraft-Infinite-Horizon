@@ -8,6 +8,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 
 | Name | Art | Herkunft |
 | --- | --- | --- |
+| [Aerostat-Plattform](Die-Venus.md) | Block | Rezept, Füllslot oder Eimer |
 | [Akku](Strom.md) | Block | Rezept |
 | [Aluminiumbarren](Elektroofen.md) | Item | Maschine |
 | [Aluminiumdraht](Presse.md) | Item | Maschine |
@@ -47,6 +48,10 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Große Sauerstoffflasche](Sauerstoff-speichern.md) | Item | Rezept |
 | [Helium](Helium-und-Kryotechnik.md) | Fluid | Maschine |
 | [Helmlampe](Der-Druckanzug.md) | Item | Rezept |
+| [Hitzeanzug-Brustplatte](Der-Hitzeanzug.md) | Item | Rezept |
+| [Hitzeanzug-Helm](Der-Hitzeanzug.md) | Item | Rezept |
+| [Hitzeanzug-Hose](Der-Hitzeanzug.md) | Item | Rezept |
+| [Hitzeanzug-Stiefel](Der-Hitzeanzug.md) | Item | Rezept |
 | [Hitzeschild](Die-Rakete-T2.md) | Item | Rezept |
 | [Hochtemperaturofen](Der-Hochtemperaturofen.md) | Block | Rezept |
 | [Ingenieurs-Handbuch](Willkommen-bei-Infinite-Horizon.md) | Item | Geschenk beim ersten Betreten, Rezept |
@@ -138,6 +143,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Wolframbarren](Der-Hochtemperaturofen.md) | Item | Maschine |
 | [Wolframplatte](Die-Rakete-T2.md) | Item | Maschine |
 | [Wolframstaub](Die-Venus.md) | Item | Maschine |
+| [Wolkenaufzug](Die-Venus.md) | Block | Rezept, Füllslot oder Eimer |
 | [Zerkleinerer](Zerkleinerer.md) | Block | Rezept |
 
 ---

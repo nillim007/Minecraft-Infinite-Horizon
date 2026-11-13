@@ -51,6 +51,11 @@
       "falls": false
     },
     {
+      "id": "aerostat_platform",
+      "copy": "minecraft:iron_block",
+      "falls": false
+    },
+    {
       "id": "mars_sand",
       "copy": "minecraft:red_sand",
       "falls": false

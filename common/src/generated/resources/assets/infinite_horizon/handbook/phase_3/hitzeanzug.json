@@ -1,0 +1,205 @@
+{
+  "id": "infinite_horizon:phase_3/hitzeanzug",
+  "chapter": "infinite_horizon:phase_3",
+  "title": "infinite_horizon.handbook.phase_3.hitzeanzug.title",
+  "icon": "infinite_horizon:heat_suit_helmet",
+  "order": 105,
+  "unlock": "infinite_horizon:research_tier/2",
+  "items": [
+    "infinite_horizon:heat_suit_helmet",
+    "infinite_horizon:heat_suit_chestplate",
+    "infinite_horizon:heat_suit_leggings",
+    "infinite_horizon:heat_suit_boots"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.hitzeanzug.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.hitzeanzug.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_3.hitzeanzug.e2.0",
+        "infinite_horizon.handbook.phase_3.hitzeanzug.e2.1",
+        "infinite_horizon.handbook.phase_3.hitzeanzug.e2.2"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.hitzeanzug.e3",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.hitzeanzug.e4"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.hitzeanzug.e5"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.hitzeanzug.e6",
+      "style": "warning"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.hitzeanzug.e7",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/heat_suit_helmet",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:pressure_suit_helmet"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:ceramic_plate"
+              ],
+              "count": 3
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:heat_suit_helmet",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/heat_suit_chestplate",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:pressure_suit_chestplate"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:ceramic_plate"
+              ],
+              "count": 6
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:cooling_system"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:heat_suit_chestplate",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/heat_suit_leggings",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:pressure_suit_leggings"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:ceramic_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:heat_suit_leggings",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/heat_suit_boots",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:pressure_suit_boots"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:ceramic_plate"
+              ],
+              "count": 3
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:heat_suit_boots",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.hitzeanzug.e9",
+      "style": "tip"
+    }
+  ]
+}

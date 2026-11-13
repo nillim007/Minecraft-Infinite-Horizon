@@ -20,7 +20,7 @@ import java.util.Arrays;
  * @param suitOxygen O₂ im Anzug in mB, −1 ohne vollständigen Anzug
  */
 public record HazardStatePayload(byte[] percent, int temperature, byte pressure, byte radiation, boolean breathable,
-                                 int suitOxygen) implements CustomPacketPayload {
+                                 int suitOxygen, int venusHeatLeft) implements CustomPacketPayload {
 
     /** Leisten des HUD (environment.json {@code hud.hazard_bars}); Tiefseedruck zählt zur Leiste Druck. */
     public static final String[] BAR_IDS = {"oxygen", "pressure", "heat", "cold", "radiation"};
@@ -35,6 +35,7 @@ public record HazardStatePayload(byte[] percent, int temperature, byte pressure,
             ByteBufCodecs.BYTE, HazardStatePayload::radiation,
             ByteBufCodecs.BOOL, HazardStatePayload::breathable,
             ByteBufCodecs.VAR_INT, HazardStatePayload::suitOxygen,
+            ByteBufCodecs.VAR_INT, HazardStatePayload::venusHeatLeft,
             HazardStatePayload::new);
 
     /** Belastung der Leiste {@code index} in Prozent. */

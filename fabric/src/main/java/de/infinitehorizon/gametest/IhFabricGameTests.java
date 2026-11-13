@@ -523,4 +523,24 @@ public class IhFabricGameTests {
     public void rocketT2SevenpadFlightmars(GameTestHelper helper) {
         IhGameTestsM5c.t2FlightToMars(helper);
     }
+
+    @GameTest(maxTicks = 3700)
+    public void venusHeattime3600(GameTestHelper helper) {
+        IhGameTestsM5d.venusHeatTime(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void venusAerostatLandingplatform(GameTestHelper helper) {
+        IhGameTestsM5d.aerostatLandingPlatform(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void venusCloudelevatorRide(GameTestHelper helper) {
+        IhGameTestsM5d.cloudElevatorRide(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void venusTerrainBelowclouds(GameTestHelper helper) {
+        IhGameTestsM5d.venusTerrainBelowClouds(helper);
+    }
 }

@@ -28,7 +28,7 @@ public final class Suits {
 
     /** Eine Anzugstufe: Teile in Slot-Reihenfolge (Helm, Brust, Hose, Stiefel), Schutzwerte, O₂-Verbrauch. */
     public record Tier(String id, int tier, List<String> pieces, double tempMin, double tempMax, Set<Pressure> pressures,
-                       int radiationMax, int consumeAmount, int consumePerTicks) {
+                       int radiationMax, int consumeAmount, int consumePerTicks, boolean venusHeatTimer) {
     }
 
     /** O₂-Vorrat (suits.json → {@code oxygen_supply}). */
@@ -62,7 +62,8 @@ public final class Suits {
             JsonObject c = o.getAsJsonObject("oxygen_consumption");
             out.add(new Tier(e.getKey(), o.get("tier").getAsInt(), List.copyOf(pieces), o.get("temp_min").getAsDouble(),
                     o.get("temp_max").getAsDouble(), pressures, o.get("radiation_max").getAsInt(),
-                    c.get("amount").getAsInt(), c.get("per_ticks").getAsInt()));
+                    c.get("amount").getAsInt(), c.get("per_ticks").getAsInt(),
+                    o.has("venus_heat_timer") && o.get("venus_heat_timer").getAsBoolean()));
         }
         tiers = List.copyOf(out);
         JsonObject s = entries.has("oxygen_supply") ? entries.getAsJsonObject("oxygen_supply") : new JsonObject();

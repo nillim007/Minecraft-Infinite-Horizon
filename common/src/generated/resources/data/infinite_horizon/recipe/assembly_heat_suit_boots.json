@@ -1,0 +1,24 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:pressure_suit_boots",
+      "count": 1
+    },
+    {
+      "ingredient": "infinite_horizon:ceramic_plate",
+      "count": 3
+    },
+    {
+      "ingredient": "infinite_horizon:titanium_plate",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:heat_suit_boots",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

@@ -126,6 +126,7 @@ public final class InfiniteHorizon {
         de.infinitehorizon.space.ProbeService.tick(server);
         de.infinitehorizon.space.FlightService.tickLogins(server);
         de.infinitehorizon.suit.HelmetLamp.tick(server);
+        de.infinitehorizon.space.CloudLayer.tick(server);
     }
 
     /** Respawn: Schwerkraft sofort setzen (12.9); die Belastung beginnt nach dem Tod bei 0 (Attachment ohne Kopie). */

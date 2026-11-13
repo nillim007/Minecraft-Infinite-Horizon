@@ -69,6 +69,7 @@ public final class ModItems {
     public static final Supplier<Item> HIGH_TEMPERATURE_FURNACE = blockItem("high_temperature_furnace", ModBlocks.HIGH_TEMPERATURE_FURNACE);
     public static final Supplier<Item> CRYO_LIQUEFIER = blockItem("cryo_liquefier", ModBlocks.CRYO_LIQUEFIER);
     public static final Supplier<Item> GAS_TANK = blockItem("gas_tank", ModBlocks.GAS_TANK);
+    public static final Supplier<Item> CLOUD_ELEVATOR = blockItem("cloud_elevator", ModBlocks.CLOUD_ELEVATOR);
     public static final Supplier<Item> ROCKET_CAPSULE_T1 = blockItem("rocket_capsule_t1", ModBlocks.ROCKET_CAPSULE_T1);
     public static final Supplier<Item> ROCKET_TANK_T1 = blockItem("rocket_tank_t1", ModBlocks.ROCKET_TANK_T1);
     public static final Supplier<Item> ROCKET_ENGINE_T1 = blockItem("rocket_engine_t1", ModBlocks.ROCKET_ENGINE_T1);
@@ -92,6 +93,15 @@ public final class ModItems {
     public static final Supplier<Item> PRESSURE_SUIT_LEGGINGS = suitPiece("pressure_suit", "leggings",
             net.minecraft.world.item.equipment.ArmorType.LEGGINGS);
     public static final Supplier<Item> PRESSURE_SUIT_BOOTS = suitPiece("pressure_suit", "boots",
+            net.minecraft.world.item.equipment.ArmorType.BOOTS);
+    /** Hitzeanzug T2 (9.1): Rüstung wie Diamant, Hitzezeit auf der Venus-Oberfläche. */
+    public static final Supplier<Item> HEAT_SUIT_HELMET = suitPiece("heat_suit", "helmet",
+            net.minecraft.world.item.equipment.ArmorType.HELMET);
+    public static final Supplier<Item> HEAT_SUIT_CHESTPLATE = suitPiece("heat_suit", "chestplate",
+            net.minecraft.world.item.equipment.ArmorType.CHESTPLATE);
+    public static final Supplier<Item> HEAT_SUIT_LEGGINGS = suitPiece("heat_suit", "leggings",
+            net.minecraft.world.item.equipment.ArmorType.LEGGINGS);
+    public static final Supplier<Item> HEAT_SUIT_BOOTS = suitPiece("heat_suit", "boots",
             net.minecraft.world.item.equipment.ArmorType.BOOTS);
 
     /** Planetenatlas (24.2): Rechtsklick öffnet das Atlas-GUI. */

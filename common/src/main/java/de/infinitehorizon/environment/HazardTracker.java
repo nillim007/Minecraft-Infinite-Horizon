@@ -104,6 +104,14 @@ public final class HazardTracker {
         int cover = coverBlocks(level, pos, r.radiation().coverBlocks());
         Suits.Tier suit = Suits.worn(player);
         Protection protection = suit == null ? r.noSuit() : Suits.protection(suit, Suits.oxygen(Suits.chestplate(player)));
+        // Hitzezeit abgelaufen (9.1): ungeschützt gegen Hitze wie ohne Anzug
+        VenusHeat heat = VenusHeat.rules();
+        if (suit != null && suit.venusHeatTimer() && heat != null
+                && heat.running(res.planet() == null ? null : res.planet().dimension(), pos.getY())
+                && heat.expired(Services.ATTACHMENTS.hazardState(player).venusHeat())) {
+            protection = new Protection(protection.tempMin(), r.noSuit().tempMax(), protection.pressures(),
+                    protection.radiationMax(), protection.suppliesOxygen(), protection.deepPressure());
+        }
         // Sonnensturm folgt mit Kapitel 19
         EnvironmentInput in = new EnvironmentInput(res.planet(), res.zones(), res.biome(), level.getOverworldClockTime(),
                 cover, false, domeCover(level, pos), protection);
@@ -197,9 +205,10 @@ public final class HazardTracker {
     }
 
     private static void check(ServerPlayer player, Timers t, EnvironmentRules r) {
+        HazardState state = Services.ATTACHMENTS.hazardState(player);
+        stepVenusHeat(player, state, r.intervalTicks());
         EnvironmentResult result = evaluate(player, r);
         t.last = result;
-        HazardState state = Services.ATTACHMENTS.hazardState(player);
         boolean exempt = player.isCreative() || player.isSpectator();
         suitOxygen(player, state, result, exempt, r.intervalTicks());
         for (Hazard h : Hazard.values()) {
@@ -255,6 +264,32 @@ public final class HazardTracker {
         return result;
     }
 
+    /** Hitzezeit (9.1) einen Prüftakt weiterzählen; ohne Anzug mit Timer füllt sie sich auf. */
+    private static void stepVenusHeat(ServerPlayer player, HazardState state, int ticks) {
+        VenusHeat heat = VenusHeat.rules();
+        if (heat == null) {
+            return;
+        }
+        Suits.Tier suit = Suits.worn(player);
+        PlanetResolver.Resolved res = PlanetResolver.at(player.level(), player.blockPosition());
+        boolean running = suit != null && suit.venusHeatTimer()
+                && heat.running(res.planet() == null ? null : res.planet().dimension(), player.getBlockY())
+                && !player.isCreative() && !player.isSpectator();
+        state.setVenusHeat(heat.step(state.venusHeat(), running, ticks));
+    }
+
+    /** Restliche Hitzezeit für das HUD in Ticks; −1 = Leiste ausblenden. */
+    private static int venusHeatLeft(ServerPlayer player, HazardState state) {
+        VenusHeat heat = VenusHeat.rules();
+        Suits.Tier suit = Suits.worn(player);
+        if (heat == null || suit == null || !suit.venusHeatTimer()) {
+            return -1;
+        }
+        PlanetResolver.Resolved res = PlanetResolver.at(player.level(), player.blockPosition());
+        boolean running = heat.running(res.planet() == null ? null : res.planet().dimension(), player.getBlockY());
+        return running || state.venusHeat() > 0 ? heat.duration() - state.venusHeat() : -1;
+    }
+
     /** {@code HazardStatePayload} (3A.5) bei Änderung, höchstens einmal je Prüftakt. */
     private static void sendState(ServerPlayer player, Timers t, HazardState state, EnvironmentResult result,
                                   EnvironmentRules r) {
@@ -268,7 +303,8 @@ public final class HazardTracker {
         }
         int suitOxygen = Suits.worn(player) == null ? -1 : Suits.oxygen(Suits.chestplate(player));
         HazardStatePayload payload = new HazardStatePayload(percent, (int) Math.round(result.temperature()),
-                (byte) result.pressure().ordinal(), (byte) result.radiation(), result.breathable(), suitOxygen);
+                (byte) result.pressure().ordinal(), (byte) result.radiation(), result.breathable(), suitOxygen,
+                venusHeatLeft(player, state));
         if (!payload.equals(t.lastSent)) {
             t.lastSent = payload;
             Services.NETWORK.sendToPlayer(player, payload);

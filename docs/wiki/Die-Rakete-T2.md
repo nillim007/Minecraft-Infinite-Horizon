@@ -40,4 +40,4 @@ Erforsche **Planetensonden** und schick je eine [Sonde](Startrampe-und-Sonde.md)
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Helium und Kryotechnik](Helium-und-Kryotechnik.md)
+← [Helium und Kryotechnik](Helium-und-Kryotechnik.md) · [Der Hitzeanzug](Der-Hitzeanzug.md) →

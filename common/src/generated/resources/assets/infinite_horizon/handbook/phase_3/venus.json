@@ -11,7 +11,9 @@
     "infinite_horizon:venus_sulfur_ore",
     "infinite_horizon:raw_tungsten",
     "infinite_horizon:sulfur",
-    "infinite_horizon:tungsten_dust"
+    "infinite_horizon:tungsten_dust",
+    "infinite_horizon:aerostat_platform",
+    "infinite_horizon:cloud_elevator"
   ],
   "elements": [
     {
@@ -39,48 +41,141 @@
       "level": 2
     },
     {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.venus.e4"
+    },
+    {
       "type": "list",
       "ordered": false,
       "keys": [
-        "infinite_horizon.handbook.phase_3.venus.e4.0",
-        "infinite_horizon.handbook.phase_3.venus.e4.1",
-        "infinite_horizon.handbook.phase_3.venus.e4.2"
+        "infinite_horizon.handbook.phase_3.venus.e5.0",
+        "infinite_horizon.handbook.phase_3.venus.e5.1"
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.venus.e6",
+      "style": "warning"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.venus.e7",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_3.venus.e8.0",
+        "infinite_horizon.handbook.phase_3.venus.e8.1",
+        "infinite_horizon.handbook.phase_3.venus.e8.2"
       ]
     },
     {
       "type": "heading",
-      "key": "infinite_horizon.handbook.phase_3.venus.e5",
+      "key": "infinite_horizon.handbook.phase_3.venus.e9",
       "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/aerostat_platform",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:plastic"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:aerostat_platform",
+              "count": 4
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/cloud_elevator",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:plastic"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:cloud_elevator",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
     },
     {
       "type": "table",
       "headers": [
-        "infinite_horizon.handbook.phase_3.venus.e6.h0",
-        "infinite_horizon.handbook.phase_3.venus.e6.h1",
-        "infinite_horizon.handbook.phase_3.venus.e6.h2",
-        "infinite_horizon.handbook.phase_3.venus.e6.h3",
-        "infinite_horizon.handbook.phase_3.venus.e6.h4"
+        "infinite_horizon.handbook.phase_3.venus.e11.h0",
+        "infinite_horizon.handbook.phase_3.venus.e11.h1",
+        "infinite_horizon.handbook.phase_3.venus.e11.h2",
+        "infinite_horizon.handbook.phase_3.venus.e11.h3",
+        "infinite_horizon.handbook.phase_3.venus.e11.h4"
       ],
       "rows": [
         [
-          "infinite_horizon.handbook.phase_3.venus.e6.r0.0",
-          "infinite_horizon.handbook.phase_3.venus.e6.r0.1",
-          "infinite_horizon.handbook.phase_3.venus.e6.r0.2",
-          "infinite_horizon.handbook.phase_3.venus.e6.r0.3",
-          "infinite_horizon.handbook.phase_3.venus.e6.r0.4"
+          "infinite_horizon.handbook.phase_3.venus.e11.r0.0",
+          "infinite_horizon.handbook.phase_3.venus.e11.r0.1",
+          "infinite_horizon.handbook.phase_3.venus.e11.r0.2",
+          "infinite_horizon.handbook.phase_3.venus.e11.r0.3",
+          "infinite_horizon.handbook.phase_3.venus.e11.r0.4"
         ],
         [
-          "infinite_horizon.handbook.phase_3.venus.e6.r1.0",
-          "infinite_horizon.handbook.phase_3.venus.e6.r1.1",
-          "infinite_horizon.handbook.phase_3.venus.e6.r1.2",
-          "infinite_horizon.handbook.phase_3.venus.e6.r1.3",
-          "infinite_horizon.handbook.phase_3.venus.e6.r1.4"
+          "infinite_horizon.handbook.phase_3.venus.e11.r1.0",
+          "infinite_horizon.handbook.phase_3.venus.e11.r1.1",
+          "infinite_horizon.handbook.phase_3.venus.e11.r1.2",
+          "infinite_horizon.handbook.phase_3.venus.e11.r1.3",
+          "infinite_horizon.handbook.phase_3.venus.e11.r1.4"
         ]
       ]
     },
     {
       "type": "text",
-      "key": "infinite_horizon.handbook.phase_3.venus.e7"
+      "key": "infinite_horizon.handbook.phase_3.venus.e12"
     },
     {
       "type": "recipes",
@@ -110,8 +205,8 @@
     },
     {
       "type": "callout",
-      "key": "infinite_horizon.handbook.phase_3.venus.e9",
-      "style": "warning"
+      "key": "infinite_horizon.handbook.phase_3.venus.e14",
+      "style": "tip"
     }
   ]
 }

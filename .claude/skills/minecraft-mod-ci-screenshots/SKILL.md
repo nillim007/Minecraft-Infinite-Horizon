@@ -96,6 +96,7 @@ Datei: `fabric/src/main/java/de/infinitehorizon/gametest/IhClientGameTests.java`
   - `IntProviders.CODEC` statt `IntProvider.CODEC`.
   - `Vec3.atCenterOf(pos)` statt `BlockPos#getCenter()`.
   - Feature-Typen: `Feature` ist ein Interface mit Record-Feldern, registriert in `BuiltInRegistries.FEATURE_TYPE`.
+- **Dichtefunktionen (Noise-Router):** `minecraft:min`/`add` nutzen `left`/`right` (nicht `argument1/2`); `y_clamped_gradient` gibt es nicht mehr, stattdessen `{"type": "minecraft:gradient", "axis": "y", "from_coordinate", "to_coordinate", "from_value", "to_value"}`.
 - **Block-Provider:** Typ-IDs ohne Endung: `minecraft:simple` statt `simple_state_provider`, ebenso `weighted`, `rule_based`, `noise` usw.
 - **Loot-Tables:** Pool und Eintrag nutzen `"condition": {"type": …}` statt `"conditions"`, `"modifier": [{"type": …}]` statt `"functions"`. Behührung: `"condition": "minecraft:tool/can_silk_touch"`. Alte Schlüssel werden still ignoriert, Erze droppen dann sich selbst.
 - **Vanilla-Daten nachschlagen:** Nach dem ersten lokalen Build liegt das Jar unter `~/.gradle/caches/neoformruntime/artifacts/minecraft_26.3_client.jar`. Darin stehen `data/minecraft/...` (Loot, Worldgen) und die Klassen; mit Python `zipfile` lesen.

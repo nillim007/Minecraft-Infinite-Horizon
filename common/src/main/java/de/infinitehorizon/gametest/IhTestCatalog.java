@@ -121,7 +121,11 @@ public final class IhTestCatalog {
             new Test("cryoliquefier_40helium_10liquid", 40, null, null, null, IhGameTestsM5b::cryoLiquefiesHelium),  // 6.1, M5b
             new Test("research_tier3gate_magnesiumtungstenhelium", 20, null, null, null, IhGameTestsM5b::tierThreeGate),  // 11.4, M5b
             new Test("rocket_t2_fivepad_rejected", 20, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM5c::t2NeedsSevenPad),  // 12.4, M5c
-            new Test("rocket_t2_sevenpad_flightmars", 20, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM5c::t2FlightToMars)  // 12.4, M5c
+            new Test("rocket_t2_sevenpad_flightmars", 20, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM5c::t2FlightToMars),  // 12.4, M5c
+            new Test("venus_heattime_3600", 3700, null, null, null, IhGameTestsM5d::venusHeatTime),  // 9.1, 27 M5 (Abnahme)
+            new Test("venus_aerostat_landingplatform", 20, null, null, null, IhGameTestsM5d::aerostatLandingPlatform),  // 12.8, M5d
+            new Test("venus_cloudelevator_ride", 20, null, null, null, IhGameTestsM5d::cloudElevatorRide),  // 12.8, M5d
+            new Test("venus_terrain_belowclouds", 20, null, null, null, IhGameTestsM5d::venusTerrainBelowClouds)  // 12.8, M5d
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

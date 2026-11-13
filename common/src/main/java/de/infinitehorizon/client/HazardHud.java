@@ -113,6 +113,15 @@ public final class HazardHud {
             bar(g, font, left, y, barW, barH, f, color,
                     Component.translatable("hud." + InfiniteHorizon.MOD_ID + ".suit_oxygen", s.suitOxygen(), capacity));
         }
+        // Hitzezeit der Venus-Oberfläche (8.4, 9.1): Leiste wie der Anzugvorrat
+        de.infinitehorizon.environment.VenusHeat heat = de.infinitehorizon.environment.VenusHeat.rules();
+        if (s.venusHeatLeft() >= 0 && heat != null) {
+            double f = heat.duration() <= 0 ? 0 : Math.min(1.0, s.venusHeatLeft() / (double) heat.duration());
+            int color = f < 1 - redFrom ? RED : f < 1 - yellowFrom ? YELLOW : GREEN;
+            y -= row;
+            bar(g, font, left, y, barW, barH, f, color, Component.translatable("hud." + InfiniteHorizon.MOD_ID + ".venus_heat",
+                    (s.venusHeatLeft() + 19) / 20));
+        }
         JsonObject tol = BalanceManager.getOrBundled().entry("environment", "no_suit_tolerance").orElse(new JsonObject());
         StringBuilder info = new StringBuilder();
         if (s.temperature() < num(tol, "temp_min") || s.temperature() > num(tol, "temp_max")) {

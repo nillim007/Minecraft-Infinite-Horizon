@@ -82,6 +82,7 @@ Hier stehen alle Rezepte, die es im aktuellen Stand gibt. Die Werte kommen direk
 
 | Rezept | Zutaten → Ergebnis | Wo | Dauer |
 | --- | --- | --- | --- |
+| <img src="images/rezepte/assembly_aerostat_platform.svg" alt="Rezept" width="300"> | 2 × [Aluminiumplatte](Presse.md), 1 × [Kunststoff](Raffinerie.md) → 4 × [Aerostat-Plattform](Die-Venus.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_aluminum_cable.svg" alt="Rezept" width="300"> | 3 × [Aluminiumdraht](Presse.md), 1 × [Kunststoff](Raffinerie.md) → 8 × [Aluminiumkabel](Strom-im-All.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_analyzer.svg" alt="Rezept" width="300"> | 1 × [Maschinenrahmen](Erste-Schritte.md), 4 × [Aluminiumplatte](Presse.md), 2 × [Schaltkreis](Montagetisch.md), 1 × Glas → 1 × [Analysator](Forschung.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_pressure_suit_chestplate.svg" alt="Rezept" width="300"> | 10 × [Aluminiumplatte](Presse.md), 3 × [Kunststoff](Raffinerie.md), 1 × [Schaltkreis](Montagetisch.md) → 1 × [Druckanzug-Brustplatte](Der-Druckanzug.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
@@ -101,6 +102,10 @@ Hier stehen alle Rezepte, die es im aktuellen Stand gibt. Die Werte kommen direk
 | <img src="images/rezepte/assembly_speed_upgrade.svg" alt="Rezept" width="300"> | 1 × [Schaltkreis](Montagetisch.md), 4 × Redstone-Staub, 2 × [Kupferdraht](Presse.md) → 1 × [Geschwindigkeits-Upgrade](Upgrades.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_large_oxygen_canister.svg" alt="Rezept" width="300"> | 2 × [Sauerstoffflasche](Sauerstoff-speichern.md), 1 × [Titanplatte](Presse.md) → 1 × [Große Sauerstoffflasche](Sauerstoff-speichern.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_helmet_lamp.svg" alt="Rezept" width="300"> | 2 × [Aluminiumplatte](Presse.md), 1 × Glowstonestaub, 1 × [Schaltkreis](Montagetisch.md) → 1 × [Helmlampe](Der-Druckanzug.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_heat_suit_chestplate.svg" alt="Rezept" width="300"> | 1 × [Druckanzug-Brustplatte](Der-Druckanzug.md), 6 × [Keramikplatte](Der-Hochtemperaturofen.md), 2 × [Titanplatte](Presse.md), 2 × [Kühlsystem](Helium-und-Kryotechnik.md) → 1 × [Hitzeanzug-Brustplatte](Der-Hitzeanzug.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_heat_suit_helmet.svg" alt="Rezept" width="300"> | 1 × [Druckanzug-Helm](Der-Druckanzug.md), 3 × [Keramikplatte](Der-Hochtemperaturofen.md), 2 × [Titanplatte](Presse.md) → 1 × [Hitzeanzug-Helm](Der-Hitzeanzug.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_heat_suit_leggings.svg" alt="Rezept" width="300"> | 1 × [Druckanzug-Hose](Der-Druckanzug.md), 4 × [Keramikplatte](Der-Hochtemperaturofen.md), 2 × [Titanplatte](Presse.md) → 1 × [Hitzeanzug-Hose](Der-Hitzeanzug.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_heat_suit_boots.svg" alt="Rezept" width="300"> | 1 × [Druckanzug-Stiefel](Der-Druckanzug.md), 3 × [Keramikplatte](Der-Hochtemperaturofen.md), 2 × [Titanplatte](Presse.md) → 1 × [Hitzeanzug-Stiefel](Der-Hitzeanzug.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_heat_shield.svg" alt="Rezept" width="300"> | 4 × [Wolframplatte](Die-Rakete-T2.md), 2 × [Titanplatte](Presse.md) → 1 × [Hitzeschild](Die-Rakete-T2.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_high_temperature_furnace.svg" alt="Rezept" width="300"> | 1 × [Elektroofen](Elektroofen.md), 8 × [Titanplatte](Presse.md), 4 × Ziegel, 2 × [Fortgeschrittener Schaltkreis](Der-Hochtemperaturofen.md) → 1 × [Hochtemperaturofen](Der-Hochtemperaturofen.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_item_port.svg" alt="Rezept" width="300"> | 4 × [Eisenplatte](Presse.md), 1 × Trichter → 1 × [Item-Port](Raffinerie.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
@@ -133,6 +138,7 @@ Hier stehen alle Rezepte, die es im aktuellen Stand gibt. Die Werte kommen direk
 | <img src="images/rezepte/assembly_transport_tank.svg" alt="Rezept" width="300"> | 4 × [Aluminiumplatte](Presse.md), 1 × [Druckhülle](Sauerstoffgenerator.md) → 1 × [Transporttank](Sauerstoff-speichern.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_fuel_generator.svg" alt="Rezept" width="300"> | 1 × [Maschinenrahmen](Erste-Schritte.md), 1 × [Verbrennungsgenerator](Strom.md), 4 × [Kupferrohr](Fluide-und-Rohre.md), 4 × [Eisenplatte](Presse.md) → 1 × [Treibstoffgenerator](Strom.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_fuel_pump.svg" alt="Rezept" width="300"> | 1 × [Maschinenrahmen](Erste-Schritte.md), 4 × [Kupferrohr](Fluide-und-Rohre.md), 2 × [Aluminiumplatte](Presse.md), 1 × [Schaltkreis](Montagetisch.md) → 1 × [Treibstoffpumpe](Startrampe-und-Sonde.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_cloud_elevator.svg" alt="Rezept" width="300"> | 8 × [Aluminiumplatte](Presse.md), 4 × [Titanplatte](Presse.md), 2 × [Schaltkreis](Montagetisch.md), 1 × [Kunststoff](Raffinerie.md) → 1 × [Wolkenaufzug](Die-Venus.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 
 ## Raffinerie
 

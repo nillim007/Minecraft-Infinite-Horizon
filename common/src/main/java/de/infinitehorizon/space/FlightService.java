@@ -355,6 +355,13 @@ public final class FlightService {
      * sonst normale Landeplatzsuche um das Landefeuer; X/Z → Landeplatzsuche dort; nichts → Spawn der Dimension.
      */
     public static BlockPos landingPoint(ServerLevel level, Landing landing) {
+        if (CloudLayer.hasLayer(level)) {
+            // SPEC-GAP #90: Landeort (Landefeuer, X/Z oder Spawn) gibt nur X/Z vor, gelandet wird in der Wolkenschicht
+            BlockPos at = landing.beacon().orElse(null);
+            int x = at != null ? at.getX() : landing.x().orElse(0);
+            int z = at != null ? at.getZ() : landing.z().orElse(0);
+            return CloudLayer.landingPoint(level, x, z);
+        }
         if (landing.beacon().isPresent()) {
             BlockPos b = landing.beacon().get();
             int radius = rule("beacon_landing_radius");

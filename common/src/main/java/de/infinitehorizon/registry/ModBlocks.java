@@ -132,6 +132,10 @@ public final class ModBlocks {
     public static final Supplier<Block> GAS_TANK = register("gas_tank",
             p -> new MachineBlock(p, () -> ModBlockEntities.GAS_TANK.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Venus-Wolkenschicht (12.8): Aufzug zwischen Wolkenschicht und Oberfläche. */
+    public static final Supplier<Block> CLOUD_ELEVATOR = register("cloud_elevator",
+            p -> new de.infinitehorizon.space.CloudElevatorBlock(p, () -> ModBlockEntities.CLOUD_ELEVATOR.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     /** Landefeuer (12.6): roter Strahl, Landeziel in der Navigationskarte. */
     public static final Supplier<Block> LANDING_BEACON = register("landing_beacon",
             p -> new de.infinitehorizon.space.LandingBeaconBlock(p, () -> ModBlockEntities.LANDING_BEACON.get()),

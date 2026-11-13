@@ -1134,6 +1134,33 @@
       "type": "recipes",
       "recipes": [
         {
+          "id": "infinite_horizon:assembly/aerostat_platform",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:plastic"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:aerostat_platform",
+              "count": 4
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/aluminum_cable",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -1736,6 +1763,144 @@
           "results": [
             {
               "item": "infinite_horizon:helmet_lamp",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/heat_suit_chestplate",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:pressure_suit_chestplate"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:ceramic_plate"
+              ],
+              "count": 6
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:cooling_system"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:heat_suit_chestplate",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/heat_suit_helmet",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:pressure_suit_helmet"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:ceramic_plate"
+              ],
+              "count": 3
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:heat_suit_helmet",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/heat_suit_leggings",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:pressure_suit_leggings"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:ceramic_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:heat_suit_leggings",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/heat_suit_boots",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:pressure_suit_boots"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:ceramic_plate"
+              ],
+              "count": 3
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:heat_suit_boots",
               "count": 1
             }
           ],
@@ -2788,6 +2953,45 @@
           "results": [
             {
               "item": "infinite_horizon:fuel_pump",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/cloud_elevator",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:plastic"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:cloud_elevator",
               "count": 1
             }
           ],

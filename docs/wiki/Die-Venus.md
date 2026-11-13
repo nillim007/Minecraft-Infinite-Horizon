@@ -13,6 +13,16 @@ Die Venus ist der heißeste Ort im inneren Sonnensystem. Unter einer dichten, gi
 - **Luft:** giftig und unter hohem Druck.
 - **Lavameer:** Bis zur Höhe 40 ist alles mit Lava gefüllt.
 
+## Die Wolkenschicht
+
+Zwischen y 180 und 240 liegt die Wolkenschicht. Dort ist es angenehm warm und der Druck normal, nur die Luft bleibt giftig. Hier landen alle Raketen: Gibt es am Landeort noch keinen Boden, baut der Server eine Plattform aus Aerostat-Plattform auf y 200.
+
+- **Aerostat-Plattform:** ein schwebender Block. Setz weitere daneben, um deine Plattform zu vergrößern.
+- **Wolkenaufzug:** Stell ihn auf die Plattform und mach Rechtsklick. Nach 100 t (5 s) stehst du auf der Oberfläche darunter, dort entsteht automatisch die untere Station. Liegt dort Lava, entsteht eine kleine Plattform aus Venusgestein. Rechtsklick unten bringt dich zurück nach oben.
+
+> [!WARNING]
+> Unten läuft die [Hitzezeit](Der-Hitzeanzug.md) deines Anzugs. Ohne Hitzeanzug überlebst du die Oberfläche nicht.
+
 ## Gelände und Biome
 
 - **Lavaebenen:** Basaltebenen mit Lavaseen und Schwefel.
@@ -20,6 +30,14 @@ Die Venus ist der heißeste Ort im inneren Sonnensystem. Unter einer dichten, gi
 - **Venus-Hochebene:** flache Hochebenen.
 
 ## Erze
+
+![Rezept: Aerostat-Plattform](images/rezepte/assembly_aerostat_platform.svg)
+
+<sub>2 × [Aluminiumplatte](Presse.md), 1 × [Kunststoff](Raffinerie.md) → 4 × Aerostat-Plattform</sub>
+
+![Rezept: Wolkenaufzug](images/rezepte/assembly_cloud_elevator.svg)
+
+<sub>8 × [Aluminiumplatte](Presse.md), 4 × [Titanplatte](Presse.md), 2 × [Schaltkreis](Montagetisch.md), 1 × [Kunststoff](Raffinerie.md) → 1 × Wolkenaufzug</sub>
 
 | Block | Ergibt | Höhe | Biome | Menge |
 | --- | --- | --- | --- | --- |
@@ -32,8 +50,8 @@ Venus-Wolframerz braucht eine Eisenspitzhacke. Schwefelerz gibt mehrere Stücke 
 
 <sub>1 × Rohwolfram → 2 × Wolframstaub</sub>
 
-> [!WARNING]
-> Auf der Oberfläche der Venus hält kein einfacher Anzug lange durch. Lies vor der Landung, welchen Schutz du brauchst.
+> [!TIP]
+> Baue deine Basis in der Wolkenschicht und fahr nur zum Abbauen hinunter.
 
 ---
 

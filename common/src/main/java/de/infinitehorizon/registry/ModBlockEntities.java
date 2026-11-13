@@ -83,6 +83,12 @@ public final class ModBlockEntities {
                             (pos, state) -> new ProcessingMachineBlockEntity(ModBlockEntities.CRYO_LIQUEFIER.get(), pos, state,
                                     () -> List.of(ModRecipeTypes.CRYO)),
                             ModBlocks.CRYO_LIQUEFIER.get()));
+    public static final Supplier<BlockEntityType<de.infinitehorizon.space.CloudElevatorBlockEntity>> CLOUD_ELEVATOR =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "cloud_elevator",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.space.CloudElevatorBlockEntity(
+                                    ModBlockEntities.CLOUD_ELEVATOR.get(), pos, state),
+                            ModBlocks.CLOUD_ELEVATOR.get()));
     /** Gastank (6.3): wie der Flüssigkeitstank, nimmt nur Gase ({@code accepts} = gas). */
     public static final Supplier<BlockEntityType<FluidTankBlockEntity>> GAS_TANK =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "gas_tank",

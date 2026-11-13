@@ -44,6 +44,8 @@
     "infinite_horizon:launch_control": "machine",
     "infinite_horizon:probe": "casing",
     "infinite_horizon:landing_beacon": "casing",
+    "infinite_horizon:cloud_elevator": "casing",
+    "infinite_horizon:aerostat_platform": "simple_block",
     "infinite_horizon:rocket_capsule_t2": "casing",
     "infinite_horizon:rocket_tank_t2": "casing",
     "infinite_horizon:rocket_engine_t2": "casing",
@@ -128,7 +130,11 @@
     "infinite_horizon:cooling_system",
     "infinite_horizon:advanced_circuit",
     "infinite_horizon:heat_shield",
-    "infinite_horizon:tungsten_plate"
+    "infinite_horizon:tungsten_plate",
+    "infinite_horizon:heat_suit_helmet",
+    "infinite_horizon:heat_suit_chestplate",
+    "infinite_horizon:heat_suit_leggings",
+    "infinite_horizon:heat_suit_boots"
   ],
   "fluids": [
     "crude_oil",
@@ -138,7 +144,7 @@
     "helium",
     "liquid_helium"
   ],
-  "step": "5c",
+  "step": "5d",
   "dimensions": ["infinite_horizon:moon", "infinite_horizon:mars", "infinite_horizon:venus"],
   "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket"],
   "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:first_signal", "infinite_horizon:small_step", "infinite_horizon:own_air"],
@@ -146,6 +152,10 @@
     "_comment": "Items mit eigenem Verhalten; sie fehlen in simple_items.json und werden in ModItems registriert.",
     "infinite_horizon:engineers_handbook": "handbook",
     "infinite_horizon:planetary_atlas": "atlas",
+    "infinite_horizon:heat_suit_helmet": "suit",
+    "infinite_horizon:heat_suit_chestplate": "suit",
+    "infinite_horizon:heat_suit_leggings": "suit",
+    "infinite_horizon:heat_suit_boots": "suit",
     "infinite_horizon:pressure_suit_helmet": "suit",
     "infinite_horizon:pressure_suit_chestplate": "suit",
     "infinite_horizon:pressure_suit_leggings": "suit",

@@ -108,6 +108,10 @@
     {"name": "cryoliquefier_40helium_10liquid", "class": "IhGameTestsM5b", "method": "cryoLiquefiesHelium", "ticks": 40, "ref": "6.1, M5b"},
     {"name": "research_tier3gate_magnesiumtungstenhelium", "class": "IhGameTestsM5b", "method": "tierThreeGate", "ticks": 20, "ref": "11.4, M5b"},
     {"name": "rocket_t2_fivepad_rejected", "class": "IhGameTestsM5c", "method": "t2NeedsSevenPad", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "12.4, M5c"},
-    {"name": "rocket_t2_sevenpad_flightmars", "class": "IhGameTestsM5c", "method": "t2FlightToMars", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "12.4, M5c"}
+    {"name": "rocket_t2_sevenpad_flightmars", "class": "IhGameTestsM5c", "method": "t2FlightToMars", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "12.4, M5c"},
+    {"name": "venus_heattime_3600", "class": "IhGameTestsM5d", "method": "venusHeatTime", "ticks": 3700, "ref": "9.1, 27 M5 (Abnahme)"},
+    {"name": "venus_aerostat_landingplatform", "class": "IhGameTestsM5d", "method": "aerostatLandingPlatform", "ticks": 20, "ref": "12.8, M5d"},
+    {"name": "venus_cloudelevator_ride", "class": "IhGameTestsM5d", "method": "cloudElevatorRide", "ticks": 20, "ref": "12.8, M5d"},
+    {"name": "venus_terrain_belowclouds", "class": "IhGameTestsM5d", "method": "venusTerrainBelowClouds", "ticks": 20, "ref": "12.8, M5d"}
   ]
 }

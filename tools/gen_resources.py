@@ -280,6 +280,7 @@ SIMPLE_BLOCKS = {
     "venus_rock": {"copy": "minecraft:blackstone", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
     "venus_tungsten_ore": {"copy": "minecraft:deepslate_iron_ore", "falls": False, "tool": "pickaxe", "needs": "iron",
                            "ore": None, "planet_drops": True},
+    "aerostat_platform": {"copy": "minecraft:iron_block", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
     "venus_sulfur_ore": {"copy": "minecraft:nether_quartz_ore", "falls": False, "tool": "pickaxe", "needs": "stone",
                          "ore": None, "planet_drops": True},
 }
@@ -506,6 +507,18 @@ RARE_AXES = [("temperature", [-1.0, -0.8], [-0.8, 1.0]), ("weirdness", [0.8, 1.0
 GREAT_CRATER_SHAPE = {"depth_divisor": 3, "rim_height": 1, "peak_radius_divisor": 5, "peak_height_divisor": 3}
 
 
+def noise_router(p):
+    """Overworld-Router; mit generator.air_above_y (Venus-Wolkenschicht, 12.8) darüber nur Luft."""
+    top = (p.get("generator") or {}).get("air_above_y")
+    if top is None:
+        return OVERWORLD_NOISE_ROUTER
+    router = dict(OVERWORLD_NOISE_ROUTER)
+    router["final_density"] = {"type": "minecraft:min", "left": OVERWORLD_NOISE_ROUTER["final_density"],
+                               "right": {"type": "minecraft:gradient", "axis": "y", "from_coordinate": top, "to_coordinate": top + 1,
+                                             "from_value": 1.0, "to_value": -1.0}}
+    return router
+
+
 def short_id(i):
     return i.split(":", 1)[1]
 
@@ -585,7 +598,7 @@ def planet_worldgen(spec, impl, blocks):
         write_json(f"data/{ns}/worldgen/noise_settings/{path}.json", {
             "noise": {"min_y": defaults["min_y"], "height": defaults["height"]},
             "default_block": p["default_block"], "default_fluid": p["default_fluid"] or "minecraft:air",
-            "noise_router": OVERWORLD_NOISE_ROUTER, "material_rule": dim, "spawn_target": OVERWORLD_SPAWN_TARGET,
+            "noise_router": noise_router(p), "material_rule": dim, "spawn_target": OVERWORLD_SPAWN_TARGET,
             "sea_level": p["sea_level"] if p.get("sea_level") is not None else defaults["min_y"], "disable_mob_generation": False, "legacy_random_source": False})
         write_json(f"data/{ns}/worldgen/material_rule/{path}.json", surface_rule(p["biomes"]))
         write_json(f"data/{ns}/dimension/{path}.json", {
