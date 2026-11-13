@@ -24,6 +24,21 @@ import org.jspecify.annotations.Nullable;
  */
 public final class HazardHud {
 
+    private static volatile de.infinitehorizon.network.EventStatePayload event;
+    private static volatile long eventReceived;
+
+    /** Ereignisstand vom Server (19). */
+    public static void receiveEvent(de.infinitehorizon.network.EventStatePayload payload) {
+        event = payload;
+        eventReceived = System.currentTimeMillis();
+    }
+
+    /** Ticks seit dem letzten Ereignisstand (für die Restzeit). */
+    private static long eventAge() {
+        return (System.currentTimeMillis() - eventReceived) / 50;
+    }
+
+
     private static final int GREEN = 0xFF55DD55;
     private static final int YELLOW = 0xFFFFDD44;
     private static final int RED = 0xFFFF5544;
@@ -112,6 +127,15 @@ public final class HazardHud {
             y -= row;
             bar(g, font, left, y, barW, barH, f, color,
                     Component.translatable("hud." + InfiniteHorizon.MOD_ID + ".suit_oxygen", s.suitOxygen(), capacity));
+        }
+        // Ereignis (19): HUD-Symbol als Zeile mit Restzeit
+        de.infinitehorizon.network.EventStatePayload ev = event;
+        if (ev != null && ev.phase() > 0 && !ev.event().isEmpty()) {
+            net.minecraft.resources.Identifier id = net.minecraft.resources.Identifier.parse(ev.event());
+            y -= row;
+            g.text(font, Component.translatable("hud." + InfiniteHorizon.MOD_ID + ".event." + (ev.phase() == 1 ? "warning" : "active"),
+                    Component.translatable("event." + id.getNamespace() + "." + id.getPath()), Math.max(0, ev.ticks() - (eventAge())) / 20),
+                    left, y, ev.phase() == 1 ? YELLOW : RED, true);
         }
         // Hitzezeit der Venus-Oberfläche (8.4, 9.1): Leiste wie der Anzugvorrat
         de.infinitehorizon.environment.VenusHeat heat = de.infinitehorizon.environment.VenusHeat.rules();

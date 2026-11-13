@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 5f · Mod-Version 0.1.0
+> Stand: Meilenstein 5g · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -70,6 +70,7 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Der Hitzeanzug](Der-Hitzeanzug.md) – Anzug der Stufe 2 für die Venus: Hitze, hoher Druck, Säureregen
 - [Der Rover](Der-Rover.md) – Fahrzeug für weite Strecken auf fremden Welten
 - [Kreaturen des inneren Sonnensystems](Kreaturen-des-inneren-Sonnensystems.md) – Was auf Mond, Mars und Venus lebt, und wie du es erforschst
+- [Weltraumwetter und Ereignisse](Weltraumwetter-und-Ereignisse.md) – Sonnenstürme, Meteoritenschauer, Staubstürme und Säureregen
 
 ## Nachschlagen
 

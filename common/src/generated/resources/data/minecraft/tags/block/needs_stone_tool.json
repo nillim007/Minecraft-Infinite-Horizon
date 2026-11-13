@@ -32,6 +32,7 @@
     "infinite_horizon:launch_tower",
     "infinite_horizon:mars_iron_ore",
     "infinite_horizon:mars_magnesium_ore",
+    "infinite_horizon:meteorite_ore",
     "infinite_horizon:moon_aluminum_ore",
     "infinite_horizon:oxygen_generator",
     "infinite_horizon:press",

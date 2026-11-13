@@ -877,6 +877,41 @@
           "energy_per_tick": 20
         },
         {
+          "id": "infinite_horizon:crushing/raw_iron_from_meteorite_ore",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:meteorite_ore"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "minecraft:raw_iron",
+              "count": 2
+            },
+            {
+              "item": "infinite_horizon:raw_nickel",
+              "count": 1
+            },
+            {
+              "item": "infinite_horizon:raw_platinum",
+              "count": 1,
+              "chance": 0.1
+            },
+            {
+              "item": "infinite_horizon:raw_iridium",
+              "count": 1,
+              "chance": 0.05
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
           "id": "infinite_horizon:crushing/titanium_dust",
           "type": "infinite_horizon:crushing",
           "station": "infinite_horizon:crusher",

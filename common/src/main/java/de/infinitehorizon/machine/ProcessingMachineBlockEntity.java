@@ -331,6 +331,11 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
             return;
         }
         wrongLocation = false;
+        // Sonnensturm (19): ungeschützte Maschinen pausieren zeitweise
+        if (de.infinitehorizon.event.EventService.machinePaused(level, getBlockPos())) {
+            setStatus(MachineStatus.IDLE);
+            return;
+        }
         Optional<Plan> found = findPlan(level);
         if (found.isEmpty()) {
             progress = 0;

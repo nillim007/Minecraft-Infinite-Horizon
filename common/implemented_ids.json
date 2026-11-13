@@ -44,6 +44,7 @@
     "infinite_horizon:launch_control": "machine",
     "infinite_horizon:probe": "casing",
     "infinite_horizon:landing_beacon": "casing",
+    "infinite_horizon:meteorite_ore": "simple_block",
     "infinite_horizon:sulfur_trail": "layer",
     "infinite_horizon:cloud_elevator": "casing",
     "infinite_horizon:aerostat_platform": "simple_block",
@@ -144,7 +145,9 @@
     "infinite_horizon:rover_trailer",
     "infinite_horizon:field_scanner",
     "infinite_horizon:metal_concentrate",
-    "infinite_horizon:armor_plate"
+    "infinite_horizon:armor_plate",
+    "infinite_horizon:raw_platinum",
+    "infinite_horizon:raw_iridium"
   ],
   "fluids": [
     "crude_oil",
@@ -154,7 +157,7 @@
     "helium",
     "liquid_helium"
   ],
-  "step": "5f",
+  "step": "5g",
   "dimensions": ["infinite_horizon:moon", "infinite_horizon:mars", "infinite_horizon:venus"],
   "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket", "infinite_horizon:rover", "infinite_horizon:rubble_crawler", "infinite_horizon:shade_strider", "infinite_horizon:dune_burrower", "infinite_horizon:dust_wraith", "infinite_horizon:sulfur_snail", "infinite_horizon:cloud_ray"],
   "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:first_signal", "infinite_horizon:small_step", "infinite_horizon:own_air"],

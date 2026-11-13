@@ -36,7 +36,8 @@ public final class PlanetMobRules {
         if (monster && !ServerConfig.get().getBoolean(CONFIG_KEY)) {
             return false;
         }
-        double rate = rate(planet, BuiltInRegistries.ENTITY_TYPE.getKey(mob.getType()).toString());
+        double rate = rate(planet, BuiltInRegistries.ENTITY_TYPE.getKey(mob.getType()).toString())
+                * de.infinitehorizon.event.EventService.monsterMultiplier(level);
         return rate >= 1.0 || level.getRandom().nextDouble() < rate;
     }
 

@@ -51,6 +51,11 @@
       "falls": false
     },
     {
+      "id": "meteorite_ore",
+      "copy": "minecraft:iron_ore",
+      "falls": false
+    },
+    {
       "id": "aerostat_platform",
       "copy": "minecraft:iron_block",
       "falls": false

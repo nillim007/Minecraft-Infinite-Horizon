@@ -58,7 +58,9 @@
     "rover_pressure_cabin",
     "rover_trailer",
     "metal_concentrate",
-    "armor_plate"
+    "armor_plate",
+    "raw_platinum",
+    "raw_iridium"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,

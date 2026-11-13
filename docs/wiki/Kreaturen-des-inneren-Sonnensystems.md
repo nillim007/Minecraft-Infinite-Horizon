@@ -37,4 +37,4 @@ Auf den fremden Welten lebt mehr, als man denkt. Die meisten Kreaturen sind harm
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Der Rover](Der-Rover.md)
+← [Der Rover](Der-Rover.md) · [Weltraumwetter und Ereignisse](Weltraumwetter-und-Ereignisse.md) →

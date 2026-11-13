@@ -30,6 +30,9 @@ public final class ModPayloads {
         Services.NETWORK.registerServerbound(LaunchRequestPayload.TYPE, LaunchRequestPayload.CODEC, LaunchRequestPayload::handle);
         Services.NETWORK.registerClientbound(LaunchStatePayload.TYPE, LaunchStatePayload.CODEC,
                 payload -> de.infinitehorizon.client.LaunchControlScreen.receive(payload));
+        // Ereignisse (19)
+        Services.NETWORK.registerClientbound(EventStatePayload.TYPE, EventStatePayload.CODEC,
+                payload -> de.infinitehorizon.client.HazardHud.receiveEvent(payload));
         // Flug (M4e, 12.5, 12.6)
         Services.NETWORK.registerClientbound(FlightSequencePayload.TYPE, FlightSequencePayload.CODEC,
                 payload -> de.infinitehorizon.client.FlightSequenceScreen.receive(payload));

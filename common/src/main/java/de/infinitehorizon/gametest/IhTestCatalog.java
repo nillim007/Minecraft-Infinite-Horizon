@@ -137,7 +137,11 @@ public final class IhTestCatalog {
             new Test("creature_cloudray_tamesaddlemount", 20, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM5f::cloudRayMount),  // 18, M5f
             new Test("creature_fieldscanner_oncepertype", 20, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM5f::fieldScannerOnce),  // 11.1, 18, M5f
             new Test("creature_wraith_projectileimmune", 20, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM5f::wraithProjectileImmune),  // 18, M5f
-            new Test("creature_monster_needsdarkness", 20, "infinite_horizon:gametest/empty_large", "infinite_horizon:moon_day", null, IhGameTestsM5f::monsterNeedsDarkness)  // 18, M5f
+            new Test("creature_monster_needsdarkness", 20, "infinite_horizon:gametest/empty_large", "infinite_horizon:moon_day", null, IhGameTestsM5f::monsterNeedsDarkness),  // 18, M5f
+            new Test("event_solarstorm_radiationsolar", 20, null, null, null, IhGameTestsM5g::solarStormRadiationAndSolar),  // 19, M5g
+            new Test("event_solarstorm_pausesuncovered", 20, null, null, null, IhGameTestsM5g::solarStormPausesUncovered),  // 19, M5g
+            new Test("event_meteor_leavesore", 20, null, null, null, IhGameTestsM5g::meteorLeavesOre),  // 19, M5g
+            new Test("event_acidrain_damagesarmor", 20, null, null, null, IhGameTestsM5g::acidRainDamagesArmor)  // 19, M5g
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

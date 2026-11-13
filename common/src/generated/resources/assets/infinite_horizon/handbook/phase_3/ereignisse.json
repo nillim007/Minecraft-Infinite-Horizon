@@ -1,0 +1,105 @@
+{
+  "id": "infinite_horizon:phase_3/ereignisse",
+  "chapter": "infinite_horizon:phase_3",
+  "title": "infinite_horizon.handbook.phase_3.ereignisse.title",
+  "icon": "infinite_horizon:meteorite_ore",
+  "order": 130,
+  "unlock": "infinite_horizon:research_tier/2",
+  "items": [
+    "infinite_horizon:meteorite_ore",
+    "infinite_horizon:raw_platinum",
+    "infinite_horizon:raw_iridium"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e2"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e3",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e4"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:crushing/raw_iron_from_meteorite_ore",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:meteorite_ore"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "minecraft:raw_iron",
+              "count": 2
+            },
+            {
+              "item": "infinite_horizon:raw_nickel",
+              "count": 1
+            },
+            {
+              "item": "infinite_horizon:raw_platinum",
+              "count": 1,
+              "chance": 0.1
+            },
+            {
+              "item": "infinite_horizon:raw_iridium",
+              "count": 1,
+              "chance": 0.05
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e6",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e7"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e8",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e9"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e10",
+      "style": "warning"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e11",
+      "style": "tip"
+    }
+  ]
+}

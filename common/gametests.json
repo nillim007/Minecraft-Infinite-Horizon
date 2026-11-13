@@ -124,6 +124,10 @@
     {"name": "creature_cloudray_tamesaddlemount", "class": "IhGameTestsM5f", "method": "cloudRayMount", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "18, M5f"},
     {"name": "creature_fieldscanner_oncepertype", "class": "IhGameTestsM5f", "method": "fieldScannerOnce", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "11.1, 18, M5f"},
     {"name": "creature_wraith_projectileimmune", "class": "IhGameTestsM5f", "method": "wraithProjectileImmune", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "18, M5f"},
-    {"name": "creature_monster_needsdarkness", "class": "IhGameTestsM5f", "method": "monsterNeedsDarkness", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "environment": "infinite_horizon:moon_day", "ref": "18, M5f"}
+    {"name": "creature_monster_needsdarkness", "class": "IhGameTestsM5f", "method": "monsterNeedsDarkness", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "environment": "infinite_horizon:moon_day", "ref": "18, M5f"},
+    {"name": "event_solarstorm_radiationsolar", "class": "IhGameTestsM5g", "method": "solarStormRadiationAndSolar", "ticks": 20, "ref": "19, M5g"},
+    {"name": "event_solarstorm_pausesuncovered", "class": "IhGameTestsM5g", "method": "solarStormPausesUncovered", "ticks": 20, "ref": "19, M5g"},
+    {"name": "event_meteor_leavesore", "class": "IhGameTestsM5g", "method": "meteorLeavesOre", "ticks": 20, "ref": "19, M5g"},
+    {"name": "event_acidrain_damagesarmor", "class": "IhGameTestsM5g", "method": "acidRainDamagesArmor", "ticks": 20, "ref": "19, M5g"}
   ]
 }

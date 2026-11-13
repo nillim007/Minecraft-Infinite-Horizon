@@ -280,6 +280,7 @@ SIMPLE_BLOCKS = {
     "venus_rock": {"copy": "minecraft:blackstone", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
     "venus_tungsten_ore": {"copy": "minecraft:deepslate_iron_ore", "falls": False, "tool": "pickaxe", "needs": "iron",
                            "ore": None, "planet_drops": True},
+    "meteorite_ore": {"copy": "minecraft:iron_ore", "falls": False, "tool": "pickaxe", "needs": "stone", "ore": None},
     "aerostat_platform": {"copy": "minecraft:iron_block", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
     "venus_sulfur_ore": {"copy": "minecraft:nether_quartz_ore", "falls": False, "tool": "pickaxe", "needs": "stone",
                          "ore": None, "planet_drops": True},

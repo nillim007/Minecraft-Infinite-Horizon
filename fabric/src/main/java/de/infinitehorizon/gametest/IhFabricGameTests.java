@@ -603,4 +603,24 @@ public class IhFabricGameTests {
     public void creatureMonsterNeedsdarkness(GameTestHelper helper) {
         IhGameTestsM5f.monsterNeedsDarkness(helper);
     }
+
+    @GameTest(maxTicks = 20)
+    public void eventSolarstormRadiationsolar(GameTestHelper helper) {
+        IhGameTestsM5g.solarStormRadiationAndSolar(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void eventSolarstormPausesuncovered(GameTestHelper helper) {
+        IhGameTestsM5g.solarStormPausesUncovered(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void eventMeteorLeavesore(GameTestHelper helper) {
+        IhGameTestsM5g.meteorLeavesOre(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void eventAcidrainDamagesarmor(GameTestHelper helper) {
+        IhGameTestsM5g.acidRainDamagesArmor(helper);
+    }
 }

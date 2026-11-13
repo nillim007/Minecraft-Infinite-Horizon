@@ -105,6 +105,7 @@ public final class InfiniteHorizon {
         de.infinitehorizon.dome.DomeManager.sync(player);
         giveHandbookOnce(player);
         de.infinitehorizon.agency.AtlasService.giveOnce(player);
+        de.infinitehorizon.event.EventService.sendState(player);
         // Forschung (M4): Tore prüfen (auch für Welten aus M3), ausstehende Erfolge, Agentur-Stand an den Client
         de.infinitehorizon.research.ResearchService.onMemberMoved(player);
         de.infinitehorizon.agency.AgencyAdvancements.onLogin(player);
@@ -127,6 +128,7 @@ public final class InfiniteHorizon {
         de.infinitehorizon.space.FlightService.tickLogins(server);
         de.infinitehorizon.suit.HelmetLamp.tick(server);
         de.infinitehorizon.space.CloudLayer.tick(server);
+        de.infinitehorizon.event.EventService.tick(server);
     }
 
     /** Respawn: Schwerkraft sofort setzen (12.9); die Belastung beginnt nach dem Tod bei 0 (Attachment ohne Kopie). */
@@ -141,6 +143,7 @@ public final class InfiniteHorizon {
         AgencyManager.onDimensionChange(player, destination);
         de.infinitehorizon.agency.AtlasService.onDimensionChange(player, destination);
         de.infinitehorizon.suit.HelmetLamp.remove(player);
+        de.infinitehorizon.event.EventService.sendState(player);
         de.infinitehorizon.research.ResearchService.onMemberMoved(player);
         GravityService.apply(player);
         de.infinitehorizon.dome.DomeManager.sync(player);

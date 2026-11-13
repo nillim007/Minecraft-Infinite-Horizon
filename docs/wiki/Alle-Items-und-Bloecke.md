@@ -79,6 +79,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Marssand](Der-Mars.md) | Block | Weltgenerierung |
 | [Maschinenrahmen](Erste-Schritte.md) | Item | Rezept |
 | [Metallkonzentrat](Kreaturen-des-inneren-Sonnensystems.md) | Item | Kreatur |
+| [Meteoritenerz](Weltraumwetter-und-Ereignisse.md) | Block | event |
 | [Mond-Aluminiumerz](Der-Mond.md) | Block | Weltgenerierung |
 | [Mond-Basalt](Der-Mond.md) | Block | Weltgenerierung |
 | [Mond-Regolith](Der-Mond.md) | Block | Weltgenerierung |
@@ -110,8 +111,10 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Raketentriebwerk T1](Die-Rakete.md) | Block | Rezept |
 | [Raketentriebwerk T2](Die-Rakete-T2.md) | Block | Rezept |
 | [Regolith-Erhitzer](Helium-und-Kryotechnik.md) | Block | Rezept |
+| [Rohiridium](Weltraumwetter-und-Ereignisse.md) | Item | Abbau, Maschine |
 | [Rohmagnesium](Der-Mars.md) | Item | Abbau |
 | [Rohnickel](Der-Mars.md) | Item | Abbau, Maschine |
+| [Rohplatin](Weltraumwetter-und-Ereignisse.md) | Item | Abbau, Maschine |
 | [Rohtitan](Rohstoffe-und-Erze.md) | Item | Abbau |
 | [Rohwolfram](Die-Venus.md) | Item | Abbau |
 | [Rover-Anhänger](Der-Rover.md) | Item | Rezept |

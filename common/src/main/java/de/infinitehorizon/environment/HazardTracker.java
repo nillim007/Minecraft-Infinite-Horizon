@@ -117,7 +117,8 @@ public final class HazardTracker {
         EnvironmentInput.DomeCover dome = player.getVehicle() instanceof de.infinitehorizon.vehicle.RoverEntity rover
                 && rover.cabinActive() ? new EnvironmentInput.DomeCover(1, rover.cabinTemperature()) : domeCover(level, pos);
         EnvironmentInput in = new EnvironmentInput(res.planet(), res.zones(), res.biome(), level.getOverworldClockTime(),
-                cover, false, dome, protection);
+                cover, de.infinitehorizon.event.EventService.active(level, de.infinitehorizon.event.EventService.SOLAR_STORM),
+                dome, protection);
         return EnvironmentCalculator.compute(in, r);
     }
 
