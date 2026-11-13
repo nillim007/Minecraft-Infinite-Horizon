@@ -1,0 +1,18 @@
+{
+  "tier": 1,
+  "branch": "industry",
+  "cost": 10,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:solar_panel"
+    }
+  ],
+  "icon": "infinite_horizon:solar_panel",
+  "position": {
+    "column": 0,
+    "row": 1,
+    "slot": 0
+  }
+}

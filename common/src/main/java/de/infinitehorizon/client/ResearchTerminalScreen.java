@@ -290,7 +290,7 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
 
     /** FP aus Hundertsteln mit 2 Nachkommastellen (11.3). */
     public static String formatFp(int hundredths) {
-        return String.format(Locale.ROOT, "%d.%02d", hundredths / 100, hundredths % 100);
+        return de.infinitehorizon.research.FpLedger.format(hundredths);
     }
 
     private List<Component> tooltip(ResearchRegistry.Node n, ResearchService.NodeState state) {

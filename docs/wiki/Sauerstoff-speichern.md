@@ -45,4 +45,4 @@ Die Druckflasche ist ein Tank nur für Gase und fasst 8.000 mB. Sie hat wie der 
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Der Druckanzug](Der-Druckanzug.md)
+← [Der Druckanzug](Der-Druckanzug.md) · [Strom im All](Strom-im-All.md) →

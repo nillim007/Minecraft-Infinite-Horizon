@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "infinite_horizon:block/analyzer_front_error",
+    "side": "infinite_horizon:block/analyzer",
+    "top": "infinite_horizon:block/analyzer_top"
+  }
+}

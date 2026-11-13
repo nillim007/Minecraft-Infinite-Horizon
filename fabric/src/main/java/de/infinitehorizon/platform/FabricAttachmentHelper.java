@@ -14,8 +14,18 @@ public class FabricAttachmentHelper implements IAttachmentHelper {
     public static final AttachmentType<HazardState> HAZARD_STATE = AttachmentRegistry.create(
             InfiniteHorizon.id("hazard_state"), b -> b.initializer(HazardState::new).persistent(HazardState.CODEC));
 
+    /** Chunk-Attachment (11.2): beprobte und von Spielern gesetzte Positionen, gespeichert mit dem Chunk. */
+    public static final AttachmentType<de.infinitehorizon.research.SampledPositions> SAMPLED_POSITIONS = AttachmentRegistry.create(
+            InfiniteHorizon.id("sampled_positions"), b -> b.initializer(de.infinitehorizon.research.SampledPositions::new)
+                    .persistent(de.infinitehorizon.research.SampledPositions.CODEC));
+
     @Override
     public HazardState hazardState(Player player) {
         return player.getAttachedOrCreate(HAZARD_STATE);
+    }
+
+    @Override
+    public de.infinitehorizon.research.SampledPositions sampledPositions(net.minecraft.world.level.chunk.LevelChunk chunk) {
+        return chunk.getAttachedOrCreate(SAMPLED_POSITIONS);
     }
 }

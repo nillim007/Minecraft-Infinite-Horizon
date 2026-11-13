@@ -1,0 +1,18 @@
+{
+  "tier": 1,
+  "branch": "logistics",
+  "cost": 10,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:aluminum_cable"
+    }
+  ],
+  "icon": "infinite_horizon:aluminum_cable",
+  "position": {
+    "column": 3,
+    "row": 1,
+    "slot": 0
+  }
+}

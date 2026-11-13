@@ -126,6 +126,20 @@ public final class ModBlockEntities {
                                     ModBlockEntities.RESEARCH_TERMINAL.get(), pos, state),
                             ModBlocks.RESEARCH_TERMINAL.get()));
 
+    public static final Supplier<BlockEntityType<de.infinitehorizon.research.AnalyzerBlockEntity>> ANALYZER =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "analyzer",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.research.AnalyzerBlockEntity(
+                                    ModBlockEntities.ANALYZER.get(), pos, state),
+                            ModBlocks.ANALYZER.get()));
+
+    public static final Supplier<BlockEntityType<de.infinitehorizon.machine.SolarPanelBlockEntity>> SOLAR_PANEL =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "solar_panel",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.machine.SolarPanelBlockEntity(
+                                    ModBlockEntities.SOLAR_PANEL.get(), pos, state),
+                            ModBlocks.SOLAR_PANEL.get()));
+
     /** Ein Typ für alle Ports; das Verhalten folgt aus {@link de.infinitehorizon.multiblock.PortBlock.PortType}. */
     public static final Supplier<BlockEntityType<PortBlockEntity>> PORT =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "port",
@@ -159,6 +173,8 @@ public final class ModBlockEntities {
         Services.ENERGY.expose(DOME_GENERATOR_T1);
         Services.FLUID.expose(DOME_GENERATOR_T1);
         Services.ENERGY.expose(ELECTRIC_LAMP);
+        Services.ENERGY.expose(ANALYZER);
+        Services.ENERGY.expose(SOLAR_PANEL);
         Services.FLUID.expose(PORT);
     }
 }

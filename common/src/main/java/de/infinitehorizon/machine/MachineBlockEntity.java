@@ -72,7 +72,7 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
     public static final int MAX_TANKS = 3;
     /**
      * Anzahl synchronisierter Werte (je 64 Bit, als 4 × 16 Bit übertragen): 4 Grundwerte + je Tank Fluid, Menge,
-     * Kapazität + Ausgangsseite, Tankwahl, Multiblock-Zustand, fehlender Block, Rezeptsperre.
+     * Kapazität + Ausgangsseite, Tankwahl, Multiblock-Zustand, fehlender Block, Status-Hinweis.
      */
     public static final int SYNC_VALUES = 4 + 3 * MAX_TANKS + 5;
     /** Index des Sync-Werts „Ausgangsseite + 1“ (0 = keine Fluidausgabe). */
@@ -83,8 +83,12 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
     public static final int SYNC_MULTIBLOCK = SYNC_SIDE + 2;
     /** Erster fehlender Block ({@code BlockPos#asLong}), nur bei {@link #SYNC_MULTIBLOCK} = 2. */
     public static final int SYNC_MISSING = SYNC_SIDE + 3;
-    /** 1 = alle passenden Rezepte sind für die Besitzer-Agentur gesperrt (11.3, Tooltip {@code status.locked}). */
-    public static final int SYNC_LOCKED = SYNC_SIDE + 4;
+    /** Zusatz zur Statuslampe: {@link #HINT_LOCKED}, {@link #HINT_NO_OWNER} oder 0. */
+    public static final int SYNC_HINT = SYNC_SIDE + 4;
+    /** Alle passenden Rezepte sind für die Besitzer-Agentur gesperrt (11.3, Tooltip {@code status.locked}). */
+    public static final int HINT_LOCKED = 1;
+    /** Die Maschine braucht einen Besitzer (Analysator, 6.1, Tooltip {@code status.no_owner}). */
+    public static final int HINT_NO_OWNER = 2;
 
     protected NonNullList<ItemStack> items = NonNullList.withSize(0, ItemStack.EMPTY);
     protected final IhEnergyStorage energy = new IhEnergyStorage(0, 0, 0, this::setChanged);
@@ -153,8 +157,8 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
         if (index == SYNC_MULTIBLOCK || index == SYNC_MISSING) {
             return 0;
         }
-        if (index == SYNC_LOCKED) {
-            return recipeLocked() ? 1 : 0;
+        if (index == SYNC_HINT) {
+            return statusHint();
         }
         if (index >= 4) {
             int t = (index - 4) / 3;
@@ -183,6 +187,11 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
     /** Sind alle passenden Rezepte gesperrt (11.3)? Maschinen ohne Rezeptsuche: nie. */
     public boolean recipeLocked() {
         return false;
+    }
+
+    /** Zusatz zur Statuslampe im GUI ({@link #HINT_LOCKED}, {@link #HINT_NO_OWNER}, sonst 0). */
+    public int statusHint() {
+        return recipeLocked() ? HINT_LOCKED : 0;
     }
 
     /** Passt Slots und Puffer an die aktuellen Balance-Werte an. False, solange keine Werte geladen sind. */

@@ -151,8 +151,11 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         if (inside(mouseX, mouseY, x + LAMP_X - 1, y + LAMP_Y - 1, LAMP_SIZE + 2, LAMP_SIZE + 2)) {
             tip = new ArrayList<>();
             tip.add(Component.translatable("gui.infinite_horizon.status." + status.getSerializedName()));
-            if (menu.value(MachineBlockEntity.SYNC_LOCKED) == 1) {
+            long hint = menu.value(MachineBlockEntity.SYNC_HINT);
+            if (hint == MachineBlockEntity.HINT_LOCKED) {
                 tip.add(Component.translatable("gui.infinite_horizon.status.locked"));
+            } else if (hint == MachineBlockEntity.HINT_NO_OWNER) {
+                tip.add(Component.translatable("gui.infinite_horizon.status.no_owner"));
             }
             if (menu.value(MachineBlockEntity.SYNC_MULTIBLOCK) == 2) {
                 BlockPos missing = BlockPos.of(menu.value(MachineBlockEntity.SYNC_MISSING));
@@ -213,8 +216,14 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         if (tip == null && capacity > 0 && inside(mouseX, mouseY, bx, by, BAR_W, BAR_H)) {
             tip = List.of(Component.translatable("gui.infinite_horizon.energy", energy, capacity));
         } else if (tip == null && total > 0 && inside(mouseX, mouseY, ax, ay, ARROW_W, ARROW_H)) {
-            String key = generator ? "gui.infinite_horizon.burn_time" : "gui.infinite_horizon.progress_ticks";
-            tip = List.of(Component.translatable(key, now, total));
+            if (generator && l.fuel() == 0 && menu.openData().tanks() == 0) {
+                // Generator ohne Brennstoff (Solarpanel, 6.3): Werte in Hundertsteln J/t
+                tip = List.of(Component.translatable("gui.infinite_horizon.output",
+                        de.infinitehorizon.research.FpLedger.format((int) now), de.infinitehorizon.research.FpLedger.format((int) total)));
+            } else {
+                String key = generator ? "gui.infinite_horizon.burn_time" : "gui.infinite_horizon.progress_ticks";
+                tip = List.of(Component.translatable(key, now, total));
+            }
         }
         if (tip != null) {
             g.setComponentTooltipForNextFrame(font, tip, mouseX, mouseY);

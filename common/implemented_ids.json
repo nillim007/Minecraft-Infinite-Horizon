@@ -34,7 +34,10 @@
     "infinite_horizon:dome_generator_t1": "machine",
     "infinite_horizon:electric_lamp": "lamp",
     "infinite_horizon:extinguished_torch": "torch",
-    "infinite_horizon:research_terminal": "machine"
+    "infinite_horizon:research_terminal": "machine",
+    "infinite_horizon:analyzer": "machine",
+    "infinite_horizon:solar_panel": "machine",
+    "infinite_horizon:aluminum_cable": "cable"
   },
   "items": [
     "infinite_horizon:aluminum_dust",
@@ -72,7 +75,9 @@
     "infinite_horizon:pressure_suit_helmet",
     "infinite_horizon:pressure_suit_chestplate",
     "infinite_horizon:pressure_suit_leggings",
-    "infinite_horizon:pressure_suit_boots"
+    "infinite_horizon:pressure_suit_boots",
+    "infinite_horizon:sample_tool",
+    "infinite_horizon:sample"
   ],
   "fluids": [
     "crude_oil",
@@ -80,7 +85,7 @@
     "hydrogen",
     "oxygen"
   ],
-  "step": "4a",
+  "step": "4b",
   "dimensions": ["infinite_horizon:moon"],
   "entities": [],
   "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:own_air"],
@@ -90,6 +95,8 @@
     "infinite_horizon:pressure_suit_helmet": "suit",
     "infinite_horizon:pressure_suit_chestplate": "suit",
     "infinite_horizon:pressure_suit_leggings": "suit",
-    "infinite_horizon:pressure_suit_boots": "suit"
+    "infinite_horizon:pressure_suit_boots": "suit",
+    "infinite_horizon:sample_tool": "sample_tool",
+    "infinite_horizon:sample": "sample"
   }
 }

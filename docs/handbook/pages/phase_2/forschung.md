@@ -5,7 +5,7 @@ order: 15
 milestone: 4
 requires: ["infinite_horizon:research_terminal"]
 icon: infinite_horizon:research_terminal
-items: ["infinite_horizon:research_terminal"]
+items: ["infinite_horizon:research_terminal", "infinite_horizon:sample_tool", "infinite_horizon:sample", "infinite_horizon:analyzer"]
 summary: Forschungsterminal, Forschungspunkte, Stufen und Knoten
 ---
 Mit der Forschung beginnt dein Raumfahrtprogramm. Am <item:infinite_horizon:research_terminal> gibt deine [[agentur|Agentur]] **Forschungspunkte (FP)** aus und schaltet damit neue Bauteile und Ziele frei. Die Forschung gehört der ganzen Agentur: Was ein Mitglied erforscht, können alle bauen.
@@ -56,15 +56,39 @@ Das betrifft auch zehn Dinge, die du vielleicht schon gebaut hast:
 
 ## Forschungspunkte
 
-FP gehören der Agentur und werden mit zwei Nachkommastellen angezeigt. Du sammelst sie durch Erkundung und Analyse.
-@if infinite_horizon:sample_tool
-Wie das geht, steht im Abschnitt über Proben und den Analysator.
-@endif
+FP gehören der Agentur und werden mit zwei Nachkommastellen angezeigt. Du bekommst sie auf zwei Wegen: aus **Proben**, die der Analysator auswertet, und aus **Erkundungszielen**.
+
+### Proben nehmen
+
+1. Bau eine <item:infinite_horizon:sample_tool> (Rezept unten).
+2. Rechtsklick auf einen Block gibt eine <item:infinite_horizon:sample>. Der Block bleibt stehen. Danach braucht die Zange {{value:research:sample_tool.cooldown_ticks|t}} Pause.
+3. Jede Stelle gibt nur eine Probe. Blöcke, die ein Spieler gesetzt hat, geben nie eine: Die Aktionsleiste meldet dann „Keine verwertbare Probe“.
+
+Auf der Erde lassen sich nur Erze beproben: <item:infinite_horizon:bauxite_ore>, <item:infinite_horizon:titanium_ore>, <item:infinite_horizon:quartz_sand> und die Vanilla-Erze Kohle, Eisen, Kupfer, Gold, Redstone, Lapis und Diamant. Tiefenschiefer-Varianten zählen wie das normale Erz. Auf dem [[mond|Mond]] gibt jeder natürliche Mondblock eine Probe. Proben aus dem Nether und dem End sind wertlos.
+
+### Der Analysator
+
+Der <item:infinite_horizon:analyzer> wertet je Vorgang eine Probe aus und schreibt die FP deiner Agentur gut. Er braucht Strom und nimmt nur Proben an, die FP geben. Ein Analysator, der niemandem gehört, arbeitet nicht (rote Lampe); setz ihn deshalb selbst.
+
+@machine infinite_horizon:analyzer
+
+| Herkunft der Probe | FP je Probe |
+| --- | --- |
+| Erde | {{value:research:sample_ring_0.fp}} |
+| Mond | {{value:research:sample_ring_1.fp}} |
+
+Von jeder **Probenart** (Block und Fundort) zählen die ersten {{value:research:diminishing_returns.full_count}} Proben voll, jede weitere nur noch {{value:research:diminishing_returns.factor_after|%}}. Auf der Erde holst du so bis zu {{value:research:sample_ring_rules.ring0_max_full_fp}} FP mit vollem Wert.
+
+### Erkundungsziele
+
+Betritt ein Mitglied eine **Lavaröhre** auf dem Mond, bekommt die Agentur {{value:research:exploration_target.fp}} FP, einmal je Röhre. Lavaröhren sind gerade Tunnel tief im Mare, zwischen y {{value:planet:moon.structures.1.params.y_min}} und {{value:planet:moon.structures.1.params.y_max}}. Auch hier zählen die ersten {{value:research:diminishing_returns.full_count}} Funde voll.
 
 Auf Servern kann die Forschungspflicht abgeschaltet sein (Einstellung `research_required`). Dann sind alle Rezepte und Handbuch-Kapitel frei, und der Baum zeigt einen Hinweis.
 
 ## Herstellung
 
-@recipes_for infinite_horizon:research_terminal
+@recipes_for infinite_horizon:research_terminal infinite_horizon:sample_tool infinite_horizon:analyzer
 
 @tip Stell das Terminal gleich am Anfang auf. Es kostet nur Material, öffnet Stufe 1 und zeigt dir im Baum, was als Nächstes kommt.
+
+@tip Nimm von jedem Erz, das du beim Bergbau findest, eine Probe. Proben vieler verschiedener Erzarten bringen mehr als viele Proben derselben Art.

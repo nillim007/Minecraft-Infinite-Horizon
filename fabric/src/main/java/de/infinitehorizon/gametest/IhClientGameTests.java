@@ -104,6 +104,16 @@ public class IhClientGameTests implements FabricClientGameTest {
             handbook(context);
             recipeViewer(context);
             researchTree(context, sp);
+            // M4b: Analysator (mit Besitzer, Probe und Strom) und Solarpanel
+            machine(context, sp, ModBlocks.ANALYZER.get(), "gui_analyzer", be -> {
+                var server = be.getLevel().getServer();
+                var player = server.getPlayerList().getPlayers().getFirst();
+                be.setOwner(de.infinitehorizon.agency.AgencyManager.ensureFor(player).id());
+                be.setItem(0, de.infinitehorizon.research.SampleTool.create(InfiniteHorizon.id("bauxite_ore"),
+                        net.minecraft.resources.Identifier.withDefaultNamespace("overworld")));
+                fillEnergy(be, 2);
+            });
+            machine(context, sp, ModBlocks.SOLAR_PANEL.get(), "gui_solar_panel", be -> fillEnergy(be, 4));
 
             // Alle Blöcke nebeneinander in der Welt (Modelle, Texturen, Statuslampe)
             BlockPos base = context.computeOnClient(c -> BlockPos.containing(c.player.position()).north(3));

@@ -43,6 +43,14 @@ public final class ModDataComponents {
                     .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_INT)
                     .build());
 
+    /** {@code infinite_horizon:sample} (11.2): Block und Dimension einer Probe. */
+    public static final Supplier<DataComponentType<de.infinitehorizon.research.SampleData>> SAMPLE = Services.REGISTRY.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE, "sample",
+            () -> DataComponentType.<de.infinitehorizon.research.SampleData>builder()
+                    .persistent(de.infinitehorizon.research.SampleData.CODEC)
+                    .networkSynchronized(de.infinitehorizon.research.SampleData.STREAM_CODEC)
+                    .build());
+
     private ModDataComponents() {
     }
 

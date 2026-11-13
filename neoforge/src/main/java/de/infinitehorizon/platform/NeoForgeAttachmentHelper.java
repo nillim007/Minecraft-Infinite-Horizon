@@ -20,8 +20,18 @@ public class NeoForgeAttachmentHelper implements IAttachmentHelper {
     public static final Supplier<AttachmentType<HazardState>> HAZARD_STATE = TYPES.register("hazard_state",
             () -> AttachmentType.builder(HazardState::new).serialize(HazardState.MAP_CODEC).build());
 
+    /** Chunk-Attachment (11.2): beprobte und von Spielern gesetzte Positionen. */
+    public static final Supplier<AttachmentType<de.infinitehorizon.research.SampledPositions>> SAMPLED_POSITIONS =
+            TYPES.register("sampled_positions", () -> AttachmentType.builder(de.infinitehorizon.research.SampledPositions::new)
+                    .serialize(de.infinitehorizon.research.SampledPositions.MAP_CODEC).build());
+
     @Override
     public HazardState hazardState(Player player) {
         return player.getData(HAZARD_STATE);
+    }
+
+    @Override
+    public de.infinitehorizon.research.SampledPositions sampledPositions(net.minecraft.world.level.chunk.LevelChunk chunk) {
+        return chunk.getData(SAMPLED_POSITIONS);
     }
 }

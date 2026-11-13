@@ -54,18 +54,53 @@ Das betrifft auch zehn Dinge, die du vielleicht schon gebaut hast:
 
 ## Forschungspunkte
 
-FP gehören der Agentur und werden mit zwei Nachkommastellen angezeigt. Du sammelst sie durch Erkundung und Analyse.
+FP gehören der Agentur und werden mit zwei Nachkommastellen angezeigt. Du bekommst sie auf zwei Wegen: aus **Proben**, die der Analysator auswertet, und aus **Erkundungszielen**.
+
+### Proben nehmen
+
+1. Bau eine Probenzange (Rezept unten).
+2. Rechtsklick auf einen Block gibt eine Probe. Der Block bleibt stehen. Danach braucht die Zange 40 t (2 s) Pause.
+3. Jede Stelle gibt nur eine Probe. Blöcke, die ein Spieler gesetzt hat, geben nie eine: Die Aktionsleiste meldet dann „Keine verwertbare Probe“.
+
+Auf der Erde lassen sich nur Erze beproben: [Bauxiterz](Rohstoffe-und-Erze.md), [Titanerz](Rohstoffe-und-Erze.md), [Quarzsand](Rohstoffe-und-Erze.md) und die Vanilla-Erze Kohle, Eisen, Kupfer, Gold, Redstone, Lapis und Diamant. Tiefenschiefer-Varianten zählen wie das normale Erz. Auf dem [Mond](Der-Mond.md) gibt jeder natürliche Mondblock eine Probe. Proben aus dem Nether und dem End sind wertlos.
+
+### Der Analysator
+
+Der Analysator wertet je Vorgang eine Probe aus und schreibt die FP deiner Agentur gut. Er braucht Strom und nimmt nur Proben an, die FP geben. Ein Analysator, der niemandem gehört, arbeitet nicht (rote Lampe); setz ihn deshalb selbst.
+
+| Steckbrief: Analysator |  |
+| --- | --- |
+| Verbrauch | 20 J/t |
+| Dauer je Vorgang | 100 t (5 s) |
+| Slots | 1 Eingabe, 0 Ausgabe |
+| Upgrade-Slots | 2 |
+
+| Herkunft der Probe | FP je Probe |
+| --- | --- |
+| Erde | 1 |
+| Mond | 5 |
+
+Von jeder **Probenart** (Block und Fundort) zählen die ersten 10 Proben voll, jede weitere nur noch 10 %. Auf der Erde holst du so bis zu 100 FP mit vollem Wert.
+
+### Erkundungsziele
+
+Betritt ein Mitglied eine **Lavaröhre** auf dem Mond, bekommt die Agentur 20 FP, einmal je Röhre. Lavaröhren sind gerade Tunnel tief im Mare, zwischen y 30 und 50. Auch hier zählen die ersten 10 Funde voll.
 
 Auf Servern kann die Forschungspflicht abgeschaltet sein (Einstellung `research_required`). Dann sind alle Rezepte und Handbuch-Kapitel frei, und der Baum zeigt einen Hinweis.
 
 ## Herstellung
 
-![Rezept: Forschungsterminal](images/rezepte/assembly_research_terminal.svg)
-
-<sub>1 × [Maschinenrahmen](Erste-Schritte.md), 4 × [Aluminiumplatte](Presse.md), 4 × [Schaltkreis](Montagetisch.md), 2 × Glas, 1 × Buch → 1 × Forschungsterminal</sub>
+| Rezept | Zutaten → Ergebnis | Wo | Dauer |
+| --- | --- | --- | --- |
+| <img src="images/rezepte/assembly_sample_tool.svg" alt="Rezept" width="300"> | 2 × [Titanstange](Presse.md), 1 × [Eisenplatte](Presse.md) → 1 × Probenzange | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_analyzer.svg" alt="Rezept" width="300"> | 1 × [Maschinenrahmen](Erste-Schritte.md), 4 × [Aluminiumplatte](Presse.md), 2 × [Schaltkreis](Montagetisch.md), 1 × Glas → 1 × Analysator | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_research_terminal.svg" alt="Rezept" width="300"> | 1 × [Maschinenrahmen](Erste-Schritte.md), 4 × [Aluminiumplatte](Presse.md), 4 × [Schaltkreis](Montagetisch.md), 2 × Glas, 1 × Buch → 1 × Forschungsterminal | Montagetisch | 200 t (10 s)<br>30 J/t |
 
 > [!TIP]
 > Stell das Terminal gleich am Anfang auf. Es kostet nur Material, öffnet Stufe 1 und zeigt dir im Baum, was als Nächstes kommt.
+
+> [!TIP]
+> Nimm von jedem Erz, das du beim Bergbau findest, eine Probe. Proben vieler verschiedener Erzarten bringen mehr als viele Proben derselben Art.
 
 ---
 

@@ -6,7 +6,10 @@
   "order": 15,
   "unlock": null,
   "items": [
-    "infinite_horizon:research_terminal"
+    "infinite_horizon:research_terminal",
+    "infinite_horizon:sample_tool",
+    "infinite_horizon:sample",
+    "infinite_horizon:analyzer"
   ],
   "elements": [
     {
@@ -152,17 +155,162 @@
       "key": "infinite_horizon.handbook.phase_2.forschung.e17"
     },
     {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e18",
+      "level": 3
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_2.forschung.e19.0",
+        "infinite_horizon.handbook.phase_2.forschung.e19.1",
+        "infinite_horizon.handbook.phase_2.forschung.e19.2"
+      ]
+    },
+    {
       "type": "text",
-      "key": "infinite_horizon.handbook.phase_2.forschung.e18"
+      "key": "infinite_horizon.handbook.phase_2.forschung.e20"
     },
     {
       "type": "heading",
-      "key": "infinite_horizon.handbook.phase_2.forschung.e19",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e21",
+      "level": 3
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e22"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:analyzer",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_2.forschung.e23.0.label",
+          "infinite_horizon.handbook.phase_2.forschung.e23.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.forschung.e23.1.label",
+          "infinite_horizon.handbook.phase_2.forschung.e23.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.forschung.e23.2.label",
+          "infinite_horizon.handbook.phase_2.forschung.e23.2.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.forschung.e23.3.label",
+          "infinite_horizon.handbook.phase_2.forschung.e23.3.value"
+        ]
+      ]
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.phase_2.forschung.e24.h0",
+        "infinite_horizon.handbook.phase_2.forschung.e24.h1"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_2.forschung.e24.r0.0",
+          "infinite_horizon.handbook.phase_2.forschung.e24.r0.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.forschung.e24.r1.0",
+          "infinite_horizon.handbook.phase_2.forschung.e24.r1.1"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e25"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e26",
+      "level": 3
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e27"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e28"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e29",
       "level": 2
     },
     {
       "type": "recipes",
       "recipes": [
+        {
+          "id": "infinite_horizon:assembly/sample_tool",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:titanium_rod"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:iron_plate"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:sample_tool",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/analyzer",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:machine_frame"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:analyzer",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
         {
           "id": "infinite_horizon:assembly/research_terminal",
           "type": "infinite_horizon:assembly",
@@ -212,7 +360,12 @@
     },
     {
       "type": "callout",
-      "key": "infinite_horizon.handbook.phase_2.forschung.e21",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e31",
+      "style": "tip"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.forschung.e32",
       "style": "tip"
     }
   ]

@@ -56,6 +56,14 @@ public final class ModItems {
     public static final Supplier<Item> ELECTRIC_LAMP = blockItem("electric_lamp", ModBlocks.ELECTRIC_LAMP);
     public static final Supplier<Item> EXTINGUISHED_TORCH = blockItem("extinguished_torch", ModBlocks.EXTINGUISHED_TORCH);
     public static final Supplier<Item> RESEARCH_TERMINAL = blockItem("research_terminal", ModBlocks.RESEARCH_TERMINAL);
+    public static final Supplier<Item> ANALYZER = blockItem("analyzer", ModBlocks.ANALYZER);
+    public static final Supplier<Item> SOLAR_PANEL = blockItem("solar_panel", ModBlocks.SOLAR_PANEL);
+    public static final Supplier<Item> ALUMINUM_CABLE = blockItem("aluminum_cable", ModBlocks.ALUMINUM_CABLE);
+    /** Probenzange (11.2): Rechtsklick auf einen Block gibt eine Probe. */
+    public static final Supplier<Item> SAMPLE_TOOL = register("sample_tool",
+            p -> new de.infinitehorizon.research.SampleTool.ToolItem(p.stacksTo(1)));
+    /** Probe (11.2) mit Komponente {@code sample}; gleiche Proben stapeln bis 64. */
+    public static final Supplier<Item> SAMPLE = register("sample", de.infinitehorizon.research.SampleTool.SampleItem::new);
 
     /** Druckanzug T1 (9.1): Rüstung wie Eisen, Brustplatte mit O₂-Vorrat (Komponente {@code infinite_horizon:oxygen}). */
     public static final Supplier<Item> PRESSURE_SUIT_HELMET = suitPiece("pressure_suit", "helmet",

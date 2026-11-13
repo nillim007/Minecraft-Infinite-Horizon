@@ -39,6 +39,11 @@ public record Planet(Identifier dimension, String type, @Nullable String name, d
         }
     }
 
+    /** Ring (12.1) aus dem Eintrag, sonst -1. Bestimmt den FP-Wert von Proben (11.1). */
+    public int ring() {
+        return raw.has("ring") && raw.get("ring").isJsonPrimitive() ? raw.get("ring").getAsInt() : -1;
+    }
+
     public boolean breathable() {
         return BREATHABLE.equals(atmosphere);
     }

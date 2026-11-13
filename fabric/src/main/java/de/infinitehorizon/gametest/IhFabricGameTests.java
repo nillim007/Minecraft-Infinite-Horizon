@@ -388,4 +388,24 @@ public class IhFabricGameTests {
     public void researchTerminalOpenstier1groundstation(GameTestHelper helper) {
         IhGameTestsM4a.terminalOpensTier1(helper);
     }
+
+    @GameTest(maxTicks = 20)
+    public void sampleNaturalbauxiteOncepereposition(GameTestHelper helper) {
+        IhGameTestsM4b.sampleToolOncePerPosition(helper);
+    }
+
+    @GameTest(maxTicks = 110)
+    public void analyzerOnesampleOnefpwithin110ticks(GameTestHelper helper) {
+        IhGameTestsM4b.analyzerOneSampleOneFp(helper);
+    }
+
+    @GameTest(maxTicks = 60, environment = "infinite_horizon:moon_day")
+    public void solarMoonoverride5jtPolarcrater0(GameTestHelper helper) {
+        IhGameTestsM4b.solarPanelMoon(helper);
+    }
+
+    @GameTest(maxTicks = 60, dimension = "infinite_horizon:moon")
+    public void explorationLavatube20fp(GameTestHelper helper) {
+        IhGameTestsM4b.lavaTubeGivesFp(helper);
+    }
 }

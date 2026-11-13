@@ -1,0 +1,20 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:titanium_rod",
+      "count": 2
+    },
+    {
+      "ingredient": "infinite_horizon:iron_plate",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:sample_tool",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

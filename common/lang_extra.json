@@ -116,7 +116,14 @@
     "advancements.infinite_horizon.own_air.title": "Eigene Luft",
     "advancements.infinite_horizon.own_air.description": "Aktiviere deinen ersten Kuppelgenerator",
     "gui.infinite_horizon.handbook.chapter_locked": "%s (gesperrt)",
-    "gui.infinite_horizon.research.unlocks_later": "%s weitere kommen später"
+    "gui.infinite_horizon.research.unlocks_later": "%s weitere kommen später",
+    "message.infinite_horizon.sample.none": "Keine verwertbare Probe",
+    "message.infinite_horizon.sample.used": "Hier wurde schon eine Probe genommen",
+    "message.infinite_horizon.exploration.found": "Erkundungsziel gefunden: %s (+%s FP)",
+    "gui.infinite_horizon.sample.block": "Block: %s",
+    "gui.infinite_horizon.sample.dimension": "Fundort: %s",
+    "gui.infinite_horizon.status.no_owner": "Ohne Besitzer: arbeitet nicht",
+    "gui.infinite_horizon.output": "Leistung: %s von %s J/t"
   },
   "en_us": {
     "itemGroup.infinite_horizon": "Infinite Horizon",
@@ -234,6 +241,13 @@
     "advancements.infinite_horizon.own_air.title": "Air of Your Own",
     "advancements.infinite_horizon.own_air.description": "Activate your first dome generator",
     "gui.infinite_horizon.handbook.chapter_locked": "%s (locked)",
-    "gui.infinite_horizon.research.unlocks_later": "%s more coming later"
+    "gui.infinite_horizon.research.unlocks_later": "%s more coming later",
+    "message.infinite_horizon.sample.none": "No usable sample",
+    "message.infinite_horizon.sample.used": "A sample was already taken here",
+    "message.infinite_horizon.exploration.found": "Exploration target found: %s (+%s RP)",
+    "gui.infinite_horizon.sample.block": "Block: %s",
+    "gui.infinite_horizon.sample.dimension": "Found on: %s",
+    "gui.infinite_horizon.status.no_owner": "No owner: not working",
+    "gui.infinite_horizon.output": "Output: %s of %s J/t"
   }
 }

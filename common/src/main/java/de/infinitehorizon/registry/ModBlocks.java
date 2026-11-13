@@ -105,6 +105,17 @@ public final class ModBlocks {
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.COPPER).noOcclusion());
     public static final Supplier<Block> COPPER_CABLE = register("copper_cable", CableBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.COPPER).noOcclusion());
+    /** Aluminiumkabel (4.4): eigene Netzsorte, Durchsatz aus transport.json. */
+    public static final Supplier<Block> ALUMINUM_CABLE = register("aluminum_cable", CableBlock::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.METAL).noOcclusion());
+    /** Analysator (6.1, 11.1): Proben → FP. */
+    public static final Supplier<Block> ANALYZER = register("analyzer",
+            p -> new MachineBlock(p, () -> ModBlockEntities.ANALYZER.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Solarpanel (6.3): Strom bei Tageslicht und freiem Himmel. */
+    public static final Supplier<Block> SOLAR_PANEL = register("solar_panel",
+            p -> new MachineBlock(p, () -> ModBlockEntities.SOLAR_PANEL.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
 
     private static final Map<String, Supplier<Block>> SIMPLE = new LinkedHashMap<>();
 

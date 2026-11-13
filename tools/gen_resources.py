@@ -682,6 +682,21 @@ def research_resources(spec, nodes):
                    {k: n[k] for k in ("tier", "branch", "cost", "requires", "unlocks", "icon", "position") if k in n})
 
 
+def sampleable_tags(spec, impl, registered):
+    """Tags infinite_horizon:sampleable/ring0 und sampleable/planet (11.2): Ring 0 aus research.json, Planeten aus
+    blocks[].id und ores[].block in planets.json für alle Dimensionen in implemented_ids.json."""
+    def ok(i):
+        return not i.startswith(NS + ":") or i in registered
+    ring0 = [b for b in spec.balance["research"]["sample_ring_rules"]["ring0_blocks"] if ok(b)]
+    planet = set()
+    for dim in impl.get("dimensions", []):
+        p = spec.planets[dim]
+        planet.update(b["id"] for b in p.get("blocks", []))
+        planet.update(o["block"] for o in p.get("ores", []))
+    write_json(f"data/{NS}/tags/block/sampleable/ring0.json", {"values": ring0})
+    write_json(f"data/{NS}/tags/block/sampleable/planet.json", {"values": sorted(b for b in planet if ok(b))})
+
+
 ADVANCEMENT_BACKGROUND = "minecraft:gui/advancements/backgrounds/stone"
 
 
@@ -766,6 +781,12 @@ def main():
         data.update(hb.lang[lang])  # Ingenieurs-Handbuch (24.1, 25.6)
         for pid in ["minecraft:overworld"] + list(impl.get("dimensions", [])):
             data[planet_key(pid)] = spec.planets[pid][field]
+            # Strukturen der Dimension (Meldung „Erkundungsziel gefunden“, Atlas)
+            for st in spec.planets[pid].get("structures", []) or []:
+                e = spec.items.get(st["id"])
+                if e:
+                    sns, spath = st["id"].split(":", 1)
+                    data[f"structure.{sns}.{spath}"] = e[field]
         # Forschung (11.3): Stufen und sichtbare Knoten
         for t in spec.tiers:
             data[f"research.{NS}.tier.{t['tier']}"] = t[field]
@@ -914,6 +935,7 @@ def main():
     # Forschung (11.4) und Erfolge (24.3)
     research_resources(spec, nodes)
     advancements(spec, impl, registered)
+    sampleable_tags(spec, impl, registered)
 
     # Warntöne (24.6), Anzüge (9.1), Welt ohne Atmosphäre (8.5)
     atmosphere_tag(spec)

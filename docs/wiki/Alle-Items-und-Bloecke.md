@@ -11,8 +11,10 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Akku](Strom.md) | Block | Rezept |
 | [Aluminiumbarren](Elektroofen.md) | Item | Maschine |
 | [Aluminiumdraht](Presse.md) | Item | Maschine |
+| [Aluminiumkabel](Strom-im-All.md) | Block | Rezept |
 | [Aluminiumplatte](Presse.md) | Item | Maschine |
 | [Aluminiumstaub](Zerkleinerer.md) | Item | Maschine |
+| [Analysator](Forschung.md) | Block | Rezept |
 | [Bauxit](Rohstoffe-und-Erze.md) | Item | Abbau |
 | [Bauxiterz](Rohstoffe-und-Erze.md) | Block | Weltgenerierung |
 | [Druckanzug-Brustplatte](Der-Druckanzug.md) | Item | Rezept |
@@ -60,6 +62,8 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Pressform (Draht)](Presse.md) | Item | Rezept |
 | [Pressform (Platte)](Presse.md) | Item | Rezept |
 | [Pressform (Stange)](Presse.md) | Item | Rezept |
+| [Probe](Forschung.md) | Item | Füllslot oder Eimer |
+| [Probenzange](Forschung.md) | Item | Rezept |
 | [Pumpe](Fluide-und-Rohre.md) | Block | Rezept |
 | [Quarzsand](Rohstoffe-und-Erze.md) | Block | Weltgenerierung |
 | [Raffinerie](Raffinerie.md) | Block | Rezept |
@@ -70,6 +74,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Sauerstoffgenerator](Sauerstoffgenerator.md) | Block | Rezept |
 | [Schaltkreis](Montagetisch.md) | Item | Rezept |
 | [Silizium](Elektroofen.md) | Item | Maschine |
+| [Solarpanel](Strom-im-All.md) | Block | Rezept |
 | [Tank](Fluide-und-Rohre.md) | Block | Rezept |
 | [Tiefenschiefer-Titanerz](Rohstoffe-und-Erze.md) | Block | Weltgenerierung |
 | [Titanbarren](Elektroofen.md) | Item | Maschine |

@@ -1,5 +1,7 @@
 {
   "values": [
+    "infinite_horizon:aluminum_cable",
+    "infinite_horizon:analyzer",
     "infinite_horizon:assembly_table",
     "infinite_horizon:battery",
     "infinite_horizon:bauxite_ore",
@@ -24,6 +26,7 @@
     "infinite_horizon:pressure_bottle",
     "infinite_horizon:refinery_casing",
     "infinite_horizon:refinery_controller",
-    "infinite_horizon:research_terminal"
+    "infinite_horizon:research_terminal",
+    "infinite_horizon:solar_panel"
   ]
 }

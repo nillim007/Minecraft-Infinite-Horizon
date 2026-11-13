@@ -229,7 +229,7 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
                 return Optional.of(planOf(lastRecipe, m));
             }
         }
-        // SPEC-GAP #65: nach ID sortierte Liste je Rezeptart, gesperrt meldet SYNC_LOCKED
+        // SPEC-GAP #65: nach ID sortierte Liste je Rezeptart, gesperrt meldet SYNC_HINT
         boolean locked = false;
         for (ProcessingRecipe.Kind kind : kinds.get()) {
             for (RecipeHolder<ProcessingRecipe> holder : ResearchRecipeLock.sorted(level, kind.type())) {
@@ -254,6 +254,10 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
     @Override
     public boolean recipeLocked() {
         return recipeLocked;
+    }
+
+    /** Ende eines Vorgangs, bevor die Zutaten verbraucht werden (z. B. FP des Analysators, 11.1). */
+    protected void beforeConsume(Plan plan, ServerLevel level) {
     }
 
     private static Plan planOf(ProcessingRecipe r, ProcessingRecipe.Match m) {
@@ -328,6 +332,7 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         progress += 1.0 / eff.ticks();
         if (progress >= DONE) {
             progress = 0;
+            beforeConsume(plan, level);
             for (int k = 0; k < plan.consumeSlots().length; k++) {
                 items.get(plan.consumeSlots()[k]).shrink(plan.consumeCounts()[k]);
             }

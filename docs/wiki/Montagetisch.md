@@ -46,6 +46,8 @@ Der Schaltkreis steckt in fast jeder Maschine ab Phase 2. Bau dir früh eine kle
 
 | Rezept | Zutaten → Ergebnis | Wo | Dauer |
 | --- | --- | --- | --- |
+| <img src="images/rezepte/assembly_aluminum_cable.svg" alt="Rezept" width="300"> | 3 × [Aluminiumdraht](Presse.md), 1 × [Kunststoff](Raffinerie.md) → 8 × [Aluminiumkabel](Strom-im-All.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_analyzer.svg" alt="Rezept" width="300"> | 1 × [Maschinenrahmen](Erste-Schritte.md), 4 × [Aluminiumplatte](Presse.md), 2 × Schaltkreis, 1 × Glas → 1 × [Analysator](Forschung.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_pressure_suit_chestplate.svg" alt="Rezept" width="300"> | 10 × [Aluminiumplatte](Presse.md), 3 × [Kunststoff](Raffinerie.md), 1 × Schaltkreis → 1 × [Druckanzug-Brustplatte](Der-Druckanzug.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_pressure_suit_helmet.svg" alt="Rezept" width="300"> | 4 × [Aluminiumplatte](Presse.md), 1 × [Kunststoff](Raffinerie.md), 4 × Glas, 1 × Schaltkreis → 1 × [Druckanzug-Helm](Der-Druckanzug.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_pressure_suit_leggings.svg" alt="Rezept" width="300"> | 6 × [Aluminiumplatte](Presse.md), 2 × [Kunststoff](Raffinerie.md) → 1 × [Druckanzug-Hose](Der-Druckanzug.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
@@ -62,11 +64,13 @@ Der Schaltkreis steckt in fast jeder Maschine ab Phase 2. Bau dir früh eine kle
 | <img src="images/rezepte/assembly_large_oxygen_canister.svg" alt="Rezept" width="300"> | 2 × [Sauerstoffflasche](Sauerstoff-speichern.md), 1 × [Titanplatte](Presse.md) → 1 × [Große Sauerstoffflasche](Sauerstoff-speichern.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_item_port.svg" alt="Rezept" width="300"> | 4 × [Eisenplatte](Presse.md), 1 × Trichter → 1 × [Item-Port](Raffinerie.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_dome_generator_t1.svg" alt="Rezept" width="300"> | 16 × [Aluminiumplatte](Presse.md), 8 × [Titanplatte](Presse.md), 4 × Schaltkreis, 4 × Glas → 1 × [Kuppelgenerator I](Die-Kuppel.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_sample_tool.svg" alt="Rezept" width="300"> | 2 × [Titanstange](Presse.md), 1 × [Eisenplatte](Presse.md) → 1 × [Probenzange](Forschung.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_refinery_controller.svg" alt="Rezept" width="300"> | 1 × [Maschinenrahmen](Erste-Schritte.md), 16 × [Eisenplatte](Presse.md), 8 × [Kupferrohr](Fluide-und-Rohre.md), 4 × Redstone-Staub → 1 × [Raffinerie](Raffinerie.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_refinery_casing.svg" alt="Rezept" width="300"> | 2 × [Eisenplatte](Presse.md), 1 × [Kupferrohr](Fluide-und-Rohre.md) → 4 × [Raffinerie-Gehäuse](Raffinerie.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_oxygen_canister.svg" alt="Rezept" width="300"> | 2 × [Aluminiumplatte](Presse.md), 1 × [Kupferrohr](Fluide-und-Rohre.md) → 1 × [Sauerstoffflasche](Sauerstoff-speichern.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_oxygen_generator.svg" alt="Rezept" width="300"> | 8 × [Aluminiumplatte](Presse.md), 4 × [Kupferrohr](Fluide-und-Rohre.md), 2 × Schaltkreis, 1 × [Druckhülle](Sauerstoffgenerator.md) → 1 × [Sauerstoffgenerator](Sauerstoffgenerator.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_circuit.svg" alt="Rezept" width="300"> | 2 × [Silizium](Elektroofen.md), 4 × [Kupferdraht](Presse.md), 1 × [Kunststoff](Raffinerie.md) → 1 × Schaltkreis | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_solar_panel.svg" alt="Rezept" width="300"> | 4 × [Silizium](Elektroofen.md), 2 × [Aluminiumplatte](Presse.md), 4 × [Kupferdraht](Presse.md), 1 × Glas → 1 × [Solarpanel](Strom-im-All.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_fuel_generator.svg" alt="Rezept" width="300"> | 1 × [Maschinenrahmen](Erste-Schritte.md), 1 × [Verbrennungsgenerator](Strom.md), 4 × [Kupferrohr](Fluide-und-Rohre.md), 4 × [Eisenplatte](Presse.md) → 1 × [Treibstoffgenerator](Strom.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 
 > [!TIP]

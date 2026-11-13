@@ -81,6 +81,10 @@
     {"name": "lamp_lit_onlywithpower", "class": "IhGameTestsM3e", "method": "lampNeedsPower", "ticks": 20, "ref": "8.5"},
     {"name": "research_assemblytable_lockeduntilresearched", "class": "IhGameTestsM4a", "method": "assemblyLockedUntilResearched", "ticks": 250, "ref": "11.3, 27.7 M4a"},
     {"name": "research_notrequired_assemblesimmediately", "class": "IhGameTestsM4a", "method": "assemblyFreeWhenNotRequired", "ticks": 220, "environment": "infinite_horizon:research_free", "ref": "11.3, 24.4, 27.7 M4a"},
-    {"name": "research_terminal_openstier1groundstation", "class": "IhGameTestsM4a", "method": "terminalOpensTier1", "ticks": 40, "ref": "11.4, 24.3, 27.7 M4a"}
+    {"name": "research_terminal_openstier1groundstation", "class": "IhGameTestsM4a", "method": "terminalOpensTier1", "ticks": 40, "ref": "11.4, 24.3, 27.7 M4a"},
+    {"name": "sample_naturalbauxite_oncepereposition", "class": "IhGameTestsM4b", "method": "sampleToolOncePerPosition", "ticks": 20, "ref": "11.2, 27.7 M4b"},
+    {"name": "analyzer_onesample_onefpwithin110ticks", "class": "IhGameTestsM4b", "method": "analyzerOneSampleOneFp", "ticks": 110, "ref": "6.1, 11.1, 27.7 M4b"},
+    {"name": "solar_moonoverride_5jt_polarcrater0", "class": "IhGameTestsM4b", "method": "solarPanelMoon", "ticks": 60, "environment": "infinite_horizon:moon_day", "ref": "6.3, 27.7 M4b"},
+    {"name": "exploration_lavatube_20fp", "class": "IhGameTestsM4b", "method": "lavaTubeGivesFp", "ticks": 60, "dimension": "infinite_horizon:moon", "ref": "11.1, 27.7 M4b"}
   ]
 }

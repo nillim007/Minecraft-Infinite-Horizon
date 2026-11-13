@@ -94,7 +94,11 @@ public final class IhTestCatalog {
             new Test("lamp_lit_onlywithpower", 20, null, null, null, IhGameTestsM3e::lampNeedsPower),  // 8.5
             new Test("research_assemblytable_lockeduntilresearched", 250, null, null, null, IhGameTestsM4a::assemblyLockedUntilResearched),  // 11.3, 27.7 M4a
             new Test("research_notrequired_assemblesimmediately", 220, null, "infinite_horizon:research_free", null, IhGameTestsM4a::assemblyFreeWhenNotRequired),  // 11.3, 24.4, 27.7 M4a
-            new Test("research_terminal_openstier1groundstation", 40, null, null, null, IhGameTestsM4a::terminalOpensTier1)  // 11.4, 24.3, 27.7 M4a
+            new Test("research_terminal_openstier1groundstation", 40, null, null, null, IhGameTestsM4a::terminalOpensTier1),  // 11.4, 24.3, 27.7 M4a
+            new Test("sample_naturalbauxite_oncepereposition", 20, null, null, null, IhGameTestsM4b::sampleToolOncePerPosition),  // 11.2, 27.7 M4b
+            new Test("analyzer_onesample_onefpwithin110ticks", 110, null, null, null, IhGameTestsM4b::analyzerOneSampleOneFp),  // 6.1, 11.1, 27.7 M4b
+            new Test("solar_moonoverride_5jt_polarcrater0", 60, null, "infinite_horizon:moon_day", null, IhGameTestsM4b::solarPanelMoon),  // 6.3, 27.7 M4b
+            new Test("exploration_lavatube_20fp", 60, null, null, "infinite_horizon:moon", IhGameTestsM4b::lavaTubeGivesFp)  // 11.1, 27.7 M4b
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */
