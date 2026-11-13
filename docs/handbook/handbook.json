@@ -70,6 +70,8 @@
     "minecraft:basalt": { "de": "Basalt", "en": "Basalt" },
     "minecraft:brick": { "de": "Ziegel", "en": "Brick" },
     "minecraft:diamond": { "de": "Diamant", "en": "Diamond" },
+    "minecraft:bone_meal": { "de": "Knochenmehl", "en": "Bone Meal" },
+    "#infinite_horizon:compostable": { "de": "Pflanzenreste", "en": "Plant Waste" },
     "minecraft:redstone_lamp": { "de": "Redstone-Lampe", "en": "Redstone Lamp" },
     "minecraft:water": { "de": "Wasser", "en": "Water" },
     "minecraft:water_bucket": { "de": "Wassereimer", "en": "Water Bucket" },

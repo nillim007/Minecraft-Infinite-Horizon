@@ -1,0 +1,16 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "#infinite_horizon:compostable",
+      "count": 8
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:compost",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

@@ -184,6 +184,18 @@ public final class ModBlockEntities {
                                     ModBlockEntities.LAUNCH_CONTROL.get(), pos, state),
                             ModBlocks.LAUNCH_CONTROL.get()));
 
+    public static final Supplier<BlockEntityType<de.infinitehorizon.food.FoodPackerBlockEntity>> FOOD_PACKER =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "food_packer",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.food.FoodPackerBlockEntity(
+                                    ModBlockEntities.FOOD_PACKER.get(), pos, state),
+                            ModBlocks.FOOD_PACKER.get()));
+    public static final Supplier<BlockEntityType<de.infinitehorizon.food.HydroponicsBlockEntity>> HYDROPONICS_BASIN =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "hydroponics_basin",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.food.HydroponicsBlockEntity(
+                                    ModBlockEntities.HYDROPONICS_BASIN.get(), pos, state),
+                            ModBlocks.HYDROPONICS_BASIN.get()));
     public static final Supplier<BlockEntityType<de.infinitehorizon.space.LandingBeaconBlockEntity>> LANDING_BEACON =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "landing_beacon",
                     () -> Services.REGISTRY.blockEntityType(
@@ -233,7 +245,7 @@ public final class ModBlockEntities {
         Services.FLUID.expose(FLUID_PUMP);
         for (Supplier<? extends BlockEntityType<? extends ProcessingMachineBlockEntity>> t
                 : List.of(ASSEMBLY_TABLE, ELECTROLYZER, REFINERY_CONTROLLER, REGOLITH_HEATER, HIGH_TEMPERATURE_FURNACE,
-                CRYO_LIQUEFIER)) {
+                CRYO_LIQUEFIER, FOOD_PACKER, HYDROPONICS_BASIN)) {
             Services.ENERGY.expose(t);
             Services.FLUID.expose(t);
         }

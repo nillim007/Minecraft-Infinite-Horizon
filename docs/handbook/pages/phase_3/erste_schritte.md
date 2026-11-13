@@ -19,5 +19,8 @@ In der dritten Phase lernst du, auf fremden Welten zu überleben. Zuerst mit Anz
 @if infinite_horizon:landing_beacon
 7. **Den Landeplatz markieren.** Ein [[landefeuer|Landefeuer]] an deiner Mondbasis ist das Ziel für alle weiteren Flüge deiner Agentur.
 @endif
+@if infinite_horizon:hydroponics_basin
+8. **Nahrung anbauen.** Unter der Kuppel wächst Essen auf [[hydrokultur|Kompostboden oder im Hydrokultur-Becken]]. Für unterwegs packt der [[weltraumnahrung|Nahrungspacker]] Rationen.
+@endif
 
 @tip Bau dir auf dem Mond schon früh einen Sauerstoffgenerator mit Druckflasche. Dann kannst du deine Flaschen vor Ort nachfüllen.

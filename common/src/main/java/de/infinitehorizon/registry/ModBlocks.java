@@ -139,6 +139,15 @@ public final class ModBlocks {
     /** Schwefelspur der Schwefelschnecke (18): dünne, nicht feste Schicht ohne Drop. */
     public static final Supplier<Block> SULFUR_TRAIL = register("sulfur_trail", de.infinitehorizon.creature.SulfurTrailBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.SNOW).noCollision().noLootTable().replaceable());
+    /** Nahrung (17): Nahrungspacker, Hydrokultur-Becken, Kompost-Ackerland. */
+    public static final Supplier<Block> FOOD_PACKER = register("food_packer",
+            p -> new MachineBlock(p, () -> ModBlockEntities.FOOD_PACKER.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> HYDROPONICS_BASIN = register("hydroponics_basin",
+            p -> new MachineBlock(p, () -> ModBlockEntities.HYDROPONICS_BASIN.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> COMPOST_FARMLAND = register("compost_farmland",
+            de.infinitehorizon.food.CompostFarmlandBlock::new, () -> BlockBehaviour.Properties.ofFullCopy(Blocks.FARMLAND));
     /** Landefeuer (12.6): roter Strahl, Landeziel in der Navigationskarte. */
     public static final Supplier<Block> LANDING_BEACON = register("landing_beacon",
             p -> new de.infinitehorizon.space.LandingBeaconBlock(p, () -> ModBlockEntities.LANDING_BEACON.get()),

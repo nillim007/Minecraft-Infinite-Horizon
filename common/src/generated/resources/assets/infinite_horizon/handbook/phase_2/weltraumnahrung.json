@@ -1,0 +1,107 @@
+{
+  "id": "infinite_horizon:phase_2/weltraumnahrung",
+  "chapter": "infinite_horizon:phase_2",
+  "title": "infinite_horizon.handbook.phase_2.weltraumnahrung.title",
+  "icon": "infinite_horizon:space_ration",
+  "order": 70,
+  "unlock": null,
+  "items": [
+    "infinite_horizon:food_packer",
+    "infinite_horizon:space_ration"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.weltraumnahrung.e0"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.weltraumnahrung.e1"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:food_packer",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_2.weltraumnahrung.e2.0.label",
+          "infinite_horizon.handbook.phase_2.weltraumnahrung.e2.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.weltraumnahrung.e2.1.label",
+          "infinite_horizon.handbook.phase_2.weltraumnahrung.e2.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.weltraumnahrung.e2.2.label",
+          "infinite_horizon.handbook.phase_2.weltraumnahrung.e2.2.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.weltraumnahrung.e2.3.label",
+          "infinite_horizon.handbook.phase_2.weltraumnahrung.e2.3.value"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.weltraumnahrung.e3",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_2.weltraumnahrung.e4.0",
+        "infinite_horizon.handbook.phase_2.weltraumnahrung.e4.1",
+        "infinite_horizon.handbook.phase_2.weltraumnahrung.e4.2"
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/food_packer",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:machine_frame"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "minecraft:piston"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:food_packer",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.weltraumnahrung.e6",
+      "style": "tip"
+    }
+  ]
+}

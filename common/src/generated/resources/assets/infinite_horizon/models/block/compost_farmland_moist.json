@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/template_farmland",
+  "textures": {
+    "dirt": "infinite_horizon:block/compost_soil",
+    "top": "infinite_horizon:block/compost_farmland"
+  }
+}

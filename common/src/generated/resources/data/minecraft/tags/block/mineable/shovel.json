@@ -1,5 +1,7 @@
 {
   "values": [
+    "infinite_horizon:compost_farmland",
+    "infinite_horizon:compost_soil",
     "infinite_horizon:mars_sand",
     "infinite_horizon:moon_regolith",
     "infinite_horizon:quartz_sand"

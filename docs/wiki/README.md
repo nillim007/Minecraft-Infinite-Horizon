@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 5g · Mod-Version 0.1.0
+> Stand: Meilenstein 5h · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -52,6 +52,7 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Strom im All](Strom-im-All.md) – Solarpanel und Aluminiumkabel
 - [Startrampe und Sonde](Startrampe-und-Sonde.md) – Startrampe bauen, betanken und die erste Sonde schicken
 - [Die Rakete](Die-Rakete.md) – Raketenteile, Aufbau, Schub und Treibstoff
+- [Weltraumnahrung](Weltraumnahrung.md) – Nahrungspacker und Weltraumration
 - [Der Flug](Der-Flug.md) – Navigationskarte, Start, Landung und Rückflug
 - [Der Planetenatlas](Der-Planetenatlas.md) – Was deine Agentur über die Himmelskörper weiß
 
@@ -71,6 +72,7 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Der Rover](Der-Rover.md) – Fahrzeug für weite Strecken auf fremden Welten
 - [Kreaturen des inneren Sonnensystems](Kreaturen-des-inneren-Sonnensystems.md) – Was auf Mond, Mars und Venus lebt, und wie du es erforschst
 - [Weltraumwetter und Ereignisse](Weltraumwetter-und-Ereignisse.md) – Sonnenstürme, Meteoritenschauer, Staubstürme und Säureregen
+- [Hydrokultur und Kompost](Hydrokultur-und-Kompost.md) – Pflanzen anbauen auf fremden Welten
 
 ## Nachschlagen
 

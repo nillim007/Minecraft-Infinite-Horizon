@@ -1,0 +1,27 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": [
+        "infinite_horizon:moon_regolith",
+        "infinite_horizon:mars_sand"
+      ],
+      "count": 4
+    },
+    {
+      "ingredient": "minecraft:bone_meal",
+      "count": 2
+    },
+    {
+      "ingredient": "infinite_horizon:compost",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:compost_soil",
+      "count": 4,
+      "chance": 1.0
+    }
+  ]
+}

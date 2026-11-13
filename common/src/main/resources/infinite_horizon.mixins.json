@@ -6,6 +6,7 @@
   "mixins": [
     "BaseFireBlockMixin",
     "BlockItemMixin",
+    "BlockTransformerMixin",
     "BlockStateBaseMixin",
     "BoneMealItemMixin",
     "EntityMixin",

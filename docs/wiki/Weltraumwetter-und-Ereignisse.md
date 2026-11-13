@@ -36,4 +36,4 @@ Auf der Venus regnet es Säure. Wer ungeschützt unter freiem Himmel steht, verl
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Kreaturen des inneren Sonnensystems](Kreaturen-des-inneren-Sonnensystems.md)
+← [Kreaturen des inneren Sonnensystems](Kreaturen-des-inneren-Sonnensystems.md) · [Hydrokultur und Kompost](Hydrokultur-und-Kompost.md) →

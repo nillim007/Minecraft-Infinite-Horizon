@@ -60,7 +60,8 @@
     "metal_concentrate",
     "armor_plate",
     "raw_platinum",
-    "raw_iridium"
+    "raw_iridium",
+    "compost"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,

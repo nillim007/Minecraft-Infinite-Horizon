@@ -71,4 +71,4 @@ Wie Start, Flug und Landung ablaufen, steht unter [Der Flug](Der-Flug.md).
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Startrampe und Sonde](Startrampe-und-Sonde.md) · [Der Flug](Der-Flug.md) →
+← [Startrampe und Sonde](Startrampe-und-Sonde.md) · [Weltraumnahrung](Weltraumnahrung.md) →

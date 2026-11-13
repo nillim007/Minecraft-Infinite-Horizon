@@ -128,6 +128,11 @@
     {"name": "event_solarstorm_radiationsolar", "class": "IhGameTestsM5g", "method": "solarStormRadiationAndSolar", "ticks": 20, "ref": "19, M5g"},
     {"name": "event_solarstorm_pausesuncovered", "class": "IhGameTestsM5g", "method": "solarStormPausesUncovered", "ticks": 20, "ref": "19, M5g"},
     {"name": "event_meteor_leavesore", "class": "IhGameTestsM5g", "method": "meteorLeavesOre", "ticks": 20, "ref": "19, M5g"},
-    {"name": "event_acidrain_damagesarmor", "class": "IhGameTestsM5g", "method": "acidRainDamagesArmor", "ticks": 20, "ref": "19, M5g"}
+    {"name": "event_acidrain_damagesarmor", "class": "IhGameTestsM5g", "method": "acidRainDamagesArmor", "ticks": 20, "ref": "19, M5g"},
+    {"name": "food_packer_threefoods_ration", "class": "IhGameTestsM5h", "method": "foodPackerRation", "ticks": 110, "ref": "17, M5h"},
+    {"name": "food_compostsoil_hoe_farmland", "class": "IhGameTestsM5h", "method": "compostSoilTills", "ticks": 20, "ref": "17, M5h"},
+    {"name": "food_hydroponics_stageandharvest", "class": "IhGameTestsM5h", "method": "hydroponicsStageAndHarvest", "ticks": 2200, "ref": "17, M5h"},
+    {"name": "food_hydroponics_sapling_logs", "class": "IhGameTestsM5h", "method": "hydroponicsSaplingLogs", "ticks": 20, "ref": "17, M5h"},
+    {"name": "food_hydroponics_moonneedsdome", "class": "IhGameTestsM5h", "method": "hydroponicsNeedsDome", "ticks": 40, "ref": "17, M5h"}
   ]
 }

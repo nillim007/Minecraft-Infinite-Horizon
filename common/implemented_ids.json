@@ -70,7 +70,11 @@
     "infinite_horizon:rocket_tank_t1": "casing",
     "infinite_horizon:rocket_engine_t1": "casing",
     "infinite_horizon:rocket_fin_t1": "casing",
-    "infinite_horizon:rocket_cargo_bay": "casing"
+    "infinite_horizon:rocket_cargo_bay": "casing",
+    "infinite_horizon:food_packer": "machine",
+    "infinite_horizon:hydroponics_basin": "machine",
+    "infinite_horizon:compost_soil": "simple_block",
+    "infinite_horizon:compost_farmland": "farmland"
   },
   "items": [
     "infinite_horizon:aluminum_dust",
@@ -147,7 +151,9 @@
     "infinite_horizon:metal_concentrate",
     "infinite_horizon:armor_plate",
     "infinite_horizon:raw_platinum",
-    "infinite_horizon:raw_iridium"
+    "infinite_horizon:raw_iridium",
+    "infinite_horizon:space_ration",
+    "infinite_horizon:compost"
   ],
   "fluids": [
     "crude_oil",
@@ -157,7 +163,7 @@
     "helium",
     "liquid_helium"
   ],
-  "step": "5g",
+  "step": "5h",
   "dimensions": ["infinite_horizon:moon", "infinite_horizon:mars", "infinite_horizon:venus"],
   "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket", "infinite_horizon:rover", "infinite_horizon:rubble_crawler", "infinite_horizon:shade_strider", "infinite_horizon:dune_burrower", "infinite_horizon:dust_wraith", "infinite_horizon:sulfur_snail", "infinite_horizon:cloud_ray"],
   "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:first_signal", "infinite_horizon:small_step", "infinite_horizon:own_air"],
@@ -176,6 +182,7 @@
     "infinite_horizon:pressure_suit_leggings": "suit",
     "infinite_horizon:pressure_suit_boots": "suit",
     "infinite_horizon:sample_tool": "sample_tool",
-    "infinite_horizon:sample": "sample"
+    "infinite_horizon:sample": "sample",
+    "infinite_horizon:space_ration": "ration"
   }
 }

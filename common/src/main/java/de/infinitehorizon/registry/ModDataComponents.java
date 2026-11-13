@@ -51,6 +51,14 @@ public final class ModDataComponents {
                             .networkSynchronized(de.infinitehorizon.vehicle.RoverData.STREAM_CODEC)
                             .build());
 
+    /** {@code infinite_horizon:nutrition} (17): Nahrung und Sättigung der Weltraumration. */
+    public static final Supplier<DataComponentType<de.infinitehorizon.food.Nutrition>> NUTRITION =
+            Services.REGISTRY.register(BuiltInRegistries.DATA_COMPONENT_TYPE, "nutrition",
+                    () -> DataComponentType.<de.infinitehorizon.food.Nutrition>builder()
+                            .persistent(de.infinitehorizon.food.Nutrition.CODEC)
+                            .networkSynchronized(de.infinitehorizon.food.Nutrition.STREAM_CODEC)
+                            .build());
+
     /** {@code infinite_horizon:suit_modules} (9.2): eingebaute Module eines Anzugteils. */
     public static final Supplier<DataComponentType<java.util.List<net.minecraft.resources.Identifier>>> SUIT_MODULES =
             Services.REGISTRY.register(BuiltInRegistries.DATA_COMPONENT_TYPE, "suit_modules",

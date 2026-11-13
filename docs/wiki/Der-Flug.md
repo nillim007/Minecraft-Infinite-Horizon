@@ -53,4 +53,4 @@ Eine gelandete Rakete startet ohne Rampe: Setz dich hinein, öffne das Raketen-G
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Die Rakete](Die-Rakete.md) · [Der Planetenatlas](Der-Planetenatlas.md) →
+← [Weltraumnahrung](Weltraumnahrung.md) · [Der Planetenatlas](Der-Planetenatlas.md) →

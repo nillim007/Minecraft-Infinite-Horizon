@@ -158,6 +158,8 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
                 tip.add(Component.translatable("gui.infinite_horizon.status.location"));
             } else if (hint == MachineBlockEntity.HINT_NO_OWNER) {
                 tip.add(Component.translatable("gui.infinite_horizon.status.no_owner"));
+            } else if (hint == de.infinitehorizon.food.HydroponicsBlockEntity.HINT_GROWTH) {
+                tip.add(Component.translatable("gui.infinite_horizon.status.growth"));
             }
             if (menu.value(MachineBlockEntity.SYNC_MULTIBLOCK) == 2) {
                 BlockPos missing = BlockPos.of(menu.value(MachineBlockEntity.SYNC_MISSING));

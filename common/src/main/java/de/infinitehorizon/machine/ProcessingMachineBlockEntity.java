@@ -425,14 +425,19 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
     }
 
     private boolean outputsFit(Plan plan) {
+        List<ItemStack> wanted = new ArrayList<>();
+        plan.results().forEach(r -> wanted.add(r.toStack()));
+        plan.stacks().forEach(s -> wanted.add(s.copy()));
+        return outputsFit(wanted);
+    }
+
+    /** Passen alle {@code wanted} zusammen in die Ausgabeslots? */
+    protected boolean outputsFit(List<ItemStack> wanted) {
         MachineLayout l = layout();
         List<ItemStack> copy = new ArrayList<>();
         for (int i = l.outputStart(); i < l.upgradeStart(); i++) {
             copy.add(items.get(i).copy());
         }
-        List<ItemStack> wanted = new ArrayList<>();
-        plan.results().forEach(r -> wanted.add(r.toStack()));
-        plan.stacks().forEach(s -> wanted.add(s.copy()));
         for (ItemStack want : wanted) {
             ItemStack rest = want;
             for (int i = 0; i < copy.size() && !rest.isEmpty(); i++) {
@@ -445,7 +450,7 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         return true;
     }
 
-    private void insertOutput(ItemStack stack) {
+    protected void insertOutput(ItemStack stack) {
         MachineLayout l = layout();
         ItemStack rest = stack;
         for (int i = l.outputStart(); i < l.upgradeStart() && !rest.isEmpty(); i++) {

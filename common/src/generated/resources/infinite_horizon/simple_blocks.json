@@ -109,6 +109,11 @@
       "id": "venus_sulfur_ore",
       "copy": "minecraft:nether_quartz_ore",
       "falls": false
+    },
+    {
+      "id": "compost_soil",
+      "copy": "minecraft:dirt",
+      "falls": false
     }
   ]
 }

@@ -1,0 +1,28 @@
+{
+  "variants": {
+    "moisture=0": {
+      "model": "infinite_horizon:block/compost_farmland"
+    },
+    "moisture=1": {
+      "model": "infinite_horizon:block/compost_farmland"
+    },
+    "moisture=2": {
+      "model": "infinite_horizon:block/compost_farmland"
+    },
+    "moisture=3": {
+      "model": "infinite_horizon:block/compost_farmland"
+    },
+    "moisture=4": {
+      "model": "infinite_horizon:block/compost_farmland"
+    },
+    "moisture=5": {
+      "model": "infinite_horizon:block/compost_farmland"
+    },
+    "moisture=6": {
+      "model": "infinite_horizon:block/compost_farmland"
+    },
+    "moisture=7": {
+      "model": "infinite_horizon:block/compost_farmland_moist"
+    }
+  }
+}

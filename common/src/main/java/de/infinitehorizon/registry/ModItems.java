@@ -65,6 +65,9 @@ public final class ModItems {
     public static final Supplier<Item> LAUNCH_CONTROL = blockItem("launch_control", ModBlocks.LAUNCH_CONTROL);
     public static final Supplier<Item> PROBE = blockItem("probe", ModBlocks.PROBE);
     public static final Supplier<Item> LANDING_BEACON = blockItem("landing_beacon", ModBlocks.LANDING_BEACON);
+    public static final Supplier<Item> FOOD_PACKER = blockItem("food_packer", ModBlocks.FOOD_PACKER);
+    public static final Supplier<Item> HYDROPONICS_BASIN = blockItem("hydroponics_basin", ModBlocks.HYDROPONICS_BASIN);
+    public static final Supplier<Item> COMPOST_FARMLAND = blockItem("compost_farmland", ModBlocks.COMPOST_FARMLAND);
     public static final Supplier<Item> REGOLITH_HEATER = blockItem("regolith_heater", ModBlocks.REGOLITH_HEATER);
     public static final Supplier<Item> HIGH_TEMPERATURE_FURNACE = blockItem("high_temperature_furnace", ModBlocks.HIGH_TEMPERATURE_FURNACE);
     public static final Supplier<Item> CRYO_LIQUEFIER = blockItem("cryo_liquefier", ModBlocks.CRYO_LIQUEFIER);
@@ -103,6 +106,13 @@ public final class ModItems {
             net.minecraft.world.item.equipment.ArmorType.LEGGINGS);
     public static final Supplier<Item> HEAT_SUIT_BOOTS = suitPiece("heat_suit", "boots",
             net.minecraft.world.item.equipment.ArmorType.BOOTS);
+
+    /** Weltraumration (17): Nahrung und Sättigung aus der Komponente nutrition; Stapelgröße aus agriculture.json. */
+    public static final Supplier<Item> SPACE_RATION = register("space_ration",
+            p -> new Item(p.food(new net.minecraft.world.food.FoodProperties(0, 0f, false))
+                    .stacksTo(de.infinitehorizon.data.BalanceManager.getOrBundled().entry("agriculture",
+                            de.infinitehorizon.InfiniteHorizon.id("space_ration").toString()).orElseThrow()
+                            .get("max_stack").getAsInt())));
 
     /** Feldscanner (11.1, 18): Kreaturen analysieren. */
     public static final Supplier<Item> FIELD_SCANNER = register("field_scanner",

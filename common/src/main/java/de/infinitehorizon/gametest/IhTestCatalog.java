@@ -141,7 +141,12 @@ public final class IhTestCatalog {
             new Test("event_solarstorm_radiationsolar", 20, null, null, null, IhGameTestsM5g::solarStormRadiationAndSolar),  // 19, M5g
             new Test("event_solarstorm_pausesuncovered", 20, null, null, null, IhGameTestsM5g::solarStormPausesUncovered),  // 19, M5g
             new Test("event_meteor_leavesore", 20, null, null, null, IhGameTestsM5g::meteorLeavesOre),  // 19, M5g
-            new Test("event_acidrain_damagesarmor", 20, null, null, null, IhGameTestsM5g::acidRainDamagesArmor)  // 19, M5g
+            new Test("event_acidrain_damagesarmor", 20, null, null, null, IhGameTestsM5g::acidRainDamagesArmor),  // 19, M5g
+            new Test("food_packer_threefoods_ration", 110, null, null, null, IhGameTestsM5h::foodPackerRation),  // 17, M5h
+            new Test("food_compostsoil_hoe_farmland", 20, null, null, null, IhGameTestsM5h::compostSoilTills),  // 17, M5h
+            new Test("food_hydroponics_stageandharvest", 2200, null, null, null, IhGameTestsM5h::hydroponicsStageAndHarvest),  // 17, M5h
+            new Test("food_hydroponics_sapling_logs", 20, null, null, null, IhGameTestsM5h::hydroponicsSaplingLogs),  // 17, M5h
+            new Test("food_hydroponics_moonneedsdome", 40, null, null, null, IhGameTestsM5h::hydroponicsNeedsDome)  // 17, M5h
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

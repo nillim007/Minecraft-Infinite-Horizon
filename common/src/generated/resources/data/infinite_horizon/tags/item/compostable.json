@@ -1,0 +1,22 @@
+{
+  "values": [
+    "#minecraft:leaves",
+    "#minecraft:saplings",
+    "#minecraft:flowers",
+    "minecraft:short_grass",
+    "minecraft:fern",
+    "minecraft:wheat_seeds",
+    "minecraft:beetroot_seeds",
+    "minecraft:melon_seeds",
+    "minecraft:pumpkin_seeds",
+    "minecraft:wheat",
+    "minecraft:carrot",
+    "minecraft:potato",
+    "minecraft:beetroot",
+    "minecraft:apple",
+    "minecraft:melon_slice",
+    "minecraft:kelp",
+    "minecraft:sugar_cane",
+    "minecraft:cactus"
+  ]
+}

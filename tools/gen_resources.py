@@ -284,7 +284,16 @@ SIMPLE_BLOCKS = {
     "aerostat_platform": {"copy": "minecraft:iron_block", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
     "venus_sulfur_ore": {"copy": "minecraft:nether_quartz_ore", "falls": False, "tool": "pickaxe", "needs": "stone",
                          "ore": None, "planet_drops": True},
+    "compost_soil": {"copy": "minecraft:dirt", "falls": False, "tool": "shovel", "needs": None, "ore": None},
 }
+
+# Kompost-Ackerland (17): Vanilla-Tags für Feldfrüchte und Pflanzen
+FARMLAND_TAGS = ["minecraft:supports_crops", "minecraft:grows_crops", "minecraft:supports_vegetation"]
+# SPEC-GAP: Inhalt von #infinite_horizon:compostable fehlt in spec/data; pflanzliche Vanilla-Abfälle wie im Komposter
+COMPOSTABLE = ["#minecraft:leaves", "#minecraft:saplings", "#minecraft:flowers", "minecraft:short_grass",
+               "minecraft:fern", "minecraft:wheat_seeds", "minecraft:beetroot_seeds", "minecraft:melon_seeds",
+               "minecraft:pumpkin_seeds", "minecraft:wheat", "minecraft:carrot", "minecraft:potato", "minecraft:beetroot",
+               "minecraft:apple", "minecraft:melon_slice", "minecraft:kelp", "minecraft:sugar_cane", "minecraft:cactus"]
 
 
 def drops_loot(name, drops, fortune):
@@ -768,6 +777,17 @@ def suits(spec, items):
             write_json(f"data/{NS}/tags/item/repairs_{sid}.json", {"values": [e["repair_item"]]})
 
 
+def farmland_block(name, soil):
+    """Ackerland wie Vanilla (17): Modell template_farmland, feucht ab moisture 7."""
+    for suffix in ("", "_moist"):
+        write_json(f"assets/{NS}/models/block/{name}{suffix}.json",
+                   {"parent": "minecraft:block/template_farmland",
+                    "textures": {"dirt": f"{NS}:block/{soil}", "top": f"{NS}:block/{name}"}})
+    write_json(f"assets/{NS}/blockstates/{name}.json", {"variants": {
+        f"moisture={m}": {"model": f"{NS}:block/{name}{'_moist' if m == 7 else ''}"} for m in range(8)}})
+    return f"{NS}:block/{name}"
+
+
 def layer_block(name):
     """Dünne Schicht wie ein Teppich (18: sulfur_trail), ohne Loot."""
     tex = f"{NS}:block/{name}"
@@ -1020,6 +1040,8 @@ def main():
             inv_model = torch_block(name)
         elif shape == "layer":
             inv_model = layer_block(name)
+        elif shape == "farmland":
+            inv_model = farmland_block(name, "compost_soil")
         else:
             sys.exit(f"Unbekannte Blockform {shape} für {i}")
         write_json(f"assets/{NS}/items/{name}.json", {"model": {"type": "minecraft:model", "model": inv_model}})
@@ -1030,6 +1052,8 @@ def main():
             ore_loot(name, SIMPLE_BLOCKS[name]["ore"][1])
         elif shape == "simple_block" and SIMPLE_BLOCKS[name].get("drop"):
             block_loot(name, SIMPLE_BLOCKS[name]["drop"])
+        elif shape == "farmland":
+            block_loot(name, f"{NS}:compost_soil")  # wie Vanilla-Ackerland, das Erde droppt
         elif shape != "layer":
             block_loot(name)
 
@@ -1060,14 +1084,15 @@ def main():
     # Tags
     simple = {short(i): SIMPLE_BLOCKS[short(i)] for i, shape in blocks.items() if shape == "simple_block"}
     for tool in ("pickaxe", "shovel"):
-        vals = [i for i in sorted(blocks) if (simple[short(i)]["tool"] if short(i) in simple else "pickaxe") == tool]
+        vals = [i for i in sorted(blocks) if (simple[short(i)]["tool"] if short(i) in simple
+                                              else "shovel" if blocks[i] == "farmland" else "pickaxe") == tool]
         if vals:
             write_json(f"data/minecraft/tags/block/mineable/{tool}.json", {"values": vals})
     for lvl in ("stone", "iron"):
         vals = [f"{NS}:{n}" for n, v in sorted(simple.items()) if v["needs"] == lvl]
         if lvl == "stone":
             # Maschinen, Generatoren, Speicher, Ports, Gehäuse, Kabel, Rohre: Werkzeugstufe wie iron_block (4.1)
-            vals = sorted(vals + [i for i in blocks if short(i) not in simple])
+            vals = sorted(vals + [i for i in blocks if short(i) not in simple and blocks[i] != "farmland"])
         if vals:
             write_json(f"data/minecraft/tags/block/needs_{lvl}_tool.json", {"values": vals})
     ore_tags = {}
@@ -1160,6 +1185,12 @@ def main():
         if shape == "simple_block":
             for t in SIMPLE_BLOCKS[short(i)].get("tags", []):
                 extra_tags.setdefault(t, []).append(i)
+    farmland = sorted(i for i, shape in blocks.items() if shape == "farmland")
+    for t in FARMLAND_TAGS if farmland else []:  # nur Block-Tags
+        tns, tpath = t.split(":", 1)
+        write_json(f"data/{tns}/tags/block/{tpath}.json", {"values": farmland})
+    if f"{NS}:compost" in items:
+        write_json(f"data/{NS}/tags/item/compostable.json", {"values": COMPOSTABLE})
     for t, vals in sorted(extra_tags.items()):
         tns, tpath = t.split(":", 1)
         write_json(f"data/{tns}/tags/block/{tpath}.json", {"values": sorted(vals)})

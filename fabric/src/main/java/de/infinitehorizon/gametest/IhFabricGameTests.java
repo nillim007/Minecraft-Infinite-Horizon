@@ -623,4 +623,29 @@ public class IhFabricGameTests {
     public void eventAcidrainDamagesarmor(GameTestHelper helper) {
         IhGameTestsM5g.acidRainDamagesArmor(helper);
     }
+
+    @GameTest(maxTicks = 110)
+    public void foodPackerThreefoodsRation(GameTestHelper helper) {
+        IhGameTestsM5h.foodPackerRation(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void foodCompostsoilHoeFarmland(GameTestHelper helper) {
+        IhGameTestsM5h.compostSoilTills(helper);
+    }
+
+    @GameTest(maxTicks = 2200)
+    public void foodHydroponicsStageandharvest(GameTestHelper helper) {
+        IhGameTestsM5h.hydroponicsStageAndHarvest(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void foodHydroponicsSaplingLogs(GameTestHelper helper) {
+        IhGameTestsM5h.hydroponicsSaplingLogs(helper);
+    }
+
+    @GameTest(maxTicks = 40)
+    public void foodHydroponicsMoonneedsdome(GameTestHelper helper) {
+        IhGameTestsM5h.hydroponicsNeedsDome(helper);
+    }
 }

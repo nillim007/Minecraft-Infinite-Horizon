@@ -1,0 +1,26 @@
+{
+  "tier": 2,
+  "branch": "life_support",
+  "cost": 25,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:hydroponics_basin"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:compost_soil"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:compost"
+    }
+  ],
+  "icon": "infinite_horizon:hydroponics_basin",
+  "position": {
+    "column": 2,
+    "row": 2,
+    "slot": 3
+  }
+}

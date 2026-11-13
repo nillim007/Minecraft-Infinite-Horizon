@@ -55,11 +55,15 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Hitzeanzug-Stiefel](Der-Hitzeanzug.md) | Item | Rezept |
 | [Hitzeschild](Die-Rakete-T2.md) | Item | Rezept |
 | [Hochtemperaturofen](Der-Hochtemperaturofen.md) | Block | Rezept |
+| [Hydrokultur-Becken](Hydrokultur-und-Kompost.md) | Block | Rezept |
 | [Ingenieurs-Handbuch](Willkommen-bei-Infinite-Horizon.md) | Item | Geschenk beim ersten Betreten, Rezept |
 | [Item-Port](Raffinerie.md) | Block | Rezept |
 | [Keramikplatte](Der-Hochtemperaturofen.md) | Item | Maschine |
 | [Kerosin](Raffinerie.md) | Fluid | Maschine |
 | [Kerosineimer](Fluide-und-Rohre.md) | Item | Füllslot oder Eimer |
+| [Kompost](Hydrokultur-und-Kompost.md) | Item | Rezept |
+| [Kompost-Ackerland](Hydrokultur-und-Kompost.md) | Block | Füllslot oder Eimer |
+| [Kompost-Boden](Hydrokultur-und-Kompost.md) | Block | Rezept |
 | [Kryo-Verflüssiger](Helium-und-Kryotechnik.md) | Block | Rezept |
 | [Kunststoff](Raffinerie.md) | Item | Maschine |
 | [Kupferdraht](Presse.md) | Item | Maschine |
@@ -87,6 +91,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Mondeis](Der-Mond.md) | Block | Weltgenerierung |
 | [Mondgestein](Der-Mond.md) | Block | Weltgenerierung |
 | [Montagetisch](Montagetisch.md) | Block | Rezept |
+| [Nahrungspacker](Weltraumnahrung.md) | Block | Rezept |
 | [Nickelbarren](Der-Mars.md) | Item | Maschine |
 | [Nickelstaub](Der-Mars.md) | Item | Maschine |
 | [Panzerplatte](Kreaturen-des-inneren-Sonnensystems.md) | Item | Kreatur |
@@ -153,6 +158,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Venusgestein](Die-Venus.md) | Block | Weltgenerierung |
 | [Verbrennungsgenerator](Strom.md) | Block | Rezept |
 | [Wasserstoff](Elektrolyseur.md) | Fluid | Maschine |
+| [Weltraumration](Weltraumnahrung.md) | Item | Maschine |
 | [Wolframbarren](Der-Hochtemperaturofen.md) | Item | Maschine |
 | [Wolframplatte](Die-Rakete-T2.md) | Item | Maschine |
 | [Wolframstaub](Die-Venus.md) | Item | Maschine |

@@ -127,6 +127,19 @@ public class IhClientGameTests implements FabricClientGameTest {
                 be.setItem(0, new ItemStack(ModBlocks.simple("moon_regolith").get(), 8));
                 fillEnergy(be, 2);
             });
+            // M5h: Nahrung
+            machine(context, sp, ModBlocks.FOOD_PACKER.get(), "gui_food_packer", be -> {
+                be.setItem(0, new ItemStack(net.minecraft.world.item.Items.BREAD, 4));
+                be.setItem(1, new ItemStack(net.minecraft.world.item.Items.COOKED_BEEF, 4));
+                be.setItem(2, new ItemStack(net.minecraft.world.item.Items.BAKED_POTATO, 4));
+                fillEnergy(be, 2);
+            });
+            machine(context, sp, ModBlocks.HYDROPONICS_BASIN.get(), "gui_hydroponics_basin", be -> {
+                be.setItem(0, new ItemStack(net.minecraft.world.item.Items.WHEAT_SEEDS));
+                be.fluidTanks().get(0).setStackUnchecked(IhFluidStack.of(
+                        net.minecraft.resources.Identifier.withDefaultNamespace("water"), 8000));
+                fillEnergy(be, 2);
+            });
             launchPad(context, sp);
 
             // Alle Blöcke nebeneinander in der Welt (Modelle, Texturen, Statuslampe)
