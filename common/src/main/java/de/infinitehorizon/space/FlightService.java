@@ -230,6 +230,13 @@ public final class FlightService {
         rocket.burn(cost);
         rocket.setFlight(new Flight(target, RocketEntity.Phase.COUNTDOWN, 0, rocket.getY(), landing, Optional.empty(), 0));
         level.playSound(null, rocket.blockPosition(), sound("rocket.countdown"), SoundSource.NEUTRAL, 1f, 1f);
+        // Offene GUIs der Insassen (Navigationskarte, Raketen-GUI) vorher schließen: Das Schließen-Paket beendet auf dem
+        // Client jeden Bildschirm, käme es danach, wäre auch die Flugsequenz weg
+        for (Entity e : rocket.getPassengers()) {
+            if (e instanceof ServerPlayer sp && sp.containerMenu != sp.inventoryMenu) {
+                sp.closeContainer();
+            }
+        }
         sequence(rocket, FlightSequencePayload.START, rule("countdown_ticks") + rule("ascent_ticks"));
     }
 

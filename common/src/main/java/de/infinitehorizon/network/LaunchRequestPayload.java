@@ -73,7 +73,8 @@ public record LaunchRequestPayload(BlockPos pos, int entityId, Identifier target
             }
             if (error != null) {
                 player.sendOverlayMessage(Component.translatable("gui.infinite_horizon.launch.denied." + error));
-            } else {
+            } else if (player.containerMenu instanceof StarMapMenu) {
+                // Insassen haben die Karte schon beim Start geschlossen (FlightService#start)
                 player.closeContainer();
             }
             return;

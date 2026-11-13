@@ -47,15 +47,19 @@ public class FlightSequenceScreen extends Screen {
         if (mc.gui.screen() instanceof FlightSequenceScreen s) {
             s.type = p.kind();
             s.remaining = p.ticks();
-        } else {
-            if (previousCamera == null) {
-                previousCamera = mc.options.getCameraType();
-                previousHideGui = mc.gui.hud.isHidden();
-            }
-            mc.options.setCameraType(CameraType.THIRD_PERSON_BACK);
-            if (!mc.gui.hud.isHidden()) {
-                mc.gui.hud.toggle();
-            }
+            return;
+        }
+        if (previousCamera == null) {
+            previousCamera = mc.options.getCameraType();
+            previousHideGui = mc.gui.hud.isHidden();
+        }
+        mc.options.setCameraType(CameraType.THIRD_PERSON_BACK);
+        if (!mc.gui.hud.isHidden()) {
+            mc.gui.hud.toggle();
+        }
+        // Den Ladebildschirm nach dem Dimensionswechsel nicht verdrängen; Kamera und HUD gelten trotzdem
+        Screen current = mc.gui.screen();
+        if (current == null || current instanceof net.minecraft.client.gui.screens.inventory.AbstractContainerScreen<?>) {
             mc.setScreenAndShow(new FlightSequenceScreen(p));
         }
     }
