@@ -47,4 +47,4 @@ Fällt die Kuppel aus, während du tot bist, ist dein Spawnpunkt nicht mehr sich
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Die Kuppel](Die-Kuppel.md)
+← [Die Kuppel](Die-Kuppel.md) · [Das Landefeuer](Das-Landefeuer.md) →

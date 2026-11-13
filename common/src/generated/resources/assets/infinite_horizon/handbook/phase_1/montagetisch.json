@@ -743,6 +743,39 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/landing_beacon",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "minecraft:redstone_lamp"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:landing_beacon",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/sample_tool",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",

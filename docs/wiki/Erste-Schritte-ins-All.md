@@ -13,11 +13,11 @@ In der zweiten Phase verlässt du die Erde. Ziel ist der Mond: Dort warten neue 
 3. **Eine Sonde zum Mond schicken.** Bau eine [Startrampe](Startrampe-und-Sonde.md) mit Treibstoffpumpe und Steuerpult und schick eine Sonde los. Erst wenn sie angekommen ist, ist der Mond ein Raketenziel.
 4. **Die Rakete bauen und betanken.** Triebwerk, Flossen, Tanks und Kapsel auf die Rampe, Kerosin und Sauerstoff in die Pumpe, siehe [Die Rakete](Die-Rakete.md).
 5. **Die Gefahren kennen.** Lies, was dich auf fremden Welten erwartet: [Umwelt, Belastung und Schwerkraft](Umwelt-Belastung-und-Schwerkraft.md).
-6. **Zum Mond reisen.** Starten kann die Rakete noch nicht. Bis dahin bringt ein Operator Spieler mit `/infinite_horizon goto moon` auf den Mond und mit `/infinite_horizon goto overworld` zurück zum Weltspawn. Gelandet wird auf festem Boden nahe X/Z 0/0 oder an eigenen Koordinaten (`goto moon <x> <z>`).
+6. **Zum Mond fliegen.** Setz dich im Anzug in die Kapsel, öffne mit der Inventartaste den Raketen-Computer und drück „Start“. Auf der Navigationskarte wählst du den Mond und den Landeort, siehe [Der Flug](Der-Flug.md).
 7. **Den Mond erkunden.** Hochland, Mare und Krater haben eigene Erze, und in den Lavaröhren des Mare warten Forschungspunkte. Siehe [Der Mond](Der-Mond.md). Strom liefern dort [Solarpanels](Strom-im-All.md).
 
 > [!TIP]
-> Merk dir vor der Reise deine Koordinaten auf der Erde. `goto overworld` bringt dich zum Weltspawn, nicht zu deiner Basis.
+> Stell vor dem Abflug ein [Landefeuer](Das-Landefeuer.md) an deiner Basis auf. Dann bringt dich der Rückflug nach Hause statt zum Weltspawn.
 
 ---
 

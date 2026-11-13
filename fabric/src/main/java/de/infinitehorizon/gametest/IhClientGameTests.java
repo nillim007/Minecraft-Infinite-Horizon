@@ -164,6 +164,7 @@ public class IhClientGameTests implements FabricClientGameTest {
             context.takeScreenshot("world_machines");
 
             moon(context, sp);
+            flight(context, sp);
         }
     }
 
@@ -415,6 +416,43 @@ public class IhClientGameTests implements FabricClientGameTest {
      * Kapsel. Bild der Rampe in der Welt, dann der Raketen-Computer mit Checkliste (nur die Besatzung fehlt).
      */
     private static void launchPad(ClientGameTestContext context, TestSingleplayerContext sp) {
+        BlockPos[] built = buildRocketPad(context, sp);
+        BlockPos center = built[0];
+        BlockPos control = built[1];
+        BlockPos engine = built[2];
+        clearChat(context);
+        context.getInput().lookAt(engine.above(2));
+        context.waitTicks(5);
+        context.takeScreenshot("world_launch_pad");
+
+        context.getInput().lookAt(control);
+        context.waitTick();
+        context.getInput().pressKey(options -> options.keyUse);
+        context.waitForScreen(de.infinitehorizon.client.LaunchControlScreen.class);
+        context.waitTicks(25);
+        List<String> failed = context.computeOnClient(c -> c.gui.screen() instanceof de.infinitehorizon.client.LaunchControlScreen s
+                ? s.failedChecks() : List.of("kein Bildschirm"));
+        if (!failed.equals(List.of("crew"))) {
+            throw new AssertionError("Checkliste: offen " + failed + ", erwartet nur crew");
+        }
+        clearChat(context);
+        context.takeScreenshot("gui_launch_control");
+        context.setScreen(() -> null);
+        removeRocketPad(sp, center);
+        context.waitTick();
+    }
+
+    /** Ganze Rampe samt Rakete, Turm, Pumpe und Pult wieder entfernen. */
+    private static void removeRocketPad(TestSingleplayerContext sp, BlockPos center) {
+        sp.getServer().runCommand("fill %d %d %d %d %d %d air".formatted(center.getX() - 3, center.getY(), center.getZ() - 3,
+                center.getX() + 3, center.getY() + 6, center.getZ() + 6));
+    }
+
+    /**
+     * Rampe mit Rakete T1 (3 volle Tanks, 4 Flossen) 9 Blöcke nördlich des Spielers; Rückgabe: Mitte, Steuerpult,
+     * Triebwerk.
+     */
+    private static BlockPos[] buildRocketPad(ClientGameTestContext context, TestSingleplayerContext sp) {
         BlockPos center = context.computeOnClient(c -> BlockPos.containing(c.player.position()).north(9).below());
         String pad = "infinite_horizon:launch_pad";
         sp.getServer().runCommand("fill %d %d %d %d %d %d %s".formatted(center.getX() - 2, center.getY(), center.getZ() - 2,
@@ -448,27 +486,94 @@ public class IhClientGameTests implements FabricClientGameTest {
             }
         });
         context.waitTicks(5);
-        clearChat(context);
-        context.getInput().lookAt(engine.above(2));
-        context.waitTicks(5);
-        context.takeScreenshot("world_launch_pad");
+        return new BlockPos[]{center, control, engine};
+    }
 
-        context.getInput().lookAt(control);
-        context.waitTick();
-        context.getInput().pressKey(options -> options.keyUse);
+    /**
+     * Flug (27.7 M4e): Rampe auf der Erde, Spieler im Anzug in der Kapsel, Inventartaste → Raketen-Computer, „Start“ →
+     * Navigationskarte (Bild), Mond wählen und starten, Countdown in der Außenansicht (Bild), überspringen, gelandete
+     * Rakete auf dem Mond (Bild) und Raketen-GUI (Bild).
+     */
+    private static void flight(ClientGameTestContext context, TestSingleplayerContext sp) {
+        Identifier moonId = Identifier.fromNamespaceAndPath("infinite_horizon", "moon");
+        sp.getServer().runCommand("execute as @p run infinite_horizon goto overworld");
+        context.waitTicks(40);
+        context.runOnClient(c -> {
+            c.player.getAbilities().flying = false;
+            c.player.onUpdateAbilities();
+        });
+        sp.getConnection().waitForChunksRender();
+        BlockPos[] built = buildRocketPad(context, sp);
+        BlockPos control = built[1];
+        BlockPos capsule = built[2].above(4);
+        for (String slot : new String[]{"head|helmet", "chest|chestplate[infinite_horizon:oxygen=600]", "legs|leggings", "feet|boots"}) {
+            String[] p = slot.split("\\|");
+            sp.getServer().runCommand("item replace entity @p armor." + p[0] + " with infinite_horizon:pressure_suit_" + p[1]);
+        }
+        sp.getServer().runOnServer(server -> {
+            net.minecraft.server.level.ServerPlayer pl = server.getPlayerList().getPlayers().getFirst();
+            de.infinitehorizon.agency.AgencyManager.ensureFor(pl).progress().addProbeReached(moonId);
+            ServerLevel level = pl.level();
+            level.getBlockState(capsule).useWithoutItem(level, pl, new net.minecraft.world.phys.BlockHitResult(
+                    net.minecraft.world.phys.Vec3.atCenterOf(capsule), net.minecraft.core.Direction.SOUTH, capsule, false));
+        });
+        context.waitFor(c -> c.player.isPassenger());
+
+        // Inventartaste im Sitz: Raketen-Computer der Rampe, alle Haken, Knopf „Start“
+        context.getInput().pressKey(options -> options.keyInventory);
         context.waitForScreen(de.infinitehorizon.client.LaunchControlScreen.class);
         context.waitTicks(25);
         List<String> failed = context.computeOnClient(c -> c.gui.screen() instanceof de.infinitehorizon.client.LaunchControlScreen s
                 ? s.failedChecks() : List.of("kein Bildschirm"));
-        if (!failed.equals(List.of("crew"))) {
-            throw new AssertionError("Checkliste: offen " + failed + ", erwartet nur crew");
+        if (!failed.isEmpty()) {
+            throw new AssertionError("Checkliste vor dem Flug: offen " + failed);
+        }
+        String startLabel = net.minecraft.client.resources.language.I18n.get("gui.infinite_horizon.rocket.start");
+        boolean startActive = context.computeOnClient(c -> c.gui.screen().children().stream().anyMatch(w ->
+                w instanceof net.minecraft.client.gui.components.Button b && b.active && b.getMessage().getString().equals(startLabel)));
+        if (!startActive) {
+            throw new AssertionError("Raketen-Computer: kein aktiver Knopf „Start“");
+        }
+        // wie der Knopf: Navigationskarte öffnen
+        context.runOnClient(c -> de.infinitehorizon.platform.Services.NETWORK.sendToServer(new de.infinitehorizon.network.RocketActionPayload(
+                de.infinitehorizon.network.RocketActionPayload.START, control, -1)));
+        context.waitForScreen(de.infinitehorizon.client.StarMapScreen.class);
+        context.runOnClient(c -> ((de.infinitehorizon.client.StarMapScreen) c.gui.screen()).select(moonId));
+        context.waitTicks(10);
+        clearChat(context);
+        context.takeScreenshot("gui_star_map");
+
+        // Start: Countdown in der Außenansicht
+        context.runOnClient(c -> ((de.infinitehorizon.client.StarMapScreen) c.gui.screen()).launch());
+        context.waitForScreen(de.infinitehorizon.client.FlightSequenceScreen.class);
+        context.waitTicks(60);
+        boolean outside = context.computeOnClient(c -> c.options.getCameraType() == net.minecraft.client.CameraType.THIRD_PERSON_BACK
+                && c.player.getVehicle() instanceof de.infinitehorizon.space.RocketEntity);
+        if (!outside) {
+            throw new AssertionError("Countdown: keine Außenansicht oder Spieler nicht in der Rakete");
         }
         clearChat(context);
-        context.takeScreenshot("gui_launch_control");
+        context.takeScreenshot("world_rocket_countdown");
+
+        // Überspringen (Esc), Landung auf dem Mond
+        context.runOnClient(c -> c.gui.screen().onClose());
+        context.waitFor(c -> c.level.dimension().identifier().equals(moonId)
+                && c.player.getVehicle() instanceof de.infinitehorizon.space.RocketEntity r && !r.inFlight(), 400);
+        sp.getConnection().waitForChunksRender();
+        context.waitTicks(20);
+        context.runOnClient(c -> c.options.setCameraType(net.minecraft.client.CameraType.THIRD_PERSON_BACK));
+        context.waitTicks(10);
+        clearChat(context);
+        context.takeScreenshot("world_moon_rocket");
+        context.runOnClient(c -> c.options.setCameraType(net.minecraft.client.CameraType.FIRST_PERSON));
+
+        // Raketen-GUI (Inventartaste in der gelandeten Rakete)
+        context.getInput().pressKey(options -> options.keyInventory);
+        context.waitForScreen(de.infinitehorizon.client.RocketScreen.class);
+        context.waitTicks(10);
+        clearChat(context);
+        context.takeScreenshot("gui_rocket");
         context.setScreen(() -> null);
-        sp.getServer().runCommand("fill %d %d %d %d %d %d air".formatted(center.getX() - 3, center.getY() + 1, center.getZ() - 3,
-                center.getX() + 3, center.getY() + 6, center.getZ() + 3));
-        context.waitTick();
     }
 
     /** Knopf „Tank“ im Elektrolyseur: wählt Tank 2 der Ausgänge (Sauerstoff) auf dem Server (4.1). */

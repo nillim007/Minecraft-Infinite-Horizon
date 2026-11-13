@@ -56,13 +56,37 @@ public class LaunchControlBlock extends BaseEntityBlock implements OwnedBlock {
 
     @Override
     public InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hit) {
-        if (!level.isClientSide() && player instanceof ServerPlayer sp && level.getBlockEntity(pos) instanceof LaunchControlBlockEntity be) {
+        if (!level.isClientSide() && player instanceof ServerPlayer sp) {
+            open((ServerLevel) level, pos, sp);
+        }
+        return InteractionResult.SUCCESS;
+    }
+
+    /** Raketen-Computer öffnen (Rechtsklick oder Inventartaste im Sitz, 12.5). */
+    public static void open(ServerLevel level, BlockPos pos, ServerPlayer sp) {
+        if (level.getBlockEntity(pos) instanceof LaunchControlBlockEntity be) {
             OwnedBlock.claimOnOpen(level, pos, sp);
-            be.evaluate((ServerLevel) level);
+            be.evaluate(level);
             Services.REGISTRY.openMenu(sp, be, pos, BlockPos.STREAM_CODEC);
             be.sendState(sp);
         }
-        return InteractionResult.SUCCESS;
+    }
+
+    /**
+     * {@code launch_control}, dessen Rampe den Block {@code part} im Stapel hat (Sitz in der Kapsel, 12.5); gesucht im
+     * Würfel mit doppeltem {@code control_radius}.
+     */
+    public static @Nullable BlockPos controlFor(Level level, BlockPos part) {
+        int r = 2 * LaunchPad.controlRadius();
+        for (BlockPos p : BlockPos.betweenClosed(part.offset(-r, -r, -r), part.offset(r, r, r))) {
+            if (level.getBlockState(p).getBlock() instanceof LaunchControlBlock) {
+                LaunchPad.Check c = LaunchPad.nearest(level, p);
+                if (c != null && c.stack().contains(part)) {
+                    return p.immutable();
+                }
+            }
+        }
+        return null;
     }
 
     @Override

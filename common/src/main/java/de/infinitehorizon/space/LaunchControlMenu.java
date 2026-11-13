@@ -33,6 +33,8 @@ public class LaunchControlMenu extends AbstractContainerMenu {
 
     @Override
     public boolean stillValid(Player player) {
-        return access == ContainerLevelAccess.NULL || stillValid(access, player, ModBlocks.LAUNCH_CONTROL.get());
+        // Aus dem Sitz in der Kapsel (Inventartaste, 12.5) gilt keine Reichweite
+        return access == ContainerLevelAccess.NULL || player.getVehicle() instanceof de.infinitehorizon.vehicle.SeatEntity
+                || stillValid(access, player, ModBlocks.LAUNCH_CONTROL.get());
     }
 }

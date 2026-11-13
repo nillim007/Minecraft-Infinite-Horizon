@@ -19,6 +19,25 @@ public class FabricAttachmentHelper implements IAttachmentHelper {
             InfiniteHorizon.id("sampled_positions"), b -> b.initializer(de.infinitehorizon.research.SampledPositions::new)
                     .persistent(de.infinitehorizon.research.SampledPositions.CODEC));
 
+    /** Offener Flug nach dem Abmelden (12.5); persistent. */
+    public static final AttachmentType<de.infinitehorizon.space.PendingFlight> PENDING_FLIGHT = AttachmentRegistry.create(
+            InfiniteHorizon.id("pending_flight"), b -> b.persistent(de.infinitehorizon.space.PendingFlight.CODEC));
+
+    @Override
+    public de.infinitehorizon.space.PendingFlight pendingFlight(Player player) {
+        de.infinitehorizon.space.PendingFlight f = player.getAttached(PENDING_FLIGHT);
+        return f == null ? de.infinitehorizon.space.PendingFlight.NONE : f;
+    }
+
+    @Override
+    public void setPendingFlight(Player player, de.infinitehorizon.space.PendingFlight flight) {
+        if (flight.isNone()) {
+            player.removeAttached(PENDING_FLIGHT);
+        } else {
+            player.setAttached(PENDING_FLIGHT, flight);
+        }
+    }
+
     @Override
     public HazardState hazardState(Player player) {
         return player.getAttachedOrCreate(HAZARD_STATE);

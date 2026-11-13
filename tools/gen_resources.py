@@ -615,12 +615,18 @@ def planet_worldgen(spec, impl, blocks):
 WARNING_SOUNDS = {"warning.oxygen": "minecraft:note/pling", "warning.heat": "minecraft:note/bit",
                   "warning.cold": "minecraft:note/icechime", "warning.radiation": "minecraft:note/didgeridoo",
                   "warning.dome": "minecraft:note/bell"}
+# Raketen (24.6): M4 registriert rocket.countdown/launch/landing, Platzhalter wie oben (spec-gaps #58)
+ROCKET_SOUNDS = {"rocket.countdown": "minecraft:note/hat", "rocket.launch": "minecraft:random/explode1",
+                 "rocket.landing": "minecraft:random/anvil_land"}
 
 
-def sounds():
+def sounds(impl):
+    all_sounds = dict(WARNING_SOUNDS)
+    if f"{NS}:rocket" in impl.get("entities", []):
+        all_sounds.update(ROCKET_SOUNDS)
     write_json(f"assets/{NS}/sounds.json", {name: {"subtitle": f"subtitles.{NS}.{name}", "sounds": [file]}
-                                            for name, file in WARNING_SOUNDS.items()})
-    write_json(f"{NS}/sound_events.json", {"events": sorted(WARNING_SOUNDS)})
+                                            for name, file in all_sounds.items()})
+    write_json(f"{NS}/sound_events.json", {"events": sorted(all_sounds)})
 
 
 def suits(spec, items):
@@ -962,7 +968,7 @@ def main():
 
     # Warntöne (24.6), Anzüge (9.1), Welt ohne Atmosphäre (8.5)
     atmosphere_tag(spec)
-    sounds()
+    sounds(impl)
     suits(spec, items)
 
     # Planeten (13.1), ihre Weltgenerierung (13.4) und Schadensarten der Umwelt (8.2)

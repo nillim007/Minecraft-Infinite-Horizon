@@ -87,11 +87,14 @@
     {"name": "solar_moonoverride_5jt_polarcrater0", "class": "IhGameTestsM4b", "method": "solarPanelMoon", "ticks": 60, "environment": "infinite_horizon:moon_day", "ref": "6.3, 27.7 M4b"},
     {"name": "exploration_lavatube_20fp", "class": "IhGameTestsM4b", "method": "lavaTubeGivesFp", "ticks": 60, "dimension": "infinite_horizon:moon", "ref": "11.1, 27.7 M4b"},
     {"name": "agency_guest_noslotsnobreak_thenjoin", "class": "IhGameTestsM4c", "method": "guestThenMember", "ticks": 20, "ref": "23.1, 27.7 M4c"},
-    {"name": "agency_moonoverride_domeprotection", "class": "IhGameTestsM4c", "method": "domeProtection", "ticks": 40, "ref": "23.2, 10.3, 27.7 M4c"},
+    {"name": "agency_moonoverride_domeprotection", "class": "IhGameTestsM4c", "method": "domeProtection", "ticks": 40, "structure": "infinite_horizon:gametest/empty_large", "ref": "23.2, 10.3, 27.7 M4c"},
     {"name": "agency_unownedcrusher_claimedonopen", "class": "IhGameTestsM4c", "method": "unownedClaimedOnOpen", "ticks": 20, "ref": "23.1, 27.7 M4c"},
     {"name": "fuel_earthtomoon_fromregistries_35360", "class": "IhGameTestsM4d", "method": "fuelCostFromRegistries", "ticks": 20, "ref": "12.2, 27.7 M4d (Abnahme 2)"},
     {"name": "launch_threefins_rejected_fourthfin_ready", "class": "IhGameTestsM4d", "method": "checklistNeedsFourFins", "ticks": 20, "ref": "12.4, 27.7 M4d (Abnahme 3)"},
     {"name": "fuelpump_threetanks_evenly_full", "class": "IhGameTestsM4d", "method": "fuelPumpFillsEvenly", "ticks": 300, "ref": "12.4, 27.7 M4d"},
-    {"name": "probe_moon_arriveswithin1320ticks", "class": "IhGameTestsM4d", "method": "probeReachesMoon", "ticks": 1320, "ref": "12.3, 27.7 M4d"}
+    {"name": "probe_moon_arriveswithin1320ticks", "class": "IhGameTestsM4d", "method": "probeReachesMoon", "ticks": 1320, "ref": "12.3, 27.7 M4d"},
+    {"name": "flight_t1_moonandback_fuel_disassemble", "class": "IhGameTestsM4e", "method": "flightToMoonAndBack", "ticks": 20, "ref": "12.5, 27.7 M4e"},
+    {"name": "flight_beacon_moon100_within3", "class": "IhGameTestsM4e", "method": "beaconLandingWithinRadius", "ticks": 20, "ref": "12.6, 27.7 M4e"},
+    {"name": "flight_logoutinflight_reloginseated", "class": "IhGameTestsM4e", "method": "logoutInFlightRelogSeated", "ticks": 20, "ref": "12.5, 27.7 M4e"}
   ]
 }

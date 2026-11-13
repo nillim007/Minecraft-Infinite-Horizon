@@ -1,5 +1,8 @@
 {
   "events": [
+    "rocket.countdown",
+    "rocket.landing",
+    "rocket.launch",
     "warning.cold",
     "warning.dome",
     "warning.heat",

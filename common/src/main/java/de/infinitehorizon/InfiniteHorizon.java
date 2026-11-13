@@ -108,6 +108,8 @@ public final class InfiniteHorizon {
         de.infinitehorizon.research.ResearchService.onMemberMoved(player);
         de.infinitehorizon.agency.AgencyAdvancements.onLogin(player);
         de.infinitehorizon.research.ResearchService.sendState(player);
+        // Abgemeldet im Flug (12.5): im nächsten Tick wieder in die gelandete Rakete
+        de.infinitehorizon.space.FlightService.queueLogin(player);
     }
 
     /** Datenpaket-Sync (Join und {@code /reload}): Planeten und Forschung an den Client (13.1, 11.4, {@code SyncDataPayload}). */
@@ -121,6 +123,7 @@ public final class InfiniteHorizon {
         HazardTracker.tick(server);
         GravityService.tick(server);
         de.infinitehorizon.space.ProbeService.tick(server);
+        de.infinitehorizon.space.FlightService.tickLogins(server);
     }
 
     /** Respawn: Schwerkraft sofort setzen (12.9); die Belastung beginnt nach dem Tod bei 0 (Attachment ohne Kopie). */

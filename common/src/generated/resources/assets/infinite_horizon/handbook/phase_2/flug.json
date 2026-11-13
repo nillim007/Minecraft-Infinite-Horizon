@@ -1,0 +1,99 @@
+{
+  "id": "infinite_horizon:phase_2/flug",
+  "chapter": "infinite_horizon:phase_2",
+  "title": "infinite_horizon.handbook.phase_2.flug.title",
+  "icon": "infinite_horizon:rocket_engine_t1",
+  "order": 75,
+  "unlock": null,
+  "items": [],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.flug.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.flug.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_2.flug.e2.0",
+        "infinite_horizon.handbook.phase_2.flug.e2.1",
+        "infinite_horizon.handbook.phase_2.flug.e2.2",
+        "infinite_horizon.handbook.phase_2.flug.e2.3",
+        "infinite_horizon.handbook.phase_2.flug.e2.4",
+        "infinite_horizon.handbook.phase_2.flug.e2.5",
+        "infinite_horizon.handbook.phase_2.flug.e2.6"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.flug.e3",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_2.flug.e4.0",
+        "infinite_horizon.handbook.phase_2.flug.e4.1",
+        "infinite_horizon.handbook.phase_2.flug.e4.2",
+        "infinite_horizon.handbook.phase_2.flug.e4.3"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.flug.e5"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.flug.e6"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.flug.e7",
+      "style": "note"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.flug.e8",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.flug.e9"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_2.flug.e10.0",
+        "infinite_horizon.handbook.phase_2.flug.e10.1",
+        "infinite_horizon.handbook.phase_2.flug.e10.2",
+        "infinite_horizon.handbook.phase_2.flug.e10.3"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.flug.e11",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.flug.e12"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.flug.e13",
+      "style": "warning"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.flug.e14",
+      "style": "tip"
+    }
+  ]
+}

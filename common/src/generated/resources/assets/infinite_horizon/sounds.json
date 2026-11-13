@@ -28,5 +28,23 @@
     "sounds": [
       "minecraft:note/bell"
     ]
+  },
+  "rocket.countdown": {
+    "subtitle": "subtitles.infinite_horizon.rocket.countdown",
+    "sounds": [
+      "minecraft:note/hat"
+    ]
+  },
+  "rocket.launch": {
+    "subtitle": "subtitles.infinite_horizon.rocket.launch",
+    "sounds": [
+      "minecraft:random/explode1"
+    ]
+  },
+  "rocket.landing": {
+    "subtitle": "subtitles.infinite_horizon.rocket.landing",
+    "sounds": [
+      "minecraft:random/anvil_land"
+    ]
   }
 }

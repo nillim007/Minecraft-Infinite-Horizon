@@ -8,10 +8,12 @@
     "BlockItemMixin",
     "BlockStateBaseMixin",
     "BoneMealItemMixin",
+    "EntityMixin",
     "GameTestServerMixin",
     "IceBlockMixin",
     "LiquidBlockMixin",
     "NaturalSpawnerMixin",
+    "PlayerListMixin",
     "ServerPlayerGameModeMixin",
     "ServerPlayerMixin",
     "WorldDimensionsMixin"

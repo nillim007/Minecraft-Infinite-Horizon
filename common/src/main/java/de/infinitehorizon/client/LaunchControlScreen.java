@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import de.infinitehorizon.network.LaunchRequestPayload;
 import de.infinitehorizon.network.LaunchStatePayload;
+import de.infinitehorizon.network.RocketActionPayload;
 import de.infinitehorizon.platform.Services;
 import de.infinitehorizon.space.LaunchControlMenu;
 import net.minecraft.ChatFormatting;
@@ -25,7 +26,7 @@ import java.util.Locale;
 /**
  * Raketen-Computer (12.4) im {@code launch_control}: links die Checkliste mit Haken oder Kreuz und erstem Fehler,
  * rechts Teile, Masse, Schub-Gewicht, Treibstoff und Ziele (grün/gelb/grau, 12.2); bei einer Sonde die Sondenziele mit
- * Start-Knöpfen (12.3). Daten vom Server ({@link LaunchStatePayload}); der Client rechnet nichts. Aus Rechtecken
+ * Start-Knöpfen (12.3). „Start“ öffnet bei einer Rakete die Navigationskarte (12.5). Daten vom Server ({@link LaunchStatePayload}); der Client rechnet nichts. Aus Rechtecken
  * gezeichnet wie das Maschinen-GUI (24.5).
  */
 public class LaunchControlScreen extends AbstractContainerScreen<LaunchControlMenu> {
@@ -34,6 +35,8 @@ public class LaunchControlScreen extends AbstractContainerScreen<LaunchControlMe
     private static final int H = 196;
     private static final int PAD = 8;
     private static final int LINE = 11;
+    /** Abstand der ersten Zeile unter dem Titel. */
+    private static final int HEAD = PAD + LINE + 3;
     private static final int PANEL = 0xFFC6C6C6;
     private static final int TEXT = 0xFF404040;
     private static final int OK = 0xFF208020;
@@ -87,11 +90,22 @@ public class LaunchControlScreen extends AbstractContainerScreen<LaunchControlMe
         probeButtons.clear();
         builtFor = latest;
         JsonObject s = state();
-        if (s == null || !"probe".equals(str(s, "load")) || s.get("countdown").getAsInt() > 0) {
+        if (s == null || s.get("countdown").getAsInt() > 0) {
             return;
         }
         int x = leftPos + W / 2 + PAD;
-        int y = topPos + PAD + 2 * LINE;
+        if (s.has("rocket")) {
+            Button start = Button.builder(Component.translatable("gui.infinite_horizon.rocket.start"),
+                    btn -> Services.NETWORK.sendToServer(new RocketActionPayload(RocketActionPayload.START, menu.pos(), -1)))
+                    .bounds(x, topPos + H - PAD - LINE - 3, W / 2 - 2 * PAD, LINE + 3).build();
+            start.active = allOk(s);
+            probeButtons.add(addRenderableWidget(start));
+            return;
+        }
+        if (!"probe".equals(str(s, "load"))) {
+            return;
+        }
+        int y = topPos + HEAD + LINE;
         for (JsonElement e : s.getAsJsonArray("probe_targets")) {
             JsonObject t = e.getAsJsonObject();
             Identifier dim = Identifier.parse(t.get("dimension").getAsString());
@@ -152,8 +166,8 @@ public class LaunchControlScreen extends AbstractContainerScreen<LaunchControlMe
             g.text(font, c, x + W - PAD - font.width(c), y + PAD, BAD, false);
         }
         // Checkliste
-        int ly = y + PAD + 2 * LINE;
-        g.text(font, Component.translatable("gui.infinite_horizon.launch.checklist"), x + PAD, ly - LINE - 2, TEXT, false);
+        g.text(font, Component.translatable("gui.infinite_horizon.launch.checklist"), x + PAD, y + HEAD, TEXT, false);
+        int ly = y + HEAD + LINE + 2;
         for (JsonElement e : s.getAsJsonArray("lines")) {
             JsonObject l = e.getAsJsonObject();
             boolean ok = l.get("ok").getAsBoolean();
@@ -169,7 +183,7 @@ public class LaunchControlScreen extends AbstractContainerScreen<LaunchControlMe
         }
         // Raketen-Computer
         int rx = x + W / 2 + PAD;
-        int ry = y + PAD + LINE;
+        int ry = y + HEAD;
         if (s.has("rocket")) {
             JsonObject r = s.getAsJsonObject("rocket");
             g.text(font, Component.translatable("gui.infinite_horizon.launch.rocket", r.get("tier").getAsInt()), rx, ry, TEXT, false);
@@ -195,11 +209,10 @@ public class LaunchControlScreen extends AbstractContainerScreen<LaunchControlMe
                 boolean unlocked = o.get("unlocked").getAsBoolean();
                 String reach = str(o, "reach");
                 int color = !unlocked ? GRAY : "both".equals(reach) ? GREEN : "one_way".equals(reach) ? YELLOW : GRAY;
-                MutableComponent line = Component.translatable("gui.infinite_horizon.launch.destination",
-                        planet(Identifier.parse(o.get("dimension").getAsString())), o.get("out").getAsLong(), o.get("back").getAsLong());
-                if (!unlocked) {
-                    line.append(Component.translatable("gui.infinite_horizon.launch.locked").withStyle(ChatFormatting.ITALIC));
-                }
+                Component name = planet(Identifier.parse(o.get("dimension").getAsString()));
+                MutableComponent line = unlocked
+                        ? Component.translatable("gui.infinite_horizon.launch.destination", name, o.get("out").getAsLong(), o.get("back").getAsLong())
+                        : name.copy().append(Component.translatable("gui.infinite_horizon.launch.locked").withStyle(ChatFormatting.ITALIC));
                 g.text(font, font.substrByWidth(line, W / 2 - 2 * PAD).getString(), rx, ry, color, false);
                 ry += LINE;
             }

@@ -15,7 +15,7 @@ import net.minecraft.world.level.storage.ValueOutput;
  * ohne Kapselblock verschwindet er. Er wird nicht gespeichert ({@link #shouldBeSaved()}); {@code noSave()} am Typ
  * würde das Reiten verhindern (api-entities-26.3.md, Abschnitt 3).
  */
-public class SeatEntity extends Entity {
+public class SeatEntity extends Entity implements net.minecraft.world.entity.HasCustomInventoryScreen {
 
     private BlockPos anchor = BlockPos.ZERO;
 
@@ -70,6 +70,17 @@ public class SeatEntity extends Entity {
 
     @Override
     protected void addAdditionalSaveData(ValueOutput output) {
+    }
+
+    /** Inventartaste im Sitz (12.5): Raketen-Computer der Rampe, zu der die Kapsel gehört. */
+    @Override
+    public void openCustomInventoryScreen(net.minecraft.world.entity.player.Player player) {
+        if (player instanceof net.minecraft.server.level.ServerPlayer sp && level() instanceof ServerLevel sl) {
+            BlockPos control = de.infinitehorizon.space.LaunchControlBlock.controlFor(sl, anchor);
+            if (control != null) {
+                de.infinitehorizon.space.LaunchControlBlock.open(sl, control, sp);
+            }
+        }
     }
 
     /** Sitzt jemand darauf? */

@@ -14,6 +14,7 @@ In der dritten Phase lernst du, auf fremden Welten zu überleben. Zuerst mit Anz
 4. **Raus ins Vakuum.** Achte auf das HUD: Die Leisten zeigen Belastung und Anzug-Sauerstoff (siehe [Umwelt, Belastung und Schwerkraft](Umwelt-Belastung-und-Schwerkraft.md)).
 5. **Eine Kuppel bauen.** Ein [Kuppelgenerator](Die-Kuppel.md) mit Strom und Sauerstoff schafft Atemluft für deine Basis. Dort darfst du auch schlafen.
 6. **Licht ohne Feuer.** Draußen brennt nichts. Nimm [Elektrische Lampe](Leben-ohne-Luft.md) statt Fackeln, siehe [Leben ohne Luft](Leben-ohne-Luft.md).
+7. **Den Landeplatz markieren.** Ein [Landefeuer](Das-Landefeuer.md) an deiner Mondbasis ist das Ziel für alle weiteren Flüge deiner Agentur.
 
 > [!TIP]
 > Bau dir auf dem Mond schon früh einen Sauerstoffgenerator mit Druckflasche. Dann kannst du deine Flaschen vor Ort nachfüllen.

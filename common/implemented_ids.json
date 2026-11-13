@@ -43,6 +43,7 @@
     "infinite_horizon:fuel_pump": "machine",
     "infinite_horizon:launch_control": "machine",
     "infinite_horizon:probe": "casing",
+    "infinite_horizon:landing_beacon": "casing",
     "infinite_horizon:rocket_capsule_t1": "casing",
     "infinite_horizon:rocket_tank_t1": "casing",
     "infinite_horizon:rocket_engine_t1": "casing",
@@ -96,10 +97,10 @@
     "hydrogen",
     "oxygen"
   ],
-  "step": "4d",
+  "step": "4e",
   "dimensions": ["infinite_horizon:moon"],
-  "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity"],
-  "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:first_signal", "infinite_horizon:own_air"],
+  "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket"],
+  "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:first_signal", "infinite_horizon:small_step", "infinite_horizon:own_air"],
   "item_classes": {
     "_comment": "Items mit eigenem Verhalten; sie fehlen in simple_items.json und werden in ModItems registriert.",
     "infinite_horizon:engineers_handbook": "handbook",

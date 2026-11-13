@@ -22,6 +22,7 @@
     "infinite_horizon:fuel_generator",
     "infinite_horizon:fuel_pump",
     "infinite_horizon:item_port",
+    "infinite_horizon:landing_beacon",
     "infinite_horizon:launch_control",
     "infinite_horizon:launch_pad",
     "infinite_horizon:launch_tower",

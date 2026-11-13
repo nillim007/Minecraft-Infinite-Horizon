@@ -20,11 +20,18 @@ public class InfiniteHorizonFabricClient implements ClientModInitializer {
         MenuScreens.register(ModMenus.MACHINE.get(), MachineScreen::new);
         MenuScreens.register(ModMenus.RESEARCH_TERMINAL.get(), de.infinitehorizon.client.ResearchTerminalScreen::new);
         MenuScreens.register(ModMenus.LAUNCH_CONTROL.get(), de.infinitehorizon.client.LaunchControlScreen::new);
+        MenuScreens.register(ModMenus.STAR_MAP.get(), de.infinitehorizon.client.StarMapScreen::new);
+        MenuScreens.register(ModMenus.ROCKET.get(), de.infinitehorizon.client.RocketScreen::new);
         // Entities (M4): Sonde als Block, Sitz unsichtbar
         net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(
                 de.infinitehorizon.registry.ModEntities.PROBE_ENTITY.get(), de.infinitehorizon.client.ProbeRenderer::new);
         net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(
                 de.infinitehorizon.registry.ModEntities.SEAT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
+        // Rakete aus ihren Teilen, roter Strahl des Landefeuers (M4e)
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(
+                de.infinitehorizon.registry.ModEntities.ROCKET.get(), de.infinitehorizon.client.RocketRenderer::new);
+        net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry.register(
+                de.infinitehorizon.registry.ModBlockEntities.LANDING_BEACON.get(), ctx -> new de.infinitehorizon.client.LandingBeaconRenderer());
         net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents.END_CLIENT_TICK.register(
                 client -> de.infinitehorizon.client.DomeVisuals.tick());
         // Umwelt-HUD (8.4) über der Hungerleiste

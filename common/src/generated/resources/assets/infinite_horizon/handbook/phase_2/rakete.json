@@ -122,13 +122,17 @@
       ]
     },
     {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.rakete.e14"
+    },
+    {
       "type": "callout",
-      "key": "infinite_horizon.handbook.phase_2.rakete.e14",
+      "key": "infinite_horizon.handbook.phase_2.rakete.e15",
       "style": "warning"
     },
     {
       "type": "heading",
-      "key": "infinite_horizon.handbook.phase_2.rakete.e15",
+      "key": "infinite_horizon.handbook.phase_2.rakete.e16",
       "level": 2
     },
     {
@@ -291,7 +295,7 @@
     },
     {
       "type": "callout",
-      "key": "infinite_horizon.handbook.phase_2.rakete.e17",
+      "key": "infinite_horizon.handbook.phase_2.rakete.e18",
       "style": "tip"
     }
   ]

@@ -49,6 +49,8 @@ Im Steuerpult stehen diese Punkte, die alle einen Haken brauchen:
 4. **Ziel freigeschaltet:** die Erde und jedes Ziel, das eine Sonde deiner Agentur erreicht hat.
 5. **Besatzung:** Ein Spieler im vollständigen [Druckanzug](Der-Druckanzug.md) sitzt in der Kapsel.
 
+Wie Start, Flug und Landung ablaufen, steht unter [Der Flug](Der-Flug.md).
+
 > [!WARNING]
 > Plane den Rückflug ein: Gelbe Ziele erreichst du, kommst aber ohne Nachtanken nicht zurück. Nimm Treibstoff im Frachtraum mit oder baue am Ziel eine Pumpe.
 
@@ -69,4 +71,4 @@ Im Steuerpult stehen diese Punkte, die alle einen Haken brauchen:
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Startrampe und Sonde](Startrampe-und-Sonde.md)
+← [Startrampe und Sonde](Startrampe-und-Sonde.md) · [Der Flug](Der-Flug.md) →

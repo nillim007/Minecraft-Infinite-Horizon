@@ -234,7 +234,7 @@ public final class BalanceManager {
         BalanceManager b = bundled;
         if (b == null) {
             Map<String, JsonObject> map = new HashMap<>();
-            for (String name : new String[]{"machines", "misc", "storage", "generators", "transport", "suits", "environment", "items"}) {
+            for (String name : new String[]{"machines", "misc", "storage", "generators", "transport", "suits", "environment", "items", "spaceflight"}) {
                 String path = "/data/infinite_horizon/infinite_horizon/balance/" + name + ".json";
                 try (java.io.InputStream in = BalanceManager.class.getResourceAsStream(path)) {
                     if (in != null) {

@@ -49,6 +49,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Kupferrohr](Fluide-und-Rohre.md) | Block | Rezept |
 | [Kupferstaub](Zerkleinerer.md) | Item | Maschine |
 | [Kuppelgenerator I](Die-Kuppel.md) | Block | Rezept |
+| [Landefeuer](Das-Landefeuer.md) | Block | Rezept |
 | [Maschinenrahmen](Erste-Schritte.md) | Item | Rezept |
 | [Mond-Aluminiumerz](Der-Mond.md) | Block | Weltgenerierung |
 | [Mond-Basalt](Der-Mond.md) | Block | Weltgenerierung |

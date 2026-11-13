@@ -28,13 +28,7 @@ public final class IhTestPlayers {
     /** Neuer Spieler in der Spielerliste mit Spielmodus {@code mode}, an {@code relative} im Testbereich. */
     public static ServerPlayer inList(GameTestHelper h, GameType mode, Vec3 relative) {
         ServerLevel level = h.getLevel();
-        MinecraftServer server = level.getServer();
-        GameProfile profile = new GameProfile(UUID.randomUUID(), "test-player");
-        CommonListenerCookie cookie = CommonListenerCookie.createInitial(profile, false);
-        ServerPlayer player = new ServerPlayer(server, level, profile, cookie.clientInformation());
-        Connection connection = new Connection(PacketFlow.SERVERBOUND);
-        new EmbeddedChannel(connection);
-        server.getPlayerList().placeNewPlayer(connection, player, cookie);
+        ServerPlayer player = login(level, new GameProfile(UUID.randomUUID(), "test-player"));
         player.setGameMode(mode);
         Vec3 pos = h.absoluteVec(relative);
         if (player.level() != level) {
@@ -43,6 +37,26 @@ public final class IhTestPlayers {
                     Vec3.ZERO, 0, 0, net.minecraft.world.level.portal.TeleportTransition.DO_NOTHING));
         }
         player.teleportTo(pos.x, pos.y, pos.z);
+        return player;
+    }
+
+    /**
+     * Anmelden wie {@code PrepareSpawnTask.Ready#spawn} in 26.3: gespeicherte Daten desselben Profils laden (Position,
+     * Attachments), dann {@code placeNewPlayer}. Die Dimension bleibt {@code level} (Tests melden in derselben ab).
+     */
+    public static ServerPlayer login(ServerLevel level, GameProfile profile) {
+        MinecraftServer server = level.getServer();
+        CommonListenerCookie cookie = CommonListenerCookie.createInitial(profile, false);
+        ServerPlayer player = new ServerPlayer(server, level, profile, cookie.clientInformation());
+        try (net.minecraft.util.ProblemReporter.ScopedCollector reporter = new net.minecraft.util.ProblemReporter.ScopedCollector(
+                player.problemPath(), org.slf4j.LoggerFactory.getLogger(IhTestPlayers.class))) {
+            server.getPlayerList().loadPlayerData(new net.minecraft.server.players.NameAndId(profile))
+                    .map(tag -> net.minecraft.world.level.storage.TagValueInput.create(reporter, server.registryAccess(), tag))
+                    .ifPresent(player::load);
+        }
+        Connection connection = new Connection(PacketFlow.SERVERBOUND);
+        new EmbeddedChannel(connection);
+        server.getPlayerList().placeNewPlayer(connection, player, cookie);
         return player;
     }
 

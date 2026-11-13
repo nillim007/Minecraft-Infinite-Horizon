@@ -141,20 +141,23 @@ public final class LaunchChecklist {
         return new State(pad, null, List.copyOf(lines), List.of(), List.copyOf(targets), 0);
     }
 
+    private static List<Destination> destinations(ServerLevel level, @Nullable RocketConfig cfg, @Nullable Planet here,
+                                                  @Nullable Agency agency) {
+        return destinations(level, cfg == null ? 0 : cfg.usableFuel(), cfg == null ? 0 : cfg.tier(), here, agency);
+    }
+
     /**
      * Ziele (12.1): Planeten-Einträge, deren Dimension es gibt; freigeschaltet sind der eigene Körper, die Erde,
      * {@code earth_orbit} und Ziele in {@code probe_reached}, wenn die Stufe reicht.
      */
-    private static List<Destination> destinations(ServerLevel level, @Nullable RocketConfig cfg, @Nullable Planet here,
-                                                  @Nullable Agency agency) {
+    public static List<Destination> destinations(ServerLevel level, long fuel, int tier, @Nullable Planet here,
+                                                 @Nullable Agency agency) {
         if (here == null) {
             return List.of();
         }
         FuelCalculator.Constants c = FuelCalculator.Constants.from(BalanceManager.get());
         FuelCalculator.Body from = FuelCalculator.Body.of(here);
         Set<Identifier> reached = agency == null ? Set.of() : agency.progress().probeReached();
-        long fuel = cfg == null ? 0 : cfg.usableFuel();
-        int tier = cfg == null ? 0 : cfg.tier();
         List<Destination> out = new ArrayList<>();
         for (Planet p : PlanetRegistry.get().all()) {
             if (level.getServer().getLevel(ResourceKey.create(Registries.DIMENSION, p.dimension())) == null) {

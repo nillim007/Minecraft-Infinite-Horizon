@@ -1,0 +1,27 @@
+{
+  "parent": "infinite_horizon:first_signal",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:changed_dimension",
+      "conditions": {
+        "to": "infinite_horizon:moon"
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "infinite_horizon:moon_regolith"
+    },
+    "title": {
+      "translate": "advancements.infinite_horizon.small_step.title"
+    },
+    "description": {
+      "translate": "advancements.infinite_horizon.small_step.description"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

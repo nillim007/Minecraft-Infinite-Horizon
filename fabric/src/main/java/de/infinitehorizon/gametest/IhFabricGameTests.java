@@ -414,7 +414,7 @@ public class IhFabricGameTests {
         IhGameTestsM4c.guestThenMember(helper);
     }
 
-    @GameTest(maxTicks = 40)
+    @GameTest(maxTicks = 40, structure = "infinite_horizon:gametest/empty_large")
     public void agencyMoonoverrideDomeprotection(GameTestHelper helper) {
         IhGameTestsM4c.domeProtection(helper);
     }
@@ -442,5 +442,20 @@ public class IhFabricGameTests {
     @GameTest(maxTicks = 1320)
     public void probeMoonArriveswithin1320ticks(GameTestHelper helper) {
         IhGameTestsM4d.probeReachesMoon(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void flightT1MoonandbackFuelDisassemble(GameTestHelper helper) {
+        IhGameTestsM4e.flightToMoonAndBack(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void flightBeaconMoon100Within3(GameTestHelper helper) {
+        IhGameTestsM4e.beaconLandingWithinRadius(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void flightLogoutinflightReloginseated(GameTestHelper helper) {
+        IhGameTestsM4e.logoutInFlightRelogSeated(helper);
     }
 }

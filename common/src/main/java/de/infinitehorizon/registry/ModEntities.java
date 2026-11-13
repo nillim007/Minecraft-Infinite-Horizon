@@ -12,7 +12,7 @@ import net.minecraft.world.entity.MobCategory;
 
 import java.util.function.Supplier;
 
-/** Eigene Entities (26, ab M4): Sitz und Sonde; die Rakete kommt mit M4e. */
+/** Eigene Entities (26, ab M4): Sitz, Sonde und Rakete. */
 public final class ModEntities {
 
     /** Unsichtbarer Sitz in der Kapsel (12.5); der Spieler sitzt auf Höhe des Kapselbodens. */
@@ -26,6 +26,16 @@ public final class ModEntities {
             "probe_entity", () -> EntityType.Builder.<ProbeEntity>of(ProbeEntity::new, MobCategory.MISC)
                     .sized(1.0f, 1.0f).clientTrackingRange(16).updateInterval(1).noSummon().fireImmune()
                     .build(key("probe_entity")));
+
+    /**
+     * Rakete nach dem Start (12.5); die Größe hängt vom Stapel ab ({@code RocketEntity#getDimensions}), der Typ trägt
+     * nur die Grundfläche eines Blocks.
+     */
+    public static final Supplier<EntityType<de.infinitehorizon.space.RocketEntity>> ROCKET = Services.REGISTRY.register(
+            BuiltInRegistries.ENTITY_TYPE, "rocket", () -> EntityType.Builder.<de.infinitehorizon.space.RocketEntity>of(
+                            de.infinitehorizon.space.RocketEntity::new, MobCategory.MISC)
+                    .sized(1.0f, 1.0f).clientTrackingRange(16).updateInterval(1).noSummon().fireImmune()
+                    .build(key("rocket")));
 
     private ModEntities() {
     }

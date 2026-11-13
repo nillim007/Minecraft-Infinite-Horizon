@@ -22,6 +22,17 @@ public final class ModMenus {
                     () -> Services.REGISTRY.menuType(de.infinitehorizon.research.ResearchTerminalMenu::new,
                             net.minecraft.core.BlockPos.STREAM_CODEC));
 
+    /** Navigationskarte (12.5); Daten = Ziele, Landefeuer, Treibstoff. */
+    public static final Supplier<MenuType<de.infinitehorizon.space.StarMapMenu>> STAR_MAP =
+            Services.REGISTRY.register(BuiltInRegistries.MENU, "star_map",
+                    () -> Services.REGISTRY.menuType(de.infinitehorizon.space.StarMapMenu::new,
+                            de.infinitehorizon.space.StarMapMenu.Data.CODEC));
+    /** Raketen-GUI einer gelandeten Rakete (12.5). */
+    public static final Supplier<MenuType<de.infinitehorizon.space.RocketMenu>> ROCKET =
+            Services.REGISTRY.register(BuiltInRegistries.MENU, "rocket",
+                    () -> Services.REGISTRY.menuType(de.infinitehorizon.space.RocketMenu::new,
+                            de.infinitehorizon.space.RocketMenu.Data.CODEC));
+
     private ModMenus() {
     }
 

@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 4d · Mod-Version 0.1.0
+> Stand: Meilenstein 4e · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -52,6 +52,7 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Strom im All](Strom-im-All.md) – Solarpanel und Aluminiumkabel
 - [Startrampe und Sonde](Startrampe-und-Sonde.md) – Startrampe bauen, betanken und die erste Sonde schicken
 - [Die Rakete](Die-Rakete.md) – Raketenteile, Aufbau, Schub und Treibstoff
+- [Der Flug](Der-Flug.md) – Navigationskarte, Start, Landung und Rückflug
 
 ## Phase 3 · Ring 1
 
@@ -59,6 +60,7 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Sauerstoffgenerator](Sauerstoffgenerator.md) – Sauerstoff aus Strom, überall im Sonnensystem
 - [Die Kuppel](Die-Kuppel.md) – Atemluft für deine Basis auf fremden Welten
 - [Leben ohne Luft](Leben-ohne-Luft.md) – Was auf fremden Welten außerhalb der Kuppel nicht funktioniert
+- [Das Landefeuer](Das-Landefeuer.md) – Ein Landeziel für deine Raketen
 
 ## Nachschlagen
 

@@ -25,6 +25,21 @@ public class NeoForgeAttachmentHelper implements IAttachmentHelper {
             TYPES.register("sampled_positions", () -> AttachmentType.builder(de.infinitehorizon.research.SampledPositions::new)
                     .serialize(de.infinitehorizon.research.SampledPositions.MAP_CODEC).build());
 
+    /** Offener Flug nach dem Abmelden (12.5); gespeichert, beim Tod nicht kopiert. */
+    public static final Supplier<AttachmentType<de.infinitehorizon.space.PendingFlight>> PENDING_FLIGHT =
+            TYPES.register("pending_flight", () -> AttachmentType.builder(() -> de.infinitehorizon.space.PendingFlight.NONE)
+                    .serialize(de.infinitehorizon.space.PendingFlight.MAP_CODEC).build());
+
+    @Override
+    public de.infinitehorizon.space.PendingFlight pendingFlight(Player player) {
+        return player.getData(PENDING_FLIGHT);
+    }
+
+    @Override
+    public void setPendingFlight(Player player, de.infinitehorizon.space.PendingFlight flight) {
+        player.setData(PENDING_FLIGHT, flight);
+    }
+
     @Override
     public HazardState hazardState(Player player) {
         return player.getData(HAZARD_STATE);

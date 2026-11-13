@@ -44,10 +44,10 @@ public final class IhGameTestsM4d {
     private static final Identifier KEROSENE = Identifier.fromNamespaceAndPath("infinite_horizon", "kerosene");
     private static final Identifier OXYGEN = Identifier.fromNamespaceAndPath("infinite_horizon", "oxygen");
     /** Mitte der 5×5-Plattform im Testbereich. */
-    private static final BlockPos CENTER = new BlockPos(3, 1, 3);
-    private static final BlockPos CONTROL = new BlockPos(7, 1, 6);
+    static final BlockPos CENTER = new BlockPos(3, 1, 3);
+    static final BlockPos CONTROL = new BlockPos(7, 1, 6);
     private static final BlockPos PUMP = new BlockPos(6, 1, 2);
-    private static final int TANKS = 3;
+    static final int TANKS = 3;
     /** Toleranz der Pumpenzeit (27.7: ± 10 %). */
     private static final double TOLERANCE = 0.1;
 
@@ -64,7 +64,7 @@ public final class IhGameTestsM4d {
     }
 
     /** Rampe (5×5, Turm 5 hoch, Pumpe) mit Rakete T1: Triebwerk, 3 Tanks, Kapsel; Flossen nach Wunsch. */
-    private static void buildPad(GameTestHelper h, int fins, boolean fullTanks) {
+    static void buildPad(GameTestHelper h, int fins, boolean fullTanks) {
         for (int dx = -2; dx <= 2; dx++) {
             for (int dz = -2; dz <= 2; dz++) {
                 h.setBlock(CENTER.offset(dx, 0, dz), ModBlocks.LAUNCH_PAD.get());

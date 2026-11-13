@@ -1,0 +1,26 @@
+{
+  "tier": 2,
+  "branch": "spaceflight",
+  "cost": 25,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:landing_beacon"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:aerostat_platform"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:cloud_elevator"
+    }
+  ],
+  "icon": "infinite_horizon:landing_beacon",
+  "position": {
+    "column": 1,
+    "row": 2,
+    "slot": 1
+  }
+}

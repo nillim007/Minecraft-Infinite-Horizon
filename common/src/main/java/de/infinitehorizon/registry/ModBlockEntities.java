@@ -153,6 +153,13 @@ public final class ModBlockEntities {
                                     ModBlockEntities.LAUNCH_CONTROL.get(), pos, state),
                             ModBlocks.LAUNCH_CONTROL.get()));
 
+    public static final Supplier<BlockEntityType<de.infinitehorizon.space.LandingBeaconBlockEntity>> LANDING_BEACON =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "landing_beacon",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.space.LandingBeaconBlockEntity(
+                                    ModBlockEntities.LANDING_BEACON.get(), pos, state),
+                            ModBlocks.LANDING_BEACON.get()));
+
     public static final Supplier<BlockEntityType<de.infinitehorizon.space.RocketTankBlockEntity>> ROCKET_TANK_T1 =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "rocket_tank_t1",
                     () -> Services.REGISTRY.blockEntityType(

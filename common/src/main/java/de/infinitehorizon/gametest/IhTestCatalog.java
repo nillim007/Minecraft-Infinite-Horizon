@@ -100,12 +100,15 @@ public final class IhTestCatalog {
             new Test("solar_moonoverride_5jt_polarcrater0", 60, null, "infinite_horizon:moon_day", null, IhGameTestsM4b::solarPanelMoon),  // 6.3, 27.7 M4b
             new Test("exploration_lavatube_20fp", 60, null, null, "infinite_horizon:moon", IhGameTestsM4b::lavaTubeGivesFp),  // 11.1, 27.7 M4b
             new Test("agency_guest_noslotsnobreak_thenjoin", 20, null, null, null, IhGameTestsM4c::guestThenMember),  // 23.1, 27.7 M4c
-            new Test("agency_moonoverride_domeprotection", 40, null, null, null, IhGameTestsM4c::domeProtection),  // 23.2, 10.3, 27.7 M4c
+            new Test("agency_moonoverride_domeprotection", 40, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM4c::domeProtection),  // 23.2, 10.3, 27.7 M4c
             new Test("agency_unownedcrusher_claimedonopen", 20, null, null, null, IhGameTestsM4c::unownedClaimedOnOpen),  // 23.1, 27.7 M4c
             new Test("fuel_earthtomoon_fromregistries_35360", 20, null, null, null, IhGameTestsM4d::fuelCostFromRegistries),  // 12.2, 27.7 M4d (Abnahme 2)
             new Test("launch_threefins_rejected_fourthfin_ready", 20, null, null, null, IhGameTestsM4d::checklistNeedsFourFins),  // 12.4, 27.7 M4d (Abnahme 3)
             new Test("fuelpump_threetanks_evenly_full", 300, null, null, null, IhGameTestsM4d::fuelPumpFillsEvenly),  // 12.4, 27.7 M4d
-            new Test("probe_moon_arriveswithin1320ticks", 1320, null, null, null, IhGameTestsM4d::probeReachesMoon)  // 12.3, 27.7 M4d
+            new Test("probe_moon_arriveswithin1320ticks", 1320, null, null, null, IhGameTestsM4d::probeReachesMoon),  // 12.3, 27.7 M4d
+            new Test("flight_t1_moonandback_fuel_disassemble", 20, null, null, null, IhGameTestsM4e::flightToMoonAndBack),  // 12.5, 27.7 M4e
+            new Test("flight_beacon_moon100_within3", 20, null, null, null, IhGameTestsM4e::beaconLandingWithinRadius),  // 12.6, 27.7 M4e
+            new Test("flight_logoutinflight_reloginseated", 20, null, null, null, IhGameTestsM4e::logoutInFlightRelogSeated)  // 12.5, 27.7 M4e
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

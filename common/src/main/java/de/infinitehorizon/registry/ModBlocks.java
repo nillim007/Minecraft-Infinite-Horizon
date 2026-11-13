@@ -119,6 +119,10 @@ public final class ModBlocks {
     public static final Supplier<Block> LAUNCH_CONTROL = register("launch_control",
             p -> new de.infinitehorizon.space.LaunchControlBlock(p, () -> ModBlockEntities.LAUNCH_CONTROL.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Landefeuer (12.6): roter Strahl, Landeziel in der Navigationskarte. */
+    public static final Supplier<Block> LANDING_BEACON = register("landing_beacon",
+            p -> new de.infinitehorizon.space.LandingBeaconBlock(p, () -> ModBlockEntities.LANDING_BEACON.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     /** Sonde als Block auf der Rampe (12.3). */
     public static final Supplier<Block> PROBE = register("probe", Block::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
