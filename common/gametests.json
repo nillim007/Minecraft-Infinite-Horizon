@@ -112,6 +112,10 @@
     {"name": "venus_heattime_3600", "class": "IhGameTestsM5d", "method": "venusHeatTime", "ticks": 3700, "ref": "9.1, 27 M5 (Abnahme)"},
     {"name": "venus_aerostat_landingplatform", "class": "IhGameTestsM5d", "method": "aerostatLandingPlatform", "ticks": 20, "ref": "12.8, M5d"},
     {"name": "venus_cloudelevator_ride", "class": "IhGameTestsM5d", "method": "cloudElevatorRide", "ticks": 20, "ref": "12.8, M5d"},
-    {"name": "venus_terrain_belowclouds", "class": "IhGameTestsM5d", "method": "venusTerrainBelowClouds", "ticks": 20, "ref": "12.8, M5d"}
+    {"name": "venus_terrain_belowclouds", "class": "IhGameTestsM5d", "method": "venusTerrainBelowClouds", "ticks": 20, "ref": "12.8, M5d"},
+    {"name": "rover_kit_roundtrip", "class": "IhGameTestsM5e", "method": "kitRoundTrip", "ticks": 20, "ref": "16, M5e"},
+    {"name": "rover_charges_atbattery", "class": "IhGameTestsM5e", "method": "chargesAtBattery", "ticks": 30, "ref": "16, M5e"},
+    {"name": "rover_drill_tocargo", "class": "IhGameTestsM5e", "method": "drillToCargo", "ticks": 20, "ref": "16, M5e"},
+    {"name": "rover_cabin_breathable", "class": "IhGameTestsM5e", "method": "cabinBreathable", "ticks": 20, "ref": "16, M5e"}
   ]
 }

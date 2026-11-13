@@ -1,0 +1,20 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:aluminum_plate",
+      "count": 2
+    },
+    {
+      "ingredient": "minecraft:glowstone_dust",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:rover_headlight",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

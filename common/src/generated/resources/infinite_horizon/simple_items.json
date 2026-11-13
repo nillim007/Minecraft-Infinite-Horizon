@@ -51,7 +51,12 @@
     "cooling_system",
     "advanced_circuit",
     "heat_shield",
-    "tungsten_plate"
+    "tungsten_plate",
+    "rover_scanner",
+    "rover_drill",
+    "rover_headlight",
+    "rover_pressure_cabin",
+    "rover_trailer"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,
@@ -63,6 +68,11 @@
     "oxygen_canister": 1,
     "large_oxygen_canister": 1,
     "transport_tank": 1,
-    "helmet_lamp": 1
+    "helmet_lamp": 1,
+    "rover_scanner": 1,
+    "rover_drill": 1,
+    "rover_headlight": 1,
+    "rover_pressure_cabin": 1,
+    "rover_trailer": 1
   }
 }

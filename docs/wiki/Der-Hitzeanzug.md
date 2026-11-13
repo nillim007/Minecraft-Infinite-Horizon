@@ -37,4 +37,4 @@ Oberhalb der Wolkenschicht füllt sich die Hitzezeit in 1.200 t (60 s) wieder au
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Die Rakete T2](Die-Rakete-T2.md)
+← [Die Rakete T2](Die-Rakete-T2.md) · [Der Rover](Der-Rover.md) →

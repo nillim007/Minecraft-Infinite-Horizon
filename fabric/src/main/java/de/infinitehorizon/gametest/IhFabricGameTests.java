@@ -543,4 +543,24 @@ public class IhFabricGameTests {
     public void venusTerrainBelowclouds(GameTestHelper helper) {
         IhGameTestsM5d.venusTerrainBelowClouds(helper);
     }
+
+    @GameTest(maxTicks = 20)
+    public void roverKitRoundtrip(GameTestHelper helper) {
+        IhGameTestsM5e.kitRoundTrip(helper);
+    }
+
+    @GameTest(maxTicks = 30)
+    public void roverChargesAtbattery(GameTestHelper helper) {
+        IhGameTestsM5e.chargesAtBattery(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void roverDrillTocargo(GameTestHelper helper) {
+        IhGameTestsM5e.drillToCargo(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void roverCabinBreathable(GameTestHelper helper) {
+        IhGameTestsM5e.cabinBreathable(helper);
+    }
 }

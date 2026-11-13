@@ -125,7 +125,11 @@ public final class IhTestCatalog {
             new Test("venus_heattime_3600", 3700, null, null, null, IhGameTestsM5d::venusHeatTime),  // 9.1, 27 M5 (Abnahme)
             new Test("venus_aerostat_landingplatform", 20, null, null, null, IhGameTestsM5d::aerostatLandingPlatform),  // 12.8, M5d
             new Test("venus_cloudelevator_ride", 20, null, null, null, IhGameTestsM5d::cloudElevatorRide),  // 12.8, M5d
-            new Test("venus_terrain_belowclouds", 20, null, null, null, IhGameTestsM5d::venusTerrainBelowClouds)  // 12.8, M5d
+            new Test("venus_terrain_belowclouds", 20, null, null, null, IhGameTestsM5d::venusTerrainBelowClouds),  // 12.8, M5d
+            new Test("rover_kit_roundtrip", 20, null, null, null, IhGameTestsM5e::kitRoundTrip),  // 16, M5e
+            new Test("rover_charges_atbattery", 30, null, null, null, IhGameTestsM5e::chargesAtBattery),  // 16, M5e
+            new Test("rover_drill_tocargo", 20, null, null, null, IhGameTestsM5e::drillToCargo),  // 16, M5e
+            new Test("rover_cabin_breathable", 20, null, null, null, IhGameTestsM5e::cabinBreathable)  // 16, M5e
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

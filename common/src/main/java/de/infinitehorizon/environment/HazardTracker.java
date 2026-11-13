@@ -113,8 +113,11 @@ public final class HazardTracker {
                     protection.radiationMax(), protection.suppliesOxygen(), protection.deepPressure());
         }
         // Sonnensturm folgt mit Kapitel 19
+        // Druckkabine des Rovers (16): Atemluft und Kabinentemperatur wie unter einer Kuppel T1 (SPEC-GAP #91)
+        EnvironmentInput.DomeCover dome = player.getVehicle() instanceof de.infinitehorizon.vehicle.RoverEntity rover
+                && rover.cabinActive() ? new EnvironmentInput.DomeCover(1, rover.cabinTemperature()) : domeCover(level, pos);
         EnvironmentInput in = new EnvironmentInput(res.planet(), res.zones(), res.biome(), level.getOverworldClockTime(),
-                cover, false, domeCover(level, pos), protection);
+                cover, false, dome, protection);
         return EnvironmentCalculator.compute(in, r);
     }
 

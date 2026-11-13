@@ -1,0 +1,32 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:aluminum_plate",
+      "count": 32
+    },
+    {
+      "ingredient": "infinite_horizon:titanium_plate",
+      "count": 16
+    },
+    {
+      "ingredient": "infinite_horizon:circuit",
+      "count": 4
+    },
+    {
+      "ingredient": "infinite_horizon:solar_panel",
+      "count": 4
+    },
+    {
+      "ingredient": "infinite_horizon:battery",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:rover_kit",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

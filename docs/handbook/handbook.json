@@ -69,6 +69,7 @@
     "minecraft:redstone_block": { "de": "Redstone-Block", "en": "Block of Redstone" },
     "minecraft:basalt": { "de": "Basalt", "en": "Basalt" },
     "minecraft:brick": { "de": "Ziegel", "en": "Brick" },
+    "minecraft:diamond": { "de": "Diamant", "en": "Diamond" },
     "minecraft:redstone_lamp": { "de": "Redstone-Lampe", "en": "Redstone Lamp" },
     "minecraft:water": { "de": "Wasser", "en": "Water" },
     "minecraft:water_bucket": { "de": "Wassereimer", "en": "Water Bucket" },

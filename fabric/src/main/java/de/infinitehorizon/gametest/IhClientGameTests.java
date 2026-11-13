@@ -179,6 +179,7 @@ public class IhClientGameTests implements FabricClientGameTest {
             moon(context, sp);
             flight(context, sp);
             planetView(context, sp, "mars");
+            roverView(context, sp);
             planetView(context, sp, "venus");
         }
     }
@@ -329,6 +330,26 @@ public class IhClientGameTests implements FabricClientGameTest {
                     BuiltInRegistries.BLOCK.getKey(p.level().getBlockState(eye).getBlock()),
                     p.level().getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.WORLD_SURFACE, eye.getX(), eye.getZ()));
         });
+    }
+
+    /** Rover (M5e): auf dem Mars vor dem Spieler aufstellen und fotografieren. */
+    private static void roverView(ClientGameTestContext context, TestSingleplayerContext sp) {
+        sp.getServer().runOnServer(server -> {
+            net.minecraft.server.level.ServerPlayer p = server.getPlayerList().getPlayers().getFirst();
+            net.minecraft.server.level.ServerLevel level = p.level();
+            net.minecraft.world.phys.Vec3 front = p.position().add(p.getLookAngle().multiply(1, 0, 1).normalize().scale(8));
+            BlockPos ground = level.getHeightmapPos(net.minecraft.world.level.levelgen.Heightmap.Types.WORLD_SURFACE,
+                    BlockPos.containing(front));
+            var rover = de.infinitehorizon.registry.ModEntities.ROVER.get().create(level,
+                    net.minecraft.world.entity.EntitySpawnReason.TRIGGERED);
+            rover.load(new de.infinitehorizon.vehicle.RoverData(0, 1800, List.of(de.infinitehorizon.vehicle.RoverEntity.CABIN),
+                    List.of()), null);
+            rover.setPos(ground.getX() + 0.5, ground.getY(), ground.getZ() + 0.5);
+            level.addFreshEntity(rover);
+        });
+        context.waitTicks(20);
+        clearChat(context);
+        context.takeScreenshot("world_mars_rover");
     }
 
     /** Handbuch (24.1, 27.3 M2f): öffnen, einem Link folgen, Seite eines Items finden; Screenshots. */

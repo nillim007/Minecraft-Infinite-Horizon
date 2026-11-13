@@ -111,6 +111,12 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Rohnickel](Der-Mars.md) | Item | Abbau, Maschine |
 | [Rohtitan](Rohstoffe-und-Erze.md) | Item | Abbau |
 | [Rohwolfram](Die-Venus.md) | Item | Abbau |
+| [Rover-Anhänger](Der-Rover.md) | Item | Rezept |
+| [Rover-Bausatz](Der-Rover.md) | Item | Rezept |
+| [Rover-Bohrer](Der-Rover.md) | Item | Rezept |
+| [Rover-Druckkabine](Der-Rover.md) | Item | Rezept |
+| [Rover-Scanner](Der-Rover.md) | Item | Rezept |
+| [Rover-Scheinwerfer](Der-Rover.md) | Item | Rezept |
 | [Sauerstoff](Elektrolyseur.md) | Fluid | Maschine |
 | [Sauerstoffflasche](Sauerstoff-speichern.md) | Item | Rezept |
 | [Sauerstoffgenerator](Sauerstoffgenerator.md) | Block | Rezept |

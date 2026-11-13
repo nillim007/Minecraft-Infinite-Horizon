@@ -104,6 +104,10 @@ public final class ModItems {
     public static final Supplier<Item> HEAT_SUIT_BOOTS = suitPiece("heat_suit", "boots",
             net.minecraft.world.item.equipment.ArmorType.BOOTS);
 
+    /** Rover-Bausatz (16): Rechtsklick auf den Boden stellt den Rover auf. */
+    public static final Supplier<Item> ROVER_KIT = register("rover_kit",
+            p -> new de.infinitehorizon.vehicle.RoverKitItem(p.stacksTo(1)));
+
     /** Planetenatlas (24.2): Rechtsklick öffnet das Atlas-GUI. */
     public static final Supplier<Item> PLANETARY_ATLAS = register("planetary_atlas",
             p -> new de.infinitehorizon.item.AtlasItem(p.stacksTo(1)));

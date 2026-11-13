@@ -30,6 +30,8 @@ public class InfiniteHorizonFabricClient implements ClientModInitializer {
         // Rakete aus ihren Teilen, roter Strahl des Landefeuers (M4e)
         net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(
                 de.infinitehorizon.registry.ModEntities.ROCKET.get(), de.infinitehorizon.client.RocketRenderer::new);
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(
+                de.infinitehorizon.registry.ModEntities.ROVER.get(), de.infinitehorizon.client.RoverRenderer::new);
         net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry.register(
                 de.infinitehorizon.registry.ModBlockEntities.LANDING_BEACON.get(), ctx -> new de.infinitehorizon.client.LandingBeaconRenderer());
         net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents.END_CLIENT_TICK.register(

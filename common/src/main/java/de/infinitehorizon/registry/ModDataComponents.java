@@ -43,6 +43,14 @@ public final class ModDataComponents {
                     .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_INT)
                     .build());
 
+    /** {@code infinite_horizon:rover_data} (16): Energie, O₂, Module und Fracht des abgebauten Rovers. */
+    public static final Supplier<DataComponentType<de.infinitehorizon.vehicle.RoverData>> ROVER_DATA =
+            Services.REGISTRY.register(BuiltInRegistries.DATA_COMPONENT_TYPE, "rover_data",
+                    () -> DataComponentType.<de.infinitehorizon.vehicle.RoverData>builder()
+                            .persistent(de.infinitehorizon.vehicle.RoverData.CODEC)
+                            .networkSynchronized(de.infinitehorizon.vehicle.RoverData.STREAM_CODEC)
+                            .build());
+
     /** {@code infinite_horizon:suit_modules} (9.2): eingebaute Module eines Anzugteils. */
     public static final Supplier<DataComponentType<java.util.List<net.minecraft.resources.Identifier>>> SUIT_MODULES =
             Services.REGISTRY.register(BuiltInRegistries.DATA_COMPONENT_TYPE, "suit_modules",

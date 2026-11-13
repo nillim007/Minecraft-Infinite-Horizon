@@ -1,0 +1,20 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:aluminum_plate",
+      "count": 16
+    },
+    {
+      "ingredient": "minecraft:chest",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:rover_trailer",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

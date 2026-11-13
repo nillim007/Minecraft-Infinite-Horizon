@@ -37,6 +37,18 @@ public final class ModEntities {
                     .sized(1.0f, 1.0f).clientTrackingRange(16).updateInterval(1).noSummon().fireImmune()
                     .build(key("rocket")));
 
+    /** Rover (16): Breite und Höhe aus vehicles.json ({@code size}); Länge wie Breite (quadratische Hitbox). */
+    public static final Supplier<EntityType<de.infinitehorizon.vehicle.RoverEntity>> ROVER = Services.REGISTRY.register(
+            BuiltInRegistries.ENTITY_TYPE, "rover", () -> {
+                com.google.gson.JsonObject size = de.infinitehorizon.vehicle.RoverEntity.rules().has("size")
+                        ? de.infinitehorizon.vehicle.RoverEntity.rules().getAsJsonObject("size") : new com.google.gson.JsonObject();
+                float w = size.has("width") ? size.get("width").getAsFloat() : 1;
+                float h = size.has("height") ? size.get("height").getAsFloat() : 1;
+                return EntityType.Builder.<de.infinitehorizon.vehicle.RoverEntity>of(de.infinitehorizon.vehicle.RoverEntity::new,
+                        MobCategory.MISC).sized(w, h).clientTrackingRange(10).updateInterval(1).noSummon().fireImmune()
+                        .build(key("rover"));
+            });
+
     private ModEntities() {
     }
 

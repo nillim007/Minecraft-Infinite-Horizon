@@ -39,6 +39,7 @@ public class InfiniteHorizonNeoForgeClient {
             e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.PROBE_ENTITY.get(), de.infinitehorizon.client.ProbeRenderer::new);
             e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.SEAT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
             e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.ROCKET.get(), de.infinitehorizon.client.RocketRenderer::new);
+            e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.ROVER.get(), de.infinitehorizon.client.RoverRenderer::new);
             e.registerBlockEntityRenderer(de.infinitehorizon.registry.ModBlockEntities.LANDING_BEACON.get(),
                     ctx -> new de.infinitehorizon.client.LandingBeaconRenderer());
         });

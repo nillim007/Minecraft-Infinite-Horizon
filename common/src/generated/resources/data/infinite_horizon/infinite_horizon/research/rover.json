@@ -1,0 +1,38 @@
+{
+  "tier": 2,
+  "branch": "spaceflight",
+  "cost": 25,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:rover_kit"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:rover_scanner"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:rover_drill"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:rover_headlight"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:rover_pressure_cabin"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:rover_trailer"
+    }
+  ],
+  "icon": "infinite_horizon:rover_kit",
+  "position": {
+    "column": 1,
+    "row": 2,
+    "slot": 2
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:aluminum_plate",
+      "count": 8
+    },
+    {
+      "ingredient": "minecraft:glass",
+      "count": 4
+    },
+    {
+      "ingredient": "infinite_horizon:oxygen_canister",
+      "count": 2
+    },
+    {
+      "ingredient": "infinite_horizon:pressure_hull",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:rover_pressure_cabin",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

@@ -169,9 +169,17 @@ public final class CloudLayer {
             }
             from.setLink(target, false);
         }
-        // SPEC-GAP #90: Fahrzeuge im Umkreis vehicle_radius kommen mit dem Rover (M5e)
-        player.teleport(new TeleportTransition(level, Vec3.atBottomCenterOf(target.above()), Vec3.ZERO, player.getYRot(),
-                player.getXRot(), TeleportTransition.DO_NOTHING));
+        // Fahrzeuge im Umkreis vehicle_radius fahren mit (16), mit ihren Insassen
+        double r = num(elevator(), "vehicle_radius");
+        Vec3 arrive = Vec3.atBottomCenterOf(target.above());
+        for (de.infinitehorizon.vehicle.RoverEntity rover : level.getEntitiesOfClass(de.infinitehorizon.vehicle.RoverEntity.class,
+                new net.minecraft.world.phys.AABB(station).inflate(r))) {
+            rover.teleportTo(arrive.x, arrive.y, arrive.z);
+        }
+        if (!player.isPassenger()) {
+            player.teleport(new TeleportTransition(level, arrive, Vec3.ZERO, player.getYRot(), player.getXRot(),
+                    TeleportTransition.DO_NOTHING));
+        }
         return true;
     }
 }
