@@ -1,0 +1,28 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:aluminum_plate",
+      "count": 8
+    },
+    {
+      "ingredient": "infinite_horizon:circuit",
+      "count": 2
+    },
+    {
+      "ingredient": "infinite_horizon:solar_panel",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:probe",
+      "count": 1,
+      "chance": 1.0
+    }
+  ],
+  "fluid": {
+    "fluid": "infinite_horizon:kerosene",
+    "amount": 16000
+  }
+}

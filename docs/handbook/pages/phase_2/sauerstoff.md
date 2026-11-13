@@ -5,7 +5,7 @@ order: 40
 milestone: 3
 requires: ["infinite_horizon:oxygen_canister"]
 icon: infinite_horizon:oxygen_canister
-items: ["infinite_horizon:oxygen_canister", "infinite_horizon:large_oxygen_canister", "infinite_horizon:pressure_bottle"]
+items: ["infinite_horizon:oxygen_canister", "infinite_horizon:large_oxygen_canister", "infinite_horizon:pressure_bottle", "infinite_horizon:transport_tank"]
 summary: Flaschen für unterwegs, Druckflaschen als Lager
 ---
 Sauerstoff entsteht im <item:infinite_horizon:electrolyzer> oder im [[sauerstoffgenerator|Sauerstoffgenerator]]. Damit du ihn mitnehmen und lagern kannst, gibt es Flaschen und Druckflaschen.
@@ -29,12 +29,18 @@ Die <item:infinite_horizon:pressure_bottle> ist ein Tank nur für Gase und fasst
 
 @machine infinite_horizon:pressure_bottle
 
+@if infinite_horizon:transport_tank
+## Der Transporttank
+
+Der <item:infinite_horizon:transport_tank> ist ein Behälter für jedes Fluid und fasst {{value:storage:transport_tank.capacity}} mB, aber immer nur ein Fluid auf einmal. Er funktioniert in allen Füll- und Leerslots, auch in der [[raumfahrt|Treibstoffpumpe]]. So bringst du Kerosin oder Sauerstoff zur Startrampe, ohne Rohre zu legen.
+@endif
+
 ## Herstellung
 
 @if infinite_horizon:research_terminal
 @note Die Flaschen schaltet der Knoten **Druckanzug** frei, die Druckflasche der Knoten **Gasspeicher** (beide Stufe 1, [[forschung|Forschung]]).
 @endif
 
-@recipes_for infinite_horizon:oxygen_canister infinite_horizon:large_oxygen_canister infinite_horizon:pressure_bottle
+@recipes_for infinite_horizon:oxygen_canister infinite_horizon:large_oxygen_canister infinite_horizon:pressure_bottle infinite_horizon:transport_tank
 
 @tip Eine Druckflasche neben dem Sauerstoffgenerator sammelt seinen Überschuss. So hast du immer einen Vorrat für neue Flaschen.

@@ -27,6 +27,10 @@ Die Druckflasche ist ein Tank nur für Gase und fasst 8.000 mB. Sie hat wie der 
 | --- | --- |
 | Speicher | 8.000 mB |
 
+## Der Transporttank
+
+Der Transporttank ist ein Behälter für jedes Fluid und fasst 16.000 mB, aber immer nur ein Fluid auf einmal. Er funktioniert in allen Füll- und Leerslots, auch in der [Treibstoffpumpe](Startrampe-und-Sonde.md). So bringst du Kerosin oder Sauerstoff zur Startrampe, ohne Rohre zu legen.
+
 ## Herstellung
 
 > [!NOTE]
@@ -34,6 +38,7 @@ Die Druckflasche ist ein Tank nur für Gase und fasst 8.000 mB. Sie hat wie der 
 
 | Rezept | Zutaten → Ergebnis | Wo | Dauer |
 | --- | --- | --- | --- |
+| <img src="images/rezepte/assembly_transport_tank.svg" alt="Rezept" width="300"> | 4 × [Aluminiumplatte](Presse.md), 1 × [Druckhülle](Sauerstoffgenerator.md) → 1 × Transporttank | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_oxygen_canister.svg" alt="Rezept" width="300"> | 2 × [Aluminiumplatte](Presse.md), 1 × [Kupferrohr](Fluide-und-Rohre.md) → 1 × Sauerstoffflasche | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_large_oxygen_canister.svg" alt="Rezept" width="300"> | 2 × Sauerstoffflasche, 1 × [Titanplatte](Presse.md) → 1 × Große Sauerstoffflasche | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_pressure_bottle.svg" alt="Rezept" width="300"> | 4 × [Aluminiumplatte](Presse.md), 1 × [Kupferrohr](Fluide-und-Rohre.md) → 1 × Druckflasche | Montagetisch | 200 t (10 s)<br>30 J/t |

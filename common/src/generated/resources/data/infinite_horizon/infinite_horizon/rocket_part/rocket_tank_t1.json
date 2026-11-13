@@ -1,0 +1,15 @@
+{
+  "block": "infinite_horizon:rocket_tank_t1",
+  "role": "tank",
+  "tier": 1,
+  "usable_in_tiers": [
+    1
+  ],
+  "mass": 2.0,
+  "fuel_capacity": 16000,
+  "fuel_mass_full": 2.0,
+  "thrust": 0,
+  "cargo_slots": 0,
+  "mass_per_slot": 0.0,
+  "seats": 0
+}

@@ -19,6 +19,12 @@ public class InfiniteHorizonFabricClient implements ClientModInitializer {
         FabricNetworkHelper.clientEntries().forEach(InfiniteHorizonFabricClient::register);
         MenuScreens.register(ModMenus.MACHINE.get(), MachineScreen::new);
         MenuScreens.register(ModMenus.RESEARCH_TERMINAL.get(), de.infinitehorizon.client.ResearchTerminalScreen::new);
+        MenuScreens.register(ModMenus.LAUNCH_CONTROL.get(), de.infinitehorizon.client.LaunchControlScreen::new);
+        // Entities (M4): Sonde als Block, Sitz unsichtbar
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(
+                de.infinitehorizon.registry.ModEntities.PROBE_ENTITY.get(), de.infinitehorizon.client.ProbeRenderer::new);
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(
+                de.infinitehorizon.registry.ModEntities.SEAT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents.END_CLIENT_TICK.register(
                 client -> de.infinitehorizon.client.DomeVisuals.tick());
         // Umwelt-HUD (8.4) über der Hungerleiste

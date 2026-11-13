@@ -1,0 +1,28 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:machine_frame",
+      "count": 1
+    },
+    {
+      "ingredient": "infinite_horizon:copper_pipe",
+      "count": 4
+    },
+    {
+      "ingredient": "infinite_horizon:aluminum_plate",
+      "count": 2
+    },
+    {
+      "ingredient": "infinite_horizon:circuit",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:fuel_pump",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

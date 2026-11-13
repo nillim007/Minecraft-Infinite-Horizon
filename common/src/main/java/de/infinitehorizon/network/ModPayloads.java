@@ -16,6 +16,7 @@ public final class ModPayloads {
                 payload -> {
                     de.infinitehorizon.data.PlanetRegistry.setClient(de.infinitehorizon.data.PlanetRegistry.fromJson(payload.planets()));
                     de.infinitehorizon.data.ResearchRegistry.setClient(de.infinitehorizon.data.ResearchRegistry.fromJson(payload.research()));
+                    de.infinitehorizon.data.RocketPartRegistry.setClient(de.infinitehorizon.data.RocketPartRegistry.fromJson(payload.rocketParts()));
                 });
         Services.NETWORK.registerClientbound(AgencyStatePayload.TYPE, AgencyStatePayload.CODEC,
                 payload -> de.infinitehorizon.client.AgencyClientState.receive(payload));
@@ -26,5 +27,8 @@ public final class ModPayloads {
         Services.NETWORK.registerServerbound(MachineConfigPayload.TYPE, MachineConfigPayload.CODEC, MachineConfigPayload::handle);
         Services.NETWORK.registerServerbound(ResearchUnlockPayload.TYPE, ResearchUnlockPayload.CODEC, ResearchUnlockPayload::handle);
         Services.NETWORK.registerServerbound(AgencyActionPayload.TYPE, AgencyActionPayload.CODEC, AgencyActionPayload::handle);
+        Services.NETWORK.registerServerbound(LaunchRequestPayload.TYPE, LaunchRequestPayload.CODEC, LaunchRequestPayload::handle);
+        Services.NETWORK.registerClientbound(LaunchStatePayload.TYPE, LaunchStatePayload.CODEC,
+                payload -> de.infinitehorizon.client.LaunchControlScreen.receive(payload));
     }
 }

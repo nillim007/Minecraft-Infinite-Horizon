@@ -21,7 +21,7 @@ import java.util.Set;
 public final class ComponentContainers {
 
     /** Balance-Dateien, in denen Behälter-Einträge stehen (Item-ID → capacity, fluids). */
-    public static final String[] FILES = {"suits", "items"};
+    public static final String[] FILES = {"suits", "items", "storage"};
 
     /** Fassungsvermögen und erlaubte Fluide eines Behälters. */
     public record Spec(long capacity, Set<Identifier> fluids) {
@@ -46,6 +46,11 @@ public final class ComponentContainers {
                 Set<Identifier> fluids = new LinkedHashSet<>();
                 e.get().getAsJsonArray("fluids").forEach(f -> fluids.add(Identifier.parse(f.getAsString())));
                 return new Spec(e.get().get("capacity").getAsLong(), Set.copyOf(fluids));
+            }
+            // Behälter-Items aus storage.json (transport_tank, 4.1): kind = item, accepts = all → jedes Fluid
+            if (e.isPresent() && e.get().has("capacity") && e.get().has("kind")
+                    && "item".equals(e.get().get("kind").getAsString())) {
+                return new Spec(e.get().get("capacity").getAsLong(), Set.of());
             }
         }
         return null;

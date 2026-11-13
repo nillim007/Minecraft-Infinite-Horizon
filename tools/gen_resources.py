@@ -368,7 +368,8 @@ def recipe_ids(r):
 # Laufzeitfelder eines Planeten (25.1); Zonen mit ihrer ID (für den GameTest-Override, 27)
 PLANET_FIELDS = ["dimension", "type", "orbit", "star_system", "ring", "distance_points", "gravity", "atmosphere",
                  "pressure", "temperature", "biome_temperature_offsets", "biome_temperature_overrides", "radiation",
-                 "solar_factor", "water_behavior", "landing_requires_fuel", "required_rocket_tier", "requires_long_range",
+                 "solar_factor", "water_behavior", "landing_requires_fuel", "launch_cost_override", "required_rocket_tier",
+                 "requires_long_range",
                  "probe", "sky", "gas_collector_output", "zones", "vanilla_mobs"]
 ZONE_FIELDS = ["id", "y_min", "y_max", "biome", "near_block", "temperature", "pressure", "radiation", "solar_factor",
                "atmosphere", "water_behavior"]
@@ -697,6 +698,21 @@ def sampleable_tags(spec, impl, registered):
     write_json(f"data/{NS}/tags/block/sampleable/planet.json", {"values": sorted(b for b in planet if ok(b))})
 
 
+def rocket_resources(spec, registered):
+    """Raketenteile (25.5) in rocket_part/ und Regeln je Stufe in rocket_rules/ (SPEC-GAP #72), nur für registrierte Teile
+    bzw. Stufen mit mindestens einem registrierten Teil."""
+    tiers = set()
+    for part in spec.rocket.get("parts", []):
+        if part["block"] in registered:
+            ns, path = part["block"].split(":", 1)
+            write_json(f"data/{ns}/{NS}/rocket_part/{path}.json", {k: v for k, v in part.items() if k not in ("spec_ref", "notes")})
+            tiers.add(part["tier"])
+    for rule in spec.rocket.get("rules", []):
+        if rule["tier"] in tiers:
+            write_json(f"data/{NS}/{NS}/rocket_rules/tier_{rule['tier']}.json",
+                       {k: v for k, v in rule.items() if k not in ("spec_ref", "notes")})
+
+
 ADVANCEMENT_BACKGROUND = "minecraft:gui/advancements/backgrounds/stone"
 
 
@@ -787,6 +803,12 @@ def main():
                 if e:
                     sns, spath = st["id"].split(":", 1)
                     data[f"structure.{sns}.{spath}"] = e[field]
+        # Entities (M4): Namen aus items.json (kind entity)
+        for eid in impl.get("entities", []):
+            ent = next((x for x in spec.all_entries if x.get("id") == eid and x.get("kind") == "entity"), None)
+            if ent:
+                ens, epath = eid.split(":", 1)
+                data[f"entity.{ens}.{epath}"] = ent[field]
         # Forschung (11.3): Stufen und sichtbare Knoten
         for t in spec.tiers:
             data[f"research.{NS}.tier.{t['tier']}"] = t[field]
@@ -936,6 +958,7 @@ def main():
     research_resources(spec, nodes)
     advancements(spec, impl, registered)
     sampleable_tags(spec, impl, registered)
+    rocket_resources(spec, registered)
 
     # Warntöne (24.6), Anzüge (9.1), Welt ohne Atmosphäre (8.5)
     atmosphere_tag(spec)

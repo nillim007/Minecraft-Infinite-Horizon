@@ -1,0 +1,24 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:aluminum_plate",
+      "count": 40
+    },
+    {
+      "ingredient": "infinite_horizon:titanium_plate",
+      "count": 16
+    },
+    {
+      "ingredient": "infinite_horizon:circuit",
+      "count": 16
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:rocket_capsule_t1",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

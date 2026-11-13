@@ -18,6 +18,7 @@
   "solar_factor": 1.0,
   "water_behavior": "normal",
   "landing_requires_fuel": false,
+  "launch_cost_override": null,
   "required_rocket_tier": 1,
   "requires_long_range": false,
   "probe": null,

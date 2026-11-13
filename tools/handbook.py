@@ -199,6 +199,10 @@ class Ctx:
             cur = {n["id"].split(":", 1)[1]: n for n in self.spec.nodes}
         elif file == "tier":
             cur = {str(t["tier"]): t for t in self.spec.tiers}
+        elif file == "rocket_parts":
+            # {{value:rocket_parts:parts.rocket_tank_t1.fuel_capacity}}, {{value:rocket_parts:rules.1.tanks.0}} (27.6)
+            cur = {"parts": {pt["block"].split(":", 1)[1]: pt for pt in self.spec.rocket.get("parts", [])},
+                   "rules": {str(r["tier"]): r for r in self.spec.rocket.get("rules", [])}}
         else:
             cur = self.spec.balance.get(file)
         if cur is None:
@@ -577,11 +581,20 @@ def md_table(headers, rows) -> str:
 # ---------------------------------------------------------------- Maschinen-Steckbrief
 
 def machine_rows(ctx: Ctx, block: str) -> list:
-    v = ctx.machine_values(block)
     rows = []
+    # Startrampe (4.3): Werte aus machines.json → launch_pad_t1_multiblock (27.6)
+    if block == f"{NS}:launch_pad":
+        m = ctx.spec.balance.get("machines", {}).get("launch_pad_t1_multiblock", {})
+        size = m.get("platform", {}).get("size", [0, 0])
+        rows.append(["Plattform", f"{size[0]} × {size[1]} <item:{NS}:launch_pad>"])
+        rows.append(["Turm", f"<item:{NS}:launch_tower> neben dem Rand, mindestens so hoch wie die Rakete"])
+        rows.append(["Pumpe", f"mindestens eine <item:{NS}:fuel_pump> an Plattform oder Turm"])
+        rows.append(["Steuerpult", f"<item:{NS}:launch_control> höchstens {num(m.get('control_radius', 0))} Blöcke von der Mitte"])
+        return rows
+    v = ctx.machine_values(block)
     if not v:
         return rows
-    if "energy_per_tick" in v:
+    if "energy_per_tick" in v and v["energy_per_tick"]:
         rows.append(["Verbrauch", f"{num(v['energy_per_tick'])} J/t"])
     if v.get("ticks"):
         rows.append(["Dauer je Vorgang", ticks_text(v["ticks"])])
@@ -603,6 +616,8 @@ def machine_rows(ctx: Ctx, block: str) -> list:
         rows.append(["Tanks", ", ".join(f"{num(t.get('capacity', 0))} mB" for t in tanks)])
     if v.get("upgrade_slots"):
         rows.append(["Upgrade-Slots", str(v["upgrade_slots"])])
+    if v.get("transfer_per_tick"):
+        rows.append(["Abgabe", f"{num(v['transfer_per_tick'])} mB/t je Komponente"])
     # Kuppelgeneratoren (domes.json, 10.1)
     if v.get("radius"):
         rows.append(["Radius", f"{num(v['radius'])} Blöcke"])

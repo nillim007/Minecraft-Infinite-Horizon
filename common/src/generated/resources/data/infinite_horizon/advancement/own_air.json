@@ -1,5 +1,5 @@
 {
-  "parent": "infinite_horizon:ground_station",
+  "parent": "infinite_horizon:first_signal",
   "criteria": {
     "done": {
       "trigger": "minecraft:impossible"

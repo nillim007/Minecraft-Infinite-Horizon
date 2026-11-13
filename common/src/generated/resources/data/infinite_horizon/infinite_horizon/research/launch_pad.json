@@ -1,0 +1,30 @@
+{
+  "tier": 1,
+  "branch": "spaceflight",
+  "cost": 10,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:launch_pad"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:launch_tower"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:fuel_pump"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:launch_control"
+    }
+  ],
+  "icon": "infinite_horizon:launch_pad",
+  "position": {
+    "column": 1,
+    "row": 1,
+    "slot": 0
+  }
+}

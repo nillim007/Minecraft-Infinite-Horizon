@@ -1,0 +1,24 @@
+{
+  "parent": "infinite_horizon:ground_station",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "infinite_horizon:probe"
+    },
+    "title": {
+      "translate": "advancements.infinite_horizon.first_signal.title"
+    },
+    "description": {
+      "translate": "advancements.infinite_horizon.first_signal.description"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

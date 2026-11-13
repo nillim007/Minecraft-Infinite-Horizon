@@ -423,4 +423,24 @@ public class IhFabricGameTests {
     public void agencyUnownedcrusherClaimedonopen(GameTestHelper helper) {
         IhGameTestsM4c.unownedClaimedOnOpen(helper);
     }
+
+    @GameTest(maxTicks = 20)
+    public void fuelEarthtomoonFromregistries35360(GameTestHelper helper) {
+        IhGameTestsM4d.fuelCostFromRegistries(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void launchThreefinsRejectedFourthfinReady(GameTestHelper helper) {
+        IhGameTestsM4d.checklistNeedsFourFins(helper);
+    }
+
+    @GameTest(maxTicks = 300)
+    public void fuelpumpThreetanksEvenlyFull(GameTestHelper helper) {
+        IhGameTestsM4d.fuelPumpFillsEvenly(helper);
+    }
+
+    @GameTest(maxTicks = 1320)
+    public void probeMoonArriveswithin1320ticks(GameTestHelper helper) {
+        IhGameTestsM4d.probeReachesMoon(helper);
+    }
 }

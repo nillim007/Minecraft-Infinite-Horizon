@@ -30,6 +30,12 @@ public class InfiniteHorizonNeoForgeClient {
         modBus.addListener((RegisterMenuScreensEvent e) -> {
             e.register(ModMenus.MACHINE.get(), MachineScreen::new);
             e.register(ModMenus.RESEARCH_TERMINAL.get(), de.infinitehorizon.client.ResearchTerminalScreen::new);
+            e.register(ModMenus.LAUNCH_CONTROL.get(), de.infinitehorizon.client.LaunchControlScreen::new);
+        });
+        // Entities (M4): Sonde als Block, Sitz unsichtbar
+        modBus.addListener((net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterRenderers e) -> {
+            e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.PROBE_ENTITY.get(), de.infinitehorizon.client.ProbeRenderer::new);
+            e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.SEAT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
         });
         NeoForge.EVENT_BUS.addListener((ClientTickEvent.Post e) -> de.infinitehorizon.client.DomeVisuals.tick());
         // Umwelt-HUD (8.4) über der Hungerleiste

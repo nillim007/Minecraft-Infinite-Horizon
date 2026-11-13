@@ -30,7 +30,8 @@
     "titanium_rod",
     "pressure_hull",
     "oxygen_canister",
-    "large_oxygen_canister"
+    "large_oxygen_canister",
+    "transport_tank"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,
@@ -41,6 +42,7 @@
     "press_mold_wire": 1,
     "speed_upgrade": 16,
     "oxygen_canister": 1,
-    "large_oxygen_canister": 1
+    "large_oxygen_canister": 1,
+    "transport_tank": 1
   }
 }

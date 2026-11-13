@@ -8,7 +8,8 @@
   "items": [
     "infinite_horizon:oxygen_canister",
     "infinite_horizon:large_oxygen_canister",
-    "infinite_horizon:pressure_bottle"
+    "infinite_horizon:pressure_bottle",
+    "infinite_horizon:transport_tank"
   ],
   "elements": [
     {
@@ -75,13 +76,49 @@
       "level": 2
     },
     {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.sauerstoff.e9"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.sauerstoff.e10",
+      "level": 2
+    },
+    {
       "type": "callout",
-      "key": "infinite_horizon.handbook.phase_2.sauerstoff.e9",
+      "key": "infinite_horizon.handbook.phase_2.sauerstoff.e11",
       "style": "note"
     },
     {
       "type": "recipes",
       "recipes": [
+        {
+          "id": "infinite_horizon:assembly/transport_tank",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:pressure_hull"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:transport_tank",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
         {
           "id": "infinite_horizon:assembly/oxygen_canister",
           "type": "infinite_horizon:assembly",
@@ -167,7 +204,7 @@
     },
     {
       "type": "callout",
-      "key": "infinite_horizon.handbook.phase_2.sauerstoff.e11",
+      "key": "infinite_horizon.handbook.phase_2.sauerstoff.e13",
       "style": "tip"
     }
   ]

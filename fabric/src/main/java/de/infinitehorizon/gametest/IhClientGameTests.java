@@ -114,6 +114,7 @@ public class IhClientGameTests implements FabricClientGameTest {
                 fillEnergy(be, 2);
             });
             machine(context, sp, ModBlocks.SOLAR_PANEL.get(), "gui_solar_panel", be -> fillEnergy(be, 4));
+            launchPad(context, sp);
 
             // Alle Blöcke nebeneinander in der Welt (Modelle, Texturen, Statuslampe)
             BlockPos base = context.computeOnClient(c -> BlockPos.containing(c.player.position()).north(3));
@@ -407,6 +408,66 @@ public class IhClientGameTests implements FabricClientGameTest {
         }
         context.takeScreenshot("gui_research_agency");
         closeAndRemove(context, sp, pos);
+    }
+
+    /**
+     * Startrampe mit Rakete T1 (M4d, 27.7): 5×5-Plattform, Turm, Pumpe, Steuerpult, Triebwerk, 4 Flossen, 3 volle Tanks,
+     * Kapsel. Bild der Rampe in der Welt, dann der Raketen-Computer mit Checkliste (nur die Besatzung fehlt).
+     */
+    private static void launchPad(ClientGameTestContext context, TestSingleplayerContext sp) {
+        BlockPos center = context.computeOnClient(c -> BlockPos.containing(c.player.position()).north(9).below());
+        String pad = "infinite_horizon:launch_pad";
+        sp.getServer().runCommand("fill %d %d %d %d %d %d %s".formatted(center.getX() - 2, center.getY(), center.getZ() - 2,
+                center.getX() + 2, center.getY(), center.getZ() + 2, pad));
+        BlockPos tower = center.east(3);
+        sp.getServer().runCommand("fill %d %d %d %d %d %d infinite_horizon:launch_tower".formatted(tower.getX(), tower.getY(),
+                tower.getZ(), tower.getX(), tower.getY() + 4, tower.getZ()));
+        BlockPos pump = tower.north();
+        setBlock(sp, pump, ModBlocks.FUEL_PUMP.get());
+        BlockPos control = center.south(3).west(3).above();
+        sp.getServer().runCommand("setblock %d %d %d infinite_horizon:launch_control[facing=south]".formatted(
+                control.getX(), control.getY(), control.getZ()));
+        BlockPos engine = center.above();
+        setBlock(sp, engine, ModBlocks.ROCKET_ENGINE_T1.get());
+        for (net.minecraft.core.Direction d : net.minecraft.core.Direction.Plane.HORIZONTAL) {
+            setBlock(sp, engine.relative(d), ModBlocks.ROCKET_FIN_T1.get());
+        }
+        for (int i = 1; i <= 3; i++) {
+            setBlock(sp, engine.above(i), ModBlocks.ROCKET_TANK_T1.get());
+        }
+        setBlock(sp, engine.above(4), ModBlocks.ROCKET_CAPSULE_T1.get());
+        context.waitTicks(5);
+        sp.getServer().runOnServer(server -> {
+            ServerLevel level = sp.getConnection().getServerLevel();
+            for (int i = 1; i <= 3; i++) {
+                if (level.getBlockEntity(engine.above(i)) instanceof de.infinitehorizon.space.RocketTankBlockEntity t) {
+                    t.setFuel(0, t.capacity());
+                    t.setFuel(1, t.capacity());
+                }
+            }
+        });
+        context.waitTicks(5);
+        clearChat(context);
+        context.getInput().lookAt(engine.above(2));
+        context.waitTicks(5);
+        context.takeScreenshot("world_launch_pad");
+
+        context.getInput().lookAt(control);
+        context.waitTick();
+        context.getInput().pressKey(options -> options.keyUse);
+        context.waitForScreen(de.infinitehorizon.client.LaunchControlScreen.class);
+        context.waitTicks(25);
+        List<String> failed = context.computeOnClient(c -> c.gui.screen() instanceof de.infinitehorizon.client.LaunchControlScreen s
+                ? s.failedChecks() : List.of("kein Bildschirm"));
+        if (!failed.equals(List.of("crew"))) {
+            throw new AssertionError("Checkliste: offen " + failed + ", erwartet nur crew");
+        }
+        clearChat(context);
+        context.takeScreenshot("gui_launch_control");
+        context.setScreen(() -> null);
+        sp.getServer().runCommand("fill %d %d %d %d %d %d air".formatted(center.getX() - 3, center.getY() + 1, center.getZ() - 3,
+                center.getX() + 3, center.getY() + 6, center.getZ() + 3));
+        context.waitTick();
     }
 
     /** Knopf „Tank“ im Elektrolyseur: wählt Tank 2 der Ausgänge (Sauerstoff) auf dem Server (4.1). */

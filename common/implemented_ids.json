@@ -37,7 +37,17 @@
     "infinite_horizon:research_terminal": "machine",
     "infinite_horizon:analyzer": "machine",
     "infinite_horizon:solar_panel": "machine",
-    "infinite_horizon:aluminum_cable": "cable"
+    "infinite_horizon:aluminum_cable": "cable",
+    "infinite_horizon:launch_pad": "casing",
+    "infinite_horizon:launch_tower": "casing",
+    "infinite_horizon:fuel_pump": "machine",
+    "infinite_horizon:launch_control": "machine",
+    "infinite_horizon:probe": "casing",
+    "infinite_horizon:rocket_capsule_t1": "casing",
+    "infinite_horizon:rocket_tank_t1": "casing",
+    "infinite_horizon:rocket_engine_t1": "casing",
+    "infinite_horizon:rocket_fin_t1": "casing",
+    "infinite_horizon:rocket_cargo_bay": "casing"
   },
   "items": [
     "infinite_horizon:aluminum_dust",
@@ -77,7 +87,8 @@
     "infinite_horizon:pressure_suit_leggings",
     "infinite_horizon:pressure_suit_boots",
     "infinite_horizon:sample_tool",
-    "infinite_horizon:sample"
+    "infinite_horizon:sample",
+    "infinite_horizon:transport_tank"
   ],
   "fluids": [
     "crude_oil",
@@ -85,10 +96,10 @@
     "hydrogen",
     "oxygen"
   ],
-  "step": "4c",
+  "step": "4d",
   "dimensions": ["infinite_horizon:moon"],
-  "entities": [],
-  "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:own_air"],
+  "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity"],
+  "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:first_signal", "infinite_horizon:own_air"],
   "item_classes": {
     "_comment": "Items mit eigenem Verhalten; sie fehlen in simple_items.json und werden in ModItems registriert.",
     "infinite_horizon:engineers_handbook": "handbook",

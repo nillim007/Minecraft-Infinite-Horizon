@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 4c · Mod-Version 0.1.0
+> Stand: Meilenstein 4d · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -50,6 +50,8 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Der Druckanzug](Der-Druckanzug.md) – Dein Schutz im Vakuum: vier Teile, ein Sauerstoffvorrat
 - [Sauerstoff speichern](Sauerstoff-speichern.md) – Flaschen für unterwegs, Druckflaschen als Lager
 - [Strom im All](Strom-im-All.md) – Solarpanel und Aluminiumkabel
+- [Startrampe und Sonde](Startrampe-und-Sonde.md) – Startrampe bauen, betanken und die erste Sonde schicken
+- [Die Rakete](Die-Rakete.md) – Raketenteile, Aufbau, Schub und Treibstoff
 
 ## Phase 3 · Ring 1
 

@@ -195,6 +195,15 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
         }
         if ("leader".equals(st.ownRole())) {
             g.text(font, Component.translatable("gui.infinite_horizon.agency.invite_title"), rightX, y, TEXT, false);
+            boolean anyone = false;
+            if (minecraft != null && minecraft.getConnection() != null) {
+                java.util.Set<java.util.UUID> members = new java.util.HashSet<>();
+                st.members().forEach(m -> members.add(m.player()));
+                anyone = minecraft.getConnection().getOnlinePlayers().stream().anyMatch(i -> !members.contains(i.getProfile().id()));
+            }
+            if (!anyone) {
+                g.text(font, Component.translatable("gui.infinite_horizon.agency.nobody_online"), rightX, y + LINE_H, 0xFF808080, false);
+            }
         }
         if (!st.invites().isEmpty()) {
             int jy = invitesTop(st);

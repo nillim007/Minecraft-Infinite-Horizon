@@ -101,7 +101,11 @@ public final class IhTestCatalog {
             new Test("exploration_lavatube_20fp", 60, null, null, "infinite_horizon:moon", IhGameTestsM4b::lavaTubeGivesFp),  // 11.1, 27.7 M4b
             new Test("agency_guest_noslotsnobreak_thenjoin", 20, null, null, null, IhGameTestsM4c::guestThenMember),  // 23.1, 27.7 M4c
             new Test("agency_moonoverride_domeprotection", 40, null, null, null, IhGameTestsM4c::domeProtection),  // 23.2, 10.3, 27.7 M4c
-            new Test("agency_unownedcrusher_claimedonopen", 20, null, null, null, IhGameTestsM4c::unownedClaimedOnOpen)  // 23.1, 27.7 M4c
+            new Test("agency_unownedcrusher_claimedonopen", 20, null, null, null, IhGameTestsM4c::unownedClaimedOnOpen),  // 23.1, 27.7 M4c
+            new Test("fuel_earthtomoon_fromregistries_35360", 20, null, null, null, IhGameTestsM4d::fuelCostFromRegistries),  // 12.2, 27.7 M4d (Abnahme 2)
+            new Test("launch_threefins_rejected_fourthfin_ready", 20, null, null, null, IhGameTestsM4d::checklistNeedsFourFins),  // 12.4, 27.7 M4d (Abnahme 3)
+            new Test("fuelpump_threetanks_evenly_full", 300, null, null, null, IhGameTestsM4d::fuelPumpFillsEvenly),  // 12.4, 27.7 M4d
+            new Test("probe_moon_arriveswithin1320ticks", 1320, null, null, null, IhGameTestsM4d::probeReachesMoon)  // 12.3, 27.7 M4d
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

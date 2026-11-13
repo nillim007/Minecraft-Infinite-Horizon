@@ -1,0 +1,298 @@
+{
+  "id": "infinite_horizon:phase_2/raumfahrt",
+  "chapter": "infinite_horizon:phase_2",
+  "title": "infinite_horizon.handbook.phase_2.raumfahrt.title",
+  "icon": "infinite_horizon:launch_control",
+  "order": 60,
+  "unlock": null,
+  "items": [
+    "infinite_horizon:launch_pad",
+    "infinite_horizon:launch_tower",
+    "infinite_horizon:fuel_pump",
+    "infinite_horizon:launch_control",
+    "infinite_horizon:probe"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.raumfahrt.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.raumfahrt.e1",
+      "level": 2
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:launch_pad",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_2.raumfahrt.e2.0.label",
+          "infinite_horizon.handbook.phase_2.raumfahrt.e2.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.raumfahrt.e2.1.label",
+          "infinite_horizon.handbook.phase_2.raumfahrt.e2.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.raumfahrt.e2.2.label",
+          "infinite_horizon.handbook.phase_2.raumfahrt.e2.2.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.raumfahrt.e2.3.label",
+          "infinite_horizon.handbook.phase_2.raumfahrt.e2.3.value"
+        ]
+      ]
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_2.raumfahrt.e3.0",
+        "infinite_horizon.handbook.phase_2.raumfahrt.e3.1",
+        "infinite_horizon.handbook.phase_2.raumfahrt.e3.2",
+        "infinite_horizon.handbook.phase_2.raumfahrt.e3.3"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.raumfahrt.e4"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.raumfahrt.e5",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.raumfahrt.e6"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:fuel_pump",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_2.raumfahrt.e7.0.label",
+          "infinite_horizon.handbook.phase_2.raumfahrt.e7.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.raumfahrt.e7.1.label",
+          "infinite_horizon.handbook.phase_2.raumfahrt.e7.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.raumfahrt.e7.2.label",
+          "infinite_horizon.handbook.phase_2.raumfahrt.e7.2.value"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.raumfahrt.e8"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.raumfahrt.e9",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_2.raumfahrt.e10.0",
+        "infinite_horizon.handbook.phase_2.raumfahrt.e10.1",
+        "infinite_horizon.handbook.phase_2.raumfahrt.e10.2",
+        "infinite_horizon.handbook.phase_2.raumfahrt.e10.3",
+        "infinite_horizon.handbook.phase_2.raumfahrt.e10.4"
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.raumfahrt.e11",
+      "style": "note"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.raumfahrt.e12",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/launch_pad",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:iron_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:launch_pad",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/launch_tower",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:iron_rod"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:iron_plate"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:launch_tower",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/fuel_pump",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:machine_frame"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:fuel_pump",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/launch_control",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:machine_frame"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:launch_control",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/probe",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:solar_panel"
+              ],
+              "count": 1
+            }
+          ],
+          "fluid": {
+            "fluid": "infinite_horizon:kerosene",
+            "amount": 16000
+          },
+          "results": [
+            {
+              "item": "infinite_horizon:probe",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.raumfahrt.e14",
+      "style": "tip"
+    }
+  ]
+}

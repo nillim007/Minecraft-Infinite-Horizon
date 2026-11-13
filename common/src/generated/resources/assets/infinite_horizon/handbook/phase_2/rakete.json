@@ -1,0 +1,298 @@
+{
+  "id": "infinite_horizon:phase_2/rakete",
+  "chapter": "infinite_horizon:phase_2",
+  "title": "infinite_horizon.handbook.phase_2.rakete.title",
+  "icon": "infinite_horizon:rocket_capsule_t1",
+  "order": 70,
+  "unlock": null,
+  "items": [
+    "infinite_horizon:rocket_capsule_t1",
+    "infinite_horizon:rocket_tank_t1",
+    "infinite_horizon:rocket_engine_t1",
+    "infinite_horizon:rocket_fin_t1",
+    "infinite_horizon:rocket_cargo_bay"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.rakete.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.rakete.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.rakete.e2"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_2.rakete.e3.0",
+        "infinite_horizon.handbook.phase_2.rakete.e3.1",
+        "infinite_horizon.handbook.phase_2.rakete.e3.2",
+        "infinite_horizon.handbook.phase_2.rakete.e3.3",
+        "infinite_horizon.handbook.phase_2.rakete.e3.4"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.rakete.e4",
+      "level": 2
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.phase_2.rakete.e5.h0",
+        "infinite_horizon.handbook.phase_2.rakete.e5.h1"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_2.rakete.e5.r0.0",
+          "infinite_horizon.handbook.phase_2.rakete.e5.r0.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.rakete.e5.r1.0",
+          "infinite_horizon.handbook.phase_2.rakete.e5.r1.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.rakete.e5.r2.0",
+          "infinite_horizon.handbook.phase_2.rakete.e5.r2.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.rakete.e5.r3.0",
+          "infinite_horizon.handbook.phase_2.rakete.e5.r3.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.rakete.e5.r4.0",
+          "infinite_horizon.handbook.phase_2.rakete.e5.r4.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_2.rakete.e5.r5.0",
+          "infinite_horizon.handbook.phase_2.rakete.e5.r5.1"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.rakete.e6"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.rakete.e7",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.rakete.e8"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_2.rakete.e9.0",
+        "infinite_horizon.handbook.phase_2.rakete.e9.1",
+        "infinite_horizon.handbook.phase_2.rakete.e9.2"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.rakete.e10"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.rakete.e11",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_2.rakete.e12"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_2.rakete.e13.0",
+        "infinite_horizon.handbook.phase_2.rakete.e13.1",
+        "infinite_horizon.handbook.phase_2.rakete.e13.2",
+        "infinite_horizon.handbook.phase_2.rakete.e13.3",
+        "infinite_horizon.handbook.phase_2.rakete.e13.4"
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.rakete.e14",
+      "style": "warning"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_2.rakete.e15",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/rocket_capsule_t1",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 40
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 16
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:rocket_capsule_t1",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/rocket_tank_t1",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 30
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:rocket_tank_t1",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/rocket_engine_t1",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 32
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 8
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:rocket_engine_t1",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/rocket_fin_t1",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 8
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:rocket_fin_t1",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/rocket_cargo_bay",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "minecraft:chest"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:rocket_cargo_bay",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_2.rakete.e17",
+      "style": "tip"
+    }
+  ]
+}

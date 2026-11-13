@@ -59,6 +59,16 @@ public final class ModItems {
     public static final Supplier<Item> ANALYZER = blockItem("analyzer", ModBlocks.ANALYZER);
     public static final Supplier<Item> SOLAR_PANEL = blockItem("solar_panel", ModBlocks.SOLAR_PANEL);
     public static final Supplier<Item> ALUMINUM_CABLE = blockItem("aluminum_cable", ModBlocks.ALUMINUM_CABLE);
+    public static final Supplier<Item> LAUNCH_PAD = blockItem("launch_pad", ModBlocks.LAUNCH_PAD);
+    public static final Supplier<Item> LAUNCH_TOWER = blockItem("launch_tower", ModBlocks.LAUNCH_TOWER);
+    public static final Supplier<Item> FUEL_PUMP = blockItem("fuel_pump", ModBlocks.FUEL_PUMP);
+    public static final Supplier<Item> LAUNCH_CONTROL = blockItem("launch_control", ModBlocks.LAUNCH_CONTROL);
+    public static final Supplier<Item> PROBE = blockItem("probe", ModBlocks.PROBE);
+    public static final Supplier<Item> ROCKET_CAPSULE_T1 = blockItem("rocket_capsule_t1", ModBlocks.ROCKET_CAPSULE_T1);
+    public static final Supplier<Item> ROCKET_TANK_T1 = blockItem("rocket_tank_t1", ModBlocks.ROCKET_TANK_T1);
+    public static final Supplier<Item> ROCKET_ENGINE_T1 = blockItem("rocket_engine_t1", ModBlocks.ROCKET_ENGINE_T1);
+    public static final Supplier<Item> ROCKET_FIN_T1 = blockItem("rocket_fin_t1", ModBlocks.ROCKET_FIN_T1);
+    public static final Supplier<Item> ROCKET_CARGO_BAY = blockItem("rocket_cargo_bay", ModBlocks.ROCKET_CARGO_BAY);
     /** Probenzange (11.2): Rechtsklick auf einen Block gibt eine Probe. */
     public static final Supplier<Item> SAMPLE_TOOL = register("sample_tool",
             p -> new de.infinitehorizon.research.SampleTool.ToolItem(p.stacksTo(1)));

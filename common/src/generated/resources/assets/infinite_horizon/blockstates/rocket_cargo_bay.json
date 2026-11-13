@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "infinite_horizon:block/rocket_cargo_bay"
+    }
+  }
+}

@@ -46,4 +46,4 @@ Ein Aluminiumkabel leitet 2.048 J/t, ein [Kupferkabel](Strom.md) nur 256 J/t. Ka
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Sauerstoff speichern](Sauerstoff-speichern.md)
+← [Sauerstoff speichern](Sauerstoff-speichern.md) · [Startrampe und Sonde](Startrampe-und-Sonde.md) →

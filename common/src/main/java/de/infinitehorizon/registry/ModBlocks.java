@@ -108,6 +108,34 @@ public final class ModBlocks {
     /** Aluminiumkabel (4.4): eigene Netzsorte, Durchsatz aus transport.json. */
     public static final Supplier<Block> ALUMINUM_CABLE = register("aluminum_cable", CableBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.METAL).noOcclusion());
+    /** Startrampe (4.3): Plattform, Turm, Pumpe, Steuerpult. */
+    public static final Supplier<Block> LAUNCH_PAD = register("launch_pad", Block::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> LAUNCH_TOWER = register("launch_tower", Block::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> FUEL_PUMP = register("fuel_pump",
+            p -> new MachineBlock(p, () -> ModBlockEntities.FUEL_PUMP.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> LAUNCH_CONTROL = register("launch_control",
+            p -> new de.infinitehorizon.space.LaunchControlBlock(p, () -> ModBlockEntities.LAUNCH_CONTROL.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Sonde als Block auf der Rampe (12.3). */
+    public static final Supplier<Block> PROBE = register("probe", Block::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Raketenteile T1 (12.4). */
+    public static final Supplier<Block> ROCKET_CAPSULE_T1 = register("rocket_capsule_t1",
+            de.infinitehorizon.space.CapsuleBlock::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).isSuffocating((s, l, p) -> false));
+    public static final Supplier<Block> ROCKET_TANK_T1 = register("rocket_tank_t1",
+            p -> new de.infinitehorizon.space.RocketPartBlock(p, () -> ModBlockEntities.ROCKET_TANK_T1.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> ROCKET_ENGINE_T1 = register("rocket_engine_t1", Block::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> ROCKET_FIN_T1 = register("rocket_fin_t1", Block::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> ROCKET_CARGO_BAY = register("rocket_cargo_bay",
+            p -> new de.infinitehorizon.space.RocketPartBlock(p, () -> ModBlockEntities.ROCKET_CARGO_BAY.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     /** Analysator (6.1, 11.1): Proben → FP. */
     public static final Supplier<Block> ANALYZER = register("analyzer",
             p -> new MachineBlock(p, () -> ModBlockEntities.ANALYZER.get()),

@@ -8,16 +8,17 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 
 /**
  * S→C: Datenpaket-Daten für den Client (3A.5), beim Join und nach {@code /reload}. Ab M3 der Planeten-Teil (13.1)
- * als JSON-Liste, ab M4 der Forschungs-Teil (11.4, {@code ResearchRegistry#toJson}). SPEC-GAP #41: ohne Kompression
+ * als JSON-Liste, ab M4 der Forschungs-Teil (11.4, {@code ResearchRegistry#toJson}) und die Raketenteile (12.4). SPEC-GAP #41: ohne Kompression
  * und Teilung; die Grenze liegt bei {@link #MAX_LENGTH} Zeichen je Teil.
  */
-public record SyncDataPayload(String planets, String research) implements CustomPacketPayload {
+public record SyncDataPayload(String planets, String research, String rocketParts) implements CustomPacketPayload {
 
     public static final int MAX_LENGTH = 1 << 20;
     public static final Type<SyncDataPayload> TYPE = new Type<>(InfiniteHorizon.id("sync_data"));
     public static final StreamCodec<ByteBuf, SyncDataPayload> CODEC = StreamCodec.composite(
             ByteBufCodecs.stringUtf8(MAX_LENGTH), SyncDataPayload::planets,
             ByteBufCodecs.stringUtf8(MAX_LENGTH), SyncDataPayload::research,
+            ByteBufCodecs.stringUtf8(MAX_LENGTH), SyncDataPayload::rocketParts,
             SyncDataPayload::new);
 
     @Override

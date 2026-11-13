@@ -140,6 +140,33 @@ public final class ModBlockEntities {
                                     ModBlockEntities.SOLAR_PANEL.get(), pos, state),
                             ModBlocks.SOLAR_PANEL.get()));
 
+    public static final Supplier<BlockEntityType<de.infinitehorizon.space.FuelPumpBlockEntity>> FUEL_PUMP =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "fuel_pump",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.space.FuelPumpBlockEntity(ModBlockEntities.FUEL_PUMP.get(), pos, state),
+                            ModBlocks.FUEL_PUMP.get()));
+
+    public static final Supplier<BlockEntityType<de.infinitehorizon.space.LaunchControlBlockEntity>> LAUNCH_CONTROL =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "launch_control",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.space.LaunchControlBlockEntity(
+                                    ModBlockEntities.LAUNCH_CONTROL.get(), pos, state),
+                            ModBlocks.LAUNCH_CONTROL.get()));
+
+    public static final Supplier<BlockEntityType<de.infinitehorizon.space.RocketTankBlockEntity>> ROCKET_TANK_T1 =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "rocket_tank_t1",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.space.RocketTankBlockEntity(
+                                    ModBlockEntities.ROCKET_TANK_T1.get(), pos, state),
+                            ModBlocks.ROCKET_TANK_T1.get()));
+
+    public static final Supplier<BlockEntityType<de.infinitehorizon.space.CargoBayBlockEntity>> ROCKET_CARGO_BAY =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "rocket_cargo_bay",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.space.CargoBayBlockEntity(
+                                    ModBlockEntities.ROCKET_CARGO_BAY.get(), pos, state),
+                            ModBlocks.ROCKET_CARGO_BAY.get()));
+
     /** Ein Typ für alle Ports; das Verhalten folgt aus {@link de.infinitehorizon.multiblock.PortBlock.PortType}. */
     public static final Supplier<BlockEntityType<PortBlockEntity>> PORT =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "port",
@@ -175,6 +202,7 @@ public final class ModBlockEntities {
         Services.ENERGY.expose(ELECTRIC_LAMP);
         Services.ENERGY.expose(ANALYZER);
         Services.ENERGY.expose(SOLAR_PANEL);
+        Services.FLUID.expose(FUEL_PUMP);
         Services.FLUID.expose(PORT);
     }
 }

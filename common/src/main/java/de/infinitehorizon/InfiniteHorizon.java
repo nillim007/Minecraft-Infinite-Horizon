@@ -65,6 +65,7 @@ public final class InfiniteHorizon {
         ModFluids.init();
         ModWorldgen.init();
         ModBlockEntities.init();
+        de.infinitehorizon.registry.ModEntities.init();
         ModRecipeTypes.init();
         ModRecipeSerializers.init();
         ModMenus.init();
@@ -79,6 +80,7 @@ public final class InfiniteHorizon {
         listeners.put(BalanceReloadListener.ID, new BalanceReloadListener());
         listeners.put(PlanetReloadListener.ID, new PlanetReloadListener());
         listeners.put(de.infinitehorizon.data.ResearchReloadListener.ID, new de.infinitehorizon.data.ResearchReloadListener());
+        listeners.put(de.infinitehorizon.data.RocketPartReloadListener.ID, new de.infinitehorizon.data.RocketPartReloadListener());
         return listeners;
     }
 
@@ -111,13 +113,14 @@ public final class InfiniteHorizon {
     /** Datenpaket-Sync (Join und {@code /reload}): Planeten und Forschung an den Client (13.1, 11.4, {@code SyncDataPayload}). */
     public static void onDatapackSync(ServerPlayer player) {
         Services.NETWORK.sendToPlayer(player, new SyncDataPayload(PlanetRegistry.get().toJson(),
-                de.infinitehorizon.data.ResearchRegistry.get().toJson()));
+                de.infinitehorizon.data.ResearchRegistry.get().toJson(), de.infinitehorizon.data.RocketPartRegistry.get().toJson()));
     }
 
     /** Jeder Server-Tick: Umwelt-Belastung (8.2) und Schwerkraft (12.9). */
     public static void onServerTick(MinecraftServer server) {
         HazardTracker.tick(server);
         GravityService.tick(server);
+        de.infinitehorizon.space.ProbeService.tick(server);
     }
 
     /** Respawn: Schwerkraft sofort setzen (12.9); die Belastung beginnt nach dem Tod bei 0 (Attachment ohne Kopie). */

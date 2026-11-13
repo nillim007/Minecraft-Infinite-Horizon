@@ -53,6 +53,7 @@
     "minecraft:flint": { "de": "Feuerstein", "en": "Flint" },
     "minecraft:furnace": { "de": "Ofen", "en": "Furnace" },
     "minecraft:glass": { "de": "Glas", "en": "Glass" },
+    "minecraft:chest": { "de": "Truhe", "en": "Chest" },
     "minecraft:glowstone_dust": { "de": "Glowstonestaub", "en": "Glowstone Dust" },
     "minecraft:gold_ingot": { "de": "Goldbarren", "en": "Gold Ingot" },
     "minecraft:hopper": { "de": "Trichter", "en": "Hopper" },

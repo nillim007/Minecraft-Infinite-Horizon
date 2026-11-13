@@ -18,12 +18,20 @@ import java.util.UUID;
 /**
  * Geteilter Fortschritt einer Agentur ab M4 (23.1, Tabelle „Agentur-Felder ab M4“). Alle Felder sind optional mit
  * leerem Standard; sie stehen in der gespeicherten Agentur flach neben {@code id}, {@code name} usw.
- * ({@code data_version} bleibt 1). Weitere Felder (Sondenflüge, besuchte Biome, Landefeuer) kommen mit
+ * ({@code data_version} bleibt 1). Weitere Felder (besuchte Biome, Landefeuer) kommen mit
  * ihren Teilschritten dazu.
  * <p>
  * Änderungen hier markieren die {@link AgencyData} nicht selbst; Aufrufer rufen danach {@code AgencyData#setDirty()}.
  */
 public final class AgencyProgress {
+
+    /** Laufender Sondenflug (12.3): Ziel und Ankunft in Overworld-Spielzeit. */
+    public record ProbeFlight(Identifier target, long arrival) {
+        public static final Codec<ProbeFlight> CODEC = RecordCodecBuilder.create(i -> i.group(
+                Identifier.CODEC.fieldOf("target").forGetter(ProbeFlight::target),
+                Codec.LONG.fieldOf("arrival").forGetter(ProbeFlight::arrival)
+        ).apply(i, ProbeFlight::new));
+    }
 
     /** Gefundenes Erkundungsziel (11.1, 24.2): Dimension, Struktur, Start-Chunk. */
     public record FoundStructure(Identifier dimension, Identifier structure, int chunkX, int chunkZ) {
@@ -49,7 +57,8 @@ public final class AgencyProgress {
                     .forGetter(p -> Map.copyOf(p.structureCounts)),
             FoundStructure.CODEC.listOf().optionalFieldOf("found_structures", List.of())
                     .forGetter(p -> List.copyOf(p.foundStructures)),
-            UUIDUtil.CODEC.listOf().optionalFieldOf("invites", List.of()).forGetter(p -> List.copyOf(p.invites))
+            UUIDUtil.CODEC.listOf().optionalFieldOf("invites", List.of()).forGetter(p -> List.copyOf(p.invites)),
+            ProbeFlight.CODEC.listOf().optionalFieldOf("probe_flights", List.of()).forGetter(p -> List.copyOf(p.probeFlights))
     ).apply(i, AgencyProgress::new));
 
     private int fp;
@@ -62,14 +71,17 @@ public final class AgencyProgress {
     private final Map<String, Integer> structureCounts;
     private final List<FoundStructure> foundStructures;
     private final Set<UUID> invites;
+    private final List<ProbeFlight> probeFlights;
 
     public AgencyProgress() {
-        this(0, List.of(), List.of(), List.of(), List.of(), Map.of(), Map.of(), Map.of(), List.of(), List.of());
+        this(0, List.of(), List.of(), List.of(), List.of(), Map.of(), Map.of(), Map.of(), List.of(), List.of(), List.of());
     }
 
     private AgencyProgress(int fp, List<Identifier> researched, List<Integer> openTiers, List<Identifier> probeTargets,
                            List<Identifier> probeReached, Map<UUID, List<Identifier>> pending, Map<String, Integer> samples,
-                           Map<String, Integer> structures, List<FoundStructure> found, List<UUID> invites) {
+                           Map<String, Integer> structures, List<FoundStructure> found, List<UUID> invites,
+                           List<ProbeFlight> flights) {
+        this.probeFlights = new java.util.ArrayList<>(flights);
         this.invites = new LinkedHashSet<>(invites);
         this.sampleCounts = new LinkedHashMap<>(samples);
         this.structureCounts = new LinkedHashMap<>(structures);
@@ -175,6 +187,22 @@ public final class AgencyProgress {
         }
         foundStructures.add(found);
         return true;
+    }
+
+    /** Laufende Sondenflüge (12.3). */
+    public List<ProbeFlight> probeFlights() {
+        return List.copyOf(probeFlights);
+    }
+
+    public void addProbeFlight(ProbeFlight flight) {
+        probeFlights.add(flight);
+    }
+
+    /** Nimmt alle Flüge heraus, die bis {@code now} angekommen sind. */
+    public List<ProbeFlight> takeArrived(long now) {
+        List<ProbeFlight> arrived = probeFlights.stream().filter(f -> f.arrival() <= now).toList();
+        probeFlights.removeAll(arrived);
+        return arrived;
     }
 
     /** Offene Einladungen dieser Agentur (Spieler-UUIDs, 23.1). */

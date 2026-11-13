@@ -1,0 +1,50 @@
+{
+  "tier": 1,
+  "thrust": 30,
+  "pad": "infinite_horizon:launch_pad_t1",
+  "pad_size": [
+    5,
+    5
+  ],
+  "launch_sites": [
+    "infinite_horizon:launch_pad_t1",
+    "landed_rocket_entity"
+  ],
+  "fuel": [
+    "infinite_horizon:kerosene",
+    "infinite_horizon:oxygen"
+  ],
+  "capsules": [
+    1,
+    1
+  ],
+  "engines": [
+    1,
+    1
+  ],
+  "tanks": [
+    3,
+    5
+  ],
+  "fins": 4,
+  "cargo_bays": [
+    0,
+    1
+  ],
+  "long_range": [
+    0,
+    0
+  ],
+  "seats": 1,
+  "stack_order": [
+    "engine",
+    "tank",
+    "cargo",
+    "long_range",
+    "capsule"
+  ],
+  "fin_placement": "N,E,S,W neben dem Triebwerk",
+  "mixing_allowed_roles": [
+    "cargo"
+  ]
+}

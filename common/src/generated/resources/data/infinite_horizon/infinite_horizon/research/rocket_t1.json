@@ -1,0 +1,36 @@
+{
+  "tier": 1,
+  "branch": "spaceflight",
+  "cost": 10,
+  "requires": [
+    "infinite_horizon:moon_probe"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:rocket_capsule_t1"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:rocket_tank_t1"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:rocket_engine_t1"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:rocket_fin_t1"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:rocket_cargo_bay"
+    }
+  ],
+  "icon": "infinite_horizon:rocket_capsule_t1",
+  "position": {
+    "column": 1,
+    "row": 1,
+    "slot": 2
+  }
+}

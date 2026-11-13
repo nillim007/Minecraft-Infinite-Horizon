@@ -20,6 +20,7 @@
   "solar_factor": 1.0,
   "water_behavior": "freeze",
   "landing_requires_fuel": true,
+  "launch_cost_override": null,
   "required_rocket_tier": 1,
   "requires_long_range": false,
   "probe": "infinite_horizon:probe",

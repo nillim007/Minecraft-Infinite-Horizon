@@ -1,0 +1,24 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:aluminum_plate",
+      "count": 16
+    },
+    {
+      "ingredient": "infinite_horizon:titanium_plate",
+      "count": 2
+    },
+    {
+      "ingredient": "minecraft:chest",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:rocket_cargo_bay",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}
