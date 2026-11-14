@@ -1,0 +1,7 @@
+{
+  "id": "infinite_horizon:phase_4",
+  "title": "infinite_horizon.handbook.chapter.phase_4",
+  "icon": "infinite_horizon:station_core",
+  "order": 40,
+  "unlock": "infinite_horizon:research_tier/3"
+}

@@ -1,0 +1,20 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:lightweight_plate",
+      "count": 1
+    },
+    {
+      "ingredient": "minecraft:glass",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:station_window",
+      "count": 2,
+      "chance": 1.0
+    }
+  ]
+}

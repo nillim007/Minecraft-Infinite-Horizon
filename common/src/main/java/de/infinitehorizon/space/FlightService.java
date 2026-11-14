@@ -298,7 +298,7 @@ public final class FlightService {
         if (f == null || target == null) {
             return r;
         }
-        BlockPos point = f.point().orElseGet(() -> landingPoint(target, f.landing()));
+        BlockPos point = f.point().orElseGet(() -> landingPoint(target, f.landing(), r.owner()));
         target.getChunkSource().addTicketWithRadius(TicketType.PORTAL, ChunkPos.containing(point), 2);
         double arrivalY = Math.min(point.getY() + rule("arrival_height"), target.getMaxY() - r.height());
         Flight landing = new Flight(f.target(), RocketEntity.Phase.LANDING, 0, f.startY(), f.landing(), Optional.of(point), arrivalY);
@@ -355,6 +355,17 @@ public final class FlightService {
      * sonst normale Landeplatzsuche um das Landefeuer; X/Z → Landeplatzsuche dort; nichts → Spawn der Dimension.
      */
     public static BlockPos landingPoint(ServerLevel level, Landing landing) {
+        return landingPoint(level, landing, null);
+    }
+
+    /** Wie {@link #landingPoint(ServerLevel, Landing)}; im Orbit schwebt die Rakete (12.5, 7.), fremde Kerne meidet sie. */
+    public static BlockPos landingPoint(ServerLevel level, Landing landing, @Nullable UUID agency) {
+        Planet planet = PlanetResolver.planetFor(level.dimension().identifier(), PlanetRegistry.get());
+        if (planet != null && planet.isOrbit()) {
+            BlockPos at = landing.beacon().orElse(null);
+            return OrbitLanding.find(level, at != null ? at.getX() : landing.x().orElse(0),
+                    at != null ? at.getZ() : landing.z().orElse(0), agency);
+        }
         if (CloudLayer.hasLayer(level)) {
             // SPEC-GAP #90: Landeort (Landefeuer, X/Z oder Spawn) gibt nur X/Z vor, gelandet wird in der Wolkenschicht
             BlockPos at = landing.beacon().orElse(null);

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "generated=false": {
+      "model": "infinite_horizon:block/station_hull"
+    },
+    "generated=true": {
+      "model": "infinite_horizon:block/station_hull"
+    }
+  }
+}

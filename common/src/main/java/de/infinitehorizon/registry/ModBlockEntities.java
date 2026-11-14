@@ -190,6 +190,12 @@ public final class ModBlockEntities {
                                     ModBlockEntities.LAUNCH_CONTROL.get(), pos, state),
                             ModBlocks.LAUNCH_CONTROL.get()));
 
+    public static final Supplier<BlockEntityType<de.infinitehorizon.station.StationCoreBlockEntity>> STATION_CORE =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "station_core",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.station.StationCoreBlockEntity(
+                                    ModBlockEntities.STATION_CORE.get(), pos, state),
+                            ModBlocks.STATION_CORE.get()));
     public static final Supplier<BlockEntityType<de.infinitehorizon.food.FoodPackerBlockEntity>> FOOD_PACKER =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "food_packer",
                     () -> Services.REGISTRY.blockEntityType(
@@ -266,6 +272,8 @@ public final class ModBlockEntities {
         Services.FLUID.expose(DOME_GENERATOR_T1);
         Services.ENERGY.expose(DOME_GENERATOR_T2);
         Services.FLUID.expose(DOME_GENERATOR_T2);
+        Services.ENERGY.expose(STATION_CORE);
+        Services.FLUID.expose(STATION_CORE);
         Services.ENERGY.expose(ELECTRIC_LAMP);
         Services.ENERGY.expose(ANALYZER);
         Services.ENERGY.expose(SOLAR_PANEL);

@@ -128,6 +128,7 @@ public final class InfiniteHorizon {
         de.infinitehorizon.space.FlightService.tickLogins(server);
         de.infinitehorizon.suit.HelmetLamp.tick(server);
         de.infinitehorizon.suit.SuitModules.tick(server);
+        de.infinitehorizon.station.ZeroGMovement.tick(server);
         de.infinitehorizon.space.CloudLayer.tick(server);
         de.infinitehorizon.event.EventService.tick(server);
     }

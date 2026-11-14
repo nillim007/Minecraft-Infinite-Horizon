@@ -58,7 +58,8 @@ public class DomeGeneratorBlockEntity extends MachineBlockEntity {
         return tank;
     }
 
-    private JsonObject json() {
+    /** Werte aus domes.json (Stationskern: eingebaute Kuppel, 14.1). */
+    protected JsonObject json() {
         return BalanceManager.get().entry(FILE, machineId()).orElse(new JsonObject());
     }
 

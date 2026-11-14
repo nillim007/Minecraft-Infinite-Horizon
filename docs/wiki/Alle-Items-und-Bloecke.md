@@ -82,6 +82,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Magnesium-Legierung](Der-Hochtemperaturofen.md) | Item | Maschine |
 | [Magnesiumbarren](Der-Mars.md) | Item | Maschine |
 | [Magnesiumstaub](Der-Mars.md) | Item | Maschine |
+| [Magnetstiefel](Der-Orbit.md) | Item | Rezept |
 | [Mars-Eisenerz](Der-Mars.md) | Block | Weltgenerierung |
 | [Mars-Magnesiumerz](Der-Mars.md) | Block | Weltgenerierung |
 | [Marsgestein](Der-Mars.md) | Block | Weltgenerierung |
@@ -147,6 +148,9 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Startkontrolle](Startrampe-und-Sonde.md) | Block | Rezept |
 | [Startrampe](Startrampe-und-Sonde.md) | Block | Rezept |
 | [Startturm](Startrampe-und-Sonde.md) | Block | Rezept |
+| [Stationsfenster](Die-Raumstation.md) | Block | Rezept |
+| [Stationshülle](Die-Raumstation.md) | Block | Rezept, Füllslot oder Eimer |
+| [Stationskern](Die-Raumstation.md) | Block | Rezept |
 | [Tank](Fluide-und-Rohre.md) | Block | Rezept |
 | [Tiefenschiefer-Titanerz](Rohstoffe-und-Erze.md) | Block | Weltgenerierung |
 | [Titanbarren](Elektroofen.md) | Item | Maschine |

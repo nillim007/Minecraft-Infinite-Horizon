@@ -1,0 +1,16 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:lightweight_plate",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:station_hull",
+      "count": 4,
+      "chance": 1.0
+    }
+  ]
+}

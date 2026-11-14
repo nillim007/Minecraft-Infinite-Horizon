@@ -70,7 +70,8 @@ public final class GravityService {
             return;
         }
         Planet planet = PlanetResolver.at(player.level(), player.blockPosition()).planet();
-        apply(player, planet == null ? 1.0 : planet.gravity(), rules());
+        double g = planet == null ? 1.0 : planet.gravity();
+        apply(player, de.infinitehorizon.station.ZeroGMovement.gravity(player, planet, g), rules());
     }
 
     public static void apply(LivingEntity entity, double g, Rules r) {

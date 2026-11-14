@@ -34,6 +34,11 @@ public final class LandingService {
 
     /** Position, an der ein Spieler steht (Füße), für X/Z in {@code level}. */
     public static BlockPos find(ServerLevel level, int x, int z) {
+        de.infinitehorizon.data.Planet planet = de.infinitehorizon.environment.PlanetResolver.planetFor(
+                level.dimension().identifier(), de.infinitehorizon.data.PlanetRegistry.get());
+        if (planet != null && planet.isOrbit()) {
+            return OrbitLanding.standOn(level, x, z); // SPEC-GAP #96: goto in den Orbit
+        }
         Search s = Search.from(BalanceManager.get());
         // Spirale: Ring für Ring von innen nach außen
         for (int r = 0; r <= s.radius(); r++) {

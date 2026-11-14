@@ -668,4 +668,34 @@ public class IhFabricGameTests {
     public void suitmoduleCoolingArmorplating(GameTestHelper helper) {
         IhGameTestsM5i.suitModulesCoolingArmor(helper);
     }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:earth_orbit")
+    public void orbitGravityMagnetboots(GameTestHelper helper) {
+        IhGameTestsM6a.orbitGravityMagnetBoots(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:earth_orbit")
+    public void orbitFallTosurfaceSlowfall(GameTestHelper helper) {
+        IhGameTestsM6a.orbitFallToSurface(helper);
+    }
+
+    @GameTest(maxTicks = 60, dimension = "infinite_horizon:earth_orbit")
+    public void stationCorePlatformBuiltindome(GameTestHelper helper) {
+        IhGameTestsM6a.stationCorePlatformDome(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:earth_orbit")
+    public void stationCoreAirplacement(GameTestHelper helper) {
+        IhGameTestsM6a.stationCoreAirPlacement(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void stationCoreOnlyinorbit(GameTestHelper helper) {
+        IhGameTestsM6a.stationCoreOnlyInOrbit(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:earth_orbit")
+    public void orbitArrivalHoverForeigncore(GameTestHelper helper) {
+        IhGameTestsM6a.orbitArrivalHover(helper);
+    }
 }

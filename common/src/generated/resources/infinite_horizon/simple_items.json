@@ -67,7 +67,8 @@
     "dome_shield_module",
     "nickel_plate",
     "cooling_module",
-    "armor_plating"
+    "armor_plating",
+    "magnet_boots"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,
@@ -89,6 +90,7 @@
     "dome_efficiency_module": 1,
     "dome_shield_module": 1,
     "cooling_module": 1,
-    "armor_plating": 1
+    "armor_plating": 1,
+    "magnet_boots": 1
   }
 }

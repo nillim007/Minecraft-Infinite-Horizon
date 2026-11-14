@@ -1,0 +1,88 @@
+{
+  "id": "infinite_horizon:phase_4/orbit",
+  "chapter": "infinite_horizon:phase_4",
+  "title": "infinite_horizon.handbook.phase_4.orbit.title",
+  "icon": "infinite_horizon:magnet_boots",
+  "order": 20,
+  "unlock": "infinite_horizon:research_tier/3",
+  "items": [
+    "infinite_horizon:magnet_boots"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.orbit.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.orbit.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.orbit.e2"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.orbit.e3",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.orbit.e4"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/magnet_boots",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:iron_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:nickel_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:circuit"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:magnet_boots",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.orbit.e6",
+      "level": 2
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_4.orbit.e7",
+      "style": "warning"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_4.orbit.e8",
+      "style": "tip"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "condition": {
+        "type": "minecraft:survives_explosion"
+      },
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "infinite_horizon:station_hull",
+          "condition": {
+            "type": "minecraft:match_block",
+            "blocks": "infinite_horizon:station_hull",
+            "state": {
+              "generated": "false"
+            }
+          }
+        }
+      ],
+      "rolls": 1
+    }
+  ],
+  "random_sequence": "infinite_horizon:blocks/station_hull"
+}

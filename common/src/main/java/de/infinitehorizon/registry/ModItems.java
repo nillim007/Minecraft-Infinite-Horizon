@@ -66,6 +66,10 @@ public final class ModItems {
     public static final Supplier<Item> LAUNCH_CONTROL = blockItem("launch_control", ModBlocks.LAUNCH_CONTROL);
     public static final Supplier<Item> PROBE = blockItem("probe", ModBlocks.PROBE);
     public static final Supplier<Item> LANDING_BEACON = blockItem("landing_beacon", ModBlocks.LANDING_BEACON);
+    public static final Supplier<Item> STATION_CORE = register("station_core",
+            p -> new de.infinitehorizon.station.StationCoreItem(ModBlocks.STATION_CORE.get(), p.useBlockDescriptionPrefix()));
+    public static final Supplier<Item> STATION_HULL = blockItem("station_hull", ModBlocks.STATION_HULL);
+    public static final Supplier<Item> STATION_WINDOW = blockItem("station_window", ModBlocks.STATION_WINDOW);
     public static final Supplier<Item> FOOD_PACKER = blockItem("food_packer", ModBlocks.FOOD_PACKER);
     public static final Supplier<Item> HYDROPONICS_BASIN = blockItem("hydroponics_basin", ModBlocks.HYDROPONICS_BASIN);
     public static final Supplier<Item> COMPOST_FARMLAND = blockItem("compost_farmland", ModBlocks.COMPOST_FARMLAND);

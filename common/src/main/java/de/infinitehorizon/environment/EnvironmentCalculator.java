@@ -27,7 +27,7 @@ public final class EnvironmentCalculator {
         double solar = planet.solarFactor();
         String water = planet.waterBehavior();
 
-        double daylight = rules.daylight(in.dayTime());
+        double daylight = rules.daylight(planet.dayTime(in.dayTime()));
         double temperature = planet.temperatureNight() + (planet.temperatureDay() - planet.temperatureNight()) * daylight;
         if (in.biome() != null) {
             temperature += planet.biomeTemperatureOffsets().getOrDefault(in.biome(), 0.0);

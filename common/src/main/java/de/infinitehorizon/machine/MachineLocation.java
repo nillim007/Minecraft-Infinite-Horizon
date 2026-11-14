@@ -32,7 +32,15 @@ public final class MachineLocation {
         JsonObject loc = machine.getAsJsonObject("location");
         PlanetResolver.Resolved r = PlanetResolver.at(level, pos);
         Identifier here = r.planet() != null ? r.planet().dimension() : level.dimension().identifier();
-        return allowed(ids(loc, "dimensions"), ids(loc, "excluded_dimensions"), here);
+        String type = loc.has("dimension_type") && loc.get("dimension_type").isJsonPrimitive()
+                ? loc.get("dimension_type").getAsString() : null;
+        return typeAllowed(type, r.planet() == null ? null : r.planet().type())
+                && allowed(ids(loc, "dimensions"), ids(loc, "excluded_dimensions"), here);
+    }
+
+    /** Art der Dimension (z. B. {@code orbit}, 14.2): ohne Vorgabe überall, sonst nur bei gleicher Planetenart. */
+    public static boolean typeAllowed(@Nullable String required, @Nullable String planetType) {
+        return required == null || required.equals(planetType);
     }
 
     private static Set<Identifier> ids(JsonObject o, String key) {

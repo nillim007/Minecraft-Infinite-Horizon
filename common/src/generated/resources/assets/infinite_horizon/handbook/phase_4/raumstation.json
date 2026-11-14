@@ -1,0 +1,149 @@
+{
+  "id": "infinite_horizon:phase_4/raumstation",
+  "chapter": "infinite_horizon:phase_4",
+  "title": "infinite_horizon.handbook.phase_4.raumstation.title",
+  "icon": "infinite_horizon:station_core",
+  "order": 30,
+  "unlock": "infinite_horizon:research_tier/3",
+  "items": [
+    "infinite_horizon:station_core",
+    "infinite_horizon:station_hull",
+    "infinite_horizon:station_window"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.raumstation.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.raumstation.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_4.raumstation.e2.0",
+        "infinite_horizon.handbook.phase_4.raumstation.e2.1",
+        "infinite_horizon.handbook.phase_4.raumstation.e2.2"
+      ]
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:station_core",
+      "rows": []
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.raumstation.e4",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.raumstation.e5"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/station_core",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 32
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:solar_panel"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:dome_generator_t1"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:station_core",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/station_hull",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:station_hull",
+              "count": 4
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/station_window",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:station_window",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_4.raumstation.e7",
+      "style": "warning"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_4.raumstation.e8",
+      "style": "tip"
+    }
+  ]
+}

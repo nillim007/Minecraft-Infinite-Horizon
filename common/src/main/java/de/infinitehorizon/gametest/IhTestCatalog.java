@@ -150,7 +150,13 @@ public final class IhTestCatalog {
             new Test("dome_t2_rangemodule_radiusenergy", 40, null, "infinite_horizon:domes", null, IhGameTestsM5i::domeT2RangeModule),  // 10.1, M5i
             new Test("dome_shieldmodule_stopsmeteor", 40, null, "infinite_horizon:domes", null, IhGameTestsM5i::domeShieldStopsMeteor),  // 10.1, 19, M5i
             new Test("dome_t2_dustacidprotection", 40, null, "infinite_horizon:domes", null, IhGameTestsM5i::domeT2StormProtection),  // 10.1, 19, M5i
-            new Test("suitmodule_cooling_armorplating", 20, null, null, null, IhGameTestsM5i::suitModulesCoolingArmor)  // 9.2, M5i
+            new Test("suitmodule_cooling_armorplating", 20, null, null, null, IhGameTestsM5i::suitModulesCoolingArmor),  // 9.2, M5i
+            new Test("orbit_gravity_magnetboots", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6a::orbitGravityMagnetBoots),  // 12.9, 14.3, M6a
+            new Test("orbit_fall_tosurface_slowfall", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6a::orbitFallToSurface),  // 14.3, M6a
+            new Test("station_core_platform_builtindome", 60, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6a::stationCorePlatformDome),  // 14.1, M6a
+            new Test("station_core_airplacement", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6a::stationCoreAirPlacement),  // 14.1, M6a
+            new Test("station_core_onlyinorbit", 20, null, null, null, IhGameTestsM6a::stationCoreOnlyInOrbit),  // 14.1, M6a
+            new Test("orbit_arrival_hover_foreigncore", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6a::orbitArrivalHover)  // 12.5, M6a
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

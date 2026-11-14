@@ -1,0 +1,37 @@
+{
+  "tier": 3,
+  "branch": "spaceflight",
+  "cost": 50,
+  "requires": [
+    "infinite_horizon:dome_t1",
+    "infinite_horizon:magnesium_alloy"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:station_core"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:station_hull"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:station_window"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:docking_bay"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:magnet_boots"
+    }
+  ],
+  "icon": "infinite_horizon:station_core",
+  "position": {
+    "column": 1,
+    "row": 3,
+    "slot": 0
+  }
+}

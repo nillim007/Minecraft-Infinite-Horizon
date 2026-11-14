@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 5i · Mod-Version 0.1.0
+> Stand: Meilenstein 6a · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -73,6 +73,12 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Kreaturen des inneren Sonnensystems](Kreaturen-des-inneren-Sonnensystems.md) – Was auf Mond, Mars und Venus lebt, und wie du es erforschst
 - [Weltraumwetter und Ereignisse](Weltraumwetter-und-Ereignisse.md) – Sonnenstürme, Meteoritenschauer, Staubstürme und Säureregen
 - [Hydrokultur und Kompost](Hydrokultur-und-Kompost.md) – Pflanzen anbauen auf fremden Welten
+
+## Phase 4 · Orbit
+
+- [Erste Schritte im Orbit](Erste-Schritte-im-Orbit.md) – Der Weg zur eigenen Raumstation
+- [Der Orbit](Der-Orbit.md) – Schwerelosigkeit, Ankunft und Absturz
+- [Die Raumstation](Die-Raumstation.md) – Stationskern, Hülle und Fenster
 
 ## Nachschlagen
 

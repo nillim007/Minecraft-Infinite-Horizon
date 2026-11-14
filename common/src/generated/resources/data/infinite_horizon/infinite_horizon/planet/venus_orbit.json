@@ -1,0 +1,45 @@
+{
+  "dimension": "infinite_horizon:venus_orbit",
+  "type": "orbit",
+  "orbit": null,
+  "star_system": "infinite_horizon:sol",
+  "ring": 1,
+  "distance_points": 1,
+  "gravity": 0.005,
+  "atmosphere": "none",
+  "pressure": "vacuum",
+  "temperature": {
+    "day": 100,
+    "night": -100
+  },
+  "biome_temperature_offsets": {},
+  "biome_temperature_overrides": {},
+  "radiation": 1,
+  "solar_factor": 2.0,
+  "water_behavior": "freeze",
+  "landing_requires_fuel": false,
+  "launch_cost_override": 0,
+  "required_rocket_tier": 2,
+  "requires_long_range": false,
+  "probe": "infinite_horizon:probe",
+  "sky": {
+    "color": "#000000",
+    "fog_color": "#000000",
+    "fog_distance": null,
+    "stars_in_daylight": true,
+    "sun_scale": 1.0,
+    "sunset_color": null,
+    "celestial_bodies": [
+      {
+        "texture": "infinite_horizon:textures/sky/venus.png",
+        "size": 120,
+        "azimuth": 0,
+        "elevation": -90
+      }
+    ]
+  },
+  "gas_collector_output": null,
+  "zones": [],
+  "vanilla_mobs": [],
+  "name": "planet.infinite_horizon.venus_orbit"
+}

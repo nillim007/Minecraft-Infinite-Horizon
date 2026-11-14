@@ -151,6 +151,14 @@ public final class ModBlocks {
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Supplier<Block> COMPOST_FARMLAND = register("compost_farmland",
             de.infinitehorizon.food.CompostFarmlandBlock::new, () -> BlockBehaviour.Properties.ofFullCopy(Blocks.FARMLAND));
+    /** Raumstation (14.1): Kern mit eingebauter Kuppel, Hülle (Plattform mit generated=true), Fenster. */
+    public static final Supplier<Block> STATION_CORE = register("station_core",
+            p -> new de.infinitehorizon.station.StationCoreBlock(p, () -> ModBlockEntities.STATION_CORE.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> STATION_HULL = register("station_hull", de.infinitehorizon.station.StationHullBlock::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> STATION_WINDOW = register("station_window",
+            de.infinitehorizon.station.StationWindowBlock::new, () -> BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS));
     /** Landefeuer (12.6): roter Strahl, Landeziel in der Navigationskarte. */
     public static final Supplier<Block> LANDING_BEACON = register("landing_beacon",
             p -> new de.infinitehorizon.space.LandingBeaconBlock(p, () -> ModBlockEntities.LANDING_BEACON.get()),

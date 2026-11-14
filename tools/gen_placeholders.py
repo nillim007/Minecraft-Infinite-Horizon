@@ -126,6 +126,10 @@ def texture_px(e):
         px[7][7] = px[8][8] = (*shade(accent, 0.8), 255)
     else:
         px[7][7] = px[8][8] = px[7][8] = px[8][7] = (*accent, 255)
+    if "window" in name:  # Fenster (14.2): Rahmen deckend, Fläche durchscheinend
+        for y in range(1, 15):
+            for x in range(1, 15):
+                px[y][x] = (*px[y][x][:3], 80)
     return px
 
 

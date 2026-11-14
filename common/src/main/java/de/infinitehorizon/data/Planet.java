@@ -52,6 +52,11 @@ public record Planet(Identifier dimension, String type, @Nullable String name, d
         return ORBIT.equals(type);
     }
 
+    /** Tageszeit für Umweltwerte (13.1): {@code fixed_time} des Eintrags (Orbits: immer 6.000), sonst {@code clock}. */
+    public long dayTime(long clock) {
+        return raw.has("fixed_time") && raw.get("fixed_time").isJsonPrimitive() ? raw.get("fixed_time").getAsLong() : clock;
+    }
+
     /** Liest einen Eintrag; Felder wie in 25.1 (auch die vollständigen Einträge aus spec/data/planets.json). */
     public static Planet fromJson(JsonObject o) {
         JsonObject temp = o.getAsJsonObject("temperature");

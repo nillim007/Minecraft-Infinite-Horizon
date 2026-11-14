@@ -577,9 +577,39 @@ def ore_feature_name(dim, i, ore):
     return f"{short_id(dim)}_ore_{i}_{short_id(ore['block'])}"
 
 
+def dimension_attributes(defaults, sky):
+    attrs = {"minecraft:gameplay/respawn_anchor_works": defaults["respawn_anchor_works"],
+             "minecraft:gameplay/can_start_raid": defaults["has_raids"],
+             "minecraft:gameplay/nether_portal_spawns_piglin": defaults["natural"]}
+    if defaults["bed_works"]:
+        attrs["minecraft:gameplay/bed_rule"] = OVERWORLD_BED_RULE
+    if sky.get("color"):
+        attrs["minecraft:visual/sky_color"] = sky["color"]
+    if sky.get("fog_color"):
+        attrs["minecraft:visual/fog_color"] = sky["fog_color"]
+    if sky.get("stars_in_daylight"):
+        attrs["minecraft:visual/star_brightness"] = 1.0
+    return attrs
+
+
+def orbit_dimension(dim, p, defaults):
+    """Orbit-Dimension (13.1, 14): leere Welt (flach ohne Schichten, Biom the_void ohne Features)."""
+    ns, path = dim.split(":", 1)
+    gen = p.get("generator") or {}
+    dt = dict(OVERWORLD_DIMENSION_TYPE)
+    dt.update({"min_y": defaults["min_y"], "height": defaults["height"], "logical_height": defaults["height"],
+               "attributes": dimension_attributes(defaults, p.get("sky") or {})})
+    write_json(f"data/{ns}/dimension_type/{path}.json", dt)
+    write_json(f"data/{ns}/dimension/{path}.json", {"type": dim, "generator": {
+        "type": defaults["generator"], "settings": {
+            "biome": gen.get("biome", "minecraft:the_void"), "features": False, "lakes": False,
+            "layers": gen.get("layers", defaults["flat_layers"]), "structure_overrides": []}}})
+
+
 def planet_worldgen(spec, impl, blocks):
     """Dimension, Typ, Noise-Settings, Material Rule, Biome, Erze, Krater und Strukturen je Planetendimension."""
-    defaults = json.loads((sd.DATA / "planets.json").read_text(encoding="utf-8"))["dimension_defaults"]["surface"]
+    all_defaults = json.loads((sd.DATA / "planets.json").read_text(encoding="utf-8"))["dimension_defaults"]
+    defaults = all_defaults["surface"]
     out = {}
     extra_carvers = {}
     struct_biomes = {}
@@ -587,6 +617,9 @@ def planet_worldgen(spec, impl, blocks):
     for dim in impl.get("dimensions", []):
         p = spec.planets[dim]
         ns, path = dim.split(":", 1)
+        if p.get("type") == "orbit":
+            orbit_dimension(dim, p, all_defaults["orbit"])
+            continue
         sky = p.get("sky") or {}
         # dimension_type (13.1, 26.3-Attribute statt bed_works/has_raids/natural/piglin_safe)
         attrs = {"minecraft:gameplay/respawn_anchor_works": defaults["respawn_anchor_works"],
@@ -785,6 +818,34 @@ def farmland_block(name, soil):
                     "textures": {"dirt": f"{NS}:block/{soil}", "top": f"{NS}:block/{name}"}})
     write_json(f"assets/{NS}/blockstates/{name}.json", {"variants": {
         f"moisture={m}": {"model": f"{NS}:block/{name}{'_moist' if m == 7 else ''}"} for m in range(8)}})
+    return f"{NS}:block/{name}"
+
+
+def hull_block(name):
+    """Stationshülle (14.1): gleiches Modell für generated=true/false."""
+    model = cube_block(name)
+    write_json(f"assets/{NS}/blockstates/{name}.json", {"variants": {
+        f"generated={v}": {"model": model} for v in ("false", "true")}})
+    return model
+
+
+def hull_loot(name):
+    """Generierte Plattformblöcke (generated=true) droppen nichts (14.1)."""
+    write_json(f"data/{NS}/loot_table/blocks/{name}.json", {
+        "type": "minecraft:block",
+        # 26.3-Format wie Vanilla white_bed: "condition" mit "type", Blockstate per match_block
+        "pools": [{"condition": {"type": "minecraft:survives_explosion"},
+                   "entries": [{"type": "minecraft:item", "name": f"{NS}:{name}",
+                                "condition": {"type": "minecraft:match_block", "blocks": f"{NS}:{name}",
+                                              "state": {"generated": "false"}}}], "rolls": 1}],
+        "random_sequence": f"{NS}:blocks/{name}"})
+
+
+def window_block(name):
+    """Fenster (14.2): durchsichtig wie Glas (26.3: force_translucent an der Textur)."""
+    write_json(f"assets/{NS}/models/block/{name}.json", {"parent": "minecraft:block/cube_all", "textures": {
+        "all": {"force_translucent": True, "sprite": f"{NS}:block/{name}"}}})
+    write_json(f"assets/{NS}/blockstates/{name}.json", {"variants": {"": {"model": f"{NS}:block/{name}"}}})
     return f"{NS}:block/{name}"
 
 
@@ -1042,6 +1103,10 @@ def main():
             inv_model = layer_block(name)
         elif shape == "farmland":
             inv_model = farmland_block(name, "compost_soil")
+        elif shape == "hull":
+            inv_model = hull_block(name)
+        elif shape == "window":
+            inv_model = window_block(name)
         else:
             sys.exit(f"Unbekannte Blockform {shape} für {i}")
         write_json(f"assets/{NS}/items/{name}.json", {"model": {"type": "minecraft:model", "model": inv_model}})
@@ -1054,6 +1119,8 @@ def main():
             block_loot(name, SIMPLE_BLOCKS[name]["drop"])
         elif shape == "farmland":
             block_loot(name, f"{NS}:compost_soil")  # wie Vanilla-Ackerland, das Erde droppt
+        elif shape == "hull":
+            hull_loot(name)
         elif shape != "layer":
             block_loot(name)
 
@@ -1092,7 +1159,7 @@ def main():
         vals = [f"{NS}:{n}" for n, v in sorted(simple.items()) if v["needs"] == lvl]
         if lvl == "stone":
             # Maschinen, Generatoren, Speicher, Ports, Gehäuse, Kabel, Rohre: Werkzeugstufe wie iron_block (4.1)
-            vals = sorted(vals + [i for i in blocks if short(i) not in simple and blocks[i] != "farmland"])
+            vals = sorted(vals + [i for i in blocks if short(i) not in simple and blocks[i] not in ("farmland", "window")])
         if vals:
             write_json(f"data/minecraft/tags/block/needs_{lvl}_tool.json", {"values": vals})
     ore_tags = {}

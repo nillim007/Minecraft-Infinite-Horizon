@@ -18,7 +18,7 @@
     { "nr": 3, "de": "Erste Welt: Mond, Anzug, Kuppel", "steps": ["a", "b", "c", "d", "e"] },
     { "nr": 4, "de": "Erster Flug: Forschung, Sonde, Rakete T1 · **erste spielbare Version**", "steps": ["a", "b", "c", "d", "e", "f"] },
     { "nr": 5, "de": "Ring 1: Mars, Venus, Rover, Kreaturen", "steps": ["a", "b", "c", "d", "e", "f", "g", "h", "i"] },
-    { "nr": 6, "de": "Orbit: Station, Fusion", "steps": [] },
+    { "nr": 6, "de": "Orbit: Station, Fusion", "steps": ["a", "b", "c", "d", "e"] },
     { "nr": 7, "de": "Ring 2: Merkur bis Pluto", "steps": [] },
     { "nr": 8, "de": "Netzwerk und Finale: Logistik, Werft, Sternenschiff", "steps": [] },
     { "nr": 9, "de": "Feinschliff: Mehrspieler, Erfolge, Klang, Balancing", "steps": [] }
