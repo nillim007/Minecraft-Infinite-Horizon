@@ -600,9 +600,15 @@ def orbit_dimension(dim, p, defaults):
     dt.update({"min_y": defaults["min_y"], "height": defaults["height"], "logical_height": defaults["height"],
                "attributes": dimension_attributes(defaults, p.get("sky") or {})})
     write_json(f"data/{ns}/dimension_type/{path}.json", dt)
+    # SPEC-GAP #96: Vanilla the_void setzt eine blaue Himmelsfarbe; eigenes leeres Biom, damit sky_color des Orbits gilt
+    write_json(f"data/{NS}/worldgen/biome/orbit_void.json", {
+        "temperature": 0.5, "downfall": 0.0, "has_precipitation": False, "effects": {"water_color": "#3f76e4"},
+        "attributes": {"minecraft:gameplay/natural_mob_spawns": {"modifier": "overlay", "argument": {
+            "spawn_costs": {}, "spawns_by_category": {}}}},
+        "carvers": [], "features": []})
     write_json(f"data/{ns}/dimension/{path}.json", {"type": dim, "generator": {
         "type": defaults["generator"], "settings": {
-            "biome": gen.get("biome", "minecraft:the_void"), "features": False, "lakes": False,
+            "biome": f"{NS}:orbit_void", "features": False, "lakes": False,
             "layers": gen.get("layers", defaults["flat_layers"]), "structure_overrides": []}}})
 
 
