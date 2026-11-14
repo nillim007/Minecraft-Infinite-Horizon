@@ -1,0 +1,20 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:superconductor_wire",
+      "count": 1
+    },
+    {
+      "ingredient": "infinite_horizon:plastic",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:superconductor_cable",
+      "count": 4,
+      "chance": 1.0
+    }
+  ]
+}

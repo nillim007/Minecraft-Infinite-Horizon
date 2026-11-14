@@ -25,7 +25,10 @@
     "infinite_horizon:food_packer",
     "infinite_horizon:fuel_generator",
     "infinite_horizon:fuel_pump",
+    "infinite_horizon:fusion_casing",
+    "infinite_horizon:fusion_reactor",
     "infinite_horizon:gas_tank",
+    "infinite_horizon:gravity_plate",
     "infinite_horizon:greenhouse",
     "infinite_horizon:habitation_module",
     "infinite_horizon:high_temperature_furnace",
@@ -64,6 +67,7 @@
     "infinite_horizon:station_core",
     "infinite_horizon:station_hull",
     "infinite_horizon:sulfur_trail",
+    "infinite_horizon:superconductor_cable",
     "infinite_horizon:tank_depot",
     "infinite_horizon:venus_sulfur_ore",
     "infinite_horizon:zero_g_fabricator"

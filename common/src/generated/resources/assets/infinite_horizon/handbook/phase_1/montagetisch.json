@@ -782,6 +782,72 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/fusion_reactor",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 64
+            },
+            {
+              "items": [
+                "infinite_horizon:superconductor_wire"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:cooling_system"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:fusion_reactor",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/fusion_casing",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_wire"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:fusion_casing",
+              "count": 4
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/gas_tank",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -2453,6 +2519,39 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/gravity_plate",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:superconductor_wire"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:gravity_plate",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/solar_wing",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -2730,6 +2829,33 @@
             {
               "item": "infinite_horizon:station_core",
               "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/superconductor_cable",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:superconductor_wire"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:plastic"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:superconductor_cable",
+              "count": 4
             }
           ],
           "ticks": 200,

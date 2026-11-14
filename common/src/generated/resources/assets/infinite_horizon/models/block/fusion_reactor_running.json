@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "infinite_horizon:block/fusion_reactor_front_running",
+    "side": "infinite_horizon:block/fusion_reactor",
+    "top": "infinite_horizon:block/fusion_reactor_top"
+  }
+}

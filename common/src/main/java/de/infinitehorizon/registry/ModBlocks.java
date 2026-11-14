@@ -159,6 +159,19 @@ public final class ModBlocks {
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Supplier<Block> STATION_WINDOW = register("station_window",
             de.infinitehorizon.station.StationWindowBlock::new, () -> BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS));
+    /** Fusionsreaktor (6.3, 4.3): Controller und Gehäuse des 5×5×5-Multiblocks. */
+    public static final Supplier<Block> FUSION_REACTOR = register("fusion_reactor",
+            p -> new MachineBlock(p, () -> ModBlockEntities.FUSION_REACTOR.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> FUSION_CASING = register("fusion_casing", MultiblockPartBlock::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Supraleiterkabel (4.4): Durchsatz aus transport.json. */
+    public static final Supplier<Block> SUPERCONDUCTOR_CABLE = register("superconductor_cable", CableBlock::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.METAL).noOcclusion());
+    /** Schwerkraftplatte (6.1, 12.9). */
+    public static final Supplier<Block> GRAVITY_PLATE = register("gravity_plate",
+            p -> new MachineBlock(p, () -> ModBlockEntities.GRAVITY_PLATE.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     /** Orbit-Maschinen (6.1): Schwerelos-Fertiger, Weltraumwetter-Station. */
     public static final Supplier<Block> ZERO_G_FABRICATOR = register("zero_g_fabricator",
             p -> new MachineBlock(p, () -> ModBlockEntities.ZERO_G_FABRICATOR.get()),

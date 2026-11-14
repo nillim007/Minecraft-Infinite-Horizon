@@ -1,0 +1,20 @@
+{
+  "tier": 3,
+  "branch": "life_support",
+  "cost": 50,
+  "requires": [
+    "infinite_horizon:fusion"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:gravity_plate"
+    }
+  ],
+  "icon": "infinite_horizon:gravity_plate",
+  "position": {
+    "column": 2,
+    "row": 3,
+    "slot": 0
+  }
+}

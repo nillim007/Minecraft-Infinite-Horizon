@@ -190,6 +190,18 @@ public final class ModBlockEntities {
                                     ModBlockEntities.LAUNCH_CONTROL.get(), pos, state),
                             ModBlocks.LAUNCH_CONTROL.get()));
 
+    public static final Supplier<BlockEntityType<de.infinitehorizon.machine.FusionReactorBlockEntity>> FUSION_REACTOR =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "fusion_reactor",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.machine.FusionReactorBlockEntity(
+                                    ModBlockEntities.FUSION_REACTOR.get(), pos, state),
+                            ModBlocks.FUSION_REACTOR.get()));
+    public static final Supplier<BlockEntityType<de.infinitehorizon.station.GravityPlateBlockEntity>> GRAVITY_PLATE =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "gravity_plate",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.station.GravityPlateBlockEntity(
+                                    ModBlockEntities.GRAVITY_PLATE.get(), pos, state),
+                            ModBlocks.GRAVITY_PLATE.get()));
     public static final Supplier<BlockEntityType<ProcessingMachineBlockEntity>> ZERO_G_FABRICATOR =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "zero_g_fabricator",
                     () -> Services.REGISTRY.blockEntityType(
@@ -294,7 +306,7 @@ public final class ModBlockEntities {
         Services.FLUID.expose(FLUID_PUMP);
         for (Supplier<? extends BlockEntityType<? extends ProcessingMachineBlockEntity>> t
                 : List.of(ASSEMBLY_TABLE, ELECTROLYZER, REFINERY_CONTROLLER, REGOLITH_HEATER, HIGH_TEMPERATURE_FURNACE,
-                CRYO_LIQUEFIER, FOOD_PACKER, HYDROPONICS_BASIN, GREENHOUSE, ZERO_G_FABRICATOR, SPACE_WEATHER_STATION)) {
+                CRYO_LIQUEFIER, FOOD_PACKER, HYDROPONICS_BASIN, GREENHOUSE, ZERO_G_FABRICATOR, SPACE_WEATHER_STATION, FUSION_REACTOR, GRAVITY_PLATE)) {
             Services.ENERGY.expose(t);
             Services.FLUID.expose(t);
         }

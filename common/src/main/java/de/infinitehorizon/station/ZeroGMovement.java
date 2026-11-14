@@ -42,6 +42,11 @@ public final class ZeroGMovement {
         JsonObject boots = BalanceManager.get().entry("suits", MAGNET_BOOTS.toString()).orElse(null);
         boolean wearing = boots != null && SuitModules.modules(player.getItemBySlot(EquipmentSlot.FEET)).contains(MAGNET_BOOTS);
         BlockPos below = BlockPos.containing(player.getX(), player.getY() - 0.05, player.getZ());
+        // Schwerkraftplatte (12.9): im Wirkbereich gilt gravity_g
+        if (GravityPlateBlockEntity.covered(player.level(), player.position())) {
+            JsonObject plate = StationModules.config("gravity_plate");
+            return plate.has("gravity_g") ? plate.get("gravity_g").getAsDouble() : planetG;
+        }
         return StationRules.gravity(planetG, true, wearing, !player.level().getBlockState(below).isAir(),
                 wearing ? boots.get("gravity_g").getAsDouble() : planetG);
     }

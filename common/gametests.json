@@ -156,6 +156,9 @@
     {"name": "zerog_overworld_error", "class": "IhGameTestsM6c", "method": "zeroGErrorOutsideOrbit", "ticks": 20, "ref": "6.1, 27 M6 (Abnahme)"},
     {"name": "zerog_orbit_wire_opentier4", "class": "IhGameTestsM6c", "method": "zeroGWireOpensTierFour", "ticks": 220, "dimension": "infinite_horizon:earth_orbit", "ref": "6.1, 11.4, M6c"},
     {"name": "weatherstation_earlywarning", "class": "IhGameTestsM6c", "method": "weatherStationEarlyWarning", "ticks": 40, "dimension": "infinite_horizon:moon", "ref": "19, M6c"},
-    {"name": "weatherstation_notonearth", "class": "IhGameTestsM6c", "method": "weatherStationNotOnEarth", "ticks": 20, "ref": "6.1, M6c"}
+    {"name": "weatherstation_notonearth", "class": "IhGameTestsM6c", "method": "weatherStationNotOnEarth", "ticks": 20, "ref": "6.1, M6c"},
+    {"name": "fusion_shutdown_40ticks_nocooling", "class": "IhGameTestsM6d", "method": "fusionShutsDownWithoutCooling", "ticks": 200, "structure": "infinite_horizon:gametest/empty_large", "ref": "6.3, 27 M6 (Abnahme)"},
+    {"name": "fusion_needsstructure", "class": "IhGameTestsM6d", "method": "fusionNeedsStructure", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "4.3, M6d"},
+    {"name": "gravityplate_orbit_onegee", "class": "IhGameTestsM6d", "method": "gravityPlateOrbit", "ticks": 40, "dimension": "infinite_horizon:earth_orbit", "ref": "12.9, M6d"}
   ]
 }

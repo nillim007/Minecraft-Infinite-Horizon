@@ -18,6 +18,18 @@ public final class StationRules {
         return orbit && magnetBoots && blockBelow ? bootsG : planetG;
     }
 
+    /**
+     * Wirkbereich der Schwerkraftplatte (stations.json {@code area}, {@code above_plate}): Grundfläche
+     * {@code width} × {@code depth} um die Platte, {@code height} Blöcke über ihr.
+     */
+    public static boolean inPlateArea(int px, int py, int pz, double x, double y, double z, int width, int depth, int height) {
+        double hw = width / 2.0;
+        double hd = depth / 2.0;
+        double cx = px + 0.5;
+        double cz = pz + 0.5;
+        return x >= cx - hw && x < cx + hw && z >= cz - hd && z < cz + hd && y >= py + 1 && y < py + 1 + height;
+    }
+
     /** Ziel beim Fall unter y 0 (14.3): Planet unter einem Orbit ({@code earth_orbit} → Overworld, sonst ohne Suffix). */
     public static String surfaceBelow(String orbitPath) {
         String base = orbitPath.endsWith("_orbit") ? orbitPath.substring(0, orbitPath.length() - "_orbit".length()) : orbitPath;

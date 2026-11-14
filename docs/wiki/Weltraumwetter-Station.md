@@ -23,4 +23,4 @@ Die Weltraumwetter-Station beobachtet die Sonne und den Himmel. Solange sie Stro
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Fertigung im Orbit](Fertigung-im-Orbit.md)
+← [Fertigung im Orbit](Fertigung-im-Orbit.md) · [Der Fusionsreaktor](Der-Fusionsreaktor.md) →

@@ -168,7 +168,10 @@ public final class IhTestCatalog {
             new Test("zerog_overworld_error", 20, null, null, null, IhGameTestsM6c::zeroGErrorOutsideOrbit),  // 6.1, 27 M6 (Abnahme)
             new Test("zerog_orbit_wire_opentier4", 220, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6c::zeroGWireOpensTierFour),  // 6.1, 11.4, M6c
             new Test("weatherstation_earlywarning", 40, null, null, "infinite_horizon:moon", IhGameTestsM6c::weatherStationEarlyWarning),  // 19, M6c
-            new Test("weatherstation_notonearth", 20, null, null, null, IhGameTestsM6c::weatherStationNotOnEarth)  // 6.1, M6c
+            new Test("weatherstation_notonearth", 20, null, null, null, IhGameTestsM6c::weatherStationNotOnEarth),  // 6.1, M6c
+            new Test("fusion_shutdown_40ticks_nocooling", 200, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM6d::fusionShutsDownWithoutCooling),  // 6.3, 27 M6 (Abnahme)
+            new Test("fusion_needsstructure", 20, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM6d::fusionNeedsStructure),  // 4.3, M6d
+            new Test("gravityplate_orbit_onegee", 40, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6d::gravityPlateOrbit)  // 12.9, M6d
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

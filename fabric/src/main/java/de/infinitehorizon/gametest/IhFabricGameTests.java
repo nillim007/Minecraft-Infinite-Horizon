@@ -758,4 +758,19 @@ public class IhFabricGameTests {
     public void weatherstationNotonearth(GameTestHelper helper) {
         IhGameTestsM6c.weatherStationNotOnEarth(helper);
     }
+
+    @GameTest(maxTicks = 200, structure = "infinite_horizon:gametest/empty_large")
+    public void fusionShutdown40ticksNocooling(GameTestHelper helper) {
+        IhGameTestsM6d.fusionShutsDownWithoutCooling(helper);
+    }
+
+    @GameTest(maxTicks = 20, structure = "infinite_horizon:gametest/empty_large")
+    public void fusionNeedsstructure(GameTestHelper helper) {
+        IhGameTestsM6d.fusionNeedsStructure(helper);
+    }
+
+    @GameTest(maxTicks = 40, dimension = "infinite_horizon:earth_orbit")
+    public void gravityplateOrbitOnegee(GameTestHelper helper) {
+        IhGameTestsM6d.gravityPlateOrbit(helper);
+    }
 }

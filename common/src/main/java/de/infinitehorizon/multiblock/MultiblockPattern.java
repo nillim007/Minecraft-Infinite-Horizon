@@ -42,7 +42,8 @@ public record MultiblockPattern(String key, Identifier controller, int width, in
 
     /** Muster des Controllers {@code machineId} (Feld {@code multiblock} seines machines.json-Eintrags). */
     public static Optional<MultiblockPattern> forMachine(BalanceManager balance, String machineId) {
-        return balance.entry("machines", machineId)
+        // Controller als Maschine (Raffinerie) oder als Generator (Fusionsreaktor); das Muster steht in machines.json
+        return balance.entry("machines", machineId).or(() -> balance.entry("generators", machineId))
                 .filter(e -> e.has("multiblock") && e.get("multiblock").isJsonPrimitive())
                 .map(e -> e.get("multiblock").getAsString())
                 .flatMap(key -> balance.entry("machines", key).map(o -> fromJson(key, o)));

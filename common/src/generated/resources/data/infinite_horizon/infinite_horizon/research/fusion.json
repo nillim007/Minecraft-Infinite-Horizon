@@ -1,0 +1,24 @@
+{
+  "tier": 3,
+  "branch": "industry",
+  "cost": 50,
+  "requires": [
+    "infinite_horizon:superconductors"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:fusion_reactor"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:fusion_casing"
+    }
+  ],
+  "icon": "infinite_horizon:fusion_reactor",
+  "position": {
+    "column": 0,
+    "row": 3,
+    "slot": 0
+  }
+}

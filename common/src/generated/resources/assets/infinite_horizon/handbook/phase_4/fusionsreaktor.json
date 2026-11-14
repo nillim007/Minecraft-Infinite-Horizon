@@ -1,0 +1,258 @@
+{
+  "id": "infinite_horizon:phase_4/fusionsreaktor",
+  "chapter": "infinite_horizon:phase_4",
+  "title": "infinite_horizon.handbook.phase_4.fusionsreaktor.title",
+  "icon": "infinite_horizon:fusion_reactor",
+  "order": 70,
+  "unlock": "infinite_horizon:research_tier/3",
+  "items": [
+    "infinite_horizon:fusion_reactor",
+    "infinite_horizon:fusion_casing",
+    "infinite_horizon:superconductor_cable",
+    "infinite_horizon:gravity_plate"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.fusionsreaktor.e0"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:fusion_reactor",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_4.fusionsreaktor.e1.0.label",
+          "infinite_horizon.handbook.phase_4.fusionsreaktor.e1.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_4.fusionsreaktor.e1.1.label",
+          "infinite_horizon.handbook.phase_4.fusionsreaktor.e1.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_4.fusionsreaktor.e1.2.label",
+          "infinite_horizon.handbook.phase_4.fusionsreaktor.e1.2.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_4.fusionsreaktor.e1.3.label",
+          "infinite_horizon.handbook.phase_4.fusionsreaktor.e1.3.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_4.fusionsreaktor.e1.4.label",
+          "infinite_horizon.handbook.phase_4.fusionsreaktor.e1.4.value"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.fusionsreaktor.e2",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.fusionsreaktor.e3"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_4.fusionsreaktor.e4.0",
+        "infinite_horizon.handbook.phase_4.fusionsreaktor.e4.1",
+        "infinite_horizon.handbook.phase_4.fusionsreaktor.e4.2",
+        "infinite_horizon.handbook.phase_4.fusionsreaktor.e4.3",
+        "infinite_horizon.handbook.phase_4.fusionsreaktor.e4.4"
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_4.fusionsreaktor.e5",
+      "style": "tip"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.fusionsreaktor.e6",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.fusionsreaktor.e7"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_4.fusionsreaktor.e8",
+      "style": "warning"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.fusionsreaktor.e9",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.fusionsreaktor.e10"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.fusionsreaktor.e11",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.fusionsreaktor.e12"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:gravity_plate",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_4.fusionsreaktor.e13.0.label",
+          "infinite_horizon.handbook.phase_4.fusionsreaktor.e13.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_4.fusionsreaktor.e13.1.label",
+          "infinite_horizon.handbook.phase_4.fusionsreaktor.e13.1.value"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.fusionsreaktor.e14",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/fusion_reactor",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 64
+            },
+            {
+              "items": [
+                "infinite_horizon:superconductor_wire"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:cooling_system"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:fusion_reactor",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/fusion_casing",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_wire"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:fusion_casing",
+              "count": 4
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/superconductor_cable",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:superconductor_wire"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:plastic"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:superconductor_cable",
+              "count": 4
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/gravity_plate",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:superconductor_wire"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:gravity_plate",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_4.fusionsreaktor.e16",
+      "style": "tip"
+    }
+  ]
+}

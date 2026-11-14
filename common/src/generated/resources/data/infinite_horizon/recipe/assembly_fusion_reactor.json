@@ -1,0 +1,28 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:titanium_plate",
+      "count": 64
+    },
+    {
+      "ingredient": "infinite_horizon:superconductor_wire",
+      "count": 16
+    },
+    {
+      "ingredient": "infinite_horizon:cooling_system",
+      "count": 8
+    },
+    {
+      "ingredient": "infinite_horizon:advanced_circuit",
+      "count": 4
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:fusion_reactor",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}
