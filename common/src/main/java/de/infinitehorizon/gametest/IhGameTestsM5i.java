@@ -39,6 +39,16 @@ public final class IhGameTestsM5i {
         return BalanceManager.get().entry("domes", InfiniteHorizon.id(id).toString()).orElseThrow();
     }
 
+    /**
+     * Kuppel am Testende entfernen: Alle Testdurchgänge laufen an derselben Stelle; eine übrig gebliebene Kuppel machte
+     * spätere Tests mit Override Mond atembar (NeoForge-Reihenfolge).
+     */
+    static void removeDome(GameTestHelper h, BlockPos rel) {
+        h.setBlock(rel, net.minecraft.world.level.block.Blocks.AIR);
+        DomeData.get(h.getLevel()).remove(h.absolutePos(rel));
+        de.infinitehorizon.dome.DomeManager.sync(h.getLevel());
+    }
+
     /** Kuppelgenerator mit Strom (jeden Tick aufgefüllt) und vollem O₂-Tank, optional mit Modulen. */
     private static DomeGeneratorBlockEntity dome(GameTestHelper h, Block block, String... modules) {
         h.setBlock(DOME, block.defaultBlockState().setValue(MachineBlock.FACING, Direction.NORTH));
@@ -71,6 +81,7 @@ public final class IhGameTestsM5i {
         h.succeedWhen(() -> {
             DomeData.Entry e = DomeData.get(h.getLevel()).at(h.absolutePos(DOME));
             h.assertTrue(e != null && e.tier() == t2.get("tier").getAsInt() && e.radius() == be.radius(), "Kuppel " + e);
+            removeDome(h, DOME);
         });
     }
 
@@ -83,6 +94,7 @@ public final class IhGameTestsM5i {
             h.assertTrue(EventService.domeProtects(h.getLevel(), inside, EventService.METEOR_SHOWER), "Schild fängt nicht ab");
             h.assertFalse(EventService.domeProtects(h.getLevel(), inside.above(100), EventService.METEOR_SHOWER),
                     "Schild wirkt außerhalb");
+            removeDome(h, DOME);
         });
     }
 
@@ -104,6 +116,7 @@ public final class IhGameTestsM5i {
                 EventService.clear(h.getLevel());
             }
             IhTestPlayers.remove(p);
+            removeDome(h, DOME);
         });
     }
 

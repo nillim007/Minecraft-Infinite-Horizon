@@ -121,6 +121,7 @@ public final class IhGameTestsM6a {
             DomeData.Entry e = DomeData.get(h.getLevel()).at(abs);
             h.assertTrue(e != null && e.radius() == StationCoreBlockEntity.config().getAsJsonObject("builtin_dome")
                     .get("radius").getAsInt(), "eingebaute Kuppel nicht aktiv: " + e + ", Strom " + be.energyStorage().getAmount());
+            IhGameTestsM5i.removeDome(h, CORE);
         });
     }
 
