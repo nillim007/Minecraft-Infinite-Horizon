@@ -30,14 +30,14 @@ public final class IhGameTestsM5c {
 
     private static final Identifier MARS = Identifier.fromNamespaceAndPath("infinite_horizon", "mars");
     private static final BlockPos CENTER = new BlockPos(5, 1, 5);
-    private static final BlockPos CONTROL = new BlockPos(5, 1, 12);
+    static final BlockPos CONTROL = new BlockPos(5, 1, 12);
     private static final int TANKS = 4;
 
     private IhGameTestsM5c() {
     }
 
     /** Rampe mit Kantenlänge {@code edge}, Turm, Pumpe, Pult und Rakete T2 (Triebwerk, 4 volle Tanks, Kapsel, 4 Flossen). */
-    private static void build(GameTestHelper h, int edge) {
+    static void build(GameTestHelper h, int edge) {
         int half = edge / 2;
         for (int dx = -half; dx <= half; dx++) {
             for (int dz = -half; dz <= half; dz++) {
@@ -64,7 +64,7 @@ public final class IhGameTestsM5c {
         h.setBlock(engine.above(TANKS + 1), ModBlocks.ROCKET_CAPSULE_T2.get());
     }
 
-    private static ServerPlayer pilot(GameTestHelper h) {
+    static ServerPlayer pilot(GameTestHelper h) {
         ServerPlayer p = IhTestPlayers.inList(h, GameType.SURVIVAL, new Vec3(1.5, 1, 12.5));
         p.setItemSlot(EquipmentSlot.HEAD, new ItemStack(ModItems.PRESSURE_SUIT_HELMET.get()));
         p.setItemSlot(EquipmentSlot.CHEST, new ItemStack(ModItems.PRESSURE_SUIT_CHESTPLATE.get()));

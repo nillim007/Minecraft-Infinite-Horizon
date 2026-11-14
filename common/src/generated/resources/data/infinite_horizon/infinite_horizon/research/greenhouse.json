@@ -1,0 +1,21 @@
+{
+  "tier": 3,
+  "branch": "life_support",
+  "cost": 50,
+  "requires": [
+    "infinite_horizon:station_modules",
+    "infinite_horizon:hydroponics"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:greenhouse"
+    }
+  ],
+  "icon": "infinite_horizon:greenhouse",
+  "position": {
+    "column": 2,
+    "row": 3,
+    "slot": 1
+  }
+}

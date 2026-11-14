@@ -698,4 +698,44 @@ public class IhFabricGameTests {
     public void orbitArrivalHoverForeigncore(GameTestHelper helper) {
         IhGameTestsM6a.orbitArrivalHover(helper);
     }
+
+    @GameTest(maxTicks = 20)
+    public void stationTankdepotCapacity(GameTestHelper helper) {
+        IhGameTestsM6b.tankDepotCapacity(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:earth_orbit")
+    public void stationSolarwingOrbitoutput(GameTestHelper helper) {
+        IhGameTestsM6b.solarWingOrbit(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void stationSolarwingSurfacezero(GameTestHelper helper) {
+        IhGameTestsM6b.solarWingSurface(helper);
+    }
+
+    @GameTest(maxTicks = 60, dimension = "infinite_horizon:earth_orbit")
+    public void stationHabitationSpawnindome(GameTestHelper helper) {
+        IhGameTestsM6b.habitationSpawnInDome(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:earth_orbit")
+    public void stationResearchlabAnalyzerbonus(GameTestHelper helper) {
+        IhGameTestsM6b.researchLabBonus(helper);
+    }
+
+    @GameTest(maxTicks = 60, dimension = "infinite_horizon:earth_orbit")
+    public void stationGreenhouseHarvestdryice(GameTestHelper helper) {
+        IhGameTestsM6b.greenhouseOrbit(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void stationGreenhouseOnlyinorbit(GameTestHelper helper) {
+        IhGameTestsM6b.greenhouseOnlyInOrbit(helper);
+    }
+
+    @GameTest(maxTicks = 40, structure = "infinite_horizon:gametest/empty_large")
+    public void stationDockingbayLandrefuel(GameTestHelper helper) {
+        IhGameTestsM6b.dockingBayLandingRefuel(helper);
+    }
 }

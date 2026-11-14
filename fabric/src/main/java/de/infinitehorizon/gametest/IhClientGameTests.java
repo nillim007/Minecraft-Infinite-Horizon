@@ -140,6 +140,13 @@ public class IhClientGameTests implements FabricClientGameTest {
                         net.minecraft.resources.Identifier.withDefaultNamespace("water"), 8000));
                 fillEnergy(be, 2);
             });
+            // M6b: Gewächshaus (9 Pflanzslots + Trockeneis, 9 Ausgaben)
+            machine(context, sp, ModBlocks.GREENHOUSE.get(), "gui_greenhouse", be -> {
+                be.setItem(0, new ItemStack(net.minecraft.world.item.Items.WHEAT_SEEDS));
+                be.setItem(1, new ItemStack(net.minecraft.world.item.Items.BIRCH_SAPLING));
+                be.setItem(9, new ItemStack(ModItems.simple("dry_ice").get(), 4));
+                fillEnergy(be, 2);
+            });
             launchPad(context, sp);
 
             // Alle Blöcke nebeneinander in der Welt (Modelle, Texturen, Statuslampe)

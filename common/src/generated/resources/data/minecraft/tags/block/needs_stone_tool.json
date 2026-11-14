@@ -11,6 +11,7 @@
     "infinite_horizon:copper_pipe",
     "infinite_horizon:crusher",
     "infinite_horizon:cryo_liquefier",
+    "infinite_horizon:docking_bay",
     "infinite_horizon:dome_generator_t1",
     "infinite_horizon:dome_generator_t2",
     "infinite_horizon:electric_furnace",
@@ -25,6 +26,8 @@
     "infinite_horizon:fuel_generator",
     "infinite_horizon:fuel_pump",
     "infinite_horizon:gas_tank",
+    "infinite_horizon:greenhouse",
+    "infinite_horizon:habitation_module",
     "infinite_horizon:high_temperature_furnace",
     "infinite_horizon:hydroponics_basin",
     "infinite_horizon:iron_nickel_meteorite",
@@ -44,6 +47,7 @@
     "infinite_horizon:refinery_casing",
     "infinite_horizon:refinery_controller",
     "infinite_horizon:regolith_heater",
+    "infinite_horizon:research_lab",
     "infinite_horizon:research_terminal",
     "infinite_horizon:rocket_capsule_t1",
     "infinite_horizon:rocket_capsule_t2",
@@ -55,9 +59,11 @@
     "infinite_horizon:rocket_tank_t1",
     "infinite_horizon:rocket_tank_t2",
     "infinite_horizon:solar_panel",
+    "infinite_horizon:solar_wing",
     "infinite_horizon:station_core",
     "infinite_horizon:station_hull",
     "infinite_horizon:sulfur_trail",
+    "infinite_horizon:tank_depot",
     "infinite_horizon:venus_sulfur_ore"
   ]
 }

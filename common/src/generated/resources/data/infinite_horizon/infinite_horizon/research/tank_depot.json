@@ -1,0 +1,18 @@
+{
+  "tier": 3,
+  "branch": "logistics",
+  "cost": 50,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:tank_depot"
+    }
+  ],
+  "icon": "infinite_horizon:tank_depot",
+  "position": {
+    "column": 3,
+    "row": 3,
+    "slot": 0
+  }
+}

@@ -73,6 +73,13 @@ public class AnalyzerBlockEntity extends ProcessingMachineBlockEntity {
         }
         int credited = FpLedger.creditSample(agency.progress(), FpLedger.sampleKey(data.block(), data.dimension(), rules),
                 ring.getAsInt(), rules);
+        // Forschungslabor (14.2): angrenzendes Labor im Orbit → FP × analyzer_fp_multiplier
+        double mult = de.infinitehorizon.station.StationModules.labMultiplier(level, worldPosition);
+        if (credited > 0 && mult > 1.0) {
+            int bonus = (int) Math.round(credited * (mult - 1.0));
+            agency.progress().addFp(bonus);
+            credited += bonus;
+        }
         if (credited > 0) {
             agencies.setDirty();
             ResearchService.syncAgency(level.getServer(), agency);

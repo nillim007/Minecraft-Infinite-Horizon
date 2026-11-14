@@ -1,0 +1,20 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:solar_panel",
+      "count": 2
+    },
+    {
+      "ingredient": "infinite_horizon:lightweight_plate",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:solar_wing",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

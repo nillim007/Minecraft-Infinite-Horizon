@@ -156,7 +156,15 @@ public final class IhTestCatalog {
             new Test("station_core_platform_builtindome", 60, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6a::stationCorePlatformDome),  // 14.1, M6a
             new Test("station_core_airplacement", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6a::stationCoreAirPlacement),  // 14.1, M6a
             new Test("station_core_onlyinorbit", 20, null, null, null, IhGameTestsM6a::stationCoreOnlyInOrbit),  // 14.1, M6a
-            new Test("orbit_arrival_hover_foreigncore", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6a::orbitArrivalHover)  // 12.5, M6a
+            new Test("orbit_arrival_hover_foreigncore", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6a::orbitArrivalHover),  // 12.5, M6a
+            new Test("station_tankdepot_capacity", 20, null, null, null, IhGameTestsM6b::tankDepotCapacity),  // 6.3, 14.2, M6b
+            new Test("station_solarwing_orbitoutput", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6b::solarWingOrbit),  // 14.2, M6b
+            new Test("station_solarwing_surfacezero", 20, null, null, null, IhGameTestsM6b::solarWingSurface),  // 14.2, M6b
+            new Test("station_habitation_spawnindome", 60, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6b::habitationSpawnInDome),  // 14.2, 14.4, M6b
+            new Test("station_researchlab_analyzerbonus", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6b::researchLabBonus),  // 14.2, 11.1, M6b
+            new Test("station_greenhouse_harvestdryice", 60, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6b::greenhouseOrbit),  // 14.2, 17, M6b
+            new Test("station_greenhouse_onlyinorbit", 20, null, null, null, IhGameTestsM6b::greenhouseOnlyInOrbit),  // 14.2, M6b
+            new Test("station_dockingbay_landrefuel", 40, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM6b::dockingBayLandingRefuel)  // 14.2, 12.2, M6b
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

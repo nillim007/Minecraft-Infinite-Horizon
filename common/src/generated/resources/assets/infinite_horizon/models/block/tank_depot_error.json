@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "infinite_horizon:block/tank_depot_front_error",
+    "side": "infinite_horizon:block/tank_depot",
+    "top": "infinite_horizon:block/tank_depot_top"
+  }
+}

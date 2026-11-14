@@ -144,6 +144,14 @@
     {"name": "station_core_platform_builtindome", "class": "IhGameTestsM6a", "method": "stationCorePlatformDome", "ticks": 60, "dimension": "infinite_horizon:earth_orbit", "ref": "14.1, M6a"},
     {"name": "station_core_airplacement", "class": "IhGameTestsM6a", "method": "stationCoreAirPlacement", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "14.1, M6a"},
     {"name": "station_core_onlyinorbit", "class": "IhGameTestsM6a", "method": "stationCoreOnlyInOrbit", "ticks": 20, "ref": "14.1, M6a"},
-    {"name": "orbit_arrival_hover_foreigncore", "class": "IhGameTestsM6a", "method": "orbitArrivalHover", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "12.5, M6a"}
+    {"name": "orbit_arrival_hover_foreigncore", "class": "IhGameTestsM6a", "method": "orbitArrivalHover", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "12.5, M6a"},
+    {"name": "station_tankdepot_capacity", "class": "IhGameTestsM6b", "method": "tankDepotCapacity", "ticks": 20, "ref": "6.3, 14.2, M6b"},
+    {"name": "station_solarwing_orbitoutput", "class": "IhGameTestsM6b", "method": "solarWingOrbit", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "14.2, M6b"},
+    {"name": "station_solarwing_surfacezero", "class": "IhGameTestsM6b", "method": "solarWingSurface", "ticks": 20, "ref": "14.2, M6b"},
+    {"name": "station_habitation_spawnindome", "class": "IhGameTestsM6b", "method": "habitationSpawnInDome", "ticks": 60, "dimension": "infinite_horizon:earth_orbit", "ref": "14.2, 14.4, M6b"},
+    {"name": "station_researchlab_analyzerbonus", "class": "IhGameTestsM6b", "method": "researchLabBonus", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "14.2, 11.1, M6b"},
+    {"name": "station_greenhouse_harvestdryice", "class": "IhGameTestsM6b", "method": "greenhouseOrbit", "ticks": 60, "dimension": "infinite_horizon:earth_orbit", "ref": "14.2, 17, M6b"},
+    {"name": "station_greenhouse_onlyinorbit", "class": "IhGameTestsM6b", "method": "greenhouseOnlyInOrbit", "ticks": 20, "ref": "14.2, M6b"},
+    {"name": "station_dockingbay_landrefuel", "class": "IhGameTestsM6b", "method": "dockingBayLandingRefuel", "ticks": 40, "structure": "infinite_horizon:gametest/empty_large", "ref": "14.2, 12.2, M6b"}
   ]
 }

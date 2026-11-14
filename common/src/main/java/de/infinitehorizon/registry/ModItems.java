@@ -69,6 +69,12 @@ public final class ModItems {
     public static final Supplier<Item> STATION_CORE = register("station_core",
             p -> new de.infinitehorizon.station.StationCoreItem(ModBlocks.STATION_CORE.get(), p.useBlockDescriptionPrefix()));
     public static final Supplier<Item> STATION_HULL = blockItem("station_hull", ModBlocks.STATION_HULL);
+    public static final Supplier<Item> DOCKING_BAY = blockItem("docking_bay", ModBlocks.DOCKING_BAY);
+    public static final Supplier<Item> TANK_DEPOT = blockItem("tank_depot", ModBlocks.TANK_DEPOT);
+    public static final Supplier<Item> SOLAR_WING = blockItem("solar_wing", ModBlocks.SOLAR_WING);
+    public static final Supplier<Item> HABITATION_MODULE = blockItem("habitation_module", ModBlocks.HABITATION_MODULE);
+    public static final Supplier<Item> RESEARCH_LAB = blockItem("research_lab", ModBlocks.RESEARCH_LAB);
+    public static final Supplier<Item> GREENHOUSE = blockItem("greenhouse", ModBlocks.GREENHOUSE);
     public static final Supplier<Item> STATION_WINDOW = blockItem("station_window", ModBlocks.STATION_WINDOW);
     public static final Supplier<Item> FOOD_PACKER = blockItem("food_packer", ModBlocks.FOOD_PACKER);
     public static final Supplier<Item> HYDROPONICS_BASIN = blockItem("hydroponics_basin", ModBlocks.HYDROPONICS_BASIN);

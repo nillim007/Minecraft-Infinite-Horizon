@@ -1,0 +1,32 @@
+{
+  "tier": 3,
+  "branch": "spaceflight",
+  "cost": 50,
+  "requires": [
+    "infinite_horizon:station_core"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:habitation_module"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:research_lab"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:zero_g_fabricator"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:solar_wing"
+    }
+  ],
+  "icon": "infinite_horizon:habitation_module",
+  "position": {
+    "column": 1,
+    "row": 3,
+    "slot": 1
+  }
+}

@@ -1,0 +1,315 @@
+{
+  "id": "infinite_horizon:phase_4/stationsmodule",
+  "chapter": "infinite_horizon:phase_4",
+  "title": "infinite_horizon.handbook.phase_4.stationsmodule.title",
+  "icon": "infinite_horizon:docking_bay",
+  "order": 40,
+  "unlock": "infinite_horizon:research_tier/3",
+  "items": [
+    "infinite_horizon:docking_bay",
+    "infinite_horizon:tank_depot",
+    "infinite_horizon:solar_wing",
+    "infinite_horizon:habitation_module",
+    "infinite_horizon:research_lab",
+    "infinite_horizon:greenhouse"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.stationsmodule.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.stationsmodule.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.stationsmodule.e2"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.stationsmodule.e3",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.stationsmodule.e4"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:tank_depot",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_4.stationsmodule.e5.0.label",
+          "infinite_horizon.handbook.phase_4.stationsmodule.e5.0.value"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.stationsmodule.e6",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.stationsmodule.e7"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.stationsmodule.e8",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.stationsmodule.e9"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.stationsmodule.e10",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.stationsmodule.e11"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.stationsmodule.e12",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.stationsmodule.e13"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:greenhouse",
+      "rows": []
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.stationsmodule.e15",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/docking_bay",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:docking_bay",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/tank_depot",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:pressure_hull"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:tank_depot",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/solar_wing",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:solar_panel"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:solar_wing",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/habitation_module",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "#minecraft:beds"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "minecraft:chest"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:habitation_module",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/research_lab",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:analyzer"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:research_lab",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/greenhouse",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:hydroponics_basin"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:greenhouse",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_4.stationsmodule.e17",
+      "style": "warning"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_4.stationsmodule.e18",
+      "style": "tip"
+    }
+  ]
+}

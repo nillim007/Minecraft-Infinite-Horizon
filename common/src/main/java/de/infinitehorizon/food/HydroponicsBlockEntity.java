@@ -44,12 +44,13 @@ public class HydroponicsBlockEntity extends ProcessingMachineBlockEntity {
     public record Plant(Block block, int stages, boolean sapling) {
     }
 
-    private int stage;
-    private int stageTicks;
+    private int[] stage = new int[0];
+    private int[] stageTicks = new int[0];
     private int waterTicks;
     private long fertilizedUntil;
     private int ticksPerStage;
     private boolean noGrowth;
+    private boolean wrongPlace;
 
     public HydroponicsBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state, List::of);
@@ -80,18 +81,62 @@ public class HydroponicsBlockEntity extends ProcessingMachineBlockEntity {
 
     @Override
     protected boolean acceptsInput(int slot, ItemStack stack) {
-        return plant(stack) != null;
+        return slot < plantSlots() ? plant(stack) != null : acceptsExtra(stack);
+    }
+
+    /** Zahl der Pflanzslots ({@code plant_slots} in agriculture.json, Becken 1, Gewächshaus 9). */
+    public int plantSlots() {
+        JsonObject c = BalanceManager.get().entry("agriculture", machineId()).orElse(new JsonObject());
+        return c.has("plant_slots") ? c.get("plant_slots").getAsInt() : 1;
+    }
+
+    private void ensureArrays() {
+        int n = plantSlots();
+        if (stage.length != n) {
+            stage = java.util.Arrays.copyOf(stage, n);
+            stageTicks = java.util.Arrays.copyOf(stageTicks, n);
+        }
+    }
+
+    /** Zusätzlicher Eingabeslot hinter den Pflanzslots (Gewächshaus: Trockeneis). */
+    protected boolean acceptsExtra(ItemStack stack) {
+        return false;
     }
 
     public int stage() {
-        return stage;
+        return stage(0);
+    }
+
+    public int stage(int slot) {
+        ensureArrays();
+        return stage[slot];
     }
 
     /** Setzt die Altersstufe (für Tests und Befehle). */
-    public void setStage(int stage) {
-        this.stage = stage;
-        this.stageTicks = 0;
+    public void setStage(int value) {
+        setStage(0, value);
+    }
+
+    public void setStage(int slot, int value) {
+        ensureArrays();
+        stage[slot] = value;
+        stageTicks[slot] = 0;
         setChanged();
+    }
+
+    /** Strom je Tick ohne Upgrades (Becken: machines.json). */
+    protected long baseEnergyPerTick() {
+        return stats().energyPerTick();
+    }
+
+    /** Ortsbindung (Gewächshaus: nur im Orbit). */
+    protected boolean located(ServerLevel level) {
+        return true;
+    }
+
+    /** Zusätzlicher Verbrauch (Gewächshaus: Trockeneis); {@code consume} = jetzt abziehen. */
+    protected boolean supplied(ServerLevel level, boolean consume) {
+        return true;
     }
 
     /** Ammoniakdünger (17): schnelleres Wachstum für {@code duration_ticks}. */
@@ -107,16 +152,25 @@ public class HydroponicsBlockEntity extends ProcessingMachineBlockEntity {
 
     @Override
     public int statusHint() {
-        return noGrowth ? HINT_GROWTH : super.statusHint();
+        return wrongPlace ? HINT_LOCATION : noGrowth ? HINT_GROWTH : super.statusHint();
     }
 
     @Override
     protected long syncValue(int index) {
-        Plant p = plant(items.isEmpty() ? ItemStack.EMPTY : items.get(0));
-        int stages = p == null ? 0 : p.stages();
+        // Fortschritt über alle bepflanzten Slots
+        ensureArrays();
+        long done = 0;
+        long total = 0;
+        for (int i = 0; i < stage.length && i < items.size(); i++) {
+            Plant p = plant(items.get(i));
+            if (p != null) {
+                done += (long) stage[i] * ticksPerStage + stageTicks[i];
+                total += (long) p.stages() * ticksPerStage;
+            }
+        }
         return switch (index) {
-            case 2 -> (long) stage * ticksPerStage + stageTicks;
-            case 3 -> (long) stages * ticksPerStage;
+            case 2 -> done;
+            case 3 -> total;
             default -> super.syncValue(index);
         };
     }
@@ -124,29 +178,41 @@ public class HydroponicsBlockEntity extends ProcessingMachineBlockEntity {
     @Override
     protected void process(ServerLevel level) {
         noGrowth = false;
+        wrongPlace = false;
+        ensureArrays();
+        if (!located(level)) {
+            wrongPlace = true;
+            setStatus(MachineStatus.ERROR);
+            return;
+        }
         if (de.infinitehorizon.event.EventService.machinePaused(level, getBlockPos())) {
             setStatus(MachineStatus.IDLE);
             return;
         }
-        ItemStack seed = items.get(0);
-        Plant plant = plant(seed);
-        if (plant == null) {
-            stage = 0;
-            stageTicks = 0;
-            setStatus(MachineStatus.IDLE);
-            return;
-        }
-        if (stage >= plant.stages()) {
-            List<ItemStack> drops = harvest(level, plant, seed);
-            if (!outputsFit(drops)) {
-                setStatus(MachineStatus.ERROR);
-                return;
+        // Ernte reifer Pflanzen (17): Ertrag in die Ausgabeslots, der Samen bleibt im Pflanzslot
+        boolean planted = false;
+        for (int i = 0; i < stage.length; i++) {
+            Plant plant = plant(items.get(i));
+            if (plant == null) {
+                stage[i] = 0;
+                stageTicks[i] = 0;
+                continue;
             }
-            drops.forEach(this::insertOutput);
-            stage = 0;
-            stageTicks = 0;
-            setStatus(MachineStatus.RUNNING);
-            setChanged();
+            planted = true;
+            if (stage[i] >= plant.stages()) {
+                List<ItemStack> drops = harvest(level, plant, items.get(i));
+                if (!outputsFit(drops)) {
+                    setStatus(MachineStatus.ERROR);
+                    return;
+                }
+                drops.forEach(this::insertOutput);
+                stage[i] = 0;
+                stageTicks[i] = 0;
+                setChanged();
+            }
+        }
+        if (!planted) {
+            setStatus(MachineStatus.IDLE);
             return;
         }
         JsonObject b = basin();
@@ -158,27 +224,34 @@ public class HydroponicsBlockEntity extends ProcessingMachineBlockEntity {
             setStatus(MachineStatus.IDLE);
             return;
         }
-        int normal = plant.sapling() ? cfg("saplings").get("ticks_per_stage").getAsInt()
-                : b.get("ticks_per_growth_stage").getAsInt();
-        int base = FoodRules.ticksPerStage(normal, b.get("ticks_per_growth_stage_fertilized").getAsInt(), fertilized(level));
-        ProcessingMath.Effective eff = ProcessingMath.effective(stats().withProcess(stats().energyPerTick(), base),
+        boolean fert = fertilized(level);
+        int fertTicks = b.get("ticks_per_growth_stage_fertilized").getAsInt();
+        int cropTicks = FoodRules.ticksPerStage(b.get("ticks_per_growth_stage").getAsInt(), fertTicks, fert);
+        int saplingTicks = FoodRules.ticksPerStage(cfg("saplings").get("ticks_per_stage").getAsInt(), fertTicks, fert);
+        ProcessingMath.Effective crop = ProcessingMath.effective(stats().withProcess(baseEnergyPerTick(), cropTicks),
                 installedUpgrades());
-        ticksPerStage = eff.ticks();
-        if (!hasWater() || !energy.useInternal(eff.energyPerTick())) {
+        ProcessingMath.Effective sapling = ProcessingMath.effective(stats().withProcess(baseEnergyPerTick(), saplingTicks),
+                installedUpgrades());
+        ticksPerStage = crop.ticks();
+        if (!hasWater() || !supplied(level, false) || !energy.useInternal(crop.energyPerTick())) {
             setStatus(MachineStatus.IDLE);
             return;
         }
         consumeWater();
-        if (++stageTicks >= ticksPerStage) {
-            stage++;
-            stageTicks = 0;
+        supplied(level, true);
+        for (int i = 0; i < stage.length; i++) {
+            Plant plant = plant(items.get(i));
+            if (plant != null && ++stageTicks[i] >= (plant.sapling() ? sapling.ticks() : crop.ticks())) {
+                stage[i]++;
+                stageTicks[i] = 0;
+            }
         }
         setStatus(MachineStatus.RUNNING);
         setChanged();
     }
 
     /** Wasserverbrauch aus machines.json ({@code fluid_consumption}). */
-    private @Nullable JsonObject water() {
+    protected @Nullable JsonObject water() {
         JsonElement fc = BalanceManager.get().entry("machines", machineId()).map(o -> o.get("fluid_consumption")).orElse(null);
         return fc != null && fc.isJsonArray() && !fc.getAsJsonArray().isEmpty() ? fc.getAsJsonArray().get(0).getAsJsonObject() : null;
     }
@@ -233,8 +306,10 @@ public class HydroponicsBlockEntity extends ProcessingMachineBlockEntity {
     @Override
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
-        output.putInt("stage", stage);
-        output.putInt("stage_ticks", stageTicks);
+        for (int i = 0; i < stage.length; i++) {
+            output.putInt("stage" + i, stage[i]);
+            output.putInt("stage_ticks" + i, stageTicks[i]);
+        }
         output.putInt("water_ticks", waterTicks);
         output.putLong("fertilized_until", fertilizedUntil);
     }
@@ -242,8 +317,13 @@ public class HydroponicsBlockEntity extends ProcessingMachineBlockEntity {
     @Override
     public void loadAdditional(ValueInput input) {
         super.loadAdditional(input);
-        stage = input.getIntOr("stage", 0);
-        stageTicks = input.getIntOr("stage_ticks", 0);
+        int n = plantSlots();
+        stage = new int[n];
+        stageTicks = new int[n];
+        for (int i = 0; i < n; i++) {
+            stage[i] = input.getIntOr("stage" + i, 0);
+            stageTicks[i] = input.getIntOr("stage_ticks" + i, 0);
+        }
         waterTicks = input.getIntOr("water_ticks", 0);
         fertilizedUntil = input.getLongOr("fertilized_until", 0L);
     }

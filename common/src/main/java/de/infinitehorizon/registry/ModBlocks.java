@@ -159,6 +159,24 @@ public final class ModBlocks {
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Supplier<Block> STATION_WINDOW = register("station_window",
             de.infinitehorizon.station.StationWindowBlock::new, () -> BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS));
+    /** Stationsmodule (14.2). */
+    public static final Supplier<Block> DOCKING_BAY = register("docking_bay",
+            p -> new de.infinitehorizon.station.DockingBayBlock(p, () -> ModBlockEntities.DOCKING_BAY.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> TANK_DEPOT = register("tank_depot",
+            p -> new MachineBlock(p, () -> ModBlockEntities.TANK_DEPOT.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> SOLAR_WING = register("solar_wing",
+            p -> new MachineBlock(p, () -> ModBlockEntities.SOLAR_WING.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> HABITATION_MODULE = register("habitation_module",
+            p -> new de.infinitehorizon.station.HabitationModuleBlock(p, () -> ModBlockEntities.HABITATION_MODULE.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> RESEARCH_LAB = register("research_lab", Block::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> GREENHOUSE = register("greenhouse",
+            p -> new MachineBlock(p, () -> ModBlockEntities.GREENHOUSE.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion());
     /** Landefeuer (12.6): roter Strahl, Landeziel in der Navigationskarte. */
     public static final Supplier<Block> LANDING_BEACON = register("landing_beacon",
             p -> new de.infinitehorizon.space.LandingBeaconBlock(p, () -> ModBlockEntities.LANDING_BEACON.get()),

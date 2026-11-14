@@ -363,6 +363,10 @@ public final class FlightService {
         Planet planet = PlanetResolver.planetFor(level.dimension().identifier(), PlanetRegistry.get());
         if (planet != null && planet.isOrbit()) {
             BlockPos at = landing.beacon().orElse(null);
+            // Andockbucht als Ziel (14.2): die Rakete steht direkt auf der Bucht
+            if (at != null && level.getBlockState(at).is(de.infinitehorizon.registry.ModBlocks.DOCKING_BAY.get())) {
+                return at.above();
+            }
             return OrbitLanding.find(level, at != null ? at.getX() : landing.x().orElse(0),
                     at != null ? at.getZ() : landing.z().orElse(0), agency);
         }

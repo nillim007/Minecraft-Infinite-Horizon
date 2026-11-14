@@ -1,0 +1,24 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:lightweight_plate",
+      "count": 8
+    },
+    {
+      "ingredient": "infinite_horizon:copper_pipe",
+      "count": 4
+    },
+    {
+      "ingredient": "infinite_horizon:pressure_hull",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:tank_depot",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

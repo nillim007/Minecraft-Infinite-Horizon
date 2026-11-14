@@ -1309,6 +1309,39 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/docking_bay",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:docking_bay",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/pressure_suit_chestplate",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -1693,6 +1726,39 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/research_lab",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:analyzer"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:research_lab",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/research_terminal",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -1824,6 +1890,45 @@
           "results": [
             {
               "item": "infinite_horizon:speed_upgrade",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/greenhouse",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:hydroponics_basin"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:greenhouse",
               "count": 1
             }
           ],
@@ -3364,6 +3469,33 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/solar_wing",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:solar_panel"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:solar_wing",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/solar_panel",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -3620,6 +3752,39 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/tank_depot",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:pressure_hull"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:tank_depot",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/titanium_pipe",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -3745,6 +3910,45 @@
           "results": [
             {
               "item": "infinite_horizon:fuel_pump",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/habitation_module",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "#minecraft:beds"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "minecraft:chest"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:habitation_module",
               "count": 1
             }
           ],

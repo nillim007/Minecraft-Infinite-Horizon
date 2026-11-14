@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "infinite_horizon:block/greenhouse_front_idle",
+    "side": "infinite_horizon:block/greenhouse",
+    "top": "infinite_horizon:block/greenhouse_top"
+  }
+}

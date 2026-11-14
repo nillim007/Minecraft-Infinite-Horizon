@@ -190,6 +190,31 @@ public final class ModBlockEntities {
                                     ModBlockEntities.LAUNCH_CONTROL.get(), pos, state),
                             ModBlocks.LAUNCH_CONTROL.get()));
 
+    public static final Supplier<BlockEntityType<de.infinitehorizon.station.DockingBayBlockEntity>> DOCKING_BAY =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "docking_bay",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.station.DockingBayBlockEntity(ModBlockEntities.DOCKING_BAY.get(), pos, state),
+                            ModBlocks.DOCKING_BAY.get()));
+    public static final Supplier<BlockEntityType<FluidTankBlockEntity>> TANK_DEPOT =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "tank_depot",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new FluidTankBlockEntity(ModBlockEntities.TANK_DEPOT.get(), pos, state),
+                            ModBlocks.TANK_DEPOT.get()));
+    public static final Supplier<BlockEntityType<de.infinitehorizon.machine.SolarPanelBlockEntity>> SOLAR_WING =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "solar_wing",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.machine.SolarPanelBlockEntity(ModBlockEntities.SOLAR_WING.get(), pos, state),
+                            ModBlocks.SOLAR_WING.get()));
+    public static final Supplier<BlockEntityType<de.infinitehorizon.station.HabitationModuleBlockEntity>> HABITATION_MODULE =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "habitation_module",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.station.HabitationModuleBlockEntity(ModBlockEntities.HABITATION_MODULE.get(), pos, state),
+                            ModBlocks.HABITATION_MODULE.get()));
+    public static final Supplier<BlockEntityType<de.infinitehorizon.food.GreenhouseBlockEntity>> GREENHOUSE =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "greenhouse",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.food.GreenhouseBlockEntity(ModBlockEntities.GREENHOUSE.get(), pos, state),
+                            ModBlocks.GREENHOUSE.get()));
     public static final Supplier<BlockEntityType<de.infinitehorizon.station.StationCoreBlockEntity>> STATION_CORE =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "station_core",
                     () -> Services.REGISTRY.blockEntityType(
@@ -257,7 +282,7 @@ public final class ModBlockEntities {
         Services.FLUID.expose(FLUID_PUMP);
         for (Supplier<? extends BlockEntityType<? extends ProcessingMachineBlockEntity>> t
                 : List.of(ASSEMBLY_TABLE, ELECTROLYZER, REFINERY_CONTROLLER, REGOLITH_HEATER, HIGH_TEMPERATURE_FURNACE,
-                CRYO_LIQUEFIER, FOOD_PACKER, HYDROPONICS_BASIN)) {
+                CRYO_LIQUEFIER, FOOD_PACKER, HYDROPONICS_BASIN, GREENHOUSE)) {
             Services.ENERGY.expose(t);
             Services.FLUID.expose(t);
         }
@@ -273,6 +298,8 @@ public final class ModBlockEntities {
         Services.ENERGY.expose(DOME_GENERATOR_T2);
         Services.FLUID.expose(DOME_GENERATOR_T2);
         Services.ENERGY.expose(STATION_CORE);
+        Services.FLUID.expose(TANK_DEPOT);
+        Services.ENERGY.expose(SOLAR_WING);
         Services.FLUID.expose(STATION_CORE);
         Services.ENERGY.expose(ELECTRIC_LAMP);
         Services.ENERGY.expose(ANALYZER);
