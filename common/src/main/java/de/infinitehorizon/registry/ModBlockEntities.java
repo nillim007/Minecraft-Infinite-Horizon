@@ -190,6 +190,18 @@ public final class ModBlockEntities {
                                     ModBlockEntities.LAUNCH_CONTROL.get(), pos, state),
                             ModBlocks.LAUNCH_CONTROL.get()));
 
+    public static final Supplier<BlockEntityType<ProcessingMachineBlockEntity>> ZERO_G_FABRICATOR =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "zero_g_fabricator",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new ProcessingMachineBlockEntity(ModBlockEntities.ZERO_G_FABRICATOR.get(), pos, state,
+                                    () -> List.of(ModRecipeTypes.ZERO_G)),
+                            ModBlocks.ZERO_G_FABRICATOR.get()));
+    public static final Supplier<BlockEntityType<de.infinitehorizon.event.SpaceWeatherStationBlockEntity>> SPACE_WEATHER_STATION =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "space_weather_station",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.event.SpaceWeatherStationBlockEntity(
+                                    ModBlockEntities.SPACE_WEATHER_STATION.get(), pos, state),
+                            ModBlocks.SPACE_WEATHER_STATION.get()));
     public static final Supplier<BlockEntityType<de.infinitehorizon.station.DockingBayBlockEntity>> DOCKING_BAY =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "docking_bay",
                     () -> Services.REGISTRY.blockEntityType(
@@ -282,7 +294,7 @@ public final class ModBlockEntities {
         Services.FLUID.expose(FLUID_PUMP);
         for (Supplier<? extends BlockEntityType<? extends ProcessingMachineBlockEntity>> t
                 : List.of(ASSEMBLY_TABLE, ELECTROLYZER, REFINERY_CONTROLLER, REGOLITH_HEATER, HIGH_TEMPERATURE_FURNACE,
-                CRYO_LIQUEFIER, FOOD_PACKER, HYDROPONICS_BASIN, GREENHOUSE)) {
+                CRYO_LIQUEFIER, FOOD_PACKER, HYDROPONICS_BASIN, GREENHOUSE, ZERO_G_FABRICATOR, SPACE_WEATHER_STATION)) {
             Services.ENERGY.expose(t);
             Services.FLUID.expose(t);
         }

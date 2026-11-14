@@ -152,6 +152,10 @@
     {"name": "station_researchlab_analyzerbonus", "class": "IhGameTestsM6b", "method": "researchLabBonus", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "14.2, 11.1, M6b"},
     {"name": "station_greenhouse_harvestdryice", "class": "IhGameTestsM6b", "method": "greenhouseOrbit", "ticks": 60, "dimension": "infinite_horizon:earth_orbit", "ref": "14.2, 17, M6b"},
     {"name": "station_greenhouse_onlyinorbit", "class": "IhGameTestsM6b", "method": "greenhouseOnlyInOrbit", "ticks": 20, "ref": "14.2, M6b"},
-    {"name": "station_dockingbay_landrefuel", "class": "IhGameTestsM6b", "method": "dockingBayLandingRefuel", "ticks": 40, "structure": "infinite_horizon:gametest/empty_large", "ref": "14.2, 12.2, M6b"}
+    {"name": "station_dockingbay_landrefuel", "class": "IhGameTestsM6b", "method": "dockingBayLandingRefuel", "ticks": 40, "structure": "infinite_horizon:gametest/empty_large", "ref": "14.2, 12.2, M6b"},
+    {"name": "zerog_overworld_error", "class": "IhGameTestsM6c", "method": "zeroGErrorOutsideOrbit", "ticks": 20, "ref": "6.1, 27 M6 (Abnahme)"},
+    {"name": "zerog_orbit_wire_opentier4", "class": "IhGameTestsM6c", "method": "zeroGWireOpensTierFour", "ticks": 220, "dimension": "infinite_horizon:earth_orbit", "ref": "6.1, 11.4, M6c"},
+    {"name": "weatherstation_earlywarning", "class": "IhGameTestsM6c", "method": "weatherStationEarlyWarning", "ticks": 40, "dimension": "infinite_horizon:moon", "ref": "19, M6c"},
+    {"name": "weatherstation_notonearth", "class": "IhGameTestsM6c", "method": "weatherStationNotOnEarth", "ticks": 20, "ref": "6.1, M6c"}
   ]
 }

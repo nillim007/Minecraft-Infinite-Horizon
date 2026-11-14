@@ -71,7 +71,9 @@ public final class AgencyProgress {
             Beacon.CODEC.listOf().optionalFieldOf("beacons", List.of()).forGetter(p -> List.copyOf(p.beacons)),
             Codec.unboundedMap(Identifier.CODEC, Identifier.CODEC.listOf()).optionalFieldOf("visited_biomes", Map.of())
                     .forGetter(AgencyProgress::visitedBiomesLists),
-            Identifier.CODEC.listOf().optionalFieldOf("crafted", List.of()).forGetter(p -> List.copyOf(p.crafted))
+            Identifier.CODEC.listOf().optionalFieldOf("crafted", List.of()).forGetter(p -> List.copyOf(p.crafted)),
+            Codec.STRING.listOf().optionalFieldOf("completed_machines", List.of())
+                    .forGetter(p -> List.copyOf(p.completedMachines))
     ).apply(i, AgencyProgress::new));
 
     private int fp;
@@ -90,18 +92,21 @@ public final class AgencyProgress {
     private final Map<Identifier, Set<Identifier>> visitedBiomes = new LinkedHashMap<>();
     /** Tor {@code crafted_items} (11.4, ab M5): je einmal hergestellte Items und Fluide. */
     private final Set<Identifier> crafted;
+    /** Tor {@code machine_completed} (11.4, ab M6): Maschinen, die je einen Vorgang abgeschlossen haben. */
+    private final Set<String> completedMachines;
 
     public AgencyProgress() {
         this(0, List.of(), List.of(), List.of(), List.of(), Map.of(), Map.of(), Map.of(), List.of(), List.of(), List.of(),
-                List.of(), Map.of(), List.of());
+                List.of(), Map.of(), List.of(), List.of());
     }
 
     private AgencyProgress(int fp, List<Identifier> researched, List<Integer> openTiers, List<Identifier> probeTargets,
                            List<Identifier> probeReached, Map<UUID, List<Identifier>> pending, Map<String, Integer> samples,
                            Map<String, Integer> structures, List<FoundStructure> found, List<UUID> invites,
                            List<ProbeFlight> flights, List<Beacon> beacons, Map<Identifier, List<Identifier>> biomes,
-                           List<Identifier> crafted) {
+                           List<Identifier> crafted, List<String> completedMachines) {
         this.crafted = new LinkedHashSet<>(crafted);
+        this.completedMachines = new LinkedHashSet<>(completedMachines);
         this.beacons = new java.util.ArrayList<>(beacons);
         biomes.forEach((dim, list) -> visitedBiomes.put(dim, new LinkedHashSet<>(list)));
         this.probeFlights = new java.util.ArrayList<>(flights);
@@ -120,6 +125,16 @@ public final class AgencyProgress {
     /** Je einmal hergestellte Items und Fluide (Tor {@code crafted_items}). */
     public Set<Identifier> crafted() {
         return Set.copyOf(crafted);
+    }
+
+    /** Maschinen mit mindestens einem abgeschlossenen Vorgang ({@code <block>}, Tor {@code machine_completed}). */
+    public Set<String> completedMachines() {
+        return Set.copyOf(completedMachines);
+    }
+
+    /** Merkt einen abgeschlossenen Vorgang; true, wenn er neu war. */
+    public boolean addCompletedMachine(String key) {
+        return completedMachines.add(key);
     }
 
     /** Merkt ein hergestelltes Item oder Fluid; true, wenn es neu war. */

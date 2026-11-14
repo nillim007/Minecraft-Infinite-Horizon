@@ -19,13 +19,15 @@ public final class ModRecipeTypes {
     public static final ProcessingRecipe.Kind REGOLITH_HEATING = kind("regolith_heating");
     public static final ProcessingRecipe.Kind HIGH_TEMP_SMELTING = kind("high_temp_smelting");
     public static final ProcessingRecipe.Kind CRYO = kind("cryo");
+    /** Orbit (M6): Schwerelos-Fertiger. */
+    public static final ProcessingRecipe.Kind ZERO_G = kind("zero_g");
     /** Montagetisch: exakter Abgleich (22.3). */
     public static final ProcessingRecipe.Kind ASSEMBLY = kind("assembly", true);
 
     /** Alle eigenen Rezeptarten in Registrierreihenfolge (Kategorien der Rezeptanzeige, 3.9). */
     public static final java.util.List<ProcessingRecipe.Kind> ALL =
             java.util.List.of(CRUSHING, PRESSING, ELECTRIC_SMELTING, REFINING, ELECTROLYSIS, REGOLITH_HEATING,
-                    HIGH_TEMP_SMELTING, CRYO, ASSEMBLY);
+                    HIGH_TEMP_SMELTING, CRYO, ZERO_G, ASSEMBLY);
 
     /** Legt eine Rezeptart an und registriert Typ und Serializer unter {@code infinite_horizon:<name>}. */
     public static ProcessingRecipe.Kind kind(String name) {

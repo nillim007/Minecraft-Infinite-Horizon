@@ -164,7 +164,11 @@ public final class IhTestCatalog {
             new Test("station_researchlab_analyzerbonus", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6b::researchLabBonus),  // 14.2, 11.1, M6b
             new Test("station_greenhouse_harvestdryice", 60, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6b::greenhouseOrbit),  // 14.2, 17, M6b
             new Test("station_greenhouse_onlyinorbit", 20, null, null, null, IhGameTestsM6b::greenhouseOnlyInOrbit),  // 14.2, M6b
-            new Test("station_dockingbay_landrefuel", 40, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM6b::dockingBayLandingRefuel)  // 14.2, 12.2, M6b
+            new Test("station_dockingbay_landrefuel", 40, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM6b::dockingBayLandingRefuel),  // 14.2, 12.2, M6b
+            new Test("zerog_overworld_error", 20, null, null, null, IhGameTestsM6c::zeroGErrorOutsideOrbit),  // 6.1, 27 M6 (Abnahme)
+            new Test("zerog_orbit_wire_opentier4", 220, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6c::zeroGWireOpensTierFour),  // 6.1, 11.4, M6c
+            new Test("weatherstation_earlywarning", 40, null, null, "infinite_horizon:moon", IhGameTestsM6c::weatherStationEarlyWarning),  // 19, M6c
+            new Test("weatherstation_notonearth", 20, null, null, null, IhGameTestsM6c::weatherStationNotOnEarth)  // 6.1, M6c
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

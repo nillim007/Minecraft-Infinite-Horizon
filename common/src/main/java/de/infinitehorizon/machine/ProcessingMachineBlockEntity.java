@@ -390,6 +390,8 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
             plan.stacks().forEach(s -> made.add(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(s.getItem())));
             plan.fluidResults().forEach(f -> made.add(f.fluid()));
             de.infinitehorizon.research.ResearchService.onCrafted(level.getServer(), owner(), made);
+            // SPEC-GAP #98: gezählt wird die Maschine; Varianten „Maschine|Rezept“ braucht noch kein Tor
+            de.infinitehorizon.research.ResearchService.onMachineCompleted(level.getServer(), owner(), machineId());
         }
         setStatus(MachineStatus.RUNNING);
         setChanged();

@@ -1,0 +1,18 @@
+{
+  "tier": 3,
+  "branch": "industry",
+  "cost": 50,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:space_weather_station"
+    }
+  ],
+  "icon": "infinite_horizon:space_weather_station",
+  "position": {
+    "column": 0,
+    "row": 3,
+    "slot": 2
+  }
+}

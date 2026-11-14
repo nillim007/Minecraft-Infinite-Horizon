@@ -1,0 +1,49 @@
+{
+  "variants": {
+    "facing=north,status=idle": {
+      "model": "infinite_horizon:block/space_weather_station_idle"
+    },
+    "facing=north,status=running": {
+      "model": "infinite_horizon:block/space_weather_station_running"
+    },
+    "facing=north,status=error": {
+      "model": "infinite_horizon:block/space_weather_station_error"
+    },
+    "facing=east,status=idle": {
+      "model": "infinite_horizon:block/space_weather_station_idle",
+      "y": 90
+    },
+    "facing=east,status=running": {
+      "model": "infinite_horizon:block/space_weather_station_running",
+      "y": 90
+    },
+    "facing=east,status=error": {
+      "model": "infinite_horizon:block/space_weather_station_error",
+      "y": 90
+    },
+    "facing=south,status=idle": {
+      "model": "infinite_horizon:block/space_weather_station_idle",
+      "y": 180
+    },
+    "facing=south,status=running": {
+      "model": "infinite_horizon:block/space_weather_station_running",
+      "y": 180
+    },
+    "facing=south,status=error": {
+      "model": "infinite_horizon:block/space_weather_station_error",
+      "y": 180
+    },
+    "facing=west,status=idle": {
+      "model": "infinite_horizon:block/space_weather_station_idle",
+      "y": 270
+    },
+    "facing=west,status=running": {
+      "model": "infinite_horizon:block/space_weather_station_running",
+      "y": 270
+    },
+    "facing=west,status=error": {
+      "model": "infinite_horizon:block/space_weather_station_error",
+      "y": 270
+    }
+  }
+}

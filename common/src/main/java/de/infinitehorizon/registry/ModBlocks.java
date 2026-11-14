@@ -159,6 +159,13 @@ public final class ModBlocks {
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Supplier<Block> STATION_WINDOW = register("station_window",
             de.infinitehorizon.station.StationWindowBlock::new, () -> BlockBehaviour.Properties.ofFullCopy(Blocks.GLASS));
+    /** Orbit-Maschinen (6.1): Schwerelos-Fertiger, Weltraumwetter-Station. */
+    public static final Supplier<Block> ZERO_G_FABRICATOR = register("zero_g_fabricator",
+            p -> new MachineBlock(p, () -> ModBlockEntities.ZERO_G_FABRICATOR.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> SPACE_WEATHER_STATION = register("space_weather_station",
+            p -> new MachineBlock(p, () -> ModBlockEntities.SPACE_WEATHER_STATION.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     /** Stationsmodule (14.2). */
     public static final Supplier<Block> DOCKING_BAY = register("docking_bay",
             p -> new de.infinitehorizon.station.DockingBayBlock(p, () -> ModBlockEntities.DOCKING_BAY.get()),

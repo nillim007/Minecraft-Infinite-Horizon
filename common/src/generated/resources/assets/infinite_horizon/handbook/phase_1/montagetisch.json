@@ -2414,6 +2414,45 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/zero_g_fabricator",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:cooling_system"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:assembly_table"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:zero_g_fabricator",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/solar_wing",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -2855,6 +2894,39 @@
           "results": [
             {
               "item": "infinite_horizon:fuel_pump",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/space_weather_station",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:solar_panel"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:space_weather_station",
               "count": 1
             }
           ],

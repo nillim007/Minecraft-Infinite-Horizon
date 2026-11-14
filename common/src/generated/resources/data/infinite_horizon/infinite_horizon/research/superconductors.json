@@ -1,0 +1,24 @@
+{
+  "tier": 3,
+  "branch": "industry",
+  "cost": 50,
+  "requires": [
+    "infinite_horizon:station_modules"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:superconductor_wire"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:superconductor_cable"
+    }
+  ],
+  "icon": "infinite_horizon:superconductor_wire",
+  "position": {
+    "column": 0,
+    "row": 3,
+    "slot": 1
+  }
+}

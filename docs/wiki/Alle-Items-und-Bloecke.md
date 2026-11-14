@@ -145,6 +145,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Schaltkreis](Montagetisch.md) | Item | Rezept |
 | [Schwefel](Die-Venus.md) | Item | Abbau, Kreatur |
 | [Schwefelspur](Kreaturen-des-inneren-Sonnensystems.md) | Block | not_obtainable |
+| [Schwerelos-Fertigung](Fertigung-im-Orbit.md) | Block | Rezept |
 | [Silizium](Elektroofen.md) | Item | Maschine |
 | [Solarflügel](Stationsmodule.md) | Block | Rezept |
 | [Solarpanel](Strom-im-All.md) | Block | Rezept |
@@ -155,6 +156,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Stationsfenster](Die-Raumstation.md) | Block | Rezept |
 | [Stationshülle](Die-Raumstation.md) | Block | Rezept, Füllslot oder Eimer |
 | [Stationskern](Die-Raumstation.md) | Block | Rezept |
+| [Supraleiterdraht](Fertigung-im-Orbit.md) | Item | Maschine |
 | [Tank](Fluide-und-Rohre.md) | Block | Rezept |
 | [Tankdepot](Stationsmodule.md) | Block | Rezept |
 | [Tiefenschiefer-Titanerz](Rohstoffe-und-Erze.md) | Block | Weltgenerierung |
@@ -175,6 +177,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Verbrennungsgenerator](Strom.md) | Block | Rezept |
 | [Wasserstoff](Elektrolyseur.md) | Fluid | Maschine |
 | [Weltraumration](Weltraumnahrung.md) | Item | Maschine |
+| [Weltraumwetter-Station](Weltraumwetter-Station.md) | Block | Rezept |
 | [Wohnmodul](Stationsmodule.md) | Block | Rezept |
 | [Wolframbarren](Der-Hochtemperaturofen.md) | Item | Maschine |
 | [Wolframplatte](Die-Rakete-T2.md) | Item | Maschine |

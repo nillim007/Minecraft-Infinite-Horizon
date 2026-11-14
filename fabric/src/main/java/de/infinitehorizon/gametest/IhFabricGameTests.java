@@ -738,4 +738,24 @@ public class IhFabricGameTests {
     public void stationDockingbayLandrefuel(GameTestHelper helper) {
         IhGameTestsM6b.dockingBayLandingRefuel(helper);
     }
+
+    @GameTest(maxTicks = 20)
+    public void zerogOverworldError(GameTestHelper helper) {
+        IhGameTestsM6c.zeroGErrorOutsideOrbit(helper);
+    }
+
+    @GameTest(maxTicks = 220, dimension = "infinite_horizon:earth_orbit")
+    public void zerogOrbitWireOpentier4(GameTestHelper helper) {
+        IhGameTestsM6c.zeroGWireOpensTierFour(helper);
+    }
+
+    @GameTest(maxTicks = 40, dimension = "infinite_horizon:moon")
+    public void weatherstationEarlywarning(GameTestHelper helper) {
+        IhGameTestsM6c.weatherStationEarlyWarning(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void weatherstationNotonearth(GameTestHelper helper) {
+        IhGameTestsM6c.weatherStationNotOnEarth(helper);
+    }
 }

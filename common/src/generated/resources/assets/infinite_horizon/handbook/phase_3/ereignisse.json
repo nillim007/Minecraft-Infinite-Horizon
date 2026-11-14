@@ -16,22 +16,26 @@
       "key": "infinite_horizon.handbook.phase_3.ereignisse.e0"
     },
     {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e1"
+    },
+    {
       "type": "heading",
-      "key": "infinite_horizon.handbook.phase_3.ereignisse.e1",
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e2",
       "level": 2
     },
     {
       "type": "text",
-      "key": "infinite_horizon.handbook.phase_3.ereignisse.e2"
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e3"
     },
     {
       "type": "heading",
-      "key": "infinite_horizon.handbook.phase_3.ereignisse.e3",
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e4",
       "level": 2
     },
     {
       "type": "text",
-      "key": "infinite_horizon.handbook.phase_3.ereignisse.e4"
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e5"
     },
     {
       "type": "recipes",
@@ -75,30 +79,30 @@
     },
     {
       "type": "heading",
-      "key": "infinite_horizon.handbook.phase_3.ereignisse.e6",
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e7",
       "level": 2
     },
     {
       "type": "text",
-      "key": "infinite_horizon.handbook.phase_3.ereignisse.e7"
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e8"
     },
     {
       "type": "heading",
-      "key": "infinite_horizon.handbook.phase_3.ereignisse.e8",
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e9",
       "level": 2
     },
     {
       "type": "text",
-      "key": "infinite_horizon.handbook.phase_3.ereignisse.e9"
-    },
-    {
-      "type": "callout",
-      "key": "infinite_horizon.handbook.phase_3.ereignisse.e10",
-      "style": "warning"
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e10"
     },
     {
       "type": "callout",
       "key": "infinite_horizon.handbook.phase_3.ereignisse.e11",
+      "style": "warning"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.ereignisse.e12",
       "style": "tip"
     }
   ]

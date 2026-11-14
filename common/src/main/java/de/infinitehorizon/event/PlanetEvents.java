@@ -62,7 +62,7 @@ public final class PlanetEvents extends SavedData {
         return weather;
     }
 
-    void setPlanned(@Nullable Planned p) {
+    public void setPlanned(@Nullable Planned p) {
         planned = p;
         setDirty();
     }

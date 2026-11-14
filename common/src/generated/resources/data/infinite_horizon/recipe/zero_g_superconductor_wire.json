@@ -1,0 +1,24 @@
+{
+  "type": "infinite_horizon:zero_g",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:magnesium_ingot",
+      "count": 2
+    },
+    {
+      "ingredient": "infinite_horizon:copper_wire",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:superconductor_wire",
+      "count": 1,
+      "chance": 1.0
+    }
+  ],
+  "fluid": {
+    "fluid": "infinite_horizon:liquid_helium",
+    "amount": 100
+  }
+}

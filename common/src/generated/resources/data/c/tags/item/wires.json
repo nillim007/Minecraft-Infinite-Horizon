@@ -3,6 +3,7 @@
     "infinite_horizon:aluminum_wire",
     "infinite_horizon:copper_wire",
     "infinite_horizon:gold_wire",
-    "infinite_horizon:press_mold_wire"
+    "infinite_horizon:press_mold_wire",
+    "infinite_horizon:superconductor_wire"
   ]
 }

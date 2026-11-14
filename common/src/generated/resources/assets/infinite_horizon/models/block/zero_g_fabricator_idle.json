@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "infinite_horizon:block/zero_g_fabricator_front_idle",
+    "side": "infinite_horizon:block/zero_g_fabricator",
+    "top": "infinite_horizon:block/zero_g_fabricator_top"
+  }
+}

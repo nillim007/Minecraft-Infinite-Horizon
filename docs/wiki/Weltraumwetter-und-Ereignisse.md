@@ -6,6 +6,8 @@
 
 Fremde Welten haben ihr eigenes Wetter. Alle 1.200 t (60 s) würfelt der Server für jede Welt mit Spielern, ob ein Ereignis kommt. Es beginnt 2.400 t (120 s) später, und 400 t (20 s) vorher bekommst du eine Warnung im Chat, einen Warnton und eine Anzeige im HUD. Wie oft Ereignisse kommen, stellt der Server mit `event_frequency` ein.
 
+Mit einer laufenden [Weltraumwetter-Station](Weltraumwetter-Station.md) deiner Agentur in derselben Welt kommt die Warnung schon 2.400 t (120 s) vorher.
+
 ## Sonnensturm
 
 Auf allen Welten außer der Erde. Die Strahlung steigt um 2. Maschinen ohne Dach aus mindestens 3 Blöcken halten alle 200 t (10 s) für 40 t (2 s) an. Dafür liefern Solarpanels das 2-Fache.

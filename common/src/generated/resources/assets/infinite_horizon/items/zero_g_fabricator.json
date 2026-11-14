@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "infinite_horizon:block/zero_g_fabricator_idle"
+  }
+}

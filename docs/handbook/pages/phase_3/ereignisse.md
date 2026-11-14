@@ -10,6 +10,10 @@ summary: Sonnenstürme, Meteoritenschauer, Staubstürme und Säureregen
 ---
 Fremde Welten haben ihr eigenes Wetter. Alle {{value:events:event_planning.check_interval_ticks|t}} würfelt der Server für jede Welt mit Spielern, ob ein Ereignis kommt. Es beginnt {{value:events:event_planning.schedule_ahead_ticks|t}} später, und {{value:events:event_planning.warning_ticks_without_station|t}} vorher bekommst du eine Warnung im Chat, einen Warnton und eine Anzeige im HUD. Wie oft Ereignisse kommen, stellt der Server mit `event_frequency` ein.
 
+@if infinite_horizon:space_weather_station
+Mit einer laufenden [[wetterstation|Weltraumwetter-Station]] deiner Agentur in derselben Welt kommt die Warnung schon {{value:events:event_planning.warning_ticks_with_station|t}} vorher.
+@endif
+
 ## Sonnensturm
 
 Auf allen Welten außer der Erde. Die Strahlung steigt um {{value:events:infinite_horizon:solar_storm.effects.radiation_bonus}}. Maschinen ohne Dach aus mindestens {{value:events:infinite_horizon:solar_storm.effects.machine_pause.exempt_cover_blocks}} Blöcken halten alle {{value:events:infinite_horizon:solar_storm.effects.machine_pause.interval_ticks|t}} für {{value:events:infinite_horizon:solar_storm.effects.machine_pause.pause_ticks|t}} an. Dafür liefern Solarpanels das {{value:events:infinite_horizon:solar_storm.reward.solar_multiplier}}-Fache.

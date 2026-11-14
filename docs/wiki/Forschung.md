@@ -31,6 +31,8 @@ Eine Stufe öffnet sich, wenn die vorige offen ist und ihr **Tor** erfüllt ist.
 | --- | --- | --- |
 | 1 Raumfahrtprogramm | ein eigenes Forschungsterminal setzen | 10 FP |
 | 2 Nahe Welten | ein Mitglied betritt den Mond | 25 FP |
+| 3 Orbit | Magnesium- und Wolframbarren und Helium hergestellt | 50 FP |
+| 4 Inneres System | ein Schwerelos-Fertiger der Agentur schließt einen Vorgang ab | 80 FP |
 
 Die Stufen öffnen auch die Kapitel dieses Handbuchs: Die dritte Phase („Ring 1“) liest du ab Stufe 2.
 

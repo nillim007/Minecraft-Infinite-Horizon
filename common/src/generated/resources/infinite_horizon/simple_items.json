@@ -68,7 +68,8 @@
     "nickel_plate",
     "cooling_module",
     "armor_plating",
-    "magnet_boots"
+    "magnet_boots",
+    "superconductor_wire"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,

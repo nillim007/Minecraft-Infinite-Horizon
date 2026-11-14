@@ -1,0 +1,78 @@
+{
+  "id": "infinite_horizon:phase_4/wetterstation",
+  "chapter": "infinite_horizon:phase_4",
+  "title": "infinite_horizon.handbook.phase_4.wetterstation.title",
+  "icon": "infinite_horizon:space_weather_station",
+  "order": 60,
+  "unlock": "infinite_horizon:research_tier/3",
+  "items": [
+    "infinite_horizon:space_weather_station"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.wetterstation.e0"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:space_weather_station",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_4.wetterstation.e1.0.label",
+          "infinite_horizon.handbook.phase_4.wetterstation.e1.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_4.wetterstation.e1.1.label",
+          "infinite_horizon.handbook.phase_4.wetterstation.e1.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_4.wetterstation.e1.2.label",
+          "infinite_horizon.handbook.phase_4.wetterstation.e1.2.value"
+        ]
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/space_weather_station",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:solar_panel"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:space_weather_station",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_4.wetterstation.e3",
+      "style": "tip"
+    }
+  ]
+}

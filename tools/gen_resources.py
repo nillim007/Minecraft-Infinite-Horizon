@@ -1227,7 +1227,7 @@ def main():
             continue
         if r["type"] not in ("crafting_shaped", "crafting_shapeless", "smelting", "crushing", "electric_smelting", "pressing",
                              "refining", "electrolysis", "assembly", "high_temp_smelting", "cryo",
-                             "regolith_heating"):
+                             "regolith_heating", "zero_g"):
             continue  # weitere Typen folgen mit ihren Maschinen
         write_json(f"data/{NS}/recipe/{r['id'].split(':', 1)[1].replace('/', '_')}.json", recipe_json(r, registered))
         n_rec += 1

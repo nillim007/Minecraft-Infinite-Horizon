@@ -140,6 +140,13 @@ public class IhClientGameTests implements FabricClientGameTest {
                         net.minecraft.resources.Identifier.withDefaultNamespace("water"), 8000));
                 fillEnergy(be, 2);
             });
+            // M6c: Schwerelos-Fertiger (in der Overworld: rote Lampe, Hinweis Ort)
+            machine(context, sp, ModBlocks.ZERO_G_FABRICATOR.get(), "gui_zero_g_fabricator", be -> {
+                be.setItem(0, new ItemStack(ModItems.simple("magnesium_ingot").get(), 2));
+                be.setItem(1, new ItemStack(ModItems.simple("copper_wire").get(), 2));
+                be.fluidTanks().get(0).setStackUnchecked(IhFluidStack.of(InfiniteHorizon.id("liquid_helium"), 4000));
+                fillEnergy(be, 2);
+            });
             // M6b: Gewächshaus (9 Pflanzslots + Trockeneis, 9 Ausgaben)
             machine(context, sp, ModBlocks.GREENHOUSE.get(), "gui_greenhouse", be -> {
                 be.setItem(0, new ItemStack(net.minecraft.world.item.Items.WHEAT_SEEDS));

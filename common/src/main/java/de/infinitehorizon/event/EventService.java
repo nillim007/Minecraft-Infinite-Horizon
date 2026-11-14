@@ -249,9 +249,13 @@ public final class EventService {
             roll(level, data, plan, random);
         }
         p = data.planned();
+        // Frühwarnung (19): Agenturen mit laufender space_weather_station in dieser Dimension
+        if (p != null && !p.warned() && now >= p.start() - (long) num(plan, "warning_ticks_with_station")) {
+            earlyWarn(level, p);
+        }
         if (p != null && !p.warned() && now >= p.start() - (long) num(plan, "warning_ticks_without_station")) {
             data.setPlanned(new PlanetEvents.Planned(p.event(), p.start(), p.end(), true));
-            warn(level, p.event());
+            warn(level, p.event(), p.start());
         }
         if (p != null && now == p.start()) {
             sendState(level);
@@ -295,15 +299,41 @@ public final class EventService {
         return false;
     }
 
-    /** Vorwarnung (19): Chat, Ton, HUD-Symbol. */
-    private static void warn(ServerLevel level, Identifier event) {
-        Component msg = Component.translatable("message." + InfiniteHorizon.MOD_ID + ".event.warning",
-                Component.translatable("event." + event.getNamespace() + "." + event.getPath()));
+    /** Frühe Vorwarnung an die Mitglieder der Agenturen mit laufender Station (je Agentur einmal). */
+    public static void earlyWarn(ServerLevel level, PlanetEvents.Planned p) {
+        java.util.Set<java.util.UUID> stations = WeatherStations.agencies(level);
+        if (stations.isEmpty()) {
+            return;
+        }
+        java.util.Set<java.util.UUID> fresh = new java.util.HashSet<>();
+        for (java.util.UUID a : stations) {
+            if (WeatherStations.markWarned(level, p.start(), a)) {
+                fresh.add(a);
+            }
+        }
+        for (ServerPlayer player : level.players()) {
+            java.util.UUID a = WeatherStations.agencyOf(player);
+            if (a != null && fresh.contains(a)) {
+                tell(level, player, p.event());
+                sendState(player);
+            }
+        }
+    }
+
+    private static void tell(ServerLevel level, ServerPlayer player, Identifier event) {
+        player.sendSystemMessage(Component.translatable("message." + InfiniteHorizon.MOD_ID + ".event.warning",
+                Component.translatable("event." + event.getNamespace() + "." + event.getPath())));
         var sound = BuiltInRegistries.SOUND_EVENT.getValue(InfiniteHorizon.id("warning.radiation"));
+        if (sound != null) {
+            level.playSound(null, player.blockPosition(), sound, SoundSource.AMBIENT, 1f, 1f);
+        }
+    }
+
+    /** Vorwarnung (19): Chat, Ton, HUD-Symbol; wer schon früh gewarnt wurde, bekommt sie nicht noch einmal. */
+    private static void warn(ServerLevel level, Identifier event, long start) {
         for (ServerPlayer p : level.players()) {
-            p.sendSystemMessage(msg);
-            if (sound != null) {
-                level.playSound(null, p.blockPosition(), sound, SoundSource.AMBIENT, 1f, 1f);
+            if (!WeatherStations.warned(p, start)) {
+                tell(level, p, event);
             }
         }
         sendState(level);
@@ -411,7 +441,7 @@ public final class EventService {
         int ticks = 0;
         if (p != null && now < p.end()) {
             id = p.event().toString();
-            phase = (byte) (now >= p.start() ? 2 : p.warned() ? 1 : 0);
+            phase = (byte) (now >= p.start() ? 2 : p.warned() || WeatherStations.warned(player, p.start()) ? 1 : 0);
             ticks = (int) (now >= p.start() ? p.end() - now : p.start() - now);
         } else {
             Identifier w = d.weather() ? weatherEvent(level.dimension().identifier()) : null;

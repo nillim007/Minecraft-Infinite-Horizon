@@ -139,7 +139,8 @@ public final class ResearchService {
     public static boolean checkGates(MinecraftServer server, Agency agency, Set<Identifier> placedBlocks) {
         AgencyProgress p = agency.progress();
         // SPEC-GAP #62: has_block zählt beim Setzen; die Blockarten der Agentur werden nicht gespeichert
-        ResearchGates.Facts facts = ResearchGates.Facts.of(placedBlocks, agency.visitedDimensions(), p.crafted());
+        ResearchGates.Facts facts = new ResearchGates.Facts(placedBlocks, agency.visitedDimensions(), p.crafted(), p.crafted(),
+                p.completedMachines());
         SortedSet<Integer> open = ResearchGates.openTiers(ResearchRegistry.get().tiers().values(), p.openTiers(), facts);
         List<Integer> opened = new ArrayList<>();
         for (int tier : open) {
@@ -172,6 +173,20 @@ public final class ResearchService {
                 changed |= agency.progress().addCrafted(id);
             }
             if (changed) {
+                data.setDirty();
+                checkGates(server, agency, Set.of());
+            }
+        });
+    }
+
+    /** Eine Maschine der Agentur hat einen Vorgang abgeschlossen (Tor {@code machine_completed}, 11.4). */
+    public static void onMachineCompleted(MinecraftServer server, @org.jspecify.annotations.Nullable UUID owner, String machine) {
+        if (owner == null) {
+            return;
+        }
+        AgencyData data = AgencyData.get(server);
+        data.byId(owner).ifPresent(agency -> {
+            if (agency.progress().addCompletedMachine(machine)) {
                 data.setDirty();
                 checkGates(server, agency, Set.of());
             }

@@ -69,6 +69,7 @@
     "infinite_horizon:rocket_tank_t2",
     "infinite_horizon:solar_panel",
     "infinite_horizon:solar_wing",
+    "infinite_horizon:space_weather_station",
     "infinite_horizon:station_core",
     "infinite_horizon:station_hull",
     "infinite_horizon:station_window",
@@ -77,6 +78,7 @@
     "infinite_horizon:titanium_ore",
     "infinite_horizon:venus_rock",
     "infinite_horizon:venus_sulfur_ore",
-    "infinite_horizon:venus_tungsten_ore"
+    "infinite_horizon:venus_tungsten_ore",
+    "infinite_horizon:zero_g_fabricator"
   ]
 }

@@ -1,0 +1,120 @@
+{
+  "id": "infinite_horizon:phase_4/fertigung_im_orbit",
+  "chapter": "infinite_horizon:phase_4",
+  "title": "infinite_horizon.handbook.phase_4.fertigung_im_orbit.title",
+  "icon": "infinite_horizon:zero_g_fabricator",
+  "order": 50,
+  "unlock": "infinite_horizon:research_tier/3",
+  "items": [
+    "infinite_horizon:zero_g_fabricator",
+    "infinite_horizon:superconductor_wire"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e0"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:zero_g_fabricator",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e1.0.label",
+          "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e1.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e1.1.label",
+          "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e1.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e1.2.label",
+          "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e1.2.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e1.3.label",
+          "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e1.3.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e1.4.label",
+          "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e1.4.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e1.5.label",
+          "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e1.5.value"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e2",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e3"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e4",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e5"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/zero_g_fabricator",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:cooling_system"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:assembly_table"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:zero_g_fabricator",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e7",
+      "style": "warning"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_4.fertigung_im_orbit.e8",
+      "style": "tip"
+    }
+  ]
+}
