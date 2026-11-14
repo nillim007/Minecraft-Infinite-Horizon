@@ -68,8 +68,8 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
 
     /** Item-Tag der Pressformen (von gen_resources erzeugt). */
     public static final TagKey<Item> PRESS_MOLDS = TagKey.create(Registries.ITEM, InfiniteHorizon.id("press_molds"));
-    /** Höchstzahl Tanks, die das GUI anzeigt (Elektrolyseur: 1 Eingang + 2 Ausgänge). */
-    public static final int MAX_TANKS = 3;
+    /** Höchstzahl Tanks, die das GUI anzeigt (Fusionsreaktor: 3 Eingänge + 1 Ausgang). */
+    public static final int MAX_TANKS = 4;
     /**
      * Anzahl synchronisierter Werte (je 64 Bit, als 4 × 16 Bit übertragen): 4 Grundwerte + je Tank Fluid, Menge,
      * Kapazität + Ausgangsseite, Tankwahl, Multiblock-Zustand, fehlender Block, Status-Hinweis.
