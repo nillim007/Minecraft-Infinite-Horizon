@@ -6,7 +6,11 @@
   "order": 30,
   "unlock": "infinite_horizon:research_tier/2",
   "items": [
-    "infinite_horizon:dome_generator_t1"
+    "infinite_horizon:dome_generator_t1",
+    "infinite_horizon:dome_generator_t2",
+    "infinite_horizon:dome_range_module",
+    "infinite_horizon:dome_efficiency_module",
+    "infinite_horizon:dome_shield_module"
   ],
   "elements": [
     {
@@ -140,8 +144,196 @@
       ]
     },
     {
-      "type": "callout",
+      "type": "heading",
       "key": "infinite_horizon.handbook.phase_3.kuppel.e13",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e14"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:dome_generator_t2",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_3.kuppel.e15.0.label",
+          "infinite_horizon.handbook.phase_3.kuppel.e15.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.kuppel.e15.1.label",
+          "infinite_horizon.handbook.phase_3.kuppel.e15.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.kuppel.e15.2.label",
+          "infinite_horizon.handbook.phase_3.kuppel.e15.2.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.kuppel.e15.3.label",
+          "infinite_horizon.handbook.phase_3.kuppel.e15.3.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.kuppel.e15.4.label",
+          "infinite_horizon.handbook.phase_3.kuppel.e15.4.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.kuppel.e15.5.label",
+          "infinite_horizon.handbook.phase_3.kuppel.e15.5.value"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e16",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e17"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_3.kuppel.e18.0",
+        "infinite_horizon.handbook.phase_3.kuppel.e18.1",
+        "infinite_horizon.handbook.phase_3.kuppel.e18.2"
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/dome_generator_t2",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:dome_generator_t1"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:cooling_system"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:dome_generator_t2",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/dome_range_module",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:dome_range_module",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/dome_efficiency_module",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:dome_efficiency_module",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/dome_shield_module",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:dome_shield_module",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e20",
       "style": "tip"
     }
   ]

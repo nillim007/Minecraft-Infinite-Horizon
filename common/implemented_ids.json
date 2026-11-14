@@ -32,6 +32,7 @@
     "infinite_horizon:oxygen_generator": "machine",
     "infinite_horizon:pressure_bottle": "machine",
     "infinite_horizon:dome_generator_t1": "machine",
+    "infinite_horizon:dome_generator_t2": "machine",
     "infinite_horizon:electric_lamp": "lamp",
     "infinite_horizon:extinguished_torch": "torch",
     "infinite_horizon:research_terminal": "machine",
@@ -153,7 +154,13 @@
     "infinite_horizon:raw_platinum",
     "infinite_horizon:raw_iridium",
     "infinite_horizon:space_ration",
-    "infinite_horizon:compost"
+    "infinite_horizon:compost",
+    "infinite_horizon:dome_range_module",
+    "infinite_horizon:dome_efficiency_module",
+    "infinite_horizon:dome_shield_module",
+    "infinite_horizon:nickel_plate",
+    "infinite_horizon:cooling_module",
+    "infinite_horizon:armor_plating"
   ],
   "fluids": [
     "crude_oil",
@@ -163,7 +170,7 @@
     "helium",
     "liquid_helium"
   ],
-  "step": "5h",
+  "step": "5i",
   "dimensions": ["infinite_horizon:moon", "infinite_horizon:mars", "infinite_horizon:venus"],
   "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket", "infinite_horizon:rover", "infinite_horizon:rubble_crawler", "infinite_horizon:shade_strider", "infinite_horizon:dune_burrower", "infinite_horizon:dust_wraith", "infinite_horizon:sulfur_snail", "infinite_horizon:cloud_ray"],
   "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:first_signal", "infinite_horizon:small_step", "infinite_horizon:own_air"],

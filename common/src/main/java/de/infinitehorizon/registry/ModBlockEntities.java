@@ -142,6 +142,12 @@ public final class ModBlockEntities {
                             (pos, state) -> new de.infinitehorizon.dome.DomeGeneratorBlockEntity(
                                     ModBlockEntities.DOME_GENERATOR_T1.get(), pos, state),
                             ModBlocks.DOME_GENERATOR_T1.get()));
+    public static final Supplier<BlockEntityType<de.infinitehorizon.dome.DomeGeneratorBlockEntity>> DOME_GENERATOR_T2 =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "dome_generator_t2",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.dome.DomeGeneratorBlockEntity(
+                                    ModBlockEntities.DOME_GENERATOR_T2.get(), pos, state),
+                            ModBlocks.DOME_GENERATOR_T2.get()));
 
     public static final Supplier<BlockEntityType<de.infinitehorizon.machine.ElectricLampBlockEntity>> ELECTRIC_LAMP =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "electric_lamp",
@@ -258,6 +264,8 @@ public final class ModBlockEntities {
         Services.FLUID.expose(PRESSURE_BOTTLE);
         Services.ENERGY.expose(DOME_GENERATOR_T1);
         Services.FLUID.expose(DOME_GENERATOR_T1);
+        Services.ENERGY.expose(DOME_GENERATOR_T2);
+        Services.FLUID.expose(DOME_GENERATOR_T2);
         Services.ENERGY.expose(ELECTRIC_LAMP);
         Services.ENERGY.expose(ANALYZER);
         Services.ENERGY.expose(SOLAR_PANEL);

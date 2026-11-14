@@ -115,7 +115,7 @@ public class SolarPanelBlockEntity extends MachineBlockEntity {
         if (!ensureLayout()) {
             return;
         }
-        lastOutput = output(level) * de.infinitehorizon.event.EventService.solarMultiplier(level);
+        lastOutput = output(level) * de.infinitehorizon.event.EventService.solarMultiplier(level, getBlockPos());
         if (lastOutput > 0 && energy.getAmount() < energy.getCapacity()) {
             carry += lastOutput;
             long whole = (long) carry;

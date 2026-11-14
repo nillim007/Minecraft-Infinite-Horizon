@@ -1,0 +1,6 @@
+{
+  "model": {
+    "type": "minecraft:model",
+    "model": "infinite_horizon:item/dome_efficiency_module"
+  }
+}

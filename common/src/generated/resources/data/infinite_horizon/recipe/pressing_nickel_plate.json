@@ -1,0 +1,17 @@
+{
+  "type": "infinite_horizon:pressing",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:nickel_ingot",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:nickel_plate",
+      "count": 1,
+      "chance": 1.0
+    }
+  ],
+  "mold": "infinite_horizon:press_mold_plate"
+}

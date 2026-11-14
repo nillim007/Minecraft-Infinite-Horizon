@@ -77,6 +77,9 @@ public final class ModBlocks {
     public static final Supplier<Block> DOME_GENERATOR_T1 = register("dome_generator_t1",
             p -> new MachineBlock(p, () -> ModBlockEntities.DOME_GENERATOR_T1.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> DOME_GENERATOR_T2 = register("dome_generator_t2",
+            p -> new MachineBlock(p, () -> ModBlockEntities.DOME_GENERATOR_T2.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     /** Elektrische Lampe (8.5): Licht nur mit Strom (Lichtstufe aus machines.json). */
     public static final Supplier<Block> ELECTRIC_LAMP = register("electric_lamp",
             p -> new de.infinitehorizon.machine.ElectricLampBlock(p, () -> ModBlockEntities.ELECTRIC_LAMP.get()),

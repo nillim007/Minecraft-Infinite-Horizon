@@ -32,6 +32,43 @@ public final class SuitModules {
     private SuitModules() {
     }
 
+    /** Fester Modifikator für {@code armor_bonus} ({@code armor_plating}, 9.2). */
+    public static final Identifier ARMOR_MODIFIER = de.infinitehorizon.InfiniteHorizon.id("suit_module_armor");
+
+    /** Summe des Zahlenfelds {@code key} (suits.json) aller Module in den getragenen Rüstungsteilen. */
+    public static double bonus(net.minecraft.world.entity.LivingEntity entity, String key) {
+        double sum = 0;
+        for (net.minecraft.world.entity.EquipmentSlot slot : new net.minecraft.world.entity.EquipmentSlot[]{
+                net.minecraft.world.entity.EquipmentSlot.HEAD, net.minecraft.world.entity.EquipmentSlot.CHEST,
+                net.minecraft.world.entity.EquipmentSlot.LEGS, net.minecraft.world.entity.EquipmentSlot.FEET}) {
+            for (Identifier m : modules(entity.getItemBySlot(slot))) {
+                sum += BalanceManager.get().entry("suits", m.toString()).filter(o -> o.has(key))
+                        .map(o -> o.get(key).getAsDouble()).orElse(0.0);
+            }
+        }
+        return sum;
+    }
+
+    /** Jeder Tick: Rüstungsbonus der Module als Attribut-Modifikator (nur bei Änderung neu gesetzt). */
+    public static void tick(net.minecraft.server.MinecraftServer server) {
+        for (net.minecraft.server.level.ServerPlayer p : server.getPlayerList().getPlayers()) {
+            var inst = p.getAttribute(net.minecraft.world.entity.ai.attributes.Attributes.ARMOR);
+            if (inst == null) {
+                continue;
+            }
+            double armor = bonus(p, "armor_bonus");
+            var existing = inst.getModifier(ARMOR_MODIFIER);
+            if (armor == 0) {
+                if (existing != null) {
+                    inst.removeModifier(ARMOR_MODIFIER);
+                }
+            } else if (existing == null || existing.amount() != armor) {
+                inst.addOrUpdateTransientModifier(new net.minecraft.world.entity.ai.attributes.AttributeModifier(ARMOR_MODIFIER,
+                        armor, net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADD_VALUE));
+            }
+        }
+    }
+
     public static List<Identifier> modules(ItemStack stack) {
         List<Identifier> l = stack.get(ModDataComponents.SUIT_MODULES.get());
         return l == null ? List.of() : l;

@@ -44,6 +44,34 @@ Fehlen Strom oder Sauerstoff oder passt die Temperatur nicht mehr, geht die Kupp
 
 <sub>16 × [Aluminiumplatte](Presse.md), 8 × [Titanplatte](Presse.md), 4 × [Schaltkreis](Montagetisch.md), 4 × Glas → 1 × Kuppelgenerator I</sub>
 
+## Kuppel T2
+
+Der Kuppelgenerator II spannt eine Kuppel mit Radius 16 auf und hält Außentemperaturen von -210 bis 250 °C aus. Darunter schützt sie auch vor Staubsturm und Säureregen (siehe [Weltraumwetter](Weltraumwetter-und-Ereignisse.md)): Solarpanels liefern im Staubsturm vollen Strom.
+
+| Steckbrief: Kuppelgenerator II |  |
+| --- | --- |
+| Verbrauch | 200 J/t |
+| Radius | 16 Blöcke |
+| O₂-Verbrauch | 200 mB je 1.200 t (60 s) |
+| O₂-Tank | 2.000 mB |
+| Außentemperatur | -210 bis 250 °C |
+| Modul-Slots | 3 |
+
+## Kuppelmodule
+
+Jeder Kuppelgenerator hat 3 Modulslots. Jedes Modul passt einmal hinein.
+
+- Kuppel-Reichweitenmodul: Radius × 1,5, dafür Strom und Sauerstoff × 2.
+- Kuppel-Effizienzmodul: Sauerstoff × 0,75.
+- Kuppel-Schildmodul: fängt Meteoriten ab. Monster hält es nicht auf.
+
+| Rezept | Zutaten → Ergebnis | Wo | Dauer |
+| --- | --- | --- | --- |
+| <img src="images/rezepte/assembly_dome_generator_t2.svg" alt="Rezept" width="300"> | 1 × Kuppelgenerator I, 16 × [Leichtbau-Platte](Der-Hochtemperaturofen.md), 4 × [Kühlsystem](Helium-und-Kryotechnik.md), 4 × [Fortgeschrittener Schaltkreis](Der-Hochtemperaturofen.md) → 1 × Kuppelgenerator II | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_dome_range_module.svg" alt="Rezept" width="300"> | 4 × [Aluminiumplatte](Presse.md), 2 × [Fortgeschrittener Schaltkreis](Der-Hochtemperaturofen.md) → 1 × Kuppel-Reichweitenmodul | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_dome_efficiency_module.svg" alt="Rezept" width="300"> | 4 × [Aluminiumplatte](Presse.md), 2 × [Fortgeschrittener Schaltkreis](Der-Hochtemperaturofen.md), 2 × [Kupferrohr](Fluide-und-Rohre.md) → 1 × Kuppel-Effizienzmodul | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_dome_shield_module.svg" alt="Rezept" width="300"> | 8 × [Titanplatte](Presse.md), 2 × [Fortgeschrittener Schaltkreis](Der-Hochtemperaturofen.md) → 1 × Kuppel-Schildmodul | Montagetisch | 200 t (10 s)<br>30 J/t |
+
 > [!TIP]
 > Stell eine Druckflasche oder einen zweiten Sauerstoffgenerator an den Kuppelgenerator. Dann reicht der Vorrat auch, wenn du länger unterwegs bist.
 

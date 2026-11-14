@@ -1,6 +1,6 @@
 # Stand Meilenstein 5 (Ring 1)
 
-Teilschritte 5a–5h sind umgesetzt (Aufteilung in `docs/handbook/handbook.json`, Lücken #86 und #89). Alle M5-Tests laufen auf beiden Loadern in einem Durchlauf (Server-GameTests je Loader, JUnit, Fabric- und NeoForge-Client-Test). `python tools/gen_resources.py` und `python tools/gen_wiki.py --check` erzeugen keine Änderungen.
+Teilschritte 5a–5i sind umgesetzt (Aufteilung in `docs/handbook/handbook.json`, Lücken #86, #89 und #95). Alle M5-Tests laufen auf beiden Loadern in einem Durchlauf (Server-GameTests je Loader, JUnit, Fabric- und NeoForge-Client-Test). `python tools/gen_resources.py` und `python tools/gen_wiki.py --check` erzeugen keine Änderungen.
 
 ## Abnahmekriterien (Kapitel 27)
 
@@ -15,7 +15,8 @@ Teilschritte 5a–5h sind umgesetzt (Aufteilung in `docs/handbook/handbook.json`
 | 5f Kreaturen Ring 1 und Feldscanner | `creature_crawler_reveals`, `creature_crawler_eatscable`, `creature_burrower_seeksvibration`, `creature_snail_trail`, `creature_cloudray_tamesaddlemount`, `creature_fieldscanner_oncepertype`, `creature_wraith_projectileimmune`, `creature_monster_needsdarkness` |
 | 5g Ereignisse: Sonnensturm, Meteoritenschauer, Säureregen | `event_solarstorm_radiationsolar`, `event_solarstorm_pausesuncovered`, `event_meteor_leavesore`, `event_acidrain_damagesarmor` |
 | 5h Nahrung: Ration, Kompostboden, Hydrokultur | `food_packer_threefoods_ration`, `food_compostsoil_hoe_farmland`, `food_hydroponics_stageandharvest`, `food_hydroponics_sapling_logs`, `food_hydroponics_moonneedsdome` |
-| JUnit: Ortsbindung, Anzüge, Nahrungsregeln | `MachineLocationTest`, `SuitsTest`, `FoodRulesTest` u. a. |
+| 5i Kuppel T2, Kuppelmodule, Anzugmodule (Nachtrag laut 27.4) | `dome_t2_rangemodule_radiusenergy`, `dome_shieldmodule_stopsmeteor`, `dome_t2_dustacidprotection`, `suitmodule_cooling_armorplating` |
+| JUnit: Ortsbindung, Anzüge, Nahrungsregeln, Kuppelmodule | `MachineLocationTest`, `SuitsTest`, `FoodRulesTest`, `DomeModulesTest` u. a. |
 
 Screenshots (Branch `ci-screenshots`): Mars- und Venus-Gelände, Rover auf dem Mars, Hochtemperaturofen, Kryo-Verflüssiger, Regolith-Erhitzer, Nahrungspacker, Hydrokultur-Becken.
 
@@ -38,4 +39,4 @@ Weitere Sichtprüfungen:
 
 ## Nicht enthalten (spätere Meilensteine)
 
-`greenhouse` (Orbit, M6), `ammonia_fertilizer` (Ammoniak, M8), `space_weather_station` und `dome_shield_module` (Stufe 3), Fernflug-Modul (M6). Offene Annahmen: `docs/spec-gaps.md` #86–#94.
+`greenhouse` (Orbit, M6), `ammonia_fertilizer` (Ammoniak, M8), `space_weather_station` (Stufe 3), Fernflug-Modul (M6). Offene Annahmen: `docs/spec-gaps.md` #86–#95.

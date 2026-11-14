@@ -3,7 +3,8 @@
   "environments": {
     "infinite_horizon:performance": {},
     "infinite_horizon:moon_day": {"setup_function": "infinite_horizon:gametest/moon_day"},
-    "infinite_horizon:research_free": {}
+    "infinite_horizon:research_free": {},
+    "infinite_horizon:domes": {}
   },
   "tests": [
     {"name": "crusher_rawiron_twodustwithin220ticks", "class": "IhGameTests", "method": "crusherRawIronTwoDust", "ticks": 220, "ref": "27 M1"},
@@ -133,6 +134,10 @@
     {"name": "food_compostsoil_hoe_farmland", "class": "IhGameTestsM5h", "method": "compostSoilTills", "ticks": 20, "ref": "17, M5h"},
     {"name": "food_hydroponics_stageandharvest", "class": "IhGameTestsM5h", "method": "hydroponicsStageAndHarvest", "ticks": 2200, "ref": "17, M5h"},
     {"name": "food_hydroponics_sapling_logs", "class": "IhGameTestsM5h", "method": "hydroponicsSaplingLogs", "ticks": 20, "ref": "17, M5h"},
-    {"name": "food_hydroponics_moonneedsdome", "class": "IhGameTestsM5h", "method": "hydroponicsNeedsDome", "ticks": 40, "ref": "17, M5h"}
+    {"name": "food_hydroponics_moonneedsdome", "class": "IhGameTestsM5h", "method": "hydroponicsNeedsDome", "ticks": 40, "ref": "17, M5h"},
+    {"name": "dome_t2_rangemodule_radiusenergy", "class": "IhGameTestsM5i", "method": "domeT2RangeModule", "ticks": 40, "environment": "infinite_horizon:domes", "ref": "10.1, M5i"},
+    {"name": "dome_shieldmodule_stopsmeteor", "class": "IhGameTestsM5i", "method": "domeShieldStopsMeteor", "ticks": 40, "environment": "infinite_horizon:domes", "ref": "10.1, 19, M5i"},
+    {"name": "dome_t2_dustacidprotection", "class": "IhGameTestsM5i", "method": "domeT2StormProtection", "ticks": 40, "environment": "infinite_horizon:domes", "ref": "10.1, 19, M5i"},
+    {"name": "suitmodule_cooling_armorplating", "class": "IhGameTestsM5i", "method": "suitModulesCoolingArmor", "ticks": 20, "ref": "9.2, M5i"}
   ]
 }

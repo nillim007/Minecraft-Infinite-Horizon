@@ -30,6 +30,19 @@ Oberhalb der Wolkenschicht füllt sich die Hitzezeit in 1.200 t (60 s) wieder au
 | <img src="images/rezepte/assembly_heat_suit_leggings.svg" alt="Rezept" width="300"> | 1 × [Druckanzug-Hose](Der-Druckanzug.md), 4 × [Keramikplatte](Der-Hochtemperaturofen.md), 2 × [Titanplatte](Presse.md) → 1 × Hitzeanzug-Hose | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_heat_suit_boots.svg" alt="Rezept" width="300"> | 1 × [Druckanzug-Stiefel](Der-Druckanzug.md), 3 × [Keramikplatte](Der-Hochtemperaturofen.md), 2 × [Titanplatte](Presse.md) → 1 × Hitzeanzug-Stiefel | Montagetisch | 200 t (10 s)<br>30 J/t |
 
+## Anzugmodule der Stufe 2
+
+Module baust du im Montagetisch ein: Anzugteil und Modul zusammen hineinlegen. Jedes Teil hat 2 Modulslots, und Module passen auf jede Anzugstufe.
+
+- Kühlmodul (Brustplatte): obere Temperaturgrenze + 100 °C.
+- Panzerung (Hose oder Stiefel): + 3 Rüstung.
+
+| Rezept | Zutaten → Ergebnis | Wo | Dauer |
+| --- | --- | --- | --- |
+| <img src="images/rezepte/pressing_nickel_plate.svg" alt="Rezept" width="300"> | 1 × [Nickelbarren](Der-Mars.md), Form: [Pressform (Platte)](Presse.md) → 1 × Nickelplatte | Presse | 100 t (5 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_cooling_module.svg" alt="Rezept" width="300"> | 4 × [Kupferrohr](Fluide-und-Rohre.md), 1 × [Kühlsystem](Helium-und-Kryotechnik.md) → 1 × Kühlmodul | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_armor_plating.svg" alt="Rezept" width="300"> | 2 × [Panzerplatte](Kreaturen-des-inneren-Sonnensystems.md), 1 × [Titanplatte](Presse.md) → 1 × Panzerung | Montagetisch | 200 t (10 s)<br>30 J/t |
+
 > [!TIP]
 > Das [Kühlsystem](Helium-und-Kryotechnik.md) in der Brustplatte braucht flüssiges Helium, siehe [Helium und Kryotechnik](Helium-und-Kryotechnik.md).
 

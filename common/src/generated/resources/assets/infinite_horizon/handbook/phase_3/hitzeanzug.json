@@ -9,7 +9,10 @@
     "infinite_horizon:heat_suit_helmet",
     "infinite_horizon:heat_suit_chestplate",
     "infinite_horizon:heat_suit_leggings",
-    "infinite_horizon:heat_suit_boots"
+    "infinite_horizon:heat_suit_boots",
+    "infinite_horizon:cooling_module",
+    "infinite_horizon:armor_plating",
+    "infinite_horizon:nickel_plate"
   ],
   "elements": [
     {
@@ -197,8 +200,106 @@
       ]
     },
     {
-      "type": "callout",
+      "type": "heading",
       "key": "infinite_horizon.handbook.phase_3.hitzeanzug.e9",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.hitzeanzug.e10"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_3.hitzeanzug.e11.0",
+        "infinite_horizon.handbook.phase_3.hitzeanzug.e11.1"
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:pressing/nickel_plate",
+          "type": "infinite_horizon:pressing",
+          "station": "infinite_horizon:press",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:nickel_ingot"
+              ],
+              "count": 1
+            }
+          ],
+          "mold": "infinite_horizon:press_mold_plate",
+          "results": [
+            {
+              "item": "infinite_horizon:nickel_plate",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/cooling_module",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:cooling_system"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:cooling_module",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/armor_plating",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:armor_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:armor_plating",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_3.hitzeanzug.e13",
       "style": "tip"
     }
   ]

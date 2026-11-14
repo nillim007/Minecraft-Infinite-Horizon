@@ -146,7 +146,11 @@ public final class IhTestCatalog {
             new Test("food_compostsoil_hoe_farmland", 20, null, null, null, IhGameTestsM5h::compostSoilTills),  // 17, M5h
             new Test("food_hydroponics_stageandharvest", 2200, null, null, null, IhGameTestsM5h::hydroponicsStageAndHarvest),  // 17, M5h
             new Test("food_hydroponics_sapling_logs", 20, null, null, null, IhGameTestsM5h::hydroponicsSaplingLogs),  // 17, M5h
-            new Test("food_hydroponics_moonneedsdome", 40, null, null, null, IhGameTestsM5h::hydroponicsNeedsDome)  // 17, M5h
+            new Test("food_hydroponics_moonneedsdome", 40, null, null, null, IhGameTestsM5h::hydroponicsNeedsDome),  // 17, M5h
+            new Test("dome_t2_rangemodule_radiusenergy", 40, null, "infinite_horizon:domes", null, IhGameTestsM5i::domeT2RangeModule),  // 10.1, M5i
+            new Test("dome_shieldmodule_stopsmeteor", 40, null, "infinite_horizon:domes", null, IhGameTestsM5i::domeShieldStopsMeteor),  // 10.1, 19, M5i
+            new Test("dome_t2_dustacidprotection", 40, null, "infinite_horizon:domes", null, IhGameTestsM5i::domeT2StormProtection),  // 10.1, 19, M5i
+            new Test("suitmodule_cooling_armorplating", 20, null, null, null, IhGameTestsM5i::suitModulesCoolingArmor)  // 9.2, M5i
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */
@@ -154,6 +158,7 @@ public final class IhTestCatalog {
     }
 
     public static final List<Environment> ENVIRONMENTS = List.of(
+            new Environment("infinite_horizon:domes", null),
             new Environment("infinite_horizon:moon_day", "infinite_horizon:gametest/moon_day"),
             new Environment("infinite_horizon:performance", null),
             new Environment("infinite_horizon:research_free", null)

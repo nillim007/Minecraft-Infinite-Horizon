@@ -1,0 +1,20 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:copper_pipe",
+      "count": 4
+    },
+    {
+      "ingredient": "infinite_horizon:cooling_system",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:cooling_module",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

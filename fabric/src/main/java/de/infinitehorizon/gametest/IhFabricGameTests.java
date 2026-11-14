@@ -648,4 +648,24 @@ public class IhFabricGameTests {
     public void foodHydroponicsMoonneedsdome(GameTestHelper helper) {
         IhGameTestsM5h.hydroponicsNeedsDome(helper);
     }
+
+    @GameTest(maxTicks = 40, environment = "infinite_horizon:domes")
+    public void domeT2RangemoduleRadiusenergy(GameTestHelper helper) {
+        IhGameTestsM5i.domeT2RangeModule(helper);
+    }
+
+    @GameTest(maxTicks = 40, environment = "infinite_horizon:domes")
+    public void domeShieldmoduleStopsmeteor(GameTestHelper helper) {
+        IhGameTestsM5i.domeShieldStopsMeteor(helper);
+    }
+
+    @GameTest(maxTicks = 40, environment = "infinite_horizon:domes")
+    public void domeT2Dustacidprotection(GameTestHelper helper) {
+        IhGameTestsM5i.domeT2StormProtection(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void suitmoduleCoolingArmorplating(GameTestHelper helper) {
+        IhGameTestsM5i.suitModulesCoolingArmor(helper);
+    }
 }

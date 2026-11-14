@@ -66,8 +66,21 @@ public class DomeGeneratorBlockEntity extends MachineBlockEntity {
         return o.has(key) && !o.get(key).isJsonNull() ? o.get(key).getAsInt() : 0;
     }
 
+    /** Wirksamer Radius: Grundwert × {@code radius_multiplier} der eingebauten Module (10.1). */
     public int radius() {
-        return num(json(), "radius");
+        return (int) Math.floor(num(json(), "radius") * DomeModules.factor(modules(), "radius_multiplier"));
+    }
+
+    /** Eingebaute Kuppelmodule (IDs aus den Modulslots). */
+    public List<Identifier> modules() {
+        List<Identifier> out = new java.util.ArrayList<>();
+        MachineLayout l = layout();
+        for (int i = l.upgradeStart(); i < l.fuelStart() && i < items.size(); i++) {
+            if (!items.get(i).isEmpty()) {
+                out.add(BuiltInRegistries.ITEM.getKey(items.get(i).getItem()));
+            }
+        }
+        return out;
     }
 
     public int tier() {
@@ -75,7 +88,7 @@ public class DomeGeneratorBlockEntity extends MachineBlockEntity {
     }
 
     public long energyPerTick() {
-        return num(json(), "energy_per_tick");
+        return Math.round(num(json(), "energy_per_tick") * DomeModules.factor(modules(), "energy_multiplier"));
     }
 
     @Override
@@ -92,7 +105,9 @@ public class DomeGeneratorBlockEntity extends MachineBlockEntity {
     @Override
     public boolean canPlaceItem(int slot, ItemStack stack) {
         if (layout().role(slot) == MachineLayout.Role.UPGRADE) {
-            return false; // SPEC-GAP #59: Kuppelmodule kommen mit M5
+            Identifier id = BuiltInRegistries.ITEM.getKey(stack.getItem());
+            // SPEC-GAP #95: jedes Modul höchstens einmal je Generator
+            return DomeModules.isModule(id) && !modules().contains(id);
         }
         return super.canPlaceItem(slot, stack);
     }
@@ -151,7 +166,7 @@ public class DomeGeneratorBlockEntity extends MachineBlockEntity {
 
         if (energyOk && oxygenOk && inRange) {
             consumeEnergy(perTick);
-            consumeOxygen(num(j, "oxygen_per_1200"));
+            consumeOxygen((int) Math.round(num(j, "oxygen_per_1200") * DomeModules.factor(modules(), "oxygen_multiplier")));
             everActive = true;
             if (entry == null || entry.failing() || entry.radius() != radius()) {
                 data.put(new DomeData.Entry(worldPosition, radius(), tier(), Optional.ofNullable(owner()), -1));

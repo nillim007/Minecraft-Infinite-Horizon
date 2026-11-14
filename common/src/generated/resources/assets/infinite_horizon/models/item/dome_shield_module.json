@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "infinite_horizon:item/dome_shield_module"
+  }
+}

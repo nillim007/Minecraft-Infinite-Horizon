@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "infinite_horizon:block/dome_generator_t2_front_running",
+    "side": "infinite_horizon:block/dome_generator_t2",
+    "top": "infinite_horizon:block/dome_generator_t2_top"
+  }
+}

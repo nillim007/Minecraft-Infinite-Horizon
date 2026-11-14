@@ -53,6 +53,7 @@ public final class ModItems {
     public static final Supplier<Item> OXYGEN_GENERATOR = blockItem("oxygen_generator", ModBlocks.OXYGEN_GENERATOR);
     public static final Supplier<Item> PRESSURE_BOTTLE = blockItem("pressure_bottle", ModBlocks.PRESSURE_BOTTLE);
     public static final Supplier<Item> DOME_GENERATOR_T1 = blockItem("dome_generator_t1", ModBlocks.DOME_GENERATOR_T1);
+    public static final Supplier<Item> DOME_GENERATOR_T2 = blockItem("dome_generator_t2", ModBlocks.DOME_GENERATOR_T2);
     public static final Supplier<Item> ELECTRIC_LAMP = blockItem("electric_lamp", ModBlocks.ELECTRIC_LAMP);
     public static final Supplier<Item> EXTINGUISHED_TORCH = blockItem("extinguished_torch", ModBlocks.EXTINGUISHED_TORCH);
     public static final Supplier<Item> RESEARCH_TERMINAL = blockItem("research_terminal", ModBlocks.RESEARCH_TERMINAL);

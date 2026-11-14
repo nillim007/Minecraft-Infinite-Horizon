@@ -61,7 +61,13 @@
     "armor_plate",
     "raw_platinum",
     "raw_iridium",
-    "compost"
+    "compost",
+    "dome_range_module",
+    "dome_efficiency_module",
+    "dome_shield_module",
+    "nickel_plate",
+    "cooling_module",
+    "armor_plating"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,
@@ -78,6 +84,11 @@
     "rover_drill": 1,
     "rover_headlight": 1,
     "rover_pressure_cabin": 1,
-    "rover_trailer": 1
+    "rover_trailer": 1,
+    "dome_range_module": 1,
+    "dome_efficiency_module": 1,
+    "dome_shield_module": 1,
+    "cooling_module": 1,
+    "armor_plating": 1
   }
 }

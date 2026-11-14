@@ -5,7 +5,7 @@ order: 105
 milestone: 5
 requires: ["infinite_horizon:heat_suit_chestplate"]
 icon: infinite_horizon:heat_suit_helmet
-items: ["infinite_horizon:heat_suit_helmet", "infinite_horizon:heat_suit_chestplate", "infinite_horizon:heat_suit_leggings", "infinite_horizon:heat_suit_boots"]
+items: ["infinite_horizon:heat_suit_helmet", "infinite_horizon:heat_suit_chestplate", "infinite_horizon:heat_suit_leggings", "infinite_horizon:heat_suit_boots", "infinite_horizon:cooling_module", "infinite_horizon:armor_plating", "infinite_horizon:nickel_plate"]
 summary: Anzug der Stufe 2 für die Venus: Hitze, hoher Druck, Säureregen
 ---
 Der **Hitzeanzug** ist die zweite Anzugstufe. Du baust ihn aus deinem [[raumanzug|Druckanzug]]: Jedes Teil wird im Montagetisch aufgewertet und behält dabei seinen Sauerstoff und seine Module.
@@ -27,5 +27,14 @@ Oberhalb der Wolkenschicht füllt sich die Hitzezeit in {{value:suits:venus_heat
 ## Herstellung
 
 @recipes_for infinite_horizon:heat_suit_helmet infinite_horizon:heat_suit_chestplate infinite_horizon:heat_suit_leggings infinite_horizon:heat_suit_boots
+
+## Anzugmodule der Stufe 2
+
+Module baust du im Montagetisch ein: Anzugteil und Modul zusammen hineinlegen. Jedes Teil hat {{value:suits:suit_rules.module_slots_per_piece}} Modulslots, und Module passen auf jede Anzugstufe.
+
+- <item:infinite_horizon:cooling_module> (Brustplatte): obere Temperaturgrenze + {{value:suits:infinite_horizon:cooling_module.temp_max_bonus}} °C.
+- <item:infinite_horizon:armor_plating> (Hose oder Stiefel): + {{value:suits:infinite_horizon:armor_plating.armor_bonus}} Rüstung.
+
+@recipes_for infinite_horizon:cooling_module infinite_horizon:armor_plating infinite_horizon:nickel_plate
 
 @tip Das <item:infinite_horizon:cooling_system> in der Brustplatte braucht flüssiges Helium, siehe [[helium|Helium und Kryotechnik]].

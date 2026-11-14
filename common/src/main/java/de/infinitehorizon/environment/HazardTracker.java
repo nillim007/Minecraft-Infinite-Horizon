@@ -104,6 +104,12 @@ public final class HazardTracker {
         int cover = coverBlocks(level, pos, r.radiation().coverBlocks());
         Suits.Tier suit = Suits.worn(player);
         Protection protection = suit == null ? r.noSuit() : Suits.protection(suit, Suits.oxygen(Suits.chestplate(player)));
+        // Kühlmodul (9.2): obere Temperaturgrenze + temp_max_bonus
+        double cooling = suit == null ? 0 : de.infinitehorizon.suit.SuitModules.bonus(player, "temp_max_bonus");
+        if (cooling != 0) {
+            protection = new Protection(protection.tempMin(), protection.tempMax() + cooling, protection.pressures(),
+                    protection.radiationMax(), protection.suppliesOxygen(), protection.deepPressure());
+        }
         // Hitzezeit abgelaufen (9.1): ungeschützt gegen Hitze wie ohne Anzug
         VenusHeat heat = VenusHeat.rules();
         if (suit != null && suit.venusHeatTimer() && heat != null

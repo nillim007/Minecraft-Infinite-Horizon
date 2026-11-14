@@ -80,6 +80,16 @@ public final class DomeManager {
         return Optional.ofNullable(best);
     }
 
+    /** Alle aktiven Kuppeln an der Position (überlappende Kuppeln, 10.1). */
+    public static List<DomeData.Entry> domesAt(ServerLevel level, BlockPos pos) {
+        List<DomeData.Entry> list = index(level).byChunk().get(ChunkPos.pack(pos.getX() >> 4, pos.getZ() >> 4));
+        if (list == null) {
+            return List.of();
+        }
+        int below = belowCenter();
+        return list.stream().filter(e -> e.contains(pos, below)).toList();
+    }
+
     public static boolean isInsideActiveDome(ServerLevel level, BlockPos pos) {
         return domeAt(level, pos).isPresent();
     }

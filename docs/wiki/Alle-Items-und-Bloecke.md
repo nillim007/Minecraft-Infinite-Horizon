@@ -70,7 +70,12 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Kupferkabel](Strom.md) | Block | Rezept |
 | [Kupferrohr](Fluide-und-Rohre.md) | Block | Rezept |
 | [Kupferstaub](Zerkleinerer.md) | Item | Maschine |
+| [Kuppel-Effizienzmodul](Die-Kuppel.md) | Item | Rezept |
+| [Kuppel-Reichweitenmodul](Die-Kuppel.md) | Item | Rezept |
+| [Kuppel-Schildmodul](Die-Kuppel.md) | Item | Rezept |
 | [Kuppelgenerator I](Die-Kuppel.md) | Block | Rezept |
+| [Kuppelgenerator II](Die-Kuppel.md) | Block | Rezept |
+| [Kühlmodul](Der-Hitzeanzug.md) | Item | Rezept |
 | [Kühlsystem](Helium-und-Kryotechnik.md) | Item | Rezept |
 | [Landefeuer](Das-Landefeuer.md) | Block | Rezept |
 | [Leichtbau-Platte](Der-Hochtemperaturofen.md) | Item | Maschine |
@@ -93,8 +98,10 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Montagetisch](Montagetisch.md) | Block | Rezept |
 | [Nahrungspacker](Weltraumnahrung.md) | Block | Rezept |
 | [Nickelbarren](Der-Mars.md) | Item | Maschine |
+| [Nickelplatte](Der-Hitzeanzug.md) | Item | Maschine |
 | [Nickelstaub](Der-Mars.md) | Item | Maschine |
 | [Panzerplatte](Kreaturen-des-inneren-Sonnensystems.md) | Item | Kreatur |
+| [Panzerung](Der-Hitzeanzug.md) | Item | Rezept |
 | [Planetenatlas](Der-Planetenatlas.md) | Item | Geschenk beim ersten Betreten, Rezept |
 | [Presse](Presse.md) | Block | Rezept |
 | [Pressform (Draht)](Presse.md) | Item | Rezept |

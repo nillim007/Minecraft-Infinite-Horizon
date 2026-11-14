@@ -125,6 +125,11 @@ public final class EventService {
 
     /** Solarfaktor durch Ereignisse: Sonnensturm × reward.solar_multiplier, Staubsturm × effects.solar_multiplier. */
     public static double solarMultiplier(Level level) {
+        return solarMultiplier(level, null);
+    }
+
+    /** Solarfaktor an {@code pos}: Unter einer Kuppel, die vor dem Staubsturm schützt (T2, 10.1), wirkt er dort nicht. */
+    public static double solarMultiplier(Level level, @org.jspecify.annotations.Nullable BlockPos pos) {
         if (!(level instanceof ServerLevel sl)) {
             return 1.0;
         }
@@ -133,10 +138,39 @@ public final class EventService {
             JsonObject reward = event(SOLAR_STORM).getAsJsonObject("reward");
             f *= reward == null ? 1.0 : num(reward, "solar_multiplier");
         }
-        if (activeHere(sl, DUST_STORM)) {
+        if (activeHere(sl, DUST_STORM) && (pos == null || !domeProtects(sl, pos, DUST_STORM))) {
             f *= num(effects(DUST_STORM), "solar_multiplier");
         }
         return f;
+    }
+
+    /**
+     * Schützt eine aktive Kuppel an {@code pos} vor dem Ereignis? {@code protection} in events.json: {@code dome} mit
+     * Mindeststufe (10.1: T2 gegen Staubsturm und Säureregen) oder {@code dome_module} (Schildmodul gegen Meteoriten).
+     */
+    public static boolean domeProtects(ServerLevel level, BlockPos pos, Identifier event) {
+        JsonObject e = event(event);
+        var dome = DomeManager.domeAt(level, pos);
+        if (e == null || !e.has("protection") || dome.isEmpty()) {
+            return false;
+        }
+        for (JsonElement pe : e.getAsJsonArray("protection")) {
+            JsonObject prot = pe.getAsJsonObject();
+            String type = str(prot, "type");
+            if ("dome".equals(type) && dome.get().tier() >= num(prot, "min_tier")) {
+                return true;
+            }
+            if ("dome_module".equals(type)) {
+                Identifier module = Identifier.parse(str(prot, "id"));
+                for (var d : DomeManager.domesAt(level, pos)) {
+                    if (level.getBlockEntity(d.center()) instanceof de.infinitehorizon.dome.DomeGeneratorBlockEntity g
+                            && g.modules().contains(module)) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
     }
 
     /** Monster-Spawnfaktor (Staubsturm {@code monster_spawn_multiplier}). */
@@ -295,6 +329,9 @@ public final class EventService {
         if (activeHere(level, DUST_STORM) && now % Math.max(1, (long) num(entry("event_planning"), "check_interval_ticks")) == 0) {
             // SPEC-GAP #93: Staubgeister erscheinen je Prüftakt bei jedem Spieler im Sturm
             for (ServerPlayer p : level.players()) {
+                if (domeProtects(level, p.blockPosition(), DUST_STORM)) {
+                    continue;
+                }
                 var wraith = ModEntities.DUST_WRAITH.get().create(level, EntitySpawnReason.EVENT);
                 if (wraith != null) {
                     BlockPos at = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING,
@@ -312,6 +349,9 @@ public final class EventService {
         RandomSource random = level.getRandom();
         BlockPos column = around.offset(random.nextInt(2 * r + 1) - r, 0, random.nextInt(2 * r + 1) - r);
         BlockPos top = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, column);
+        if (domeProtects(level, top, METEOR_SHOWER)) {
+            return top; // vom Schildmodul abgefangen (10.1)
+        }
         boolean damage = ServerConfig.get().getBoolean(str(fx, "block_damage_config"));
         level.explode(null, top.getX() + 0.5, top.getY(), top.getZ() + 0.5, (float) num(fx, "explosion_power"),
                 fx.has("fire") && fx.get("fire").getAsBoolean(), damage ? Level.ExplosionInteraction.TNT : Level.ExplosionInteraction.NONE);
