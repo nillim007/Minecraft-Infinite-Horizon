@@ -1,0 +1,25 @@
+PASS config_sync
+PASS neoforge_gui_fluid_tank_open
+PASS side_button
+PASS neoforge_gui_crusher_open
+PASS neoforge_gui_electric_furnace_open
+PASS neoforge_gui_press_open
+PASS neoforge_gui_combustion_generator_open
+PASS neoforge_gui_fluid_tank_oil_open
+PASS neoforge_gui_fluid_pump_open
+PASS neoforge_gui_assembly_table_open
+PASS neoforge_gui_electrolyzer_open
+PASS tank_button
+PASS neoforge_gui_refinery_controller_open
+PASS refinery_complete
+PASS ghost_preview
+PASS neoforge_gui_fuel_generator_open
+PASS neoforge_gui_battery_open
+PASS handbook_link
+PASS handbook_item_page
+PASS handbook_gift
+PASS jei_plugin
+PASS jei_recipes
+PASS jei_h_hook
+PASS jei_category_open
+DONE
