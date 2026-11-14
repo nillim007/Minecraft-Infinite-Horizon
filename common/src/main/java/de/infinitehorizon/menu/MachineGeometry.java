@@ -35,11 +35,19 @@ public record MachineGeometry(int tanks, int fluidLeft, int containerX, int outp
         boolean containers = l.fill() + l.drain() > 0;
         int fluidLeft = tanks > 0 ? FLUID_RIGHT - (tanks - 1) * FLUID_STEP : 176;
         int containerX = containers ? fluidLeft - 22 : fluidLeft;
-        int outputX = tanks > 0 || containers ? Math.min(MachineMenu.OUTPUT_X, containerX - 20) : MachineMenu.OUTPUT_X;
+        // zwei Ausgabespalten (mehr als 3 Ausgaben) stehen ganz links vom Füllslot (Gewächshaus, SPEC-GAP #97)
+        int outCols = outputColumns(l);
+        int outputX = tanks > 0 || containers ? Math.min(MachineMenu.OUTPUT_X, containerX - 20 - (outCols - 1) * SLOT)
+                : MachineMenu.OUTPUT_X;
         int anchor = l.outputs() > 0 ? outputX : containerX;
         int arrowX = Math.min(MachineMenu.ARROW_X, anchor - 31);
         int inputX = l.inputs() > GRID_COLUMNS ? arrowX - 59 : MachineMenu.INPUT_X;
-        int extraRows = l.inputs() > GRID_COLUMNS || l.outputs() > 2 ? 1 : 0;
+        if (inputX < MIN_X) {
+            // enger: Pfeil näher an die Ausgaben, damit das Raster nicht über den Rand ragt
+            arrowX = anchor - 26;
+            inputX = arrowX - 56;
+        }
+        int extraRows = Math.max(l.inputs() > GRID_COLUMNS || l.outputs() > 2 ? 1 : 0, rows(l) - 3);
         int upgradeX = tanks > 0 || containers ? containerX - 32 : MachineMenu.UPGRADE_X;
         int upgradeY = extraRows > 0 ? MachineMenu.UPGRADE_Y + 13 : MachineMenu.UPGRADE_Y;
         if (extraRows == 0 && upgradeX - (l.upgrades() - 1) * SLOT < LABEL_CLEAR_X) {
@@ -48,6 +56,27 @@ public record MachineGeometry(int tanks, int fluidLeft, int containerX, int outp
             upgradeY = MachineMenu.FILL_Y;
         }
         return new MachineGeometry(tanks, fluidLeft, containerX, outputX, arrowX, inputX, upgradeX, upgradeY, extraRows);
+    }
+
+    /** Kleinste x-Position eines Slots (Rand des GUIs). */
+    public static final int MIN_X = 8;
+
+    /** Spalten der Ausgaben: 2 ab 4 Ausgaben, sonst 1. */
+    public static int outputColumns(MachineLayout l) {
+        return l.outputs() > 3 ? 2 : 1;
+    }
+
+    /** Zeilen des höchsten Rasters (Eingaben in 3 Spalten, Ausgaben in 1–2 Spalten). */
+    public static int rows(MachineLayout l) {
+        int in = l.inputs() > GRID_COLUMNS ? (l.inputs() + GRID_COLUMNS - 1) / GRID_COLUMNS : 1;
+        int cols = outputColumns(l);
+        int out = (l.outputs() + cols - 1) / cols;
+        return Math.max(in, out);
+    }
+
+    /** y der obersten Rasterzeile: um die Mittelzeile zentriert, aber nie über der Kopfzeile. */
+    public static int gridTop(int rows) {
+        return Math.max(MachineMenu.FILL_Y, ROW_Y - (rows - 1) * SLOT / 2);
     }
 
     /** x der Fluidleiste {@code t} (Reihenfolge wie {@code fluidTanks()}: Eingänge links, Ausgänge rechts). */

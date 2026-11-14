@@ -88,7 +88,7 @@ public class MachineMenu extends AbstractContainerMenu {
             int rows = (l.inputs() + MachineGeometry.GRID_COLUMNS - 1) / MachineGeometry.GRID_COLUMNS;
             for (int i = 0; i < l.inputs(); i++) {
                 addSlot(new RoleSlot(container, i, g.inputX() + (i % MachineGeometry.GRID_COLUMNS) * SLOT,
-                        ROW_Y - (rows - 1) * SLOT / 2 + (i / MachineGeometry.GRID_COLUMNS) * SLOT, true, 0));
+                        MachineGeometry.gridTop(rows) + (i / MachineGeometry.GRID_COLUMNS) * SLOT, true, 0));
             }
         } else {
             centered(l.inputs(), g.inputX(), 0);
@@ -96,11 +96,11 @@ public class MachineMenu extends AbstractContainerMenu {
         for (int i = 0; i < l.molds(); i++) {
             addSlot(new RoleSlot(container, l.moldStart() + i, MOLD_X, ROW_Y + i * SLOT, true, 0));
         }
-        int cols = l.outputs() > 3 ? 2 : 1;
+        int cols = MachineGeometry.outputColumns(l);
         int rows = (l.outputs() + cols - 1) / Math.max(1, cols);
         for (int i = 0; i < l.outputs(); i++) {
             int x = g.outputX() + (i % cols) * SLOT;
-            int y = ROW_Y - (rows - 1) * SLOT / 2 + (i / cols) * SLOT;
+            int y = MachineGeometry.gridTop(rows) + (i / cols) * SLOT;
             addSlot(new RoleSlot(container, l.outputStart() + i, x, y, false, 0));
         }
         for (int i = 0; i < l.upgrades(); i++) {
