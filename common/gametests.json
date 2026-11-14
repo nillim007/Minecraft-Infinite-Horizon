@@ -159,6 +159,8 @@
     {"name": "weatherstation_notonearth", "class": "IhGameTestsM6c", "method": "weatherStationNotOnEarth", "ticks": 20, "ref": "6.1, M6c"},
     {"name": "fusion_shutdown_40ticks_nocooling", "class": "IhGameTestsM6d", "method": "fusionShutsDownWithoutCooling", "ticks": 200, "structure": "infinite_horizon:gametest/empty_large", "ref": "6.3, 27 M6 (Abnahme)"},
     {"name": "fusion_needsstructure", "class": "IhGameTestsM6d", "method": "fusionNeedsStructure", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "4.3, M6d"},
-    {"name": "gravityplate_orbit_onegee", "class": "IhGameTestsM6d", "method": "gravityPlateOrbit", "ticks": 40, "dimension": "infinite_horizon:earth_orbit", "ref": "12.9, M6d"}
+    {"name": "gravityplate_orbit_onegee", "class": "IhGameTestsM6d", "method": "gravityPlateOrbit", "ticks": 40, "dimension": "infinite_horizon:earth_orbit", "ref": "12.9, M6d"},
+    {"name": "lander_notonearth", "class": "IhGameTestsM6e", "method": "landerNotOnEarth", "ticks": 20, "ref": "12.7, M6e"},
+    {"name": "lander_orbit_tomoon_disassemble", "class": "IhGameTestsM6e", "method": "landerOrbitToMoon", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "12.7, M6e"}
   ]
 }

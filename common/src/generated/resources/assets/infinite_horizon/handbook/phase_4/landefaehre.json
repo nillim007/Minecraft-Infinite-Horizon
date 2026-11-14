@@ -1,0 +1,94 @@
+{
+  "id": "infinite_horizon:phase_4/landefaehre",
+  "chapter": "infinite_horizon:phase_4",
+  "title": "infinite_horizon.handbook.phase_4.landefaehre.title",
+  "icon": "infinite_horizon:lander",
+  "order": 35,
+  "unlock": "infinite_horizon:research_tier/3",
+  "items": [
+    "infinite_horizon:lander"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.landefaehre.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.landefaehre.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_4.landefaehre.e2.0",
+        "infinite_horizon.handbook.phase_4.landefaehre.e2.1",
+        "infinite_horizon.handbook.phase_4.landefaehre.e2.2"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_4.landefaehre.e3",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_4.landefaehre.e4"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_4.landefaehre.e5",
+      "style": "warning"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/lander",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 32
+            },
+            {
+              "items": [
+                "infinite_horizon:heat_shield"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:cooling_system"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:lander",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_4.landefaehre.e7",
+      "style": "tip"
+    }
+  ]
+}

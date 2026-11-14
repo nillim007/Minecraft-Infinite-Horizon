@@ -423,7 +423,7 @@ def recipe_ids(r):
 PLANET_FIELDS = ["dimension", "type", "orbit", "star_system", "ring", "distance_points", "gravity", "atmosphere",
                  "pressure", "temperature", "biome_temperature_offsets", "biome_temperature_overrides", "radiation",
                  "solar_factor", "water_behavior", "landing_requires_fuel", "launch_cost_override", "required_rocket_tier",
-                 "requires_long_range",
+                 "requires_long_range", "lander_connects_to", "fixed_time",
                  "probe", "sky", "gas_collector_output", "zones", "vanilla_mobs"]
 ZONE_FIELDS = ["id", "y_min", "y_max", "biome", "near_block", "temperature", "pressure", "radiation", "solar_factor",
                "atmosphere", "water_behavior"]

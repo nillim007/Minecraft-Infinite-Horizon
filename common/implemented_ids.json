@@ -177,7 +177,8 @@
     "infinite_horizon:cooling_module",
     "infinite_horizon:armor_plating",
     "infinite_horizon:magnet_boots",
-    "infinite_horizon:superconductor_wire"
+    "infinite_horizon:superconductor_wire",
+    "infinite_horizon:lander"
   ],
   "fluids": [
     "crude_oil",
@@ -187,9 +188,9 @@
     "helium",
     "liquid_helium"
   ],
-  "step": "6d",
+  "step": "6e",
   "dimensions": ["infinite_horizon:moon", "infinite_horizon:mars", "infinite_horizon:venus", "infinite_horizon:earth_orbit", "infinite_horizon:mars_orbit", "infinite_horizon:venus_orbit"],
-  "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket", "infinite_horizon:rover", "infinite_horizon:rubble_crawler", "infinite_horizon:shade_strider", "infinite_horizon:dune_burrower", "infinite_horizon:dust_wraith", "infinite_horizon:sulfur_snail", "infinite_horizon:cloud_ray"],
+  "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket", "infinite_horizon:rover", "infinite_horizon:rubble_crawler", "infinite_horizon:shade_strider", "infinite_horizon:dune_burrower", "infinite_horizon:dust_wraith", "infinite_horizon:sulfur_snail", "infinite_horizon:cloud_ray", "infinite_horizon:lander"],
   "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:first_signal", "infinite_horizon:small_step", "infinite_horizon:own_air"],
   "item_classes": {
     "_comment": "Items mit eigenem Verhalten; sie fehlen in simple_items.json und werden in ModItems registriert.",
@@ -207,6 +208,7 @@
     "infinite_horizon:pressure_suit_boots": "suit",
     "infinite_horizon:sample_tool": "sample_tool",
     "infinite_horizon:sample": "sample",
-    "infinite_horizon:space_ration": "ration"
+    "infinite_horizon:space_ration": "ration",
+    "infinite_horizon:lander": "lander"
   }
 }

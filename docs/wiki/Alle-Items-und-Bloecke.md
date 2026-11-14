@@ -83,6 +83,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Kühlmodul](Der-Hitzeanzug.md) | Item | Rezept |
 | [Kühlsystem](Helium-und-Kryotechnik.md) | Item | Rezept |
 | [Landefeuer](Das-Landefeuer.md) | Block | Rezept |
+| [Landefähre](Die-Landefaehre.md) | Item | Rezept |
 | [Leichtbau-Platte](Der-Hochtemperaturofen.md) | Item | Maschine |
 | [Magnesium-Legierung](Der-Hochtemperaturofen.md) | Item | Maschine |
 | [Magnesiumbarren](Der-Mars.md) | Item | Maschine |

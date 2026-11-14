@@ -129,6 +129,15 @@ public final class FlightService {
         return LaunchChecklist.destinations(level, fuel, tier, here, agency);
     }
 
+    /** Ziele für ein gelandetes Fahrzeug: Landefähre nach {@link LanderRoutes}, sonst wie eine Rakete. */
+    public static List<LaunchChecklist.Destination> destinationsFor(ServerLevel level, RocketEntity r, @Nullable Agency agency) {
+        if (r instanceof LanderEntity) {
+            return LanderRoutes.destinations(level, r.usableFuel(),
+                    PlanetResolver.planetFor(level.dimension().identifier(), PlanetRegistry.get()), agency);
+        }
+        return destinations(level, r.usableFuel(), r.tier(), agency);
+    }
+
     // ---------------------------------------------------------------- Start
 
     /** Start von der Rampe (Navigationskarte → {@code LaunchRequestPayload}); gibt einen Fehlerschlüssel oder null zurück. */
@@ -213,11 +222,11 @@ public final class FlightService {
         double min = BalanceManager.get().entry("spaceflight", "thrust_to_weight")
                 .filter(o -> o.has("min_ratio")).map(o -> o.get("min_ratio").getAsDouble()).orElse(1.0);
         boolean orbit = here != null && here.isOrbit();
-        if (!orbit && g > 0 && rocket.thrust() / (rocket.mass() * g) < min) {
+        if (!orbit && !(rocket instanceof LanderEntity) && g > 0 && rocket.thrust() / (rocket.mass() * g) < min) {
             return "thrust";
         }
         Agency agency = AgencyManager.ensureFor(requester);
-        LaunchChecklist.Destination dest = destinations(level, rocket.usableFuel(), rocket.tier(), agency).stream()
+        LaunchChecklist.Destination dest = destinationsFor(level, rocket, agency).stream()
                 .filter(d -> d.dimension().equals(target)).findFirst().orElse(null);
         if (dest == null || !dest.unlocked() || dest.reach() == FuelCalculator.Reach.NONE) {
             return "target";

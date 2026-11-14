@@ -37,6 +37,13 @@ public final class ModEntities {
                     .sized(1.0f, 1.0f).clientTrackingRange(16).updateInterval(1).noSummon().fireImmune()
                     .build(key("rocket")));
 
+    /** Landefähre (12.7): Raketen-Entity mit eigenem Tank und eigenen Zielen; Hitbox wie eine Rakete. */
+    public static final Supplier<EntityType<de.infinitehorizon.space.LanderEntity>> LANDER = Services.REGISTRY.register(
+            BuiltInRegistries.ENTITY_TYPE, "lander", () -> EntityType.Builder.<de.infinitehorizon.space.LanderEntity>of(
+                            de.infinitehorizon.space.LanderEntity::new, MobCategory.MISC)
+                    .sized(1.0f, 1.0f).clientTrackingRange(16).updateInterval(1).noSummon().fireImmune()
+                    .build(key("lander")));
+
     /** Rover (16): Breite und Höhe aus vehicles.json ({@code size}); Länge wie Breite (quadratische Hitbox). */
     public static final Supplier<EntityType<de.infinitehorizon.vehicle.RoverEntity>> ROVER = Services.REGISTRY.register(
             BuiltInRegistries.ENTITY_TYPE, "rover", () -> {

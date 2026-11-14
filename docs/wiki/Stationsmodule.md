@@ -55,4 +55,4 @@ Das Gewächshaus arbeitet wie 9 [Hydrokultur-Becken](Hydrokultur-und-Kompost.md)
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Die Raumstation](Die-Raumstation.md) · [Fertigung im Orbit](Fertigung-im-Orbit.md) →
+← [Die Landefähre](Die-Landefaehre.md) · [Fertigung im Orbit](Fertigung-im-Orbit.md) →

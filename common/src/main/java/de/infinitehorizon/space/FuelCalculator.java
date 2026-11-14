@@ -74,6 +74,18 @@ public final class FuelCalculator {
         return launch(a, c) + transfer(a, b, c) + landing(b, c);
     }
 
+    /** Landefähre (12.7): Kosten nach 12.2 ohne {@code transfer}. */
+    public static long landerCost(Body a, Body b, Constants c) {
+        return launch(a, c) + landing(b, c);
+    }
+
+    public static Reach landerReach(long fuelPerComponent, Body from, Body to, Constants c) {
+        if (fuelPerComponent >= landerCost(from, to, c) + landerCost(to, from, c)) {
+            return Reach.BOTH;
+        }
+        return fuelPerComponent >= landerCost(from, to, c) ? Reach.ONE_WAY : Reach.NONE;
+    }
+
     /** Hin- und Rückflug A → B → A. */
     public static long roundTrip(Body a, Body b, Constants c) {
         return cost(a, b, c) + cost(b, a, c);

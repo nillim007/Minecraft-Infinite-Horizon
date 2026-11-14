@@ -1,0 +1,28 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:lightweight_plate",
+      "count": 32
+    },
+    {
+      "ingredient": "infinite_horizon:heat_shield",
+      "count": 8
+    },
+    {
+      "ingredient": "infinite_horizon:advanced_circuit",
+      "count": 8
+    },
+    {
+      "ingredient": "infinite_horizon:cooling_system",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:lander",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

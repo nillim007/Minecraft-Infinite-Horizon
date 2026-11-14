@@ -122,8 +122,7 @@ public class StarMapMenu extends AbstractContainerMenu {
     /** Neustart einer gelandeten Rakete. */
     public static void openForRocket(ServerPlayer player, RocketEntity rocket) {
         Agency agency = AgencyManager.ensureFor(player);
-        List<LaunchChecklist.Destination> list = FlightService.destinations((ServerLevel) rocket.level(),
-                rocket.usableFuel(), rocket.tier(), agency);
+        List<LaunchChecklist.Destination> list = FlightService.destinationsFor((ServerLevel) rocket.level(), rocket, agency);
         open(player, new Data(rocket.blockPosition(), rocket.getId(), rocket.usableFuel(), dests(list), beacons(agency)));
     }
 

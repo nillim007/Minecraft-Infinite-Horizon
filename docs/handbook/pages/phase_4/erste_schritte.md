@@ -17,5 +17,11 @@ In der vierten Phase verlässt du die Oberflächen und baust eine Raumstation. S
 @if infinite_horizon:docking_bay
 5. **Die Station ausbauen.** Andockbucht, Tankdepot, Solarflügel und Wohnmodul machen die Station zum Drehkreuz, siehe [[stationsmodule|Stationsmodule]].
 @endif
+@if infinite_horizon:lander
+6. **Pendeln.** Mit der [[landefaehre|Landefähre]] fliegst du ohne große Rakete zwischen Station und Erde oder Mond.
+@endif
+@if infinite_horizon:fusion_reactor
+7. **Strom für die Station.** Ein [[fusionsreaktor|Fusionsreaktor]] liefert Strom für Kuppel, Fertiger und Schwerkraftplatten.
+@endif
 
 @tip Nimm einen gefüllten Anzug und Sauerstoffflaschen mit. Bis die Kuppel des Kerns steht, bist du im Vakuum.

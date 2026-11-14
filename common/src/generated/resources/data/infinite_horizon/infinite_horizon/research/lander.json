@@ -1,0 +1,20 @@
+{
+  "tier": 3,
+  "branch": "spaceflight",
+  "cost": 50,
+  "requires": [
+    "infinite_horizon:station_core"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:lander"
+    }
+  ],
+  "icon": "infinite_horizon:lander",
+  "position": {
+    "column": 1,
+    "row": 3,
+    "slot": 2
+  }
+}

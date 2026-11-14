@@ -131,6 +131,10 @@ public final class ModItems {
                             de.infinitehorizon.InfiniteHorizon.id("space_ration").toString()).orElseThrow()
                             .get("max_stack").getAsInt())));
 
+    /** Landefähre (12.7): setzt das gleichnamige Entity. */
+    public static final Supplier<Item> LANDER = register("lander",
+            p -> new de.infinitehorizon.space.LanderItem(p.stacksTo(1)));
+
     /** Feldscanner (11.1, 18): Kreaturen analysieren. */
     public static final Supplier<Item> FIELD_SCANNER = register("field_scanner",
             p -> new de.infinitehorizon.creature.FieldScannerItem(p.stacksTo(1)));

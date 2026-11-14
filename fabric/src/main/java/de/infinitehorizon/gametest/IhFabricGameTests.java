@@ -773,4 +773,14 @@ public class IhFabricGameTests {
     public void gravityplateOrbitOnegee(GameTestHelper helper) {
         IhGameTestsM6d.gravityPlateOrbit(helper);
     }
+
+    @GameTest(maxTicks = 20)
+    public void landerNotonearth(GameTestHelper helper) {
+        IhGameTestsM6e.landerNotOnEarth(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:earth_orbit")
+    public void landerOrbitTomoonDisassemble(GameTestHelper helper) {
+        IhGameTestsM6e.landerOrbitToMoon(helper);
+    }
 }

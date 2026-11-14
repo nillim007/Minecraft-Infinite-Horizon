@@ -13,6 +13,8 @@ In der vierten Phase verlässt du die Oberflächen und baust eine Raumstation. S
 3. **Den Stationskern setzen.** Nimm einen [Stationskern](Die-Raumstation.md) mit. Ein Rechtsklick aus der Kapsel setzt ihn direkt unter die Rakete, siehe [Die Raumstation](Die-Raumstation.md).
 4. **Sicher aussteigen.** Die eingebaute Kuppel des Kerns versorgt dich mit Luft. Mit [Magnetstiefel](Der-Orbit.md) in den Stiefeln läufst du auf der Station wie auf der Erde.
 5. **Die Station ausbauen.** Andockbucht, Tankdepot, Solarflügel und Wohnmodul machen die Station zum Drehkreuz, siehe [Stationsmodule](Stationsmodule.md).
+6. **Pendeln.** Mit der [Landefähre](Die-Landefaehre.md) fliegst du ohne große Rakete zwischen Station und Erde oder Mond.
+7. **Strom für die Station.** Ein [Fusionsreaktor](Der-Fusionsreaktor.md) liefert Strom für Kuppel, Fertiger und Schwerkraftplatten.
 
 > [!TIP]
 > Nimm einen gefüllten Anzug und Sauerstoffflaschen mit. Bis die Kuppel des Kerns steht, bist du im Vakuum.

@@ -21,6 +21,8 @@
   "launch_cost_override": null,
   "required_rocket_tier": 1,
   "requires_long_range": false,
+  "lander_connects_to": "infinite_horizon:earth_orbit",
+  "fixed_time": null,
   "probe": null,
   "sky": null,
   "gas_collector_output": null,

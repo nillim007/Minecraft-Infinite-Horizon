@@ -21,6 +21,8 @@
   "launch_cost_override": 0,
   "required_rocket_tier": 2,
   "requires_long_range": false,
+  "lander_connects_to": null,
+  "fixed_time": 6000,
   "probe": "infinite_horizon:probe",
   "sky": {
     "color": "#000000",
