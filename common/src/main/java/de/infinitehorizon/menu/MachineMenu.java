@@ -109,10 +109,10 @@ public class MachineMenu extends AbstractContainerMenu {
         }
         centered(l.fuel(), INPUT_X, l.fuelStart());
         for (int i = 0; i < l.fill(); i++) {
-            addSlot(new RoleSlot(container, l.fillStart() + i, g.containerX(), FILL_Y + i * SLOT, true, 1));
+            addSlot(new RoleSlot(container, l.fillStart() + i, g.containerX(), g.fillY() + i * SLOT, true, 1));
         }
         for (int i = 0; i < l.drain(); i++) {
-            addSlot(new RoleSlot(container, l.drainStart() + i, g.containerX(), DRAIN_Y + i * SLOT, true, 1));
+            addSlot(new RoleSlot(container, l.drainStart() + i, g.containerX(), g.drainY() + i * SLOT, true, 1));
         }
 
         int invY = g.inventoryY();

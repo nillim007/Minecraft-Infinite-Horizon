@@ -18,7 +18,7 @@ import de.infinitehorizon.machine.MachineLayout;
  * @param extraRows  Zusatzzeilen (je 18 px)
  */
 public record MachineGeometry(int tanks, int fluidLeft, int containerX, int outputX, int arrowX, int inputX,
-                              int upgradeX, int upgradeY, int extraRows) {
+                              int upgradeX, int upgradeY, int extraRows, int fillY, int drainY) {
 
     public static final int SLOT = 18;
     public static final int FLUID_RIGHT = 152;
@@ -34,11 +34,17 @@ public record MachineGeometry(int tanks, int fluidLeft, int containerX, int outp
     public static MachineGeometry of(MachineLayout l, int tanks) {
         boolean containers = l.fill() + l.drain() > 0;
         int fluidLeft = tanks > 0 ? FLUID_RIGHT - (tanks - 1) * FLUID_STEP : 176;
-        int containerX = containers ? fluidLeft - 22 : fluidLeft;
-        // zwei Ausgabespalten (mehr als 3 Ausgaben) stehen ganz links vom Füllslot (Gewächshaus, SPEC-GAP #97)
         int outCols = outputColumns(l);
+        // zwei Ausgabespalten und ein Tank (Gewächshaus, SPEC-GAP #97): Füll- und Leerslot unter die Fluidleiste
+        boolean stacked = containers && outCols > 1 && tanks > 0;
+        int containerX = containers && !stacked ? fluidLeft - 22 : fluidLeft;
+        int fillY = stacked ? FLUID_Y + FLUID_H + 4 : MachineMenu.FILL_Y;
+        int drainY = stacked ? fillY + SLOT : MachineMenu.DRAIN_Y;
         int outputX = tanks > 0 || containers ? Math.min(MachineMenu.OUTPUT_X, containerX - 20 - (outCols - 1) * SLOT)
                 : MachineMenu.OUTPUT_X;
+        if (stacked) {
+            outputX = Math.min(MachineMenu.OUTPUT_X, fluidLeft - 6 - outCols * SLOT);
+        }
         int anchor = l.outputs() > 0 ? outputX : containerX;
         int arrowX = Math.min(MachineMenu.ARROW_X, anchor - 31);
         int inputX = l.inputs() > GRID_COLUMNS ? arrowX - 59 : MachineMenu.INPUT_X;
@@ -55,11 +61,14 @@ public record MachineGeometry(int tanks, int fluidLeft, int containerX, int outp
             upgradeX = containerX - 22;
             upgradeY = MachineMenu.FILL_Y;
         }
-        return new MachineGeometry(tanks, fluidLeft, containerX, outputX, arrowX, inputX, upgradeX, upgradeY, extraRows);
+        return new MachineGeometry(tanks, fluidLeft, containerX, outputX, arrowX, inputX, upgradeX, upgradeY, extraRows,
+                fillY, drainY);
     }
 
-    /** Kleinste x-Position eines Slots (Rand des GUIs). */
-    public static final int MIN_X = 8;
+    /** Kleinste x-Position eines Slots: rechts neben der Energieleiste (x 8, 8 px breit). */
+    public static final int MIN_X = 20;
+    /** Höhe der Energie- und Fluidleisten. */
+    public static final int FLUID_H = 60;
 
     /** Spalten der Ausgaben: 2 ab 4 Ausgaben, sonst 1. */
     public static int outputColumns(MachineLayout l) {
