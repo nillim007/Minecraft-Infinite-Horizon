@@ -219,6 +219,10 @@ public final class ModBlocks {
     public static final Supplier<Block> ROCKET_CAPSULE_T2 = register("rocket_capsule_t2",
             de.infinitehorizon.space.CapsuleBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).isSuffocating((s, l, p) -> false));
+    /** Fernflug-Modul (12.4): Tank der Stufe 2 mit eigener Kapazität. */
+    public static final Supplier<Block> LONG_RANGE_MODULE = register("long_range_module",
+            p -> new de.infinitehorizon.space.RocketPartBlock(p, () -> ModBlockEntities.LONG_RANGE_MODULE.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Supplier<Block> ROCKET_TANK_T2 = register("rocket_tank_t2",
             p -> new de.infinitehorizon.space.RocketPartBlock(p, () -> ModBlockEntities.ROCKET_TANK_T2.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));

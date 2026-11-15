@@ -161,6 +161,11 @@ public final class SuitModules {
                 List<Identifier> next = new ArrayList<>(modules(piece));
                 next.add(moduleId);
                 result.set(ModDataComponents.SUIT_MODULES.get(), List.copyOf(next));
+                // Energie des Moduls (Jetpack) geht auf das Anzugteil über
+                Long moduleEnergy = module.get(ModDataComponents.ENERGY.get());
+                if (moduleEnergy != null) {
+                    result.set(ModDataComponents.ENERGY.get(), moduleEnergy);
+                }
                 return Optional.of(new CodePlan(new int[]{pieceSlot, moduleSlot}, new int[]{1, 1}, List.of(result)));
             }
             return Optional.empty();
@@ -175,10 +180,16 @@ public final class SuitModules {
             List<ItemStack> results = new ArrayList<>();
             ItemStack bare = piece.copyWithCount(1);
             bare.remove(ModDataComponents.SUIT_MODULES.get());
+            Long pieceEnergy = bare.get(ModDataComponents.ENERGY.get());
+            bare.remove(ModDataComponents.ENERGY.get());
             results.add(bare);
             for (Identifier id : installed) {
                 Item item = BuiltInRegistries.ITEM.getValue(id);
-                results.add(new ItemStack(item));
+                ItemStack m = new ItemStack(item);
+                if (pieceEnergy != null && id.equals(Jetpack.ID)) {
+                    m.set(ModDataComponents.ENERGY.get(), pieceEnergy);
+                }
+                results.add(m);
             }
             return Optional.of(new CodePlan(new int[]{slot}, new int[]{1}, results));
         }

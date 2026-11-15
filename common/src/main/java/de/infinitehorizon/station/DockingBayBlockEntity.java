@@ -39,13 +39,61 @@ public class DockingBayBlockEntity extends LandingBeaconBlockEntity {
         return list.stream().filter(r -> !r.inFlight()).findFirst().orElse(null);
     }
 
+    /** Rakete im Bau auf der Bucht (12.4): Tanks und Fernflug-Modul aus angrenzenden Tanks füllen. */
+    private void fillStack(ServerLevel level, long rate) {
+        var check = de.infinitehorizon.space.LaunchPad.dockCheck(level, worldPosition);
+        if (check.stack().isEmpty()) {
+            return;
+        }
+        var reg = de.infinitehorizon.data.RocketPartRegistry.get();
+        var rule = reg.part(net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(level.getBlockState(check.stack().getFirst())
+                .getBlock())).flatMap(p -> reg.rule(p.tier())).orElse(null);
+        if (rule == null) {
+            return;
+        }
+        for (int c = 0; c < rule.fuel().size(); c++) {
+            Identifier fluid = rule.fuel().get(c);
+            for (net.minecraft.core.BlockPos p : check.stack()) {
+                if (!(level.getBlockEntity(p) instanceof de.infinitehorizon.space.RocketTankBlockEntity tank)) {
+                    continue;
+                }
+                long want = Math.min(rate, tank.capacity() - tank.fuel()[c]);
+                for (Direction d : Direction.values()) {
+                    if (want <= 0) {
+                        break;
+                    }
+                    if (!(level.getBlockEntity(worldPosition.relative(d)) instanceof MachineBlockEntity source)) {
+                        continue;
+                    }
+                    for (IhFluidTank t : source.fluidTanks()) {
+                        if (want <= 0 || !t.stack().is(fluid)) {
+                            continue;
+                        }
+                        try (Transaction tx = Transaction.open()) {
+                            long took = t.extract(fluid, want, tx).amount();
+                            long accepted = tank.fill(c, took);
+                            if (accepted == took) {
+                                tx.commit();
+                                want -= accepted;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     public void serverTick(ServerLevel level) {
         if (!StationModules.works(level, worldPosition, "docking_bay")) {
             return;
         }
         RocketEntity rocket = dockedRocket(level);
         long rate = rate();
-        if (rocket == null || rate <= 0) {
+        if (rate <= 0) {
+            return;
+        }
+        if (rocket == null) {
+            fillStack(level, rate);
             return;
         }
         List<Identifier> fuels = rocket.fuelIds();

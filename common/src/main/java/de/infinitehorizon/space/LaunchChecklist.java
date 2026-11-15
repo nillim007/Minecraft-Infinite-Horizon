@@ -143,15 +143,26 @@ public final class LaunchChecklist {
 
     private static List<Destination> destinations(ServerLevel level, @Nullable RocketConfig cfg, @Nullable Planet here,
                                                   @Nullable Agency agency) {
-        return destinations(level, cfg == null ? 0 : cfg.usableFuel(), cfg == null ? 0 : cfg.tier(), here, agency);
+        boolean longRange = cfg != null && cfg.stack().stream().anyMatch(p -> p.role() == RocketPartRegistry.Role.LONG_RANGE);
+        return destinations(level, cfg == null ? 0 : cfg.usableFuel(), cfg == null ? 0 : cfg.tier(), longRange, here, agency);
+    }
+
+    /** Freigeschaltet (12.1): bekannt, Stufe reicht, und für Fernziele das Fernflug-Modul. Reine Regel. */
+    public static boolean unlocked(boolean known, int tier, int required, boolean needsLongRange, boolean hasLongRange) {
+        return known && tier >= required && (!needsLongRange || hasLongRange);
+    }
+
+    public static List<Destination> destinations(ServerLevel level, long fuel, int tier, @Nullable Planet here,
+                                                 @Nullable Agency agency) {
+        return destinations(level, fuel, tier, false, here, agency);
     }
 
     /**
      * Ziele (12.1): Planeten-Einträge, deren Dimension es gibt; freigeschaltet sind der eigene Körper, die Erde,
      * {@code earth_orbit} und Ziele in {@code probe_reached}, wenn die Stufe reicht.
      */
-    public static List<Destination> destinations(ServerLevel level, long fuel, int tier, @Nullable Planet here,
-                                                 @Nullable Agency agency) {
+    public static List<Destination> destinations(ServerLevel level, long fuel, int tier, boolean hasLongRange,
+                                                 @Nullable Planet here, @Nullable Agency agency) {
         if (here == null) {
             return List.of();
         }
@@ -169,7 +180,7 @@ public final class LaunchChecklist {
             boolean longRange = raw.has("requires_long_range") && raw.get("requires_long_range").getAsBoolean();
             boolean known = p.dimension().equals(here.dimension()) || p.dimension().equals(PlanetResolver.EARTH)
                     || p.dimension().getPath().equals("earth_orbit") || reached.contains(p.dimension());
-            boolean unlocked = known && tier >= required && !longRange;
+            boolean unlocked = unlocked(known, tier, required, longRange, hasLongRange);
             FuelCalculator.Body to = FuelCalculator.Body.of(p);
             out.add(new Destination(p.dimension(), FuelCalculator.cost(from, to, c), FuelCalculator.cost(to, from, c),
                     FuelCalculator.reach(fuel, from, to, c), unlocked));

@@ -282,6 +282,12 @@ public final class ModBlockEntities {
                                     ModBlockEntities.ROCKET_TANK_T1.get(), pos, state),
                             ModBlocks.ROCKET_TANK_T1.get()));
 
+    public static final Supplier<BlockEntityType<de.infinitehorizon.space.RocketTankBlockEntity>> LONG_RANGE_MODULE =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "long_range_module",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.space.RocketTankBlockEntity(
+                                    ModBlockEntities.LONG_RANGE_MODULE.get(), pos, state),
+                            ModBlocks.LONG_RANGE_MODULE.get()));
     public static final Supplier<BlockEntityType<de.infinitehorizon.space.RocketTankBlockEntity>> ROCKET_TANK_T2 =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "rocket_tank_t2",
                     () -> Services.REGISTRY.blockEntityType(

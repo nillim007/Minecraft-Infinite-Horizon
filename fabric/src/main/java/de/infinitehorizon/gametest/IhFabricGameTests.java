@@ -853,4 +853,29 @@ public class IhFabricGameTests {
     public void asteroidIridiumoreDrops(GameTestHelper helper) {
         IhGameTestsM7b.asteroidOreDrops(helper);
     }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:earth_orbit")
+    public void dockingbayLaunchT2(GameTestHelper helper) {
+        IhGameTestsM7b2.dockingBayLaunch(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:earth_orbit")
+    public void dockingbayRejectsT1(GameTestHelper helper) {
+        IhGameTestsM7b2.dockingBayRejectsT1(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:earth_orbit")
+    public void rocketLongrangemoduleCapacity(GameTestHelper helper) {
+        IhGameTestsM7b2.longRangeModule(helper);
+    }
+
+    @GameTest(maxTicks = 40, dimension = "infinite_horizon:earth_orbit")
+    public void dockingbayFillsRockettanks(GameTestHelper helper) {
+        IhGameTestsM7b2.dockingBayFillsTanks(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void jetpackEnergyInstalldrain(GameTestHelper helper) {
+        IhGameTestsM7b2.jetpackEnergy(helper);
+    }
 }

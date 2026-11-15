@@ -51,6 +51,7 @@
     "infinite_horizon:launch_pad",
     "infinite_horizon:launch_tower",
     "infinite_horizon:lithium_battery_bank",
+    "infinite_horizon:long_range_module",
     "infinite_horizon:mars_iron_ore",
     "infinite_horizon:mars_magnesium_ore",
     "infinite_horizon:mars_rock",

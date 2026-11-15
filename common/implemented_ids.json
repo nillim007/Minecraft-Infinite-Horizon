@@ -61,6 +61,7 @@
     "infinite_horizon:ceres_rock": "simple_block",
     "infinite_horizon:salt_crust": "simple_block",
     "infinite_horizon:asteroid_anchor": "casing",
+    "infinite_horizon:long_range_module": "casing",
     "infinite_horizon:electric_lamp": "lamp",
     "infinite_horizon:extinguished_torch": "torch",
     "infinite_horizon:research_terminal": "machine",
@@ -204,7 +205,8 @@
     "infinite_horizon:platinum_ingot",
     "infinite_horizon:iridium_dust",
     "infinite_horizon:iridium_ingot",
-    "infinite_horizon:iridium_chip"
+    "infinite_horizon:iridium_chip",
+    "infinite_horizon:jetpack"
   ],
   "fluids": [
     "crude_oil",

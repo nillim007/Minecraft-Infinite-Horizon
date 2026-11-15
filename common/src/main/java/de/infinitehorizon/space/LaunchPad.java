@@ -124,7 +124,34 @@ public final class LaunchPad {
     }
 
     /** Prüft die Rampe mit dieser Mitte (4.3). */
+    /** Startort Andockbucht (12.4, 14.2): Teile über der Bucht; die Stufe muss {@code docking_bay} erlauben. */
+    public static Check dockCheck(Level level, BlockPos bay) {
+        Load load = loadAt(level, bay);
+        List<RocketAssembler.Problem> problems = new ArrayList<>();
+        List<BlockPos> stack = new ArrayList<>();
+        RocketPartRegistry reg = RocketPartRegistry.get();
+        if (load == Load.ROCKET) {
+            BlockPos p = bay.above();
+            while (isRocketPart(level, p, reg) && level.isInsideBuildHeight(p.getY())) {
+                stack.add(p);
+                p = p.above();
+            }
+            String site = BuiltInRegistries.BLOCK.getKey(ModBlocks.DOCKING_BAY.get()).toString();
+            boolean allowed = reg.part(BuiltInRegistries.BLOCK.getKey(level.getBlockState(bay.above()).getBlock()))
+                    .flatMap(part -> reg.rule(part.tier())).map(rule -> rule.launchesFrom(site)).orElse(false);
+            if (!allowed) {
+                problems.add(new RocketAssembler.Problem("site", 0, 0));
+            }
+        } else if (load == Load.PROBE) {
+            problems.add(new RocketAssembler.Problem("site", 0, 0));
+        }
+        return new Check(bay.immutable(), load, List.copyOf(stack), 0, List.of(), List.copyOf(problems));
+    }
+
     public static Check check(Level level, BlockPos center) {
+        if (is(level, center, ModBlocks.DOCKING_BAY.get())) {
+            return dockCheck(level, center);
+        }
         List<RocketAssembler.Problem> problems = new ArrayList<>();
         Load load = loadAt(level, center);
         int edge = sizeFor(level, center, load);
@@ -215,7 +242,8 @@ public final class LaunchPad {
         int r = controlRadius();
         List<BlockPos> centers = new ArrayList<>();
         for (BlockPos p : BlockPos.betweenClosed(control.offset(-r, -r, -r), control.offset(r, r, r))) {
-            if (p.distSqr(control) <= (double) r * r && is(level, p, ModBlocks.LAUNCH_PAD.get()) && fullPlatform(level, p)) {
+            if (p.distSqr(control) <= (double) r * r && (is(level, p, ModBlocks.LAUNCH_PAD.get()) && fullPlatform(level, p)
+                    || is(level, p, ModBlocks.DOCKING_BAY.get()))) {
                 centers.add(p.immutable());
             }
         }

@@ -23,4 +23,4 @@ Nahe beim Landeplatz bei X/Z 0/0 steht ein Kegel aus Eis, der einzige Eisvulkan 
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Der Asteroidengürtel](Der-Asteroidenguertel.md)
+← [Der Asteroidengürtel](Der-Asteroidenguertel.md) · [Fernflug und Jetpack](Fernflug-und-Jetpack.md) →

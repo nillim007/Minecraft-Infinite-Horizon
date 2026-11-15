@@ -135,7 +135,8 @@ public final class FlightService {
             return LanderRoutes.destinations(level, r.usableFuel(),
                     PlanetResolver.planetFor(level.dimension().identifier(), PlanetRegistry.get()), agency);
         }
-        return destinations(level, r.usableFuel(), r.tier(), agency);
+        Planet here = PlanetResolver.planetFor(level.dimension().identifier(), PlanetRegistry.get());
+        return LaunchChecklist.destinations(level, r.usableFuel(), r.tier(), r.hasLongRange(), here, agency);
     }
 
     // ---------------------------------------------------------------- Start

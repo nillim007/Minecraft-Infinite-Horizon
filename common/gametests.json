@@ -175,6 +175,11 @@
     {"name": "asteroid_anchor_needsasteroid", "class": "IhGameTestsM7b", "method": "anchorNeedsAsteroid", "ticks": 20, "ref": "13.4, M7b"},
     {"name": "ceres_icevolcano_atspawn", "class": "IhGameTestsM7b", "method": "ceresIceVolcano", "ticks": 20, "dimension": "infinite_horizon:ceres", "ref": "13.4, M7b"},
     {"name": "creature_driftmite_swarm", "class": "IhGameTestsM7b", "method": "driftMiteSwarm", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "18, M7b"},
-    {"name": "asteroid_iridiumore_drops", "class": "IhGameTestsM7b", "method": "asteroidOreDrops", "ticks": 20, "ref": "13.4, M7b"}
+    {"name": "asteroid_iridiumore_drops", "class": "IhGameTestsM7b", "method": "asteroidOreDrops", "ticks": 20, "ref": "13.4, M7b"},
+    {"name": "dockingbay_launch_t2", "class": "IhGameTestsM7b2", "method": "dockingBayLaunch", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "12.4, 14.2, M7b"},
+    {"name": "dockingbay_rejects_t1", "class": "IhGameTestsM7b2", "method": "dockingBayRejectsT1", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "12.4, M7b"},
+    {"name": "rocket_longrangemodule_capacity", "class": "IhGameTestsM7b2", "method": "longRangeModule", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "12.4, M7b"},
+    {"name": "dockingbay_fills_rockettanks", "class": "IhGameTestsM7b2", "method": "dockingBayFillsTanks", "ticks": 40, "dimension": "infinite_horizon:earth_orbit", "ref": "14.2, M7b"},
+    {"name": "jetpack_energy_installdrain", "class": "IhGameTestsM7b2", "method": "jetpackEnergy", "ticks": 20, "ref": "9.2, M7b"}
   ]
 }

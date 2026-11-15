@@ -99,6 +99,7 @@ public final class ModItems {
     public static final Supplier<Item> ROCKET_FIN_T1 = blockItem("rocket_fin_t1", ModBlocks.ROCKET_FIN_T1);
     public static final Supplier<Item> ROCKET_CAPSULE_T2 = blockItem("rocket_capsule_t2", ModBlocks.ROCKET_CAPSULE_T2);
     public static final Supplier<Item> ROCKET_TANK_T2 = blockItem("rocket_tank_t2", ModBlocks.ROCKET_TANK_T2);
+    public static final Supplier<Item> LONG_RANGE_MODULE = blockItem("long_range_module", ModBlocks.LONG_RANGE_MODULE);
     public static final Supplier<Item> ROCKET_ENGINE_T2 = blockItem("rocket_engine_t2", ModBlocks.ROCKET_ENGINE_T2);
     public static final Supplier<Item> ROCKET_FIN_T2 = blockItem("rocket_fin_t2", ModBlocks.ROCKET_FIN_T2);
     public static final Supplier<Item> ROCKET_CARGO_BAY = blockItem("rocket_cargo_bay", ModBlocks.ROCKET_CARGO_BAY);

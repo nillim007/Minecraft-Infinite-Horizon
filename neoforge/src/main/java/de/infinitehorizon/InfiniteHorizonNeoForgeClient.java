@@ -61,6 +61,7 @@ public class InfiniteHorizonNeoForgeClient {
                     ctx -> new de.infinitehorizon.client.LandingBeaconRenderer());
         });
         NeoForge.EVENT_BUS.addListener((ClientTickEvent.Post e) -> de.infinitehorizon.client.DomeVisuals.tick());
+        NeoForge.EVENT_BUS.addListener((ClientTickEvent.Post e) -> de.infinitehorizon.client.JetpackClient.tick());
         // Umwelt-HUD (8.4) über der Hungerleiste
         modBus.addListener((net.neoforged.neoforge.client.event.RegisterGuiLayersEvent e) -> e.registerAbove(
                 net.neoforged.neoforge.client.gui.VanillaGuiLayers.FOOD_LEVEL, de.infinitehorizon.InfiniteHorizon.id("hazards"),

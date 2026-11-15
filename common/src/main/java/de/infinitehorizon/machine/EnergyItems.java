@@ -22,6 +22,13 @@ public final class EnergyItems {
     /** Kapazität laut storage.json für Items mit {@code infinite_horizon:energy}; 0, wenn das Item keine hat. */
     public static long componentCapacity(ItemStack stack) {
         String id = BuiltInRegistries.ITEM.getKey(stack.getItem()).toString();
+        // Anzugmodule mit Energie (9.2: jetpack) und Brustplatten mit eingebautem Jetpack
+        java.util.List<net.minecraft.resources.Identifier> mods = de.infinitehorizon.suit.SuitModules.modules(stack);
+        String module = mods.contains(de.infinitehorizon.suit.Jetpack.ID) ? de.infinitehorizon.suit.Jetpack.ID.toString() : id;
+        JsonObject suit = BalanceManager.get().entry("suits", module).orElse(null);
+        if (suit != null && suit.has("energy_capacity")) {
+            return suit.get("energy_capacity").getAsLong();
+        }
         JsonObject e = BalanceManager.get().entry("storage", id).orElse(null);
         if (e == null || !e.has("capacity") || !"J".equals(e.has("unit") ? e.get("unit").getAsString() : "")) {
             return 0;

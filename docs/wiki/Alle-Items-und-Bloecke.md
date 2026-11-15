@@ -43,6 +43,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Erdöl](Fluide-und-Rohre.md) | Fluid | Weltgenerierung |
 | [Erloschene Fackel](Leben-ohne-Luft.md) | Block | Füllslot oder Eimer |
 | [Feldscanner](Kreaturen-des-inneren-Sonnensystems.md) | Item | Rezept |
+| [Fernflug-Modul](Fernflug-und-Jetpack.md) | Block | Rezept |
 | [Fluid-Port](Raffinerie.md) | Block | Rezept |
 | [Flüssiges Helium](Helium-und-Kryotechnik.md) | Fluid | Maschine |
 | [Forschungslabor](Stationsmodule.md) | Block | Rezept |
@@ -74,6 +75,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Iridiumbarren](Der-Asteroidenguertel.md) | Item | Maschine |
 | [Iridiumstaub](Der-Asteroidenguertel.md) | Item | Maschine |
 | [Item-Port](Raffinerie.md) | Block | Rezept |
+| [Jetpack](Fernflug-und-Jetpack.md) | Item | Rezept |
 | [Keramikplatte](Der-Hochtemperaturofen.md) | Item | Maschine |
 | [Kerosin](Raffinerie.md) | Fluid | Maschine |
 | [Kerosineimer](Fluide-und-Rohre.md) | Item | Füllslot oder Eimer |

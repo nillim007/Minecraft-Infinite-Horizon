@@ -174,6 +174,12 @@ public class RocketEntity extends Entity implements HasCustomInventoryScreen {
         return tier;
     }
 
+    /** Trägt die Rakete ein Fernflug-Modul (12.4)? */
+    public boolean hasLongRange() {
+        RocketPartRegistry reg = RocketPartRegistry.get();
+        return parts.stream().anyMatch(id -> reg.part(id).filter(p -> p.role() == RocketPartRegistry.Role.LONG_RANGE).isPresent());
+    }
+
     public int seats() {
         return seats;
     }

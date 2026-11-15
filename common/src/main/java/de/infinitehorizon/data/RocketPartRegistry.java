@@ -59,7 +59,21 @@ public final class RocketPartRegistry {
 
     /** Regeln einer Stufe (rocket_parts.json → rules). Bereiche als {@code [min, max]}. */
     public record Rule(int tier, int thrust, List<Identifier> fuel, int[] capsules, int[] engines, int[] tanks, int fins,
-                       int[] cargoBays, int[] longRange, int seats, List<Role> stackOrder, int padSize) {
+                       int[] cargoBays, int[] longRange, int seats, List<Role> stackOrder, int padSize,
+                       List<String> launchSites) {
+
+        /** Darf die Stufe von diesem Startort starten ({@code launch_sites}, z. B. {@code infinite_horizon:docking_bay})? */
+        public boolean launchesFrom(String site) {
+            return launchSites.contains(site);
+        }
+
+        private static List<String> sites(JsonObject o) {
+            List<String> out = new ArrayList<>();
+            if (o.has("launch_sites")) {
+                o.getAsJsonArray("launch_sites").forEach(e -> out.add(e.getAsString()));
+            }
+            return List.copyOf(out);
+        }
 
         static Rule fromJson(JsonObject o) {
             List<Identifier> fuel = new ArrayList<>();
@@ -71,7 +85,7 @@ public final class RocketPartRegistry {
             return new Rule(o.get("tier").getAsInt(), integer(o, "thrust"), List.copyOf(fuel), range(o, "capsules"),
                     range(o, "engines"), range(o, "tanks"), integer(o, "fins"), range(o, "cargo_bays"),
                     range(o, "long_range"), integer(o, "seats"), List.copyOf(order),
-                    o.has("pad_size") ? o.getAsJsonArray("pad_size").get(0).getAsInt() : 0);
+                    o.has("pad_size") ? o.getAsJsonArray("pad_size").get(0).getAsInt() : 0, sites(o));
         }
 
         public int[] range(Role role) {

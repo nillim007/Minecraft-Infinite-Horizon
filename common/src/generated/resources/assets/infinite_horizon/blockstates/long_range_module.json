@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "infinite_horizon:block/long_range_module"
+    }
+  }
+}

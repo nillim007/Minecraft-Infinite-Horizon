@@ -187,7 +187,12 @@ public final class IhTestCatalog {
             new Test("asteroid_anchor_needsasteroid", 20, null, null, null, IhGameTestsM7b::anchorNeedsAsteroid),  // 13.4, M7b
             new Test("ceres_icevolcano_atspawn", 20, null, null, "infinite_horizon:ceres", IhGameTestsM7b::ceresIceVolcano),  // 13.4, M7b
             new Test("creature_driftmite_swarm", 20, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM7b::driftMiteSwarm),  // 18, M7b
-            new Test("asteroid_iridiumore_drops", 20, null, null, null, IhGameTestsM7b::asteroidOreDrops)  // 13.4, M7b
+            new Test("asteroid_iridiumore_drops", 20, null, null, null, IhGameTestsM7b::asteroidOreDrops),  // 13.4, M7b
+            new Test("dockingbay_launch_t2", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM7b2::dockingBayLaunch),  // 12.4, 14.2, M7b
+            new Test("dockingbay_rejects_t1", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM7b2::dockingBayRejectsT1),  // 12.4, M7b
+            new Test("rocket_longrangemodule_capacity", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM7b2::longRangeModule),  // 12.4, M7b
+            new Test("dockingbay_fills_rockettanks", 40, null, null, "infinite_horizon:earth_orbit", IhGameTestsM7b2::dockingBayFillsTanks),  // 14.2, M7b
+            new Test("jetpack_energy_installdrain", 20, null, null, null, IhGameTestsM7b2::jetpackEnergy)  // 9.2, M7b
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */
