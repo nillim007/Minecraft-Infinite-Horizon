@@ -724,10 +724,19 @@ def asteroid_dimension(spec, impl, dim, p, defaults, moon_tube):
                 "placement": {"type": f"{NS}:fixed", "x": pos["x"], "z": pos["z"]},
                 "structures": [{"structure": f"{NS}:spawn_{name}", "weight": 1}]})
             sets.append(f"{NS}:spawn_{name}")
+    # Noise-Generator ohne Gelände (Dichte überall −1): Der flache Generator setzt in leeren Welten nur bei the_void
+    # Features, und the_void färbt den Himmel blau (SPEC-GAP #102)
+    empty_router = {k: 0.0 for k in OVERWORLD_NOISE_ROUTER}
+    empty_router["final_density"] = -1.0
+    write_json(f"data/{ns}/worldgen/noise_settings/{path}.json", {
+        "noise": {"min_y": defaults["min_y"], "height": defaults["height"]},
+        "default_block": rock, "default_fluid": "minecraft:air", "noise_router": empty_router,
+        "material_rule": dim, "spawn_target": [], "sea_level": defaults["min_y"], "disable_mob_generation": False,
+        "legacy_random_source": False})
+    write_json(f"data/{ns}/worldgen/material_rule/{path}.json", {"type": "minecraft:sequence", "sequence": []})
     write_json(f"data/{ns}/dimension/{path}.json", {"type": dim, "generator": {
-        "type": "minecraft:flat", "settings": {
-            "biome": f"{NS}:{ASTEROID_BIOME}", "features": True, "lakes": False, "layers": [],
-            "structure_overrides": sets}}})
+        "type": "minecraft:noise", "settings": dim,
+        "biome_source": {"type": "minecraft:fixed", "biome": f"{NS}:{ASTEROID_BIOME}"}}})
 
 
 def planet_worldgen(spec, impl, blocks):

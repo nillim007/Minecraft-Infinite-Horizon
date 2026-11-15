@@ -825,6 +825,11 @@ public class IhFabricGameTests {
     }
 
     @GameTest(maxTicks = 20, dimension = "infinite_horizon:asteroid_belt")
+    public void asteroidbeltAsteroidsgenerate(GameTestHelper helper) {
+        IhGameTestsM7b.asteroidsGenerate(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:asteroid_belt")
     public void asteroidbeltVoidreset(GameTestHelper helper) {
         IhGameTestsM7b.voidResetToSpawnAsteroid(helper);
     }

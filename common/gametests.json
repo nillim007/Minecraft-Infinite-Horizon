@@ -170,6 +170,7 @@
     {"name": "suitmodule_heatreflector_radiationshield", "class": "IhGameTestsM7a", "method": "heatReflectorRadiationShield", "ticks": 20, "ref": "9.2, M7a"},
     {"name": "creature_mirrorbeetle_blinds", "class": "IhGameTestsM7a", "method": "mirrorBeetleBlinds", "ticks": 40, "dimension": "infinite_horizon:mercury", "ref": "18, M7a"},
     {"name": "asteroidbelt_spawnasteroid", "class": "IhGameTestsM7b", "method": "spawnAsteroidExists", "ticks": 20, "dimension": "infinite_horizon:asteroid_belt", "ref": "13.4, M7b"},
+    {"name": "asteroidbelt_asteroidsgenerate", "class": "IhGameTestsM7b", "method": "asteroidsGenerate", "ticks": 20, "dimension": "infinite_horizon:asteroid_belt", "ref": "13.4, M7b"},
     {"name": "asteroidbelt_voidreset", "class": "IhGameTestsM7b", "method": "voidResetToSpawnAsteroid", "ticks": 20, "dimension": "infinite_horizon:asteroid_belt", "ref": "13.4, M7b"},
     {"name": "asteroid_anchor_onegee", "class": "IhGameTestsM7b", "method": "anchorGravity", "ticks": 40, "dimension": "infinite_horizon:asteroid_belt", "ref": "13.4, M7b"},
     {"name": "asteroid_anchor_needsasteroid", "class": "IhGameTestsM7b", "method": "anchorNeedsAsteroid", "ticks": 20, "ref": "13.4, M7b"},

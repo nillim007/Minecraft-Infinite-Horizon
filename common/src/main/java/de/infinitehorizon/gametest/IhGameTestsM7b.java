@@ -53,6 +53,31 @@ public final class IhGameTestsM7b {
         h.succeed();
     }
 
+    /** Feature asteroid (13.4): in 25 Chunks abseits des Spawns liegen Asteroiden (40 % je Chunk). */
+    public static void asteroidsGenerate(GameTestHelper h) {
+        ServerLevel level = h.getLevel();
+        int found = 0;
+        for (int cx = 40; cx < 45; cx++) {
+            for (int cz = 40; cz < 45; cz++) {
+                level.getChunk(cx, cz, ChunkStatus.FULL);
+                boolean hit = false;
+                for (int x = 0; x < 16 && !hit; x += 3) {
+                    for (int z = 0; z < 16 && !hit; z += 3) {
+                        for (int y = 20; y <= 220 && !hit; y += 3) {
+                            hit = !level.getBlockState(new BlockPos(cx * 16 + x, y, cz * 16 + z)).isAir();
+                        }
+                    }
+                }
+                if (hit) {
+                    found++;
+                }
+            }
+        }
+        h.assertTrue(found > 0, "keine Asteroiden in 25 Chunks");
+        h.assertTrue(level.getBlockState(new BlockPos(40 * 16, -10, 40 * 16)).isAir(), "Gelände unter den Asteroiden");
+        h.succeed();
+    }
+
     /** Fall unter y 0 im Asteroidengürtel (13.4): zurück auf den Spawn-Asteroiden mit Langsamem Fall. */
     public static void voidResetToSpawnAsteroid(GameTestHelper h) {
         ServerPlayer p = IhTestPlayers.inList(h, GameType.SURVIVAL, new Vec3(2.5, 2, 2.5));
@@ -108,6 +133,10 @@ public final class IhGameTestsM7b {
             }
         }
         h.assertTrue(ice > 500, "Eisblöcke " + ice);
+        // feste Lage: der Strukturset ist für den Generator der Ceres möglich (Biomfilter), Chunk 0/0
+        boolean known = level.getChunkSource().getGeneratorState().possibleStructureSets().stream()
+                .anyMatch(s -> s.is(InfiniteHorizon.id("ice_volcano")));
+        h.assertTrue(known, "Strukturset ice_volcano gilt für Ceres nicht");
         h.succeed();
     }
 

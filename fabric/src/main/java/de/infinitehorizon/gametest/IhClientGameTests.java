@@ -36,7 +36,10 @@ public class IhClientGameTests implements FabricClientGameTest {
     @Override
     public void runTest(ClientGameTestContext context) {
         try (TestSingleplayerContext sp = context.worldBuilder()
-                .adjustSettings(c -> c.setGameMode(WorldCreationUiState.SelectedGameMode.CREATIVE)).create()) {
+                .adjustSettings(c -> {
+                    c.setGameMode(WorldCreationUiState.SelectedGameMode.CREATIVE);
+                    c.setGenerateStructures(true); // Strukturen der Planeten (Eisvulkan, Spawn-Asteroid) im Bild
+                }).create()) {
             sp.getConnection().waitForChunksRender();
 
             // Config-Sync (3A.5): der Client kennt nach dem Beitritt die Serverwerte

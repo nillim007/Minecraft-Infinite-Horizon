@@ -1,0 +1,23 @@
+{
+  "noise": {
+    "min_y": -64,
+    "height": 384
+  },
+  "default_block": "infinite_horizon:asteroid_rock",
+  "default_fluid": "minecraft:air",
+  "noise_router": {
+    "chunk_surface_level": 0.0,
+    "continents": 0.0,
+    "depth": 0.0,
+    "erosion": 0.0,
+    "final_density": -1.0,
+    "ridges": 0.0,
+    "temperature": 0.0,
+    "vegetation": 0.0
+  },
+  "material_rule": "infinite_horizon:asteroid_belt",
+  "spawn_target": [],
+  "sea_level": -64,
+  "disable_mob_generation": false,
+  "legacy_random_source": false
+}
