@@ -1,0 +1,78 @@
+{
+  "id": "infinite_horizon:phase_5/erste_schritte",
+  "chapter": "infinite_horizon:phase_5",
+  "title": "infinite_horizon.handbook.phase_5.erste_schritte.title",
+  "icon": "infinite_horizon:advanced_probe",
+  "order": 10,
+  "unlock": "infinite_horizon:research_tier/4",
+  "items": [
+    "infinite_horizon:advanced_probe"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.erste_schritte.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.erste_schritte.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_5.erste_schritte.e2.0",
+        "infinite_horizon.handbook.phase_5.erste_schritte.e2.1",
+        "infinite_horizon.handbook.phase_5.erste_schritte.e2.2"
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/advanced_probe",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:solar_panel"
+              ],
+              "count": 2
+            }
+          ],
+          "fluid": {
+            "fluid": "infinite_horizon:hydrogen",
+            "amount": 16000
+          },
+          "results": [
+            {
+              "item": "infinite_horizon:advanced_probe",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.erste_schritte.e4",
+      "style": "tip"
+    }
+  ]
+}

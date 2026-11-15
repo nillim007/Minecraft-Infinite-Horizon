@@ -1,0 +1,26 @@
+{
+  "tier": 4,
+  "branch": "industry",
+  "cost": 80,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:lithium_battery"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:lithium_battery_bank"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:rover_lithium_pack"
+    }
+  ],
+  "icon": "infinite_horizon:lithium_battery",
+  "position": {
+    "column": 0,
+    "row": 4,
+    "slot": 0
+  }
+}

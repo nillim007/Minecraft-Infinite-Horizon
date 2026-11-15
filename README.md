@@ -103,8 +103,8 @@ Infinite Horizon wird Meilenstein für Meilenstein nach einer festen [Spezifikat
 | 3 | Erste Welt: Mond, Anzug, Kuppel | ✅ fertig |
 | 4 | Erster Flug: Forschung, Sonde, Rakete T1 · **erste spielbare Version** | ✅ fertig |
 | 5 | Ring 1: Mars, Venus, Rover, Kreaturen | ✅ fertig |
-| 6 | Orbit: Station, Fusion | 🔨 in Arbeit (6a–6e fertig, Abnahme offen) |
-| 7 | Ring 2: Merkur bis Pluto | ⏳ geplant |
+| 6 | Orbit: Station, Fusion | ✅ fertig |
+| 7 | Ring 2: Merkur bis Pluto | 🔨 in Arbeit (7a fertig, 7b–7f offen) |
 | 8 | Netzwerk und Finale: Logistik, Werft, Sternenschiff | ⏳ geplant |
 | 9 | Feinschliff: Mehrspieler, Erfolge, Klang, Balancing | ⏳ geplant |
 <!-- stand:end -->

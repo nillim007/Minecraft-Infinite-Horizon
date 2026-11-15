@@ -117,7 +117,7 @@ public final class LaunchPad {
     /** Was über einer Mitte steht. */
     public static Load loadAt(Level level, BlockPos center) {
         BlockPos above = center.above();
-        if (is(level, above, ModBlocks.PROBE.get())) {
+        if (is(level, above, ModBlocks.PROBE.get()) || is(level, above, ModBlocks.ADVANCED_PROBE.get())) {
             return Load.PROBE;
         }
         return isRocketPart(level, above, RocketPartRegistry.get()) ? Load.ROCKET : Load.NONE;

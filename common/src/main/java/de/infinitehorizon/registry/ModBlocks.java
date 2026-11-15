@@ -204,6 +204,13 @@ public final class ModBlocks {
     /** Sonde als Block auf der Rampe (12.3). */
     public static final Supplier<Block> PROBE = register("probe", Block::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Erweiterte Sonde (12.3): Ziele in Ring 2. */
+    public static final Supplier<Block> ADVANCED_PROBE = register("advanced_probe", Block::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Lithium-Akkubank (6.3): Speicher wie der Akku, Werte aus storage.json. */
+    public static final Supplier<Block> LITHIUM_BATTERY_BANK = register("lithium_battery_bank",
+            p -> new MachineBlock(p, () -> ModBlockEntities.LITHIUM_BATTERY_BANK.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     /** Raketenteile T2 (12.4, M5c): von der 7×7-Rampe, Wasserstoff und Sauerstoff, 2 Sitze. */
     public static final Supplier<Block> ROCKET_CAPSULE_T2 = register("rocket_capsule_t2",
             de.infinitehorizon.space.CapsuleBlock::new,

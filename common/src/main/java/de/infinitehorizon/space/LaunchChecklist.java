@@ -83,7 +83,7 @@ public final class LaunchChecklist {
             return new State(null, null, lines, List.of(), List.of(), 0);
         }
         if (pad.load() == LaunchPad.Load.PROBE) {
-            return probe(pad, agency, lines);
+            return probe(pad, agency, lines, BuiltInRegistries.BLOCK.getKey(level.getBlockState(pad.stack().getFirst()).getBlock()));
         }
         if (pad.load() == LaunchPad.Load.NONE) {
             lines.add(new Line(STRUCTURE, false, new RocketAssembler.Problem("no_load", 0, 0)));
@@ -126,13 +126,13 @@ public final class LaunchChecklist {
         return new State(pad, cfg, List.copyOf(lines), dests, List.of(), ratio);
     }
 
-    private static State probe(LaunchPad.Check pad, @Nullable Agency agency, List<Line> lines) {
+    private static State probe(LaunchPad.Check pad, @Nullable Agency agency, List<Line> lines, Identifier probeBlock) {
         lines.add(new Line(STRUCTURE, pad.valid(), pad.problems().isEmpty() ? null : pad.problems().getFirst()));
         List<ProbeTarget> targets = new ArrayList<>();
         if (agency != null) {
             Set<Identifier> reached = agency.progress().probeReached();
             for (Identifier t : agency.progress().probeTargets()) {
-                if (PlanetRegistry.get().planet(t).isPresent()) {
+                if (PlanetRegistry.get().planet(t).isPresent() && ProbeService.canTarget(agency, t, probeBlock)) {
                     targets.add(new ProbeTarget(t, reached.contains(t)));
                 }
             }

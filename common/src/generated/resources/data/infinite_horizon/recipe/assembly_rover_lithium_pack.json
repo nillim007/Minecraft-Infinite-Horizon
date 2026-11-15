@@ -1,0 +1,20 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:lithium_battery",
+      "count": 4
+    },
+    {
+      "ingredient": "infinite_horizon:aluminum_plate",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:rover_lithium_pack",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

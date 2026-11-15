@@ -39,6 +39,17 @@ public record VenusHeat(Identifier dimension, int belowY, int duration, int refi
         return Math.max(0, used - refill);
     }
 
+    /** Regeln mit der Hitzezeit des Spielers ({@code venus_heat_timer_multiplier} seiner Anzugmodule). */
+    public static @Nullable VenusHeat forPlayer(net.minecraft.world.entity.LivingEntity player) {
+        VenusHeat h = rules();
+        return h == null ? null : h.scaled(de.infinitehorizon.suit.SuitModules.factor(player, "venus_heat_timer_multiplier"));
+    }
+
+    /** Hitzezeit × {@code factor} (Hitzereflektor, 9.2). */
+    public VenusHeat scaled(double factor) {
+        return factor == 1.0 ? this : new VenusHeat(dimension, belowY, (int) Math.round(duration * factor), refillAboveY, refillTicks);
+    }
+
     public boolean expired(int used) {
         return used >= duration;
     }

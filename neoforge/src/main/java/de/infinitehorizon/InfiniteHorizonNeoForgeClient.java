@@ -53,6 +53,8 @@ public class InfiniteHorizonNeoForgeClient {
                     ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::snail));
             e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.CLOUD_RAY.get(),
                     ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::ray));
+            e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.MIRROR_BEETLE.get(),
+                    ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::beetle));
             e.registerBlockEntityRenderer(de.infinitehorizon.registry.ModBlockEntities.LANDING_BEACON.get(),
                     ctx -> new de.infinitehorizon.client.LandingBeaconRenderer());
         });

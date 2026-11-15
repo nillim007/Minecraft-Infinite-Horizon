@@ -1,0 +1,24 @@
+{
+  "tier": 4,
+  "branch": "life_support",
+  "cost": 80,
+  "requires": [
+    "infinite_horizon:lithium_storage"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:jetpack"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:heat_reflector"
+    }
+  ],
+  "icon": "infinite_horizon:jetpack",
+  "position": {
+    "column": 2,
+    "row": 4,
+    "slot": 1
+  }
+}

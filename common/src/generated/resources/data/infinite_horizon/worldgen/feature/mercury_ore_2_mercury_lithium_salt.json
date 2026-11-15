@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:disk",
+  "state_provider": {
+    "type": "minecraft:simple",
+    "state": "infinite_horizon:mercury_lithium_salt"
+  },
+  "target": {
+    "type": "minecraft:matching_blocks",
+    "blocks": [
+      "infinite_horizon:mercury_rock"
+    ]
+  },
+  "radius": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 3,
+    "max_inclusive": 6
+  },
+  "half_height": 1
+}

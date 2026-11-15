@@ -57,6 +57,22 @@ public final class ProbeService {
                 + (r.has("per_dp_ticks") ? r.get("per_dp_ticks").getAsDouble() : 0) * dp);
     }
 
+    /**
+     * Passt die Sonde zum Ziel (12.3)? Das Feld {@code probe} des Planeten nennt die nötige Sonde; die erweiterte Sonde
+     * erreicht auch Ziele der einfachen.
+     */
+    public static boolean probeFits(Identifier probeBlock, @org.jspecify.annotations.Nullable String required) {
+        return de.infinitehorizon.world.XBands.probeFits(probeBlock.getPath(), probeBlock.toString(), required);
+    }
+
+    public static boolean canTarget(Agency agency, Identifier target, Identifier probeBlock) {
+        if (!canTarget(agency, target)) {
+            return false;
+        }
+        var raw = PlanetRegistry.get().planet(target).orElseThrow().raw();
+        return probeFits(probeBlock, raw.has("probe") && !raw.get("probe").isJsonNull() ? raw.get("probe").getAsString() : null);
+    }
+
     /** Darf die Agentur eine Sonde zu {@code target} schicken? Ziel in {@code probe_targets} mit Planeten-Eintrag. */
     public static boolean canTarget(Agency agency, Identifier target) {
         return agency.progress().probeTargets().contains(target) && PlanetRegistry.get().planet(target).isPresent();

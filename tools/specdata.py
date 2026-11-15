@@ -22,6 +22,23 @@ TANK = 16_000
 LONG_RANGE_DEFAULT = 128_000
 
 
+
+# SPEC-GAP #101: Erzwerte fehlen in planets.json; wie die Mondvorlage (moon_titanium_ore, moon_ice)
+ORE_DEFAULTS = {
+    "infinite_horizon:mercury_titanium_ore": {"y_min": 0, "y_max": 80, "vein_size": 6, "per_chunk": 4},
+    "infinite_horizon:mercury_iron_ore": {"y_min": 0, "y_max": 80, "vein_size": 8, "per_chunk": 6},
+    "minecraft:ice": {"y_min": 40, "y_max": 100, "vein_size": 16, "per_chunk": 4},
+}
+
+
+def ore_with_defaults(ore: dict) -> dict:
+    """Erz-Eintrag mit ORE_DEFAULTS für fehlende Werte (SPEC-GAP #101)."""
+    out = dict(ore)
+    for k, v in ORE_DEFAULTS.get(ore["block"], {}).items():
+        if out.get(k) is None:
+            out[k] = v
+    return out
+
 def load_json(path: Path):
     with path.open(encoding="utf-8") as f:
         return json.load(f)

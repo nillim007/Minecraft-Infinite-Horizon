@@ -1,0 +1,7 @@
+{
+  "id": "infinite_horizon:phase_5",
+  "title": "infinite_horizon.handbook.chapter.phase_5",
+  "icon": "infinite_horizon:deep_space_suit_helmet",
+  "order": 50,
+  "unlock": "infinite_horizon:research_tier/4"
+}

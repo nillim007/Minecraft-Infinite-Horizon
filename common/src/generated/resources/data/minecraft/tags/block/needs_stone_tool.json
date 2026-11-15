@@ -1,5 +1,6 @@
 {
   "values": [
+    "infinite_horizon:advanced_probe",
     "infinite_horizon:aluminum_cable",
     "infinite_horizon:analyzer",
     "infinite_horizon:assembly_table",
@@ -39,8 +40,11 @@
     "infinite_horizon:launch_control",
     "infinite_horizon:launch_pad",
     "infinite_horizon:launch_tower",
+    "infinite_horizon:lithium_battery_bank",
     "infinite_horizon:mars_iron_ore",
     "infinite_horizon:mars_magnesium_ore",
+    "infinite_horizon:mercury_iron_ore",
+    "infinite_horizon:mercury_lithium_salt",
     "infinite_horizon:meteorite_ore",
     "infinite_horizon:moon_aluminum_ore",
     "infinite_horizon:oxygen_generator",

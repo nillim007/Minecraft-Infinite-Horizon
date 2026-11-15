@@ -215,6 +215,7 @@ public class IhClientGameTests implements FabricClientGameTest {
             roverView(context, sp);
             planetView(context, sp, "venus");
             planetView(context, sp, "earth_orbit");
+            planetView(context, sp, "mercury");
         }
     }
 

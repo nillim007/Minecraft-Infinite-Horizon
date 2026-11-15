@@ -1,0 +1,33 @@
+{
+  "type": "infinite_horizon:mercury",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "infinite_horizon:mercury",
+    "biome_source": {
+      "type": "infinite_horizon:x_bands",
+      "bands": [
+        {
+          "biome": "infinite_horizon:mercury_frost_plains",
+          "x_max": -2000
+        },
+        {
+          "biome": "infinite_horizon:mercury_twilight_belt",
+          "x_min": -2000,
+          "x_max": 2000
+        },
+        {
+          "biome": "infinite_horizon:mercury_scorched_plains",
+          "x_min": 2000
+        }
+      ],
+      "rare_inclusions": [
+        {
+          "biome": "infinite_horizon:mercury_shadow_crater",
+          "cell": 256,
+          "radius": 48,
+          "chance": 0.08
+        }
+      ]
+    }
+  }
+}

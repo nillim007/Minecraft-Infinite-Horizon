@@ -113,8 +113,12 @@ public class RoverEntity extends Entity implements HasCustomInventoryScreen {
         return blocks * perBlock;
     }
 
+    public static final Identifier LITHIUM_PACK = de.infinitehorizon.InfiniteHorizon.id("rover_lithium_pack");
+
     public long capacity() {
-        return (long) num(rules(), "energy_capacity");
+        double mult = has(LITHIUM_PACK) && module(LITHIUM_PACK).has("energy_multiplier")
+                ? num(module(LITHIUM_PACK), "energy_multiplier") : 1.0;
+        return Math.round(num(rules(), "energy_capacity") * mult);
     }
 
     public long energy() {

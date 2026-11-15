@@ -1,0 +1,74 @@
+{
+  "tier": 4,
+  "branch": "spaceflight",
+  "cost": 20,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:advanced_probe"
+    },
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:mercury_orbit"
+    },
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:mercury"
+    },
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:asteroid_belt"
+    },
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:ceres"
+    },
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:jupiter_orbit"
+    },
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:io"
+    },
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:europa"
+    },
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:saturn_orbit"
+    },
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:titan"
+    },
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:enceladus"
+    },
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:uranus_orbit"
+    },
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:neptune_orbit"
+    },
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:triton"
+    },
+    {
+      "type": "probe_target",
+      "id": "infinite_horizon:pluto"
+    }
+  ],
+  "icon": "infinite_horizon:advanced_probe",
+  "position": {
+    "column": 1,
+    "row": 4,
+    "slot": 0
+  }
+}

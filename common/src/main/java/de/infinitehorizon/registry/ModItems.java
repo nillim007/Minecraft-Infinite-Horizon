@@ -69,6 +69,8 @@ public final class ModItems {
     public static final Supplier<Item> STATION_CORE = register("station_core",
             p -> new de.infinitehorizon.station.StationCoreItem(ModBlocks.STATION_CORE.get(), p.useBlockDescriptionPrefix()));
     public static final Supplier<Item> STATION_HULL = blockItem("station_hull", ModBlocks.STATION_HULL);
+    public static final Supplier<Item> ADVANCED_PROBE = blockItem("advanced_probe", ModBlocks.ADVANCED_PROBE);
+    public static final Supplier<Item> LITHIUM_BATTERY_BANK = blockItem("lithium_battery_bank", ModBlocks.LITHIUM_BATTERY_BANK);
     public static final Supplier<Item> FUSION_REACTOR = blockItem("fusion_reactor", ModBlocks.FUSION_REACTOR);
     public static final Supplier<Item> FUSION_CASING = blockItem("fusion_casing", ModBlocks.FUSION_CASING);
     public static final Supplier<Item> SUPERCONDUCTOR_CABLE = blockItem("superconductor_cable", ModBlocks.SUPERCONDUCTOR_CABLE);

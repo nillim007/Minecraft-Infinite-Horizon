@@ -40,6 +40,8 @@ public final class ModWorldgen {
 
     static {
         Services.REGISTRY.register(BuiltInRegistries.FEATURE_TYPE, "fluid_sphere", () -> FluidSphereFeature.CODEC);
+        // Merkur (13.4): Biome nach X-Koordinate
+        Services.REGISTRY.register(BuiltInRegistries.BIOME_SOURCE, "x_bands", () -> de.infinitehorizon.world.XBandsBiomeSource.CODEC);
         Services.REGISTRY.register(BuiltInRegistries.FEATURE_TYPE, "crater", () -> CraterFeature.CODEC);
     }
 

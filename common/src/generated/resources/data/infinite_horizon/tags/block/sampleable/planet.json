@@ -7,6 +7,10 @@
     "infinite_horizon:mars_magnesium_ore",
     "infinite_horizon:mars_rock",
     "infinite_horizon:mars_sand",
+    "infinite_horizon:mercury_iron_ore",
+    "infinite_horizon:mercury_lithium_salt",
+    "infinite_horizon:mercury_rock",
+    "infinite_horizon:mercury_titanium_ore",
     "infinite_horizon:moon_aluminum_ore",
     "infinite_horizon:moon_basalt",
     "infinite_horizon:moon_ice",
@@ -17,6 +21,7 @@
     "infinite_horizon:venus_sulfur_ore",
     "infinite_horizon:venus_tungsten_ore",
     "minecraft:basalt",
+    "minecraft:ice",
     "minecraft:magma_block"
   ]
 }

@@ -46,6 +46,8 @@ public class InfiniteHorizonFabricClient implements ClientModInitializer {
                 ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::snail));
         net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(de.infinitehorizon.registry.ModEntities.CLOUD_RAY.get(),
                 ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::ray));
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(de.infinitehorizon.registry.ModEntities.MIRROR_BEETLE.get(),
+                ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::beetle));
         net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry.register(
                 de.infinitehorizon.registry.ModBlockEntities.LANDING_BEACON.get(), ctx -> new de.infinitehorizon.client.LandingBeaconRenderer());
         net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents.END_CLIENT_TICK.register(

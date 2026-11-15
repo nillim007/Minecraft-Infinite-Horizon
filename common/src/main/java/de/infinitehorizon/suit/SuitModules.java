@@ -49,6 +49,34 @@ public final class SuitModules {
         return sum;
     }
 
+    /** Produkt des Zahlenfelds {@code key} (suits.json) aller Module in den getragenen Rüstungsteilen (ohne: 1). */
+    public static double factor(net.minecraft.world.entity.LivingEntity entity, String key) {
+        double f = 1.0;
+        for (net.minecraft.world.entity.EquipmentSlot slot : new net.minecraft.world.entity.EquipmentSlot[]{
+                net.minecraft.world.entity.EquipmentSlot.HEAD, net.minecraft.world.entity.EquipmentSlot.CHEST,
+                net.minecraft.world.entity.EquipmentSlot.LEGS, net.minecraft.world.entity.EquipmentSlot.FEET}) {
+            for (Identifier m : modules(entity.getItemBySlot(slot))) {
+                f *= BalanceManager.get().entry("suits", m.toString()).filter(o -> o.has(key))
+                        .map(o -> o.get(key).getAsDouble()).orElse(1.0);
+            }
+        }
+        return f;
+    }
+
+    /** Größter Wert des Felds {@code key} der Module (z. B. {@code radiation_max} des Strahlenschilds), sonst {@code base}. */
+    public static int max(net.minecraft.world.entity.LivingEntity entity, String key, int base) {
+        int m = base;
+        for (net.minecraft.world.entity.EquipmentSlot slot : new net.minecraft.world.entity.EquipmentSlot[]{
+                net.minecraft.world.entity.EquipmentSlot.HEAD, net.minecraft.world.entity.EquipmentSlot.CHEST,
+                net.minecraft.world.entity.EquipmentSlot.LEGS, net.minecraft.world.entity.EquipmentSlot.FEET}) {
+            for (Identifier id : modules(entity.getItemBySlot(slot))) {
+                m = Math.max(m, BalanceManager.get().entry("suits", id.toString()).filter(o -> o.has(key))
+                        .map(o -> o.get(key).getAsInt()).orElse(m));
+            }
+        }
+        return m;
+    }
+
     /** Jeder Tick: Rüstungsbonus der Module als Attribut-Modifikator (nur bei Änderung neu gesetzt). */
     public static void tick(net.minecraft.server.MinecraftServer server) {
         for (net.minecraft.server.level.ServerPlayer p : server.getPlayerList().getPlayers()) {

@@ -285,7 +285,19 @@ SIMPLE_BLOCKS = {
     "venus_sulfur_ore": {"copy": "minecraft:nether_quartz_ore", "falls": False, "tool": "pickaxe", "needs": "stone",
                          "ore": None, "planet_drops": True},
     "compost_soil": {"copy": "minecraft:dirt", "falls": False, "tool": "shovel", "needs": None, "ore": None},
+    # Merkur (13.4)
+    "mercury_rock": {"copy": "minecraft:smooth_basalt", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
+    "mercury_lithium_salt": {"copy": "minecraft:calcite", "falls": False, "tool": "pickaxe", "needs": "stone", "ore": None,
+                             "planet_drops": True},
+    "mercury_iron_ore": {"copy": "minecraft:iron_ore", "falls": False, "tool": "pickaxe", "needs": "stone", "ore": None,
+                         "planet_drops": True},
+    "mercury_titanium_ore": {"copy": "minecraft:deepslate_iron_ore", "falls": False, "tool": "pickaxe", "needs": "iron",
+                             "ore": None, "planet_drops": True},
 }
+
+ORE_DEFAULTS = sd.ORE_DEFAULTS
+# Seltene Einsprengsel der Biomquelle x_bands: Zellgröße, Radius, Anteil der Zellen (SPEC-GAP #101)
+RARE_INCLUSION = {"cell": 256, "radius": 48, "chance": 0.08}
 
 # Kompost-Ackerland (17): Vanilla-Tags für Feldfrüchte und Pflanzen
 FARMLAND_TAGS = ["minecraft:supports_crops", "minecraft:grows_crops", "minecraft:supports_vegetation"]
@@ -533,6 +545,23 @@ def short_id(i):
     return i.split(":", 1)[1]
 
 
+def biome_source(p):
+    """Biomquelle (13.1): multi_noise, beim Merkur Bänder nach X-Koordinate (x_bands) mit seltenen Einsprengseln."""
+    src = (p.get("generator") or {}).get("biome_source") or {}
+    if src.get("type") == "x_bands":
+        bands = []
+        for b in src["bands"]:
+            band = {"biome": b["biome"]}
+            if b.get("x_min") is not None:
+                band["x_min"] = b["x_min"]
+            if b.get("x_max") is not None:
+                band["x_max"] = b["x_max"]
+            bands.append(band)
+        return {"type": f"{NS}:x_bands", "bands": bands,
+                "rare_inclusions": [dict(biome=b, **RARE_INCLUSION) for b in src.get("rare_inclusions", [])]}
+    return {"type": "minecraft:multi_noise", "biomes": biome_parameters(p["biomes"])}
+
+
 def biome_parameters(biomes):
     rare = [b for b in biomes if b.get("rarity") == "rare"]
     used = {axis: (b["id"], inside, rest) for (axis, inside, rest), b in zip(RARE_AXES, rare)}
@@ -652,16 +681,34 @@ def planet_worldgen(spec, impl, blocks):
         write_json(f"data/{ns}/worldgen/material_rule/{path}.json", surface_rule(p["biomes"]))
         write_json(f"data/{ns}/dimension/{path}.json", {
             "type": dim,
-            "generator": {"type": "minecraft:noise", "settings": dim,
-                          "biome_source": {"type": "minecraft:multi_noise", "biomes": biome_parameters(p["biomes"])}}})
+            "generator": {"type": "minecraft:noise", "settings": dim, "biome_source": biome_source(p)}})
         # Erze (13.4): uniform, "je Chunk" = count, Wirtsblock = default_block
         per_biome = {b["id"]: [[] for _ in range(FEATURE_STEPS)] for b in p["biomes"]}
         ore_features = []
         for i, ore in enumerate(p.get("ores", [])):
-            if ore["block"] not in blocks:
+            if ore["block"].startswith(NS + ":") and ore["block"] not in blocks:
                 continue
+            ore = dict(ore)
+            for k, v in ORE_DEFAULTS.get(ore["block"], {}).items():
+                if ore.get(k) is None:
+                    ore[k] = v
             name = ore_feature_name(dim, i, ore)
             host = ore.get("host_block") or p["default_block"]
+            if ore["placement"] == "surface_disk":
+                # Oberflächenkruste (13.4 Merkur): Scheibe im Oberflächengestein
+                write_json(f"data/{NS}/worldgen/feature/{name}.json", {
+                    "type": "minecraft:disk", "state_provider": {"type": "minecraft:simple", "state": ore["block"]},
+                    "target": {"type": "minecraft:matching_blocks", "blocks": [host]},
+                    "radius": {"type": "minecraft:uniform", "min_inclusive": ore["radius"][0],
+                               "max_inclusive": ore["radius"][1]}, "half_height": 1})
+                write_json(f"data/{NS}/worldgen/placed_feature/{name}.json", {
+                    "feature": f"{NS}:{name}", "placement": [
+                        {"type": "minecraft:count", "count": ore["per_chunk"]}, {"type": "minecraft:in_square"},
+                        {"type": "minecraft:heightmap", "heightmap": "WORLD_SURFACE_WG"}, {"type": "minecraft:biome"}]})
+                ore_features.append({"feature": f"{NS}:{name}", "biomes": ore["biomes"]})
+                for b in ore["biomes"]:
+                    per_biome[b][STEP_LOCAL_MODIFICATIONS].append(f"{NS}:{name}")
+                continue
             write_json(f"data/{NS}/worldgen/feature/{name}.json", {
                 "type": "minecraft:ore", "size": ore["vein_size"], "discard_chance_on_air_exposure": 0.0,
                 "targets": [{"target": {"predicate_type": "minecraft:block_match", "block": host},

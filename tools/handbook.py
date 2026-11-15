@@ -379,12 +379,13 @@ def ores_table(ctx: Ctx, planet: str) -> dict:
     for o in p.get("ores", []):
         if not ctx.known(o["block"]):
             continue
+        o = sd.ore_with_defaults(o)
         if o["placement"] == "vein":
             where = f"y {num(o['y_min'])} bis {num(o['y_max'])}"
             amount = f"{num(o['per_chunk'])} Adern je Chunk, je bis {num(o['vein_size'])} Blöcke"
         else:
             r = o.get("radius") or [0, 0]
-            where = "Oberfläche (Scheibe wie Ton)"
+            where = "Oberfläche (Scheibe wie Ton)" if o["placement"] == "disk" else "Oberflächenkruste (Scheibe im Gestein)"
             amount = f"{num(o['per_chunk'])} je Chunk, Radius {num(r[0])}–{num(r[1])}"
         biomes = ", ".join(f"<item:{b}>" for b in o.get("biomes", []))
         drops = o.get("drops")

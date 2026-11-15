@@ -69,6 +69,9 @@ public final class ModEntities {
             creature("sulfur_snail", de.infinitehorizon.creature.SulfurSnail::new);
     public static final Supplier<EntityType<de.infinitehorizon.creature.CloudRay>> CLOUD_RAY =
             creature("cloud_ray", de.infinitehorizon.creature.CloudRay::new);
+    /** Ring 2 (M7). */
+    public static final Supplier<EntityType<de.infinitehorizon.creature.MirrorBeetle>> MIRROR_BEETLE =
+            creature("mirror_beetle", de.infinitehorizon.creature.MirrorBeetle::new);
 
     /** Kreatur mit Größe, Kategorie und Feuerfestigkeit aus creatures.json und Attributen je Loader. */
     private static <T extends net.minecraft.world.entity.LivingEntity> Supplier<EntityType<T>> creature(String name,

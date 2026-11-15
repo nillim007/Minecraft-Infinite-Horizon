@@ -116,6 +116,11 @@ public final class ModBlockEntities {
                             (pos, state) -> new FluidFuelGeneratorBlockEntity(ModBlockEntities.FUEL_GENERATOR.get(), pos, state),
                             ModBlocks.FUEL_GENERATOR.get()));
 
+    public static final Supplier<BlockEntityType<BatteryBlockEntity>> LITHIUM_BATTERY_BANK =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "lithium_battery_bank",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new BatteryBlockEntity(ModBlockEntities.LITHIUM_BATTERY_BANK.get(), pos, state),
+                            ModBlocks.LITHIUM_BATTERY_BANK.get()));
     public static final Supplier<BlockEntityType<BatteryBlockEntity>> BATTERY =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "battery",
                     () -> Services.REGISTRY.blockEntityType(
@@ -314,6 +319,7 @@ public final class ModBlockEntities {
         Services.ENERGY.expose(FUEL_GENERATOR);
         Services.FLUID.expose(FUEL_GENERATOR);
         Services.ENERGY.expose(BATTERY);
+        Services.ENERGY.expose(LITHIUM_BATTERY_BANK);
         Services.ENERGY.expose(OXYGEN_GENERATOR);
         Services.FLUID.expose(OXYGEN_GENERATOR);
         Services.FLUID.expose(PRESSURE_BOTTLE);

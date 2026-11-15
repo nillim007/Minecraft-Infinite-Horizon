@@ -104,6 +104,12 @@ public final class HazardTracker {
         int cover = coverBlocks(level, pos, r.radiation().coverBlocks());
         Suits.Tier suit = Suits.worn(player);
         Protection protection = suit == null ? r.noSuit() : Suits.protection(suit, Suits.oxygen(Suits.chestplate(player)));
+        // Strahlenschild (9.2): schützt bis radiation_max
+        int shield = suit == null ? 0 : de.infinitehorizon.suit.SuitModules.max(player, "radiation_max", protection.radiationMax());
+        if (shield > protection.radiationMax()) {
+            protection = new Protection(protection.tempMin(), protection.tempMax(), protection.pressures(), shield,
+                    protection.suppliesOxygen(), protection.deepPressure());
+        }
         // Kühlmodul (9.2): obere Temperaturgrenze + temp_max_bonus
         double cooling = suit == null ? 0 : de.infinitehorizon.suit.SuitModules.bonus(player, "temp_max_bonus");
         if (cooling != 0) {
@@ -111,7 +117,7 @@ public final class HazardTracker {
                     protection.radiationMax(), protection.suppliesOxygen(), protection.deepPressure());
         }
         // Hitzezeit abgelaufen (9.1): ungeschützt gegen Hitze wie ohne Anzug
-        VenusHeat heat = VenusHeat.rules();
+        VenusHeat heat = VenusHeat.forPlayer(player);
         if (suit != null && suit.venusHeatTimer() && heat != null
                 && heat.running(res.planet() == null ? null : res.planet().dimension(), pos.getY())
                 && heat.expired(Services.ATTACHMENTS.hazardState(player).venusHeat())) {
@@ -276,7 +282,7 @@ public final class HazardTracker {
 
     /** Hitzezeit (9.1) einen Prüftakt weiterzählen; ohne Anzug mit Timer füllt sie sich auf. */
     private static void stepVenusHeat(ServerPlayer player, HazardState state, int ticks) {
-        VenusHeat heat = VenusHeat.rules();
+        VenusHeat heat = VenusHeat.forPlayer(player);
         if (heat == null) {
             return;
         }
@@ -290,7 +296,7 @@ public final class HazardTracker {
 
     /** Restliche Hitzezeit für das HUD in Ticks; −1 = Leiste ausblenden. */
     private static int venusHeatLeft(ServerPlayer player, HazardState state) {
-        VenusHeat heat = VenusHeat.rules();
+        VenusHeat heat = VenusHeat.forPlayer(player);
         Suits.Tier suit = Suits.worn(player);
         if (heat == null || suit == null || !suit.venusHeatTimer()) {
             return -1;

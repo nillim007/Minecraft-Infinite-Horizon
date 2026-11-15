@@ -783,4 +783,39 @@ public class IhFabricGameTests {
     public void landerOrbitTomoonDisassemble(GameTestHelper helper) {
         IhGameTestsM6e.landerOrbitToMoon(helper);
     }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:mercury")
+    public void mercuryBiomebandsX(GameTestHelper helper) {
+        IhGameTestsM7a.mercuryBiomeBands(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void mercuryDropsLithiumsaltTitanium(GameTestHelper helper) {
+        IhGameTestsM7a.mercuryDrops(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void lithiumBatterybankCapacity(GameTestHelper helper) {
+        IhGameTestsM7a.lithiumBatteryBank(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void advancedprobeRingtwoTargets(GameTestHelper helper) {
+        IhGameTestsM7a.advancedProbeTargets(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void roverLithiumpackCapacity(GameTestHelper helper) {
+        IhGameTestsM7a.roverLithiumPack(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void suitmoduleHeatreflectorRadiationshield(GameTestHelper helper) {
+        IhGameTestsM7a.heatReflectorRadiationShield(helper);
+    }
+
+    @GameTest(maxTicks = 40, dimension = "infinite_horizon:mercury")
+    public void creatureMirrorbeetleBlinds(GameTestHelper helper) {
+        IhGameTestsM7a.mirrorBeetleBlinds(helper);
+    }
 }

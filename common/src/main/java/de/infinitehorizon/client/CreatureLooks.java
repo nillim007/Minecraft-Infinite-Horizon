@@ -39,4 +39,8 @@ public final class CreatureLooks {
     public static BlockState ray(CloudRay e) {
         return Blocks.PRISMARINE.defaultBlockState();
     }
+
+    public static BlockState beetle(de.infinitehorizon.creature.MirrorBeetle e) {
+        return Blocks.QUARTZ_BLOCK.defaultBlockState();
+    }
 }

@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 6e · Mod-Version 0.1.0
+> Stand: Meilenstein 7a · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -84,6 +84,12 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Fertigung im Orbit](Fertigung-im-Orbit.md) – Schwerelos-Fertiger und Supraleiterdraht
 - [Weltraumwetter-Station](Weltraumwetter-Station.md) – Frühwarnung vor Sonnenstürmen und Meteoritenschauern
 - [Der Fusionsreaktor](Der-Fusionsreaktor.md) – Strom aus Wasserstoff und Helium, Supraleiterkabel, Schwerkraftplatte
+
+## Phase 5 · Ring 2
+
+- [Erste Schritte im äußeren System](Erste-Schritte-im-aeusseren-System.md) – Neue Ziele von Merkur bis Pluto
+- [Der Merkur](Der-Merkur.md) – Glut auf der Tagseite, Frost auf der Nachtseite, Lithium dazwischen
+- [Lithium](Lithium.md) – Lithiumsalz, Lithium-Akku, Akkubank, Rover-Akku
 
 ## Nachschlagen
 

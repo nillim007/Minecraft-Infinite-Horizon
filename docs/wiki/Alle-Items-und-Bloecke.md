@@ -41,6 +41,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Flüssiges Helium](Helium-und-Kryotechnik.md) | Fluid | Maschine |
 | [Forschungslabor](Stationsmodule.md) | Block | Rezept |
 | [Forschungsterminal](Forschung.md) | Block | Rezept |
+| [Fortgeschrittene Sonde](Erste-Schritte-im-aeusseren-System.md) | Block | Rezept |
 | [Fortgeschrittener Schaltkreis](Der-Hochtemperaturofen.md) | Item | Rezept |
 | [Fusionsreaktor](Der-Fusionsreaktor.md) | Block | Rezept |
 | [Fusionsreaktor-Gehäuse](Der-Fusionsreaktor.md) | Block | Rezept |
@@ -58,6 +59,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Hitzeanzug-Helm](Der-Hitzeanzug.md) | Item | Rezept |
 | [Hitzeanzug-Hose](Der-Hitzeanzug.md) | Item | Rezept |
 | [Hitzeanzug-Stiefel](Der-Hitzeanzug.md) | Item | Rezept |
+| [Hitzereflektor](Der-Merkur.md) | Item | Rezept |
 | [Hitzeschild](Die-Rakete-T2.md) | Item | Rezept |
 | [Hochtemperaturofen](Der-Hochtemperaturofen.md) | Block | Rezept |
 | [Hydrokultur-Becken](Hydrokultur-und-Kompost.md) | Block | Rezept |
@@ -85,6 +87,11 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Landefeuer](Das-Landefeuer.md) | Block | Rezept |
 | [Landefähre](Die-Landefaehre.md) | Item | Rezept |
 | [Leichtbau-Platte](Der-Hochtemperaturofen.md) | Item | Maschine |
+| [Lithium-Akku](Lithium.md) | Item | Rezept |
+| [Lithium-Akkubank](Lithium.md) | Block | Rezept |
+| [Lithiumbarren](Lithium.md) | Item | Maschine |
+| [Lithiumsalz](Lithium.md) | Item | Abbau |
+| [Lithiumstaub](Lithium.md) | Item | Maschine |
 | [Magnesium-Legierung](Der-Hochtemperaturofen.md) | Item | Maschine |
 | [Magnesiumbarren](Der-Mars.md) | Item | Maschine |
 | [Magnesiumstaub](Der-Mars.md) | Item | Maschine |
@@ -94,6 +101,10 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Marsgestein](Der-Mars.md) | Block | Weltgenerierung |
 | [Marssand](Der-Mars.md) | Block | Weltgenerierung |
 | [Maschinenrahmen](Erste-Schritte.md) | Item | Rezept |
+| [Merkur-Eisenerz](Der-Merkur.md) | Block | Weltgenerierung |
+| [Merkur-Lithiumsalz](Der-Merkur.md) | Block | Weltgenerierung |
+| [Merkur-Titanerz](Der-Merkur.md) | Block | Weltgenerierung |
+| [Merkurgestein](Der-Merkur.md) | Block | Weltgenerierung |
 | [Metallkonzentrat](Kreaturen-des-inneren-Sonnensystems.md) | Item | Kreatur |
 | [Meteoritenerz](Weltraumwetter-und-Ereignisse.md) | Block | event |
 | [Mond-Aluminiumerz](Der-Mond.md) | Block | Weltgenerierung |
@@ -140,6 +151,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Rover-Bausatz](Der-Rover.md) | Item | Rezept |
 | [Rover-Bohrer](Der-Rover.md) | Item | Rezept |
 | [Rover-Druckkabine](Der-Rover.md) | Item | Rezept |
+| [Rover-Lithiumpaket](Lithium.md) | Item | Rezept |
 | [Rover-Scanner](Der-Rover.md) | Item | Rezept |
 | [Rover-Scheinwerfer](Der-Rover.md) | Item | Rezept |
 | [Sauerstoff](Elektrolyseur.md) | Fluid | Maschine |
@@ -154,12 +166,14 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Solarflügel](Stationsmodule.md) | Block | Rezept |
 | [Solarpanel](Strom-im-All.md) | Block | Rezept |
 | [Sonde](Startrampe-und-Sonde.md) | Block | Rezept |
+| [Spiegelpanzer](Der-Merkur.md) | Item | Kreatur |
 | [Startkontrolle](Startrampe-und-Sonde.md) | Block | Rezept |
 | [Startrampe](Startrampe-und-Sonde.md) | Block | Rezept |
 | [Startturm](Startrampe-und-Sonde.md) | Block | Rezept |
 | [Stationsfenster](Die-Raumstation.md) | Block | Rezept |
 | [Stationshülle](Die-Raumstation.md) | Block | Rezept, Füllslot oder Eimer |
 | [Stationskern](Die-Raumstation.md) | Block | Rezept |
+| [Strahlenschild](Der-Merkur.md) | Item | Rezept |
 | [Supraleiterdraht](Fertigung-im-Orbit.md) | Item | Maschine |
 | [Supraleiterkabel](Der-Fusionsreaktor.md) | Block | Rezept |
 | [Tank](Fluide-und-Rohre.md) | Block | Rezept |

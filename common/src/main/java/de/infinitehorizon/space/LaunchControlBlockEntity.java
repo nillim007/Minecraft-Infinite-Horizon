@@ -103,7 +103,8 @@ public class LaunchControlBlockEntity extends IhBlockEntity implements MenuProvi
         if (s.load() != LaunchPad.Load.PROBE || !s.ok(LaunchChecklist.STRUCTURE)) {
             return "structure";
         }
-        if (!ProbeService.canTarget(agency, target)) {
+        if (!ProbeService.canTarget(agency, target, net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(
+                level.getBlockState(s.pad().stack().getFirst()).getBlock()))) {
             return "target";
         }
         countdown = Math.max(1, ProbeService.countdownTicks());

@@ -69,7 +69,15 @@
     "cooling_module",
     "armor_plating",
     "magnet_boots",
-    "superconductor_wire"
+    "superconductor_wire",
+    "lithium_salt",
+    "lithium_dust",
+    "lithium_ingot",
+    "lithium_battery",
+    "rover_lithium_pack",
+    "mirror_shell",
+    "heat_reflector",
+    "radiation_shield"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,
@@ -92,6 +100,9 @@
     "dome_shield_module": 1,
     "cooling_module": 1,
     "armor_plating": 1,
-    "magnet_boots": 1
+    "magnet_boots": 1,
+    "rover_lithium_pack": 1,
+    "heat_reflector": 1,
+    "radiation_shield": 1
   }
 }

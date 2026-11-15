@@ -1,0 +1,98 @@
+{
+  "dimension": "infinite_horizon:mercury",
+  "type": "surface",
+  "orbit": "infinite_horizon:mercury_orbit",
+  "star_system": "infinite_horizon:sol",
+  "ring": 2,
+  "distance_points": 2,
+  "gravity": 0.38,
+  "atmosphere": "none",
+  "pressure": "vacuum",
+  "temperature": {
+    "day": 20,
+    "night": 20
+  },
+  "biome_temperature_offsets": {},
+  "biome_temperature_overrides": {
+    "infinite_horizon:mercury_scorched_plains": 430,
+    "infinite_horizon:mercury_frost_plains": -180,
+    "infinite_horizon:mercury_twilight_belt": 20,
+    "infinite_horizon:mercury_shadow_crater": -150
+  },
+  "radiation": 2,
+  "solar_factor": 3.0,
+  "water_behavior": "evaporate",
+  "landing_requires_fuel": true,
+  "launch_cost_override": null,
+  "required_rocket_tier": 2,
+  "requires_long_range": false,
+  "lander_connects_to": "infinite_horizon:mercury_orbit",
+  "fixed_time": 6000,
+  "probe": "infinite_horizon:advanced_probe",
+  "sky": {
+    "color": "#000000",
+    "fog_color": "#000000",
+    "fog_distance": null,
+    "stars_in_daylight": true,
+    "sun_scale": 3.0,
+    "sunset_color": null,
+    "celestial_bodies": []
+  },
+  "gas_collector_output": null,
+  "zones": [
+    {
+      "id": "scorched_plains",
+      "y_min": -64,
+      "y_max": 400,
+      "biome": "infinite_horizon:mercury_scorched_plains",
+      "near_block": null,
+      "temperature": 430,
+      "pressure": null,
+      "radiation": null,
+      "solar_factor": null,
+      "atmosphere": null,
+      "water_behavior": null
+    },
+    {
+      "id": "frost_plains",
+      "y_min": -64,
+      "y_max": 400,
+      "biome": "infinite_horizon:mercury_frost_plains",
+      "near_block": null,
+      "temperature": -180,
+      "pressure": null,
+      "radiation": null,
+      "solar_factor": null,
+      "atmosphere": null,
+      "water_behavior": null
+    },
+    {
+      "id": "twilight_belt",
+      "y_min": -64,
+      "y_max": 400,
+      "biome": "infinite_horizon:mercury_twilight_belt",
+      "near_block": null,
+      "temperature": 20,
+      "pressure": null,
+      "radiation": null,
+      "solar_factor": null,
+      "atmosphere": null,
+      "water_behavior": null
+    },
+    {
+      "id": "shadow_crater",
+      "y_min": -64,
+      "y_max": 400,
+      "biome": "infinite_horizon:mercury_shadow_crater",
+      "near_block": null,
+      "temperature": -150,
+      "pressure": null,
+      "radiation": null,
+      "solar_factor": null,
+      "atmosphere": null,
+      "water_behavior": null
+    }
+  ],
+  "vanilla_mobs": [],
+  "name": "planet.infinite_horizon.mercury"
+}

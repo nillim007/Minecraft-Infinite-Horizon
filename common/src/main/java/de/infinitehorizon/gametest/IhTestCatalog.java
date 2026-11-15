@@ -173,7 +173,14 @@ public final class IhTestCatalog {
             new Test("fusion_needsstructure", 20, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM6d::fusionNeedsStructure),  // 4.3, M6d
             new Test("gravityplate_orbit_onegee", 40, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6d::gravityPlateOrbit),  // 12.9, M6d
             new Test("lander_notonearth", 20, null, null, null, IhGameTestsM6e::landerNotOnEarth),  // 12.7, M6e
-            new Test("lander_orbit_tomoon_disassemble", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6e::landerOrbitToMoon)  // 12.7, M6e
+            new Test("lander_orbit_tomoon_disassemble", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM6e::landerOrbitToMoon),  // 12.7, M6e
+            new Test("mercury_biomebands_x", 20, null, null, "infinite_horizon:mercury", IhGameTestsM7a::mercuryBiomeBands),  // 13.4, M7a
+            new Test("mercury_drops_lithiumsalt_titanium", 20, null, null, null, IhGameTestsM7a::mercuryDrops),  // 13.4, M7a
+            new Test("lithium_batterybank_capacity", 20, null, null, null, IhGameTestsM7a::lithiumBatteryBank),  // 6.3, M7a
+            new Test("advancedprobe_ringtwo_targets", 20, null, null, null, IhGameTestsM7a::advancedProbeTargets),  // 12.3, M7a
+            new Test("rover_lithiumpack_capacity", 20, null, null, null, IhGameTestsM7a::roverLithiumPack),  // 16, M7a
+            new Test("suitmodule_heatreflector_radiationshield", 20, null, null, null, IhGameTestsM7a::heatReflectorRadiationShield),  // 9.2, M7a
+            new Test("creature_mirrorbeetle_blinds", 40, null, null, "infinite_horizon:mercury", IhGameTestsM7a::mirrorBeetleBlinds)  // 18, M7a
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

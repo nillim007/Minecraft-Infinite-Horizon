@@ -1,0 +1,18 @@
+{
+  "tier": 4,
+  "branch": "life_support",
+  "cost": 80,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:radiation_shield"
+    }
+  ],
+  "icon": "infinite_horizon:radiation_shield",
+  "position": {
+    "column": 2,
+    "row": 4,
+    "slot": 2
+  }
+}

@@ -1,0 +1,164 @@
+{
+  "id": "infinite_horizon:phase_5/merkur",
+  "chapter": "infinite_horizon:phase_5",
+  "title": "infinite_horizon.handbook.phase_5.merkur.title",
+  "icon": "infinite_horizon:mercury_rock",
+  "order": 20,
+  "unlock": "infinite_horizon:research_tier/4",
+  "items": [
+    "infinite_horizon:mercury_rock",
+    "infinite_horizon:mercury_lithium_salt",
+    "infinite_horizon:mercury_iron_ore",
+    "infinite_horizon:mercury_titanium_ore",
+    "infinite_horizon:mirror_shell",
+    "infinite_horizon:heat_reflector",
+    "infinite_horizon:radiation_shield"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.merkur.e0"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_5.merkur.e1.0",
+        "infinite_horizon.handbook.phase_5.merkur.e1.1",
+        "infinite_horizon.handbook.phase_5.merkur.e1.2",
+        "infinite_horizon.handbook.phase_5.merkur.e1.3"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.merkur.e2"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.phase_5.merkur.e3.h0",
+        "infinite_horizon.handbook.phase_5.merkur.e3.h1",
+        "infinite_horizon.handbook.phase_5.merkur.e3.h2",
+        "infinite_horizon.handbook.phase_5.merkur.e3.h3",
+        "infinite_horizon.handbook.phase_5.merkur.e3.h4"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_5.merkur.e3.r0.0",
+          "infinite_horizon.handbook.phase_5.merkur.e3.r0.1",
+          "infinite_horizon.handbook.phase_5.merkur.e3.r0.2",
+          "infinite_horizon.handbook.phase_5.merkur.e3.r0.3",
+          "infinite_horizon.handbook.phase_5.merkur.e3.r0.4"
+        ],
+        [
+          "infinite_horizon.handbook.phase_5.merkur.e3.r1.0",
+          "infinite_horizon.handbook.phase_5.merkur.e3.r1.1",
+          "infinite_horizon.handbook.phase_5.merkur.e3.r1.2",
+          "infinite_horizon.handbook.phase_5.merkur.e3.r1.3",
+          "infinite_horizon.handbook.phase_5.merkur.e3.r1.4"
+        ],
+        [
+          "infinite_horizon.handbook.phase_5.merkur.e3.r2.0",
+          "infinite_horizon.handbook.phase_5.merkur.e3.r2.1",
+          "infinite_horizon.handbook.phase_5.merkur.e3.r2.2",
+          "infinite_horizon.handbook.phase_5.merkur.e3.r2.3",
+          "infinite_horizon.handbook.phase_5.merkur.e3.r2.4"
+        ],
+        [
+          "infinite_horizon.handbook.phase_5.merkur.e3.r3.0",
+          "infinite_horizon.handbook.phase_5.merkur.e3.r3.1",
+          "infinite_horizon.handbook.phase_5.merkur.e3.r3.2",
+          "infinite_horizon.handbook.phase_5.merkur.e3.r3.3",
+          "infinite_horizon.handbook.phase_5.merkur.e3.r3.4"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.merkur.e4",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.merkur.e5"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/heat_reflector",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:mirror_shell"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:aluminum_plate"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:heat_reflector",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/radiation_shield",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:tungsten_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:plastic"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:radiation_shield",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.merkur.e7",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.merkur.e8"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.merkur.e9",
+      "style": "warning"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.merkur.e10",
+      "style": "tip"
+    }
+  ]
+}

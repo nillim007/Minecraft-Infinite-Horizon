@@ -1,6 +1,6 @@
 {
   "_comment": "IDs, die im Code registriert sind. tools/gen_resources.py erzeugt nur für diese Ressourcen. Mit jedem Meilenstein erweitern.",
-  "milestone": 6,
+  "milestone": 7,
   "blocks": {
     "infinite_horizon:crusher": "machine",
     "infinite_horizon:combustion_generator": "machine",
@@ -48,6 +48,12 @@
     "infinite_horizon:fusion_casing": "casing",
     "infinite_horizon:superconductor_cable": "cable",
     "infinite_horizon:gravity_plate": "machine",
+    "infinite_horizon:advanced_probe": "casing",
+    "infinite_horizon:lithium_battery_bank": "machine",
+    "infinite_horizon:mercury_rock": "simple_block",
+    "infinite_horizon:mercury_lithium_salt": "simple_block",
+    "infinite_horizon:mercury_iron_ore": "simple_block",
+    "infinite_horizon:mercury_titanium_ore": "simple_block",
     "infinite_horizon:electric_lamp": "lamp",
     "infinite_horizon:extinguished_torch": "torch",
     "infinite_horizon:research_terminal": "machine",
@@ -178,7 +184,15 @@
     "infinite_horizon:armor_plating",
     "infinite_horizon:magnet_boots",
     "infinite_horizon:superconductor_wire",
-    "infinite_horizon:lander"
+    "infinite_horizon:lander",
+    "infinite_horizon:lithium_salt",
+    "infinite_horizon:lithium_dust",
+    "infinite_horizon:lithium_ingot",
+    "infinite_horizon:lithium_battery",
+    "infinite_horizon:rover_lithium_pack",
+    "infinite_horizon:mirror_shell",
+    "infinite_horizon:heat_reflector",
+    "infinite_horizon:radiation_shield"
   ],
   "fluids": [
     "crude_oil",
@@ -188,9 +202,9 @@
     "helium",
     "liquid_helium"
   ],
-  "step": "6e",
-  "dimensions": ["infinite_horizon:moon", "infinite_horizon:mars", "infinite_horizon:venus", "infinite_horizon:earth_orbit", "infinite_horizon:mars_orbit", "infinite_horizon:venus_orbit"],
-  "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket", "infinite_horizon:rover", "infinite_horizon:rubble_crawler", "infinite_horizon:shade_strider", "infinite_horizon:dune_burrower", "infinite_horizon:dust_wraith", "infinite_horizon:sulfur_snail", "infinite_horizon:cloud_ray", "infinite_horizon:lander"],
+  "step": "7a",
+  "dimensions": ["infinite_horizon:moon", "infinite_horizon:mars", "infinite_horizon:venus", "infinite_horizon:earth_orbit", "infinite_horizon:mars_orbit", "infinite_horizon:venus_orbit", "infinite_horizon:mercury", "infinite_horizon:mercury_orbit"],
+  "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket", "infinite_horizon:rover", "infinite_horizon:rubble_crawler", "infinite_horizon:shade_strider", "infinite_horizon:dune_burrower", "infinite_horizon:dust_wraith", "infinite_horizon:sulfur_snail", "infinite_horizon:cloud_ray", "infinite_horizon:lander", "infinite_horizon:mirror_beetle"],
   "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:first_signal", "infinite_horizon:small_step", "infinite_horizon:own_air"],
   "item_classes": {
     "_comment": "Items mit eigenem Verhalten; sie fehlen in simple_items.json und werden in ModItems registriert.",
