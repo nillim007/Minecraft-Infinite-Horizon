@@ -54,6 +54,13 @@
     "infinite_horizon:mercury_lithium_salt": "simple_block",
     "infinite_horizon:mercury_iron_ore": "simple_block",
     "infinite_horizon:mercury_titanium_ore": "simple_block",
+    "infinite_horizon:asteroid_rock": "simple_block",
+    "infinite_horizon:asteroid_platinum_ore": "simple_block",
+    "infinite_horizon:asteroid_iridium_ore": "simple_block",
+    "infinite_horizon:asteroid_nickel_ore": "simple_block",
+    "infinite_horizon:ceres_rock": "simple_block",
+    "infinite_horizon:salt_crust": "simple_block",
+    "infinite_horizon:asteroid_anchor": "casing",
     "infinite_horizon:electric_lamp": "lamp",
     "infinite_horizon:extinguished_torch": "torch",
     "infinite_horizon:research_terminal": "machine",
@@ -192,7 +199,12 @@
     "infinite_horizon:rover_lithium_pack",
     "infinite_horizon:mirror_shell",
     "infinite_horizon:heat_reflector",
-    "infinite_horizon:radiation_shield"
+    "infinite_horizon:radiation_shield",
+    "infinite_horizon:platinum_dust",
+    "infinite_horizon:platinum_ingot",
+    "infinite_horizon:iridium_dust",
+    "infinite_horizon:iridium_ingot",
+    "infinite_horizon:iridium_chip"
   ],
   "fluids": [
     "crude_oil",
@@ -202,9 +214,9 @@
     "helium",
     "liquid_helium"
   ],
-  "step": "7a",
-  "dimensions": ["infinite_horizon:moon", "infinite_horizon:mars", "infinite_horizon:venus", "infinite_horizon:earth_orbit", "infinite_horizon:mars_orbit", "infinite_horizon:venus_orbit", "infinite_horizon:mercury", "infinite_horizon:mercury_orbit"],
-  "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket", "infinite_horizon:rover", "infinite_horizon:rubble_crawler", "infinite_horizon:shade_strider", "infinite_horizon:dune_burrower", "infinite_horizon:dust_wraith", "infinite_horizon:sulfur_snail", "infinite_horizon:cloud_ray", "infinite_horizon:lander", "infinite_horizon:mirror_beetle"],
+  "step": "7b",
+  "dimensions": ["infinite_horizon:moon", "infinite_horizon:mars", "infinite_horizon:venus", "infinite_horizon:earth_orbit", "infinite_horizon:mars_orbit", "infinite_horizon:venus_orbit", "infinite_horizon:mercury", "infinite_horizon:mercury_orbit", "infinite_horizon:asteroid_belt", "infinite_horizon:ceres"],
+  "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket", "infinite_horizon:rover", "infinite_horizon:rubble_crawler", "infinite_horizon:shade_strider", "infinite_horizon:dune_burrower", "infinite_horizon:dust_wraith", "infinite_horizon:sulfur_snail", "infinite_horizon:cloud_ray", "infinite_horizon:lander", "infinite_horizon:mirror_beetle", "infinite_horizon:drift_mite"],
   "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:first_signal", "infinite_horizon:small_step", "infinite_horizon:own_air"],
   "item_classes": {
     "_comment": "Items mit eigenem Verhalten; sie fehlen in simple_items.json und werden in ModItems registriert.",

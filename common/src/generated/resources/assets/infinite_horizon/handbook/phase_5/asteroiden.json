@@ -1,0 +1,245 @@
+{
+  "id": "infinite_horizon:phase_5/asteroiden",
+  "chapter": "infinite_horizon:phase_5",
+  "title": "infinite_horizon.handbook.phase_5.asteroiden.title",
+  "icon": "infinite_horizon:asteroid_platinum_ore",
+  "order": 40,
+  "unlock": "infinite_horizon:research_tier/4",
+  "items": [
+    "infinite_horizon:asteroid_rock",
+    "infinite_horizon:asteroid_platinum_ore",
+    "infinite_horizon:asteroid_iridium_ore",
+    "infinite_horizon:asteroid_nickel_ore",
+    "infinite_horizon:asteroid_anchor",
+    "infinite_horizon:platinum_dust",
+    "infinite_horizon:platinum_ingot",
+    "infinite_horizon:iridium_dust",
+    "infinite_horizon:iridium_ingot",
+    "infinite_horizon:iridium_chip"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.asteroiden.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.asteroiden.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.asteroiden.e2"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_5.asteroiden.e3.0",
+        "infinite_horizon.handbook.phase_5.asteroiden.e3.1",
+        "infinite_horizon.handbook.phase_5.asteroiden.e3.2"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.asteroiden.e4"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.asteroiden.e5",
+      "style": "warning"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.asteroiden.e6",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.asteroiden.e7"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:electric_smelting/platinum_ingot",
+          "type": "infinite_horizon:electric_smelting",
+          "station": "infinite_horizon:electric_furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_platinum"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:platinum_ingot",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:electric_smelting/platinum_ingot_from_dust",
+          "type": "infinite_horizon:electric_smelting",
+          "station": "infinite_horizon:electric_furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:platinum_dust"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:platinum_ingot",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:electric_smelting/iridium_ingot",
+          "type": "infinite_horizon:electric_smelting",
+          "station": "infinite_horizon:electric_furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_iridium"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:iridium_ingot",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:electric_smelting/iridium_ingot_from_dust",
+          "type": "infinite_horizon:electric_smelting",
+          "station": "infinite_horizon:electric_furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:iridium_dust"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:iridium_ingot",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:zero_g/iridium_chip",
+          "type": "infinite_horizon:zero_g",
+          "station": "infinite_horizon:zero_g_fabricator",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:iridium_ingot"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:platinum_ingot"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:iridium_chip",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 100
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.asteroiden.e9",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.asteroiden.e10"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/asteroid_anchor",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:titanium_rod"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:tungsten_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:asteroid_anchor",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.asteroiden.e12",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.asteroiden.e13"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.asteroiden.e14",
+      "style": "tip"
+    }
+  ]
+}

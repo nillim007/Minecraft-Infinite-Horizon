@@ -168,6 +168,13 @@
     {"name": "advancedprobe_ringtwo_targets", "class": "IhGameTestsM7a", "method": "advancedProbeTargets", "ticks": 20, "ref": "12.3, M7a"},
     {"name": "rover_lithiumpack_capacity", "class": "IhGameTestsM7a", "method": "roverLithiumPack", "ticks": 20, "ref": "16, M7a"},
     {"name": "suitmodule_heatreflector_radiationshield", "class": "IhGameTestsM7a", "method": "heatReflectorRadiationShield", "ticks": 20, "ref": "9.2, M7a"},
-    {"name": "creature_mirrorbeetle_blinds", "class": "IhGameTestsM7a", "method": "mirrorBeetleBlinds", "ticks": 40, "dimension": "infinite_horizon:mercury", "ref": "18, M7a"}
+    {"name": "creature_mirrorbeetle_blinds", "class": "IhGameTestsM7a", "method": "mirrorBeetleBlinds", "ticks": 40, "dimension": "infinite_horizon:mercury", "ref": "18, M7a"},
+    {"name": "asteroidbelt_spawnasteroid", "class": "IhGameTestsM7b", "method": "spawnAsteroidExists", "ticks": 20, "dimension": "infinite_horizon:asteroid_belt", "ref": "13.4, M7b"},
+    {"name": "asteroidbelt_voidreset", "class": "IhGameTestsM7b", "method": "voidResetToSpawnAsteroid", "ticks": 20, "dimension": "infinite_horizon:asteroid_belt", "ref": "13.4, M7b"},
+    {"name": "asteroid_anchor_onegee", "class": "IhGameTestsM7b", "method": "anchorGravity", "ticks": 40, "dimension": "infinite_horizon:asteroid_belt", "ref": "13.4, M7b"},
+    {"name": "asteroid_anchor_needsasteroid", "class": "IhGameTestsM7b", "method": "anchorNeedsAsteroid", "ticks": 20, "ref": "13.4, M7b"},
+    {"name": "ceres_icevolcano_atspawn", "class": "IhGameTestsM7b", "method": "ceresIceVolcano", "ticks": 20, "dimension": "infinite_horizon:ceres", "ref": "13.4, M7b"},
+    {"name": "creature_driftmite_swarm", "class": "IhGameTestsM7b", "method": "driftMiteSwarm", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "18, M7b"},
+    {"name": "asteroid_iridiumore_drops", "class": "IhGameTestsM7b", "method": "asteroidOreDrops", "ticks": 20, "ref": "13.4, M7b"}
   ]
 }

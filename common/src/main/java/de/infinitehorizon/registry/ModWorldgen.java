@@ -28,6 +28,14 @@ public final class ModWorldgen {
             BuiltInRegistries.STRUCTURE_TYPE, "volcanic_vent", () -> () -> de.infinitehorizon.world.SurfaceStructure.CODEC);
     public static final Supplier<StructureType<de.infinitehorizon.world.SurfaceStructure>> METEORITE_FIELD = Services.REGISTRY.register(
             BuiltInRegistries.STRUCTURE_TYPE, "meteorite_field", () -> () -> de.infinitehorizon.world.SurfaceStructure.CODEC);
+    /** Ring 2 (13.4): Eisvulkan der Ceres, große Asteroiden und Spawn-Asteroid. */
+    public static final Supplier<StructureType<de.infinitehorizon.world.SurfaceStructure>> ICE_VOLCANO = Services.REGISTRY.register(
+            BuiltInRegistries.STRUCTURE_TYPE, "ice_volcano", () -> () -> de.infinitehorizon.world.SurfaceStructure.CODEC);
+    public static final Supplier<StructureType<de.infinitehorizon.world.SurfaceStructure>> LARGE_ASTEROID = Services.REGISTRY.register(
+            BuiltInRegistries.STRUCTURE_TYPE, "large_asteroid", () -> () -> de.infinitehorizon.world.SurfaceStructure.CODEC);
+    public static final Supplier<StructurePieceType> ASTEROID_PIECE = Services.REGISTRY.register(
+            BuiltInRegistries.STRUCTURE_PIECE, "asteroid",
+            () -> (StructurePieceType.ContextlessType) de.infinitehorizon.world.SurfaceStructure.AsteroidPiece::new);
     public static final Supplier<StructurePieceType> SURFACE_PIECE = Services.REGISTRY.register(
             BuiltInRegistries.STRUCTURE_PIECE, "surface_structure",
             () -> (StructurePieceType.ContextlessType) de.infinitehorizon.world.SurfaceStructure.Piece::new);
@@ -43,6 +51,10 @@ public final class ModWorldgen {
         // Merkur (13.4): Biome nach X-Koordinate
         Services.REGISTRY.register(BuiltInRegistries.BIOME_SOURCE, "x_bands", () -> de.infinitehorizon.world.XBandsBiomeSource.CODEC);
         Services.REGISTRY.register(BuiltInRegistries.FEATURE_TYPE, "crater", () -> CraterFeature.CODEC);
+        Services.REGISTRY.register(BuiltInRegistries.FEATURE_TYPE, "asteroid", () -> de.infinitehorizon.world.AsteroidFeature.CODEC);
+        // feste Lage (13.4: genau eine je Dimension)
+        Services.REGISTRY.register(BuiltInRegistries.STRUCTURE_PLACEMENT, "fixed",
+                () -> de.infinitehorizon.world.FixedStructurePlacement.CODEC);
     }
 
     private ModWorldgen() {

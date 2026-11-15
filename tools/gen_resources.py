@@ -293,6 +293,16 @@ SIMPLE_BLOCKS = {
                          "planet_drops": True},
     "mercury_titanium_ore": {"copy": "minecraft:deepslate_iron_ore", "falls": False, "tool": "pickaxe", "needs": "iron",
                              "ore": None, "planet_drops": True},
+    # Asteroidengürtel und Ceres (13.4)
+    "asteroid_rock": {"copy": "minecraft:cobbled_deepslate", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
+    "asteroid_platinum_ore": {"copy": "minecraft:deepslate_gold_ore", "falls": False, "tool": "pickaxe", "needs": "iron",
+                              "ore": None, "planet_drops": True},
+    "asteroid_iridium_ore": {"copy": "minecraft:deepslate_diamond_ore", "falls": False, "tool": "pickaxe", "needs": "iron",
+                             "ore": None, "planet_drops": True},
+    "asteroid_nickel_ore": {"copy": "minecraft:deepslate_iron_ore", "falls": False, "tool": "pickaxe", "needs": "stone",
+                            "ore": None, "planet_drops": True},
+    "ceres_rock": {"copy": "minecraft:tuff", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
+    "salt_crust": {"copy": "minecraft:calcite", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
 }
 
 ORE_DEFAULTS = sd.ORE_DEFAULTS
@@ -435,7 +445,7 @@ def recipe_ids(r):
 PLANET_FIELDS = ["dimension", "type", "orbit", "star_system", "ring", "distance_points", "gravity", "atmosphere",
                  "pressure", "temperature", "biome_temperature_offsets", "biome_temperature_overrides", "radiation",
                  "solar_factor", "water_behavior", "landing_requires_fuel", "launch_cost_override", "required_rocket_tier",
-                 "requires_long_range", "lander_connects_to", "fixed_time",
+                 "requires_long_range", "lander_connects_to", "fixed_time", "special", "structures",
                  "probe", "sky", "gas_collector_output", "zones", "vanilla_mobs"]
 ZONE_FIELDS = ["id", "y_min", "y_max", "biome", "near_block", "temperature", "pressure", "radiation", "solar_factor",
                "atmosphere", "water_behavior"]
@@ -515,6 +525,11 @@ RING1_SHAPES = {
                         "block": "default_block", "core": "infinite_horizon:iron_nickel_meteorite",
                         "fluid": "minecraft:air"},
 }
+# Eisvulkan der Ceres (13.4: „Kegel aus Eis“; Maße SPEC-GAP #102), Höhe über dem Boden
+RING1_SHAPES["ice_volcano"] = {"radius": [16, 20], "height": 24, "divisor": 5, "block": "minecraft:ice",
+                               "core": "minecraft:packed_ice", "fluid": "minecraft:air"}
+# Asteroidengürtel (13.4): eigenes leeres Biom (the_void färbt den Himmel blau)
+ASTEROID_BIOME = "asteroid_field"
 # Meteoritenkrater als Feature im Biom: Radius 2–4, 1 Versuch je 2 Chunks
 METEORITE_CRATER = {"radius": [2, 4], "rarity_chunks": 2, "depth_divisor": 2, "rim_height": 1}
 # Mars-Canyon: Häufigkeit je Chunk (Vanilla 0,01)
@@ -641,6 +656,80 @@ def orbit_dimension(dim, p, defaults):
             "layers": gen.get("layers", defaults["flat_layers"]), "structure_overrides": []}}})
 
 
+def asteroid_dimension(spec, impl, dim, p, defaults, moon_tube):
+    """Asteroidengürtel (13.4): leere Welt, Feature asteroid, große Asteroiden, Spawn-Asteroid an fester Stelle."""
+    ns, path = dim.split(":", 1)
+    dt = dict(OVERWORLD_DIMENSION_TYPE)
+    dt.update({"min_y": defaults["min_y"], "height": defaults["height"], "logical_height": defaults["height"],
+               "attributes": dimension_attributes(defaults, p.get("sky") or {})})
+    write_json(f"data/{ns}/dimension_type/{path}.json", dt)
+    ores = [{"block": o["block"], "fraction": o["fraction"]} for o in p.get("ores", []) if o.get("placement") == "host_fraction"]
+    feats = []
+    for f in p.get("features", []):
+        if f["type"] != "asteroid":
+            continue
+        prm = f["params"]
+        name = f"{path}_asteroid"
+        body = {"type": f"{NS}:asteroid", "block": f["block"],
+                "radius": {"type": "minecraft:uniform", "min_inclusive": prm["radius"][0], "max_inclusive": prm["radius"][1]},
+                "chance": prm["chance"], "ellipsoid": prm.get("shape") == "sphere_or_ellipsoid", "ores": ores}
+        # Driftmilbe (18): Schwarm um das Platinerz, entsteht nur mit der Welt
+        mite = spec.balance.get("creatures", {}).get(f"{NS}:drift_mite")
+        if mite and f"{NS}:drift_mite" in impl.get("entities", []):
+            sp = mite["spawn"]
+            body["swarm"] = {"entity": f"{NS}:drift_mite", "min": sp["group_min"], "max": sp["group_max"],
+                             "radius": sp.get("anchor_radius", 8)}
+        write_json(f"data/{NS}/worldgen/feature/{name}.json", body)
+        write_json(f"data/{NS}/worldgen/placed_feature/{name}.json", {"feature": f"{NS}:{name}", "placement": [
+            {"type": "minecraft:count", "count": prm["per_chunk"]}, {"type": "minecraft:in_square"},
+            {"type": "minecraft:height_range", "height": {"type": "minecraft:uniform", "min_inclusive": {"absolute": prm["y_min"]},
+                                                          "max_inclusive": {"absolute": prm["y_max"]}}}]})
+        feats.append(f"{NS}:{name}")
+        y_range = [prm["y_min"], prm["y_max"]]
+    steps = [[] for _ in range(FEATURE_STEPS)]
+    steps[STEP_LOCAL_MODIFICATIONS] = feats
+    write_json(f"data/{NS}/worldgen/biome/{ASTEROID_BIOME}.json", {
+        "temperature": 0.5, "downfall": 0.0, "has_precipitation": False, "effects": {"water_color": "#3f76e4"},
+        "attributes": {"minecraft:gameplay/natural_mob_spawns": {"modifier": "overlay", "argument": {
+            "spawn_costs": {}, "spawns_by_category": {}}}},
+        "carvers": [], "features": steps})
+    sets = []
+    rock = next((f["block"] for f in p.get("features", []) if f["type"] == "asteroid"), "minecraft:stone")
+    for st in p.get("structures", []):
+        name = short_id(st["id"])
+        base = {"type": f"{NS}:{name}", "biomes": f"#{NS}:has_structure/{name}", "spawn_overrides": {},
+                "step": "surface_structures", "kind": "asteroid", "height": 0, "block": rock, "core": rock,
+                "fluid": "minecraft:air", "ores": ores}
+        # große Asteroiden: Radius aus params, Höhe wie das Feature (SPEC-GAP #102: Abstand wie die Lavaröhre)
+        big = dict(base, radius={"type": "minecraft:uniform", "min_inclusive": st["params"]["radius"][0],
+                                 "max_inclusive": st["params"]["radius"][1]},
+                   y={"type": "minecraft:uniform", "min_inclusive": y_range[0], "max_inclusive": y_range[1]})
+        write_json(f"data/{NS}/worldgen/structure/{name}.json", big)
+        write_json(f"data/{NS}/tags/worldgen/biome/has_structure/{name}.json", {"values": [f"{NS}:{ASTEROID_BIOME}"]})
+        spacing = st.get("spacing_chunks") or moon_tube.get("spacing_chunks")
+        salt = sum(ord(c) * 31 ** k for k, c in enumerate(st["id"])) % 2_000_000_000
+        write_json(f"data/{NS}/worldgen/structure_set/{name}.json", {
+            "placement": {"type": "minecraft:random_spread", "salt": salt, "separation": max(1, spacing // 4), "spacing": spacing},
+            "structures": [{"structure": f"{NS}:{name}", "weight": 1}]})
+        sets.append(f"{NS}:{name}")
+        pos = st.get("position")
+        if pos:
+            # Spawn-Asteroid (13.4): Radius und Mitte fest, alle Erze
+            spawn = dict(base, radius={"type": "minecraft:constant", "value": pos["radius"]},
+                         y={"type": "minecraft:constant", "value": pos["y"]})
+            write_json(f"data/{NS}/worldgen/structure/spawn_{name}.json", spawn)
+            spawn["type"] = f"{NS}:{name}"
+            write_json(f"data/{NS}/worldgen/structure/spawn_{name}.json", dict(spawn, biomes=f"#{NS}:has_structure/{name}"))
+            write_json(f"data/{NS}/worldgen/structure_set/spawn_{name}.json", {
+                "placement": {"type": f"{NS}:fixed", "x": pos["x"], "z": pos["z"]},
+                "structures": [{"structure": f"{NS}:spawn_{name}", "weight": 1}]})
+            sets.append(f"{NS}:spawn_{name}")
+    write_json(f"data/{ns}/dimension/{path}.json", {"type": dim, "generator": {
+        "type": "minecraft:flat", "settings": {
+            "biome": f"{NS}:{ASTEROID_BIOME}", "features": True, "lakes": False, "layers": [],
+            "structure_overrides": sets}}})
+
+
 def planet_worldgen(spec, impl, blocks):
     """Dimension, Typ, Noise-Settings, Material Rule, Biome, Erze, Krater und Strukturen je Planetendimension."""
     all_defaults = json.loads((sd.DATA / "planets.json").read_text(encoding="utf-8"))["dimension_defaults"]
@@ -654,6 +743,9 @@ def planet_worldgen(spec, impl, blocks):
         ns, path = dim.split(":", 1)
         if p.get("type") == "orbit":
             orbit_dimension(dim, p, all_defaults["orbit"])
+            continue
+        if (p.get("generator") or {}).get("type") == "empty":
+            asteroid_dimension(spec, impl, dim, p, all_defaults["surface"], moon_tube)
             continue
         sky = p.get("sky") or {}
         # dimension_type (13.1, 26.3-Attribute statt bed_works/has_raids/natural/piglin_safe)
@@ -819,6 +911,12 @@ def planet_worldgen(spec, impl, blocks):
             else:
                 continue
             write_json(f"data/{NS}/worldgen/structure/{name}.json", body)
+            if st.get("position") and st["position"].get("x") is not None:
+                # genau eine je Dimension an fester Stelle (13.4)
+                write_json(f"data/{NS}/worldgen/structure_set/{name}.json", {
+                    "placement": {"type": f"{NS}:fixed", "x": st["position"]["x"], "z": st["position"]["z"]},
+                    "structures": [{"structure": f"{NS}:{name}", "weight": 1}]})
+                continue
             salt = sum(ord(c) * 31 ** k for k, c in enumerate(st["id"])) % 2_000_000_000
             # SPEC-GAP #87: ohne Angabe Abstand wie die Lavaröhre des Mondes, Trennung = Abstand / 4
             spacing = st.get("spacing_chunks") or moon_tube.get("spacing_chunks")

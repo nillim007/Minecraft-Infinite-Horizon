@@ -177,6 +177,27 @@
           "energy_per_tick": 20
         },
         {
+          "id": "infinite_horizon:crushing/iridium_dust",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_iridium"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:iridium_dust",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
           "id": "infinite_horizon:crushing/copper_dust",
           "type": "infinite_horizon:crushing",
           "station": "infinite_horizon:crusher",
@@ -254,6 +275,27 @@
           "results": [
             {
               "item": "infinite_horizon:nickel_dust",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:crushing/platinum_dust",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_platinum"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:platinum_dust",
               "count": 2
             }
           ],

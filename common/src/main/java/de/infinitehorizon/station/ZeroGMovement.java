@@ -36,6 +36,11 @@ public final class ZeroGMovement {
 
     /** Wirksames g für den Spieler: Magnetstiefel auf festem Grund im Orbit (12.9). */
     public static double gravity(ServerPlayer player, @Nullable Planet planet, double planetG) {
+        // Asteroidenanker (13.4): im Umkreis gravity_g, auf jedem Körper
+        if (AsteroidAnchorBlock.covered(player.level(), player.position())) {
+            JsonObject anchor = AsteroidAnchorBlock.config();
+            return anchor.has("gravity_g") ? anchor.get("gravity_g").getAsDouble() : planetG;
+        }
         if (planet == null || !planet.isOrbit()) {
             return planetG;
         }
@@ -63,15 +68,61 @@ public final class ZeroGMovement {
         }
         int trigger = rules.get("trigger_below_y").getAsInt();
         List<ServerPlayer> falling = new ArrayList<>();
+        List<ServerPlayer> reset = new ArrayList<>();
         for (ServerPlayer p : server.getPlayerList().getPlayers()) {
-            if (p.getY() < trigger && !p.isSpectator()) {
-                Planet planet = PlanetResolver.at(p.level(), p.blockPosition()).planet();
-                if (planet != null && planet.isOrbit()) {
-                    falling.add(p);
-                }
+            if (p.isSpectator()) {
+                continue;
+            }
+            Planet planet = PlanetResolver.at(p.level(), p.blockPosition()).planet();
+            JsonObject vr = voidReset(planet);
+            if (vr != null && p.getY() < vr.get("below_y").getAsInt()) {
+                reset.add(p);
+            } else if (p.getY() < trigger && planet != null && planet.isOrbit()) {
+                falling.add(p);
             }
         }
         falling.forEach(ZeroGMovement::fall);
+        reset.forEach(ZeroGMovement::resetToSpawnAsteroid);
+    }
+
+    /** {@code special.void_reset} des Planeten (13.4 Asteroidengürtel), sonst null. */
+    public static @Nullable JsonObject voidReset(@Nullable Planet planet) {
+        if (planet == null || !planet.raw().has("special") || !planet.raw().get("special").isJsonObject()) {
+            return null;
+        }
+        JsonObject s = planet.raw().getAsJsonObject("special");
+        return s.has("void_reset") && s.get("void_reset").isJsonObject() ? s.getAsJsonObject("void_reset") : null;
+    }
+
+    /** Mitte des Spawn-Asteroiden (Struktur mit {@code position}) oder 0/80/0. */
+    public static BlockPos spawnAsteroid(@Nullable Planet planet) {
+        if (planet != null && planet.raw().has("structures") && planet.raw().get("structures").isJsonArray()) {
+            for (var e : planet.raw().getAsJsonArray("structures")) {
+                JsonObject st = e.getAsJsonObject();
+                if (st.has("position") && st.get("position").isJsonObject()) {
+                    JsonObject p = st.getAsJsonObject("position");
+                    return new BlockPos(p.get("x").getAsInt(), p.get("y").getAsInt(), p.get("z").getAsInt());
+                }
+            }
+        }
+        return new BlockPos(0, 80, 0);
+    }
+
+    /** Fall in die Leere (13.4): zurück auf den Spawn-Asteroiden mit Langsamem Fall. */
+    public static void resetToSpawnAsteroid(ServerPlayer player) {
+        ServerLevel level = player.level();
+        Planet planet = PlanetResolver.at(level, player.blockPosition()).planet();
+        JsonObject vr = voidReset(planet);
+        BlockPos c = spawnAsteroid(planet);
+        level.getChunk(c.getX() >> 4, c.getZ() >> 4);
+        int top = level.getHeight(net.minecraft.world.level.levelgen.Heightmap.Types.MOTION_BLOCKING, c.getX(), c.getZ());
+        BlockPos at = top > level.getMinY() + 1 ? new BlockPos(c.getX(), top, c.getZ()) : c.above(20);
+        player.teleportTo(at.getX() + 0.5, at.getY(), at.getZ() + 0.5);
+        player.resetFallDistance();
+        player.setDeltaMovement(net.minecraft.world.phys.Vec3.ZERO);
+        if (vr != null && vr.has("slow_falling_ticks")) {
+            player.addEffect(new MobEffectInstance(MobEffects.SLOW_FALLING, vr.get("slow_falling_ticks").getAsInt()));
+        }
     }
 
     private static boolean listed(JsonObject group, Identifier orbit) {

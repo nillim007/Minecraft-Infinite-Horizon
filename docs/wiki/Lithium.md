@@ -41,4 +41,4 @@ Der Rover-Lithiumpaket ist ein Modul für den [Rover](Der-Rover.md): Er fasst da
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Der Merkur](Der-Merkur.md)
+← [Der Merkur](Der-Merkur.md) · [Der Asteroidengürtel](Der-Asteroidenguertel.md) →

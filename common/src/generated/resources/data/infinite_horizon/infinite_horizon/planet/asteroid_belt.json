@@ -1,0 +1,71 @@
+{
+  "dimension": "infinite_horizon:asteroid_belt",
+  "type": "surface",
+  "orbit": null,
+  "star_system": "infinite_horizon:sol",
+  "ring": 2,
+  "distance_points": 3,
+  "gravity": 0.03,
+  "atmosphere": "none",
+  "pressure": "vacuum",
+  "temperature": {
+    "day": -100,
+    "night": -100
+  },
+  "biome_temperature_offsets": {},
+  "biome_temperature_overrides": {},
+  "radiation": 1,
+  "solar_factor": 0.25,
+  "water_behavior": "freeze",
+  "landing_requires_fuel": false,
+  "launch_cost_override": null,
+  "required_rocket_tier": 2,
+  "requires_long_range": false,
+  "lander_connects_to": null,
+  "fixed_time": null,
+  "special": {
+    "void_reset": {
+      "below_y": 0,
+      "target": "spawn_asteroid",
+      "slow_falling_ticks": 400
+    }
+  },
+  "structures": [
+    {
+      "id": "infinite_horizon:large_asteroid",
+      "exploration_target": false,
+      "biomes": [],
+      "spacing_chunks": null,
+      "count_per_dimension": null,
+      "position": {
+        "x": 0,
+        "y": 80,
+        "z": 0,
+        "tolerance": 0,
+        "radius": 15,
+        "all_ores": true
+      },
+      "params": {
+        "radius": [
+          13,
+          20
+        ]
+      },
+      "notes": "Radius 13–20; dazu der Spawn-Asteroid (Radius 15 bei 0/80/0 mit allen drei Erzen); SPEC-GAP: Häufigkeit nicht angegeben"
+    }
+  ],
+  "probe": "infinite_horizon:advanced_probe",
+  "sky": {
+    "color": "#000000",
+    "fog_color": "#000000",
+    "fog_distance": null,
+    "stars_in_daylight": true,
+    "sun_scale": 0.5,
+    "sunset_color": null,
+    "celestial_bodies": []
+  },
+  "gas_collector_output": null,
+  "zones": [],
+  "vanilla_mobs": [],
+  "name": "planet.infinite_horizon.asteroid_belt"
+}

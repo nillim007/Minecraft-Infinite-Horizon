@@ -17,8 +17,14 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Aluminiumstaub](Zerkleinerer.md) | Item | Maschine |
 | [Analysator](Forschung.md) | Block | Rezept |
 | [Andockbucht](Stationsmodule.md) | Block | Rezept |
+| [Asteroiden-Anker](Der-Asteroidenguertel.md) | Block | Rezept |
+| [Asteroiden-Iridiumerz](Der-Asteroidenguertel.md) | Block | Weltgenerierung |
+| [Asteroiden-Nickelerz](Der-Asteroidenguertel.md) | Block | Weltgenerierung |
+| [Asteroiden-Platinerz](Der-Asteroidenguertel.md) | Block | Weltgenerierung |
+| [Asteroidengestein](Der-Asteroidenguertel.md) | Block | Weltgenerierung |
 | [Bauxit](Rohstoffe-und-Erze.md) | Item | Abbau |
 | [Bauxiterz](Rohstoffe-und-Erze.md) | Block | Weltgenerierung |
+| [Ceres-Gestein](Ceres.md) | Block | Weltgenerierung |
 | [Druckanzug-Brustplatte](Der-Druckanzug.md) | Item | Rezept |
 | [Druckanzug-Helm](Der-Druckanzug.md) | Item | Rezept |
 | [Druckanzug-Hose](Der-Druckanzug.md) | Item | Rezept |
@@ -64,6 +70,9 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Hochtemperaturofen](Der-Hochtemperaturofen.md) | Block | Rezept |
 | [Hydrokultur-Becken](Hydrokultur-und-Kompost.md) | Block | Rezept |
 | [Ingenieurs-Handbuch](Willkommen-bei-Infinite-Horizon.md) | Item | Geschenk beim ersten Betreten, Rezept |
+| [Iridium-Chip](Der-Asteroidenguertel.md) | Item | Maschine |
+| [Iridiumbarren](Der-Asteroidenguertel.md) | Item | Maschine |
+| [Iridiumstaub](Der-Asteroidenguertel.md) | Item | Maschine |
 | [Item-Port](Raffinerie.md) | Block | Rezept |
 | [Keramikplatte](Der-Hochtemperaturofen.md) | Item | Maschine |
 | [Kerosin](Raffinerie.md) | Fluid | Maschine |
@@ -121,6 +130,8 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Panzerplatte](Kreaturen-des-inneren-Sonnensystems.md) | Item | Kreatur |
 | [Panzerung](Der-Hitzeanzug.md) | Item | Rezept |
 | [Planetenatlas](Der-Planetenatlas.md) | Item | Geschenk beim ersten Betreten, Rezept |
+| [Platinbarren](Der-Asteroidenguertel.md) | Item | Maschine |
+| [Platinstaub](Der-Asteroidenguertel.md) | Item | Maschine |
 | [Presse](Presse.md) | Block | Rezept |
 | [Pressform (Draht)](Presse.md) | Item | Rezept |
 | [Pressform (Platte)](Presse.md) | Item | Rezept |
@@ -154,6 +165,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Rover-Lithiumpaket](Lithium.md) | Item | Rezept |
 | [Rover-Scanner](Der-Rover.md) | Item | Rezept |
 | [Rover-Scheinwerfer](Der-Rover.md) | Item | Rezept |
+| [Salzkruste](Ceres.md) | Block | Weltgenerierung |
 | [Sauerstoff](Elektrolyseur.md) | Fluid | Maschine |
 | [Sauerstoffflasche](Sauerstoff-speichern.md) | Item | Rezept |
 | [Sauerstoffgenerator](Sauerstoffgenerator.md) | Block | Rezept |

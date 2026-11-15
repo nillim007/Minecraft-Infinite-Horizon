@@ -818,4 +818,39 @@ public class IhFabricGameTests {
     public void creatureMirrorbeetleBlinds(GameTestHelper helper) {
         IhGameTestsM7a.mirrorBeetleBlinds(helper);
     }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:asteroid_belt")
+    public void asteroidbeltSpawnasteroid(GameTestHelper helper) {
+        IhGameTestsM7b.spawnAsteroidExists(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:asteroid_belt")
+    public void asteroidbeltVoidreset(GameTestHelper helper) {
+        IhGameTestsM7b.voidResetToSpawnAsteroid(helper);
+    }
+
+    @GameTest(maxTicks = 40, dimension = "infinite_horizon:asteroid_belt")
+    public void asteroidAnchorOnegee(GameTestHelper helper) {
+        IhGameTestsM7b.anchorGravity(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void asteroidAnchorNeedsasteroid(GameTestHelper helper) {
+        IhGameTestsM7b.anchorNeedsAsteroid(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:ceres")
+    public void ceresIcevolcanoAtspawn(GameTestHelper helper) {
+        IhGameTestsM7b.ceresIceVolcano(helper);
+    }
+
+    @GameTest(maxTicks = 20, structure = "infinite_horizon:gametest/empty_large")
+    public void creatureDriftmiteSwarm(GameTestHelper helper) {
+        IhGameTestsM7b.driftMiteSwarm(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void asteroidIridiumoreDrops(GameTestHelper helper) {
+        IhGameTestsM7b.asteroidOreDrops(helper);
+    }
 }

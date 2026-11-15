@@ -77,7 +77,12 @@
     "rover_lithium_pack",
     "mirror_shell",
     "heat_reflector",
-    "radiation_shield"
+    "radiation_shield",
+    "platinum_dust",
+    "platinum_ingot",
+    "iridium_dust",
+    "iridium_ingot",
+    "iridium_chip"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,

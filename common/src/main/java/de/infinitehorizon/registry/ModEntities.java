@@ -72,6 +72,8 @@ public final class ModEntities {
     /** Ring 2 (M7). */
     public static final Supplier<EntityType<de.infinitehorizon.creature.MirrorBeetle>> MIRROR_BEETLE =
             creature("mirror_beetle", de.infinitehorizon.creature.MirrorBeetle::new);
+    public static final Supplier<EntityType<de.infinitehorizon.creature.DriftMite>> DRIFT_MITE =
+            creature("drift_mite", de.infinitehorizon.creature.DriftMite::new);
 
     /** Kreatur mit Größe, Kategorie und Feuerfestigkeit aus creatures.json und Attributen je Loader. */
     private static <T extends net.minecraft.world.entity.LivingEntity> Supplier<EntityType<T>> creature(String name,

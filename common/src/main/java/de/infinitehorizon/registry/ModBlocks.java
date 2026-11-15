@@ -204,6 +204,10 @@ public final class ModBlocks {
     /** Sonde als Block auf der Rampe (12.3). */
     public static final Supplier<Block> PROBE = register("probe", Block::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Asteroidenanker (13.4): 1 g im Umkreis, nur auf Asteroiden. */
+    public static final Supplier<Block> ASTEROID_ANCHOR = register("asteroid_anchor",
+            p -> new de.infinitehorizon.station.AsteroidAnchorBlock(p, () -> ModBlockEntities.ASTEROID_ANCHOR.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     /** Erweiterte Sonde (12.3): Ziele in Ring 2. */
     public static final Supplier<Block> ADVANCED_PROBE = register("advanced_probe", Block::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));

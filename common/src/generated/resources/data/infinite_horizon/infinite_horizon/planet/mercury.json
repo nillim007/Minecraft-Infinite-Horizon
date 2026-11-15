@@ -28,6 +28,8 @@
   "requires_long_range": false,
   "lander_connects_to": "infinite_horizon:mercury_orbit",
   "fixed_time": 6000,
+  "special": {},
+  "structures": [],
   "probe": "infinite_horizon:advanced_probe",
   "sky": {
     "color": "#000000",

@@ -36,7 +36,7 @@ import java.util.Optional;
  */
 public final class SurfaceStructure extends Structure {
 
-    public enum Kind { GIANT_VOLCANO, VOLCANIC_VENT, METEORITE_FIELD }
+    public enum Kind { GIANT_VOLCANO, VOLCANIC_VENT, METEORITE_FIELD, ICE_VOLCANO, ASTEROID }
 
     public static final MapCodec<SurfaceStructure> CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
             settingsCodec(i),
@@ -49,7 +49,9 @@ public final class SurfaceStructure extends Structure {
             IntProviders.CODEC.optionalFieldOf("part_radius").forGetter(s -> Optional.ofNullable(s.partRadius)),
             Identifier.CODEC.fieldOf("block").forGetter(s -> s.block),
             Identifier.CODEC.fieldOf("core").forGetter(s -> s.core),
-            Identifier.CODEC.fieldOf("fluid").forGetter(s -> s.fluid)
+            Identifier.CODEC.fieldOf("fluid").forGetter(s -> s.fluid),
+            IntProviders.CODEC.optionalFieldOf("y").forGetter(s -> Optional.ofNullable(s.y)),
+            AsteroidShape.OreShare.CODEC.listOf().optionalFieldOf("ores", java.util.List.of()).forGetter(s -> s.ores)
     ).apply(i, SurfaceStructure::new));
 
     private final Kind kind;
@@ -61,10 +63,13 @@ public final class SurfaceStructure extends Structure {
     private final Identifier block;
     private final Identifier core;
     private final Identifier fluid;
+    /** Asteroid (13.4): Höhe des Mittelpunkts; ohne Angabe {@code height}. */
+    private final @org.jspecify.annotations.Nullable IntProvider y;
+    private final java.util.List<AsteroidShape.OreShare> ores;
 
     private SurfaceStructure(StructureSettings settings, Kind kind, IntProvider radius, int height, int divisor,
                              Optional<IntProvider> count, Optional<IntProvider> partRadius, Identifier block, Identifier core,
-                             Identifier fluid) {
+                             Identifier fluid, Optional<IntProvider> y, java.util.List<AsteroidShape.OreShare> ores) {
         super(settings);
         this.kind = kind;
         this.radius = radius;
@@ -75,6 +80,8 @@ public final class SurfaceStructure extends Structure {
         this.block = block;
         this.core = core;
         this.fluid = fluid;
+        this.y = y.orElse(null);
+        this.ores = java.util.List.copyOf(ores);
     }
 
     @Override
@@ -83,6 +90,13 @@ public final class SurfaceStructure extends Structure {
         RandomSource random = context.random();
         int x = chunk.getMiddleBlockX();
         int z = chunk.getMiddleBlockZ();
+        if (kind == Kind.ASTEROID) {
+            // Asteroid im leeren Raum: Mitte auf Höhe y (bzw. height), Kugel mit Radius radius
+            int cy = this.y != null ? this.y.sample(random) : height;
+            int r = radius.sample(random);
+            AsteroidPiece piece = new AsteroidPiece(new BlockPos(x, cy, z), r, block, ores, random.nextLong());
+            return Optional.of(new GenerationStub(new BlockPos(x, cy, z), b -> b.addPiece(piece)));
+        }
         int ground = context.chunkGenerator().getFirstOccupiedHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG,
                 context.heightAccessor(), context.randomState());
         int r = radius.sample(random);
@@ -106,7 +120,63 @@ public final class SurfaceStructure extends Structure {
             case GIANT_VOLCANO -> ModWorldgen.GIANT_VOLCANO.get();
             case VOLCANIC_VENT -> ModWorldgen.VOLCANIC_VENT.get();
             case METEORITE_FIELD -> ModWorldgen.METEORITE_FIELD.get();
+            case ICE_VOLCANO -> ModWorldgen.ICE_VOLCANO.get();
+            case ASTEROID -> ModWorldgen.LARGE_ASTEROID.get();
         };
+    }
+
+    /** Ein Asteroid als Strukturteil; die Blöcke je Chunk setzt {@link AsteroidShape}. */
+    public static final class AsteroidPiece extends StructurePiece {
+
+        private final BlockPos center;
+        private final int radius;
+        private final Identifier block;
+        private final java.util.List<AsteroidShape.OreShare> ores;
+        private final long seed;
+
+        AsteroidPiece(BlockPos center, int radius, Identifier block, java.util.List<AsteroidShape.OreShare> ores, long seed) {
+            super(ModWorldgen.ASTEROID_PIECE.get(), 0, new BoundingBox(center.getX() - radius, center.getY() - radius,
+                    center.getZ() - radius, center.getX() + radius, center.getY() + radius, center.getZ() + radius));
+            this.center = center;
+            this.radius = radius;
+            this.block = block;
+            this.ores = ores;
+            this.seed = seed;
+        }
+
+        public AsteroidPiece(CompoundTag tag) {
+            super(ModWorldgen.ASTEROID_PIECE.get(), tag);
+            int[] c = tag.getIntArray("center").orElse(new int[3]);
+            this.center = new BlockPos(c[0], c[1], c[2]);
+            this.radius = tag.getIntOr("radius", 1);
+            this.block = Identifier.parse(tag.getStringOr("block", "minecraft:stone"));
+            this.seed = tag.getLongOr("seed", 0L);
+            java.util.List<AsteroidShape.OreShare> list = new java.util.ArrayList<>();
+            String[] ids = tag.getStringOr("ores", "").split(",");
+            String[] fr = tag.getStringOr("fractions", "").split(",");
+            for (int k = 0; k < ids.length && k < fr.length; k++) {
+                if (!ids[k].isEmpty()) {
+                    list.add(new AsteroidShape.OreShare(Identifier.parse(ids[k]), Double.parseDouble(fr[k])));
+                }
+            }
+            this.ores = list;
+        }
+
+        @Override
+        protected void addAdditionalSaveData(StructurePieceSerializationContext context, CompoundTag tag) {
+            tag.put("center", new IntArrayTag(new int[]{center.getX(), center.getY(), center.getZ()}));
+            tag.putInt("radius", radius);
+            tag.putString("block", block.toString());
+            tag.putLong("seed", seed);
+            tag.putString("ores", String.join(",", ores.stream().map(o -> o.block().toString()).toList()));
+            tag.putString("fractions", String.join(",", ores.stream().map(o -> Double.toString(o.fraction())).toList()));
+        }
+
+        @Override
+        public void postProcess(WorldGenLevel level, StructureManager structures, ChunkGenerator generator,
+                                RandomSource random, BoundingBox chunkBox, ChunkPos chunk, BlockPos referencePos) {
+            AsteroidShape.fill(level, center, new double[]{radius, radius, radius}, block, ores, seed, chunkBox);
+        }
     }
 
     /** Die ganze Struktur als ein Stück; Form je Spalte aus Mitte, Grundhöhe und Parametern. */
@@ -159,6 +229,8 @@ public final class SurfaceStructure extends Structure {
                         c.getX() + reach, c.getY() + height + 4, c.getZ() + reach);
                 case METEORITE_FIELD -> new BoundingBox(c.getX() - reach, c.getY() - reach, c.getZ() - reach,
                         c.getX() + reach, c.getY() + reach, c.getZ() + reach);
+                case ICE_VOLCANO, ASTEROID -> new BoundingBox(c.getX() - reach, c.getY() - 4, c.getZ() - reach,
+                        c.getX() + reach, c.getY() + height + 4, c.getZ() + reach);
             };
         }
 

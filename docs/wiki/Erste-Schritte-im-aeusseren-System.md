@@ -11,6 +11,7 @@ Mit Stufe 4 der Forschung öffnet sich das Sonnensystem jenseits von Mond, Mars 
 1. **Die erweiterte Sonde bauen.** Der Knoten „Erweiterte Sonde“ schaltet die Fortgeschrittene Sonde und alle Ziele in Ring 2 frei. Sie startet wie die einfache Sonde von der [Startrampe](Startrampe-und-Sonde.md) und erreicht auch die alten Ziele.
 2. **Zum Merkur.** Auf dem [Merkur](Der-Merkur.md) gibt es Lithium. Nimm einen Hitzeanzug und einen Strahlenschild mit.
 3. **Lithium verarbeiten.** Aus Lithiumsalz werden Barren und daraus [Lithium-Akkus](Lithium.md), die Grundlage aller Geräte der vierten Phase.
+4. **In den Asteroidengürtel.** Auf den [Asteroiden](Der-Asteroidenguertel.md) gibt es Platin und Iridium, daraus entstehen Iridium-Chips. Auf [Ceres](Ceres.md) wartet ein Eisvulkan als Erkundungsziel.
 
 ![Rezept: Fortgeschrittene Sonde](images/rezepte/assembly_advanced_probe.svg)
 

@@ -1,0 +1,45 @@
+{
+  "id": "infinite_horizon:phase_5/ceres",
+  "chapter": "infinite_horizon:phase_5",
+  "title": "infinite_horizon.handbook.phase_5.ceres.title",
+  "icon": "infinite_horizon:salt_crust",
+  "order": 50,
+  "unlock": "infinite_horizon:research_tier/4",
+  "items": [
+    "infinite_horizon:ceres_rock",
+    "infinite_horizon:salt_crust"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.ceres.e0"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_5.ceres.e1.0",
+        "infinite_horizon.handbook.phase_5.ceres.e1.1"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.ceres.e2",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.ceres.e3"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.ceres.e4",
+      "style": "warning"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.ceres.e5",
+      "style": "tip"
+    }
+  ]
+}

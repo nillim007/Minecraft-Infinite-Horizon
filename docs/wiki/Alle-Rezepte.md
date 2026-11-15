@@ -43,6 +43,8 @@ Hier stehen alle Rezepte, die es im aktuellen Stand gibt. Die Werte kommen direk
 
 | Rezept | Zutaten → Ergebnis | Wo | Dauer |
 | --- | --- | --- | --- |
+| <img src="images/rezepte/electric_smelting_iridium_ingot.svg" alt="Rezept" width="300"> | 1 × [Rohiridium](Weltraumwetter-und-Ereignisse.md) → 1 × [Iridiumbarren](Der-Asteroidenguertel.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
+| <img src="images/rezepte/electric_smelting_iridium_ingot_from_dust.svg" alt="Rezept" width="300"> | 1 × [Iridiumstaub](Der-Asteroidenguertel.md) → 1 × [Iridiumbarren](Der-Asteroidenguertel.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
 | <img src="images/rezepte/electric_smelting_lithium_ingot.svg" alt="Rezept" width="300"> | 1 × [Lithiumsalz](Lithium.md) → 1 × [Lithiumbarren](Lithium.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
 | <img src="images/rezepte/electric_smelting_lithium_ingot_from_dust.svg" alt="Rezept" width="300"> | 1 × [Lithiumstaub](Lithium.md) → 1 × [Lithiumbarren](Lithium.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
 | <img src="images/rezepte/electric_smelting_magnesium_alloy.svg" alt="Rezept" width="300"> | 1 × [Magnesiumbarren](Der-Mars.md), 1 × [Aluminiumbarren](Elektroofen.md) → 1 × [Magnesium-Legierung](Der-Hochtemperaturofen.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
@@ -50,6 +52,8 @@ Hier stehen alle Rezepte, die es im aktuellen Stand gibt. Die Werte kommen direk
 | <img src="images/rezepte/electric_smelting_magnesium_ingot_from_dust.svg" alt="Rezept" width="300"> | 1 × [Magnesiumstaub](Der-Mars.md) → 1 × [Magnesiumbarren](Der-Mars.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
 | <img src="images/rezepte/electric_smelting_nickel_ingot.svg" alt="Rezept" width="300"> | 1 × [Rohnickel](Der-Mars.md) → 1 × [Nickelbarren](Der-Mars.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
 | <img src="images/rezepte/electric_smelting_nickel_ingot_from_dust.svg" alt="Rezept" width="300"> | 1 × [Nickelstaub](Der-Mars.md) → 1 × [Nickelbarren](Der-Mars.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
+| <img src="images/rezepte/electric_smelting_platinum_ingot.svg" alt="Rezept" width="300"> | 1 × [Rohplatin](Weltraumwetter-und-Ereignisse.md) → 1 × [Platinbarren](Der-Asteroidenguertel.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
+| <img src="images/rezepte/electric_smelting_platinum_ingot_from_dust.svg" alt="Rezept" width="300"> | 1 × [Platinstaub](Der-Asteroidenguertel.md) → 1 × [Platinbarren](Der-Asteroidenguertel.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
 | <img src="images/rezepte/electric_smelting_silicon.svg" alt="Rezept" width="300"> | 1 × [Quarzsand](Rohstoffe-und-Erze.md) → 1 × [Silizium](Elektroofen.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
 
 ## Zerkleinerer
@@ -60,10 +64,12 @@ Hier stehen alle Rezepte, die es im aktuellen Stand gibt. Die Werte kommen direk
 | <img src="images/rezepte/crushing_aluminum_dust_from_metal_concentrate.svg" alt="Rezept" width="300"> | 1 × [Metallkonzentrat](Kreaturen-des-inneren-Sonnensystems.md) → 1 × [Aluminiumstaub](Zerkleinerer.md), 1 × [Titanstaub](Zerkleinerer.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_iron_dust.svg" alt="Rezept" width="300"> | 1 × Roheisen → 2 × [Eisenstaub](Zerkleinerer.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_gold_dust.svg" alt="Rezept" width="300"> | 1 × Rohgold → 2 × [Goldstaub](Zerkleinerer.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
+| <img src="images/rezepte/crushing_iridium_dust.svg" alt="Rezept" width="300"> | 1 × [Rohiridium](Weltraumwetter-und-Ereignisse.md) → 2 × [Iridiumstaub](Der-Asteroidenguertel.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_copper_dust.svg" alt="Rezept" width="300"> | 1 × Rohkupfer → 2 × [Kupferstaub](Zerkleinerer.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_lithium_dust.svg" alt="Rezept" width="300"> | 1 × [Lithiumsalz](Lithium.md) → 2 × [Lithiumstaub](Lithium.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_magnesium_dust.svg" alt="Rezept" width="300"> | 1 × [Rohmagnesium](Der-Mars.md) → 2 × [Magnesiumstaub](Der-Mars.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_nickel_dust.svg" alt="Rezept" width="300"> | 1 × [Rohnickel](Der-Mars.md) → 2 × [Nickelstaub](Der-Mars.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
+| <img src="images/rezepte/crushing_platinum_dust.svg" alt="Rezept" width="300"> | 1 × [Rohplatin](Weltraumwetter-und-Ereignisse.md) → 2 × [Platinstaub](Der-Asteroidenguertel.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_raw_iron_from_meteorite_ore.svg" alt="Rezept" width="300"> | 1 × [Meteoritenerz](Weltraumwetter-und-Ereignisse.md) → 2 × Roheisen, 1 × [Rohnickel](Der-Mars.md), 1 × [Rohplatin](Weltraumwetter-und-Ereignisse.md) (10 %), 1 × [Rohiridium](Weltraumwetter-und-Ereignisse.md) (5 %) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_titanium_dust.svg" alt="Rezept" width="300"> | 1 × [Rohtitan](Rohstoffe-und-Erze.md) → 2 × [Titanstaub](Zerkleinerer.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_tungsten_dust.svg" alt="Rezept" width="300"> | 1 × [Rohwolfram](Die-Venus.md) → 2 × [Wolframstaub](Die-Venus.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
@@ -92,6 +98,7 @@ Hier stehen alle Rezepte, die es im aktuellen Stand gibt. Die Werte kommen direk
 | <img src="images/rezepte/assembly_aluminum_cable.svg" alt="Rezept" width="300"> | 3 × [Aluminiumdraht](Presse.md), 1 × [Kunststoff](Raffinerie.md) → 8 × [Aluminiumkabel](Strom-im-All.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_analyzer.svg" alt="Rezept" width="300"> | 1 × [Maschinenrahmen](Erste-Schritte.md), 4 × [Aluminiumplatte](Presse.md), 2 × [Schaltkreis](Montagetisch.md), 1 × Glas → 1 × [Analysator](Forschung.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_docking_bay.svg" alt="Rezept" width="300"> | 16 × [Leichtbau-Platte](Der-Hochtemperaturofen.md), 4 × [Fortgeschrittener Schaltkreis](Der-Hochtemperaturofen.md), 2 × [Kupferrohr](Fluide-und-Rohre.md) → 1 × [Andockbucht](Stationsmodule.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_asteroid_anchor.svg" alt="Rezept" width="300"> | 8 × [Titanstange](Presse.md), 4 × [Wolframplatte](Die-Rakete-T2.md), 1 × [Fortgeschrittener Schaltkreis](Der-Hochtemperaturofen.md) → 1 × [Asteroiden-Anker](Der-Asteroidenguertel.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_pressure_suit_chestplate.svg" alt="Rezept" width="300"> | 10 × [Aluminiumplatte](Presse.md), 3 × [Kunststoff](Raffinerie.md), 1 × [Schaltkreis](Montagetisch.md) → 1 × [Druckanzug-Brustplatte](Der-Druckanzug.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_pressure_suit_helmet.svg" alt="Rezept" width="300"> | 4 × [Aluminiumplatte](Presse.md), 1 × [Kunststoff](Raffinerie.md), 4 × Glas, 1 × [Schaltkreis](Montagetisch.md) → 1 × [Druckanzug-Helm](Der-Druckanzug.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_pressure_suit_leggings.svg" alt="Rezept" width="300"> | 6 × [Aluminiumplatte](Presse.md), 2 × [Kunststoff](Raffinerie.md) → 1 × [Druckanzug-Hose](Der-Druckanzug.md) | Montagetisch | 200 t (10 s)<br>30 J/t |

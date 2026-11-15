@@ -1,0 +1,61 @@
+{
+  "dimension": "infinite_horizon:ceres",
+  "type": "surface",
+  "orbit": null,
+  "star_system": "infinite_horizon:sol",
+  "ring": 2,
+  "distance_points": 3,
+  "gravity": 0.03,
+  "atmosphere": "none",
+  "pressure": "vacuum",
+  "temperature": {
+    "day": -90,
+    "night": -110
+  },
+  "biome_temperature_offsets": {},
+  "biome_temperature_overrides": {},
+  "radiation": 1,
+  "solar_factor": 0.25,
+  "water_behavior": "freeze",
+  "landing_requires_fuel": true,
+  "launch_cost_override": null,
+  "required_rocket_tier": 2,
+  "requires_long_range": false,
+  "lander_connects_to": null,
+  "fixed_time": null,
+  "special": {},
+  "structures": [
+    {
+      "id": "infinite_horizon:ice_volcano",
+      "exploration_target": true,
+      "biomes": [
+        "infinite_horizon:ceres_plains",
+        "infinite_horizon:ceres_salt_flats"
+      ],
+      "spacing_chunks": null,
+      "count_per_dimension": 1,
+      "position": {
+        "x": 0,
+        "y": null,
+        "z": 0,
+        "tolerance": null
+      },
+      "params": {},
+      "notes": "Kegel aus Eis, 1 je Dimension nahe Spawn"
+    }
+  ],
+  "probe": "infinite_horizon:advanced_probe",
+  "sky": {
+    "color": "#000000",
+    "fog_color": "#000000",
+    "fog_distance": null,
+    "stars_in_daylight": true,
+    "sun_scale": 0.5,
+    "sunset_color": null,
+    "celestial_bodies": []
+  },
+  "gas_collector_output": null,
+  "zones": [],
+  "vanilla_mobs": [],
+  "name": "planet.infinite_horizon.ceres"
+}

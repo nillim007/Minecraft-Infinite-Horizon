@@ -23,6 +23,21 @@
   "requires_long_range": false,
   "lander_connects_to": "infinite_horizon:venus_orbit",
   "fixed_time": null,
+  "special": {},
+  "structures": [
+    {
+      "id": "infinite_horizon:volcanic_vent",
+      "exploration_target": true,
+      "biomes": [
+        "infinite_horizon:venus_volcanoes"
+      ],
+      "spacing_chunks": null,
+      "count_per_dimension": null,
+      "position": null,
+      "params": {},
+      "notes": "an Vulkanen; SPEC-GAP: Häufigkeit nicht angegeben"
+    }
+  ],
   "probe": "infinite_horizon:probe",
   "sky": {
     "color": "#D9A441",

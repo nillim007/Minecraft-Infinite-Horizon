@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 7a · Mod-Version 0.1.0
+> Stand: Meilenstein 7b · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -90,6 +90,8 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Erste Schritte im äußeren System](Erste-Schritte-im-aeusseren-System.md) – Neue Ziele von Merkur bis Pluto
 - [Der Merkur](Der-Merkur.md) – Glut auf der Tagseite, Frost auf der Nachtseite, Lithium dazwischen
 - [Lithium](Lithium.md) – Lithiumsalz, Lithium-Akku, Akkubank, Rover-Akku
+- [Der Asteroidengürtel](Der-Asteroidenguertel.md) – Schwebende Felsbrocken voller Platin, Iridium und Nickel
+- [Ceres](Ceres.md) – Der Zwergplanet mit Salzebenen und einem Eisvulkan
 
 ## Nachschlagen
 

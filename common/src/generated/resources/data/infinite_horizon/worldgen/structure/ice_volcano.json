@@ -1,0 +1,17 @@
+{
+  "type": "infinite_horizon:ice_volcano",
+  "biomes": "#infinite_horizon:has_structure/ice_volcano",
+  "spawn_overrides": {},
+  "step": "surface_structures",
+  "kind": "ice_volcano",
+  "radius": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 16,
+    "max_inclusive": 20
+  },
+  "height": 24,
+  "divisor": 5,
+  "block": "minecraft:ice",
+  "core": "minecraft:packed_ice",
+  "fluid": "minecraft:air"
+}

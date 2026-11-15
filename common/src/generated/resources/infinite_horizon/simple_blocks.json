@@ -71,6 +71,36 @@
       "falls": false
     },
     {
+      "id": "asteroid_rock",
+      "copy": "minecraft:cobbled_deepslate",
+      "falls": false
+    },
+    {
+      "id": "asteroid_platinum_ore",
+      "copy": "minecraft:deepslate_gold_ore",
+      "falls": false
+    },
+    {
+      "id": "asteroid_iridium_ore",
+      "copy": "minecraft:deepslate_diamond_ore",
+      "falls": false
+    },
+    {
+      "id": "asteroid_nickel_ore",
+      "copy": "minecraft:deepslate_iron_ore",
+      "falls": false
+    },
+    {
+      "id": "ceres_rock",
+      "copy": "minecraft:tuff",
+      "falls": false
+    },
+    {
+      "id": "salt_crust",
+      "copy": "minecraft:calcite",
+      "falls": false
+    },
+    {
       "id": "meteorite_ore",
       "copy": "minecraft:iron_ore",
       "falls": false

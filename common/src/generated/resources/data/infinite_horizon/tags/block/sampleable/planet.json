@@ -1,5 +1,10 @@
 {
   "values": [
+    "infinite_horizon:asteroid_iridium_ore",
+    "infinite_horizon:asteroid_nickel_ore",
+    "infinite_horizon:asteroid_platinum_ore",
+    "infinite_horizon:asteroid_rock",
+    "infinite_horizon:ceres_rock",
     "infinite_horizon:dry_ice_block",
     "infinite_horizon:gypsum_block",
     "infinite_horizon:iron_nickel_meteorite",
@@ -17,6 +22,7 @@
     "infinite_horizon:moon_regolith",
     "infinite_horizon:moon_rock",
     "infinite_horizon:moon_titanium_ore",
+    "infinite_horizon:salt_crust",
     "infinite_horizon:venus_rock",
     "infinite_horizon:venus_sulfur_ore",
     "infinite_horizon:venus_tungsten_ore",

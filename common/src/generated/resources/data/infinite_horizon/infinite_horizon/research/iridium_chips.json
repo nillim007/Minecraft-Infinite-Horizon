@@ -1,0 +1,18 @@
+{
+  "tier": 4,
+  "branch": "logistics",
+  "cost": 80,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:iridium_chip"
+    }
+  ],
+  "icon": "infinite_horizon:iridium_chip",
+  "position": {
+    "column": 3,
+    "row": 4,
+    "slot": 0
+  }
+}

@@ -25,6 +25,56 @@
   "requires_long_range": false,
   "lander_connects_to": "infinite_horizon:earth_orbit",
   "fixed_time": null,
+  "special": {},
+  "structures": [
+    {
+      "id": "infinite_horizon:great_crater",
+      "exploration_target": false,
+      "biomes": [
+        "infinite_horizon:moon_great_crater"
+      ],
+      "spacing_chunks": 32,
+      "separation_chunks": 8,
+      "count_per_dimension": null,
+      "position": null,
+      "params": {
+        "radius": [
+          40,
+          60
+        ],
+        "central_peak": true,
+        "ore_multiplier": 2,
+        "ore_rule": "die Struktur setzt die Erzadern ihres Bioms in ihrem Volumen ein zweites Mal"
+      },
+      "notes": "Radius 40–60, Zentralberg, nur im Biom moon_great_crater, Abstand 32 Chunks, Trennung 8; Erze ×2 innerhalb der Struktur (Ä27)"
+    },
+    {
+      "id": "infinite_horizon:lava_tube",
+      "exploration_target": true,
+      "biomes": [
+        "infinite_horizon:moon_mare"
+      ],
+      "spacing_chunks": 16,
+      "separation_chunks": 4,
+      "count_per_dimension": null,
+      "position": null,
+      "params": {
+        "cross_section": [
+          5,
+          5
+        ],
+        "length": [
+          60,
+          120
+        ],
+        "y_min": 30,
+        "y_max": 50,
+        "shape": "straight",
+        "direction": "random_horizontal"
+      },
+      "notes": "gerader Tunnel 5×5 in zufälliger Himmelsrichtung, Länge 60–120, y 30–50, 1 je 16 Chunks (Trennung 4); Erkundungsziel ab M4"
+    }
+  ],
   "probe": "infinite_horizon:probe",
   "sky": {
     "color": "#000000",

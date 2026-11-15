@@ -1,0 +1,13 @@
+{
+  "placement": {
+    "type": "infinite_horizon:fixed",
+    "x": 0,
+    "z": 0
+  },
+  "structures": [
+    {
+      "structure": "infinite_horizon:spawn_large_asteroid",
+      "weight": 1
+    }
+  ]
+}

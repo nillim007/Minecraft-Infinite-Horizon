@@ -1,0 +1,31 @@
+{
+  "type": "infinite_horizon:asteroid",
+  "block": "infinite_horizon:asteroid_rock",
+  "radius": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 3,
+    "max_inclusive": 12
+  },
+  "chance": 0.4,
+  "ellipsoid": true,
+  "ores": [
+    {
+      "block": "infinite_horizon:asteroid_platinum_ore",
+      "fraction": 0.04
+    },
+    {
+      "block": "infinite_horizon:asteroid_iridium_ore",
+      "fraction": 0.02
+    },
+    {
+      "block": "infinite_horizon:asteroid_nickel_ore",
+      "fraction": 0.06
+    }
+  ],
+  "swarm": {
+    "entity": "infinite_horizon:drift_mite",
+    "min": 5,
+    "max": 10,
+    "radius": 8
+  }
+}

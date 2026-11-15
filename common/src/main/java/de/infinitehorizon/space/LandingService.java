@@ -39,6 +39,11 @@ public final class LandingService {
         if (planet != null && planet.isOrbit()) {
             return OrbitLanding.standOn(level, x, z); // SPEC-GAP #96: goto in den Orbit
         }
+        if (planet != null && de.infinitehorizon.station.ZeroGMovement.voidReset(planet) != null) {
+            level.getChunk(x >> 4, z >> 4, ChunkStatus.FULL);
+            int top = level.getHeight(Heightmap.Types.MOTION_BLOCKING, x, z);
+            return top > level.getMinY() + 1 ? new BlockPos(x, top, z) : OrbitLanding.find(level, x, z, null);
+        }
         Search s = Search.from(BalanceManager.get());
         // Spirale: Ring für Ring von innen nach außen
         for (int r = 0; r <= s.radius(); r++) {

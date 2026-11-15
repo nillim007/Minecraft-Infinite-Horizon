@@ -48,6 +48,11 @@ public final class XBands {
         return d > 0 && v > 0 && d < maxDistance && (view[0] * tx + view[1] * ty + view[2] * tz) / (d * v) > minCos;
     }
 
+    /** Feste Strukturlage (13.4): Ist (chunkX, chunkZ) der Chunk des Blocks (x, z)? */
+    public static boolean fixedChunk(int x, int z, int chunkX, int chunkZ) {
+        return Math.floorDiv(x, 16) == chunkX && Math.floorDiv(z, 16) == chunkZ;
+    }
+
     /** Sondenwahl (12.3): Feld {@code probe} des Planeten; die erweiterte Sonde erreicht auch Ziele der einfachen. */
     public static boolean probeFits(String probePath, String probeId, String required) {
         return required == null || required.equals(probeId) || probePath.equals("advanced_probe") && required.endsWith(":probe");

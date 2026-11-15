@@ -116,6 +116,12 @@ public final class ModBlockEntities {
                             (pos, state) -> new FluidFuelGeneratorBlockEntity(ModBlockEntities.FUEL_GENERATOR.get(), pos, state),
                             ModBlocks.FUEL_GENERATOR.get()));
 
+    public static final Supplier<BlockEntityType<de.infinitehorizon.station.AsteroidAnchorBlock.Entity>> ASTEROID_ANCHOR =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "asteroid_anchor",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.station.AsteroidAnchorBlock.Entity(
+                                    ModBlockEntities.ASTEROID_ANCHOR.get(), pos, state),
+                            ModBlocks.ASTEROID_ANCHOR.get()));
     public static final Supplier<BlockEntityType<BatteryBlockEntity>> LITHIUM_BATTERY_BANK =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "lithium_battery_bank",
                     () -> Services.REGISTRY.blockEntityType(

@@ -1,0 +1,16 @@
+{
+  "type": "infinite_horizon:asteroid_belt",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "infinite_horizon:asteroid_field",
+      "features": true,
+      "lakes": false,
+      "layers": [],
+      "structure_overrides": [
+        "infinite_horizon:large_asteroid",
+        "infinite_horizon:spawn_large_asteroid"
+      ]
+    }
+  }
+}

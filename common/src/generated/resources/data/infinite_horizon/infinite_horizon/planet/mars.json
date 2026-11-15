@@ -23,6 +23,59 @@
   "requires_long_range": false,
   "lander_connects_to": "infinite_horizon:mars_orbit",
   "fixed_time": null,
+  "special": {},
+  "structures": [
+    {
+      "id": "infinite_horizon:giant_volcano",
+      "exploration_target": false,
+      "biomes": [
+        "infinite_horizon:mars_volcanic_highlands"
+      ],
+      "spacing_chunks": 64,
+      "count_per_dimension": null,
+      "position": null,
+      "params": {
+        "radius": 80,
+        "max_y": 250
+      },
+      "notes": "Radius 80, Höhe bis y 250"
+    },
+    {
+      "id": "infinite_horizon:lava_tube",
+      "exploration_target": true,
+      "biomes": [
+        "infinite_horizon:mars_volcanic_highlands"
+      ],
+      "spacing_chunks": null,
+      "count_per_dimension": null,
+      "position": null,
+      "params": {
+        "cross_section": [
+          5,
+          5
+        ],
+        "length": [
+          60,
+          120
+        ],
+        "y_min": 30,
+        "y_max": 50
+      },
+      "notes": "Hochland; Maße wie Mond (5×5, Länge 60–120, y 30–50); SPEC-GAP: Häufigkeit auf dem Mars nicht angegeben"
+    },
+    {
+      "id": "infinite_horizon:meteorite_field",
+      "exploration_target": true,
+      "biomes": [
+        "infinite_horizon:mars_meteorite_field"
+      ],
+      "spacing_chunks": 8,
+      "count_per_dimension": null,
+      "position": null,
+      "params": {},
+      "notes": "1 je 8 Chunks"
+    }
+  ],
   "probe": "infinite_horizon:probe",
   "sky": {
     "color": "#C8A27A",

@@ -1,0 +1,35 @@
+{
+  "type": "infinite_horizon:large_asteroid",
+  "biomes": "#infinite_horizon:has_structure/large_asteroid",
+  "spawn_overrides": {},
+  "step": "surface_structures",
+  "kind": "asteroid",
+  "height": 0,
+  "block": "infinite_horizon:asteroid_rock",
+  "core": "infinite_horizon:asteroid_rock",
+  "fluid": "minecraft:air",
+  "ores": [
+    {
+      "block": "infinite_horizon:asteroid_platinum_ore",
+      "fraction": 0.04
+    },
+    {
+      "block": "infinite_horizon:asteroid_iridium_ore",
+      "fraction": 0.02
+    },
+    {
+      "block": "infinite_horizon:asteroid_nickel_ore",
+      "fraction": 0.06
+    }
+  ],
+  "radius": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 13,
+    "max_inclusive": 20
+  },
+  "y": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 20,
+    "max_inclusive": 220
+  }
+}

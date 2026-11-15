@@ -43,4 +43,8 @@ public final class CreatureLooks {
     public static BlockState beetle(de.infinitehorizon.creature.MirrorBeetle e) {
         return Blocks.QUARTZ_BLOCK.defaultBlockState();
     }
+
+    public static BlockState mite(de.infinitehorizon.creature.DriftMite e) {
+        return Blocks.AMETHYST_BLOCK.defaultBlockState();
+    }
 }
