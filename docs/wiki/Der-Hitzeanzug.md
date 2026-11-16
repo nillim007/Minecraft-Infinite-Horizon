@@ -41,6 +41,7 @@ Module baust du im Montagetisch ein: Anzugteil und Modul zusammen hineinlegen. J
 | --- | --- | --- | --- |
 | <img src="images/rezepte/pressing_nickel_plate.svg" alt="Rezept" width="300"> | 1 × [Nickelbarren](Der-Mars.md), Form: [Pressform (Platte)](Presse.md) → 1 × Nickelplatte | Presse | 100 t (5 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_cooling_module.svg" alt="Rezept" width="300"> | 4 × [Kupferrohr](Fluide-und-Rohre.md), 1 × [Kühlsystem](Helium-und-Kryotechnik.md) → 1 × Kühlmodul | Montagetisch | 200 t (10 s)<br>30 J/t |
+| <img src="images/rezepte/assembly_cooling_module_alt.svg" alt="Rezept" width="300"> | 4 × [Kupferrohr](Fluide-und-Rohre.md), 2 × [Hitzeschuppe](Io.md) → 1 × Kühlmodul | Montagetisch | 200 t (10 s)<br>30 J/t |
 | <img src="images/rezepte/assembly_armor_plating.svg" alt="Rezept" width="300"> | 2 × [Panzerplatte](Kreaturen-des-inneren-Sonnensystems.md), 1 × [Titanplatte](Presse.md) → 1 × Panzerung | Montagetisch | 200 t (10 s)<br>30 J/t |
 
 > [!TIP]

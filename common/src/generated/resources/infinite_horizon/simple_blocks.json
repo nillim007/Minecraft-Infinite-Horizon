@@ -101,6 +101,16 @@
       "falls": false
     },
     {
+      "id": "io_crust",
+      "copy": "minecraft:yellow_terracotta",
+      "falls": false
+    },
+    {
+      "id": "io_sulfur_ore",
+      "copy": "minecraft:nether_quartz_ore",
+      "falls": false
+    },
+    {
       "id": "meteorite_ore",
       "copy": "minecraft:iron_ore",
       "falls": false

@@ -47,4 +47,8 @@ public final class CreatureLooks {
     public static BlockState mite(de.infinitehorizon.creature.DriftMite e) {
         return Blocks.AMETHYST_BLOCK.defaultBlockState();
     }
+
+    public static BlockState salamander(de.infinitehorizon.creature.SulfurSalamander e) {
+        return Blocks.MAGMA_BLOCK.defaultBlockState();
+    }
 }

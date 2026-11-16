@@ -93,6 +93,8 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Der Asteroidengürtel](Der-Asteroidenguertel.md) – Schwebende Felsbrocken voller Platin, Iridium und Nickel
 - [Ceres](Ceres.md) – Der Zwergplanet mit Salzebenen und einem Eisvulkan
 - [Fernflug und Jetpack](Fernflug-und-Jetpack.md) – Fernflug-Modul, Start von der Andockbucht, Jetpack
+- [Jupiter-Orbit und Gas-Sammler](Jupiter-Orbit-und-Gas-Sammler.md) – Station über dem Gasriesen, Wasserstoff aus der Atmosphäre
+- [Io](Io.md) – Der Vulkanmond des Jupiter mit Schwefel und Lavaseen
 
 ## Nachschlagen
 

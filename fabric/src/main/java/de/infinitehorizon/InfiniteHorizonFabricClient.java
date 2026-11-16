@@ -50,6 +50,10 @@ public class InfiniteHorizonFabricClient implements ClientModInitializer {
                 ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::beetle));
         net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(de.infinitehorizon.registry.ModEntities.DRIFT_MITE.get(),
                 ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::mite));
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(de.infinitehorizon.registry.ModEntities.SULFUR_SALAMANDER.get(),
+                ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::salamander));
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(de.infinitehorizon.registry.ModEntities.SULFUR_GLOB.get(),
+                ctx -> new net.minecraft.client.renderer.entity.ThrownItemRenderer<>(ctx, 0.75f, true));
         net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry.register(
                 de.infinitehorizon.registry.ModBlockEntities.LANDING_BEACON.get(), ctx -> new de.infinitehorizon.client.LandingBeaconRenderer());
         net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents.END_CLIENT_TICK.register(

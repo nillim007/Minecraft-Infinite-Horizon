@@ -163,6 +163,11 @@ public class IhClientGameTests implements FabricClientGameTest {
                 be.setItem(9, new ItemStack(ModItems.simple("dry_ice").get(), 4));
                 fillEnergy(be, 2);
             });
+            // M7c: Gas-Sammler (in der Overworld: rote Lampe, Hinweis Ort; ein Ausgangstank)
+            machine(context, sp, ModBlocks.GAS_COLLECTOR.get(), "gui_gas_collector", be -> {
+                be.fluidTanks().get(0).setStackUnchecked(IhFluidStack.of(InfiniteHorizon.id("hydrogen"), 6000));
+                fillEnergy(be, 2);
+            });
             launchPad(context, sp);
 
             // Alle Blöcke nebeneinander in der Welt (Modelle, Texturen, Statuslampe)
@@ -221,6 +226,8 @@ public class IhClientGameTests implements FabricClientGameTest {
             planetView(context, sp, "mercury");
             planetView(context, sp, "asteroid_belt");
             planetView(context, sp, "ceres");
+            planetView(context, sp, "jupiter_orbit");
+            planetView(context, sp, "io");
         }
     }
 

@@ -1,7 +1,18 @@
 {
   "type": "infinite_horizon:volcanic_vent",
   "biomes": "#infinite_horizon:has_structure/volcanic_vent",
-  "spawn_overrides": {},
+  "spawn_overrides": {
+    "monster": {
+      "bounding_box": "piece",
+      "spawns": [
+        {
+          "type": "infinite_horizon:sulfur_salamander",
+          "count": 1,
+          "weight": 6
+        }
+      ]
+    }
+  },
   "step": "surface_structures",
   "kind": "volcanic_vent",
   "radius": {

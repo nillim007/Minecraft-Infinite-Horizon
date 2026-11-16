@@ -42,4 +42,4 @@ Solange es schiebt, verbraucht es 40 J je Tick.
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Ceres](Ceres.md)
+← [Ceres](Ceres.md) · [Jupiter-Orbit und Gas-Sammler](Jupiter-Orbit-und-Gas-Sammler.md) →

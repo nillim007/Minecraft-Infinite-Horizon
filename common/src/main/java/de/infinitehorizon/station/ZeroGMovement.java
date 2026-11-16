@@ -137,12 +137,51 @@ public final class ZeroGMovement {
         return false;
     }
 
+    /**
+     * Fall unter y 0 im Orbit eines Gasriesen (14.3): auf den nächsten Stationskern der Dimension, sonst auf eine neue
+     * Plattform ({@code fallback_platform}) an {@code fallback_position}; dazu {@code damage} Schaden.
+     */
+    static boolean fallToStation(ServerPlayer player, JsonObject giants) {
+        ServerLevel level = player.level();
+        StationData.Core core = StationData.get(level).nearest(player.blockPosition(), Integer.MAX_VALUE);
+        BlockPos at;
+        if (core != null) {
+            at = core.pos().above();
+        } else {
+            var fb = giants.getAsJsonArray("fallback_position");
+            at = new BlockPos(fb.get(0).getAsInt(), fb.get(1).getAsInt(), fb.get(2).getAsInt());
+            JsonObject plat = giants.getAsJsonObject("fallback_platform");
+            int half = plat.get("size").getAsInt() / 2;
+            var block = net.minecraft.core.registries.BuiltInRegistries.BLOCK.getValue(Identifier.parse(plat.get("block").getAsString()))
+                    .defaultBlockState();
+            if (block.hasProperty(StationHullBlock.GENERATED)) {
+                block = block.setValue(StationHullBlock.GENERATED, true);
+            }
+            for (int dx = -half; dx <= half; dx++) {
+                for (int dz = -half; dz <= half; dz++) {
+                    BlockPos p = at.offset(dx, -1, dz);
+                    if (level.getBlockState(p).isAir()) {
+                        level.setBlockAndUpdate(p, block);
+                    }
+                }
+            }
+        }
+        player.teleport(new TeleportTransition(level, Vec3.atBottomCenterOf(at), Vec3.ZERO, player.getYRot(), player.getXRot(),
+                TeleportTransition.DO_NOTHING));
+        player.resetFallDistance();
+        if (giants.has("damage")) {
+            player.hurtServer(level, level.damageSources().fall(), giants.get("damage").getAsFloat());
+        }
+        return true;
+    }
+
     /** Fall unter y 0 (14.3): Planeten mit Oberfläche → gleiche X/Z dort (Venus: Wolkenschicht) mit Langsamem Fall. */
     public static boolean fall(ServerPlayer player) {
         Identifier orbit = player.level().dimension().identifier();
         JsonObject surface = fallRules().has("surface_planet_orbits") ? fallRules().getAsJsonObject("surface_planet_orbits") : null;
         if (!listed(surface, orbit)) {
-            return false; // SPEC-GAP #96: Gasriesen-Orbits kommen mit M7
+            JsonObject giants = fallRules().has("gas_giant_orbits") ? fallRules().getAsJsonObject("gas_giant_orbits") : null;
+            return listed(giants, orbit) && fallToStation(player, giants);
         }
         String below = StationRules.surfaceBelow(orbit.getPath());
         Identifier target = below.contains(":") ? Identifier.parse(below) : Identifier.fromNamespaceAndPath(orbit.getNamespace(), below);

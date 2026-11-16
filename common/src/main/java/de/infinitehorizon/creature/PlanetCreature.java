@@ -31,7 +31,8 @@ public abstract class PlanetCreature extends PathfinderMob {
 
     @Override
     public boolean checkSpawnRules(LevelAccessor level, EntitySpawnReason reason) {
-        return reason != EntitySpawnReason.NATURAL || CreatureRules.canSpawn(getType(), level, blockPosition());
+        return reason != EntitySpawnReason.NATURAL || CreatureRules.inHomeDimension(getType(), level)
+                && CreatureRules.canSpawn(getType(), level, blockPosition());
     }
 
     @Override

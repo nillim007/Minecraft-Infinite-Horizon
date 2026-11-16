@@ -303,6 +303,10 @@ SIMPLE_BLOCKS = {
                             "ore": None, "planet_drops": True},
     "ceres_rock": {"copy": "minecraft:tuff", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
     "salt_crust": {"copy": "minecraft:calcite", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
+    # Jupiter-Monde (13.4)
+    "io_crust": {"copy": "minecraft:yellow_terracotta", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
+    "io_sulfur_ore": {"copy": "minecraft:nether_quartz_ore", "falls": False, "tool": "pickaxe", "needs": "stone",
+                      "ore": None, "planet_drops": True},
 }
 
 ORE_DEFAULTS = sd.ORE_DEFAULTS
@@ -525,6 +529,8 @@ RING1_SHAPES = {
                         "block": "default_block", "core": "infinite_horizon:iron_nickel_meteorite",
                         "fluid": "minecraft:air"},
 }
+# Lava-Meeresspiegel ohne Angabe in planets.json (Io): wie die Venus (SPEC-GAP #104)
+LAVA_SEA_LEVEL = 40
 # Eisvulkan der Ceres (13.4: „Kegel aus Eis“; Maße SPEC-GAP #102), Höhe über dem Boden
 RING1_SHAPES["ice_volcano"] = {"radius": [16, 20], "height": 24, "divisor": 5, "block": "minecraft:ice",
                                "core": "minecraft:packed_ice", "fluid": "minecraft:air"}
@@ -542,6 +548,28 @@ EROSION = {"mountainous": [-1.0, -0.2], "flat": [0.45, 1.0], "hilly": [-0.2, 0.4
 RARE_AXES = [("temperature", [-1.0, -0.8], [-0.8, 1.0]), ("weirdness", [0.8, 1.0], [-1.0, 0.8])]
 # SPEC-GAP #46: Form des Großkraters (Tiefe, Zentralberg) steht nicht in planets.json; Werte wie small_crater
 GREAT_CRATER_SHAPE = {"depth_divisor": 3, "rim_height": 1, "peak_radius_divisor": 5, "peak_height_divisor": 3}
+
+
+def sea_level(p, defaults):
+    """Meeresspiegel (13.1); ohne Angabe bei Lava LAVA_SEA_LEVEL, sonst min_y (kein Fluid)."""
+    if p.get("sea_level") is not None:
+        return p["sea_level"]
+    return LAVA_SEA_LEVEL if p.get("default_fluid") == "minecraft:lava" else defaults["min_y"]
+
+
+def structure_spawns(spec, impl, structure):
+    """spawn_overrides einer Struktur aus spawn.structures der Kreaturen (18), je Kategorie."""
+    out = {}
+    for eid in impl.get("entities", []):
+        c = spec.balance.get("creatures", {}).get(eid) or {}
+        sp = c.get("spawn") or {}
+        if structure not in (sp.get("structures") or []) or not sp.get("weight"):
+            continue
+        count = sp["group_min"] if sp["group_min"] == sp["group_max"] else {
+            "type": "minecraft:uniform", "min_inclusive": sp["group_min"], "max_inclusive": sp["group_max"]}
+        cat = out.setdefault(c["category"], {"bounding_box": "piece", "spawns": []})
+        cat["spawns"].append({"type": eid, "count": count, "weight": sp["weight"]})
+    return out
 
 
 def noise_router(p):
@@ -778,7 +806,7 @@ def planet_worldgen(spec, impl, blocks):
             "noise": {"min_y": defaults["min_y"], "height": defaults["height"]},
             "default_block": p["default_block"], "default_fluid": p["default_fluid"] or "minecraft:air",
             "noise_router": noise_router(p), "material_rule": dim, "spawn_target": OVERWORLD_SPAWN_TARGET,
-            "sea_level": p["sea_level"] if p.get("sea_level") is not None else defaults["min_y"], "disable_mob_generation": False, "legacy_random_source": False})
+            "sea_level": sea_level(p, defaults), "disable_mob_generation": False, "legacy_random_source": False})
         write_json(f"data/{ns}/worldgen/material_rule/{path}.json", surface_rule(p["biomes"]))
         write_json(f"data/{ns}/dimension/{path}.json", {
             "type": dim,
@@ -892,7 +920,8 @@ def planet_worldgen(spec, impl, blocks):
             struct_biomes.setdefault(name, [])
             struct_biomes[name] += [b for b in st["biomes"] if b not in struct_biomes[name]]
             write_json(f"data/{NS}/tags/worldgen/biome/has_structure/{name}.json", {"values": struct_biomes[name]})
-            body = {"type": f"{NS}:{name}", "biomes": f"#{NS}:has_structure/{name}", "spawn_overrides": {}}
+            body = {"type": f"{NS}:{name}", "biomes": f"#{NS}:has_structure/{name}",
+                    "spawn_overrides": structure_spawns(spec, impl, st["id"])}
             if name == "great_crater":
                 body.update({"step": "local_modifications",
                              "radius": {"type": "minecraft:uniform", "min_inclusive": prm["radius"][0],

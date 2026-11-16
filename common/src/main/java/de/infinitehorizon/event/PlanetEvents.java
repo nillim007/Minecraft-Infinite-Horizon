@@ -18,14 +18,26 @@ import java.util.Optional;
  */
 public final class PlanetEvents extends SavedData {
 
-    /** Geplantes bzw. laufendes Ereignis: Start und Ende in Spielzeit der Dimension, Warnung schon gesendet? */
-    public record Planned(Identifier event, long start, long end, boolean warned) {
+    /**
+     * Geplantes bzw. laufendes Ereignis: Start und Ende in Spielzeit der Dimension, Warnung schon gesendet? Ein
+     * örtliches Ereignis (Vulkanausbruch, 19) trägt seinen Ort.
+     */
+    public record Planned(Identifier event, long start, long end, boolean warned, Optional<net.minecraft.core.BlockPos> pos) {
         public static final Codec<Planned> CODEC = RecordCodecBuilder.create(i -> i.group(
                 Identifier.CODEC.fieldOf("event").forGetter(Planned::event),
                 Codec.LONG.fieldOf("start").forGetter(Planned::start),
                 Codec.LONG.fieldOf("end").forGetter(Planned::end),
-                Codec.BOOL.optionalFieldOf("warned", false).forGetter(Planned::warned)
+                Codec.BOOL.optionalFieldOf("warned", false).forGetter(Planned::warned),
+                net.minecraft.core.BlockPos.CODEC.optionalFieldOf("pos").forGetter(Planned::pos)
         ).apply(i, Planned::new));
+
+        public Planned(Identifier event, long start, long end, boolean warned) {
+            this(event, start, end, warned, Optional.empty());
+        }
+
+        public Planned warn() {
+            return new Planned(event, start, end, true, pos);
+        }
     }
 
     public static final Codec<PlanetEvents> CODEC = RecordCodecBuilder.create(i -> i.group(

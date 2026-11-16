@@ -80,6 +80,18 @@ public final class CreatureRules {
         return true;
     }
 
+    /**
+     * Natürlicher Spawn nur in der eigenen Dimension ({@code spawn.dimension}): Strukturen wie {@code volcanic_vent} gibt
+     * es auf mehreren Planeten und überschreiben dort die Spawns.
+     */
+    public static boolean inHomeDimension(EntityType<?> type, LevelAccessor level) {
+        JsonObject e = entry(type);
+        JsonObject spawn = e.has("spawn") ? e.getAsJsonObject("spawn") : new JsonObject();
+        return !spawn.has("dimension") || !spawn.get("dimension").isJsonPrimitive()
+                || !(level instanceof net.minecraft.world.level.ServerLevelAccessor sla)
+                || sla.getLevel().dimension().identifier().toString().equals(spawn.get("dimension").getAsString());
+    }
+
     /** Planet der Dimension (für Spawns außerhalb der Planeten: keine Kreaturen). */
     static boolean onPlanet(net.minecraft.world.level.Level level) {
         return PlanetResolver.planetFor(level.dimension().identifier(), level.isClientSide() ? PlanetRegistry.client()

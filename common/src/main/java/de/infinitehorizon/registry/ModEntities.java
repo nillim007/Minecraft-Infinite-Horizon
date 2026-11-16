@@ -75,6 +75,14 @@ public final class ModEntities {
     public static final Supplier<EntityType<de.infinitehorizon.creature.DriftMite>> DRIFT_MITE =
             creature("drift_mite", de.infinitehorizon.creature.DriftMite::new);
 
+    public static final Supplier<EntityType<de.infinitehorizon.creature.SulfurSalamander>> SULFUR_SALAMANDER =
+            creature("sulfur_salamander", de.infinitehorizon.creature.SulfurSalamander::new);
+    /** Schwefelklumpen (18): Projektil des Salamanders, Größe wie der kleine Feuerball. */
+    public static final Supplier<EntityType<de.infinitehorizon.creature.SulfurGlob>> SULFUR_GLOB = Services.REGISTRY.register(
+            BuiltInRegistries.ENTITY_TYPE, "sulfur_glob", () -> EntityType.Builder.<de.infinitehorizon.creature.SulfurGlob>of(
+                            de.infinitehorizon.creature.SulfurGlob::new, MobCategory.MISC)
+                    .sized(0.3125f, 0.3125f).clientTrackingRange(4).updateInterval(10).build(key("sulfur_glob")));
+
     /** Kreatur mit Größe, Kategorie und Feuerfestigkeit aus creatures.json und Attributen je Loader. */
     private static <T extends net.minecraft.world.entity.LivingEntity> Supplier<EntityType<T>> creature(String name,
             EntityType.EntityFactory<T> factory) {

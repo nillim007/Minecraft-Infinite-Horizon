@@ -883,4 +883,39 @@ public class IhFabricGameTests {
     public void jetpackEnergyInstalldrain(GameTestHelper helper) {
         IhGameTestsM7b2.jetpackEnergy(helper);
     }
+
+    @GameTest(maxTicks = 60, dimension = "infinite_horizon:jupiter_orbit")
+    public void gascollectorJupiterorbitHydrogen(GameTestHelper helper) {
+        IhGameTestsM7c.gasCollectorHydrogen(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void gascollectorOverworldError(GameTestHelper helper) {
+        IhGameTestsM7c.gasCollectorWrongPlace(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:jupiter_orbit")
+    public void jupiterorbitFallTostation(GameTestHelper helper) {
+        IhGameTestsM7c.gasGiantFall(helper);
+    }
+
+    @GameTest(maxTicks = 80)
+    public void salamanderGlobNofire(GameTestHelper helper) {
+        IhGameTestsM7c.salamanderGlob(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:io")
+    public void ioEruptionSulfurblocks(GameTestHelper helper) {
+        IhGameTestsM7c.volcanicEruption(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:io")
+    public void ioNearlavaZone(GameTestHelper helper) {
+        IhGameTestsM7c.ioNearLava(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void landerJupiterorbitToio(GameTestHelper helper) {
+        IhGameTestsM7c.landerIoRoute(helper);
+    }
 }

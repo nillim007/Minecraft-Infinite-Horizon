@@ -7,6 +7,8 @@
     "infinite_horizon:ceres_rock",
     "infinite_horizon:dry_ice_block",
     "infinite_horizon:gypsum_block",
+    "infinite_horizon:io_crust",
+    "infinite_horizon:io_sulfur_ore",
     "infinite_horizon:iron_nickel_meteorite",
     "infinite_horizon:mars_iron_ore",
     "infinite_horizon:mars_magnesium_ore",

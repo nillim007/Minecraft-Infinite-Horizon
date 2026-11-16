@@ -269,6 +269,33 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/cooling_module_alt",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:heat_scale"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:cooling_module",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/armor_plating",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",

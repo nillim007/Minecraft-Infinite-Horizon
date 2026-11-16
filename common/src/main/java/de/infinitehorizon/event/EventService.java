@@ -254,7 +254,7 @@ public final class EventService {
             earlyWarn(level, p);
         }
         if (p != null && !p.warned() && now >= p.start() - (long) num(plan, "warning_ticks_without_station")) {
-            data.setPlanned(new PlanetEvents.Planned(p.event(), p.start(), p.end(), true));
+            data.setPlanned(p.warn());
             warn(level, p.event(), p.start());
         }
         if (p != null && now == p.start()) {
@@ -276,7 +276,16 @@ public final class EventService {
             if (mult.has(dim.toString())) {
                 chance *= mult.get(dim.toString()).getAsDouble();
             }
-            if (e.has("chance_per") || chance <= 0 || random.nextDouble() >= chance) {
+            if (e.has("chance_per")) {
+                // örtliche Ereignisse (19): Chance je Objekt im Umkreis eines Spielers
+                PlanetEvents.Planned local = VolcanicEruption.roll(level, Identifier.parse(key), e, chance, plan, random);
+                if (local != null) {
+                    data.setPlanned(local);
+                    return;
+                }
+                continue;
+            }
+            if (chance <= 0 || random.nextDouble() >= chance) {
                 continue;
             }
             long start = level.getGameTime() + (long) num(plan, "schedule_ahead_ticks");
@@ -340,6 +349,10 @@ public final class EventService {
     }
 
     private static void effects(ServerLevel level, long now) {
+        PlanetEvents.Planned local = PlanetEvents.get(level).planned();
+        if (local != null && local.pos().isPresent() && active(level, local.event())) {
+            VolcanicEruption.tick(level, local.event(), local.pos().get(), now);
+        }
         if (activeHere(level, METEOR_SHOWER)) {
             JsonObject fx = effects(METEOR_SHOWER);
             if (now % Math.max(1, (long) num(fx, "impact_interval_ticks")) == 0) {

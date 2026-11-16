@@ -28,6 +28,8 @@ ORE_DEFAULTS = {
     "infinite_horizon:mercury_titanium_ore": {"y_min": 0, "y_max": 80, "vein_size": 6, "per_chunk": 4},
     "infinite_horizon:mercury_iron_ore": {"y_min": 0, "y_max": 80, "vein_size": 8, "per_chunk": 6},
     "minecraft:ice": {"y_min": 40, "y_max": 100, "vein_size": 16, "per_chunk": 4},
+    # Io (SPEC-GAP #104): wie das Schwefelerz der Venus
+    "infinite_horizon:io_sulfur_ore": {"y_min": 40, "y_max": 100, "vein_size": 8, "per_chunk": 4},
 }
 
 

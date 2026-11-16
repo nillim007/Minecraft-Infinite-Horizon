@@ -213,6 +213,11 @@ public final class ModBlockEntities {
                             (pos, state) -> new de.infinitehorizon.station.GravityPlateBlockEntity(
                                     ModBlockEntities.GRAVITY_PLATE.get(), pos, state),
                             ModBlocks.GRAVITY_PLATE.get()));
+    public static final Supplier<BlockEntityType<de.infinitehorizon.machine.GasCollectorBlockEntity>> GAS_COLLECTOR =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "gas_collector",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.machine.GasCollectorBlockEntity(ModBlockEntities.GAS_COLLECTOR.get(), pos, state),
+                            ModBlocks.GAS_COLLECTOR.get()));
     public static final Supplier<BlockEntityType<ProcessingMachineBlockEntity>> ZERO_G_FABRICATOR =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "zero_g_fabricator",
                     () -> Services.REGISTRY.blockEntityType(
@@ -323,7 +328,8 @@ public final class ModBlockEntities {
         Services.FLUID.expose(FLUID_PUMP);
         for (Supplier<? extends BlockEntityType<? extends ProcessingMachineBlockEntity>> t
                 : List.of(ASSEMBLY_TABLE, ELECTROLYZER, REFINERY_CONTROLLER, REGOLITH_HEATER, HIGH_TEMPERATURE_FURNACE,
-                CRYO_LIQUEFIER, FOOD_PACKER, HYDROPONICS_BASIN, GREENHOUSE, ZERO_G_FABRICATOR, SPACE_WEATHER_STATION, FUSION_REACTOR, GRAVITY_PLATE)) {
+                CRYO_LIQUEFIER, FOOD_PACKER, HYDROPONICS_BASIN, GREENHOUSE, ZERO_G_FABRICATOR, SPACE_WEATHER_STATION, FUSION_REACTOR, GRAVITY_PLATE,
+                GAS_COLLECTOR)) {
             Services.ENERGY.expose(t);
             Services.FLUID.expose(t);
         }

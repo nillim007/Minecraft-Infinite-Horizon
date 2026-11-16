@@ -193,7 +193,14 @@ public final class IhTestCatalog {
             new Test("dockingbay_rejects_t1", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM7b2::dockingBayRejectsT1),  // 12.4, M7b
             new Test("rocket_longrangemodule_capacity", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM7b2::longRangeModule),  // 12.4, M7b
             new Test("dockingbay_fills_rockettanks", 40, null, null, "infinite_horizon:earth_orbit", IhGameTestsM7b2::dockingBayFillsTanks),  // 14.2, M7b
-            new Test("jetpack_energy_installdrain", 20, null, null, null, IhGameTestsM7b2::jetpackEnergy)  // 9.2, M7b
+            new Test("jetpack_energy_installdrain", 20, null, null, null, IhGameTestsM7b2::jetpackEnergy),  // 9.2, M7b
+            new Test("gascollector_jupiterorbit_hydrogen", 60, null, null, "infinite_horizon:jupiter_orbit", IhGameTestsM7c::gasCollectorHydrogen),  // 13.3, M7c
+            new Test("gascollector_overworld_error", 20, null, null, null, IhGameTestsM7c::gasCollectorWrongPlace),  // 6.1, M7c
+            new Test("jupiterorbit_fall_tostation", 20, null, null, "infinite_horizon:jupiter_orbit", IhGameTestsM7c::gasGiantFall),  // 14.3, M7c
+            new Test("salamander_glob_nofire", 80, null, null, null, IhGameTestsM7c::salamanderGlob),  // 18, M7c
+            new Test("io_eruption_sulfurblocks", 20, null, null, "infinite_horizon:io", IhGameTestsM7c::volcanicEruption),  // 19, M7c
+            new Test("io_nearlava_zone", 20, null, null, "infinite_horizon:io", IhGameTestsM7c::ioNearLava),  // 13.2, M7c
+            new Test("lander_jupiterorbit_toio", 20, null, null, null, IhGameTestsM7c::landerIoRoute)  // 12.7, M7c
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

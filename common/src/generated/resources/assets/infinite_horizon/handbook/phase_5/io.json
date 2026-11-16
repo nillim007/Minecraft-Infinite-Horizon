@@ -1,0 +1,105 @@
+{
+  "id": "infinite_horizon:phase_5/io",
+  "chapter": "infinite_horizon:phase_5",
+  "title": "infinite_horizon.handbook.phase_5.io.title",
+  "icon": "infinite_horizon:io_sulfur_ore",
+  "order": 80,
+  "unlock": "infinite_horizon:research_tier/4",
+  "items": [
+    "infinite_horizon:io_crust",
+    "infinite_horizon:io_sulfur_ore",
+    "infinite_horizon:heat_scale"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.io.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.io.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_5.io.e2.0",
+        "infinite_horizon.handbook.phase_5.io.e2.1"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.io.e3",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_5.io.e4.0",
+        "infinite_horizon.handbook.phase_5.io.e4.1"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.io.e5",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.io.e6"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/cooling_module_alt",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:heat_scale"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:cooling_module",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.io.e8",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.io.e9"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.io.e10",
+      "style": "warning"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.io.e11",
+      "style": "tip"
+    }
+  ]
+}

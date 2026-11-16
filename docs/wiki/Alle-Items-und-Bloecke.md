@@ -52,6 +52,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Fortgeschrittener Schaltkreis](Der-Hochtemperaturofen.md) | Item | Rezept |
 | [Fusionsreaktor](Der-Fusionsreaktor.md) | Block | Rezept |
 | [Fusionsreaktor-Gehäuse](Der-Fusionsreaktor.md) | Block | Rezept |
+| [Gas-Sammler](Jupiter-Orbit-und-Gas-Sammler.md) | Block | Rezept |
 | [Gastank](Helium-und-Kryotechnik.md) | Block | Rezept |
 | [Geschwindigkeits-Upgrade](Upgrades.md) | Item | Rezept |
 | [Gewächshaus](Stationsmodule.md) | Block | Rezept |
@@ -68,9 +69,12 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Hitzeanzug-Stiefel](Der-Hitzeanzug.md) | Item | Rezept |
 | [Hitzereflektor](Der-Merkur.md) | Item | Rezept |
 | [Hitzeschild](Die-Rakete-T2.md) | Item | Rezept |
+| [Hitzeschuppe](Io.md) | Item | Kreatur |
 | [Hochtemperaturofen](Der-Hochtemperaturofen.md) | Block | Rezept |
 | [Hydrokultur-Becken](Hydrokultur-und-Kompost.md) | Block | Rezept |
 | [Ingenieurs-Handbuch](Willkommen-bei-Infinite-Horizon.md) | Item | Geschenk beim ersten Betreten, Rezept |
+| [Io-Kruste](Io.md) | Block | Weltgenerierung |
+| [Io-Schwefelerz](Io.md) | Block | Weltgenerierung |
 | [Iridium-Chip](Der-Asteroidenguertel.md) | Item | Maschine |
 | [Iridiumbarren](Der-Asteroidenguertel.md) | Item | Maschine |
 | [Iridiumstaub](Der-Asteroidenguertel.md) | Item | Maschine |

@@ -236,6 +236,10 @@ def png_sized(pixels):
 
 
 # 24.5 "Weitere Platzhalter ab M3": Erde am Himmel 32 x 32 als Scheibe #3F76E4 mit Rauschen
+# Farben der Himmelskörper ohne Angabe in 24.5 (Erde blau wie Wasser); SPEC-GAP #104
+CELESTIAL_COLORS = {"jupiter": "#C9A27A"}
+
+
 def celestial_disc(color, size, seed):
     r = rng(seed)
     c = rgb(color)
@@ -351,7 +355,8 @@ def main():
             if only and name not in only:
                 continue
             (OUT / "environment" / "celestial").mkdir(parents=True, exist_ok=True)
-            n += put(OUT / "environment" / "celestial" / f"{name}.png", celestial_disc("#3F76E4", 32, name))
+            n += put(OUT / "environment" / "celestial" / f"{name}.png",
+                     celestial_disc(CELESTIAL_COLORS.get(name, "#3F76E4"), 32, name))
         for mob in p.get("vanilla_mobs", []):
             name = mob["entity"].split(":", 1)[1]
             if only and f"breathing_mask_{name}" not in only:

@@ -57,6 +57,10 @@ public class InfiniteHorizonNeoForgeClient {
                     ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::beetle));
             e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.DRIFT_MITE.get(),
                     ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::mite));
+            e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.SULFUR_SALAMANDER.get(),
+                    ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::salamander));
+            e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.SULFUR_GLOB.get(),
+                    ctx -> new net.minecraft.client.renderer.entity.ThrownItemRenderer<>(ctx, 0.75f, true));
             e.registerBlockEntityRenderer(de.infinitehorizon.registry.ModBlockEntities.LANDING_BEACON.get(),
                     ctx -> new de.infinitehorizon.client.LandingBeaconRenderer());
         });

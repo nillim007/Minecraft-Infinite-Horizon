@@ -83,7 +83,8 @@
     "iridium_dust",
     "iridium_ingot",
     "iridium_chip",
-    "jetpack"
+    "jetpack",
+    "heat_scale"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,

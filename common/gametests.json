@@ -181,6 +181,13 @@
     {"name": "dockingbay_rejects_t1", "class": "IhGameTestsM7b2", "method": "dockingBayRejectsT1", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "12.4, M7b"},
     {"name": "rocket_longrangemodule_capacity", "class": "IhGameTestsM7b2", "method": "longRangeModule", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "12.4, M7b"},
     {"name": "dockingbay_fills_rockettanks", "class": "IhGameTestsM7b2", "method": "dockingBayFillsTanks", "ticks": 40, "dimension": "infinite_horizon:earth_orbit", "ref": "14.2, M7b"},
-    {"name": "jetpack_energy_installdrain", "class": "IhGameTestsM7b2", "method": "jetpackEnergy", "ticks": 20, "ref": "9.2, M7b"}
+    {"name": "jetpack_energy_installdrain", "class": "IhGameTestsM7b2", "method": "jetpackEnergy", "ticks": 20, "ref": "9.2, M7b"},
+    {"name": "gascollector_jupiterorbit_hydrogen", "class": "IhGameTestsM7c", "method": "gasCollectorHydrogen", "ticks": 60, "dimension": "infinite_horizon:jupiter_orbit", "ref": "13.3, M7c"},
+    {"name": "gascollector_overworld_error", "class": "IhGameTestsM7c", "method": "gasCollectorWrongPlace", "ticks": 20, "ref": "6.1, M7c"},
+    {"name": "jupiterorbit_fall_tostation", "class": "IhGameTestsM7c", "method": "gasGiantFall", "ticks": 20, "dimension": "infinite_horizon:jupiter_orbit", "ref": "14.3, M7c"},
+    {"name": "salamander_glob_nofire", "class": "IhGameTestsM7c", "method": "salamanderGlob", "ticks": 80, "ref": "18, M7c"},
+    {"name": "io_eruption_sulfurblocks", "class": "IhGameTestsM7c", "method": "volcanicEruption", "ticks": 20, "dimension": "infinite_horizon:io", "ref": "19, M7c"},
+    {"name": "io_nearlava_zone", "class": "IhGameTestsM7c", "method": "ioNearLava", "ticks": 20, "dimension": "infinite_horizon:io", "ref": "13.2, M7c"},
+    {"name": "lander_jupiterorbit_toio", "class": "IhGameTestsM7c", "method": "landerIoRoute", "ticks": 20, "ref": "12.7, M7c"}
   ]
 }

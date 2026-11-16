@@ -17,6 +17,9 @@ Mit Stufe 4 der Forschung öffnet sich das Sonnensystem jenseits von Mond, Mars 
 @if infinite_horizon:asteroid_rock
 4. **In den Asteroidengürtel.** Auf den [[asteroiden|Asteroiden]] gibt es Platin und Iridium, daraus entstehen Iridium-Chips. Auf [[ceres|Ceres]] wartet ein Eisvulkan als Erkundungsziel.
 @endif
+@if infinite_horizon:gas_collector
+5. **Zum Jupiter.** Im [[jupiter|Jupiter-Orbit]] sammelt der Gas-Sammler Wasserstoff. Mit der Landefähre geht es weiter zum Vulkanmond [[io|Io]].
+@endif
 
 @recipes_for infinite_horizon:advanced_probe
 

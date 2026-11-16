@@ -1,0 +1,115 @@
+{
+  "id": "infinite_horizon:phase_5/jupiter",
+  "chapter": "infinite_horizon:phase_5",
+  "title": "infinite_horizon.handbook.phase_5.jupiter.title",
+  "icon": "infinite_horizon:gas_collector",
+  "order": 70,
+  "unlock": "infinite_horizon:research_tier/4",
+  "items": [
+    "infinite_horizon:gas_collector"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.jupiter.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.jupiter.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.jupiter.e2"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.jupiter.e3",
+      "style": "warning"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.jupiter.e4",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.jupiter.e5"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:gas_collector",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_5.jupiter.e6.0.label",
+          "infinite_horizon.handbook.phase_5.jupiter.e6.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_5.jupiter.e6.1.label",
+          "infinite_horizon.handbook.phase_5.jupiter.e6.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_5.jupiter.e6.2.label",
+          "infinite_horizon.handbook.phase_5.jupiter.e6.2.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_5.jupiter.e6.3.label",
+          "infinite_horizon.handbook.phase_5.jupiter.e6.3.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_5.jupiter.e6.4.label",
+          "infinite_horizon.handbook.phase_5.jupiter.e6.4.value"
+        ]
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/gas_collector",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:superconductor_wire"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:gas_collector",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.jupiter.e8",
+      "style": "tip"
+    }
+  ]
+}
