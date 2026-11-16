@@ -50,7 +50,8 @@ public final class CreatureRules {
         if (num(e, "damage") > 0) {
             b.add(Attributes.ATTACK_DAMAGE, num(e, "damage"));
         }
-        if (CreatureRules.params(id).has("flying")) {
+        // fliegende und schwebende Kreaturen (Wolkenrochen, Driftmilbe) brauchen flying_speed für FlyingMoveControl
+        if (CreatureRules.params(id).has("flying") || CreatureRules.params(id).has("floating")) {
             b.add(Attributes.FLYING_SPEED, num(e, "speed"));
         }
         return b;
