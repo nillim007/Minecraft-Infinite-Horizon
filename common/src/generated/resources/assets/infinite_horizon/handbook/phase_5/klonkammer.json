@@ -1,0 +1,114 @@
+{
+  "id": "infinite_horizon:phase_5/klonkammer",
+  "chapter": "infinite_horizon:phase_5",
+  "title": "infinite_horizon.handbook.phase_5.klonkammer.title",
+  "icon": "infinite_horizon:clone_chamber",
+  "order": 100,
+  "unlock": "infinite_horizon:research_tier/4",
+  "items": [
+    "infinite_horizon:clone_chamber"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.klonkammer.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.klonkammer.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_5.klonkammer.e2.0",
+        "infinite_horizon.handbook.phase_5.klonkammer.e2.1",
+        "infinite_horizon.handbook.phase_5.klonkammer.e2.2",
+        "infinite_horizon.handbook.phase_5.klonkammer.e2.3"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.klonkammer.e3"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:clone_chamber",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_5.klonkammer.e4.0.label",
+          "infinite_horizon.handbook.phase_5.klonkammer.e4.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_5.klonkammer.e4.1.label",
+          "infinite_horizon.handbook.phase_5.klonkammer.e4.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_5.klonkammer.e4.2.label",
+          "infinite_horizon.handbook.phase_5.klonkammer.e4.2.value"
+        ]
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/clone_chamber",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:iridium_chip"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:microbe_culture"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:pressure_hull"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:clone_chamber",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.klonkammer.e6",
+      "style": "warning"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.klonkammer.e7",
+      "style": "tip"
+    }
+  ]
+}

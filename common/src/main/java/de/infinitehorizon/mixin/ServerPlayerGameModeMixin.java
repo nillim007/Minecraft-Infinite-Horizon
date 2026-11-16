@@ -34,4 +34,12 @@ public abstract class ServerPlayerGameModeMixin {
             cir.setReturnValue(false);
         }
     }
+
+    /** 18: Abbau in der Nähe eines Riffwächters macht ihn feindlich. */
+    @Inject(method = "destroyBlock", at = @At("RETURN"))
+    private void infinite_horizon$provokeReefKeeper(BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
+        if (cir.getReturnValueZ()) {
+            de.infinitehorizon.creature.ReefKeeper.provoke(level, player, pos, de.infinitehorizon.creature.ReefKeeper.BLOCK_BREAK);
+        }
+    }
 }

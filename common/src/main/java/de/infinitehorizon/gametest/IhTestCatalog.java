@@ -200,7 +200,15 @@ public final class IhTestCatalog {
             new Test("salamander_glob_nofire", 80, null, null, null, IhGameTestsM7c::salamanderGlob),  // 18, M7c
             new Test("io_eruption_sulfurblocks", 20, null, null, "infinite_horizon:io", IhGameTestsM7c::volcanicEruption),  // 19, M7c
             new Test("io_nearlava_zone", 20, null, null, "infinite_horizon:io", IhGameTestsM7c::ioNearLava),  // 13.2, M7c
-            new Test("lander_jupiterorbit_toio", 20, null, null, null, IhGameTestsM7c::landerIoRoute)  // 12.7, M7c
+            new Test("lander_jupiterorbit_toio", 20, null, null, null, IhGameTestsM7c::landerIoRoute),  // 12.7, M7c
+            new Test("europa_iceshell_generated", 20, null, null, "infinite_horizon:europa", IhGameTestsM7c2::iceShell),  // 13.1, M7c
+            new Test("europa_deeppressure_divingmodule", 20, null, null, "infinite_horizon:europa", IhGameTestsM7c2::divingModule),  // 9.2, 13.2, M7c
+            new Test("vent_bottle_microbeculture", 20, null, null, null, IhGameTestsM7c2::ventBottle),  // 13.4, M7c
+            new Test("icedrill_layer_energy", 20, null, null, null, IhGameTestsM7c2::iceDrill),  // 13.4, M7c
+            new Test("clonechamber_respawn_culture", 40, null, null, null, IhGameTestsM7c2::cloneChamber),  // 14.4, M7c
+            new Test("reefkeeper_provoke_pacify", 20, null, null, null, IhGameTestsM7c2::reefKeeper),  // 18, M7c
+            new Test("icejelly_seeks_vent", 20, null, null, null, IhGameTestsM7c2::iceJellySeeksVent),  // 18, M7c
+            new Test("europa_hydrothermalfield_keeper", 20, null, null, "infinite_horizon:europa", IhGameTestsM7c2::hydrothermalField)  // 13.4, 18, M7c
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

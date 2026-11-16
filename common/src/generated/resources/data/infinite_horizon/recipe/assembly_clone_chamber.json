@@ -1,0 +1,32 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:titanium_plate",
+      "count": 16
+    },
+    {
+      "ingredient": "infinite_horizon:iridium_chip",
+      "count": 4
+    },
+    {
+      "ingredient": "infinite_horizon:microbe_culture",
+      "count": 8
+    },
+    {
+      "ingredient": "infinite_horizon:pressure_hull",
+      "count": 1
+    },
+    {
+      "ingredient": "minecraft:glass",
+      "count": 4
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:clone_chamber",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

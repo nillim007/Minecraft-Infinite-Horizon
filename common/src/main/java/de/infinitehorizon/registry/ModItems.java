@@ -78,6 +78,8 @@ public final class ModItems {
     public static final Supplier<Item> GRAVITY_PLATE = blockItem("gravity_plate", ModBlocks.GRAVITY_PLATE);
     public static final Supplier<Item> ZERO_G_FABRICATOR = blockItem("zero_g_fabricator", ModBlocks.ZERO_G_FABRICATOR);
     public static final Supplier<Item> GAS_COLLECTOR = blockItem("gas_collector", ModBlocks.GAS_COLLECTOR);
+    public static final Supplier<Item> CLONE_CHAMBER = blockItem("clone_chamber", ModBlocks.CLONE_CHAMBER);
+    public static final Supplier<Item> HYDROTHERMAL_VENT = blockItem("hydrothermal_vent", ModBlocks.HYDROTHERMAL_VENT);
     public static final Supplier<Item> SPACE_WEATHER_STATION = blockItem("space_weather_station", ModBlocks.SPACE_WEATHER_STATION);
     public static final Supplier<Item> DOCKING_BAY = blockItem("docking_bay", ModBlocks.DOCKING_BAY);
     public static final Supplier<Item> TANK_DEPOT = blockItem("tank_depot", ModBlocks.TANK_DEPOT);
@@ -107,6 +109,9 @@ public final class ModItems {
     /** Probenzange (11.2): Rechtsklick auf einen Block gibt eine Probe. */
     public static final Supplier<Item> SAMPLE_TOOL = register("sample_tool",
             p -> new de.infinitehorizon.research.SampleTool.ToolItem(p.stacksTo(1)));
+    /** Eisbohrer (13.4): Schacht nach unten, Akku als Komponente {@code energy}. */
+    public static final Supplier<Item> ICE_DRILL = register("ice_drill",
+            p -> new de.infinitehorizon.suit.IceDrillItem(p.stacksTo(1)));
     /** Probe (11.2) mit Komponente {@code sample}; gleiche Proben stapeln bis 64. */
     public static final Supplier<Item> SAMPLE = register("sample", de.infinitehorizon.research.SampleTool.SampleItem::new);
 

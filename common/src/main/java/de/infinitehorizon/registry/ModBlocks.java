@@ -180,6 +180,14 @@ public final class ModBlocks {
     public static final Supplier<Block> GAS_COLLECTOR = register("gas_collector",
             p -> new MachineBlock(p, () -> ModBlockEntities.GAS_COLLECTOR.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Klon-Kammer (6.1, 14.4): Respawn mit Mikrobenkultur, Rechtsklick bindet. */
+    public static final Supplier<Block> CLONE_CHAMBER = register("clone_chamber",
+            p -> new de.infinitehorizon.station.CloneChamberBlock(p, () -> ModBlockEntities.CLONE_CHAMBER.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Hydrothermale Quelle (13.4): unzerstörbar, Glasflasche gibt Mikrobenkultur. */
+    public static final Supplier<Block> HYDROTHERMAL_VENT = register("hydrothermal_vent",
+            p -> new de.infinitehorizon.world.HydrothermalVentBlock(p, () -> ModBlockEntities.HYDROTHERMAL_VENT.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.BASALT).strength(-1.0f, 3600000.0f).noLootTable());
     public static final Supplier<Block> SPACE_WEATHER_STATION = register("space_weather_station",
             p -> new MachineBlock(p, () -> ModBlockEntities.SPACE_WEATHER_STATION.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));

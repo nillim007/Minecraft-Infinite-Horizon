@@ -111,6 +111,16 @@
       "falls": false
     },
     {
+      "id": "europa_ice",
+      "copy": "minecraft:obsidian",
+      "falls": false
+    },
+    {
+      "id": "europa_seabed",
+      "copy": "minecraft:gravel",
+      "falls": false
+    },
+    {
       "id": "meteorite_ore",
       "copy": "minecraft:iron_ore",
       "falls": false

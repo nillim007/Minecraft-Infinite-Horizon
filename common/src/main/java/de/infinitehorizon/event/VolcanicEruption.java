@@ -9,12 +9,9 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.entity.item.FallingBlockEntity;
-import net.minecraft.world.level.ChunkPos;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.chunk.LevelChunk;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.levelgen.structure.Structure;
-import net.minecraft.world.level.levelgen.structure.StructureStart;
 import org.jspecify.annotations.Nullable;
 
 import java.util.ArrayList;
@@ -51,28 +48,7 @@ public final class VolcanicEruption {
 
     /** Mitten der Strukturen in geladenen Chunks im Umkreis {@code radius} (waagerecht) um {@code center}. */
     public static List<BlockPos> near(ServerLevel level, Structure structure, BlockPos center, int radius) {
-        List<BlockPos> out = new ArrayList<>();
-        ChunkPos c = ChunkPos.containing(center);
-        int rc = (radius >> 4) + 1;
-        for (int dx = -rc; dx <= rc; dx++) {
-            for (int dz = -rc; dz <= rc; dz++) {
-                LevelChunk chunk = level.getChunkSource().getChunkNow(c.x() + dx, c.z() + dz);
-                if (chunk == null) {
-                    continue;
-                }
-                StructureStart start = chunk.getStartForStructure(structure);
-                if (start == null || !start.isValid()) {
-                    continue;
-                }
-                BlockPos mid = start.getBoundingBox().getCenter();
-                double ddx = mid.getX() - center.getX();
-                double ddz = mid.getZ() - center.getZ();
-                if (ddx * ddx + ddz * ddz <= (double) radius * radius && !out.contains(mid)) {
-                    out.add(mid);
-                }
-            }
-        }
-        return out;
+        return de.infinitehorizon.world.StructureStarts.near(level, structure, center, radius);
     }
 
     /** Würfeln je Struktur nahe den Spielern; der erste Treffer wird geplant. */

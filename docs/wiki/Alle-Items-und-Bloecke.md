@@ -32,6 +32,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Druckflasche](Sauerstoff-speichern.md) | Block | Rezept |
 | [Druckhülle](Sauerstoffgenerator.md) | Item | Rezept |
 | [Effizienz-Upgrade](Upgrades.md) | Item | Rezept |
+| [Eisbohrer](Europa.md) | Item | Rezept |
 | [Eisen-Nickel-Meteorit](Der-Mars.md) | Block | Weltgenerierung |
 | [Eisenplatte](Presse.md) | Item | Maschine |
 | [Eisenstange](Presse.md) | Item | Maschine |
@@ -42,6 +43,8 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Energie-Port](Raffinerie.md) | Block | Rezept |
 | [Erdöl](Fluide-und-Rohre.md) | Fluid | Weltgenerierung |
 | [Erloschene Fackel](Leben-ohne-Luft.md) | Block | Füllslot oder Eimer |
+| [Europa-Eis](Europa.md) | Block | Weltgenerierung |
+| [Europa-Meeresboden](Europa.md) | Block | Weltgenerierung |
 | [Feldscanner](Kreaturen-des-inneren-Sonnensystems.md) | Item | Rezept |
 | [Fernflug-Modul](Fernflug-und-Jetpack.md) | Block | Rezept |
 | [Fluid-Port](Raffinerie.md) | Block | Rezept |
@@ -72,6 +75,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Hitzeschuppe](Io.md) | Item | Kreatur |
 | [Hochtemperaturofen](Der-Hochtemperaturofen.md) | Block | Rezept |
 | [Hydrokultur-Becken](Hydrokultur-und-Kompost.md) | Block | Rezept |
+| [Hydrothermale Quelle](Europa.md) | Block | Weltgenerierung |
 | [Ingenieurs-Handbuch](Willkommen-bei-Infinite-Horizon.md) | Item | Geschenk beim ersten Betreten, Rezept |
 | [Io-Kruste](Io.md) | Block | Weltgenerierung |
 | [Io-Schwefelerz](Io.md) | Block | Weltgenerierung |
@@ -83,6 +87,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Keramikplatte](Der-Hochtemperaturofen.md) | Item | Maschine |
 | [Kerosin](Raffinerie.md) | Fluid | Maschine |
 | [Kerosineimer](Fluide-und-Rohre.md) | Item | Füllslot oder Eimer |
+| [Klon-Kammer](Die-Klon-Kammer.md) | Block | Rezept |
 | [Kompost](Hydrokultur-und-Kompost.md) | Item | Rezept |
 | [Kompost-Ackerland](Hydrokultur-und-Kompost.md) | Block | Füllslot oder Eimer |
 | [Kompost-Boden](Hydrokultur-und-Kompost.md) | Block | Rezept |
@@ -122,6 +127,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Merkurgestein](Der-Merkur.md) | Block | Weltgenerierung |
 | [Metallkonzentrat](Kreaturen-des-inneren-Sonnensystems.md) | Item | Kreatur |
 | [Meteoritenerz](Weltraumwetter-und-Ereignisse.md) | Block | event |
+| [Mikrobenkultur](Europa.md) | Item | Abbau |
 | [Mond-Aluminiumerz](Der-Mond.md) | Block | Weltgenerierung |
 | [Mond-Basalt](Der-Mond.md) | Block | Weltgenerierung |
 | [Mond-Regolith](Der-Mond.md) | Block | Weltgenerierung |
@@ -196,6 +202,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Supraleiterkabel](Der-Fusionsreaktor.md) | Block | Rezept |
 | [Tank](Fluide-und-Rohre.md) | Block | Rezept |
 | [Tankdepot](Stationsmodule.md) | Block | Rezept |
+| [Tauchmodul](Europa.md) | Item | Rezept |
 | [Tiefenschiefer-Titanerz](Rohstoffe-und-Erze.md) | Block | Weltgenerierung |
 | [Titanbarren](Elektroofen.md) | Item | Maschine |
 | [Titanerz](Rohstoffe-und-Erze.md) | Block | Weltgenerierung |

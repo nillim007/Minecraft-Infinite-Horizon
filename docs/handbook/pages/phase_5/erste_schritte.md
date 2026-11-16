@@ -20,6 +20,9 @@ Mit Stufe 4 der Forschung öffnet sich das Sonnensystem jenseits von Mond, Mars 
 @if infinite_horizon:gas_collector
 5. **Zum Jupiter.** Im [[jupiter|Jupiter-Orbit]] sammelt der Gas-Sammler Wasserstoff. Mit der Landefähre geht es weiter zum Vulkanmond [[io|Io]].
 @endif
+@if infinite_horizon:europa_ice
+6. **Unter das Eis der Europa.** Mit Eisbohrer und Tauchmodul erreichst du den Ozean der [[europa|Europa]]. Die Mikrobenkulturen der Quellen brauchst du für die [[klonkammer|Klon-Kammer]].
+@endif
 
 @recipes_for infinite_horizon:advanced_probe
 

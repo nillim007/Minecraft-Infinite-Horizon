@@ -168,6 +168,11 @@ public class IhClientGameTests implements FabricClientGameTest {
                 be.fluidTanks().get(0).setStackUnchecked(IhFluidStack.of(InfiniteHorizon.id("hydrogen"), 6000));
                 fillEnergy(be, 2);
             });
+            // M7c: Klon-Kammer (Kulturen im Eingabeslot)
+            machine(context, sp, ModBlocks.CLONE_CHAMBER.get(), "gui_clone_chamber", be -> {
+                be.setItem(0, new ItemStack(ModItems.simple("microbe_culture").get(), 5));
+                fillEnergy(be, 2);
+            });
             launchPad(context, sp);
 
             // Alle Blöcke nebeneinander in der Welt (Modelle, Texturen, Statuslampe)
@@ -228,6 +233,7 @@ public class IhClientGameTests implements FabricClientGameTest {
             planetView(context, sp, "ceres");
             planetView(context, sp, "jupiter_orbit");
             planetView(context, sp, "io");
+            planetView(context, sp, "europa");
         }
     }
 

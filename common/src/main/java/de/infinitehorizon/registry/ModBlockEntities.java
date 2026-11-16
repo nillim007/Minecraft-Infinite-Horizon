@@ -218,6 +218,16 @@ public final class ModBlockEntities {
                     () -> Services.REGISTRY.blockEntityType(
                             (pos, state) -> new de.infinitehorizon.machine.GasCollectorBlockEntity(ModBlockEntities.GAS_COLLECTOR.get(), pos, state),
                             ModBlocks.GAS_COLLECTOR.get()));
+    public static final Supplier<BlockEntityType<de.infinitehorizon.station.CloneChamberBlockEntity>> CLONE_CHAMBER =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "clone_chamber",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.station.CloneChamberBlockEntity(ModBlockEntities.CLONE_CHAMBER.get(), pos, state),
+                            ModBlocks.CLONE_CHAMBER.get()));
+    public static final Supplier<BlockEntityType<de.infinitehorizon.world.HydrothermalVentBlock.Entity>> HYDROTHERMAL_VENT =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "hydrothermal_vent",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.world.HydrothermalVentBlock.Entity(ModBlockEntities.HYDROTHERMAL_VENT.get(), pos, state),
+                            ModBlocks.HYDROTHERMAL_VENT.get()));
     public static final Supplier<BlockEntityType<ProcessingMachineBlockEntity>> ZERO_G_FABRICATOR =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "zero_g_fabricator",
                     () -> Services.REGISTRY.blockEntityType(
@@ -329,7 +339,7 @@ public final class ModBlockEntities {
         for (Supplier<? extends BlockEntityType<? extends ProcessingMachineBlockEntity>> t
                 : List.of(ASSEMBLY_TABLE, ELECTROLYZER, REFINERY_CONTROLLER, REGOLITH_HEATER, HIGH_TEMPERATURE_FURNACE,
                 CRYO_LIQUEFIER, FOOD_PACKER, HYDROPONICS_BASIN, GREENHOUSE, ZERO_G_FABRICATOR, SPACE_WEATHER_STATION, FUSION_REACTOR, GRAVITY_PLATE,
-                GAS_COLLECTOR)) {
+                GAS_COLLECTOR, CLONE_CHAMBER)) {
             Services.ENERGY.expose(t);
             Services.FLUID.expose(t);
         }

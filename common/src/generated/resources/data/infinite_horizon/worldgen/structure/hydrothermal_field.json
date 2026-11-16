@@ -1,0 +1,28 @@
+{
+  "type": "infinite_horizon:hydrothermal_field",
+  "biomes": "#infinite_horizon:has_structure/hydrothermal_field",
+  "spawn_overrides": {},
+  "step": "surface_structures",
+  "kind": "hydrothermal_field",
+  "radius": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 5,
+    "max_inclusive": 8
+  },
+  "height": 0,
+  "divisor": 1,
+  "block": "infinite_horizon:hydrothermal_vent",
+  "core": "infinite_horizon:europa_seabed",
+  "fluid": "minecraft:water",
+  "guardian": "infinite_horizon:reef_keeper",
+  "count": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 4,
+    "max_inclusive": 7
+  },
+  "part_radius": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 0,
+    "max_inclusive": 2
+  }
+}

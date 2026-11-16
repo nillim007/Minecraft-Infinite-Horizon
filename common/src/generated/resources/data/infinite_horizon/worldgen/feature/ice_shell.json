@@ -1,0 +1,13 @@
+{
+  "type": "infinite_horizon:ice_shell",
+  "block": "infinite_horizon:europa_ice",
+  "y_min": 112,
+  "y_max": 124,
+  "rift_width": [
+    3,
+    6
+  ],
+  "excluded_biomes": [
+    "infinite_horizon:europa_rifts"
+  ]
+}

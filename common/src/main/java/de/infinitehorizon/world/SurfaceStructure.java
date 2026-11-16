@@ -36,7 +36,7 @@ import java.util.Optional;
  */
 public final class SurfaceStructure extends Structure {
 
-    public enum Kind { GIANT_VOLCANO, VOLCANIC_VENT, METEORITE_FIELD, ICE_VOLCANO, ASTEROID }
+    public enum Kind { GIANT_VOLCANO, VOLCANIC_VENT, METEORITE_FIELD, ICE_VOLCANO, ASTEROID, HYDROTHERMAL_FIELD }
 
     public static final MapCodec<SurfaceStructure> CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
             settingsCodec(i),
@@ -51,7 +51,8 @@ public final class SurfaceStructure extends Structure {
             Identifier.CODEC.fieldOf("core").forGetter(s -> s.core),
             Identifier.CODEC.fieldOf("fluid").forGetter(s -> s.fluid),
             IntProviders.CODEC.optionalFieldOf("y").forGetter(s -> Optional.ofNullable(s.y)),
-            AsteroidShape.OreShare.CODEC.listOf().optionalFieldOf("ores", java.util.List.of()).forGetter(s -> s.ores)
+            AsteroidShape.OreShare.CODEC.listOf().optionalFieldOf("ores", java.util.List.of()).forGetter(s -> s.ores),
+            Identifier.CODEC.optionalFieldOf("guardian").forGetter(s -> Optional.ofNullable(s.guardian))
     ).apply(i, SurfaceStructure::new));
 
     private final Kind kind;
@@ -66,10 +67,13 @@ public final class SurfaceStructure extends Structure {
     /** Asteroid (13.4): Höhe des Mittelpunkts; ohne Angabe {@code height}. */
     private final @org.jspecify.annotations.Nullable IntProvider y;
     private final java.util.List<AsteroidShape.OreShare> ores;
+    /** Wächter (18): eine Kreatur, die mit der Struktur entsteht ({@code reef_keeper} im Quellenfeld). */
+    private final @org.jspecify.annotations.Nullable Identifier guardian;
 
     private SurfaceStructure(StructureSettings settings, Kind kind, IntProvider radius, int height, int divisor,
                              Optional<IntProvider> count, Optional<IntProvider> partRadius, Identifier block, Identifier core,
-                             Identifier fluid, Optional<IntProvider> y, java.util.List<AsteroidShape.OreShare> ores) {
+                             Identifier fluid, Optional<IntProvider> y, java.util.List<AsteroidShape.OreShare> ores,
+                             Optional<Identifier> guardian) {
         super(settings);
         this.kind = kind;
         this.radius = radius;
@@ -82,6 +86,7 @@ public final class SurfaceStructure extends Structure {
         this.fluid = fluid;
         this.y = y.orElse(null);
         this.ores = java.util.List.copyOf(ores);
+        this.guardian = guardian.orElse(null);
     }
 
     @Override
@@ -97,20 +102,22 @@ public final class SurfaceStructure extends Structure {
             AsteroidPiece piece = new AsteroidPiece(new BlockPos(x, cy, z), r, block, ores, random.nextLong());
             return Optional.of(new GenerationStub(new BlockPos(x, cy, z), b -> b.addPiece(piece)));
         }
-        int ground = context.chunkGenerator().getFirstOccupiedHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG,
-                context.heightAccessor(), context.randomState());
+        // Quellenfeld (Europa): auf dem Meeresboden, sonst auf der Oberfläche
+        Heightmap.Types surface = kind == Kind.HYDROTHERMAL_FIELD ? Heightmap.Types.OCEAN_FLOOR_WG : Heightmap.Types.WORLD_SURFACE_WG;
+        int ground = context.chunkGenerator().getFirstOccupiedHeight(x, z, surface, context.heightAccessor(), context.randomState());
         int r = radius.sample(random);
         // Teile: Krater des Meteoritenfelds (dx, dz, Radius je Krater)
-        int n = kind == Kind.METEORITE_FIELD && count != null ? count.sample(random) : 0;
+        int n = (kind == Kind.METEORITE_FIELD || kind == Kind.HYDROTHERMAL_FIELD) && count != null ? count.sample(random) : 0;
         int[] parts = new int[n * 3];
         int maxPart = 0;
         for (int k = 0; k < n; k++) {
             parts[k * 3] = random.nextInt(2 * r + 1) - r;
             parts[k * 3 + 1] = random.nextInt(2 * r + 1) - r;
+            // Meteoritenfeld: Kraterradius; Quellenfeld: Höhe des Schlots unter der Quelle
             parts[k * 3 + 2] = partRadius == null ? 1 : partRadius.sample(random);
             maxPart = Math.max(maxPart, parts[k * 3 + 2]);
         }
-        Piece piece = new Piece(kind, new BlockPos(x, ground, z), r, height, divisor, parts, maxPart, block, core, fluid);
+        Piece piece = new Piece(kind, new BlockPos(x, ground, z), r, height, divisor, parts, maxPart, block, core, fluid, guardian);
         return Optional.of(new GenerationStub(new BlockPos(x, ground, z), b -> b.addPiece(piece)));
     }
 
@@ -122,6 +129,7 @@ public final class SurfaceStructure extends Structure {
             case METEORITE_FIELD -> ModWorldgen.METEORITE_FIELD.get();
             case ICE_VOLCANO -> ModWorldgen.ICE_VOLCANO.get();
             case ASTEROID -> ModWorldgen.LARGE_ASTEROID.get();
+            case HYDROTHERMAL_FIELD -> ModWorldgen.HYDROTHERMAL_FIELD.get();
         };
     }
 
@@ -191,9 +199,10 @@ public final class SurfaceStructure extends Structure {
         private final Identifier block;
         private final Identifier core;
         private final Identifier fluid;
+        private final @org.jspecify.annotations.Nullable Identifier guardian;
 
         Piece(Kind kind, BlockPos center, int radius, int height, int divisor, int[] parts, int maxPart, Identifier block,
-              Identifier core, Identifier fluid) {
+              Identifier core, Identifier fluid, @org.jspecify.annotations.Nullable Identifier guardian) {
             super(ModWorldgen.SURFACE_PIECE.get(), 0, box(kind, center, radius, height, maxPart));
             this.kind = kind;
             this.center = center;
@@ -204,6 +213,7 @@ public final class SurfaceStructure extends Structure {
             this.block = block;
             this.core = core;
             this.fluid = fluid;
+            this.guardian = guardian;
         }
 
         public Piece(CompoundTag tag) {
@@ -218,6 +228,8 @@ public final class SurfaceStructure extends Structure {
             this.block = Identifier.parse(tag.getStringOr("block", "minecraft:stone"));
             this.core = Identifier.parse(tag.getStringOr("core", "minecraft:stone"));
             this.fluid = Identifier.parse(tag.getStringOr("fluid", "minecraft:lava"));
+            String g = tag.getStringOr("guardian", "");
+            this.guardian = g.isEmpty() ? null : Identifier.parse(g);
         }
 
         private static BoundingBox box(Kind kind, BlockPos c, int r, int height, int maxPart) {
@@ -229,6 +241,8 @@ public final class SurfaceStructure extends Structure {
                         c.getX() + reach, c.getY() + height + 4, c.getZ() + reach);
                 case METEORITE_FIELD -> new BoundingBox(c.getX() - reach, c.getY() - reach, c.getZ() - reach,
                         c.getX() + reach, c.getY() + reach, c.getZ() + reach);
+                case HYDROTHERMAL_FIELD -> new BoundingBox(c.getX() - reach, c.getY() - 4, c.getZ() - reach,
+                        c.getX() + reach, c.getY() + maxPart + 6, c.getZ() + reach);
                 case ICE_VOLCANO, ASTEROID -> new BoundingBox(c.getX() - reach, c.getY() - 4, c.getZ() - reach,
                         c.getX() + reach, c.getY() + height + 4, c.getZ() + reach);
             };
@@ -245,6 +259,60 @@ public final class SurfaceStructure extends Structure {
             tag.putString("block", block.toString());
             tag.putString("core", core.toString());
             tag.putString("fluid", fluid.toString());
+            if (guardian != null) {
+                tag.putString("guardian", guardian.toString());
+            }
+        }
+
+        /**
+         * Quellenfeld (13.4): je Teil ein Schlot aus {@code core} mit der Quelle ({@code block}) obenauf, auf dem
+         * Meeresboden; der Wächter erscheint einmal über der Mitte.
+         */
+        private void vents(WorldGenLevel level, BoundingBox chunkBox) {
+            BlockPos.MutableBlockPos pos = new BlockPos.MutableBlockPos();
+            for (int k = 0; k + 2 < parts.length; k += 3) {
+                int x = center.getX() + parts[k];
+                int z = center.getZ() + parts[k + 1];
+                if (!chunkBox.isInside(pos.set(x, chunkBox.minY(), z))) {
+                    continue;
+                }
+                int top = seabed(level, x, z);
+                for (int h = 0; h < parts[k + 2]; h++) {
+                    level.setBlock(pos.set(x, top + h, z), state(core), Block.UPDATE_CLIENTS);
+                }
+                level.setBlock(pos.set(x, top + parts[k + 2], z), state(block), Block.UPDATE_CLIENTS);
+            }
+            if (guardian != null && chunkBox.isInside(pos.set(center.getX(), chunkBox.minY(), center.getZ()))) {
+                var type = BuiltInRegistries.ENTITY_TYPE.getValue(guardian);
+                var e = type.create(level.getLevel(), net.minecraft.world.entity.EntitySpawnReason.STRUCTURE);
+                if (e != null) {
+                    int top = seabed(level, center.getX(), center.getZ());
+                    e.snapTo(center.getX() + 0.5, top + 3, center.getZ() + 0.5, 0, 0);
+                    if (e instanceof net.minecraft.world.entity.Mob mob) {
+                        mob.setPersistenceRequired();
+                    }
+                    level.addFreshEntityWithPassengers(e);
+                }
+            }
+        }
+
+        /** Suche des Meeresbodens ab so vielen Blöcken über der geplanten Grundhöhe (Hänge im Feld, unter der Eisdecke). */
+        private static final int SEABED_SEARCH = 6;
+
+        /**
+         * Erste Höhe über festem Grund, von wenig über der geplanten Grundhöhe abwärts gesucht. Der Heightmap-Typ
+         * OCEAN_FLOOR_WG fehlt in fertigen Chunks ({@code /place structure}), und darüber kann schon die Eisdecke liegen.
+         */
+        private int seabed(WorldGenLevel level, int x, int z) {
+            BlockPos.MutableBlockPos p = new BlockPos.MutableBlockPos(x, Math.min(center.getY() + SEABED_SEARCH, level.getMaxY()), z);
+            while (p.getY() > level.getMinY()) {
+                BlockState s = level.getBlockState(p);
+                if (!s.isAir() && s.getFluidState().isEmpty()) {
+                    return p.getY() + 1;
+                }
+                p.move(net.minecraft.core.Direction.DOWN);
+            }
+            return center.getY();
         }
 
         private static BlockState state(Identifier id) {
@@ -254,6 +322,10 @@ public final class SurfaceStructure extends Structure {
         @Override
         public void postProcess(WorldGenLevel level, StructureManager structures, ChunkGenerator generator,
                                 RandomSource random, BoundingBox chunkBox, ChunkPos chunk, BlockPos referencePos) {
+            if (kind == Kind.HYDROTHERMAL_FIELD) {
+                vents(level, chunkBox);
+                return;
+            }
             if (kind == Kind.METEORITE_FIELD) {
                 for (int k = 0; k + 2 < parts.length; k += 3) {
                     int cx = center.getX() + parts[k];

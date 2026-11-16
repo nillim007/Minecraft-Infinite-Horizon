@@ -84,7 +84,9 @@
     "iridium_ingot",
     "iridium_chip",
     "jetpack",
-    "heat_scale"
+    "heat_scale",
+    "microbe_culture",
+    "diving_module"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,
@@ -111,6 +113,7 @@
     "rover_lithium_pack": 1,
     "heat_reflector": 1,
     "radiation_shield": 1,
-    "jetpack": 1
+    "jetpack": 1,
+    "diving_module": 1
   }
 }

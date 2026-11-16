@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 7b · Mod-Version 0.1.0
+> Stand: Meilenstein 7c · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -95,6 +95,8 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Fernflug und Jetpack](Fernflug-und-Jetpack.md) – Fernflug-Modul, Start von der Andockbucht, Jetpack
 - [Jupiter-Orbit und Gas-Sammler](Jupiter-Orbit-und-Gas-Sammler.md) – Station über dem Gasriesen, Wasserstoff aus der Atmosphäre
 - [Io](Io.md) – Der Vulkanmond des Jupiter mit Schwefel und Lavaseen
+- [Europa](Europa.md) – Ein Ozean unter dem Eis, hydrothermale Quellen und Mikroben
+- [Die Klon-Kammer](Die-Klon-Kammer.md) – Wiederauferstehen an einem festen Ort, auch auf anderen Welten
 
 ## Nachschlagen
 

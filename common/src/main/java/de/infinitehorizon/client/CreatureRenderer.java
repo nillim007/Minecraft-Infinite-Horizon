@@ -35,10 +35,18 @@ public class CreatureRenderer<T extends LivingEntity> extends EntityRenderer<T, 
     private final BlockModelResolver blocks;
     private final Function<T, BlockState> look;
 
+    /** Leuchtet unabhängig vom Licht ({@code emissive} in creatures.json, z. B. Eisqualle). */
+    private final boolean emissive;
+
     public CreatureRenderer(EntityRendererProvider.Context context, Function<T, BlockState> look) {
+        this(context, look, false);
+    }
+
+    public CreatureRenderer(EntityRendererProvider.Context context, Function<T, BlockState> look, boolean emissive) {
         super(context);
         this.blocks = context.getBlockModelResolver();
         this.look = look;
+        this.emissive = emissive;
     }
 
     @Override
@@ -63,7 +71,8 @@ public class CreatureRenderer<T extends LivingEntity> extends EntityRenderer<T, 
             pose.rotateDegrees(Axis.YP, -state.yRot);
             pose.translate(-state.width / 2, 0, -state.width / 2);
             pose.scale(state.width, state.height, state.width);
-            state.block.submit(pose, collector, state.lightCoords, OverlayTexture.NO_OVERLAY, 0);
+            state.block.submit(pose, collector, emissive ? net.minecraft.util.LightCoordsUtil.FULL_BRIGHT : state.lightCoords,
+                    OverlayTexture.NO_OVERLAY, 0);
             pose.popPose();
         }
         super.submit(state, pose, collector, camera);

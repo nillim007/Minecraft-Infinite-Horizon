@@ -51,4 +51,12 @@ public final class CreatureLooks {
     public static BlockState salamander(de.infinitehorizon.creature.SulfurSalamander e) {
         return Blocks.MAGMA_BLOCK.defaultBlockState();
     }
+
+    public static BlockState jelly(de.infinitehorizon.creature.IceJelly e) {
+        return Blocks.SEA_LANTERN.defaultBlockState();
+    }
+
+    public static BlockState keeper(de.infinitehorizon.creature.ReefKeeper e) {
+        return Blocks.DARK_PRISMARINE.defaultBlockState();
+    }
 }

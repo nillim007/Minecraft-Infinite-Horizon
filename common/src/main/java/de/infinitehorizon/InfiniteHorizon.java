@@ -136,8 +136,11 @@ public final class InfiniteHorizon {
 
     /** Respawn: Schwerkraft sofort setzen (12.9); die Belastung beginnt nach dem Tod bei 0 (Attachment ohne Kopie). */
     public static void onRespawn(ServerPlayer player) {
+        // Klon-Kammer → Bett → Weltspawn (14.4)
+        if (!de.infinitehorizon.station.CloneChambers.respawn(player)) {
+            HazardTracker.checkRespawn(player);
+        }
         GravityService.apply(player);
-        HazardTracker.checkRespawn(player);
         de.infinitehorizon.dome.DomeManager.sync(player);
     }
 

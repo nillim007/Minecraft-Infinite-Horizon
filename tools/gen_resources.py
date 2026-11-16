@@ -307,6 +307,9 @@ SIMPLE_BLOCKS = {
     "io_crust": {"copy": "minecraft:yellow_terracotta", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
     "io_sulfur_ore": {"copy": "minecraft:nether_quartz_ore", "falls": False, "tool": "pickaxe", "needs": "stone",
                       "ore": None, "planet_drops": True},
+    # Europa (13.4): Eis mit Härte 50 wie Obsidian (SPEC-GAP #105), Meeresboden wie Kies ohne Fallen
+    "europa_ice": {"copy": "minecraft:obsidian", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
+    "europa_seabed": {"copy": "minecraft:gravel", "falls": False, "tool": "shovel", "needs": None, "ore": None},
 }
 
 ORE_DEFAULTS = sd.ORE_DEFAULTS
@@ -529,9 +532,15 @@ RING1_SHAPES = {
                         "block": "default_block", "core": "infinite_horizon:iron_nickel_meteorite",
                         "fluid": "minecraft:air"},
 }
+# Quellenfeld der Europa (13.4 „Quellen-Cluster“; Maße SPEC-GAP #105): 4–7 Quellen im Umkreis 5–8 auf Schloten 0–2 hoch
+RING1_SHAPES_EUROPA = {"hydrothermal_field": {"radius": [5, 8], "height": 0, "divisor": 1, "count": [4, 7],
+                                              "part_radius": [0, 2], "block": "infinite_horizon:hydrothermal_vent",
+                                              "core": "default_block", "fluid": "minecraft:water"}}
+STEP_TOP_LAYER = 10
 # Lava-Meeresspiegel ohne Angabe in planets.json (Io): wie die Venus (SPEC-GAP #104)
 LAVA_SEA_LEVEL = 40
 # Eisvulkan der Ceres (13.4: „Kegel aus Eis“; Maße SPEC-GAP #102), Höhe über dem Boden
+RING1_SHAPES.update(RING1_SHAPES_EUROPA)
 RING1_SHAPES["ice_volcano"] = {"radius": [16, 20], "height": 24, "divisor": 5, "block": "minecraft:ice",
                                "core": "minecraft:packed_ice", "fluid": "minecraft:air"}
 # Asteroidengürtel (13.4): eigenes leeres Biom (the_void färbt den Himmel blau)
@@ -620,9 +629,10 @@ def biome_parameters(biomes):
     return out
 
 
-def surface_rule(biomes):
+def surface_rule(biomes, underwater_default=False):
     """Material Rule (13.1): Grundgestein wie Overworld, obere 3 Blöcke aus dem Oberflächenblock des Bioms,
-    surface_secondary dort, wo das Noise minecraft:surface > 0 ist."""
+    surface_secondary dort, wo das Noise minecraft:surface > 0 ist. Mit underwater_default (Europa) gilt der
+    Oberflächenblock nur über dem Wasser; der Meeresboden bleibt default_block (SPEC-GAP #105)."""
     top3 = {"type": "minecraft:stone_depth", "offset": 2, "add_surface_depth": False, "secondary_depth_range": 0,
             "surface_type": "floor"}
     seq = []
@@ -634,10 +644,14 @@ def surface_rule(biomes):
                                        "min_threshold": 0.0, "max_threshold": 1.7976931348623157e308},
                            "then_run": {"type": "minecraft:block", "result_state": b["surface_secondary"]}})
         layers.append({"type": "minecraft:block", "result_state": b["surface"]})
+        rule = {"type": "minecraft:sequence", "sequence": layers}
+        if underwater_default:
+            rule = {"type": "minecraft:condition", "if_true": {"type": "minecraft:water", "offset": -1,
+                                                                "surface_depth_multiplier": 0, "add_stone_depth": False},
+                    "then_run": rule}
         seq.append({"type": "minecraft:condition",
                     "if_true": {"type": "minecraft:biome", "biome_is": b["id"]},
-                    "then_run": {"type": "minecraft:condition", "if_true": top3,
-                                 "then_run": {"type": "minecraft:sequence", "sequence": layers}}})
+                    "then_run": {"type": "minecraft:condition", "if_true": top3, "then_run": rule}})
     # wie Vanilla: Oberflächenblöcke nur über der vorläufigen Oberfläche, nicht auf Höhlenböden
     return {"type": "minecraft:sequence", "sequence": [
         "minecraft:bedrock_floor",
@@ -807,7 +821,8 @@ def planet_worldgen(spec, impl, blocks):
             "default_block": p["default_block"], "default_fluid": p["default_fluid"] or "minecraft:air",
             "noise_router": noise_router(p), "material_rule": dim, "spawn_target": OVERWORLD_SPAWN_TARGET,
             "sea_level": sea_level(p, defaults), "disable_mob_generation": False, "legacy_random_source": False})
-        write_json(f"data/{ns}/worldgen/material_rule/{path}.json", surface_rule(p["biomes"]))
+        write_json(f"data/{ns}/worldgen/material_rule/{path}.json",
+                   surface_rule(p["biomes"], p.get("default_fluid") == "minecraft:water"))
         write_json(f"data/{ns}/dimension/{path}.json", {
             "type": dim,
             "generator": {"type": "minecraft:noise", "settings": dim, "biome_source": biome_source(p)}})
@@ -871,6 +886,17 @@ def planet_worldgen(spec, impl, blocks):
                           "max_inclusive": {"absolute": 67}}})
                 for b in f["biomes"]:
                     extra_carvers.setdefault(b, []).append(f"{NS}:{path}_canyon")
+                continue
+            if f["type"] == "ice_shell":
+                # 13.1 Europa: Eisdecke; läuft auch in den ausgesparten Biomen, dort mit Rissen
+                prm = f["params"]
+                name = short_id(f["id"])
+                write_json(f"data/{NS}/worldgen/feature/{name}.json", {
+                    "type": f"{NS}:ice_shell", "block": f["block"], "y_min": prm["y_min"], "y_max": prm["y_max"],
+                    "rift_width": prm["rift_width"], "excluded_biomes": prm.get("excluded_biomes", [])})
+                write_json(f"data/{NS}/worldgen/placed_feature/{name}.json", {"feature": f"{NS}:{name}", "placement": []})
+                for b in list(f["biomes"]) + list(prm.get("excluded_biomes", [])):
+                    per_biome[b][STEP_TOP_LAYER].append(f"{NS}:{name}")
                 continue
             if f["type"] == "meteorite_crater":
                 f = dict(f, id=f"{NS}:meteorite_crater", params=dict(METEORITE_CRATER))
@@ -936,6 +962,10 @@ def planet_worldgen(spec, impl, blocks):
                              "radius": {"type": "minecraft:uniform", "min_inclusive": rad[0], "max_inclusive": rad[1]},
                              "height": prm.get("max_y", shape.get("height", 0)), "divisor": shape["divisor"],
                              "block": pick(shape["block"]), "core": pick(shape["core"]), "fluid": shape["fluid"]})
+                guard = [eid for eid in impl.get("entities", [])
+                         if ((spec.balance.get("creatures", {}).get(eid) or {}).get("spawn") or {}).get("structure") == st["id"]]
+                if guard:
+                    body["guardian"] = guard[0]
                 for key in ("count", "part_radius"):
                     if key in shape:
                         body[key] = {"type": "minecraft:uniform", "min_inclusive": shape[key][0],
@@ -1351,6 +1381,11 @@ def main():
             vals = sorted(vals + [i for i in blocks if short(i) not in simple and blocks[i] not in ("farmland", "window")])
         if vals:
             write_json(f"data/minecraft/tags/block/needs_{lvl}_tool.json", {"values": vals})
+    # 26.3: Die Bewegungs-Heightmaps (MOTION_BLOCKING, OCEAN_FLOOR) zählen nur Blöcke aus diesem Tag; ohne Eintrag
+    # gelten Mod-Blöcke dort als Luft (Meeresboden der Europa, Brocken des Vulkanausbruchs). SPEC-GAP #105
+    solid_shapes = ("simple_block", "machine", "casing", "port", "hull", "window", "farmland", "lamp")
+    write_json("data/minecraft/tags/block/blocks_motion_no_leaves.json",
+               {"values": sorted(i for i, shape in blocks.items() if shape in solid_shapes)})
     ore_tags = {}
     for n, v in sorted(simple.items()):
         if v["ore"]:

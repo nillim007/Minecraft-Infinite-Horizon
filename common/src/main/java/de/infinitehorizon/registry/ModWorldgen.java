@@ -33,6 +33,9 @@ public final class ModWorldgen {
             BuiltInRegistries.STRUCTURE_TYPE, "ice_volcano", () -> () -> de.infinitehorizon.world.SurfaceStructure.CODEC);
     public static final Supplier<StructureType<de.infinitehorizon.world.SurfaceStructure>> LARGE_ASTEROID = Services.REGISTRY.register(
             BuiltInRegistries.STRUCTURE_TYPE, "large_asteroid", () -> () -> de.infinitehorizon.world.SurfaceStructure.CODEC);
+    /** Quellenfeld der Europa (13.4): Cluster aus hydrothermalen Quellen mit Riffwächter. */
+    public static final Supplier<StructureType<de.infinitehorizon.world.SurfaceStructure>> HYDROTHERMAL_FIELD = Services.REGISTRY.register(
+            BuiltInRegistries.STRUCTURE_TYPE, "hydrothermal_field", () -> () -> de.infinitehorizon.world.SurfaceStructure.CODEC);
     public static final Supplier<StructurePieceType> ASTEROID_PIECE = Services.REGISTRY.register(
             BuiltInRegistries.STRUCTURE_PIECE, "asteroid",
             () -> (StructurePieceType.ContextlessType) de.infinitehorizon.world.SurfaceStructure.AsteroidPiece::new);
@@ -52,6 +55,8 @@ public final class ModWorldgen {
         Services.REGISTRY.register(BuiltInRegistries.BIOME_SOURCE, "x_bands", () -> de.infinitehorizon.world.XBandsBiomeSource.CODEC);
         Services.REGISTRY.register(BuiltInRegistries.FEATURE_TYPE, "crater", () -> CraterFeature.CODEC);
         Services.REGISTRY.register(BuiltInRegistries.FEATURE_TYPE, "asteroid", () -> de.infinitehorizon.world.AsteroidFeature.CODEC);
+        // Europa (13.1): Eisdecke mit Rissen
+        Services.REGISTRY.register(BuiltInRegistries.FEATURE_TYPE, "ice_shell", () -> de.infinitehorizon.world.IceShellFeature.CODEC);
         // feste Lage (13.4: genau eine je Dimension)
         Services.REGISTRY.register(BuiltInRegistries.STRUCTURE_PLACEMENT, "fixed",
                 () -> de.infinitehorizon.world.FixedStructurePlacement.CODEC);

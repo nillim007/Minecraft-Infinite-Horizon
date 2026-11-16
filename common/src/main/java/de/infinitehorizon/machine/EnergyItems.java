@@ -29,6 +29,11 @@ public final class EnergyItems {
         if (suit != null && suit.has("energy_capacity")) {
             return suit.get("energy_capacity").getAsLong();
         }
+        // Werkzeuge mit Akku (items.json, z. B. ice_drill)
+        JsonObject tool = BalanceManager.get().entry("items", id).orElse(null);
+        if (tool != null && tool.has("energy_capacity")) {
+            return tool.get("energy_capacity").getAsLong();
+        }
         JsonObject e = BalanceManager.get().entry("storage", id).orElse(null);
         if (e == null || !e.has("capacity") || !"J".equals(e.has("unit") ? e.get("unit").getAsString() : "")) {
             return 0;

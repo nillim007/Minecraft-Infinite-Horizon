@@ -38,4 +38,4 @@ Steht ein Vulkanschlot in der Nähe eines Spielers, kann er ausbrechen. Du wirst
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Jupiter-Orbit und Gas-Sammler](Jupiter-Orbit-und-Gas-Sammler.md)
+← [Jupiter-Orbit und Gas-Sammler](Jupiter-Orbit-und-Gas-Sammler.md) · [Europa](Europa.md) →

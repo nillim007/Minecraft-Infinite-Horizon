@@ -1,0 +1,89 @@
+{
+  "dimension": "infinite_horizon:europa",
+  "type": "surface",
+  "orbit": "infinite_horizon:jupiter_orbit",
+  "star_system": "infinite_horizon:sol",
+  "ring": 2,
+  "distance_points": 5,
+  "gravity": 0.13,
+  "atmosphere": "none",
+  "pressure": "vacuum",
+  "temperature": {
+    "day": -160,
+    "night": -160
+  },
+  "biome_temperature_offsets": {},
+  "biome_temperature_overrides": {},
+  "radiation": 2,
+  "solar_factor": 0.1,
+  "water_behavior": "freeze",
+  "landing_requires_fuel": true,
+  "launch_cost_override": null,
+  "required_rocket_tier": 2,
+  "requires_long_range": false,
+  "lander_connects_to": "infinite_horizon:jupiter_orbit",
+  "fixed_time": null,
+  "special": {},
+  "structures": [
+    {
+      "id": "infinite_horizon:hydrothermal_field",
+      "exploration_target": true,
+      "biomes": [
+        "infinite_horizon:europa_vents"
+      ],
+      "spacing_chunks": null,
+      "count_per_dimension": null,
+      "position": null,
+      "params": {},
+      "notes": "Quellen-Cluster aus hydrothermal_vent, 1 reef_keeper je Cluster; SPEC-GAP: Häufigkeit nicht angegeben"
+    }
+  ],
+  "probe": "infinite_horizon:advanced_probe",
+  "sky": {
+    "color": "#000000",
+    "fog_color": "#000000",
+    "fog_distance": null,
+    "stars_in_daylight": true,
+    "sun_scale": 1.0,
+    "sunset_color": null,
+    "celestial_bodies": [
+      {
+        "texture": "infinite_horizon:textures/sky/jupiter.png",
+        "size": 90,
+        "azimuth": 30,
+        "elevation": 35
+      }
+    ]
+  },
+  "gas_collector_output": null,
+  "zones": [
+    {
+      "id": "ocean",
+      "y_min": -64,
+      "y_max": 111,
+      "biome": null,
+      "near_block": null,
+      "temperature": 2,
+      "pressure": "normal",
+      "radiation": 0,
+      "solar_factor": null,
+      "atmosphere": null,
+      "water_behavior": "normal"
+    },
+    {
+      "id": "deep_sea",
+      "y_min": -64,
+      "y_max": 79,
+      "biome": null,
+      "near_block": null,
+      "temperature": null,
+      "pressure": "deep",
+      "radiation": null,
+      "solar_factor": null,
+      "atmosphere": null,
+      "water_behavior": null
+    }
+  ],
+  "vanilla_mobs": [],
+  "name": "planet.infinite_horizon.europa"
+}

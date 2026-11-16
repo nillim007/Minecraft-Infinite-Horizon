@@ -110,6 +110,11 @@ public final class HazardTracker {
             protection = new Protection(protection.tempMin(), protection.tempMax(), protection.pressures(), shield,
                     protection.suppliesOxygen(), protection.deepPressure());
         }
+        // Tauchmodul (9.2): schützt gegen Tiefseedruck
+        if (suit != null && !protection.deepPressure() && de.infinitehorizon.suit.SuitModules.protects(player, "deep_pressure")) {
+            protection = new Protection(protection.tempMin(), protection.tempMax(), protection.pressures(),
+                    protection.radiationMax(), protection.suppliesOxygen(), true);
+        }
         // Kühlmodul (9.2): obere Temperaturgrenze + temp_max_bonus
         double cooling = suit == null ? 0 : de.infinitehorizon.suit.SuitModules.bonus(player, "temp_max_bonus");
         if (cooling != 0) {
@@ -146,23 +151,28 @@ public final class HazardTracker {
         }).orElse(null);
     }
 
-    /**
-     * Respawn (14.4): Ist der Zielpunkt ohne Anzug unsicher (z. B. Kuppel ausgefallen), erscheint der Spieler am
-     * Weltspawn der Overworld (Klon-Kammer kommt später), mit Meldung.
-     */
-    public static void checkRespawn(ServerPlayer player) {
+    /** Ist {@code pos} ohne Anzug gefährlich (Umwelt laut 8.3, Kuppel berücksichtigt)? Erde und Overworld nie. */
+    public static boolean unsafe(ServerLevel level, BlockPos pos) {
         if (BalanceManager.get().isEmpty()) {
-            return;
+            return false;
         }
         EnvironmentRules r = rules();
-        ServerLevel level = player.level();
-        PlanetResolver.Resolved res = PlanetResolver.at(level, player.blockPosition());
+        PlanetResolver.Resolved res = PlanetResolver.at(level, pos);
         if (res.planet() == null || res.planet().dimension().equals(PlanetResolver.EARTH)) {
-            return;
+            return false;
         }
         EnvironmentResult result = EnvironmentCalculator.compute(new EnvironmentInput(res.planet(), res.zones(), res.biome(),
-                level.getOverworldClockTime(), 0, false, domeCover(level, player.blockPosition()), r.noSuit()), r);
-        if (result.hazards().isEmpty()) {
+                level.getOverworldClockTime(), 0, false, domeCover(level, pos), r.noSuit()), r);
+        return !result.hazards().isEmpty();
+    }
+
+    /**
+     * Respawn (14.4): Ist der Zielpunkt ohne Anzug unsicher (z. B. Kuppel ausgefallen), erscheint der Spieler am
+     * Weltspawn der Overworld, mit Meldung. Die Klon-Kammer prüft vorher {@link de.infinitehorizon.station.CloneChambers}.
+     */
+    public static void checkRespawn(ServerPlayer player) {
+        ServerLevel level = player.level();
+        if (!unsafe(level, player.blockPosition())) {
             return;
         }
         ServerLevel overworld = level.getServer().overworld();

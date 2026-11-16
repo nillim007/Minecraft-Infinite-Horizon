@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "front": "infinite_horizon:block/clone_chamber_front_idle",
+    "side": "infinite_horizon:block/clone_chamber",
+    "top": "infinite_horizon:block/clone_chamber_top"
+  }
+}

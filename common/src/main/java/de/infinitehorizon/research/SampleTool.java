@@ -65,6 +65,10 @@ public final class SampleTool {
             return InteractionResult.PASS;
         }
         Result r = sample(sl, context.getClickedPos(), player);
+        if (r == Result.SAMPLED) {
+            de.infinitehorizon.creature.ReefKeeper.provoke(sl, player, context.getClickedPos(),
+                    de.infinitehorizon.creature.ReefKeeper.SAMPLE_TOOL);
+        }
         switch (r) {
             case NOT_SAMPLEABLE -> player.sendOverlayMessage(Component.translatable(MESSAGE_NONE));
             case ALREADY_SAMPLED -> player.sendOverlayMessage(Component.translatable(MESSAGE_USED));

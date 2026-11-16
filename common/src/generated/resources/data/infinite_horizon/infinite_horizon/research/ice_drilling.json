@@ -1,0 +1,24 @@
+{
+  "tier": 4,
+  "branch": "life_support",
+  "cost": 80,
+  "requires": [
+    "infinite_horizon:lithium_storage"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:ice_drill"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:diving_module"
+    }
+  ],
+  "icon": "infinite_horizon:ice_drill",
+  "position": {
+    "column": 2,
+    "row": 4,
+    "slot": 3
+  }
+}

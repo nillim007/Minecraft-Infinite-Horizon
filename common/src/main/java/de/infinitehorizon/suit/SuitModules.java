@@ -77,6 +77,27 @@ public final class SuitModules {
         return m;
     }
 
+    /** Schützt ein Modul der getragenen Teile gegen {@code hazard} ({@code protects} in suits.json, z. B. Tauchmodul)? */
+    public static boolean protects(net.minecraft.world.entity.LivingEntity entity, String hazard) {
+        for (net.minecraft.world.entity.EquipmentSlot slot : new net.minecraft.world.entity.EquipmentSlot[]{
+                net.minecraft.world.entity.EquipmentSlot.HEAD, net.minecraft.world.entity.EquipmentSlot.CHEST,
+                net.minecraft.world.entity.EquipmentSlot.LEGS, net.minecraft.world.entity.EquipmentSlot.FEET}) {
+            for (Identifier m : modules(entity.getItemBySlot(slot))) {
+                var e = BalanceManager.get().entry("suits", m.toString()).orElse(null);
+                if (e != null && e.has("protects") && e.get("protects").isJsonArray()) {
+                    for (var h : e.getAsJsonArray("protects")) {
+                        if (h.getAsString().equals(hazard)) {
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    public static final Identifier SWIM_MODIFIER = de.infinitehorizon.InfiniteHorizon.id("suit_module_swim");
+
     /** Jeder Tick: Rüstungsbonus der Module als Attribut-Modifikator (nur bei Änderung neu gesetzt). */
     public static void tick(net.minecraft.server.MinecraftServer server) {
         for (net.minecraft.server.level.ServerPlayer p : server.getPlayerList().getPlayers()) {
@@ -84,6 +105,9 @@ public final class SuitModules {
             if (inst == null) {
                 continue;
             }
+            // Tauchmodul (9.2): swim_speed_multiplier − 1 als Wasser-Bewegungseffizienz (SPEC-GAP #105)
+            modifier(p, net.minecraft.world.entity.ai.attributes.Attributes.WATER_MOVEMENT_EFFICIENCY, SWIM_MODIFIER,
+                    factor(p, "swim_speed_multiplier") - 1);
             double armor = bonus(p, "armor_bonus");
             var existing = inst.getModifier(ARMOR_MODIFIER);
             if (armor == 0) {
@@ -94,6 +118,24 @@ public final class SuitModules {
                 inst.addOrUpdateTransientModifier(new net.minecraft.world.entity.ai.attributes.AttributeModifier(ARMOR_MODIFIER,
                         armor, net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADD_VALUE));
             }
+        }
+    }
+
+    private static void modifier(net.minecraft.server.level.ServerPlayer p,
+                                 net.minecraft.core.Holder<net.minecraft.world.entity.ai.attributes.Attribute> attribute,
+                                 Identifier id, double amount) {
+        var inst = p.getAttribute(attribute);
+        if (inst == null) {
+            return;
+        }
+        var existing = inst.getModifier(id);
+        if (amount == 0) {
+            if (existing != null) {
+                inst.removeModifier(id);
+            }
+        } else if (existing == null || existing.amount() != amount) {
+            inst.addOrUpdateTransientModifier(new net.minecraft.world.entity.ai.attributes.AttributeModifier(id, amount,
+                    net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.ADD_VALUE));
         }
     }
 

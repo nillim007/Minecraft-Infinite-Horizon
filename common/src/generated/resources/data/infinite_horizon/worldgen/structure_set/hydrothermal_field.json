@@ -1,0 +1,14 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 67496684,
+    "separation": 4,
+    "spacing": 16
+  },
+  "structures": [
+    {
+      "structure": "infinite_horizon:hydrothermal_field",
+      "weight": 1
+    }
+  ]
+}

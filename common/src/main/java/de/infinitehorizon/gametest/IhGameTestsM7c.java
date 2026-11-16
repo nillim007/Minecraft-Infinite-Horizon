@@ -178,15 +178,17 @@ public final class IhGameTestsM7c {
         h.succeed();
     }
 
-    /** Landefähre (12.7): Io hängt am Jupiter-Orbit. */
+    /** Landefähre (12.7): Io und Europa hängen am Jupiter-Orbit. */
     public static void landerIoRoute(GameTestHelper h) {
         ServerPlayer p = IhTestPlayers.inList(h, GameType.SURVIVAL, new Vec3(1.5, 2, 1.5));
         try {
             Agency agency = AgencyManager.ensureFor(p);
             agency.progress().addProbeReached(IO);
+            agency.progress().addProbeReached(InfiniteHorizon.id("europa"));
             List<LaunchChecklist.Destination> d = LanderRoutes.destinations(h.getLevel(), Long.MAX_VALUE,
                     PlanetRegistry.get().planet(JUPITER_ORBIT).orElseThrow(), agency);
-            h.assertTrue(d.stream().anyMatch(x -> x.dimension().equals(IO)), "Ziele vom Jupiter-Orbit: " + d);
+            h.assertTrue(d.stream().anyMatch(x -> x.dimension().equals(IO))
+                    && d.stream().anyMatch(x -> x.dimension().equals(InfiniteHorizon.id("europa"))), "Ziele vom Jupiter-Orbit: " + d);
         } finally {
             IhTestPlayers.remove(p);
         }

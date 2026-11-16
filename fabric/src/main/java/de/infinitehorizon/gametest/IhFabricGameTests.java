@@ -918,4 +918,44 @@ public class IhFabricGameTests {
     public void landerJupiterorbitToio(GameTestHelper helper) {
         IhGameTestsM7c.landerIoRoute(helper);
     }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:europa")
+    public void europaIceshellGenerated(GameTestHelper helper) {
+        IhGameTestsM7c2.iceShell(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:europa")
+    public void europaDeeppressureDivingmodule(GameTestHelper helper) {
+        IhGameTestsM7c2.divingModule(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void ventBottleMicrobeculture(GameTestHelper helper) {
+        IhGameTestsM7c2.ventBottle(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void icedrillLayerEnergy(GameTestHelper helper) {
+        IhGameTestsM7c2.iceDrill(helper);
+    }
+
+    @GameTest(maxTicks = 40)
+    public void clonechamberRespawnCulture(GameTestHelper helper) {
+        IhGameTestsM7c2.cloneChamber(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void reefkeeperProvokePacify(GameTestHelper helper) {
+        IhGameTestsM7c2.reefKeeper(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void icejellySeeksVent(GameTestHelper helper) {
+        IhGameTestsM7c2.iceJellySeeksVent(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:europa")
+    public void europaHydrothermalfieldKeeper(GameTestHelper helper) {
+        IhGameTestsM7c2.hydrothermalField(helper);
+    }
 }

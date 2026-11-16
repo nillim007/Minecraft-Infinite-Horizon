@@ -1,0 +1,227 @@
+{
+  "id": "infinite_horizon:phase_5/europa",
+  "chapter": "infinite_horizon:phase_5",
+  "title": "infinite_horizon.handbook.phase_5.europa.title",
+  "icon": "infinite_horizon:europa_ice",
+  "order": 90,
+  "unlock": "infinite_horizon:research_tier/4",
+  "items": [
+    "infinite_horizon:europa_ice",
+    "infinite_horizon:europa_seabed",
+    "infinite_horizon:hydrothermal_vent",
+    "infinite_horizon:microbe_culture",
+    "infinite_horizon:ice_drill",
+    "infinite_horizon:diving_module"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.europa.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.europa.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_5.europa.e2.0",
+        "infinite_horizon.handbook.phase_5.europa.e2.1",
+        "infinite_horizon.handbook.phase_5.europa.e2.2"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.europa.e3",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_5.europa.e4.0",
+        "infinite_horizon.handbook.phase_5.europa.e4.1"
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/diving_module",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:oxygen_canister"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:diving_module",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.europa.e6",
+      "style": "warning"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.europa.e7",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.europa.e8"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/ice_drill",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:tungsten_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_rod"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:lithium_battery"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:ice_drill",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.europa.e10",
+      "style": "tip"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.europa.e11",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.europa.e12"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/clone_chamber",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:iridium_chip"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:microbe_culture"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:pressure_hull"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:clone_chamber",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.europa.e14",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_5.europa.e15.0",
+        "infinite_horizon.handbook.phase_5.europa.e15.1"
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.europa.e16",
+      "style": "tip"
+    }
+  ]
+}
