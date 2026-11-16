@@ -196,6 +196,18 @@
     {"name": "clonechamber_respawn_culture", "class": "IhGameTestsM7c2", "method": "cloneChamber", "ticks": 40, "ref": "14.4, M7c"},
     {"name": "reefkeeper_provoke_pacify", "class": "IhGameTestsM7c2", "method": "reefKeeper", "ticks": 20, "ref": "18, M7c"},
     {"name": "icejelly_seeks_vent", "class": "IhGameTestsM7c2", "method": "iceJellySeeksVent", "ticks": 20, "ref": "18, M7c"},
-    {"name": "europa_hydrothermalfield_keeper", "class": "IhGameTestsM7c2", "method": "hydrothermalField", "ticks": 20, "dimension": "infinite_horizon:europa", "ref": "13.4, 18, M7c"}
+    {"name": "europa_hydrothermalfield_keeper", "class": "IhGameTestsM7c2", "method": "hydrothermalField", "ticks": 20, "dimension": "infinite_horizon:europa", "ref": "13.4, 18, M7c"},
+    {"name": "saturnorbit_gascollector_helium", "class": "IhGameTestsM7d", "method": "saturnHelium", "ticks": 60, "dimension": "infinite_horizon:saturn_orbit", "ref": "13.3, M7d"},
+    {"name": "tier5_enter_saturnorbit", "class": "IhGameTestsM7d", "method": "tierFiveSaturn", "ticks": 20, "ref": "11.4, M7d"},
+    {"name": "ringdebris_impact_noore", "class": "IhGameTestsM7d", "method": "ringDebris", "ticks": 20, "ref": "19, M7d"},
+    {"name": "titan_skimmer_methane_flee", "class": "IhGameTestsM7d", "method": "methaneSkimmer", "ticks": 60, "ref": "13.4, 18, M7d"},
+    {"name": "titan_elytra_sinkrate", "class": "IhGameTestsM7d", "method": "titanElytra", "ticks": 20, "dimension": "infinite_horizon:titan", "ref": "13.4, M7d"},
+    {"name": "enceladus_geyser_launch", "class": "IhGameTestsM7d", "method": "geyserLaunch", "ticks": 20, "ref": "13.4, M7d"},
+    {"name": "enceladus_geysermoth_circles", "class": "IhGameTestsM7d", "method": "geyserMoth", "ticks": 120, "ref": "18, M7d"},
+    {"name": "magnetictrap_jupiterorbit_cell", "class": "IhGameTestsM7d", "method": "magneticTrap", "ticks": 20, "dimension": "infinite_horizon:jupiter_orbit", "ref": "6.1, M7d"},
+    {"name": "magnetictrap_overworld_error", "class": "IhGameTestsM7d", "method": "magneticTrapWrongPlace", "ticks": 20, "ref": "6.1, M7d"},
+    {"name": "dome_t3_values", "class": "IhGameTestsM7d", "method": "domeTierThree", "ticks": 20, "environment": "infinite_horizon:domes", "ref": "10.1, M7d"},
+    {"name": "lander_saturnorbit_moons", "class": "IhGameTestsM7d", "method": "landerSaturn", "ticks": 20, "ref": "12.7, M7d"},
+    {"name": "saturnmoons_worldgen", "class": "IhGameTestsM7d", "method": "moonsWorldgen", "ticks": 20, "dimension": "infinite_horizon:enceladus", "ref": "13.4, M7d"}
   ]
 }

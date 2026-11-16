@@ -41,6 +41,13 @@ public final class ZeroGMovement {
             JsonObject anchor = AsteroidAnchorBlock.config();
             return anchor.has("gravity_g") ? anchor.get("gravity_g").getAsDouble() : planetG;
         }
+        // Titan (13.4): dichte Luft, beim Gleiten mit Elytren sinkt man langsamer
+        if (planet != null && player.isFallFlying() && planet.raw().has("special") && planet.raw().get("special").isJsonObject()) {
+            JsonObject special = planet.raw().getAsJsonObject("special");
+            if (special.has("elytra_sink_rate_multiplier")) {
+                return planetG * special.get("elytra_sink_rate_multiplier").getAsDouble();
+            }
+        }
         if (planet == null || !planet.isOrbit()) {
             return planetG;
         }

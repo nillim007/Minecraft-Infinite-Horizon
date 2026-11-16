@@ -237,7 +237,7 @@ def png_sized(pixels):
 
 # 24.5 "Weitere Platzhalter ab M3": Erde am Himmel 32 x 32 als Scheibe #3F76E4 mit Rauschen
 # Farben der Himmelskörper ohne Angabe in 24.5 (Erde blau wie Wasser); SPEC-GAP #104
-CELESTIAL_COLORS = {"jupiter": "#C9A27A"}
+CELESTIAL_COLORS = {"jupiter": "#C9A27A", "saturn": "#D8C08A"}
 
 
 def celestial_disc(color, size, seed):

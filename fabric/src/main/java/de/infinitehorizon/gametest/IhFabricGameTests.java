@@ -958,4 +958,64 @@ public class IhFabricGameTests {
     public void europaHydrothermalfieldKeeper(GameTestHelper helper) {
         IhGameTestsM7c2.hydrothermalField(helper);
     }
+
+    @GameTest(maxTicks = 60, dimension = "infinite_horizon:saturn_orbit")
+    public void saturnorbitGascollectorHelium(GameTestHelper helper) {
+        IhGameTestsM7d.saturnHelium(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void tier5EnterSaturnorbit(GameTestHelper helper) {
+        IhGameTestsM7d.tierFiveSaturn(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void ringdebrisImpactNoore(GameTestHelper helper) {
+        IhGameTestsM7d.ringDebris(helper);
+    }
+
+    @GameTest(maxTicks = 60)
+    public void titanSkimmerMethaneFlee(GameTestHelper helper) {
+        IhGameTestsM7d.methaneSkimmer(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:titan")
+    public void titanElytraSinkrate(GameTestHelper helper) {
+        IhGameTestsM7d.titanElytra(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void enceladusGeyserLaunch(GameTestHelper helper) {
+        IhGameTestsM7d.geyserLaunch(helper);
+    }
+
+    @GameTest(maxTicks = 120)
+    public void enceladusGeysermothCircles(GameTestHelper helper) {
+        IhGameTestsM7d.geyserMoth(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:jupiter_orbit")
+    public void magnetictrapJupiterorbitCell(GameTestHelper helper) {
+        IhGameTestsM7d.magneticTrap(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void magnetictrapOverworldError(GameTestHelper helper) {
+        IhGameTestsM7d.magneticTrapWrongPlace(helper);
+    }
+
+    @GameTest(maxTicks = 20, environment = "infinite_horizon:domes")
+    public void domeT3Values(GameTestHelper helper) {
+        IhGameTestsM7d.domeTierThree(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void landerSaturnorbitMoons(GameTestHelper helper) {
+        IhGameTestsM7d.landerSaturn(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:enceladus")
+    public void saturnmoonsWorldgen(GameTestHelper helper) {
+        IhGameTestsM7d.moonsWorldgen(helper);
+    }
 }

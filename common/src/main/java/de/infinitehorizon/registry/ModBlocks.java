@@ -188,6 +188,18 @@ public final class ModBlocks {
     public static final Supplier<Block> HYDROTHERMAL_VENT = register("hydrothermal_vent",
             p -> new de.infinitehorizon.world.HydrothermalVentBlock(p, () -> ModBlockEntities.HYDROTHERMAL_VENT.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.BASALT).strength(-1.0f, 3600000.0f).noLootTable());
+    /** Magnetfalle (6.1): füllt Antimaterie-Zellen, nur im Jupiter-Orbit. */
+    public static final Supplier<Block> MAGNETIC_TRAP = register("magnetic_trap",
+            p -> new MachineBlock(p, () -> ModBlockEntities.MAGNETIC_TRAP.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Kuppelgenerator III (10.1): Werte aus domes.json. */
+    public static final Supplier<Block> DOME_GENERATOR_T3 = register("dome_generator_t3",
+            p -> new MachineBlock(p, () -> ModBlockEntities.DOME_GENERATOR_T3.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Ammoniak-Geysir (13.4): unzerstörbar, Fontäne im Takt. */
+    public static final Supplier<Block> AMMONIA_GEYSER = register("ammonia_geyser",
+            p -> new de.infinitehorizon.world.AmmoniaGeyserBlock(p, () -> ModBlockEntities.AMMONIA_GEYSER.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.PACKED_ICE).strength(-1.0f, 3600000.0f).noLootTable().friction(0.6f));
     public static final Supplier<Block> SPACE_WEATHER_STATION = register("space_weather_station",
             p -> new MachineBlock(p, () -> ModBlockEntities.SPACE_WEATHER_STATION.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));

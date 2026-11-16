@@ -59,4 +59,12 @@ public final class CreatureLooks {
     public static BlockState keeper(de.infinitehorizon.creature.ReefKeeper e) {
         return Blocks.DARK_PRISMARINE.defaultBlockState();
     }
+
+    public static BlockState skimmer(de.infinitehorizon.creature.MethaneSkimmer e) {
+        return Blocks.TERRACOTTA.defaultBlockState();
+    }
+
+    public static BlockState moth(de.infinitehorizon.creature.GeyserMoth e) {
+        return Blocks.PACKED_ICE.defaultBlockState();
+    }
 }

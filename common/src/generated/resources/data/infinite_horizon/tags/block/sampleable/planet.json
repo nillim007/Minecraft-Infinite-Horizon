@@ -1,11 +1,14 @@
 {
   "values": [
+    "infinite_horizon:ammonia_geyser",
     "infinite_horizon:asteroid_iridium_ore",
     "infinite_horizon:asteroid_nickel_ore",
     "infinite_horizon:asteroid_platinum_ore",
     "infinite_horizon:asteroid_rock",
     "infinite_horizon:ceres_rock",
     "infinite_horizon:dry_ice_block",
+    "infinite_horizon:enceladus_ice",
+    "infinite_horizon:enceladus_snow",
     "infinite_horizon:europa_ice",
     "infinite_horizon:europa_seabed",
     "infinite_horizon:gypsum_block",
@@ -28,6 +31,8 @@
     "infinite_horizon:moon_rock",
     "infinite_horizon:moon_titanium_ore",
     "infinite_horizon:salt_crust",
+    "infinite_horizon:titan_dune_sand",
+    "infinite_horizon:titan_ice_rock",
     "infinite_horizon:venus_rock",
     "infinite_horizon:venus_sulfur_ore",
     "infinite_horizon:venus_tungsten_ore",

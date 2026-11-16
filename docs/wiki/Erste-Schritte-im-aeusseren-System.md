@@ -14,6 +14,8 @@ Mit Stufe 4 der Forschung öffnet sich das Sonnensystem jenseits von Mond, Mars 
 4. **In den Asteroidengürtel.** Auf den [Asteroiden](Der-Asteroidenguertel.md) gibt es Platin und Iridium, daraus entstehen Iridium-Chips. Auf [Ceres](Ceres.md) wartet ein Eisvulkan als Erkundungsziel.
 5. **Zum Jupiter.** Im [Jupiter-Orbit](Jupiter-Orbit-und-Gas-Sammler.md) sammelt der Gas-Sammler Wasserstoff. Mit der Landefähre geht es weiter zum Vulkanmond [Io](Io.md).
 6. **Unter das Eis der Europa.** Mit Eisbohrer und Tauchmodul erreichst du den Ozean der [Europa](Europa.md). Die Mikrobenkulturen der Quellen brauchst du für die [Klon-Kammer](Die-Klon-Kammer.md).
+7. **Zum Saturn.** Mit dem Fernflug-Modul erreichst du den [Saturn-Orbit](Saturn-Orbit.md) und öffnest Stufe 5. Die Landefähre bringt dich nach [Titan](Titan.md) und [Enceladus](Enceladus.md).
+8. **Antimaterie.** Die [Magnetfalle](Magnetfalle-und-Antimaterie.md) im Jupiter-Orbit füllt Antimaterie-Zellen.
 
 ![Rezept: Fortgeschrittene Sonde](images/rezepte/assembly_advanced_probe.svg)
 

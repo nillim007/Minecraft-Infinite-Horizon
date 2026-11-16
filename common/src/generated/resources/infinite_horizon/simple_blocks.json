@@ -121,6 +121,26 @@
       "falls": false
     },
     {
+      "id": "titan_dune_sand",
+      "copy": "minecraft:sand",
+      "falls": false
+    },
+    {
+      "id": "titan_ice_rock",
+      "copy": "minecraft:stone",
+      "falls": false
+    },
+    {
+      "id": "enceladus_snow",
+      "copy": "minecraft:snow_block",
+      "falls": false
+    },
+    {
+      "id": "enceladus_ice",
+      "copy": "minecraft:packed_ice",
+      "falls": false
+    },
+    {
       "id": "meteorite_ore",
       "copy": "minecraft:iron_ore",
       "falls": false

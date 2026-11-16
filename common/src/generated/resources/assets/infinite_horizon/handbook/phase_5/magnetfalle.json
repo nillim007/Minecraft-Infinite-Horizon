@@ -1,0 +1,145 @@
+{
+  "id": "infinite_horizon:phase_5/magnetfalle",
+  "chapter": "infinite_horizon:phase_5",
+  "title": "infinite_horizon.handbook.phase_5.magnetfalle.title",
+  "icon": "infinite_horizon:magnetic_trap",
+  "order": 140,
+  "unlock": "infinite_horizon:research_tier/4",
+  "items": [
+    "infinite_horizon:magnetic_trap",
+    "infinite_horizon:antimatter_cell"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.magnetfalle.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.magnetfalle.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_5.magnetfalle.e2.0",
+        "infinite_horizon.handbook.phase_5.magnetfalle.e2.1",
+        "infinite_horizon.handbook.phase_5.magnetfalle.e2.2"
+      ]
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:magnetic_trap",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_5.magnetfalle.e3.0.label",
+          "infinite_horizon.handbook.phase_5.magnetfalle.e3.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_5.magnetfalle.e3.1.label",
+          "infinite_horizon.handbook.phase_5.magnetfalle.e3.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_5.magnetfalle.e3.2.label",
+          "infinite_horizon.handbook.phase_5.magnetfalle.e3.2.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_5.magnetfalle.e3.3.label",
+          "infinite_horizon.handbook.phase_5.magnetfalle.e3.3.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_5.magnetfalle.e3.4.label",
+          "infinite_horizon.handbook.phase_5.magnetfalle.e3.4.value"
+        ]
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/antimatter_cell",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:superconductor_wire"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:antimatter_cell",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/magnetic_trap",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:superconductor_wire"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:tungsten_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:iridium_chip"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:cooling_system"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:magnetic_trap",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.magnetfalle.e5",
+      "style": "tip"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.magnetfalle.e6",
+      "style": "warning"
+    }
+  ]
+}

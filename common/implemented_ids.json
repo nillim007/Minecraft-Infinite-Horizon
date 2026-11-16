@@ -69,6 +69,13 @@
     "infinite_horizon:europa_seabed": "simple_block",
     "infinite_horizon:hydrothermal_vent": "casing",
     "infinite_horizon:clone_chamber": "machine",
+    "infinite_horizon:magnetic_trap": "machine",
+    "infinite_horizon:dome_generator_t3": "machine",
+    "infinite_horizon:titan_dune_sand": "simple_block",
+    "infinite_horizon:titan_ice_rock": "simple_block",
+    "infinite_horizon:enceladus_snow": "simple_block",
+    "infinite_horizon:enceladus_ice": "simple_block",
+    "infinite_horizon:ammonia_geyser": "casing",
     "infinite_horizon:electric_lamp": "lamp",
     "infinite_horizon:extinguished_torch": "torch",
     "infinite_horizon:research_terminal": "machine",
@@ -217,7 +224,9 @@
     "infinite_horizon:heat_scale",
     "infinite_horizon:microbe_culture",
     "infinite_horizon:diving_module",
-    "infinite_horizon:ice_drill"
+    "infinite_horizon:ice_drill",
+    "infinite_horizon:antimatter_cell",
+    "infinite_horizon:skimmer_leg"
   ],
   "fluids": [
     "crude_oil",
@@ -225,11 +234,12 @@
     "hydrogen",
     "oxygen",
     "helium",
-    "liquid_helium"
+    "liquid_helium",
+    "methane"
   ],
-  "step": "7c",
-  "dimensions": ["infinite_horizon:moon", "infinite_horizon:mars", "infinite_horizon:venus", "infinite_horizon:earth_orbit", "infinite_horizon:mars_orbit", "infinite_horizon:venus_orbit", "infinite_horizon:mercury", "infinite_horizon:mercury_orbit", "infinite_horizon:asteroid_belt", "infinite_horizon:ceres", "infinite_horizon:jupiter_orbit", "infinite_horizon:io", "infinite_horizon:europa"],
-  "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket", "infinite_horizon:rover", "infinite_horizon:rubble_crawler", "infinite_horizon:shade_strider", "infinite_horizon:dune_burrower", "infinite_horizon:dust_wraith", "infinite_horizon:sulfur_snail", "infinite_horizon:cloud_ray", "infinite_horizon:lander", "infinite_horizon:mirror_beetle", "infinite_horizon:drift_mite", "infinite_horizon:sulfur_salamander", "infinite_horizon:sulfur_glob", "infinite_horizon:ice_jelly", "infinite_horizon:reef_keeper"],
+  "step": "7d",
+  "dimensions": ["infinite_horizon:moon", "infinite_horizon:mars", "infinite_horizon:venus", "infinite_horizon:earth_orbit", "infinite_horizon:mars_orbit", "infinite_horizon:venus_orbit", "infinite_horizon:mercury", "infinite_horizon:mercury_orbit", "infinite_horizon:asteroid_belt", "infinite_horizon:ceres", "infinite_horizon:jupiter_orbit", "infinite_horizon:io", "infinite_horizon:europa", "infinite_horizon:saturn_orbit", "infinite_horizon:titan", "infinite_horizon:enceladus"],
+  "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket", "infinite_horizon:rover", "infinite_horizon:rubble_crawler", "infinite_horizon:shade_strider", "infinite_horizon:dune_burrower", "infinite_horizon:dust_wraith", "infinite_horizon:sulfur_snail", "infinite_horizon:cloud_ray", "infinite_horizon:lander", "infinite_horizon:mirror_beetle", "infinite_horizon:drift_mite", "infinite_horizon:sulfur_salamander", "infinite_horizon:sulfur_glob", "infinite_horizon:ice_jelly", "infinite_horizon:reef_keeper", "infinite_horizon:methane_skimmer", "infinite_horizon:geyser_moth"],
   "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:first_signal", "infinite_horizon:small_step", "infinite_horizon:own_air"],
   "item_classes": {
     "_comment": "Items mit eigenem Verhalten; sie fehlen in simple_items.json und werden in ModItems registriert.",
@@ -249,6 +259,7 @@
     "infinite_horizon:sample": "sample",
     "infinite_horizon:space_ration": "ration",
     "infinite_horizon:lander": "lander",
-    "infinite_horizon:ice_drill": "ice_drill"
+    "infinite_horizon:ice_drill": "ice_drill",
+    "infinite_horizon:antimatter_cell": "antimatter_cell"
   }
 }

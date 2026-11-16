@@ -79,6 +79,9 @@ public final class ModItems {
     public static final Supplier<Item> ZERO_G_FABRICATOR = blockItem("zero_g_fabricator", ModBlocks.ZERO_G_FABRICATOR);
     public static final Supplier<Item> GAS_COLLECTOR = blockItem("gas_collector", ModBlocks.GAS_COLLECTOR);
     public static final Supplier<Item> CLONE_CHAMBER = blockItem("clone_chamber", ModBlocks.CLONE_CHAMBER);
+    public static final Supplier<Item> MAGNETIC_TRAP = blockItem("magnetic_trap", ModBlocks.MAGNETIC_TRAP);
+    public static final Supplier<Item> DOME_GENERATOR_T3 = blockItem("dome_generator_t3", ModBlocks.DOME_GENERATOR_T3);
+    public static final Supplier<Item> AMMONIA_GEYSER = blockItem("ammonia_geyser", ModBlocks.AMMONIA_GEYSER);
     public static final Supplier<Item> HYDROTHERMAL_VENT = blockItem("hydrothermal_vent", ModBlocks.HYDROTHERMAL_VENT);
     public static final Supplier<Item> SPACE_WEATHER_STATION = blockItem("space_weather_station", ModBlocks.SPACE_WEATHER_STATION);
     public static final Supplier<Item> DOCKING_BAY = blockItem("docking_bay", ModBlocks.DOCKING_BAY);
@@ -112,6 +115,9 @@ public final class ModItems {
     /** Eisbohrer (13.4): Schacht nach unten, Akku als Komponente {@code energy}. */
     public static final Supplier<Item> ICE_DRILL = register("ice_drill",
             p -> new de.infinitehorizon.suit.IceDrillItem(p.stacksTo(1)));
+    /** Antimaterie-Zelle (5): leer/gefüllt über die Komponente {@code charge}. */
+    public static final Supplier<Item> ANTIMATTER_CELL = register("antimatter_cell",
+            p -> new de.infinitehorizon.machine.AntimatterCellItem(p.stacksTo(16)));
     /** Probe (11.2) mit Komponente {@code sample}; gleiche Proben stapeln bis 64. */
     public static final Supplier<Item> SAMPLE = register("sample", de.infinitehorizon.research.SampleTool.SampleItem::new);
 

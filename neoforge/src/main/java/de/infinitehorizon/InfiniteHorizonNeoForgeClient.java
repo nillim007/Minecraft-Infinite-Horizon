@@ -63,6 +63,10 @@ public class InfiniteHorizonNeoForgeClient {
                     ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::jelly, true));
             e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.REEF_KEEPER.get(),
                     ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::keeper));
+            e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.METHANE_SKIMMER.get(),
+                    ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::skimmer));
+            e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.GEYSER_MOTH.get(),
+                    ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::moth));
             e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.SULFUR_GLOB.get(),
                     ctx -> new net.minecraft.client.renderer.entity.ThrownItemRenderer<>(ctx, 0.75f, true));
             e.registerBlockEntityRenderer(de.infinitehorizon.registry.ModBlockEntities.LANDING_BEACON.get(),

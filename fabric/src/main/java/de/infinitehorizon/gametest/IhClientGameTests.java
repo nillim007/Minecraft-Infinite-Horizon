@@ -173,6 +173,11 @@ public class IhClientGameTests implements FabricClientGameTest {
                 be.setItem(0, new ItemStack(ModItems.simple("microbe_culture").get(), 5));
                 fillEnergy(be, 2);
             });
+            // M7d: Magnetfalle (in der Overworld: rote Lampe, Hinweis Ort)
+            machine(context, sp, ModBlocks.MAGNETIC_TRAP.get(), "gui_magnetic_trap", be -> {
+                be.setItem(0, new ItemStack(ModItems.ANTIMATTER_CELL.get(), 2));
+                fillEnergy(be, 2);
+            });
             launchPad(context, sp);
 
             // Alle Blöcke nebeneinander in der Welt (Modelle, Texturen, Statuslampe)
@@ -234,6 +239,9 @@ public class IhClientGameTests implements FabricClientGameTest {
             planetView(context, sp, "jupiter_orbit");
             planetView(context, sp, "io");
             planetView(context, sp, "europa");
+            planetView(context, sp, "saturn_orbit");
+            planetView(context, sp, "titan");
+            planetView(context, sp, "enceladus");
         }
     }
 

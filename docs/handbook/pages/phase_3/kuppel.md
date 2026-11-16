@@ -5,7 +5,7 @@ order: 30
 milestone: 3
 requires: ["infinite_horizon:dome_generator_t1"]
 icon: infinite_horizon:dome_generator_t1
-items: ["infinite_horizon:dome_generator_t1", "infinite_horizon:dome_generator_t2", "infinite_horizon:dome_range_module", "infinite_horizon:dome_efficiency_module", "infinite_horizon:dome_shield_module"]
+items: ["infinite_horizon:dome_generator_t1", "infinite_horizon:dome_generator_t2", "infinite_horizon:dome_generator_t3", "infinite_horizon:dome_range_module", "infinite_horizon:dome_efficiency_module", "infinite_horizon:dome_shield_module"]
 summary: Atemluft für deine Basis auf fremden Welten
 ---
 Unter einer Kuppel kannst du ohne Anzug atmen und arbeiten. Der <item:infinite_horizon:dome_generator_t1> spannt eine unsichtbare Halbkugel um sich auf. Darin gibt es Atemluft, normalen Druck und angenehme {{value:domes:dome_rules.inside_temperature}} °C.
@@ -45,6 +45,19 @@ Fehlen Strom oder Sauerstoff oder passt die Temperatur nicht mehr, geht die Kupp
 Der <item:infinite_horizon:dome_generator_t2> spannt eine Kuppel mit Radius {{value:domes:infinite_horizon:dome_generator_t2.radius}} auf und hält Außentemperaturen von {{value:domes:infinite_horizon:dome_generator_t2.temp_min}} bis {{value:domes:infinite_horizon:dome_generator_t2.temp_max}} °C aus. Darunter schützt sie auch vor Staubsturm und Säureregen (siehe [[ereignisse|Weltraumwetter]]): Solarpanels liefern im Staubsturm vollen Strom.
 
 @machine infinite_horizon:dome_generator_t2
+@endif
+
+@if infinite_horizon:dome_generator_t3
+## Kuppel T3
+
+Der <item:infinite_horizon:dome_generator_t3> spannt eine Kuppel mit Radius {{value:domes:infinite_horizon:dome_generator_t3.radius}} auf und hält {{value:domes:infinite_horizon:dome_generator_t3.temp_min}} bis {{value:domes:infinite_horizon:dome_generator_t3.temp_max}} °C aus. Sie schirmt außerdem Strahlung und Sonnenstürme ab: Maschinen darunter pausieren im Sonnensturm nicht.
+
+@machine infinite_horizon:dome_generator_t3
+
+@recipes_for infinite_horizon:dome_generator_t3
+@endif
+
+@if infinite_horizon:dome_generator_t2
 
 ## Kuppelmodule
 

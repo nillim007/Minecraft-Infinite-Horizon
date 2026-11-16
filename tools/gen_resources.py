@@ -310,6 +310,11 @@ SIMPLE_BLOCKS = {
     # Europa (13.4): Eis mit Härte 50 wie Obsidian (SPEC-GAP #105), Meeresboden wie Kies ohne Fallen
     "europa_ice": {"copy": "minecraft:obsidian", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
     "europa_seabed": {"copy": "minecraft:gravel", "falls": False, "tool": "shovel", "needs": None, "ore": None},
+    # Saturn-Monde (13.4)
+    "titan_dune_sand": {"copy": "minecraft:sand", "falls": False, "tool": "shovel", "needs": None, "ore": None},
+    "titan_ice_rock": {"copy": "minecraft:stone", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
+    "enceladus_snow": {"copy": "minecraft:snow_block", "falls": False, "tool": "shovel", "needs": None, "ore": None},
+    "enceladus_ice": {"copy": "minecraft:packed_ice", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
 }
 
 ORE_DEFAULTS = sd.ORE_DEFAULTS
@@ -886,6 +891,17 @@ def planet_worldgen(spec, impl, blocks):
                           "max_inclusive": {"absolute": 67}}})
                 for b in f["biomes"]:
                     extra_carvers.setdefault(b, []).append(f"{NS}:{path}_canyon")
+                continue
+            if f["type"] == "geyser":
+                # 13.4 Enceladus: Geysir im obersten Block, per_chunk je Chunk
+                name = f"{path}_geyser"
+                write_json(f"data/{NS}/worldgen/feature/{name}.json", {"type": f"{NS}:geyser", "block": f["block"]})
+                write_json(f"data/{NS}/worldgen/placed_feature/{name}.json", {
+                    "feature": f"{NS}:{name}", "placement": [
+                        {"type": "minecraft:count", "count": f["params"]["per_chunk"]}, {"type": "minecraft:in_square"},
+                        {"type": "minecraft:heightmap", "heightmap": "WORLD_SURFACE_WG"}, {"type": "minecraft:biome"}]})
+                for b in f["biomes"]:
+                    per_biome[b][STEP_LOCAL_MODIFICATIONS].append(f"{NS}:{name}")
                 continue
             if f["type"] == "ice_shell":
                 # 13.1 Europa: Eisdecke; läuft auch in den ausgesparten Biomen, dort mit Rissen

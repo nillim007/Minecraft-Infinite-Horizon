@@ -86,7 +86,8 @@
     "jetpack",
     "heat_scale",
     "microbe_culture",
-    "diving_module"
+    "diving_module",
+    "skimmer_leg"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,

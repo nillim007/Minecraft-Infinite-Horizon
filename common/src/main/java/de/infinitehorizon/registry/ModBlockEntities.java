@@ -228,6 +228,22 @@ public final class ModBlockEntities {
                     () -> Services.REGISTRY.blockEntityType(
                             (pos, state) -> new de.infinitehorizon.world.HydrothermalVentBlock.Entity(ModBlockEntities.HYDROTHERMAL_VENT.get(), pos, state),
                             ModBlocks.HYDROTHERMAL_VENT.get()));
+    public static final Supplier<BlockEntityType<de.infinitehorizon.machine.MagneticTrapBlockEntity>> MAGNETIC_TRAP =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "magnetic_trap",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.machine.MagneticTrapBlockEntity(ModBlockEntities.MAGNETIC_TRAP.get(), pos, state),
+                            ModBlocks.MAGNETIC_TRAP.get()));
+    public static final Supplier<BlockEntityType<de.infinitehorizon.dome.DomeGeneratorBlockEntity>> DOME_GENERATOR_T3 =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "dome_generator_t3",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.dome.DomeGeneratorBlockEntity(
+                                    ModBlockEntities.DOME_GENERATOR_T3.get(), pos, state),
+                            ModBlocks.DOME_GENERATOR_T3.get()));
+    public static final Supplier<BlockEntityType<de.infinitehorizon.world.AmmoniaGeyserBlock.TickerEntity>> AMMONIA_GEYSER =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "ammonia_geyser",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.world.AmmoniaGeyserBlock.TickerEntity(ModBlockEntities.AMMONIA_GEYSER.get(), pos, state),
+                            ModBlocks.AMMONIA_GEYSER.get()));
     public static final Supplier<BlockEntityType<ProcessingMachineBlockEntity>> ZERO_G_FABRICATOR =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "zero_g_fabricator",
                     () -> Services.REGISTRY.blockEntityType(
@@ -339,7 +355,7 @@ public final class ModBlockEntities {
         for (Supplier<? extends BlockEntityType<? extends ProcessingMachineBlockEntity>> t
                 : List.of(ASSEMBLY_TABLE, ELECTROLYZER, REFINERY_CONTROLLER, REGOLITH_HEATER, HIGH_TEMPERATURE_FURNACE,
                 CRYO_LIQUEFIER, FOOD_PACKER, HYDROPONICS_BASIN, GREENHOUSE, ZERO_G_FABRICATOR, SPACE_WEATHER_STATION, FUSION_REACTOR, GRAVITY_PLATE,
-                GAS_COLLECTOR, CLONE_CHAMBER)) {
+                GAS_COLLECTOR, CLONE_CHAMBER, MAGNETIC_TRAP)) {
             Services.ENERGY.expose(t);
             Services.FLUID.expose(t);
         }
@@ -355,6 +371,8 @@ public final class ModBlockEntities {
         Services.FLUID.expose(DOME_GENERATOR_T1);
         Services.ENERGY.expose(DOME_GENERATOR_T2);
         Services.FLUID.expose(DOME_GENERATOR_T2);
+        Services.ENERGY.expose(DOME_GENERATOR_T3);
+        Services.FLUID.expose(DOME_GENERATOR_T3);
         Services.ENERGY.expose(STATION_CORE);
         Services.FLUID.expose(TANK_DEPOT);
         Services.ENERGY.expose(SOLAR_WING);

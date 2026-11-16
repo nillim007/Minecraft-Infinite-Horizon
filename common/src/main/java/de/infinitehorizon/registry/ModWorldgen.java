@@ -55,6 +55,8 @@ public final class ModWorldgen {
         Services.REGISTRY.register(BuiltInRegistries.BIOME_SOURCE, "x_bands", () -> de.infinitehorizon.world.XBandsBiomeSource.CODEC);
         Services.REGISTRY.register(BuiltInRegistries.FEATURE_TYPE, "crater", () -> CraterFeature.CODEC);
         Services.REGISTRY.register(BuiltInRegistries.FEATURE_TYPE, "asteroid", () -> de.infinitehorizon.world.AsteroidFeature.CODEC);
+        // Enceladus (13.4): Geysire in der Oberfläche
+        Services.REGISTRY.register(BuiltInRegistries.FEATURE_TYPE, "geyser", () -> de.infinitehorizon.world.GeyserFeature.CODEC);
         // Europa (13.1): Eisdecke mit Rissen
         Services.REGISTRY.register(BuiltInRegistries.FEATURE_TYPE, "ice_shell", () -> de.infinitehorizon.world.IceShellFeature.CODEC);
         // feste Lage (13.4: genau eine je Dimension)

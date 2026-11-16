@@ -1,0 +1,21 @@
+{
+  "tier": 4,
+  "branch": "life_support",
+  "cost": 80,
+  "requires": [
+    "infinite_horizon:dome_t2",
+    "infinite_horizon:iridium_chips"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:dome_generator_t3"
+    }
+  ],
+  "icon": "infinite_horizon:dome_generator_t3",
+  "position": {
+    "column": 2,
+    "row": 4,
+    "slot": 0
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "infinite_horizon:phase_5/titan",
+  "chapter": "infinite_horizon:phase_5",
+  "title": "infinite_horizon.handbook.phase_5.titan.title",
+  "icon": "infinite_horizon:titan_dune_sand",
+  "order": 120,
+  "unlock": "infinite_horizon:research_tier/4",
+  "items": [
+    "infinite_horizon:titan_dune_sand",
+    "infinite_horizon:titan_ice_rock",
+    "infinite_horizon:methane",
+    "infinite_horizon:skimmer_leg"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.titan.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.titan.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_5.titan.e2.0",
+        "infinite_horizon.handbook.phase_5.titan.e2.1",
+        "infinite_horizon.handbook.phase_5.titan.e2.2"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.titan.e3"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.titan.e4",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.titan.e5"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.titan.e6",
+      "style": "tip"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.titan.e7",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.titan.e8"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.titan.e9",
+      "style": "warning"
+    }
+  ]
+}

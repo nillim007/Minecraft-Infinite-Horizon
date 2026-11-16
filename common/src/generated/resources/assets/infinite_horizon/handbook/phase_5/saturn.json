@@ -1,0 +1,52 @@
+{
+  "id": "infinite_horizon:phase_5/saturn",
+  "chapter": "infinite_horizon:phase_5",
+  "title": "infinite_horizon.handbook.phase_5.saturn.title",
+  "icon": "infinite_horizon:gas_collector",
+  "order": 110,
+  "unlock": "infinite_horizon:research_tier/4",
+  "items": [],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.saturn.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.saturn.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.saturn.e2"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.saturn.e3",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.saturn.e4"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.saturn.e5",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.saturn.e6"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.saturn.e7",
+      "style": "warning"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.saturn.e8",
+      "style": "tip"
+    }
+  ]
+}

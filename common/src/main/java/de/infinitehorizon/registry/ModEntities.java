@@ -81,6 +81,10 @@ public final class ModEntities {
             creature("ice_jelly", de.infinitehorizon.creature.IceJelly::new);
     public static final Supplier<EntityType<de.infinitehorizon.creature.ReefKeeper>> REEF_KEEPER =
             creature("reef_keeper", de.infinitehorizon.creature.ReefKeeper::new);
+    public static final Supplier<EntityType<de.infinitehorizon.creature.MethaneSkimmer>> METHANE_SKIMMER =
+            creature("methane_skimmer", de.infinitehorizon.creature.MethaneSkimmer::new);
+    public static final Supplier<EntityType<de.infinitehorizon.creature.GeyserMoth>> GEYSER_MOTH =
+            creature("geyser_moth", de.infinitehorizon.creature.GeyserMoth::new);
     /** Schwefelklumpen (18): Projektil des Salamanders, Größe wie der kleine Feuerball. */
     public static final Supplier<EntityType<de.infinitehorizon.creature.SulfurGlob>> SULFUR_GLOB = Services.REGISTRY.register(
             BuiltInRegistries.ENTITY_TYPE, "sulfur_glob", () -> EntityType.Builder.<de.infinitehorizon.creature.SulfurGlob>of(

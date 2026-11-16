@@ -208,7 +208,19 @@ public final class IhTestCatalog {
             new Test("clonechamber_respawn_culture", 40, null, null, null, IhGameTestsM7c2::cloneChamber),  // 14.4, M7c
             new Test("reefkeeper_provoke_pacify", 20, null, null, null, IhGameTestsM7c2::reefKeeper),  // 18, M7c
             new Test("icejelly_seeks_vent", 20, null, null, null, IhGameTestsM7c2::iceJellySeeksVent),  // 18, M7c
-            new Test("europa_hydrothermalfield_keeper", 20, null, null, "infinite_horizon:europa", IhGameTestsM7c2::hydrothermalField)  // 13.4, 18, M7c
+            new Test("europa_hydrothermalfield_keeper", 20, null, null, "infinite_horizon:europa", IhGameTestsM7c2::hydrothermalField),  // 13.4, 18, M7c
+            new Test("saturnorbit_gascollector_helium", 60, null, null, "infinite_horizon:saturn_orbit", IhGameTestsM7d::saturnHelium),  // 13.3, M7d
+            new Test("tier5_enter_saturnorbit", 20, null, null, null, IhGameTestsM7d::tierFiveSaturn),  // 11.4, M7d
+            new Test("ringdebris_impact_noore", 20, null, null, null, IhGameTestsM7d::ringDebris),  // 19, M7d
+            new Test("titan_skimmer_methane_flee", 60, null, null, null, IhGameTestsM7d::methaneSkimmer),  // 13.4, 18, M7d
+            new Test("titan_elytra_sinkrate", 20, null, null, "infinite_horizon:titan", IhGameTestsM7d::titanElytra),  // 13.4, M7d
+            new Test("enceladus_geyser_launch", 20, null, null, null, IhGameTestsM7d::geyserLaunch),  // 13.4, M7d
+            new Test("enceladus_geysermoth_circles", 120, null, null, null, IhGameTestsM7d::geyserMoth),  // 18, M7d
+            new Test("magnetictrap_jupiterorbit_cell", 20, null, null, "infinite_horizon:jupiter_orbit", IhGameTestsM7d::magneticTrap),  // 6.1, M7d
+            new Test("magnetictrap_overworld_error", 20, null, null, null, IhGameTestsM7d::magneticTrapWrongPlace),  // 6.1, M7d
+            new Test("dome_t3_values", 20, null, "infinite_horizon:domes", null, IhGameTestsM7d::domeTierThree),  // 10.1, M7d
+            new Test("lander_saturnorbit_moons", 20, null, null, null, IhGameTestsM7d::landerSaturn),  // 12.7, M7d
+            new Test("saturnmoons_worldgen", 20, null, null, "infinite_horizon:enceladus", IhGameTestsM7d::moonsWorldgen)  // 13.4, M7d
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

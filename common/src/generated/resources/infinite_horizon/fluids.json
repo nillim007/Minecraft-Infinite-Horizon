@@ -65,6 +65,17 @@
       "slope_find_distance": 4,
       "drop_off": 2,
       "explosion_resistance": 100
+    },
+    {
+      "id": "methane",
+      "color": "#E8D44D",
+      "source_block": true,
+      "bucket": null,
+      "gas": false,
+      "tick_delay": 30,
+      "slope_find_distance": 4,
+      "drop_off": 2,
+      "explosion_resistance": 100
     }
   ]
 }

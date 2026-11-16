@@ -1,0 +1,60 @@
+{
+  "id": "infinite_horizon:phase_5/enceladus",
+  "chapter": "infinite_horizon:phase_5",
+  "title": "infinite_horizon.handbook.phase_5.enceladus.title",
+  "icon": "infinite_horizon:enceladus_snow",
+  "order": 130,
+  "unlock": "infinite_horizon:research_tier/4",
+  "items": [
+    "infinite_horizon:enceladus_snow",
+    "infinite_horizon:enceladus_ice",
+    "infinite_horizon:ammonia_geyser"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.enceladus.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.enceladus.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_5.enceladus.e2.0",
+        "infinite_horizon.handbook.phase_5.enceladus.e2.1"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.enceladus.e3",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.enceladus.e4"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.enceladus.e5",
+      "style": "tip"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.enceladus.e6",
+      "style": "warning"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.enceladus.e7",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.enceladus.e8"
+    }
+  ]
+}

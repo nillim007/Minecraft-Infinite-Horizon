@@ -287,6 +287,39 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/antimatter_cell",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:superconductor_wire"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:antimatter_cell",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/asteroid_anchor",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -1874,6 +1907,45 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/dome_generator_t3",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:dome_generator_t2"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:superconductor_wire"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:tungsten_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:iridium_chip"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:dome_generator_t3",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/cooling_module",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -2090,6 +2162,45 @@
           "results": [
             {
               "item": "infinite_horizon:lithium_battery_bank",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/magnetic_trap",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:superconductor_wire"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:tungsten_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:iridium_chip"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:cooling_system"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:magnetic_trap",
               "count": 1
             }
           ],

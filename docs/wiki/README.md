@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 7c · Mod-Version 0.1.0
+> Stand: Meilenstein 7d · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -97,6 +97,10 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Io](Io.md) – Der Vulkanmond des Jupiter mit Schwefel und Lavaseen
 - [Europa](Europa.md) – Ein Ozean unter dem Eis, hydrothermale Quellen und Mikroben
 - [Die Klon-Kammer](Die-Klon-Kammer.md) – Wiederauferstehen an einem festen Ort, auch auf anderen Welten
+- [Saturn-Orbit](Saturn-Orbit.md) – Das Tor zum äußeren System, Helium und Ringtrümmer
+- [Titan](Titan.md) – Der größte Saturnmond mit Methanseen und dichter Luft
+- [Enceladus](Enceladus.md) – Ein Eismond mit Ammoniak-Geysiren
+- [Magnetfalle und Antimaterie](Magnetfalle-und-Antimaterie.md) – Antimaterie aus dem Magnetfeld des Jupiter
 
 ## Nachschlagen
 

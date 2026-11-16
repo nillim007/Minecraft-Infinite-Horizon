@@ -23,6 +23,10 @@ Mit Stufe 4 der Forschung öffnet sich das Sonnensystem jenseits von Mond, Mars 
 @if infinite_horizon:europa_ice
 6. **Unter das Eis der Europa.** Mit Eisbohrer und Tauchmodul erreichst du den Ozean der [[europa|Europa]]. Die Mikrobenkulturen der Quellen brauchst du für die [[klonkammer|Klon-Kammer]].
 @endif
+@if infinite_horizon:titan_ice_rock
+7. **Zum Saturn.** Mit dem Fernflug-Modul erreichst du den [[saturn|Saturn-Orbit]] und öffnest Stufe 5. Die Landefähre bringt dich nach [[titan|Titan]] und [[enceladus|Enceladus]].
+8. **Antimaterie.** Die [[magnetfalle|Magnetfalle]] im Jupiter-Orbit füllt Antimaterie-Zellen.
+@endif
 
 @recipes_for infinite_horizon:advanced_probe
 

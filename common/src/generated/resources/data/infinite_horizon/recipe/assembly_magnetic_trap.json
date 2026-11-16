@@ -1,0 +1,28 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:superconductor_wire",
+      "count": 16
+    },
+    {
+      "ingredient": "infinite_horizon:tungsten_plate",
+      "count": 8
+    },
+    {
+      "ingredient": "infinite_horizon:iridium_chip",
+      "count": 4
+    },
+    {
+      "ingredient": "infinite_horizon:cooling_system",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:magnetic_trap",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

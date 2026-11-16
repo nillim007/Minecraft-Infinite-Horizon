@@ -2,6 +2,7 @@
   "values": [
     "infinite_horizon:advanced_probe",
     "infinite_horizon:aluminum_cable",
+    "infinite_horizon:ammonia_geyser",
     "infinite_horizon:analyzer",
     "infinite_horizon:assembly_table",
     "infinite_horizon:asteroid_anchor",
@@ -18,6 +19,7 @@
     "infinite_horizon:docking_bay",
     "infinite_horizon:dome_generator_t1",
     "infinite_horizon:dome_generator_t2",
+    "infinite_horizon:dome_generator_t3",
     "infinite_horizon:electric_furnace",
     "infinite_horizon:electric_lamp",
     "infinite_horizon:electrolyzer",
@@ -48,6 +50,7 @@
     "infinite_horizon:launch_tower",
     "infinite_horizon:lithium_battery_bank",
     "infinite_horizon:long_range_module",
+    "infinite_horizon:magnetic_trap",
     "infinite_horizon:mars_iron_ore",
     "infinite_horizon:mars_magnesium_ore",
     "infinite_horizon:mercury_iron_ore",

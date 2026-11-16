@@ -57,6 +57,23 @@ Der Kuppelgenerator II spannt eine Kuppel mit Radius 16 auf und hält Außentemp
 | Außentemperatur | -210 bis 250 °C |
 | Modul-Slots | 3 |
 
+## Kuppel T3
+
+Der Kuppelgenerator III spannt eine Kuppel mit Radius 32 auf und hält -250 bis 300 °C aus. Sie schirmt außerdem Strahlung und Sonnenstürme ab: Maschinen darunter pausieren im Sonnensturm nicht.
+
+| Steckbrief: Kuppelgenerator III |  |
+| --- | --- |
+| Verbrauch | 1.000 J/t |
+| Radius | 32 Blöcke |
+| O₂-Verbrauch | 800 mB je 1.200 t (60 s) |
+| O₂-Tank | 2.000 mB |
+| Außentemperatur | -250 bis 300 °C |
+| Modul-Slots | 3 |
+
+![Rezept: Kuppelgenerator III](images/rezepte/assembly_dome_generator_t3.svg)
+
+<sub>1 × Kuppelgenerator II, 16 × [Supraleiterdraht](Fertigung-im-Orbit.md), 16 × [Wolframplatte](Die-Rakete-T2.md), 4 × [Iridium-Chip](Der-Asteroidenguertel.md) → 1 × Kuppelgenerator III</sub>
+
 ## Kuppelmodule
 
 Jeder Kuppelgenerator hat 3 Modulslots. Jedes Modul passt einmal hinein.

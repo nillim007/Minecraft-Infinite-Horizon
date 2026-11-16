@@ -1,0 +1,28 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:dome_generator_t2",
+      "count": 1
+    },
+    {
+      "ingredient": "infinite_horizon:superconductor_wire",
+      "count": 16
+    },
+    {
+      "ingredient": "infinite_horizon:tungsten_plate",
+      "count": 16
+    },
+    {
+      "ingredient": "infinite_horizon:iridium_chip",
+      "count": 4
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:dome_generator_t3",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

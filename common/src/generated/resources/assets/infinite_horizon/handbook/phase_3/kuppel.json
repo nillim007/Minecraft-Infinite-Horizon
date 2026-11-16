@@ -8,6 +8,7 @@
   "items": [
     "infinite_horizon:dome_generator_t1",
     "infinite_horizon:dome_generator_t2",
+    "infinite_horizon:dome_generator_t3",
     "infinite_horizon:dome_range_module",
     "infinite_horizon:dome_efficiency_module",
     "infinite_horizon:dome_shield_module"
@@ -192,12 +193,95 @@
       "key": "infinite_horizon.handbook.phase_3.kuppel.e17"
     },
     {
+      "type": "machine",
+      "block": "infinite_horizon:dome_generator_t3",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_3.kuppel.e18.0.label",
+          "infinite_horizon.handbook.phase_3.kuppel.e18.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.kuppel.e18.1.label",
+          "infinite_horizon.handbook.phase_3.kuppel.e18.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.kuppel.e18.2.label",
+          "infinite_horizon.handbook.phase_3.kuppel.e18.2.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.kuppel.e18.3.label",
+          "infinite_horizon.handbook.phase_3.kuppel.e18.3.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.kuppel.e18.4.label",
+          "infinite_horizon.handbook.phase_3.kuppel.e18.4.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_3.kuppel.e18.5.label",
+          "infinite_horizon.handbook.phase_3.kuppel.e18.5.value"
+        ]
+      ]
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/dome_generator_t3",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:dome_generator_t2"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:superconductor_wire"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:tungsten_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:iridium_chip"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:dome_generator_t3",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e20",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e21"
+    },
+    {
       "type": "list",
       "ordered": false,
       "keys": [
-        "infinite_horizon.handbook.phase_3.kuppel.e18.0",
-        "infinite_horizon.handbook.phase_3.kuppel.e18.1",
-        "infinite_horizon.handbook.phase_3.kuppel.e18.2"
+        "infinite_horizon.handbook.phase_3.kuppel.e22.0",
+        "infinite_horizon.handbook.phase_3.kuppel.e22.1",
+        "infinite_horizon.handbook.phase_3.kuppel.e22.2"
       ]
     },
     {
@@ -333,7 +417,7 @@
     },
     {
       "type": "callout",
-      "key": "infinite_horizon.handbook.phase_3.kuppel.e20",
+      "key": "infinite_horizon.handbook.phase_3.kuppel.e24",
       "style": "tip"
     }
   ]

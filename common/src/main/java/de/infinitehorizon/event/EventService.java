@@ -40,6 +40,7 @@ public final class EventService {
     public static final Identifier METEOR_SHOWER = InfiniteHorizon.id("meteor_shower");
     public static final Identifier DUST_STORM = InfiniteHorizon.id("dust_storm");
     public static final Identifier ACID_RAIN = InfiniteHorizon.id("acid_rain");
+    public static final Identifier RING_DEBRIS = InfiniteHorizon.id("ring_debris");
 
     private EventService() {
     }
@@ -353,11 +354,14 @@ public final class EventService {
         if (local != null && local.pos().isPresent() && active(level, local.event())) {
             VolcanicEruption.tick(level, local.event(), local.pos().get(), now);
         }
-        if (activeHere(level, METEOR_SHOWER)) {
-            JsonObject fx = effects(METEOR_SHOWER);
-            if (now % Math.max(1, (long) num(fx, "impact_interval_ticks")) == 0) {
-                for (ServerPlayer p : level.players()) {
-                    impact(level, p.blockPosition(), fx);
+        // Meteoritenschauer und Ringtrümmer (19): Einschläge bei jedem Spieler
+        for (Identifier shower : new Identifier[]{METEOR_SHOWER, RING_DEBRIS}) {
+            if (activeHere(level, shower)) {
+                JsonObject fx = effects(shower);
+                if (now % Math.max(1, (long) num(fx, "impact_interval_ticks")) == 0) {
+                    for (ServerPlayer p : level.players()) {
+                        impact(level, p.blockPosition(), fx, shower);
+                    }
                 }
             }
         }
@@ -388,11 +392,16 @@ public final class EventService {
 
     /** Meteoriteneinschlag im Umkreis {@code impact_radius}: Explosion ohne Feuer, danach {@code leaves_block}. */
     public static BlockPos impact(ServerLevel level, BlockPos around, JsonObject fx) {
+        return impact(level, around, fx, METEOR_SHOWER);
+    }
+
+    /** Einschlag des Ereignisses {@code event} (Schutz aus dessen {@code protection}). */
+    public static BlockPos impact(ServerLevel level, BlockPos around, JsonObject fx, Identifier event) {
         int r = (int) num(fx, "impact_radius");
         RandomSource random = level.getRandom();
         BlockPos column = around.offset(random.nextInt(2 * r + 1) - r, 0, random.nextInt(2 * r + 1) - r);
         BlockPos top = level.getHeightmapPos(Heightmap.Types.MOTION_BLOCKING, column);
-        if (domeProtects(level, top, METEOR_SHOWER)) {
+        if (domeProtects(level, top, event)) {
             return top; // vom Schildmodul abgefangen (10.1)
         }
         boolean damage = ServerConfig.get().getBoolean(str(fx, "block_damage_config"));

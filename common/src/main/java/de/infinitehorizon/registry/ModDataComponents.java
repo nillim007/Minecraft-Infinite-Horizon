@@ -25,6 +25,14 @@ public final class ModDataComponents {
      * {@code infinite_horizon:energy} (4.1): gespeicherte Energie in J, z. B. auf einem abgebauten Akku. Ein leerer Speicher
      * hat die Komponente nicht.
      */
+    /** {@code infinite_horizon:charge} (5): Antimaterie-Zelle leer 0, gefüllt 1. */
+    public static final Supplier<DataComponentType<Integer>> CHARGE = Services.REGISTRY.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE, "charge",
+            () -> DataComponentType.<Integer>builder()
+                    .persistent(com.mojang.serialization.Codec.INT)
+                    .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_INT)
+                    .build());
+
     public static final Supplier<DataComponentType<Long>> ENERGY = Services.REGISTRY.register(
             BuiltInRegistries.DATA_COMPONENT_TYPE, "energy",
             () -> DataComponentType.<Long>builder()
