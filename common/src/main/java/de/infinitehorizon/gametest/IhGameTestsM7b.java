@@ -49,7 +49,9 @@ public final class IhGameTestsM7b {
                 net.minecraft.world.level.ChunkPos.containing(at).getMiddleBlockZ());
         String id = net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(level.getBlockState(c).getBlock()).getPath();
         h.assertTrue(id.startsWith("asteroid_"), "Mitte " + c + ": " + id);
-        h.assertTrue(level.getBlockState(c.above(16)).isAir(), "größer als Radius 15");
+        // Größe aus dem Strukturteil (darüber kann zufällig ein Asteroid des Features liegen)
+        var box = start.getBoundingBox();
+        h.assertTrue(box.maxY() - c.getY() == 15 && c.getY() - box.minY() == 15, "Radius " + (box.maxY() - c.getY()));
         h.succeed();
     }
 
