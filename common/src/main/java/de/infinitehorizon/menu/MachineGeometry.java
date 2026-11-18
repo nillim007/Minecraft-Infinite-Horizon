@@ -61,6 +61,21 @@ public record MachineGeometry(int tanks, int fluidLeft, int containerX, int outp
             upgradeX = containerX - 22;
             upgradeY = MachineMenu.FILL_Y;
         }
+        // Upgrades auf dem Ausgaberaster (viele Ausgaben ohne Tank, z. B. Bohrturm): Raster nach links vor die Upgrades
+        if (l.upgrades() > 0 && l.outputs() > 0) {
+            int ux0 = upgradeX - (l.upgrades() - 1) * SLOT;
+            int oy0 = gridTop(rows(l));
+            int oy1 = oy0 + ((l.outputs() + outCols - 1) / outCols) * SLOT;
+            boolean overlap = outputX < upgradeX + SLOT && outputX + outCols * SLOT > ux0
+                    && oy0 < upgradeY + SLOT && oy1 > upgradeY;
+            if (overlap) {
+                outputX = ux0 - 2 - outCols * SLOT;
+                arrowX = Math.min(arrowX, outputX - 31);
+                if (l.inputs() > GRID_COLUMNS) {
+                    inputX = arrowX - 59;
+                }
+            }
+        }
         return new MachineGeometry(tanks, fluidLeft, containerX, outputX, arrowX, inputX, upgradeX, upgradeY, extraRows,
                 fillY, drainY);
     }
