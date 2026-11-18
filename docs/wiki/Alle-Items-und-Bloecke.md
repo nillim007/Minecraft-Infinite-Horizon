@@ -20,12 +20,14 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Ammoniak-Geysir](Enceladus.md) | Block | Weltgenerierung |
 | [Analysator](Forschung.md) | Block | Rezept |
 | [Andockbucht](Stationsmodule.md) | Block | Rezept |
+| [Antimaterie-Antrieb](Frachtraketen-und-Antriebe.md) | Item | Rezept |
 | [Antimaterie-Zelle](Magnetfalle-und-Antimaterie.md) | Item | Rezept, Maschine |
 | [Asteroiden-Anker](Der-Asteroidenguertel.md) | Block | Rezept |
 | [Asteroiden-Iridiumerz](Der-Asteroidenguertel.md) | Block | Weltgenerierung |
 | [Asteroiden-Nickelerz](Der-Asteroidenguertel.md) | Block | Weltgenerierung |
 | [Asteroiden-Platinerz](Der-Asteroidenguertel.md) | Block | Weltgenerierung |
 | [Asteroidengestein](Der-Asteroidenguertel.md) | Block | Weltgenerierung |
+| [Atomantrieb](Frachtraketen-und-Antriebe.md) | Item | Rezept |
 | [Bauxit](Rohstoffe-und-Erze.md) | Item | Abbau |
 | [Bauxiterz](Rohstoffe-und-Erze.md) | Block | Weltgenerierung |
 | [Bohrturm](Bohrturm-und-Pumpstation.md) | Block | Rezept |
@@ -62,6 +64,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Forschungsterminal](Forschung.md) | Block | Rezept |
 | [Fortgeschrittene Sonde](Erste-Schritte-im-aeusseren-System.md) | Block | Rezept |
 | [Fortgeschrittener Schaltkreis](Der-Hochtemperaturofen.md) | Item | Rezept |
+| [Frachtrakete](Frachtraketen-und-Antriebe.md) | Item | Rezept |
 | [Frachtterminal](Aussenposten-und-Frachtterminal.md) | Block | Rezept |
 | [Fusionsreaktor](Der-Fusionsreaktor.md) | Block | Rezept |
 | [Fusionsreaktor-Gehäuse](Der-Fusionsreaktor.md) | Block | Rezept |
@@ -211,6 +214,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Schwefelspur](Kreaturen-des-inneren-Sonnensystems.md) | Block | not_obtainable |
 | [Schwerelos-Fertigung](Fertigung-im-Orbit.md) | Block | Rezept |
 | [Schwerkraftplatte](Der-Fusionsreaktor.md) | Block | Rezept |
+| [Schwerlast-Frachter](Frachtraketen-und-Antriebe.md) | Item | Rezept |
 | [Senderkern](Der-Sender.md) | Block | Weltgenerierung |
 | [Silizium](Elektroofen.md) | Item | Maschine |
 | [Solarflügel](Stationsmodule.md) | Block | Rezept |

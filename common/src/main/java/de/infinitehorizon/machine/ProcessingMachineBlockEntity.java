@@ -273,9 +273,35 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
     protected void beforeConsume(Plan plan, ServerLevel level) {
     }
 
-    private static Plan planOf(ProcessingRecipe r, ProcessingRecipe.Match m) {
-        return new Plan(m.slots(), m.counts(), r.results(), r.ticks(), r.energyPerTick(),
-                r.fluid().orElse(IhFluidStack.EMPTY), r.fluidResults());
+    private Plan planOf(ProcessingRecipe r, ProcessingRecipe.Match m) {
+        if (r.copyComponentsFrom().isEmpty()) {
+            return new Plan(m.slots(), m.counts(), r.results(), r.ticks(), r.energyPerTick(),
+                    r.fluid().orElse(IhFluidStack.EMPTY), r.fluidResults());
+        }
+        // 25.4: Ergebnis übernimmt die Komponenten des ersten Stapels der Zutat, danach die eigenen Komponenten
+        ItemStack source = ItemStack.EMPTY;
+        int idx = r.copyComponentsFrom().get();
+        if (idx >= 0 && idx < r.ingredients().size()) {
+            for (int slot : m.slots()) {
+                ItemStack s = items.get(slot);
+                if (!s.isEmpty() && r.ingredients().get(idx).test(s)) {
+                    source = s;
+                    break;
+                }
+            }
+        }
+        List<ItemStack> stacks = new ArrayList<>();
+        for (ProcessingRecipe.ChanceResult c : r.results()) {
+            ItemStack out = new ItemStack(c.item(), c.count());
+            if (!source.isEmpty()) {
+                out.applyComponents(source.getComponentsPatch());
+            }
+            out.applyComponents(c.components());
+            de.infinitehorizon.logistics.CargoRockets.keepBestDrive(out, source);
+            stacks.add(out);
+        }
+        return new Plan(m.slots(), m.counts(), List.of(), r.ticks(), r.energyPerTick(),
+                r.fluid().orElse(IhFluidStack.EMPTY), r.fluidResults(), stacks);
     }
 
     /** Wirksame Dauer und Verbrauch für einen Vorgang (reine Rechnung, 4.2). */

@@ -633,6 +633,9 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
         if (level instanceof ServerLevel sl && (this instanceof de.infinitehorizon.logistics.CargoTerminalBlockEntity
                 || de.infinitehorizon.logistics.OutpostManager.isProducer(machineId()))) {
             de.infinitehorizon.logistics.OutpostManager.onRemoved(sl, pos);
+            if (this instanceof de.infinitehorizon.logistics.CargoTerminalBlockEntity) {
+                de.infinitehorizon.logistics.CargoFlights.onTerminalRemoved(sl, pos);
+            }
         }
         super.preRemoveSideEffects(pos, state);
     }

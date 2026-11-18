@@ -26,6 +26,7 @@ public class CargoTerminalScreen extends AbstractContainerScreen<CargoTerminalMe
     private static final int SLOT_FILL = 0xFF8B8B8B;
     private static final int SELECTED = 0xFFFFFF60;
     private static final int KNOB = 0xFFE0E0E0;
+    private static final int LOCKED = 0x80C03020;
     private static final int SCROLL_X = 174;
     private static final int SCROLL_W = 10;
     private static final int SCROLL_H = CargoTerminalMenu.VISIBLE_ROWS * CargoTerminalMenu.SLOT;
@@ -115,6 +116,14 @@ public class CargoTerminalScreen extends AbstractContainerScreen<CargoTerminalMe
         for (Slot slot : menu.slots) {
             g.fill(x + slot.x - 1, y + slot.y - 1, x + slot.x + 17, y + slot.y + 17, SLOT_DARK);
             g.fill(x + slot.x, y + slot.y, x + slot.x + 16, y + slot.y + 16, SLOT_FILL);
+        }
+        // gesperrte Hangar-Slots (Rakete unterwegs) rot abgedunkelt
+        for (int h = 0; h < menu.data().layout().molds(); h++) {
+            if (menu.hangarLocked(h)) {
+                int hx = x + CargoTerminalMenu.HANGAR_X + h * CargoTerminalMenu.SLOT;
+                int hy = y + CargoTerminalMenu.HANGAR_Y;
+                g.fill(hx, hy, hx + 16, hy + 16, LOCKED);
+            }
         }
         // Bildlaufleiste
         int sy = y + CargoTerminalMenu.GRID_Y;

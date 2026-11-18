@@ -46,7 +46,9 @@ public class CargoTerminalMenu extends AbstractContainerMenu {
     public static final int GRID_Y = 18;
     public static final int FILL_X = 196;
     public static final int DRAIN_X = 226;
-    public static final int CONTAINER_Y = 100;
+    public static final int CONTAINER_Y = 96;
+    public static final int HANGAR_X = 186;
+    public static final int HANGAR_Y = 116;
     public static final int INVENTORY_Y = 140;
     public static final int SELECT_TANK = 1000;
 
@@ -78,6 +80,9 @@ public class CargoTerminalMenu extends AbstractContainerMenu {
         for (int i = 0; i < VIEW; i++) {
             addSlot(new Slot(view, i, GRID_X + (i % COLUMNS) * SLOT, GRID_Y + (i / COLUMNS) * SLOT));
         }
+        for (int i = 0; i < l.molds(); i++) {
+            addSlot(new HangarSlot(this, storage, l.moldStart() + i, i, HANGAR_X + i * SLOT, HANGAR_Y));
+        }
         for (int i = 0; i < l.fill(); i++) {
             addSlot(new ContainerSlot(storage, l.fillStart() + i, FILL_X, CONTAINER_Y + i * SLOT));
         }
@@ -96,9 +101,14 @@ public class CargoTerminalMenu extends AbstractContainerMenu {
         addDataSlots(values);
     }
 
-    /** Zahl der Sync-Werte (je Wert 4 × 16 bit): 3 je Tank und der gewählte Tank. */
+    /** Zahl der Sync-Werte (je Wert 4 × 16 bit): 3 je Tank, der gewählte Tank, gesperrte Hangar-Slots. */
     public static int dataCount(int tanks) {
-        return (tanks * 3 + 1) * 4;
+        return (tanks * 3 + 2) * 4;
+    }
+
+    /** Ist Hangar-Slot {@code slot} gesperrt (Rakete unterwegs)? */
+    public boolean hangarLocked(int slot) {
+        return terminal != null ? terminal.hangarLocked(slot) : (value(data.tanks() * 3 + 1) >> slot & 1) != 0;
     }
 
     public Data data() {
@@ -269,6 +279,37 @@ public class CargoTerminalMenu extends AbstractContainerMenu {
 
         @Override
         public void clearContent() {
+        }
+    }
+
+    /** Hangar-Slot (20.3): nur Frachtraketen, während des Flugs gesperrt. */
+    private static final class HangarSlot extends Slot {
+        private final CargoTerminalMenu menu;
+        private final int hangar;
+
+        HangarSlot(CargoTerminalMenu menu, Container container, int index, int hangar, int x, int y) {
+            super(container, index, x, y);
+            this.menu = menu;
+            this.hangar = hangar;
+        }
+
+        public int hangar() {
+            return hangar;
+        }
+
+        @Override
+        public boolean mayPlace(ItemStack stack) {
+            return !menu.hangarLocked(hangar) && container.canPlaceItem(getContainerSlot(), stack);
+        }
+
+        @Override
+        public boolean mayPickup(Player player) {
+            return !menu.hangarLocked(hangar);
+        }
+
+        @Override
+        public int getMaxStackSize() {
+            return 1;
         }
     }
 

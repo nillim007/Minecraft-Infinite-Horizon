@@ -33,6 +33,21 @@ public final class ModDataComponents {
                     .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_INT)
                     .build());
 
+    /** {@code infinite_horizon:drive} (20.3): nachgerüsteter Antrieb einer Frachtrakete. */
+    public static final Supplier<DataComponentType<net.minecraft.resources.Identifier>> DRIVE = Services.REGISTRY.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE, "drive",
+            () -> DataComponentType.<net.minecraft.resources.Identifier>builder()
+                    .persistent(net.minecraft.resources.Identifier.CODEC)
+                    .networkSynchronized(net.minecraft.resources.Identifier.STREAM_CODEC)
+                    .build());
+    /** {@code infinite_horizon:flights_left} (20.3): restliche Flüge des Schwerlast-Frachters. */
+    public static final Supplier<DataComponentType<Integer>> FLIGHTS_LEFT = Services.REGISTRY.register(
+            BuiltInRegistries.DATA_COMPONENT_TYPE, "flights_left",
+            () -> DataComponentType.<Integer>builder()
+                    .persistent(com.mojang.serialization.Codec.INT)
+                    .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_INT)
+                    .build());
+
     /** {@code infinite_horizon:chart_owner} (18): Agentur und Kennung der Sternenkarte. */
     public static final Supplier<DataComponentType<de.infinitehorizon.item.StarChartItem.ChartOwner>> CHART_OWNER =
             Services.REGISTRY.register(BuiltInRegistries.DATA_COMPONENT_TYPE, "chart_owner",

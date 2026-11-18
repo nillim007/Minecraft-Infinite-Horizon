@@ -93,7 +93,9 @@
     "raw_uranium",
     "uranium_dust",
     "uranium_ingot",
-    "fuel_rod"
+    "fuel_rod",
+    "atomic_drive",
+    "antimatter_drive"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,
@@ -122,6 +124,8 @@
     "radiation_shield": 1,
     "jetpack": 1,
     "diving_module": 1,
-    "heating_module": 1
+    "heating_module": 1,
+    "atomic_drive": 16,
+    "antimatter_drive": 16
   }
 }

@@ -125,6 +125,7 @@ public final class InfiniteHorizon {
         HazardTracker.tick(server);
         GravityService.tick(server);
         de.infinitehorizon.space.ProbeService.tick(server);
+        de.infinitehorizon.logistics.CargoFlights.tick(server);
         de.infinitehorizon.space.FlightService.tickLogins(server);
         de.infinitehorizon.suit.HelmetLamp.tick(server);
         de.infinitehorizon.suit.SuitModules.tick(server);

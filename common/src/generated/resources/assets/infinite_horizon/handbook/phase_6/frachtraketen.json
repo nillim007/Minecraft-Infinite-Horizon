@@ -1,0 +1,247 @@
+{
+  "id": "infinite_horizon:phase_6/frachtraketen",
+  "chapter": "infinite_horizon:phase_6",
+  "title": "infinite_horizon.handbook.phase_6.frachtraketen.title",
+  "icon": "infinite_horizon:cargo_rocket",
+  "order": 50,
+  "unlock": "infinite_horizon:research_tier/5",
+  "items": [
+    "infinite_horizon:cargo_rocket",
+    "infinite_horizon:heavy_freighter",
+    "infinite_horizon:atomic_drive",
+    "infinite_horizon:antimatter_drive"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.frachtraketen.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.frachtraketen.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.frachtraketen.e2"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.frachtraketen.e3",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.frachtraketen.e4"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_6.frachtraketen.e5.0",
+        "infinite_horizon.handbook.phase_6.frachtraketen.e5.1",
+        "infinite_horizon.handbook.phase_6.frachtraketen.e5.2",
+        "infinite_horizon.handbook.phase_6.frachtraketen.e5.3"
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_6.frachtraketen.e6",
+      "style": "warning"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.frachtraketen.e7",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.frachtraketen.e8"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.frachtraketen.e9",
+      "level": 2
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.phase_6.frachtraketen.e10.h0",
+        "infinite_horizon.handbook.phase_6.frachtraketen.e10.h1"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_6.frachtraketen.e10.r0.0",
+          "infinite_horizon.handbook.phase_6.frachtraketen.e10.r0.1",
+          "infinite_horizon.handbook.phase_6.frachtraketen.e10.r0.2",
+          "infinite_horizon.handbook.phase_6.frachtraketen.e10.r0.3"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.frachtraketen.e10.r1.0",
+          "infinite_horizon.handbook.phase_6.frachtraketen.e10.r1.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.frachtraketen.e10.r2.0",
+          "infinite_horizon.handbook.phase_6.frachtraketen.e10.r2.1"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.frachtraketen.e11"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_6.frachtraketen.e12",
+      "style": "tip"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.frachtraketen.e13",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/atomic_drive",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:tungsten_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:fuel_rod"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:cooling_system"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:atomic_drive",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/antimatter_drive",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:antimatter_cell"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:fuel_rod"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:superconductor_wire"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:tungsten_plate"
+              ],
+              "count": 8
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:antimatter_drive",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/cargo_rocket",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 64
+            },
+            {
+              "items": [
+                "infinite_horizon:iridium_chip"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:lithium_battery"
+              ],
+              "count": 8
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:cargo_rocket",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/heavy_freighter",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:cargo_rocket"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:atomic_drive"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:heavy_freighter",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    }
+  ]
+}

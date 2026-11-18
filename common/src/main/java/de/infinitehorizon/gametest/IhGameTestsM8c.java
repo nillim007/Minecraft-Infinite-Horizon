@@ -41,6 +41,15 @@ public final class IhGameTestsM8c {
         return be;
     }
 
+    /** Alle Items im Lager (auf Planeten liegen unter dem Turm auch natürliche Erze). */
+    private static int total(CargoTerminalBlockEntity t) {
+        int n = 0;
+        for (int i = 0; i < t.storageSlots(); i++) {
+            n += t.getItem(i).getCount();
+        }
+        return n;
+    }
+
     /** Bohrturm über 10 Eisenerz-Blöcken (Override „nicht Erde“), immer mit vollem Puffer. */
     private static DrillingRigBlockEntity rig(GameTestHelper h) {
         BlockPos abs = h.absolutePos(RIG);
@@ -88,7 +97,7 @@ public final class IhGameTestsM8c {
         DrillingRigBlockEntity rig = rig(h);
         CargoTerminalBlockEntity t = place(h, TERMINAL, ModBlocks.CARGO_TERMINAL.get(), CargoTerminalBlockEntity.class);
         h.succeedWhen(() -> {
-            h.assertTrue(t.count(Items.IRON_ORE) > 0, "noch kein Erz im Terminal");
+            h.assertTrue(total(t) > 0, "noch kein Erz im Terminal");
             OutpostData.Producer p = OutpostManager.data(h.getLevel()).producer(h.getLevel().dimension().identifier(),
                     rig.getBlockPos());
             h.assertTrue(p != null && p.running(), "Schnappschuss " + p);
@@ -124,11 +133,10 @@ public final class IhGameTestsM8c {
                     rig.outpostToken());
             OutpostManager.data(h.getLevel()).putProducer(snap);
             long expected = OfflineProduction.cycles(snap.snapshot(), OutpostManager.factor(), elapsed);
-            int before = t.count(Items.IRON_ORE);
+            int before = total(t);
             long done = OutpostManager.catchUp(h.getLevel(), rig);
             h.assertTrue(expected > 0 && done == expected, "Vorgänge " + done + ", erwartet " + expected);
-            h.assertTrue(t.count(Items.IRON_ORE) - before == done * s.outputPerCycle(),
-                    "Erz " + before + " → " + t.count(Items.IRON_ORE));
+            h.assertTrue(total(t) - before == done * s.outputPerCycle(), "Erz " + before + " → " + total(t));
             EnvironmentOverrides.remove(o);
             h.succeed();
         });

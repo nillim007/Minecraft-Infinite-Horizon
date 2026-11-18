@@ -1114,43 +1114,78 @@ public class IhFabricGameTests {
         IhGameTestsM8b.fertilizer(helper);
     }
 
-    @GameTest(maxTicks = 20)
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:mars")
     public void offlineProductionCompute120(GameTestHelper helper) {
         IhGameTestsM8c.offlineCompute(helper);
     }
 
-    @GameTest(maxTicks = 20)
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:mars")
     public void cargoterminalTanksMethanefirst(GameTestHelper helper) {
         IhGameTestsM8c.terminalTanks(helper);
     }
 
-    @GameTest(maxTicks = 260)
+    @GameTest(maxTicks = 260, dimension = "infinite_horizon:mars")
     public void outpostProducerDelivers(GameTestHelper helper) {
         IhGameTestsM8c.producerDelivers(helper);
     }
 
-    @GameTest(maxTicks = 20, structure = "infinite_horizon:gametest/empty_large")
+    @GameTest(maxTicks = 20, structure = "infinite_horizon:gametest/empty_large", dimension = "infinite_horizon:mars")
     public void outpostNearestTerminal(GameTestHelper helper) {
         IhGameTestsM8c.nearestTerminal(helper);
     }
 
-    @GameTest(maxTicks = 60)
+    @GameTest(maxTicks = 60, dimension = "infinite_horizon:mars")
     public void outpostOfflineCatchup(GameTestHelper helper) {
         IhGameTestsM8c.offlineCatchUp(helper);
     }
 
-    @GameTest(maxTicks = 60)
+    @GameTest(maxTicks = 60, dimension = "infinite_horizon:mars")
     public void outpostOfflineRules(GameTestHelper helper) {
         IhGameTestsM8c.offlineRules(helper);
     }
 
-    @GameTest(maxTicks = 20)
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:mars")
     public void outpostOfflineInputs(GameTestHelper helper) {
         IhGameTestsM8c.offlineInputs(helper);
     }
 
-    @GameTest(maxTicks = 20)
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:mars")
     public void cargoterminalRemoved(GameTestHelper helper) {
         IhGameTestsM8c.terminalRemoved(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:mars")
+    public void cargorocketFlightmath(GameTestHelper helper) {
+        IhGameTestsM8d.flightMath(helper);
+    }
+
+    @GameTest(maxTicks = 400, dimension = "infinite_horizon:mars")
+    public void cargorocketRetrofitBestdrive(GameTestHelper helper) {
+        IhGameTestsM8d.retrofit(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:mars")
+    public void cargoflightRoundtrip(GameTestHelper helper) {
+        IhGameTestsM8d.roundTrip(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:mars")
+    public void cargoflightOutoffuel(GameTestHelper helper) {
+        IhGameTestsM8d.outOfFuel(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:mars")
+    public void cargoflightFreighterFuelrod(GameTestHelper helper) {
+        IhGameTestsM8d.freighterFuelRod(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:mars")
+    public void cargoflightKeepsMethane(GameTestHelper helper) {
+        IhGameTestsM8d.keepsMethane(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:mars")
+    public void cargoflightStrandedRetry(GameTestHelper helper) {
+        IhGameTestsM8d.stranded(helper);
     }
 }

@@ -79,8 +79,90 @@ public class CargoTerminalBlockEntity extends MachineBlockEntity implements Carg
         JsonObject c = stats().has("container_slots") ? stats().getAsJsonObject("container_slots") : new JsonObject();
         int fill = c.has("fill") ? c.get("fill").getAsInt() : 0;
         int drain = c.has("drain") ? c.get("drain").getAsInt() : 0;
-        // Lager als Eingaben: Trichter und Rohre dürfen hinein und heraus (siehe canTakeItemThroughFace)
-        return new MachineLayout(storageSlots(), 0, 0, 0, 0, fill, drain);
+        // Lager als Eingaben: Trichter und Rohre dürfen hinein und heraus (siehe canTakeItemThroughFace);
+        // die Hangar-Slots (20.3) liegen auf der Rolle „Formslot“ direkt hinter dem Lager
+        return new MachineLayout(storageSlots(), hangarSlots(), 0, 0, 0, fill, drain);
+    }
+
+    /** Zahl der Hangar-Slots ({@code hangar_slots}, 20.3). */
+    public int hangarSlots() {
+        JsonObject s = stats();
+        return s.has("hangar_slots") ? s.get("hangar_slots").getAsInt() : 0;
+    }
+
+    /** Rakete im Hangar-Slot {@code slot} (0-basiert) oder leer. */
+    public ItemStack hangar(int slot) {
+        int i = layout().moldStart() + slot;
+        return slot >= 0 && slot < hangarSlots() && i < items.size() ? items.get(i) : ItemStack.EMPTY;
+    }
+
+    /** Ist die Rakete im Hangar-Slot gerade unterwegs (gesperrt, 20.3)? */
+    public boolean hangarLocked(int slot) {
+        return level instanceof ServerLevel sl && CargoFlights.isFlying(sl, getBlockPos(), slot);
+    }
+
+    @Override
+    public boolean canPlaceItem(int slot, ItemStack stack) {
+        MachineLayout l = layout();
+        if (l.role(slot) == MachineLayout.Role.MOLD) {
+            return CargoRockets.isRocket(stack) && !hangarLocked(slot - l.moldStart());
+        }
+        return super.canPlaceItem(slot, stack);
+    }
+
+    /** Nimmt {@code count} Stück von {@code item} aus dem Lager (alles oder nichts). */
+    public boolean takeItem(net.minecraft.world.item.Item item, int count) {
+        if (count(item) < count) {
+            return false;
+        }
+        int left = count;
+        for (int i = 0; i < Math.min(storageSlots(), items.size()) && left > 0; i++) {
+            ItemStack s = items.get(i);
+            if (s.is(item)) {
+                int take = Math.min(left, s.getCount());
+                s.shrink(take);
+                left -= take;
+            }
+        }
+        setChanged();
+        return true;
+    }
+
+    /** Fracht laden (20.3): ganze Stapel aus dem Lager, die zum Filter passen, höchstens {@code maxStacks}. */
+    public List<ItemStack> takeCargo(java.util.function.Predicate<ItemStack> filter, int maxStacks) {
+        List<ItemStack> out = new ArrayList<>();
+        for (int i = 0; i < Math.min(storageSlots(), items.size()) && out.size() < maxStacks; i++) {
+            ItemStack s = items.get(i);
+            if (!s.isEmpty() && filter.test(s)) {
+                out.add(s.copy());
+                items.set(i, ItemStack.EMPTY);
+            }
+        }
+        if (!out.isEmpty()) {
+            setChanged();
+        }
+        return out;
+    }
+
+    /** Fluidfracht laden (20.3): aus den Frachttanks, je Laderaum ein Fluid bis {@code capacity} mB. */
+    public List<IhFluidStack> takeFluidCargo(java.util.function.Predicate<Identifier> filter, int holds, long capacity) {
+        List<IhFluidStack> out = new ArrayList<>();
+        for (IhFluidTank t : cargo) {
+            if (out.size() >= holds) {
+                break;
+            }
+            if (t.stack().isEmpty() || !filter.test(t.stack().fluid())) {
+                continue;
+            }
+            try (Transaction tx = Transaction.open()) {
+                IhFluidStack got = t.extract(t.stack().fluid(), capacity, tx);
+                tx.commit();
+                if (!got.isEmpty()) {
+                    out.add(got);
+                }
+            }
+        }
+        return out;
     }
 
     @Override
@@ -253,7 +335,11 @@ public class CargoTerminalBlockEntity extends MachineBlockEntity implements Carg
 
     @Override
     public boolean canTakeItemThroughFace(int slot, ItemStack stack, Direction side) {
-        return layout().role(slot) == MachineLayout.Role.INPUT || super.canTakeItemThroughFace(slot, stack, side);
+        MachineLayout l = layout();
+        if (l.role(slot) == MachineLayout.Role.MOLD) {
+            return !hangarLocked(slot - l.moldStart());
+        }
+        return l.role(slot) == MachineLayout.Role.INPUT || super.canTakeItemThroughFace(slot, stack, side);
     }
 
     @Override
@@ -277,7 +363,17 @@ public class CargoTerminalBlockEntity extends MachineBlockEntity implements Carg
         List<IhFluidTank> tanks = fluidTanks();
         int t = index / 3;
         if (t >= tanks.size()) {
-            return selectedTank();
+            if (index == tanks.size() * 3) {
+                return selectedTank();
+            }
+            // gesperrte Hangar-Slots als Bitmaske
+            long mask = 0;
+            for (int h = 0; h < hangarSlots(); h++) {
+                if (hangarLocked(h)) {
+                    mask |= 1L << h;
+                }
+            }
+            return mask;
         }
         IhFluidTank tank = tanks.get(t);
         return switch (index % 3) {

@@ -20,5 +20,6 @@
       "count": 1,
       "chance": 1.0
     }
-  ]
+  ],
+  "copy_components_from": 0
 }

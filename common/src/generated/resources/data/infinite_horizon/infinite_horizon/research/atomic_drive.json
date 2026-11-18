@@ -1,0 +1,20 @@
+{
+  "tier": 5,
+  "branch": "spaceflight",
+  "cost": 120,
+  "requires": [
+    "infinite_horizon:fission"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:atomic_drive"
+    }
+  ],
+  "icon": "infinite_horizon:atomic_drive",
+  "position": {
+    "column": 1,
+    "row": 5,
+    "slot": 0
+  }
+}

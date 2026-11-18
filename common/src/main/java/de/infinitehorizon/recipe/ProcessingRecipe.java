@@ -33,22 +33,53 @@ import java.util.Optional;
  */
 public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
 
-    public record CountedIngredient(Ingredient ingredient, int count) {
+    /** Zutat mit Menge und optional verlangten Komponenten (z. B. nur gefüllte Antimaterie-Zellen: charge 1). */
+    public record CountedIngredient(Ingredient ingredient, int count, net.minecraft.core.component.DataComponentPatch components) {
         public static final Codec<CountedIngredient> CODEC = RecordCodecBuilder.create(i -> i.group(
                 Ingredient.CODEC.fieldOf("ingredient").forGetter(CountedIngredient::ingredient),
-                ExtraCodecs.POSITIVE_INT.optionalFieldOf("count", 1).forGetter(CountedIngredient::count)
+                ExtraCodecs.POSITIVE_INT.optionalFieldOf("count", 1).forGetter(CountedIngredient::count),
+                net.minecraft.core.component.DataComponentPatch.CODEC.optionalFieldOf("components",
+                        net.minecraft.core.component.DataComponentPatch.EMPTY).forGetter(CountedIngredient::components)
         ).apply(i, CountedIngredient::new));
+
+        public CountedIngredient(Ingredient ingredient, int count) {
+            this(ingredient, count, net.minecraft.core.component.DataComponentPatch.EMPTY);
+        }
+
+        /** Passt der Stapel (Item und verlangte Komponenten)? */
+        public boolean test(ItemStack stack) {
+            if (!ingredient.test(stack)) {
+                return false;
+            }
+            for (net.minecraft.core.component.TypedDataComponent<?> c : components.split().added()) {
+                if (!java.util.Objects.equals(stack.get(c.type()), c.value())) {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 
-    public record ChanceResult(Item item, int count, float chance) {
+    /** Ergebnis mit Chance und optionalen Komponenten (25.4: {@code components} nach {@code copy_components_from}). */
+    public record ChanceResult(Item item, int count, float chance, net.minecraft.core.component.DataComponentPatch components) {
         public static final Codec<ChanceResult> CODEC = RecordCodecBuilder.create(i -> i.group(
                 BuiltInRegistries.ITEM.byNameCodec().fieldOf("id").forGetter(ChanceResult::item),
                 ExtraCodecs.POSITIVE_INT.optionalFieldOf("count", 1).forGetter(ChanceResult::count),
-                Codec.FLOAT.optionalFieldOf("chance", 1.0f).forGetter(ChanceResult::chance)
+                Codec.FLOAT.optionalFieldOf("chance", 1.0f).forGetter(ChanceResult::chance),
+                net.minecraft.core.component.DataComponentPatch.CODEC.optionalFieldOf("components",
+                        net.minecraft.core.component.DataComponentPatch.EMPTY).forGetter(ChanceResult::components)
         ).apply(i, ChanceResult::new));
 
+        public ChanceResult(Item item, int count, float chance) {
+            this(item, count, chance, net.minecraft.core.component.DataComponentPatch.EMPTY);
+        }
+
         public ItemStack toStack() {
-            return new ItemStack(item, count);
+            ItemStack s = new ItemStack(item, count);
+            if (!components.isEmpty()) {
+                s.applyComponents(components);
+            }
+            return s;
         }
     }
 
@@ -84,8 +115,9 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
                     IhFluidStack.CODEC.listOf().optionalFieldOf("fluid_results", List.of()).forGetter(ProcessingRecipe::fluidResults),
                     ExtraCodecs.POSITIVE_INT.optionalFieldOf("ticks").forGetter(ProcessingRecipe::ticks),
                     Codec.LONG.optionalFieldOf("energy_per_tick").forGetter(ProcessingRecipe::energyPerTick),
-                    BuiltInRegistries.ITEM.byNameCodec().optionalFieldOf("mold").forGetter(ProcessingRecipe::mold)
-            ).apply(i, (ing, res, f, fr, t, e, m) -> new ProcessingRecipe(this, ing, res, f, fr, t, e, m)));
+                    BuiltInRegistries.ITEM.byNameCodec().optionalFieldOf("mold").forGetter(ProcessingRecipe::mold),
+                    Codec.INT.optionalFieldOf("copy_components_from").forGetter(ProcessingRecipe::copyComponentsFrom)
+            ).apply(i, (ing, res, f, fr, t, e, m, c) -> new ProcessingRecipe(this, ing, res, f, fr, t, e, m, c)));
             this.serializer = new RecipeSerializer<>(codec, ByteBufCodecs.fromCodecWithRegistries(codec.codec()));
         }
 
@@ -114,6 +146,7 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
     private final Optional<Integer> ticks;
     private final Optional<Long> energyPerTick;
     private final Optional<Item> mold;
+    private final Optional<Integer> copyComponentsFrom;
 
     public ProcessingRecipe(Kind kind, List<CountedIngredient> ingredients, List<ChanceResult> results,
                             Optional<Integer> ticks, Optional<Long> energyPerTick, Optional<Item> mold) {
@@ -123,6 +156,14 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
     public ProcessingRecipe(Kind kind, List<CountedIngredient> ingredients, List<ChanceResult> results,
                             Optional<IhFluidStack> fluid, List<IhFluidStack> fluidResults,
                             Optional<Integer> ticks, Optional<Long> energyPerTick, Optional<Item> mold) {
+        this(kind, ingredients, results, fluid, fluidResults, ticks, energyPerTick, mold, Optional.empty());
+    }
+
+    public ProcessingRecipe(Kind kind, List<CountedIngredient> ingredients, List<ChanceResult> results,
+                            Optional<IhFluidStack> fluid, List<IhFluidStack> fluidResults,
+                            Optional<Integer> ticks, Optional<Long> energyPerTick, Optional<Item> mold,
+                            Optional<Integer> copyComponentsFrom) {
+        this.copyComponentsFrom = copyComponentsFrom;
         this.kind = kind;
         this.ingredients = List.copyOf(ingredients);
         this.results = List.copyOf(results);
@@ -140,6 +181,11 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
 
     public Kind kind() {
         return kind;
+    }
+
+    /** Index der Zutat, deren Komponenten das Ergebnis übernimmt (25.4, z. B. Frachtrakete + Antrieb). */
+    public Optional<Integer> copyComponentsFrom() {
+        return copyComponentsFrom;
     }
 
     public List<CountedIngredient> ingredients() {
@@ -191,7 +237,7 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
             List<CountedIngredient> need = scaledIngredients(
                     de.infinitehorizon.data.ServerConfig.get().getDouble("recipe_amount_multiplier"), input.size());
             int[] owner = ExactMatch.assign(input.inputs(), need, ItemStack::isEmpty,
-                    (ci, stack) -> ci.ingredient().test(stack), ItemStack::getCount, CountedIngredient::count);
+                    (ci, stack) -> ci.test(stack), ItemStack::getCount, CountedIngredient::count);
             if (owner == null) {
                 return null;
             }
@@ -236,7 +282,7 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
         int[] scaled = AmountMultiplier.scale(counts, stacks, multiplier, slots);
         List<CountedIngredient> out = new java.util.ArrayList<>();
         for (int i = 0; i < counts.length; i++) {
-            out.add(new CountedIngredient(ingredients.get(i).ingredient(), scaled[i]));
+            out.add(new CountedIngredient(ingredients.get(i).ingredient(), scaled[i], ingredients.get(i).components()));
         }
         return out;
     }
@@ -259,7 +305,7 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
             int found = -1;
             for (int s = 0; s < input.size() && found < 0; s++) {
                 ItemStack stack = input.getItem(s);
-                if (!used[s] && !stack.isEmpty() && ci.ingredient().test(stack) && stack.getCount() >= ci.count()) {
+                if (!used[s] && !stack.isEmpty() && ci.test(stack) && stack.getCount() >= ci.count()) {
                     found = s;
                 }
             }

@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import gzip
 import json
+import re
 import shutil
 import struct
 import sys
@@ -427,6 +428,30 @@ def earth_worldgen(blocks):
 
 # ---------------------------------------------------------------- Rezepte
 
+def ingredient_components(r, ing):
+    """Verlangte Komponenten einer Zutat. SPEC-GAP #113: steht nur in notes, z. B. „nur gefüllte antimatter_cell (charge 1)“."""
+    m = re.search(r"nur gefüllte ([a-z_]+) \((\w+) (\d+)\)", r.get("notes") or "")
+    if m and ing.get("item") == f"{NS}:{m.group(1)}":
+        return {f"{NS}:{m.group(2)}": int(m.group(3))}
+    return None
+
+
+def retrofit_recipes(spec, registered):
+    """Antriebe nachrüsten (20.3): Rakete + Antrieb im Montagetisch, Komponente drive (logistics.json retrofit_into)."""
+    out = []
+    for did, d in sorted((spec.balance.get("logistics") or {}).items()):
+        if not isinstance(d, dict) or not d.get("retrofit_into") or did not in registered:
+            continue
+        for rid in d["retrofit_into"]:
+            if rid not in registered:
+                continue
+            out.append({"id": f"{NS}:assembly/retrofit_{short(did)}_{short(rid)}", "type": "assembly",
+                        "ingredients": [{"item": rid, "count": 1}, {"item": did, "count": 1}],
+                        "results": [{"id": rid, "count": 1, "components": {d.get("data_component", f"{NS}:drive"): did}}],
+                        "copy_components_from": 0})
+    return out
+
+
 def recipe_json(r, registered):
     typ = r["type"]
     res = r["results"][0] if r.get("results") else None
@@ -445,8 +470,14 @@ def recipe_json(r, registered):
                 "result": {"id": res["id"], "count": res.get("count", 1)}, "experience": 0.1, "cookingtime": 200}
     # Eigene Rezepttypen: gleiche Felder wie spec/data (Kapitel 25.4)
     out = {"type": f"{NS}:{typ}",
-           "ingredients": [{"ingredient": ingredient(i), "count": i.get("count", 1)} for i in r.get("ingredients") or []],
-           "results": [{"id": x["id"], "count": x.get("count", 1), "chance": x.get("chance", 1.0)} for x in r.get("results") or []]}
+           "ingredients": [dict({"ingredient": ingredient(i), "count": i.get("count", 1)},
+                                **({"components": ingredient_components(r, i)} if ingredient_components(r, i) else {}))
+                           for i in r.get("ingredients") or []],
+           "results": [dict({"id": x["id"], "count": x.get("count", 1), "chance": x.get("chance", 1.0)},
+                            **({"components": x["components"]} if x.get("components") else {}))
+                       for x in r.get("results") or []]}
+    if r.get("copy_components_from") is not None:
+        out["copy_components_from"] = r["copy_components_from"]
     defaults = machine_defaults(typ)
     for k in ("fluid", "fluid_results", "ticks", "energy_per_tick", "mold"):
         if r.get(k) not in (None, []):
@@ -1497,6 +1528,9 @@ def main():
                              "refining", "electrolysis", "assembly", "high_temp_smelting", "cryo",
                              "regolith_heating", "zero_g"):
             continue  # weitere Typen folgen mit ihren Maschinen
+        write_json(f"data/{NS}/recipe/{r['id'].split(':', 1)[1].replace('/', '_')}.json", recipe_json(r, registered))
+        n_rec += 1
+    for r in retrofit_recipes(spec, registered):
         write_json(f"data/{NS}/recipe/{r['id'].split(':', 1)[1].replace('/', '_')}.json", recipe_json(r, registered))
         n_rec += 1
 

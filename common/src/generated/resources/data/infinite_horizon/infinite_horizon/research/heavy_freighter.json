@@ -1,0 +1,21 @@
+{
+  "tier": 6,
+  "branch": "logistics",
+  "cost": 250,
+  "requires": [
+    "infinite_horizon:cargo_logistics",
+    "infinite_horizon:atomic_drive"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:heavy_freighter"
+    }
+  ],
+  "icon": "infinite_horizon:heavy_freighter",
+  "position": {
+    "column": 3,
+    "row": 6,
+    "slot": 0
+  }
+}

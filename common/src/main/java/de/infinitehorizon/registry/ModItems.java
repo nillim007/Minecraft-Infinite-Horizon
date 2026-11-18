@@ -129,6 +129,11 @@ public final class ModItems {
     /** Antimaterie-Zelle (5): leer/gefüllt über die Komponente {@code charge}. */
     public static final Supplier<Item> ANTIMATTER_CELL = register("antimatter_cell",
             p -> new de.infinitehorizon.machine.AntimatterCellItem(p.stacksTo(16)));
+    /** Frachtraketen (20.3): Treibstoff, Antrieb und Flüge als Komponenten. */
+    public static final Supplier<Item> CARGO_ROCKET = register("cargo_rocket",
+            p -> new de.infinitehorizon.logistics.CargoRocketItem(p.stacksTo(1)));
+    public static final Supplier<Item> HEAVY_FREIGHTER = register("heavy_freighter",
+            p -> new de.infinitehorizon.logistics.CargoRocketItem(p.stacksTo(1)));
     /** Sternenkarte (18): Komponente {@code chart_owner}, feuerfest. */
     public static final Supplier<Item> STAR_CHART = register("star_chart",
             p -> new de.infinitehorizon.item.StarChartItem(p.stacksTo(1).fireResistant()));

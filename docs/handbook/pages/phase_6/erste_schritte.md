@@ -18,3 +18,6 @@ In der letzten Phase verbindest du deine Welten. Außenposten fördern Rohstoffe
 @if infinite_horizon:cargo_terminal
 3. **Außenposten gründen.** Ein [[aussenposten|Frachtterminal]] sammelt alles, was die Produzenten in seiner Nähe fördern. Auch wenn du fort bist, läuft die Förderung weiter.
 @endif
+@if infinite_horizon:cargo_rocket
+4. **Fracht fliegen.** [[frachtraketen|Frachtraketen]] im Hangar eines Terminals bringen Items und Fluide zu anderen Terminals. Antriebe verkürzen die Flugzeit.
+@endif

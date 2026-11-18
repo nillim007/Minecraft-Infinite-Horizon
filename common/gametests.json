@@ -228,13 +228,20 @@
     {"name": "pumpstation_ammoniageyser", "class": "IhGameTestsM8b", "method": "pumpGeyser", "ticks": 60, "ref": "6.1, M8b"},
     {"name": "pumpstation_pontoon_methanerain", "class": "IhGameTestsM8b", "method": "pumpPontoonMethaneRain", "ticks": 20, "dimension": "infinite_horizon:titan", "ref": "6.1, 19, M8b"},
     {"name": "ammonia_fertilizer_hydroponics", "class": "IhGameTestsM8b", "method": "fertilizer", "ticks": 20, "ref": "17, M8b"},
-    {"name": "offline_production_compute_120", "class": "IhGameTestsM8c", "method": "offlineCompute", "ticks": 20, "ref": "20.1, 27 M8 (Abnahme)"},
-    {"name": "cargoterminal_tanks_methanefirst", "class": "IhGameTestsM8c", "method": "terminalTanks", "ticks": 20, "ref": "20.1, M8c"},
-    {"name": "outpost_producer_delivers", "class": "IhGameTestsM8c", "method": "producerDelivers", "ticks": 260, "ref": "20.1, M8c"},
-    {"name": "outpost_nearest_terminal", "class": "IhGameTestsM8c", "method": "nearestTerminal", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "20.1, M8c"},
-    {"name": "outpost_offline_catchup", "class": "IhGameTestsM8c", "method": "offlineCatchUp", "ticks": 60, "ref": "20.1, M8c"},
-    {"name": "outpost_offline_rules", "class": "IhGameTestsM8c", "method": "offlineRules", "ticks": 60, "ref": "20.1, 24.4, M8c"},
-    {"name": "outpost_offline_inputs", "class": "IhGameTestsM8c", "method": "offlineInputs", "ticks": 20, "ref": "20.1, M8c"},
-    {"name": "cargoterminal_removed", "class": "IhGameTestsM8c", "method": "terminalRemoved", "ticks": 20, "ref": "20.1, M8c"}
+    {"name": "offline_production_compute_120", "class": "IhGameTestsM8c", "method": "offlineCompute", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.1, 27 M8 (Abnahme)"},
+    {"name": "cargoterminal_tanks_methanefirst", "class": "IhGameTestsM8c", "method": "terminalTanks", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.1, M8c"},
+    {"name": "outpost_producer_delivers", "class": "IhGameTestsM8c", "method": "producerDelivers", "ticks": 260, "dimension": "infinite_horizon:mars", "ref": "20.1, M8c"},
+    {"name": "outpost_nearest_terminal", "class": "IhGameTestsM8c", "method": "nearestTerminal", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "dimension": "infinite_horizon:mars", "ref": "20.1, M8c"},
+    {"name": "outpost_offline_catchup", "class": "IhGameTestsM8c", "method": "offlineCatchUp", "ticks": 60, "dimension": "infinite_horizon:mars", "ref": "20.1, M8c"},
+    {"name": "outpost_offline_rules", "class": "IhGameTestsM8c", "method": "offlineRules", "ticks": 60, "dimension": "infinite_horizon:mars", "ref": "20.1, 24.4, M8c"},
+    {"name": "outpost_offline_inputs", "class": "IhGameTestsM8c", "method": "offlineInputs", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.1, M8c"},
+    {"name": "cargoterminal_removed", "class": "IhGameTestsM8c", "method": "terminalRemoved", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.1, M8c"},
+    {"name": "cargorocket_flightmath", "class": "IhGameTestsM8d", "method": "flightMath", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.3, 20.5, M8d"},
+    {"name": "cargorocket_retrofit_bestdrive", "class": "IhGameTestsM8d", "method": "retrofit", "ticks": 400, "dimension": "infinite_horizon:mars", "ref": "20.3, 25.4, M8d"},
+    {"name": "cargoflight_roundtrip", "class": "IhGameTestsM8d", "method": "roundTrip", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.3, M8d"},
+    {"name": "cargoflight_outoffuel", "class": "IhGameTestsM8d", "method": "outOfFuel", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.3, M8d"},
+    {"name": "cargoflight_freighter_fuelrod", "class": "IhGameTestsM8d", "method": "freighterFuelRod", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.3, M8d"},
+    {"name": "cargoflight_keeps_methane", "class": "IhGameTestsM8d", "method": "keepsMethane", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.3, M8d"},
+    {"name": "cargoflight_stranded_retry", "class": "IhGameTestsM8d", "method": "stranded", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.3, M8d"}
   ]
 }

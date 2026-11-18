@@ -240,14 +240,21 @@ public final class IhTestCatalog {
             new Test("pumpstation_ammoniageyser", 60, null, null, null, IhGameTestsM8b::pumpGeyser),  // 6.1, M8b
             new Test("pumpstation_pontoon_methanerain", 20, null, null, "infinite_horizon:titan", IhGameTestsM8b::pumpPontoonMethaneRain),  // 6.1, 19, M8b
             new Test("ammonia_fertilizer_hydroponics", 20, null, null, null, IhGameTestsM8b::fertilizer),  // 17, M8b
-            new Test("offline_production_compute_120", 20, null, null, null, IhGameTestsM8c::offlineCompute),  // 20.1, 27 M8 (Abnahme)
-            new Test("cargoterminal_tanks_methanefirst", 20, null, null, null, IhGameTestsM8c::terminalTanks),  // 20.1, M8c
-            new Test("outpost_producer_delivers", 260, null, null, null, IhGameTestsM8c::producerDelivers),  // 20.1, M8c
-            new Test("outpost_nearest_terminal", 20, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM8c::nearestTerminal),  // 20.1, M8c
-            new Test("outpost_offline_catchup", 60, null, null, null, IhGameTestsM8c::offlineCatchUp),  // 20.1, M8c
-            new Test("outpost_offline_rules", 60, null, null, null, IhGameTestsM8c::offlineRules),  // 20.1, 24.4, M8c
-            new Test("outpost_offline_inputs", 20, null, null, null, IhGameTestsM8c::offlineInputs),  // 20.1, M8c
-            new Test("cargoterminal_removed", 20, null, null, null, IhGameTestsM8c::terminalRemoved)  // 20.1, M8c
+            new Test("offline_production_compute_120", 20, null, null, "infinite_horizon:mars", IhGameTestsM8c::offlineCompute),  // 20.1, 27 M8 (Abnahme)
+            new Test("cargoterminal_tanks_methanefirst", 20, null, null, "infinite_horizon:mars", IhGameTestsM8c::terminalTanks),  // 20.1, M8c
+            new Test("outpost_producer_delivers", 260, null, null, "infinite_horizon:mars", IhGameTestsM8c::producerDelivers),  // 20.1, M8c
+            new Test("outpost_nearest_terminal", 20, "infinite_horizon:gametest/empty_large", null, "infinite_horizon:mars", IhGameTestsM8c::nearestTerminal),  // 20.1, M8c
+            new Test("outpost_offline_catchup", 60, null, null, "infinite_horizon:mars", IhGameTestsM8c::offlineCatchUp),  // 20.1, M8c
+            new Test("outpost_offline_rules", 60, null, null, "infinite_horizon:mars", IhGameTestsM8c::offlineRules),  // 20.1, 24.4, M8c
+            new Test("outpost_offline_inputs", 20, null, null, "infinite_horizon:mars", IhGameTestsM8c::offlineInputs),  // 20.1, M8c
+            new Test("cargoterminal_removed", 20, null, null, "infinite_horizon:mars", IhGameTestsM8c::terminalRemoved),  // 20.1, M8c
+            new Test("cargorocket_flightmath", 20, null, null, "infinite_horizon:mars", IhGameTestsM8d::flightMath),  // 20.3, 20.5, M8d
+            new Test("cargorocket_retrofit_bestdrive", 400, null, null, "infinite_horizon:mars", IhGameTestsM8d::retrofit),  // 20.3, 25.4, M8d
+            new Test("cargoflight_roundtrip", 20, null, null, "infinite_horizon:mars", IhGameTestsM8d::roundTrip),  // 20.3, M8d
+            new Test("cargoflight_outoffuel", 20, null, null, "infinite_horizon:mars", IhGameTestsM8d::outOfFuel),  // 20.3, M8d
+            new Test("cargoflight_freighter_fuelrod", 20, null, null, "infinite_horizon:mars", IhGameTestsM8d::freighterFuelRod),  // 20.3, M8d
+            new Test("cargoflight_keeps_methane", 20, null, null, "infinite_horizon:mars", IhGameTestsM8d::keepsMethane),  // 20.3, M8d
+            new Test("cargoflight_stranded_retry", 20, null, null, "infinite_horizon:mars", IhGameTestsM8d::stranded)  // 20.3, M8d
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

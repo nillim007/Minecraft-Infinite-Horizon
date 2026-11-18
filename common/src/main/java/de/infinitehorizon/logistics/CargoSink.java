@@ -14,6 +14,16 @@ public interface CargoSink {
     /** Nimmt bis zu {@code offer.amount()} mB an und gibt die Menge zurück; {@code simulate} ändert nichts. */
     long insertFluid(IhFluidStack offer, boolean simulate);
 
+    /** Treibstofftank, aus dem Frachtraketen vor dem Rückflug tanken (20.3), oder null. */
+    default de.infinitehorizon.core.fluid.@org.jspecify.annotations.Nullable IhFluidTank fuelTank() {
+        return null;
+    }
+
+    /** Nimmt das Ziel Fluidfracht an? (Handelsposten nicht, 20.3) */
+    default boolean acceptsFluidCargo() {
+        return true;
+    }
+
     /** Passen alle Items und Fluide eines Vorgangs (jeweils einzeln geprüft)? */
     default boolean fits(List<ItemStack> items, List<IhFluidStack> fluids) {
         for (ItemStack s : items) {

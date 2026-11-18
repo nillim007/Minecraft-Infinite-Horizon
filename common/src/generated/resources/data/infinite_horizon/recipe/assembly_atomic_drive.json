@@ -1,0 +1,28 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:tungsten_plate",
+      "count": 16
+    },
+    {
+      "ingredient": "infinite_horizon:titanium_plate",
+      "count": 8
+    },
+    {
+      "ingredient": "infinite_horizon:fuel_rod",
+      "count": 4
+    },
+    {
+      "ingredient": "infinite_horizon:cooling_system",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:atomic_drive",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

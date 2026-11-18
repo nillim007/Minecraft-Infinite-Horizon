@@ -252,7 +252,11 @@
     "infinite_horizon:uranium_ingot",
     "infinite_horizon:star_chart",
     "infinite_horizon:fuel_rod",
-    "infinite_horizon:ammonia_fertilizer"
+    "infinite_horizon:ammonia_fertilizer",
+    "infinite_horizon:cargo_rocket",
+    "infinite_horizon:heavy_freighter",
+    "infinite_horizon:atomic_drive",
+    "infinite_horizon:antimatter_drive"
   ],
   "fluids": [
     "crude_oil",
@@ -266,7 +270,7 @@
     "nitrogen",
     "liquid_nitrogen"
   ],
-  "step": "8c",
+  "step": "8d",
   "dimensions": ["infinite_horizon:moon", "infinite_horizon:mars", "infinite_horizon:venus", "infinite_horizon:earth_orbit", "infinite_horizon:mars_orbit", "infinite_horizon:venus_orbit", "infinite_horizon:mercury", "infinite_horizon:mercury_orbit", "infinite_horizon:asteroid_belt", "infinite_horizon:ceres", "infinite_horizon:jupiter_orbit", "infinite_horizon:io", "infinite_horizon:europa", "infinite_horizon:saturn_orbit", "infinite_horizon:titan", "infinite_horizon:enceladus", "infinite_horizon:uranus_orbit", "infinite_horizon:neptune_orbit", "infinite_horizon:triton", "infinite_horizon:pluto"],
   "entities": ["infinite_horizon:seat", "infinite_horizon:probe_entity", "infinite_horizon:rocket", "infinite_horizon:rover", "infinite_horizon:rubble_crawler", "infinite_horizon:shade_strider", "infinite_horizon:dune_burrower", "infinite_horizon:dust_wraith", "infinite_horizon:sulfur_snail", "infinite_horizon:cloud_ray", "infinite_horizon:lander", "infinite_horizon:mirror_beetle", "infinite_horizon:drift_mite", "infinite_horizon:sulfur_salamander", "infinite_horizon:sulfur_glob", "infinite_horizon:ice_jelly", "infinite_horizon:reef_keeper", "infinite_horizon:methane_skimmer", "infinite_horizon:geyser_moth", "infinite_horizon:frost_lurker", "infinite_horizon:signal_sentinel"],
   "advancements": ["infinite_horizon:root", "infinite_horizon:ground_station", "infinite_horizon:first_signal", "infinite_horizon:small_step", "infinite_horizon:own_air"],
@@ -295,6 +299,8 @@
     "infinite_horizon:deep_space_suit_leggings": "suit",
     "infinite_horizon:deep_space_suit_boots": "suit",
     "infinite_horizon:star_chart": "star_chart",
-    "infinite_horizon:ammonia_fertilizer": "fertilizer"
+    "infinite_horizon:ammonia_fertilizer": "fertilizer",
+    "infinite_horizon:cargo_rocket": "cargo_rocket",
+    "infinite_horizon:heavy_freighter": "cargo_rocket"
   }
 }

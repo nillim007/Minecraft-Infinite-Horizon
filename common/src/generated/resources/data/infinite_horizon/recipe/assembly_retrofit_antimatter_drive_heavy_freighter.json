@@ -1,0 +1,24 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:heavy_freighter",
+      "count": 1
+    },
+    {
+      "ingredient": "infinite_horizon:antimatter_drive",
+      "count": 1
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:heavy_freighter",
+      "count": 1,
+      "chance": 1.0,
+      "components": {
+        "infinite_horizon:drive": "infinite_horizon:antimatter_drive"
+      }
+    }
+  ],
+  "copy_components_from": 0
+}

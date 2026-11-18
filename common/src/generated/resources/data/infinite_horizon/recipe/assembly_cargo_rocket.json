@@ -1,0 +1,24 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:lightweight_plate",
+      "count": 64
+    },
+    {
+      "ingredient": "infinite_horizon:iridium_chip",
+      "count": 2
+    },
+    {
+      "ingredient": "infinite_horizon:lithium_battery",
+      "count": 8
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:cargo_rocket",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

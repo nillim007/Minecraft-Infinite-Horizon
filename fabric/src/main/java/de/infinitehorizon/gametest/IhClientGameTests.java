@@ -882,6 +882,7 @@ public class IhClientGameTests implements FabricClientGameTest {
                 t.insertFluid(IhFluidStack.of(InfiniteHorizon.id("methane"), t.fuelTank().capacity() / 2), false);
                 t.insertFluid(IhFluidStack.of(InfiniteHorizon.id("ammonia"), t.cargoTanks().getFirst().capacity() / 3), false);
                 t.insertItem(new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.IRON_ORE, 200), false);
+                t.setItem(t.layout().moldStart(), new net.minecraft.world.item.ItemStack(ModItems.CARGO_ROCKET.get()));
             }
         });
         context.waitTicks(10);

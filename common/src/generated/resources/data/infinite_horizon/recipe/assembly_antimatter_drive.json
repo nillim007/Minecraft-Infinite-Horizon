@@ -1,0 +1,31 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:antimatter_cell",
+      "count": 16,
+      "components": {
+        "infinite_horizon:charge": 1
+      }
+    },
+    {
+      "ingredient": "infinite_horizon:fuel_rod",
+      "count": 2
+    },
+    {
+      "ingredient": "infinite_horizon:superconductor_wire",
+      "count": 4
+    },
+    {
+      "ingredient": "infinite_horizon:tungsten_plate",
+      "count": 8
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:antimatter_drive",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}
