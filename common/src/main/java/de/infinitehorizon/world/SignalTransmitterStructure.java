@@ -42,9 +42,13 @@ public final class SignalTransmitterStructure extends Structure {
             Codec.INT.fieldOf("marker_size").forGetter(s -> s.markerSize),
             Identifier.CODEC.fieldOf("wall").forGetter(s -> s.wall),
             Identifier.CODEC.fieldOf("core").forGetter(s -> s.core),
-            Identifier.CODEC.fieldOf("tunnel_block").forGetter(s -> s.tunnelBlock)
-    ).apply(i, (st, hall, y, ew, eh, ms, wall, core, tunnel) -> new SignalTransmitterStructure(st, hall.get(0), hall.get(1),
-            hall.get(2), y, ew, eh, ms, wall, core, tunnel)));
+            Identifier.CODEC.fieldOf("tunnel_block").forGetter(s -> s.tunnelBlock),
+            Codec.INT.optionalFieldOf("tolerance", 0).forGetter(s -> s.tolerance)
+    ).apply(i, (st, hall, y, ew, eh, ms, wall, core, tunnel, tol) -> new SignalTransmitterStructure(st, hall.get(0), hall.get(1),
+            hall.get(2), y, ew, eh, ms, wall, core, tunnel, tol)));
+
+    /** So viele Blöcke Gelände bleiben mindestens über dem Hallendach (SPEC-GAP #108). */
+    private static final int COVER = 3;
 
     private final int width;
     private final int depth;
@@ -56,9 +60,12 @@ public final class SignalTransmitterStructure extends Structure {
     private final Identifier wall;
     private final Identifier core;
     private final Identifier tunnelBlock;
+    /** Erlaubte Abweichung von {@code y} nach unten, damit die Halle unter der Oberfläche liegt. */
+    private final int tolerance;
 
     private SignalTransmitterStructure(StructureSettings settings, int width, int depth, int height, int y, int entranceWidth,
-                                       int entranceHeight, int markerSize, Identifier wall, Identifier core, Identifier tunnelBlock) {
+                                       int entranceHeight, int markerSize, Identifier wall, Identifier core, Identifier tunnelBlock,
+                                       int tolerance) {
         super(settings);
         this.width = width;
         this.depth = depth;
@@ -70,6 +77,12 @@ public final class SignalTransmitterStructure extends Structure {
         this.wall = wall;
         this.core = core;
         this.tunnelBlock = tunnelBlock;
+        this.tolerance = tolerance;
+    }
+
+    private int surface(GenerationContext context, int x, int z) {
+        return context.chunkGenerator().getFirstOccupiedHeight(x, z, Heightmap.Types.WORLD_SURFACE_WG, context.heightAccessor(),
+                context.randomState());
     }
 
     @Override
@@ -77,13 +90,20 @@ public final class SignalTransmitterStructure extends Structure {
         ChunkPos chunk = context.chunkPos();
         int cx = chunk.getMinBlockX();
         int cz = chunk.getMinBlockZ();
+        // „unter dem Herzgletscher“: liegt die Oberfläche über der Halle zu tief, sinkt die Halle (höchstens tolerance)
+        int lowest = Integer.MAX_VALUE;
+        for (int dx = -width / 2; dx <= width / 2; dx += width / 2) {
+            for (int dz = -depth / 2; dz <= depth / 2; dz += depth / 2) {
+                lowest = Math.min(lowest, surface(context, cx + dx, cz + dz));
+            }
+        }
+        int y = Math.max(this.y - tolerance, Math.min(this.y, lowest - height - COVER));
         // Tunnel: je Block nach Süden eine Stufe höher, bis die Sohle die Oberfläche (Generator-Schätzung) erreicht
         int south = cz + depth / 2;
         int steps = 0;
         int maxSteps = context.heightAccessor().getMaxY() - y;
         while (steps < maxSteps) {
-            int surface = context.chunkGenerator().getFirstOccupiedHeight(cx, south + steps, Heightmap.Types.WORLD_SURFACE_WG,
-                    context.heightAccessor(), context.randomState());
+            int surface = surface(context, cx, south + steps);
             if (y + steps >= surface) {
                 break;
             }

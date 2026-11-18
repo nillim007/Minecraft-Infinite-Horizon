@@ -14,5 +14,6 @@
   "marker_size": 5,
   "wall": "infinite_horizon:ancient_alloy",
   "core": "infinite_horizon:transmitter_core",
-  "tunnel_block": "infinite_horizon:pluto_water_ice"
+  "tunnel_block": "infinite_horizon:pluto_water_ice",
+  "tolerance": 64
 }

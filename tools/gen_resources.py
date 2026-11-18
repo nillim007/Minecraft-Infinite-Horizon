@@ -1009,7 +1009,8 @@ def planet_worldgen(spec, impl, blocks):
                 body.update({"step": "underground_structures", "hall": hall, "y": pos["y"],
                              "entrance_width": prm["entrance"]["width"], "entrance_height": prm["entrance"]["height"],
                              "marker_size": prm["surface_marker"]["size"], "wall": prm["surface_marker"]["block"],
-                             "core": f"{NS}:transmitter_core", "tunnel_block": prm["tunnel"]["block"]})
+                             "core": f"{NS}:transmitter_core", "tunnel_block": prm["tunnel"]["block"],
+                             "tolerance": pos.get("tolerance") or 0})
             elif name == "lava_tube":
                 body.update({"step": "underground_structures", "size": prm["cross_section"][0],
                              "length": {"type": "minecraft:uniform", "min_inclusive": prm["length"][0],
