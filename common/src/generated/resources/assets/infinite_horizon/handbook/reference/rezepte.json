@@ -3855,6 +3855,45 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/logistics_computer",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:machine_frame"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:iridium_chip"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:logistics_computer",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/magnetic_trap",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",

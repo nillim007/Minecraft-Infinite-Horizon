@@ -22,11 +22,12 @@ import java.util.Map;
  */
 public final class OutpostData extends SavedData {
 
-    /** Ein Frachtterminal. */
-    public record Terminal(Identifier dimension, BlockPos pos) {
+    /** Ein Frachtterminal mit Besitzer-Agentur (leer = ohne Besitzer). */
+    public record Terminal(Identifier dimension, BlockPos pos, java.util.Optional<java.util.UUID> owner) {
         static final Codec<Terminal> CODEC = RecordCodecBuilder.create(i -> i.group(
                 Identifier.CODEC.fieldOf("dimension").forGetter(Terminal::dimension),
-                BlockPos.CODEC.fieldOf("pos").forGetter(Terminal::pos)
+                BlockPos.CODEC.fieldOf("pos").forGetter(Terminal::pos),
+                net.minecraft.core.UUIDUtil.CODEC.optionalFieldOf("owner").forGetter(Terminal::owner)
         ).apply(i, Terminal::new));
     }
 
@@ -84,8 +85,9 @@ public final class OutpostData extends SavedData {
         return dimension + "|" + pos.asLong();
     }
 
-    public void addTerminal(Identifier dimension, BlockPos pos) {
-        if (terminals.putIfAbsent(key(dimension, pos), new Terminal(dimension, pos.immutable())) == null) {
+    public void addTerminal(Identifier dimension, BlockPos pos, java.util.@Nullable UUID owner) {
+        Terminal t = new Terminal(dimension, pos.immutable(), java.util.Optional.ofNullable(owner));
+        if (!t.equals(terminals.put(key(dimension, pos), t))) {
             setDirty();
         }
     }

@@ -130,6 +130,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Lithiumbarren](Lithium.md) | Item | Maschine |
 | [Lithiumsalz](Lithium.md) | Item | Abbau |
 | [Lithiumstaub](Lithium.md) | Item | Maschine |
+| [Logistik-Computer](Logistik-Computer.md) | Block | Rezept |
 | [Läuferbein](Titan.md) | Item | Kreatur |
 | [Magnesium-Legierung](Der-Hochtemperaturofen.md) | Item | Maschine |
 | [Magnesiumbarren](Der-Mars.md) | Item | Maschine |

@@ -4,7 +4,7 @@
 
 # Frachtraketen und Antriebe
 
-Frachtraketen bringen Items und Fluide von einem [Frachtterminal](Aussenposten-und-Frachtterminal.md) zum anderen. Sie fliegen nicht sichtbar durch die Welt: Das Spiel merkt sich nur Start, Ziel und Ankunftszeit. Beim Start und bei der Landung siehst du am Terminal eine kleine Rauchwolke.
+Frachtraketen bringen Items und Fluide von einem [Frachtterminal](Aussenposten-und-Frachtterminal.md) zum anderen. Wann sie fliegen, legst du am [Logistik-Computer](Logistik-Computer.md) fest. Sie fliegen nicht sichtbar durch die Welt: Das Spiel merkt sich nur Start, Ziel und Ankunftszeit. Beim Start und bei der Landung siehst du am Terminal eine kleine Rauchwolke.
 
 ## Der Hangar
 
@@ -52,4 +52,4 @@ Zum Nachrüsten legst du Rakete und Antrieb zusammen in den [Montagetisch](Monta
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Außenposten und Frachtterminal](Aussenposten-und-Frachtterminal.md)
+← [Außenposten und Frachtterminal](Aussenposten-und-Frachtterminal.md) · [Logistik-Computer](Logistik-Computer.md) →

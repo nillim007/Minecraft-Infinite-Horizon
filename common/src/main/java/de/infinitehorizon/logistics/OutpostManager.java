@@ -84,8 +84,8 @@ public final class OutpostManager {
         return OutpostData.get(level.getServer());
     }
 
-    public static void registerTerminal(ServerLevel level, BlockPos pos) {
-        data(level).addTerminal(dimension(level), pos);
+    public static void registerTerminal(ServerLevel level, BlockPos pos, java.util.@Nullable UUID owner) {
+        data(level).addTerminal(dimension(level), pos, owner);
     }
 
     /** Block abgebaut: Terminal bzw. Produzent aus dem Register nehmen. */
@@ -155,6 +155,23 @@ public final class OutpostManager {
         d.putProducer(new OutpostData.Producer(snap.dimension(), snap.pos(), snap.machine(), snap.running(),
                 snap.outputPerCycle(), snap.cycleTicks(), now, snap.token()));
         return done;
+    }
+
+    /**
+     * Rechnet alle Produzenten des Außenpostens nach (20.1: Logistik-Abfrage, Frachtlandung). Ihre Chunks werden dazu
+     * geladen; Produzenten mit frischem Schnappschuss (laufen gerade) bleiben unberührt.
+     */
+    public static void catchUpOutpost(ServerLevel level, BlockPos terminal) {
+        long now = now(level);
+        for (OutpostData.Producer p : data(level).producersOf(dimension(level), terminal, radius())) {
+            if (now - p.lastTick() <= 2L * SNAPSHOT_INTERVAL) {
+                continue;
+            }
+            level.getChunkAt(p.pos());
+            if (level.getBlockEntity(p.pos()) instanceof ProcessingMachineBlockEntity pm) {
+                catchUp(level, pm);
+            }
+        }
     }
 
     /**

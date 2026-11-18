@@ -21,3 +21,6 @@ In der letzten Phase verbindest du deine Welten. Außenposten fördern Rohstoffe
 @if infinite_horizon:cargo_rocket
 4. **Fracht fliegen.** [[frachtraketen|Frachtraketen]] im Hangar eines Terminals bringen Items und Fluide zu anderen Terminals. Antriebe verkürzen die Flugzeit.
 @endif
+@if infinite_horizon:logistics_computer
+5. **Routen anlegen.** Am [[logistik_computer|Logistik-Computer]] legst du fest, wann welche Rakete was wohin fliegt.
+@endif

@@ -1,0 +1,137 @@
+{
+  "id": "infinite_horizon:phase_6/logistik_computer",
+  "chapter": "infinite_horizon:phase_6",
+  "title": "infinite_horizon.handbook.phase_6.logistik_computer.title",
+  "icon": "infinite_horizon:logistics_computer",
+  "order": 60,
+  "unlock": "infinite_horizon:research_tier/5",
+  "items": [
+    "infinite_horizon:logistics_computer"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_6.logistik_computer.e2.0",
+        "infinite_horizon.handbook.phase_6.logistik_computer.e2.1",
+        "infinite_horizon.handbook.phase_6.logistik_computer.e2.2",
+        "infinite_horizon.handbook.phase_6.logistik_computer.e2.3",
+        "infinite_horizon.handbook.phase_6.logistik_computer.e2.4",
+        "infinite_horizon.handbook.phase_6.logistik_computer.e2.5",
+        "infinite_horizon.handbook.phase_6.logistik_computer.e2.6"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e3",
+      "level": 2
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.phase_6.logistik_computer.e4.h0",
+        "infinite_horizon.handbook.phase_6.logistik_computer.e4.h1"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_6.logistik_computer.e4.r0.0",
+          "infinite_horizon.handbook.phase_6.logistik_computer.e4.r0.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.logistik_computer.e4.r1.0",
+          "infinite_horizon.handbook.phase_6.logistik_computer.e4.r1.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.logistik_computer.e4.r2.0",
+          "infinite_horizon.handbook.phase_6.logistik_computer.e4.r2.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.logistik_computer.e4.r3.0",
+          "infinite_horizon.handbook.phase_6.logistik_computer.e4.r3.1"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e5"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e6",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e7"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e8",
+      "style": "warning"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e9",
+      "style": "tip"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e10",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/logistics_computer",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:machine_frame"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:iridium_chip"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "minecraft:glass"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:logistics_computer",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    }
+  ]
+}

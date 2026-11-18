@@ -1188,4 +1188,29 @@ public class IhFabricGameTests {
     public void cargoflightStrandedRetry(GameTestHelper helper) {
         IhGameTestsM8d.stranded(helper);
     }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:mars")
+    public void routeDemandStopsAtZero(GameTestHelper helper) {
+        IhGameTestsM8e.demandStops(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:mars")
+    public void routeEveryNTicks(GameTestHelper helper) {
+        IhGameTestsM8e.everyNTicks(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:mars")
+    public void routeTargetBelow(GameTestHelper helper) {
+        IhGameTestsM8e.targetBelow(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:mars")
+    public void routeWhenFull(GameTestHelper helper) {
+        IhGameTestsM8e.whenFull(helper);
+    }
+
+    @GameTest(maxTicks = 40, dimension = "infinite_horizon:mars")
+    public void logisticsComputerEditRoutes(GameTestHelper helper) {
+        IhGameTestsM8e.editRoutes(helper);
+    }
 }

@@ -130,18 +130,76 @@ public class CargoTerminalBlockEntity extends MachineBlockEntity implements Carg
 
     /** Fracht laden (20.3): ganze Stapel aus dem Lager, die zum Filter passen, höchstens {@code maxStacks}. */
     public List<ItemStack> takeCargo(java.util.function.Predicate<ItemStack> filter, int maxStacks) {
+        return takeCargo(filter, maxStacks, id -> Long.MAX_VALUE);
+    }
+
+    /** Wie oben, je Item-ID höchstens {@code limit} Stück (Bedarf der Werft). */
+    public List<ItemStack> takeCargo(java.util.function.Predicate<ItemStack> filter, int maxStacks,
+                                     java.util.function.ToLongFunction<String> limit) {
         List<ItemStack> out = new ArrayList<>();
+        java.util.Map<String, Long> taken = new java.util.HashMap<>();
         for (int i = 0; i < Math.min(storageSlots(), items.size()) && out.size() < maxStacks; i++) {
             ItemStack s = items.get(i);
-            if (!s.isEmpty() && filter.test(s)) {
-                out.add(s.copy());
-                items.set(i, ItemStack.EMPTY);
+            if (s.isEmpty() || !filter.test(s)) {
+                continue;
             }
+            String id = net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(s.getItem()).toString();
+            long allowed = limit.applyAsLong(id) - taken.getOrDefault(id, 0L);
+            int take = (int) Math.min(s.getCount(), Math.max(0, allowed));
+            if (take <= 0) {
+                continue;
+            }
+            out.add(s.copyWithCount(take));
+            s.shrink(take);
+            taken.merge(id, (long) take, Long::sum);
         }
         if (!out.isEmpty()) {
             setChanged();
         }
         return out;
+    }
+
+    /** Passende Item-Stapel im Lager (Startbedingung „wenn voll“). */
+    public int matchingStacks(java.util.function.Predicate<String> ok) {
+        int n = 0;
+        for (int i = 0; i < Math.min(storageSlots(), items.size()); i++) {
+            ItemStack s = items.get(i);
+            if (!s.isEmpty() && ok.test(net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(s.getItem()).toString())) {
+                n++;
+            }
+        }
+        return n;
+    }
+
+    /** Gefüllte Frachttanks mit passendem Fluid. */
+    public int matchingFluidHolds(java.util.function.Predicate<String> ok) {
+        int n = 0;
+        for (IhFluidTank t : cargo) {
+            if (!t.stack().isEmpty() && ok.test(t.stack().fluid().toString())) {
+                n++;
+            }
+        }
+        return n;
+    }
+
+    @Override
+    public long amountOf(String id) {
+        if (id == null || id.isEmpty()) {
+            return 0;
+        }
+        long n = 0;
+        for (int i = 0; i < Math.min(storageSlots(), items.size()); i++) {
+            ItemStack s = items.get(i);
+            if (!s.isEmpty() && net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(s.getItem()).toString().equals(id)) {
+                n += s.getCount();
+            }
+        }
+        for (IhFluidTank t : fluidTanks()) {
+            if (!t.stack().isEmpty() && t.stack().fluid().toString().equals(id)) {
+                n += t.stack().amount();
+            }
+        }
+        return n;
     }
 
     /** Fluidfracht laden (20.3): aus den Frachttanks, je Laderaum ein Fluid bis {@code capacity} mB. */
@@ -349,7 +407,7 @@ public class CargoTerminalBlockEntity extends MachineBlockEntity implements Carg
         }
         if (Math.floorMod(level.getGameTime() + getBlockPos().asLong(), OutpostManager.SNAPSHOT_INTERVAL) == 0
                 || !OutpostManager.data(level).hasTerminal(level.dimension().identifier(), getBlockPos())) {
-            OutpostManager.registerTerminal(level, getBlockPos());
+            OutpostManager.registerTerminal(level, getBlockPos(), storedOwner());
         }
         handleContainers();
         pushFluids(level);

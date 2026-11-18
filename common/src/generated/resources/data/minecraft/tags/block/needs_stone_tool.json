@@ -54,6 +54,7 @@
     "infinite_horizon:launch_pad",
     "infinite_horizon:launch_tower",
     "infinite_horizon:lithium_battery_bank",
+    "infinite_horizon:logistics_computer",
     "infinite_horizon:long_range_module",
     "infinite_horizon:magnetic_trap",
     "infinite_horizon:mars_iron_ore",

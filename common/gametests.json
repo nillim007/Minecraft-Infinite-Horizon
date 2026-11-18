@@ -242,6 +242,11 @@
     {"name": "cargoflight_outoffuel", "class": "IhGameTestsM8d", "method": "outOfFuel", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.3, M8d"},
     {"name": "cargoflight_freighter_fuelrod", "class": "IhGameTestsM8d", "method": "freighterFuelRod", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.3, M8d"},
     {"name": "cargoflight_keeps_methane", "class": "IhGameTestsM8d", "method": "keepsMethane", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.3, M8d"},
-    {"name": "cargoflight_stranded_retry", "class": "IhGameTestsM8d", "method": "stranded", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.3, M8d"}
+    {"name": "cargoflight_stranded_retry", "class": "IhGameTestsM8d", "method": "stranded", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.3, M8d"},
+    {"name": "route_demand_stops_at_zero", "class": "IhGameTestsM8e", "method": "demandStops", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.4, 27 M8 (Abnahme)"},
+    {"name": "route_every_n_ticks", "class": "IhGameTestsM8e", "method": "everyNTicks", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.4, M8e"},
+    {"name": "route_target_below", "class": "IhGameTestsM8e", "method": "targetBelow", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.4, M8e"},
+    {"name": "route_when_full", "class": "IhGameTestsM8e", "method": "whenFull", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.4, M8e"},
+    {"name": "logistics_computer_edit_routes", "class": "IhGameTestsM8e", "method": "editRoutes", "ticks": 40, "dimension": "infinite_horizon:mars", "ref": "20.4, 3A.5, M8e"}
   ]
 }

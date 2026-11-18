@@ -19,6 +19,21 @@ public interface CargoSink {
         return null;
     }
 
+    /** Offener Bedarf für eine Item- oder Fluid-ID (Werft, 21.1); sonst 0. */
+    default long demand(String id) {
+        return 0;
+    }
+
+    /** Gesamter offener Bedarf (Werft); sonst 0. */
+    default long totalDemand() {
+        return 0;
+    }
+
+    /** Vorrat einer Item- oder Fluid-ID (Startbedingung „wenn Ziel weniger als N von X hat“, 20.4). */
+    default long amountOf(String id) {
+        return 0;
+    }
+
     /** Nimmt das Ziel Fluidfracht an? (Handelsposten nicht, 20.3) */
     default boolean acceptsFluidCargo() {
         return true;

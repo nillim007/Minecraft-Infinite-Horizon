@@ -8,7 +8,7 @@ icon: infinite_horizon:cargo_rocket
 items: ["infinite_horizon:cargo_rocket", "infinite_horizon:heavy_freighter", "infinite_horizon:atomic_drive", "infinite_horizon:antimatter_drive"]
 summary: Fracht zwischen deinen Außenposten fliegen lassen
 ---
-Frachtraketen bringen Items und Fluide von einem [[aussenposten|Frachtterminal]] zum anderen. Sie fliegen nicht sichtbar durch die Welt: Das Spiel merkt sich nur Start, Ziel und Ankunftszeit. Beim Start und bei der Landung siehst du am Terminal eine kleine Rauchwolke.
+Frachtraketen bringen Items und Fluide von einem [[aussenposten|Frachtterminal]] zum anderen. Wann sie fliegen, legst du am [[logistik_computer|Logistik-Computer]] fest. Sie fliegen nicht sichtbar durch die Welt: Das Spiel merkt sich nur Start, Ziel und Ankunftszeit. Beim Start und bei der Landung siehst du am Terminal eine kleine Rauchwolke.
 
 ## Der Hangar
 

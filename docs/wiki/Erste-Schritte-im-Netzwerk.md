@@ -12,6 +12,7 @@ In der letzten Phase verbindest du deine Welten. Außenposten fördern Rohstoffe
 2. **Fördern.** [Bohrturm und Pumpstation](Bohrturm-und-Pumpstation.md) holen Erze und Fluide, ohne dass du selbst abbauen musst. Auf den Geysiren von Enceladus und Triton gewinnst du Ammoniak und Stickstoff.
 3. **Außenposten gründen.** Ein [Frachtterminal](Aussenposten-und-Frachtterminal.md) sammelt alles, was die Produzenten in seiner Nähe fördern. Auch wenn du fort bist, läuft die Förderung weiter.
 4. **Fracht fliegen.** [Frachtraketen](Frachtraketen-und-Antriebe.md) im Hangar eines Terminals bringen Items und Fluide zu anderen Terminals. Antriebe verkürzen die Flugzeit.
+5. **Routen anlegen.** Am [Logistik-Computer](Logistik-Computer.md) legst du fest, wann welche Rakete was wohin fliegt.
 
 ---
 

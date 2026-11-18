@@ -24,6 +24,9 @@ public final class ModPayloads {
                 payload -> de.infinitehorizon.client.HazardHud.receive(payload));
         Services.NETWORK.registerClientbound(DomeStatePayload.TYPE, DomeStatePayload.CODEC,
                 payload -> de.infinitehorizon.client.DomeVisuals.receive(payload));
+        Services.NETWORK.registerClientbound(LogisticsStatePayload.TYPE, LogisticsStatePayload.CODEC,
+                payload -> de.infinitehorizon.client.LogisticsScreen.receive(payload));
+        Services.NETWORK.registerServerbound(LogisticsEditPayload.TYPE, LogisticsEditPayload.CODEC, LogisticsEditPayload::handle);
         Services.NETWORK.registerServerbound(MachineConfigPayload.TYPE, MachineConfigPayload.CODEC, MachineConfigPayload::handle);
         Services.NETWORK.registerServerbound(ResearchUnlockPayload.TYPE, ResearchUnlockPayload.CODEC, ResearchUnlockPayload::handle);
         Services.NETWORK.registerServerbound(AgencyActionPayload.TYPE, AgencyActionPayload.CODEC, AgencyActionPayload::handle);

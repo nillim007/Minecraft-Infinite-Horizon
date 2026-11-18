@@ -186,6 +186,8 @@ public class IhClientGameTests implements FabricClientGameTest {
             });
             // M8c: Frachtterminal mit Methan im Treibstofftank und etwas Fracht
             cargoTerminal(context, sp);
+            // M8e: Logistik-Computer mit einer Route zwischen zwei Terminals
+            logisticsComputer(context, sp);
             // M8b: Bohrturm (in der Overworld: rote Lampe) und Pumpstation
             machine(context, sp, ModBlocks.DRILLING_RIG.get(), "gui_drilling_rig", be -> fillEnergy(be, 2));
             machine(context, sp, ModBlocks.PUMP_STATION.get(), "gui_pump_station", be -> {
@@ -868,6 +870,43 @@ public class IhClientGameTests implements FabricClientGameTest {
         context.waitTicks(10);
         clearChat(context);
         return pos;
+    }
+
+    /** Logistik-Computer (20.4): zwei Terminals, eine Route, GUI per Rechtsklick. */
+    private static void logisticsComputer(ClientGameTestContext context, TestSingleplayerContext sp) {
+        BlockPos base = context.computeOnClient(c -> BlockPos.containing(c.player.position()));
+        BlockPos computer = base.east(2).above();
+        BlockPos a = base.west(3).north(3);
+        BlockPos b = base.west(3).south(3);
+        setBlock(sp, a, ModBlocks.CARGO_TERMINAL.get());
+        setBlock(sp, b, ModBlocks.CARGO_TERMINAL.get());
+        setBlock(sp, computer, ModBlocks.LOGISTICS_COMPUTER.get());
+        context.waitTicks(5);
+        sp.getServer().runOnServer(server -> {
+            ServerLevel level = sp.getConnection().getServerLevel();
+            if (level.getBlockEntity(a) instanceof de.infinitehorizon.logistics.CargoTerminalBlockEntity t) {
+                t.refreshLayout();
+                t.setItem(t.layout().moldStart(), new net.minecraft.world.item.ItemStack(ModItems.CARGO_ROCKET.get()));
+                var player = server.getPlayerList().getPlayers().getFirst();
+                java.util.UUID agency = de.infinitehorizon.logistics.LogisticsService.agencyOf(player);
+                de.infinitehorizon.logistics.CargoFlights.get(server).putRoute(new de.infinitehorizon.logistics.Route(
+                        java.util.UUID.randomUUID(), agency, level.dimension().identifier(), a, level.dimension().identifier(), b,
+                        java.util.List.of("minecraft:iron_ingot"), "every_n_ticks", 1200, "", java.util.List.of(0), 0));
+            }
+        });
+        context.waitTicks(5);
+        context.getInput().lookAt(computer);
+        context.waitTick();
+        context.getInput().pressKey(options -> options.keyUse);
+        context.waitForScreen(de.infinitehorizon.client.LogisticsScreen.class);
+        context.waitTicks(10);
+        clearChat(context);
+        context.takeScreenshot("gui_logistics_computer");
+        context.setScreen(() -> null);
+        for (BlockPos p : java.util.List.of(computer, a, b)) {
+            sp.getServer().runCommand("setblock %d %d %d minecraft:air".formatted(p.getX(), p.getY(), p.getZ()));
+        }
+        context.waitTick();
     }
 
     /** Frachtterminal (20.1): eigenes GUI mit Bildlaufleiste und 9 Tanks. */

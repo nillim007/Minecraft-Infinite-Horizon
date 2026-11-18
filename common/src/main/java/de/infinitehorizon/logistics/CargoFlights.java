@@ -75,16 +75,51 @@ public final class CargoFlights extends SavedData {
         }
     }
 
-    public static final Codec<CargoFlights> CODEC = Flight.CODEC.listOf().xmap(l -> {
+    private record Stored(List<Flight> flights, List<Route> routes) {
+        static final Codec<Stored> CODEC = RecordCodecBuilder.create(i -> i.group(
+                Flight.CODEC.listOf().fieldOf("flights").forGetter(Stored::flights),
+                Route.CODEC.listOf().optionalFieldOf("routes", List.of()).forGetter(Stored::routes)
+        ).apply(i, Stored::new));
+    }
+
+    public static final Codec<CargoFlights> CODEC = Stored.CODEC.xmap(s -> {
         CargoFlights f = new CargoFlights();
-        l.forEach(x -> f.flights.put(x.id(), x));
+        s.flights().forEach(x -> f.flights.put(x.id(), x));
+        s.routes().forEach(x -> f.routes.put(x.id(), x));
         return f;
-    }, f -> List.copyOf(f.flights.values()));
+    }, f -> new Stored(List.copyOf(f.flights.values()), List.copyOf(f.routes.values())));
 
     public static final SavedDataType<CargoFlights> TYPE = new SavedDataType<>(InfiniteHorizon.id("cargo_flights"),
             CargoFlights::new, CODEC, DataFixTypes.SAVED_DATA_COMMAND_STORAGE);
 
     private final Map<UUID, Flight> flights = new LinkedHashMap<>();
+    /** Routen aller Agenturen (20.4, 3A.4 {@code CargoData}). */
+    private final Map<UUID, Route> routes = new LinkedHashMap<>();
+    /** Nächster Startversuch je Route und Hangar-Slot nach „ohne Treibstoff“ (nicht gespeichert). */
+    private static final Map<String, Long> RETRY = new java.util.HashMap<>();
+
+    public List<Route> routes() {
+        return List.copyOf(routes.values());
+    }
+
+    public List<Route> routesOf(UUID agency) {
+        return routes.values().stream().filter(r -> r.agency().equals(agency)).toList();
+    }
+
+    public Optional<Route> route(UUID id) {
+        return Optional.ofNullable(routes.get(id));
+    }
+
+    public void putRoute(Route r) {
+        routes.put(r.id(), r);
+        setDirty();
+    }
+
+    public void removeRoute(UUID id) {
+        if (routes.remove(id) != null) {
+            setDirty();
+        }
+    }
 
     public CargoFlights() {
     }
@@ -157,6 +192,13 @@ public final class CargoFlights extends SavedData {
      */
     public static Launch launch(ServerLevel level, CargoTerminalBlockEntity home, int slot, Identifier targetDimension,
                                 BlockPos target, Predicate<ItemStack> itemFilter, Predicate<Identifier> fluidFilter) {
+        return launch(level, home, slot, targetDimension, target, itemFilter, fluidFilter, id -> Long.MAX_VALUE);
+    }
+
+    /** Wie oben, mit Höchstmenge je Item-ID (Bedarf der Werft, 20.4). */
+    public static Launch launch(ServerLevel level, CargoTerminalBlockEntity home, int slot, Identifier targetDimension,
+                                BlockPos target, Predicate<ItemStack> itemFilter, Predicate<Identifier> fluidFilter,
+                                java.util.function.ToLongFunction<String> limit) {
         ItemStack rocket = home.hangar(slot);
         if (!CargoRockets.isRocket(rocket)) {
             return Launch.NO_ROCKET;
@@ -198,7 +240,7 @@ public final class CargoFlights extends SavedData {
             fuel -= need;
             CargoRockets.setFuel(rocket, fuel);
         }
-        List<ItemStack> items = home.takeCargo(itemFilter, CargoRockets.itemSlots(rocket));
+        List<ItemStack> items = home.takeCargo(itemFilter, CargoRockets.itemSlots(rocket), limit);
         List<IhFluidStack> fluids = home.takeFluidCargo(fluidFilter, CargoRockets.fluidHolds(rocket),
                 CargoRockets.fluidHoldCapacity(rocket));
         long now = OutpostManager.now(level);
@@ -236,10 +278,11 @@ public final class CargoFlights extends SavedData {
     /** Bearbeitet alle fälligen Flüge (auch für Tests). */
     public static void process(MinecraftServer server) {
         CargoFlights data = get(server);
-        if (data.flights.isEmpty()) {
+        if (data.flights.isEmpty() && data.routes.isEmpty()) {
             return;
         }
         long now = server.overworld().getGameTime();
+        runRoutes(server, data, now);
         for (Flight f : List.copyOf(data.flights.values())) {
             if (f.arrival() <= now) {
                 if (f.returning()) {
@@ -253,10 +296,120 @@ public final class CargoFlights extends SavedData {
         }
     }
 
+    private static String key(Route r, int slot) {
+        return r.id() + "#" + slot;
+    }
+
+    private static long retryTicks() {
+        return rules().has("stranded_retry_ticks") ? rules().get("stranded_retry_ticks").getAsLong() : 0;
+    }
+
+    private static String itemId(ItemStack s) {
+        return net.minecraft.core.registries.BuiltInRegistries.ITEM.getKey(s.getItem()).toString();
+    }
+
+    /** Offener Bedarf des Ziels für die Fracht der Route (leerer Filter: gesamter Bedarf). */
+    private static long demand(CargoSink sink, Route r) {
+        if (r.filter().isEmpty()) {
+            return sink.totalDemand();
+        }
+        long d = 0;
+        for (String id : r.filter()) {
+            d += sink.demand(id);
+        }
+        return d;
+    }
+
+    /**
+     * Routen (20.4): freie Raketen der zugewiesenen Hangar-Slots starten, sobald die Startbedingung gilt. Ein nicht
+     * geladenes Heimatterminal wird nur alle {@code stranded_retry_ticks} geprüft (dabei wird der Außenposten
+     * nachgerechnet, 20.1 „Logistik-Abfrage“).
+     */
+    static void runRoutes(MinecraftServer server, CargoFlights data, long now) {
+        long retry = retryTicks();
+        for (Route route : List.copyOf(data.routes.values())) {
+            ServerLevel home = level(server, route.homeDimension());
+            if (home == null || route.rockets().isEmpty()) {
+                continue;
+            }
+            if (!home.isLoaded(route.home()) && retry > 0 && Math.floorMod(now, retry) >= OutpostManager.SNAPSHOT_INTERVAL) {
+                continue;
+            }
+            home.getChunkAt(route.home());
+            if (!(home.getBlockEntity(route.home()) instanceof CargoTerminalBlockEntity t)) {
+                continue;
+            }
+            Route r = route;
+            for (int slot : route.rockets()) {
+                ItemStack rocket = t.hangar(slot);
+                Long next = RETRY.get(key(r, slot));
+                if (!CargoRockets.isRocket(rocket) || next != null && next > now
+                        || data.flightOf(r.homeDimension(), r.home(), slot).isPresent()) {
+                    continue;
+                }
+                ServerLevel targetLevel = level(server, r.targetDimension());
+                CargoSink sink = sinkAt(targetLevel, r.target());
+                if (sink == null) {
+                    continue;
+                }
+                OutpostManager.catchUpOutpost(home, r.home());
+                if (sink instanceof CargoTerminalBlockEntity && targetLevel != null) {
+                    OutpostManager.catchUpOutpost(targetLevel, r.target());
+                }
+                boolean demandRoute = r.conditionType() == RouteRules.Condition.UNTIL_DEMAND_MET;
+                Predicate<String> ok = id -> route.accepts(id) && (!demandRoute || sink.demand(id) > 0);
+                RouteRules.Context ctx = new RouteRules.Context(now, r.lastStart(), r.amount(), t.matchingStacks(ok),
+                        CargoRockets.itemSlots(rocket), t.matchingFluidHolds(ok), CargoRockets.fluidHolds(rocket),
+                        sink.amountOf(r.item()), demandRoute ? demand(sink, r) : 0);
+                if (!RouteRules.shouldStart(r.conditionType(), ctx)) {
+                    continue;
+                }
+                Launch res = launch(home, t, slot, r.targetDimension(), r.target(), s -> ok.test(itemId(s)),
+                        f -> ok.test(f.toString()), demandRoute ? sink::demand : id -> Long.MAX_VALUE);
+                if (res == Launch.OK) {
+                    RETRY.remove(key(r, slot));
+                    r = r.withLastStart(now);
+                    data.routes.put(r.id(), r);
+                    data.setDirty();
+                } else if (res == Launch.OUT_OF_FUEL) {
+                    RETRY.put(key(r, slot), now + retry);
+                }
+            }
+        }
+    }
+
+    /** Status einer Rakete der Route (20.4): unterwegs, geladen, wartend, ohne Treibstoff; dazu die Restzeit. */
+    public record RocketStatus(UUID route, int slot, String status, long remaining) {
+        public static final net.minecraft.network.codec.StreamCodec<io.netty.buffer.ByteBuf, RocketStatus> STREAM_CODEC =
+                net.minecraft.network.codec.StreamCodec.composite(
+                        UUIDUtil.STREAM_CODEC, RocketStatus::route,
+                        net.minecraft.network.codec.ByteBufCodecs.VAR_INT, RocketStatus::slot,
+                        net.minecraft.network.codec.ByteBufCodecs.STRING_UTF8, RocketStatus::status,
+                        net.minecraft.network.codec.ByteBufCodecs.VAR_LONG, RocketStatus::remaining,
+                        RocketStatus::new);
+    }
+
+    public static RocketStatus status(MinecraftServer server, Route r, int slot) {
+        CargoFlights data = get(server);
+        long now = server.overworld().getGameTime();
+        Optional<Flight> f = data.flightOf(r.homeDimension(), r.home(), slot);
+        if (f.isPresent()) {
+            Flight x = f.get();
+            String s = OUT_OF_FUEL.equals(x.status()) ? OUT_OF_FUEL
+                    : !x.returning() && (!x.items().isEmpty() || !x.fluids().isEmpty()) ? "loaded" : IN_FLIGHT;
+            return new RocketStatus(r.id(), slot, s, Math.max(0, x.arrival() - now));
+        }
+        Long next = RETRY.get(key(r, slot));
+        return new RocketStatus(r.id(), slot, next != null && next > now ? OUT_OF_FUEL : "waiting", 0);
+    }
+
     /** Am Ziel: Methan für den Rückflug behalten, entladen, nachtanken, zurückfliegen oder warten. */
     private static Flight atTarget(MinecraftServer server, Flight f, long now) {
         ServerLevel level = level(server, f.targetDimension());
         CargoSink sink = sinkAt(level, f.target());
+        if (sink instanceof CargoTerminalBlockEntity && level != null) {
+            OutpostManager.catchUpOutpost(level, f.target()); // 20.1: Frachtlandung rechnet den Außenposten nach
+        }
         ItemStack rocket = f.rocket();
         double dpHome = dp(f.homeDimension());
         double dpTarget = dp(f.targetDimension());
@@ -343,7 +496,10 @@ public final class CargoFlights extends SavedData {
     public static void onTerminalRemoved(ServerLevel level, BlockPos pos) {
         CargoFlights data = get(level.getServer());
         Identifier dim = level.dimension().identifier();
-        if (data.flights.values().removeIf(f -> f.home().equals(pos) && f.homeDimension().equals(dim))) {
+        boolean changed = data.flights.values().removeIf(f -> f.home().equals(pos) && f.homeDimension().equals(dim));
+        changed |= data.routes.values().removeIf(r -> r.home().equals(pos) && r.homeDimension().equals(dim)
+                || r.target().equals(pos) && r.targetDimension().equals(dim));
+        if (changed) {
             data.setDirty();
         }
     }

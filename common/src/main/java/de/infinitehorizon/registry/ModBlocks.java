@@ -171,6 +171,10 @@ public final class ModBlocks {
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Supplier<Block> FISSION_CASING = register("fission_casing", MultiblockPartBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Logistik-Computer (20.4): Routen und Raketen der Agentur. */
+    public static final Supplier<Block> LOGISTICS_COMPUTER = register("logistics_computer",
+            de.infinitehorizon.logistics.LogisticsComputerBlock::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     /** Frachtterminal (20.1): Mittelpunkt eines Außenpostens. */
     public static final Supplier<Block> CARGO_TERMINAL = register("cargo_terminal",
             p -> new MachineBlock(p, () -> ModBlockEntities.CARGO_TERMINAL.get()),

@@ -254,7 +254,12 @@ public final class IhTestCatalog {
             new Test("cargoflight_outoffuel", 20, null, null, "infinite_horizon:mars", IhGameTestsM8d::outOfFuel),  // 20.3, M8d
             new Test("cargoflight_freighter_fuelrod", 20, null, null, "infinite_horizon:mars", IhGameTestsM8d::freighterFuelRod),  // 20.3, M8d
             new Test("cargoflight_keeps_methane", 20, null, null, "infinite_horizon:mars", IhGameTestsM8d::keepsMethane),  // 20.3, M8d
-            new Test("cargoflight_stranded_retry", 20, null, null, "infinite_horizon:mars", IhGameTestsM8d::stranded)  // 20.3, M8d
+            new Test("cargoflight_stranded_retry", 20, null, null, "infinite_horizon:mars", IhGameTestsM8d::stranded),  // 20.3, M8d
+            new Test("route_demand_stops_at_zero", 20, null, null, "infinite_horizon:mars", IhGameTestsM8e::demandStops),  // 20.4, 27 M8 (Abnahme)
+            new Test("route_every_n_ticks", 20, null, null, "infinite_horizon:mars", IhGameTestsM8e::everyNTicks),  // 20.4, M8e
+            new Test("route_target_below", 20, null, null, "infinite_horizon:mars", IhGameTestsM8e::targetBelow),  // 20.4, M8e
+            new Test("route_when_full", 20, null, null, "infinite_horizon:mars", IhGameTestsM8e::whenFull),  // 20.4, M8e
+            new Test("logistics_computer_edit_routes", 40, null, null, "infinite_horizon:mars", IhGameTestsM8e::editRoutes)  // 20.4, 3A.5, M8e
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

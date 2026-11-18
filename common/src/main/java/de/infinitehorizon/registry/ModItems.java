@@ -77,6 +77,7 @@ public final class ModItems {
     public static final Supplier<Item> FISSION_REACTOR = blockItem("fission_reactor", ModBlocks.FISSION_REACTOR);
     public static final Supplier<Item> FISSION_CASING = blockItem("fission_casing", ModBlocks.FISSION_CASING);
     public static final Supplier<Item> CARGO_TERMINAL = blockItem("cargo_terminal", ModBlocks.CARGO_TERMINAL);
+    public static final Supplier<Item> LOGISTICS_COMPUTER = blockItem("logistics_computer", ModBlocks.LOGISTICS_COMPUTER);
     public static final Supplier<Item> DRILLING_RIG = blockItem("drilling_rig", ModBlocks.DRILLING_RIG);
     public static final Supplier<Item> PUMP_STATION = blockItem("pump_station", ModBlocks.PUMP_STATION);
     /** Ponton: wie die Seerose auf ein Fluid setzen. */
