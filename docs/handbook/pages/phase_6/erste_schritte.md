@@ -15,3 +15,6 @@ In der letzten Phase verbindest du deine Welten. Außenposten fördern Rohstoffe
 @if infinite_horizon:drilling_rig
 2. **Fördern.** [[bohrturm|Bohrturm und Pumpstation]] holen Erze und Fluide, ohne dass du selbst abbauen musst. Auf den Geysiren von Enceladus und Triton gewinnst du Ammoniak und Stickstoff.
 @endif
+@if infinite_horizon:cargo_terminal
+3. **Außenposten gründen.** Ein [[aussenposten|Frachtterminal]] sammelt alles, was die Produzenten in seiner Nähe fördern. Auch wenn du fort bist, läuft die Förderung weiter.
+@endif

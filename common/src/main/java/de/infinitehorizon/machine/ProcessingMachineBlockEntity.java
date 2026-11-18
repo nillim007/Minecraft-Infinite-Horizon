@@ -319,6 +319,144 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
             pushFluids(level);
         }
         process(level);
+        // Außenposten (20.1): Abgabe ans Terminal, Schnappschuss, Nachrechnen nach dem Laden
+        if (de.infinitehorizon.logistics.OutpostManager.isProducer(machineId())) {
+            if (outpost == null) {
+                outpost = new de.infinitehorizon.logistics.OutpostManager.Link();
+            }
+            outpost.tick(level, this);
+        }
+    }
+
+    private de.infinitehorizon.logistics.OutpostManager.@Nullable Link outpost;
+
+    /** Zustand als Produzent eines Außenpostens (null, solange er noch nicht getickt hat). */
+    public de.infinitehorizon.logistics.OutpostManager.@Nullable Link outpostLink() {
+        return outpost;
+    }
+
+    /**
+     * Schnappschuss für die Offline-Produktion (20.1): Status {@code running}, Ausgabe je Vorgang (Items und mB) und
+     * Vorgangsdauer des nächsten Vorgangs; ohne Vorgang 0.
+     */
+    public de.infinitehorizon.logistics.OfflineProduction.Snapshot offlineSnapshot(ServerLevel level) {
+        Optional<Plan> found = findPlan(level);
+        long out = 0;
+        int ticks = 0;
+        if (found.isPresent()) {
+            Plan plan = found.get();
+            for (ProcessingRecipe.ChanceResult r : plan.results()) {
+                out += r.toStack().getCount();
+            }
+            for (ItemStack s : plan.stacks()) {
+                out += s.getCount();
+            }
+            for (IhFluidStack f : plan.fluidResults()) {
+                out += f.amount();
+            }
+            ticks = effective(plan).ticks();
+        }
+        return new de.infinitehorizon.logistics.OfflineProduction.Snapshot(status() == MachineStatus.RUNNING, out, ticks,
+                de.infinitehorizon.logistics.OfflineProduction.UNLIMITED, de.infinitehorizon.logistics.OfflineProduction.UNLIMITED);
+    }
+
+    /**
+     * Offline-Produktion (20.1): bis zu {@code maxCycles} Vorgänge ohne Strom, mit den Eingaben der Maschine; die
+     * Ausbeute geht in {@code sink} (Terminal) oder, wenn null, in die eigenen Ausgaben. Stoppt, wenn Eingaben fehlen
+     * oder kein Platz mehr ist. Gibt die erledigten Vorgänge zurück.
+     */
+    public long produceOffline(ServerLevel level, long maxCycles, de.infinitehorizon.logistics.@Nullable CargoSink sink) {
+        if (!ensureLayout()) {
+            return 0;
+        }
+        long done = 0;
+        while (done < maxCycles) {
+            Optional<Plan> found = findPlan(level);
+            if (found.isEmpty()) {
+                break;
+            }
+            Plan plan = found.get();
+            List<ItemStack> made = new ArrayList<>();
+            for (ProcessingRecipe.ChanceResult r : plan.results()) {
+                if (r.chance() >= 1.0f || level.getRandom().nextFloat() < r.chance()) {
+                    made.add(r.toStack());
+                }
+            }
+            plan.stacks().forEach(s -> made.add(s.copy()));
+            List<IhFluidStack> fluids = plan.fluidResults();
+            int[] targets = sink == null ? fluidTargets(fluids) : null;
+            if (sink != null ? !sink.fits(made, fluids) : !outputsFit(made) || targets == null) {
+                break;
+            }
+            beforeConsume(plan, level);
+            for (int k = 0; k < plan.consumeSlots().length; k++) {
+                items.get(plan.consumeSlots()[k]).shrink(plan.consumeCounts()[k]);
+            }
+            try (Transaction tx = Transaction.open()) {
+                if (!plan.fluidIn().isEmpty()) {
+                    for (IhFluidTank t : inTanks) {
+                        if (t.stack().is(plan.fluidIn().fluid()) && t.stack().amount() >= plan.fluidIn().amount()) {
+                            t.extract(plan.fluidIn().fluid(), plan.fluidIn().amount(), tx);
+                            break;
+                        }
+                    }
+                }
+                if (sink == null) {
+                    for (int k = 0; k < fluids.size(); k++) {
+                        outTanks.get(targets[k]).fill(fluids.get(k), tx);
+                    }
+                }
+                tx.commit();
+            }
+            for (ItemStack s : made) {
+                if (sink != null) {
+                    sink.insertItem(s, false);
+                } else {
+                    insertOutput(s);
+                }
+            }
+            if (sink != null) {
+                fluids.forEach(f -> sink.insertFluid(f, false));
+            }
+            done++;
+        }
+        if (done > 0) {
+            setChanged();
+        }
+        return done;
+    }
+
+    /** Gibt Ausgabeslots und Ausgangstanks an {@code sink} ab (Produzenten geben direkt ins Terminal, 20.1). */
+    public void deliverTo(de.infinitehorizon.logistics.CargoSink sink) {
+        MachineLayout l = layout();
+        boolean changed = false;
+        for (int i = l.outputStart(); i < l.upgradeStart() && i < items.size(); i++) {
+            ItemStack s = items.get(i);
+            if (s.isEmpty()) {
+                continue;
+            }
+            ItemStack rest = sink.insertItem(s, false);
+            if (rest.getCount() != s.getCount()) {
+                items.set(i, rest.isEmpty() ? ItemStack.EMPTY : rest.copy());
+                changed = true;
+            }
+        }
+        for (IhFluidTank t : outTanks) {
+            if (t.stack().isEmpty()) {
+                continue;
+            }
+            long moved = sink.insertFluid(t.stack(), false);
+            if (moved > 0) {
+                try (Transaction tx = Transaction.open()) {
+                    t.extract(t.stack().fluid(), moved, tx);
+                    tx.commit();
+                }
+                changed = true;
+            }
+        }
+        if (changed) {
+            setChanged();
+        }
     }
 
     /** Ein Verarbeitungsschritt (Rezept suchen, Strom verbrauchen, Fortschritt, Ergebnis ablegen). */
@@ -507,11 +645,26 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
     protected void saveAdditional(ValueOutput output) {
         super.saveAdditional(output);
         output.putDouble("progress", progress);
+        if (outpostToken != 0) {
+            output.putLong("outpost_token", outpostToken);
+        }
+    }
+
+    private long outpostToken;
+
+    /** Kennung dieses Produzenten im Außenposten-Register (unterscheidet ihn von einem neu gesetzten Block). */
+    public long outpostToken() {
+        if (outpostToken == 0) {
+            outpostToken = java.util.concurrent.ThreadLocalRandom.current().nextLong(1, Long.MAX_VALUE);
+            setChanged();
+        }
+        return outpostToken;
     }
 
     @Override
     public void loadAdditional(ValueInput input) {
         super.loadAdditional(input);
         progress = input.getDoubleOr("progress", 0.0);
+        outpostToken = input.getLongOr("outpost_token", 0L);
     }
 }

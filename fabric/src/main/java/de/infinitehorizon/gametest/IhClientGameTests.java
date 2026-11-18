@@ -184,6 +184,8 @@ public class IhClientGameTests implements FabricClientGameTest {
                 be.fluidTanks().get(0).setStackUnchecked(IhFluidStack.of(
                         net.minecraft.resources.Identifier.withDefaultNamespace("water"), 12000));
             });
+            // M8c: Frachtterminal mit Methan im Treibstofftank und etwas Fracht
+            cargoTerminal(context, sp);
             // M8b: Bohrturm (in der Overworld: rote Lampe) und Pumpstation
             machine(context, sp, ModBlocks.DRILLING_RIG.get(), "gui_drilling_rig", be -> fillEnergy(be, 2));
             machine(context, sp, ModBlocks.PUMP_STATION.get(), "gui_pump_station", be -> {
@@ -866,6 +868,31 @@ public class IhClientGameTests implements FabricClientGameTest {
         context.waitTicks(10);
         clearChat(context);
         return pos;
+    }
+
+    /** Frachtterminal (20.1): eigenes GUI mit Bildlaufleiste und 9 Tanks. */
+    private static void cargoTerminal(ClientGameTestContext context, TestSingleplayerContext sp) {
+        BlockPos pos = context.computeOnClient(c -> BlockPos.containing(c.player.position()).east(2).above());
+        setBlock(sp, pos, ModBlocks.CARGO_TERMINAL.get());
+        context.waitFor(c -> c.level.getBlockState(pos).is(ModBlocks.CARGO_TERMINAL.get()));
+        sp.getServer().runOnServer(server -> {
+            if (sp.getConnection().getServerLevel().getBlockEntity(pos)
+                    instanceof de.infinitehorizon.logistics.CargoTerminalBlockEntity t) {
+                t.refreshLayout();
+                t.insertFluid(IhFluidStack.of(InfiniteHorizon.id("methane"), t.fuelTank().capacity() / 2), false);
+                t.insertFluid(IhFluidStack.of(InfiniteHorizon.id("ammonia"), t.cargoTanks().getFirst().capacity() / 3), false);
+                t.insertItem(new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.IRON_ORE, 200), false);
+            }
+        });
+        context.waitTicks(10);
+        context.getInput().lookAt(pos);
+        context.waitTick();
+        context.getInput().pressKey(options -> options.keyUse);
+        context.waitForScreen(de.infinitehorizon.client.CargoTerminalScreen.class);
+        context.waitTicks(10);
+        clearChat(context);
+        context.takeScreenshot("gui_cargo_terminal");
+        closeAndRemove(context, sp, pos);
     }
 
     private static void closeAndRemove(ClientGameTestContext context, TestSingleplayerContext sp, BlockPos pos) {

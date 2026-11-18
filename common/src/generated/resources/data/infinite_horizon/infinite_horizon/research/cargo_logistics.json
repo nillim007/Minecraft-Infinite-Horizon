@@ -1,0 +1,33 @@
+{
+  "tier": 5,
+  "branch": "logistics",
+  "cost": 120,
+  "requires": [
+    "infinite_horizon:iridium_chips",
+    "infinite_horizon:lithium_storage"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:cargo_terminal"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:cargo_rocket"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:logistics_computer"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:trading_post"
+    }
+  ],
+  "icon": "infinite_horizon:cargo_terminal",
+  "position": {
+    "column": 3,
+    "row": 5,
+    "slot": 0
+  }
+}

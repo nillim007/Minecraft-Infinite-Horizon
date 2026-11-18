@@ -1113,4 +1113,44 @@ public class IhFabricGameTests {
     public void ammoniaFertilizerHydroponics(GameTestHelper helper) {
         IhGameTestsM8b.fertilizer(helper);
     }
+
+    @GameTest(maxTicks = 20)
+    public void offlineProductionCompute120(GameTestHelper helper) {
+        IhGameTestsM8c.offlineCompute(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void cargoterminalTanksMethanefirst(GameTestHelper helper) {
+        IhGameTestsM8c.terminalTanks(helper);
+    }
+
+    @GameTest(maxTicks = 260)
+    public void outpostProducerDelivers(GameTestHelper helper) {
+        IhGameTestsM8c.producerDelivers(helper);
+    }
+
+    @GameTest(maxTicks = 20, structure = "infinite_horizon:gametest/empty_large")
+    public void outpostNearestTerminal(GameTestHelper helper) {
+        IhGameTestsM8c.nearestTerminal(helper);
+    }
+
+    @GameTest(maxTicks = 60)
+    public void outpostOfflineCatchup(GameTestHelper helper) {
+        IhGameTestsM8c.offlineCatchUp(helper);
+    }
+
+    @GameTest(maxTicks = 60)
+    public void outpostOfflineRules(GameTestHelper helper) {
+        IhGameTestsM8c.offlineRules(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void outpostOfflineInputs(GameTestHelper helper) {
+        IhGameTestsM8c.offlineInputs(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void cargoterminalRemoved(GameTestHelper helper) {
+        IhGameTestsM8c.terminalRemoved(helper);
+    }
 }

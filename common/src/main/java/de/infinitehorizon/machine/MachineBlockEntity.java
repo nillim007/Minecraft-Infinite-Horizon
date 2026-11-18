@@ -556,6 +556,11 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
         return new MachineMenu(containerId, inventory, this);
     }
 
+    /** Öffnet das GUI (Rechtsklick, 4.1); Blöcke mit eigenem Menü überschreiben das. */
+    public void openMenu(net.minecraft.server.level.ServerPlayer player) {
+        Services.REGISTRY.openMenu(player, this, openData(), MachineMenu.OpenData.STREAM_CODEC);
+    }
+
     /** Daten, die der Client zum Aufbau des GUI braucht. */
     public MachineMenu.OpenData openData() {
         ensureLayout();
@@ -623,6 +628,11 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
     public void preRemoveSideEffects(BlockPos pos, BlockState state) {
         if (level != null) {
             Containers.dropContents(level, pos, this);
+        }
+        // Außenposten (20.1): Terminal bzw. Produzent aus dem Register nehmen
+        if (level instanceof ServerLevel sl && (this instanceof de.infinitehorizon.logistics.CargoTerminalBlockEntity
+                || de.infinitehorizon.logistics.OutpostManager.isProducer(machineId()))) {
+            de.infinitehorizon.logistics.OutpostManager.onRemoved(sl, pos);
         }
         super.preRemoveSideEffects(pos, state);
     }

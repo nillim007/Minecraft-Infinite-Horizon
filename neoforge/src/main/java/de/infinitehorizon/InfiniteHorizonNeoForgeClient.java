@@ -33,6 +33,7 @@ public class InfiniteHorizonNeoForgeClient {
             e.register(ModMenus.LAUNCH_CONTROL.get(), de.infinitehorizon.client.LaunchControlScreen::new);
             e.register(ModMenus.STAR_MAP.get(), de.infinitehorizon.client.StarMapScreen::new);
             e.register(ModMenus.ROCKET.get(), de.infinitehorizon.client.RocketScreen::new);
+            e.register(ModMenus.CARGO_TERMINAL.get(), de.infinitehorizon.client.CargoTerminalScreen::new);
         });
         // Entities (M4): Sonde als Block, Sitz unsichtbar
         modBus.addListener((net.neoforged.neoforge.client.event.EntityRenderersEvent.RegisterRenderers e) -> {

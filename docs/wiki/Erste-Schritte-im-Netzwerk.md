@@ -10,6 +10,7 @@ In der letzten Phase verbindest du deine Welten. Außenposten fördern Rohstoffe
 
 1. **Den Kernreaktor bauen.** Mit Uran von [Pluto](Pluto.md) entstehen Brennstäbe. Der [Kernreaktor](Der-Kernreaktor.md) liefert mehr Strom als jede andere Quelle.
 2. **Fördern.** [Bohrturm und Pumpstation](Bohrturm-und-Pumpstation.md) holen Erze und Fluide, ohne dass du selbst abbauen musst. Auf den Geysiren von Enceladus und Triton gewinnst du Ammoniak und Stickstoff.
+3. **Außenposten gründen.** Ein [Frachtterminal](Aussenposten-und-Frachtterminal.md) sammelt alles, was die Produzenten in seiner Nähe fördern. Auch wenn du fort bist, läuft die Förderung weiter.
 
 ---
 

@@ -66,4 +66,4 @@ Im [Kryo-Verflüssiger](Helium-und-Kryotechnik.md) wird aus Stickstoff Flüssige
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Der Kernreaktor](Der-Kernreaktor.md)
+← [Der Kernreaktor](Der-Kernreaktor.md) · [Außenposten und Frachtterminal](Aussenposten-und-Frachtterminal.md) →

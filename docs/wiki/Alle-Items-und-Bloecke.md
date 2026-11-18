@@ -62,6 +62,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Forschungsterminal](Forschung.md) | Block | Rezept |
 | [Fortgeschrittene Sonde](Erste-Schritte-im-aeusseren-System.md) | Block | Rezept |
 | [Fortgeschrittener Schaltkreis](Der-Hochtemperaturofen.md) | Item | Rezept |
+| [Frachtterminal](Aussenposten-und-Frachtterminal.md) | Block | Rezept |
 | [Fusionsreaktor](Der-Fusionsreaktor.md) | Block | Rezept |
 | [Fusionsreaktor-Gehäuse](Der-Fusionsreaktor.md) | Block | Rezept |
 | [Gas-Sammler](Jupiter-Orbit-und-Gas-Sammler.md) | Block | Rezept |

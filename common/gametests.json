@@ -227,6 +227,14 @@
     {"name": "drillingrig_noores_error", "class": "IhGameTestsM8b", "method": "drillingRigNoOres", "ticks": 20, "dimension": "infinite_horizon:asteroid_belt", "ref": "20.2, M8b"},
     {"name": "pumpstation_ammoniageyser", "class": "IhGameTestsM8b", "method": "pumpGeyser", "ticks": 60, "ref": "6.1, M8b"},
     {"name": "pumpstation_pontoon_methanerain", "class": "IhGameTestsM8b", "method": "pumpPontoonMethaneRain", "ticks": 20, "dimension": "infinite_horizon:titan", "ref": "6.1, 19, M8b"},
-    {"name": "ammonia_fertilizer_hydroponics", "class": "IhGameTestsM8b", "method": "fertilizer", "ticks": 20, "ref": "17, M8b"}
+    {"name": "ammonia_fertilizer_hydroponics", "class": "IhGameTestsM8b", "method": "fertilizer", "ticks": 20, "ref": "17, M8b"},
+    {"name": "offline_production_compute_120", "class": "IhGameTestsM8c", "method": "offlineCompute", "ticks": 20, "ref": "20.1, 27 M8 (Abnahme)"},
+    {"name": "cargoterminal_tanks_methanefirst", "class": "IhGameTestsM8c", "method": "terminalTanks", "ticks": 20, "ref": "20.1, M8c"},
+    {"name": "outpost_producer_delivers", "class": "IhGameTestsM8c", "method": "producerDelivers", "ticks": 260, "ref": "20.1, M8c"},
+    {"name": "outpost_nearest_terminal", "class": "IhGameTestsM8c", "method": "nearestTerminal", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "20.1, M8c"},
+    {"name": "outpost_offline_catchup", "class": "IhGameTestsM8c", "method": "offlineCatchUp", "ticks": 60, "ref": "20.1, M8c"},
+    {"name": "outpost_offline_rules", "class": "IhGameTestsM8c", "method": "offlineRules", "ticks": 60, "ref": "20.1, 24.4, M8c"},
+    {"name": "outpost_offline_inputs", "class": "IhGameTestsM8c", "method": "offlineInputs", "ticks": 20, "ref": "20.1, M8c"},
+    {"name": "cargoterminal_removed", "class": "IhGameTestsM8c", "method": "terminalRemoved", "ticks": 20, "ref": "20.1, M8c"}
   ]
 }

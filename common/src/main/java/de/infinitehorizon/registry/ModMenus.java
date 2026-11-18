@@ -33,6 +33,12 @@ public final class ModMenus {
                     () -> Services.REGISTRY.menuType(de.infinitehorizon.space.RocketMenu::new,
                             de.infinitehorizon.space.RocketMenu.Data.CODEC));
 
+    /** Frachtterminal (20.1); Daten = Position, Slot-Aufbau, Tanks. */
+    public static final Supplier<MenuType<de.infinitehorizon.logistics.CargoTerminalMenu>> CARGO_TERMINAL =
+            Services.REGISTRY.register(BuiltInRegistries.MENU, "cargo_terminal",
+                    () -> Services.REGISTRY.menuType(de.infinitehorizon.logistics.CargoTerminalMenu::new,
+                            de.infinitehorizon.logistics.CargoTerminalMenu.Data.STREAM_CODEC));
+
     private ModMenus() {
     }
 

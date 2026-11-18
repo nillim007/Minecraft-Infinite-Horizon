@@ -171,6 +171,10 @@ public final class ModBlocks {
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Supplier<Block> FISSION_CASING = register("fission_casing", MultiblockPartBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Frachtterminal (20.1): Mittelpunkt eines Außenpostens. */
+    public static final Supplier<Block> CARGO_TERMINAL = register("cargo_terminal",
+            p -> new MachineBlock(p, () -> ModBlockEntities.CARGO_TERMINAL.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     /** Bohrturm und Pumpstation (20.2, 6.1), Ponton für die Pumpstation auf Fluiden. */
     public static final Supplier<Block> DRILLING_RIG = register("drilling_rig",
             p -> new MachineBlock(p, () -> ModBlockEntities.DRILLING_RIG.get()),

@@ -1,0 +1,111 @@
+{
+  "id": "infinite_horizon:phase_6/aussenposten",
+  "chapter": "infinite_horizon:phase_6",
+  "title": "infinite_horizon.handbook.phase_6.aussenposten.title",
+  "icon": "infinite_horizon:cargo_terminal",
+  "order": 40,
+  "unlock": "infinite_horizon:research_tier/5",
+  "items": [
+    "infinite_horizon:cargo_terminal"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.aussenposten.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.aussenposten.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.aussenposten.e2"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_6.aussenposten.e3.0",
+        "infinite_horizon.handbook.phase_6.aussenposten.e3.1",
+        "infinite_horizon.handbook.phase_6.aussenposten.e3.2"
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_6.aussenposten.e4",
+      "style": "tip"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.aussenposten.e5",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.aussenposten.e6"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_6.aussenposten.e7.0",
+        "infinite_horizon.handbook.phase_6.aussenposten.e7.1"
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_6.aussenposten.e8",
+      "style": "warning"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.aussenposten.e9",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/cargo_terminal",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "minecraft:chest"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:copper_pipe"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:cargo_terminal",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    }
+  ]
+}
