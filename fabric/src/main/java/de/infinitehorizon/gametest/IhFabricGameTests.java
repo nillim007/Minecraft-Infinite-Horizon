@@ -1018,4 +1018,24 @@ public class IhFabricGameTests {
     public void saturnmoonsWorldgen(GameTestHelper helper) {
         IhGameTestsM7d.moonsWorldgen(helper);
     }
+
+    @GameTest(maxTicks = 60, dimension = "infinite_horizon:uranus_orbit")
+    public void uranusorbitCollectorSwitch(GameTestHelper helper) {
+        IhGameTestsM7e.uranusCollectorSwitch(helper);
+    }
+
+    @GameTest(maxTicks = 30)
+    public void tritonFrostlurkerEmerges(GameTestHelper helper) {
+        IhGameTestsM7e.frostLurker(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:triton")
+    public void tritonDeepspacesuitHeating(GameTestHelper helper) {
+        IhGameTestsM7e.heatingModule(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:triton")
+    public void landerNeptuneorbitTriton(GameTestHelper helper) {
+        IhGameTestsM7e.landerNeptune(helper);
+    }
 }

@@ -208,6 +208,10 @@
     {"name": "magnetictrap_overworld_error", "class": "IhGameTestsM7d", "method": "magneticTrapWrongPlace", "ticks": 20, "ref": "6.1, M7d"},
     {"name": "dome_t3_values", "class": "IhGameTestsM7d", "method": "domeTierThree", "ticks": 20, "environment": "infinite_horizon:domes", "ref": "10.1, M7d"},
     {"name": "lander_saturnorbit_moons", "class": "IhGameTestsM7d", "method": "landerSaturn", "ticks": 20, "ref": "12.7, M7d"},
-    {"name": "saturnmoons_worldgen", "class": "IhGameTestsM7d", "method": "moonsWorldgen", "ticks": 20, "dimension": "infinite_horizon:enceladus", "ref": "13.4, M7d"}
+    {"name": "saturnmoons_worldgen", "class": "IhGameTestsM7d", "method": "moonsWorldgen", "ticks": 20, "dimension": "infinite_horizon:enceladus", "ref": "13.4, M7d"},
+    {"name": "uranusorbit_collector_switch", "class": "IhGameTestsM7e", "method": "uranusCollectorSwitch", "ticks": 60, "dimension": "infinite_horizon:uranus_orbit", "ref": "13.3, M7e"},
+    {"name": "triton_frostlurker_emerges", "class": "IhGameTestsM7e", "method": "frostLurker", "ticks": 30, "ref": "18, M7e"},
+    {"name": "triton_deepspacesuit_heating", "class": "IhGameTestsM7e", "method": "heatingModule", "ticks": 20, "dimension": "infinite_horizon:triton", "ref": "9.1, 9.2, 13.2, M7e"},
+    {"name": "lander_neptuneorbit_triton", "class": "IhGameTestsM7e", "method": "landerNeptune", "ticks": 20, "dimension": "infinite_horizon:triton", "ref": "12.7, 13.4, M7e"}
   ]
 }

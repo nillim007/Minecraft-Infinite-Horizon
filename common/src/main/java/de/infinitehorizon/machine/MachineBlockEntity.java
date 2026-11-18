@@ -74,7 +74,7 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
      * Anzahl synchronisierter Werte (je 64 Bit, als 4 × 16 Bit übertragen): 4 Grundwerte + je Tank Fluid, Menge,
      * Kapazität + Ausgangsseite, Tankwahl, Multiblock-Zustand, fehlender Block, Status-Hinweis.
      */
-    public static final int SYNC_VALUES = 4 + 3 * MAX_TANKS + 5;
+    public static final int SYNC_VALUES = 4 + 3 * MAX_TANKS + 6;
     /** Index des Sync-Werts „Ausgangsseite + 1“ (0 = keine Fluidausgabe). */
     public static final int SYNC_SIDE = 4 + 3 * MAX_TANKS;
     /** Tankwahl gepackt: Bits 0–7 gewählter Tank, 8–15 Zahl der wählbaren Tanks, 16–23 Index des ersten im GUI. */
@@ -85,6 +85,8 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
     public static final int SYNC_MISSING = SYNC_SIDE + 3;
     /** Zusatz zur Statuslampe: {@link #HINT_LOCKED}, {@link #HINT_NO_OWNER} oder 0. */
     public static final int SYNC_HINT = SYNC_SIDE + 4;
+    /** Betriebsart gepackt: Bits 0–7 gewählte Art, 8–15 Zahl der Arten (unter 2: kein Knopf), z. B. Gas des Gas-Sammlers. */
+    public static final int SYNC_MODE = SYNC_SIDE + 5;
     /** Alle passenden Rezepte sind für die Besitzer-Agentur gesperrt (11.3, Tooltip {@code status.locked}). */
     public static final int HINT_LOCKED = 1;
     /** Die Maschine braucht einen Besitzer (Analysator, 6.1, Tooltip {@code status.no_owner}). */
@@ -100,6 +102,8 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
     private @Nullable Direction outputSide;
     /** Im GUI gewählter Tank für leere Behälter im Füllslot (4.1, Standard Tank 1). */
     private int selectedTank;
+    /** Gewählte Betriebsart (Knopf „Modus“), siehe {@link #modeCount()}. */
+    private int mode;
     private final ContainerData dataAccess = new ContainerData() {
         @Override
         public int get(int index) {
@@ -161,6 +165,9 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
         }
         if (index == SYNC_HINT) {
             return statusHint();
+        }
+        if (index == SYNC_MODE) {
+            return Math.min(mode, Math.max(0, modeCount() - 1)) | ((long) modeCount() << 8);
         }
         if (index >= 4) {
             int t = (index - 4) / 3;
@@ -344,6 +351,20 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
 
     public int selectedTank() {
         return selectedTank;
+    }
+
+    /** Zahl der Betriebsarten; ab 2 zeigt das GUI den Knopf „Modus“. Standard: keine. */
+    public int modeCount() {
+        return 0;
+    }
+
+    public int mode() {
+        return Math.min(mode, Math.max(0, modeCount() - 1));
+    }
+
+    public void setMode(int mode) {
+        this.mode = Math.max(0, Math.min(mode, Math.max(0, modeCount() - 1)));
+        setChanged();
     }
 
     public void setOutputSide(@Nullable Direction side) {
@@ -568,6 +589,9 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
         if (outputSide != null) {
             output.putString("output_side", outputSide.getSerializedName());
         }
+        if (mode > 0) {
+            output.putInt("mode", mode);
+        }
         if (selectedTank > 0) {
             output.putInt("selected_tank", selectedTank);
         }
@@ -587,6 +611,7 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
         energy.setAmountUnchecked(input.getLongOr("energy", 0L));
         outputSide = input.getString("output_side").map(Direction::byName).orElse(null);
         selectedTank = input.getIntOr("selected_tank", 0);
+        mode = input.getIntOr("mode", 0);
         List<IhFluidTank> tanks = fluidTanks();
         for (int t = 0; t < tanks.size(); t++) {
             IhFluidTank tank = tanks.get(t);

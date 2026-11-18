@@ -220,7 +220,11 @@ public final class IhTestCatalog {
             new Test("magnetictrap_overworld_error", 20, null, null, null, IhGameTestsM7d::magneticTrapWrongPlace),  // 6.1, M7d
             new Test("dome_t3_values", 20, null, "infinite_horizon:domes", null, IhGameTestsM7d::domeTierThree),  // 10.1, M7d
             new Test("lander_saturnorbit_moons", 20, null, null, null, IhGameTestsM7d::landerSaturn),  // 12.7, M7d
-            new Test("saturnmoons_worldgen", 20, null, null, "infinite_horizon:enceladus", IhGameTestsM7d::moonsWorldgen)  // 13.4, M7d
+            new Test("saturnmoons_worldgen", 20, null, null, "infinite_horizon:enceladus", IhGameTestsM7d::moonsWorldgen),  // 13.4, M7d
+            new Test("uranusorbit_collector_switch", 60, null, null, "infinite_horizon:uranus_orbit", IhGameTestsM7e::uranusCollectorSwitch),  // 13.3, M7e
+            new Test("triton_frostlurker_emerges", 30, null, null, null, IhGameTestsM7e::frostLurker),  // 18, M7e
+            new Test("triton_deepspacesuit_heating", 20, null, null, "infinite_horizon:triton", IhGameTestsM7e::heatingModule),  // 9.1, 9.2, 13.2, M7e
+            new Test("lander_neptuneorbit_triton", 20, null, null, "infinite_horizon:triton", IhGameTestsM7e::landerNeptune)  // 12.7, 13.4, M7e
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

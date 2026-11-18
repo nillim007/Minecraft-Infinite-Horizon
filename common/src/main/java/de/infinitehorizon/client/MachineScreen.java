@@ -66,6 +66,7 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
     private final MachineGeometry geometry;
     private Button sideButton;
     private Button tankButton;
+    private Button modeButton;
 
     public MachineScreen(MachineMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title, GUI_WIDTH, menu.openData().geometry().imageHeight());
@@ -88,6 +89,24 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
                 .build();
         tankButton.visible = false;
         addRenderableWidget(tankButton);
+        // Knopf „Modus“: Betriebsart (Gas-Sammler: Gas des Planeten oder Alternative); Platz des Tank-Knopfs
+        modeButton = Button.builder(Component.translatable("gui.infinite_horizon.mode"), b -> cycleMode())
+                .bounds(leftPos + TANK_X, topPos + HEADER_Y, TANK_W, HEADER_H)
+                .tooltip(net.minecraft.client.gui.components.Tooltip.create(Component.translatable("gui.infinite_horizon.mode.tip")))
+                .build();
+        modeButton.visible = false;
+        addRenderableWidget(modeButton);
+    }
+
+    /** Schickt die nächste Betriebsart an den Server. */
+    public void cycleMode() {
+        long packed = menu.value(MachineBlockEntity.SYNC_MODE);
+        int count = (int) ((packed >> 8) & 0xFF);
+        if (count <= 1) {
+            return;
+        }
+        int next = (int) ((packed & 0xFF) + 1) % count;
+        Services.NETWORK.sendToServer(new MachineConfigPayload(menu.openData().pos(), -1, -1, next));
     }
 
     /** Schickt die nächste Ausgangsseite (Unten, Oben, Nord, Süd, West, Ost) an den Server. */
@@ -136,6 +155,11 @@ public class MachineScreen extends AbstractContainerScreen<MachineMenu> {
         if (tankButton != null) {
             tankButton.visible = choices > 1;
             tankButton.setMessage(Component.translatable("gui.infinite_horizon.tank.n", firstChoice + selected + 1));
+        }
+        long modes = menu.value(MachineBlockEntity.SYNC_MODE);
+        if (modeButton != null) {
+            modeButton.visible = ((modes >> 8) & 0xFF) > 1 && (tankButton == null || !tankButton.visible);
+            modeButton.setMessage(Component.translatable("gui.infinite_horizon.mode.n", (modes & 0xFF) + 1));
         }
 
         List<Component> tip = null;

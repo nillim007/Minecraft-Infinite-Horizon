@@ -315,6 +315,8 @@ SIMPLE_BLOCKS = {
     "titan_ice_rock": {"copy": "minecraft:stone", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
     "enceladus_snow": {"copy": "minecraft:snow_block", "falls": False, "tool": "shovel", "needs": None, "ore": None},
     "enceladus_ice": {"copy": "minecraft:packed_ice", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
+    # Triton (13.4): rosa-graues Eis
+    "triton_ice": {"copy": "minecraft:packed_ice", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
 }
 
 ORE_DEFAULTS = sd.ORE_DEFAULTS
@@ -542,6 +544,8 @@ RING1_SHAPES_EUROPA = {"hydrothermal_field": {"radius": [5, 8], "height": 0, "di
                                               "part_radius": [0, 2], "block": "infinite_horizon:hydrothermal_vent",
                                               "core": "default_block", "fluid": "minecraft:water"}}
 STEP_TOP_LAYER = 10
+# Geysire je Chunk ohne Angabe (Triton): wie die Tigerstreifen des Enceladus (SPEC-GAP #107)
+GEYSER_PER_CHUNK = 1
 # Lava-Meeresspiegel ohne Angabe in planets.json (Io): wie die Venus (SPEC-GAP #104)
 LAVA_SEA_LEVEL = 40
 # Eisvulkan der Ceres (13.4: „Kegel aus Eis“; Maße SPEC-GAP #102), Höhe über dem Boden
@@ -898,7 +902,8 @@ def planet_worldgen(spec, impl, blocks):
                 write_json(f"data/{NS}/worldgen/feature/{name}.json", {"type": f"{NS}:geyser", "block": f["block"]})
                 write_json(f"data/{NS}/worldgen/placed_feature/{name}.json", {
                     "feature": f"{NS}:{name}", "placement": [
-                        {"type": "minecraft:count", "count": f["params"]["per_chunk"]}, {"type": "minecraft:in_square"},
+                        {"type": "minecraft:count", "count": f["params"].get("per_chunk") or GEYSER_PER_CHUNK},
+                        {"type": "minecraft:in_square"},
                         {"type": "minecraft:heightmap", "heightmap": "WORLD_SURFACE_WG"}, {"type": "minecraft:biome"}]})
                 for b in f["biomes"]:
                     per_biome[b][STEP_LOCAL_MODIFICATIONS].append(f"{NS}:{name}")

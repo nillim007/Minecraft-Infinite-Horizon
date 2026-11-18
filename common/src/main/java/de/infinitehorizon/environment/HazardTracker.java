@@ -121,6 +121,12 @@ public final class HazardTracker {
             protection = new Protection(protection.tempMin(), protection.tempMax() + cooling, protection.pressures(),
                     protection.radiationMax(), protection.suppliesOxygen(), protection.deepPressure());
         }
+        // Heizmodul (9.2): untere Temperaturgrenze + temp_min_bonus (negativ)
+        double heating = suit == null ? 0 : de.infinitehorizon.suit.SuitModules.bonus(player, "temp_min_bonus");
+        if (heating != 0) {
+            protection = new Protection(protection.tempMin() + heating, protection.tempMax(), protection.pressures(),
+                    protection.radiationMax(), protection.suppliesOxygen(), protection.deepPressure());
+        }
         // Hitzezeit abgelaufen (9.1): ungeschützt gegen Hitze wie ohne Anzug
         VenusHeat heat = VenusHeat.forPlayer(player);
         if (suit != null && suit.venusHeatTimer() && heat != null

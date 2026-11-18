@@ -24,7 +24,7 @@ public class GasCollectorBlockEntity extends ProcessingMachineBlockEntity {
         super(type, pos, state, List::of);
     }
 
-    /** Gas des Planeten an dieser Stelle ({@code gas_collector_output}), sonst null. */
+    /** Gas-Angabe des Planeten an dieser Stelle ({@code gas_collector_output}), sonst null. */
     public static @Nullable JsonObject output(ServerLevel level, BlockPos pos) {
         Planet p = PlanetResolver.at(level, pos).planet();
         if (p == null || !p.raw().has("gas_collector_output") || !p.raw().get("gas_collector_output").isJsonObject()) {
@@ -33,13 +33,31 @@ public class GasCollectorBlockEntity extends ProcessingMachineBlockEntity {
         return p.raw().getAsJsonObject("gas_collector_output");
     }
 
+    /** Zwei Betriebsarten, wenn der Planet ein {@code alternative}-Gas hat (13.3: Uranus, Neptun). */
+    @Override
+    public int modeCount() {
+        JsonObject out = level instanceof ServerLevel sl ? output(sl, getBlockPos()) : null;
+        return out != null && out.has("alternative") && out.get("alternative").isJsonPrimitive() ? 2 : 0;
+    }
+
+    /** Gesammeltes Gas: Standard {@code fluid}, in Betriebsart 1 {@code alternative}. */
+    public @Nullable Identifier gas(ServerLevel level) {
+        JsonObject out = output(level, getBlockPos());
+        if (out == null || !out.has("fluid")) {
+            return null;
+        }
+        String key = mode() == 1 && out.has("alternative") && out.get("alternative").isJsonPrimitive() ? "alternative" : "fluid";
+        return Identifier.parse(out.get(key).getAsString());
+    }
+
     @Override
     protected Optional<Plan> findPlan(ServerLevel level) {
         JsonObject out = output(level, getBlockPos());
-        if (out == null || !out.has("fluid")) {
+        Identifier fluid = gas(level);
+        if (out == null || fluid == null) {
             return Optional.empty();
         }
-        IhFluidStack gas = IhFluidStack.of(Identifier.parse(out.get("fluid").getAsString()), out.get("amount").getAsLong());
+        IhFluidStack gas = IhFluidStack.of(fluid, out.get("amount").getAsLong());
         return Optional.of(new Plan(new int[0], new int[0], List.of(), Optional.of(out.get("ticks").getAsInt()),
                 Optional.empty(), IhFluidStack.EMPTY, List.of(gas)));
     }

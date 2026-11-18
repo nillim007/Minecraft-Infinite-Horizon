@@ -141,6 +141,11 @@
       "falls": false
     },
     {
+      "id": "triton_ice",
+      "copy": "minecraft:packed_ice",
+      "falls": false
+    },
+    {
       "id": "meteorite_ore",
       "copy": "minecraft:iron_ore",
       "falls": false

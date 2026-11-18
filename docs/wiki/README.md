@@ -101,6 +101,9 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Titan](Titan.md) – Der größte Saturnmond mit Methanseen und dichter Luft
 - [Enceladus](Enceladus.md) – Ein Eismond mit Ammoniak-Geysiren
 - [Magnetfalle und Antimaterie](Magnetfalle-und-Antimaterie.md) – Antimaterie aus dem Magnetfeld des Jupiter
+- [Uranus- und Neptun-Orbit](Uranus-und-Neptun-Orbit.md) – Die Eisriesen, Methan oder Wasserstoff aus dem Gas-Sammler
+- [Triton](Triton.md) – Der eisige Neptunmond mit Stickstoff-Geysiren
+- [Der Tiefraumanzug](Der-Tiefraumanzug.md) – Anzug der Stufe 3 und Heizmodul für die kältesten Ziele
 
 ## Nachschlagen
 

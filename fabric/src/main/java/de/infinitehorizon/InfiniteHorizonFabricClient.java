@@ -60,6 +60,8 @@ public class InfiniteHorizonFabricClient implements ClientModInitializer {
                 ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::skimmer));
         net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(de.infinitehorizon.registry.ModEntities.GEYSER_MOTH.get(),
                 ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::moth));
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(de.infinitehorizon.registry.ModEntities.FROST_LURKER.get(),
+                ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::lurker));
         net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(de.infinitehorizon.registry.ModEntities.SULFUR_GLOB.get(),
                 ctx -> new net.minecraft.client.renderer.entity.ThrownItemRenderer<>(ctx, 0.75f, true));
         net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry.register(

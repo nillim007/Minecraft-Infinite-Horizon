@@ -1,0 +1,216 @@
+{
+  "id": "infinite_horizon:phase_5/tiefraumanzug",
+  "chapter": "infinite_horizon:phase_5",
+  "title": "infinite_horizon.handbook.phase_5.tiefraumanzug.title",
+  "icon": "infinite_horizon:deep_space_suit_helmet",
+  "order": 170,
+  "unlock": "infinite_horizon:research_tier/4",
+  "items": [
+    "infinite_horizon:deep_space_suit_helmet",
+    "infinite_horizon:deep_space_suit_chestplate",
+    "infinite_horizon:deep_space_suit_leggings",
+    "infinite_horizon:deep_space_suit_boots",
+    "infinite_horizon:heating_module"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.tiefraumanzug.e0"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/deep_space_suit_helmet",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:heat_suit_helmet"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:superconductor_wire"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:insulation_fabric"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:deep_space_suit_helmet",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/deep_space_suit_chestplate",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:heat_suit_chestplate"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:superconductor_wire"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:lithium_battery"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:insulation_fabric"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:deep_space_suit_chestplate",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/deep_space_suit_leggings",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:heat_suit_leggings"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:superconductor_wire"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:insulation_fabric"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:deep_space_suit_leggings",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/deep_space_suit_boots",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:heat_suit_boots"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:superconductor_wire"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:insulation_fabric"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:deep_space_suit_boots",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.tiefraumanzug.e2",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.tiefraumanzug.e3"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/heating_module",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:copper_wire"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:lithium_battery"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:insulation_fabric"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:heating_module",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.tiefraumanzug.e5",
+      "style": "tip"
+    }
+  ]
+}

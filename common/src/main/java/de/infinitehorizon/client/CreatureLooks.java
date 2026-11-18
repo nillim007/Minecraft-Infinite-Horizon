@@ -67,4 +67,8 @@ public final class CreatureLooks {
     public static BlockState moth(de.infinitehorizon.creature.GeyserMoth e) {
         return Blocks.PACKED_ICE.defaultBlockState();
     }
+
+    public static BlockState lurker(de.infinitehorizon.creature.FrostLurker e) {
+        return Blocks.BLUE_ICE.defaultBlockState();
+    }
 }

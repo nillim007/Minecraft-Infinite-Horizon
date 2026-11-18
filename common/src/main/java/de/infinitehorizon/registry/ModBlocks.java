@@ -200,6 +200,9 @@ public final class ModBlocks {
     public static final Supplier<Block> AMMONIA_GEYSER = register("ammonia_geyser",
             p -> new de.infinitehorizon.world.AmmoniaGeyserBlock(p, () -> ModBlockEntities.AMMONIA_GEYSER.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.PACKED_ICE).strength(-1.0f, 3600000.0f).noLootTable().friction(0.6f));
+    /** Stickstoff-Geysir (13.4, Triton): unzerstörbar; Quelle der Pumpstation (M8). */
+    public static final Supplier<Block> NITROGEN_GEYSER = register("nitrogen_geyser", Block::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.PACKED_ICE).strength(-1.0f, 3600000.0f).noLootTable().friction(0.6f));
     public static final Supplier<Block> SPACE_WEATHER_STATION = register("space_weather_station",
             p -> new MachineBlock(p, () -> ModBlockEntities.SPACE_WEATHER_STATION.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));

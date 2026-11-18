@@ -82,6 +82,7 @@ public final class ModItems {
     public static final Supplier<Item> MAGNETIC_TRAP = blockItem("magnetic_trap", ModBlocks.MAGNETIC_TRAP);
     public static final Supplier<Item> DOME_GENERATOR_T3 = blockItem("dome_generator_t3", ModBlocks.DOME_GENERATOR_T3);
     public static final Supplier<Item> AMMONIA_GEYSER = blockItem("ammonia_geyser", ModBlocks.AMMONIA_GEYSER);
+    public static final Supplier<Item> NITROGEN_GEYSER = blockItem("nitrogen_geyser", ModBlocks.NITROGEN_GEYSER);
     public static final Supplier<Item> HYDROTHERMAL_VENT = blockItem("hydrothermal_vent", ModBlocks.HYDROTHERMAL_VENT);
     public static final Supplier<Item> SPACE_WEATHER_STATION = blockItem("space_weather_station", ModBlocks.SPACE_WEATHER_STATION);
     public static final Supplier<Item> DOCKING_BAY = blockItem("docking_bay", ModBlocks.DOCKING_BAY);
@@ -129,6 +130,15 @@ public final class ModItems {
     public static final Supplier<Item> PRESSURE_SUIT_LEGGINGS = suitPiece("pressure_suit", "leggings",
             net.minecraft.world.item.equipment.ArmorType.LEGGINGS);
     public static final Supplier<Item> PRESSURE_SUIT_BOOTS = suitPiece("pressure_suit", "boots",
+            net.minecraft.world.item.equipment.ArmorType.BOOTS);
+    /** Tiefraumanzug T3 (9.1): Rüstung wie Netherit, Werte aus suits.json. */
+    public static final Supplier<Item> DEEP_SPACE_SUIT_HELMET = suitPiece("deep_space_suit", "helmet",
+            net.minecraft.world.item.equipment.ArmorType.HELMET);
+    public static final Supplier<Item> DEEP_SPACE_SUIT_CHESTPLATE = suitPiece("deep_space_suit", "chestplate",
+            net.minecraft.world.item.equipment.ArmorType.CHESTPLATE);
+    public static final Supplier<Item> DEEP_SPACE_SUIT_LEGGINGS = suitPiece("deep_space_suit", "leggings",
+            net.minecraft.world.item.equipment.ArmorType.LEGGINGS);
+    public static final Supplier<Item> DEEP_SPACE_SUIT_BOOTS = suitPiece("deep_space_suit", "boots",
             net.minecraft.world.item.equipment.ArmorType.BOOTS);
     /** Hitzeanzug T2 (9.1): Rüstung wie Diamant, Hitzezeit auf der Venus-Oberfläche. */
     public static final Supplier<Item> HEAT_SUIT_HELMET = suitPiece("heat_suit", "helmet",

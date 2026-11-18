@@ -1,0 +1,24 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:copper_wire",
+      "count": 4
+    },
+    {
+      "ingredient": "infinite_horizon:lithium_battery",
+      "count": 2
+    },
+    {
+      "ingredient": "infinite_horizon:insulation_fabric",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:heating_module",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

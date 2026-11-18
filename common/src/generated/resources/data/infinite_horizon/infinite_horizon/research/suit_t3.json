@@ -1,0 +1,42 @@
+{
+  "tier": 5,
+  "branch": "life_support",
+  "cost": 120,
+  "requires": [
+    "infinite_horizon:suit_t2",
+    "infinite_horizon:superconductors",
+    "infinite_horizon:lithium_storage"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:deep_space_suit_helmet"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:deep_space_suit_chestplate"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:deep_space_suit_leggings"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:deep_space_suit_boots"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:insulation_fabric"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:heating_module"
+    }
+  ],
+  "icon": "infinite_horizon:deep_space_suit_helmet",
+  "position": {
+    "column": 2,
+    "row": 5,
+    "slot": 0
+  }
+}

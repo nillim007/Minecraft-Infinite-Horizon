@@ -12,9 +12,13 @@ import net.minecraft.server.level.ServerPlayer;
 
 /**
  * C→S (3A.5): Ausgangsseite und Tankwahl einer Maschine. {@code side}: 0–5 = Unten, Oben, Nord, Süd, West, Ost,
- * -1 = unverändert; {@code tank}: Index, -1 = unverändert. Der Server prüft Abstand (≤ 8 Blöcke) und Block.
+ * -1 = unverändert; {@code tank}: Index, -1 = unverändert; {@code mode}: Betriebsart, -1 = unverändert. Der Server prüft Abstand (≤ 8 Blöcke) und Block.
  */
-public record MachineConfigPayload(BlockPos pos, int side, int tank) implements CustomPacketPayload {
+public record MachineConfigPayload(BlockPos pos, int side, int tank, int mode) implements CustomPacketPayload {
+
+    public MachineConfigPayload(BlockPos pos, int side, int tank) {
+        this(pos, side, tank, -1);
+    }
 
     /** Höchstabstand Spieler ↔ Block für Änderungen aus dem GUI (3A.5). */
     public static final double MAX_DISTANCE = 8.0;
@@ -24,6 +28,7 @@ public record MachineConfigPayload(BlockPos pos, int side, int tank) implements 
             BlockPos.STREAM_CODEC, MachineConfigPayload::pos,
             ByteBufCodecs.VAR_INT, MachineConfigPayload::side,
             ByteBufCodecs.VAR_INT, MachineConfigPayload::tank,
+            ByteBufCodecs.VAR_INT, MachineConfigPayload::mode,
             MachineConfigPayload::new);
 
     @Override
@@ -46,6 +51,9 @@ public record MachineConfigPayload(BlockPos pos, int side, int tank) implements 
         }
         if (p.tank >= 0) {
             be.setSelectedTank(p.tank);
+        }
+        if (p.mode >= 0) {
+            be.setMode(p.mode);
         }
     }
 }

@@ -1,0 +1,102 @@
+{
+  "type": "infinite_horizon:triton",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "infinite_horizon:triton",
+    "biome_source": {
+      "type": "minecraft:multi_noise",
+      "biomes": [
+        {
+          "biome": "infinite_horizon:triton_cantaloupe_terrain",
+          "parameters": {
+            "temperature": [
+              -0.8,
+              1.0
+            ],
+            "humidity": [
+              -1.0,
+              1.0
+            ],
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -0.2,
+              0.45
+            ],
+            "depth": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              0.8
+            ],
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "infinite_horizon:triton_polar_cap",
+          "parameters": {
+            "temperature": [
+              -1.0,
+              -0.8
+            ],
+            "humidity": [
+              -1.0,
+              1.0
+            ],
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "depth": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              -1.0,
+              0.8
+            ],
+            "offset": 0.0
+          }
+        },
+        {
+          "biome": "infinite_horizon:triton_geyser_fields",
+          "parameters": {
+            "temperature": [
+              -0.8,
+              1.0
+            ],
+            "humidity": [
+              -1.0,
+              1.0
+            ],
+            "continentalness": [
+              -1.0,
+              1.0
+            ],
+            "erosion": [
+              -1.0,
+              1.0
+            ],
+            "depth": [
+              -1.0,
+              1.0
+            ],
+            "weirdness": [
+              0.8,
+              1.0
+            ],
+            "offset": 0.0
+          }
+        }
+      ]
+    }
+  }
+}

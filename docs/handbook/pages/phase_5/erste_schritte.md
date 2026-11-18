@@ -27,6 +27,9 @@ Mit Stufe 4 der Forschung öffnet sich das Sonnensystem jenseits von Mond, Mars 
 7. **Zum Saturn.** Mit dem Fernflug-Modul erreichst du den [[saturn|Saturn-Orbit]] und öffnest Stufe 5. Die Landefähre bringt dich nach [[titan|Titan]] und [[enceladus|Enceladus]].
 8. **Antimaterie.** Die [[magnetfalle|Magnetfalle]] im Jupiter-Orbit füllt Antimaterie-Zellen.
 @endif
+@if infinite_horizon:triton_ice
+9. **Zu den Eisriesen.** Im [[eisriesen|Uranus- und Neptun-Orbit]] sammelst du Methan. Für [[triton|Triton]] brauchst du den [[tiefraumanzug|Tiefraumanzug]] mit Heizmodul.
+@endif
 
 @recipes_for infinite_horizon:advanced_probe
 

@@ -1,0 +1,24 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:heat_suit_boots",
+      "count": 1
+    },
+    {
+      "ingredient": "infinite_horizon:superconductor_wire",
+      "count": 2
+    },
+    {
+      "ingredient": "infinite_horizon:insulation_fabric",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:deep_space_suit_boots",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

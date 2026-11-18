@@ -38,4 +38,4 @@ Im starken Magnetfeld des Jupiter lassen sich Antiteilchen einfangen. Die Magnet
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Enceladus](Enceladus.md)
+← [Enceladus](Enceladus.md) · [Uranus- und Neptun-Orbit](Uranus-und-Neptun-Orbit.md) →

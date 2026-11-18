@@ -1,0 +1,34 @@
+{
+  "id": "infinite_horizon:phase_5/eisriesen",
+  "chapter": "infinite_horizon:phase_5",
+  "title": "infinite_horizon.handbook.phase_5.eisriesen.title",
+  "icon": "infinite_horizon:gas_collector",
+  "order": 150,
+  "unlock": "infinite_horizon:research_tier/4",
+  "items": [],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.eisriesen.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.eisriesen.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.eisriesen.e2"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.eisriesen.e3",
+      "style": "tip"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.eisriesen.e4",
+      "style": "warning"
+    }
+  ]
+}
