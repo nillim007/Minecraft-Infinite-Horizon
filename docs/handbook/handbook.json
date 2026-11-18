@@ -20,7 +20,7 @@
     { "nr": 5, "de": "Ring 1: Mars, Venus, Rover, Kreaturen", "steps": ["a", "b", "c", "d", "e", "f", "g", "h", "i"] },
     { "nr": 6, "de": "Orbit: Station, Fusion", "steps": ["a", "b", "c", "d", "e"] },
     { "nr": 7, "de": "Ring 2: Merkur bis Pluto", "steps": ["a", "b", "c", "d", "e", "f"] },
-    { "nr": 8, "de": "Netzwerk und Finale: Logistik, Werft, Sternenschiff", "steps": [] },
+    { "nr": 8, "de": "Netzwerk und Finale: Logistik, Werft, Sternenschiff", "steps": ["a", "b", "c", "d", "e", "f", "g", "h"] },
     { "nr": 9, "de": "Feinschliff: Mehrspieler, Erfolge, Klang, Balancing", "steps": [] }
   ],
   "recipe_types": {
