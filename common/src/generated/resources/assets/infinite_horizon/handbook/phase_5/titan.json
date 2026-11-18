@@ -58,8 +58,40 @@
       "key": "infinite_horizon.handbook.phase_5.titan.e8"
     },
     {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/pontoon",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:skimmer_leg"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:plastic"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:pontoon",
+              "count": 4
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    },
+    {
       "type": "callout",
-      "key": "infinite_horizon.handbook.phase_5.titan.e9",
+      "key": "infinite_horizon.handbook.phase_5.titan.e10",
       "style": "warning"
     }
   ]

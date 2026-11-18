@@ -76,6 +76,39 @@
       "slope_find_distance": 4,
       "drop_off": 2,
       "explosion_resistance": 100
+    },
+    {
+      "id": "ammonia",
+      "color": "#6FBF4A",
+      "source_block": false,
+      "bucket": null,
+      "gas": false,
+      "tick_delay": 30,
+      "slope_find_distance": 4,
+      "drop_off": 2,
+      "explosion_resistance": 100
+    },
+    {
+      "id": "nitrogen",
+      "color": "#8C8C8C",
+      "source_block": false,
+      "bucket": null,
+      "gas": true,
+      "tick_delay": 30,
+      "slope_find_distance": 4,
+      "drop_off": 2,
+      "explosion_resistance": 100
+    },
+    {
+      "id": "liquid_nitrogen",
+      "color": "#BDBDBD",
+      "source_block": false,
+      "bucket": null,
+      "gas": false,
+      "tick_delay": 30,
+      "slope_find_distance": 4,
+      "drop_off": 2,
+      "explosion_resistance": 100
     }
   ]
 }

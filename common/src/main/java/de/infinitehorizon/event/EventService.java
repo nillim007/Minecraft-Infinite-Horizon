@@ -69,6 +69,20 @@ public final class EventService {
         return map.has(dimension.toString()) ? Identifier.parse(map.get(dimension.toString()).getAsString()) : null;
     }
 
+    /** Faktor der Pumpstation aus dem laufenden Wetter der Dimension ({@code reward.pump_station_multiplier}, 19). */
+    public static double pumpMultiplier(ServerLevel level) {
+        Identifier w = weatherEvent(level.dimension().identifier());
+        if (w == null) {
+            w = FORCED_WEATHER.get(level.dimension().identifier());
+        }
+        if (w == null || !activeHere(level, w)) {
+            return 1.0;
+        }
+        JsonObject e = event(w);
+        JsonObject reward = e.has("reward") && e.get("reward").isJsonObject() ? e.getAsJsonObject("reward") : new JsonObject();
+        return reward.has("pump_station_multiplier") ? reward.get("pump_station_multiplier").getAsDouble() : 1.0;
+    }
+
     /** Faktor aus der Einstellung {@code event_frequency}. */
     static double frequency() {
         JsonObject f = entry("event_frequency");

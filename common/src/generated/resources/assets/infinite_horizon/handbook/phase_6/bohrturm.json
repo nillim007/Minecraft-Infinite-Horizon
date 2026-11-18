@@ -1,0 +1,282 @@
+{
+  "id": "infinite_horizon:phase_6/bohrturm",
+  "chapter": "infinite_horizon:phase_6",
+  "title": "infinite_horizon.handbook.phase_6.bohrturm.title",
+  "icon": "infinite_horizon:drilling_rig",
+  "order": 30,
+  "unlock": "infinite_horizon:research_tier/5",
+  "items": [
+    "infinite_horizon:drilling_rig",
+    "infinite_horizon:pump_station",
+    "infinite_horizon:pontoon",
+    "infinite_horizon:ammonia",
+    "infinite_horizon:nitrogen",
+    "infinite_horizon:liquid_nitrogen"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.bohrturm.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.bohrturm.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.bohrturm.e2"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:drilling_rig",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_6.bohrturm.e3.0.label",
+          "infinite_horizon.handbook.phase_6.bohrturm.e3.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.bohrturm.e3.1.label",
+          "infinite_horizon.handbook.phase_6.bohrturm.e3.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.bohrturm.e3.2.label",
+          "infinite_horizon.handbook.phase_6.bohrturm.e3.2.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.bohrturm.e3.3.label",
+          "infinite_horizon.handbook.phase_6.bohrturm.e3.3.value"
+        ]
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_6.bohrturm.e4",
+      "style": "warning"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_6.bohrturm.e5",
+      "style": "tip"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.bohrturm.e6",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.bohrturm.e7"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.phase_6.bohrturm.e8.h0",
+        "infinite_horizon.handbook.phase_6.bohrturm.e8.h1"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_6.bohrturm.e8.r0.0",
+          "infinite_horizon.handbook.phase_6.bohrturm.e8.r0.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.bohrturm.e8.r1.0",
+          "infinite_horizon.handbook.phase_6.bohrturm.e8.r1.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.bohrturm.e8.r2.0",
+          "infinite_horizon.handbook.phase_6.bohrturm.e8.r2.1"
+        ]
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.bohrturm.e9"
+    },
+    {
+      "type": "machine",
+      "block": "infinite_horizon:pump_station",
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_6.bohrturm.e10.0.label",
+          "infinite_horizon.handbook.phase_6.bohrturm.e10.0.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.bohrturm.e10.1.label",
+          "infinite_horizon.handbook.phase_6.bohrturm.e10.1.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.bohrturm.e10.2.label",
+          "infinite_horizon.handbook.phase_6.bohrturm.e10.2.value"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.bohrturm.e10.3.label",
+          "infinite_horizon.handbook.phase_6.bohrturm.e10.3.value"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.bohrturm.e11",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.bohrturm.e12"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.bohrturm.e13",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.bohrturm.e14"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:cryo/liquid_nitrogen",
+          "type": "infinite_horizon:cryo",
+          "station": "infinite_horizon:cryo_liquefier",
+          "ingredients": [],
+          "fluid": {
+            "fluid": "infinite_horizon:nitrogen",
+            "amount": 40
+          },
+          "results": [],
+          "fluid_results": [
+            {
+              "fluid": "infinite_horizon:liquid_nitrogen",
+              "amount": 10
+            }
+          ],
+          "ticks": 20,
+          "energy_per_tick": 120
+        }
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.bohrturm.e16",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/pontoon",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:skimmer_leg"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:plastic"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:pontoon",
+              "count": 4
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/pump_station",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:machine_frame"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:fluid_pump"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:pump_station",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/drilling_rig",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:machine_frame"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:nickel_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:tungsten_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:drilling_rig",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    }
+  ]
+}

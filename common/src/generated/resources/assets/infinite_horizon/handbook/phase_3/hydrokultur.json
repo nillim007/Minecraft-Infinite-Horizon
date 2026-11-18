@@ -9,7 +9,8 @@
     "infinite_horizon:hydroponics_basin",
     "infinite_horizon:compost_soil",
     "infinite_horizon:compost_farmland",
-    "infinite_horizon:compost"
+    "infinite_horizon:compost",
+    "infinite_horizon:ammonia_fertilizer"
   ],
   "elements": [
     {
@@ -207,6 +208,45 @@
       "type": "callout",
       "key": "infinite_horizon.handbook.phase_3.hydrokultur.e10",
       "style": "tip"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_3.hydrokultur.e11",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_3.hydrokultur.e12"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/ammonia_fertilizer",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "minecraft:bone_meal"
+              ],
+              "count": 1
+            }
+          ],
+          "fluid": {
+            "fluid": "infinite_horizon:ammonia",
+            "amount": 1000
+          },
+          "results": [
+            {
+              "item": "infinite_horizon:ammonia_fertilizer",
+              "count": 8
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
     }
   ]
 }

@@ -39,6 +39,14 @@ Das Hydrokultur-Becken braucht Strom, Wasser und Licht (mindestens 9). Leg Samen
 > [!TIP]
 > Eine elektrische Lampe über dem Becken liefert genug Licht, auch in der Mondnacht.
 
+## Ammoniak-Dünger
+
+Rechtsklick mit Ammoniak-Dünger auf ein Hydrokultur-Becken oder ein Gewächshaus düngt es für 24.000 t (1.200 s). In dieser Zeit wachsen die Pflanzen schneller. Den Dünger stellst du am Montagetisch aus Knochenmehl und Ammoniak her.
+
+![Rezept: Ammoniak-Dünger](images/rezepte/assembly_ammonia_fertilizer.svg)
+
+<sub>1 × Knochenmehl, 1.000 mB [Ammoniak](Bohrturm-und-Pumpstation.md) → 8 × Ammoniak-Dünger</sub>
+
 ---
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._

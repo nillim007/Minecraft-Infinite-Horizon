@@ -1,0 +1,20 @@
+{
+  "tier": 5,
+  "branch": "life_support",
+  "cost": 120,
+  "requires": [
+    "infinite_horizon:pump_station"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:ammonia_fertilizer"
+    }
+  ],
+  "icon": "infinite_horizon:ammonia_fertilizer",
+  "position": {
+    "column": 2,
+    "row": 5,
+    "slot": 1
+  }
+}

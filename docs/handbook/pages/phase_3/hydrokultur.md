@@ -5,7 +5,7 @@ order: 140
 milestone: 5
 requires: ["infinite_horizon:hydroponics_basin"]
 icon: infinite_horizon:hydroponics_basin
-items: ["infinite_horizon:hydroponics_basin", "infinite_horizon:compost_soil", "infinite_horizon:compost_farmland", "infinite_horizon:compost"]
+items: ["infinite_horizon:hydroponics_basin", "infinite_horizon:compost_soil", "infinite_horizon:compost_farmland", "infinite_horizon:compost", "infinite_horizon:ammonia_fertilizer"]
 summary: Pflanzen anbauen auf fremden Welten
 ---
 Auf Mond und Mars wächst im Boden nichts. Regolith und Marssand lassen sich nicht umgraben. Für Nahrung hast du zwei Wege: Kompostboden für klassische Felder oder das Hydrokultur-Becken. Beide schaltet der Forschungsknoten „Hydrokultur“ frei.
@@ -29,3 +29,11 @@ Das <item:infinite_horizon:hydroponics_basin> braucht Strom, Wasser und Licht (m
 @warning Fällt die Kuppel aus oder wird es zu dunkel, bleibt die Pflanze stehen. Die Statuslampe zeigt dann „Kein Wachstum“.
 
 @tip Eine elektrische Lampe über dem Becken liefert genug Licht, auch in der Mondnacht.
+
+@if infinite_horizon:ammonia_fertilizer
+## Ammoniak-Dünger
+
+Rechtsklick mit <item:infinite_horizon:ammonia_fertilizer> auf ein Hydrokultur-Becken oder ein Gewächshaus düngt es für {{value:agriculture:infinite_horizon:ammonia_fertilizer.duration_ticks|t}}. In dieser Zeit wachsen die Pflanzen schneller. Den Dünger stellst du am Montagetisch aus Knochenmehl und Ammoniak her.
+
+@recipes_for infinite_horizon:ammonia_fertilizer
+@endif

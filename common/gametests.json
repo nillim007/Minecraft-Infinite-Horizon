@@ -221,6 +221,12 @@
     {"name": "m7_alltargets_equipment", "class": "IhGameTestsM7f", "method": "allTargets", "ticks": 20, "ref": "13.2, 27 M7 (Abnahme)"},
     {"name": "fission_runs_cooled", "class": "IhGameTestsM8a", "method": "runsCooled", "ticks": 40, "structure": "infinite_horizon:gametest/empty_large", "ref": "6.3, M8a"},
     {"name": "fission_scram_radiationzone", "class": "IhGameTestsM8a", "method": "scramRadiation", "ticks": 40, "structure": "infinite_horizon:gametest/empty_large", "environment": "infinite_horizon:domes", "ref": "6.3, M8a"},
-    {"name": "fission_needsstructure", "class": "IhGameTestsM8a", "method": "needsStructure", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "4.3, M8a"}
+    {"name": "fission_needsstructure", "class": "IhGameTestsM8a", "method": "needsStructure", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "4.3, M8a"},
+    {"name": "drillingrig_notearth_tenironore_running", "class": "IhGameTestsM8b", "method": "drillingRigRuns", "ticks": 200, "ref": "20.2, 27 M8 (Abnahme)"},
+    {"name": "drillingrig_earth_error", "class": "IhGameTestsM8b", "method": "drillingRigEarth", "ticks": 20, "ref": "6.1, M8b"},
+    {"name": "drillingrig_noores_error", "class": "IhGameTestsM8b", "method": "drillingRigNoOres", "ticks": 20, "dimension": "infinite_horizon:asteroid_belt", "ref": "20.2, M8b"},
+    {"name": "pumpstation_ammoniageyser", "class": "IhGameTestsM8b", "method": "pumpGeyser", "ticks": 60, "ref": "6.1, M8b"},
+    {"name": "pumpstation_pontoon_methanerain", "class": "IhGameTestsM8b", "method": "pumpPontoonMethaneRain", "ticks": 20, "dimension": "infinite_horizon:titan", "ref": "6.1, 19, M8b"},
+    {"name": "ammonia_fertilizer_hydroponics", "class": "IhGameTestsM8b", "method": "fertilizer", "ticks": 20, "ref": "17, M8b"}
   ]
 }

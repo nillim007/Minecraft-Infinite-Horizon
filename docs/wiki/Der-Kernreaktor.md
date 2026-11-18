@@ -51,4 +51,4 @@ Solange der Reaktor arbeitet, braucht er je Tick 50 mB Wasser **oder** 5 mB flü
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Erste Schritte im Netzwerk](Erste-Schritte-im-Netzwerk.md)
+← [Erste Schritte im Netzwerk](Erste-Schritte-im-Netzwerk.md) · [Bohrturm und Pumpstation](Bohrturm-und-Pumpstation.md) →

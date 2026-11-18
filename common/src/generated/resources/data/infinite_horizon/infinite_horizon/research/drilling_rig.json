@@ -1,0 +1,18 @@
+{
+  "tier": 5,
+  "branch": "industry",
+  "cost": 120,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:drilling_rig"
+    }
+  ],
+  "icon": "infinite_horizon:drilling_rig",
+  "position": {
+    "column": 0,
+    "row": 5,
+    "slot": 2
+  }
+}

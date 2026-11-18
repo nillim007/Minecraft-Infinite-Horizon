@@ -76,6 +76,11 @@ public final class ModItems {
     public static final Supplier<Item> FUSION_CASING = blockItem("fusion_casing", ModBlocks.FUSION_CASING);
     public static final Supplier<Item> FISSION_REACTOR = blockItem("fission_reactor", ModBlocks.FISSION_REACTOR);
     public static final Supplier<Item> FISSION_CASING = blockItem("fission_casing", ModBlocks.FISSION_CASING);
+    public static final Supplier<Item> DRILLING_RIG = blockItem("drilling_rig", ModBlocks.DRILLING_RIG);
+    public static final Supplier<Item> PUMP_STATION = blockItem("pump_station", ModBlocks.PUMP_STATION);
+    /** Ponton: wie die Seerose auf ein Fluid setzen. */
+    public static final Supplier<Item> PONTOON = register("pontoon",
+            p -> new net.minecraft.world.item.PlaceOnWaterBlockItem(ModBlocks.PONTOON.get(), p.useBlockDescriptionPrefix()));
     public static final Supplier<Item> SUPERCONDUCTOR_CABLE = blockItem("superconductor_cable", ModBlocks.SUPERCONDUCTOR_CABLE);
     public static final Supplier<Item> GRAVITY_PLATE = blockItem("gravity_plate", ModBlocks.GRAVITY_PLATE);
     public static final Supplier<Item> ZERO_G_FABRICATOR = blockItem("zero_g_fabricator", ModBlocks.ZERO_G_FABRICATOR);
@@ -126,6 +131,9 @@ public final class ModItems {
     /** Sternenkarte (18): Komponente {@code chart_owner}, feuerfest. */
     public static final Supplier<Item> STAR_CHART = register("star_chart",
             p -> new de.infinitehorizon.item.StarChartItem(p.stacksTo(1).fireResistant()));
+    /** Ammoniak-Dünger (17): Rechtsklick auf Hydrokultur-Becken oder Gewächshaus. */
+    public static final Supplier<Item> AMMONIA_FERTILIZER = register("ammonia_fertilizer",
+            de.infinitehorizon.food.AmmoniaFertilizerItem::new);
     /** Probe (11.2) mit Komponente {@code sample}; gleiche Proben stapeln bis 64. */
     public static final Supplier<Item> SAMPLE = register("sample", de.infinitehorizon.research.SampleTool.SampleItem::new);
 

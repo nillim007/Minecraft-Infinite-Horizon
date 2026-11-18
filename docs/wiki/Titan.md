@@ -25,6 +25,10 @@ In der dichten Luft sinkst du mit Elytren langsamer (Sinkrate ×0,5). Von einem 
 
 Auf den Methanseen läuft der **Methanläufer**. Er flieht, sobald du näher als 12 Blöcke kommst. Erlegt gibt er ein Läuferbein.
 
+| Rezept | Zutaten → Ergebnis | Wo | Dauer |
+| --- | --- | --- | --- |
+| <img src="images/rezepte/assembly_pontoon.svg" alt="Rezept" width="300"> | 2 × Läuferbein, 2 × [Kunststoff](Raffinerie.md) → 4 × [Ponton](Bohrturm-und-Pumpstation.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
+
 > [!WARNING]
 > Wer in einen Methansee fällt, sinkt wie im Wasser. Halte dich am Ufer und nimm genug Sauerstoff mit.
 

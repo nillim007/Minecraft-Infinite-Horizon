@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/carpet",
+  "textures": {
+    "wool": "infinite_horizon:block/pontoon",
+    "particle": "infinite_horizon:block/pontoon"
+  }
+}

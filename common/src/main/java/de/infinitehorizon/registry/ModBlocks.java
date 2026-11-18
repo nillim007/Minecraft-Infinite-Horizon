@@ -171,6 +171,15 @@ public final class ModBlocks {
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Supplier<Block> FISSION_CASING = register("fission_casing", MultiblockPartBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Bohrturm und Pumpstation (20.2, 6.1), Ponton für die Pumpstation auf Fluiden. */
+    public static final Supplier<Block> DRILLING_RIG = register("drilling_rig",
+            p -> new MachineBlock(p, () -> ModBlockEntities.DRILLING_RIG.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> PUMP_STATION = register("pump_station",
+            p -> new MachineBlock(p, () -> ModBlockEntities.PUMP_STATION.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> PONTOON = register("pontoon", de.infinitehorizon.world.PontoonBlock::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).noOcclusion());
     /** Supraleiterkabel (4.4): Durchsatz aus transport.json. */
     public static final Supplier<Block> SUPERCONDUCTOR_CABLE = register("superconductor_cable", CableBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.METAL).noOcclusion());

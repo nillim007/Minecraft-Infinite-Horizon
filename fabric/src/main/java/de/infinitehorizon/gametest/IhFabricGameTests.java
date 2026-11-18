@@ -1083,4 +1083,34 @@ public class IhFabricGameTests {
     public void fissionNeedsstructure(GameTestHelper helper) {
         IhGameTestsM8a.needsStructure(helper);
     }
+
+    @GameTest(maxTicks = 200)
+    public void drillingrigNotearthTenironoreRunning(GameTestHelper helper) {
+        IhGameTestsM8b.drillingRigRuns(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void drillingrigEarthError(GameTestHelper helper) {
+        IhGameTestsM8b.drillingRigEarth(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:asteroid_belt")
+    public void drillingrigNooresError(GameTestHelper helper) {
+        IhGameTestsM8b.drillingRigNoOres(helper);
+    }
+
+    @GameTest(maxTicks = 60)
+    public void pumpstationAmmoniageyser(GameTestHelper helper) {
+        IhGameTestsM8b.pumpGeyser(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:titan")
+    public void pumpstationPontoonMethanerain(GameTestHelper helper) {
+        IhGameTestsM8b.pumpPontoonMethaneRain(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void ammoniaFertilizerHydroponics(GameTestHelper helper) {
+        IhGameTestsM8b.fertilizer(helper);
+    }
 }

@@ -215,6 +215,31 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/ammonia_fertilizer",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "minecraft:bone_meal"
+              ],
+              "count": 1
+            }
+          ],
+          "fluid": {
+            "fluid": "infinite_horizon:ammonia",
+            "amount": 1000
+          },
+          "results": [
+            {
+              "item": "infinite_horizon:ammonia_fertilizer",
+              "count": 8
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/analyzer",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -346,6 +371,51 @@
           "results": [
             {
               "item": "infinite_horizon:asteroid_anchor",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/drilling_rig",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:machine_frame"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:nickel_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:tungsten_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:drilling_rig",
               "count": 1
             }
           ],
@@ -2466,6 +2536,33 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/pontoon",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:skimmer_leg"
+              ],
+              "count": 2
+            },
+            {
+              "items": [
+                "infinite_horizon:plastic"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:pontoon",
+              "count": 4
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/sample_tool",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",
@@ -2486,6 +2583,45 @@
           "results": [
             {
               "item": "infinite_horizon:sample_tool",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/pump_station",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:machine_frame"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:fluid_pump"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:titanium_plate"
+              ],
+              "count": 8
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:pump_station",
               "count": 1
             }
           ],

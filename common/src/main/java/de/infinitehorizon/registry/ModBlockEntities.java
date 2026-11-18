@@ -207,6 +207,16 @@ public final class ModBlockEntities {
                             (pos, state) -> new de.infinitehorizon.machine.FissionReactorBlockEntity(
                                     ModBlockEntities.FISSION_REACTOR.get(), pos, state),
                             ModBlocks.FISSION_REACTOR.get()));
+    public static final Supplier<BlockEntityType<de.infinitehorizon.machine.DrillingRigBlockEntity>> DRILLING_RIG =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "drilling_rig",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.machine.DrillingRigBlockEntity(ModBlockEntities.DRILLING_RIG.get(), pos, state),
+                            ModBlocks.DRILLING_RIG.get()));
+    public static final Supplier<BlockEntityType<de.infinitehorizon.machine.PumpStationBlockEntity>> PUMP_STATION =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "pump_station",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.machine.PumpStationBlockEntity(ModBlockEntities.PUMP_STATION.get(), pos, state),
+                            ModBlocks.PUMP_STATION.get()));
     public static final Supplier<BlockEntityType<de.infinitehorizon.machine.FusionReactorBlockEntity>> FUSION_REACTOR =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "fusion_reactor",
                     () -> Services.REGISTRY.blockEntityType(
@@ -361,6 +371,7 @@ public final class ModBlockEntities {
         for (Supplier<? extends BlockEntityType<? extends ProcessingMachineBlockEntity>> t
                 : List.of(ASSEMBLY_TABLE, ELECTROLYZER, REFINERY_CONTROLLER, REGOLITH_HEATER, HIGH_TEMPERATURE_FURNACE,
                 CRYO_LIQUEFIER, FOOD_PACKER, HYDROPONICS_BASIN, GREENHOUSE, ZERO_G_FABRICATOR, SPACE_WEATHER_STATION, FUSION_REACTOR, FISSION_REACTOR, GRAVITY_PLATE,
+                DRILLING_RIG, PUMP_STATION,
                 GAS_COLLECTOR, CLONE_CHAMBER, MAGNETIC_TRAP)) {
             Services.ENERGY.expose(t);
             Services.FLUID.expose(t);

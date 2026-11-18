@@ -184,6 +184,12 @@ public class IhClientGameTests implements FabricClientGameTest {
                 be.fluidTanks().get(0).setStackUnchecked(IhFluidStack.of(
                         net.minecraft.resources.Identifier.withDefaultNamespace("water"), 12000));
             });
+            // M8b: Bohrturm (in der Overworld: rote Lampe) und Pumpstation
+            machine(context, sp, ModBlocks.DRILLING_RIG.get(), "gui_drilling_rig", be -> fillEnergy(be, 2));
+            machine(context, sp, ModBlocks.PUMP_STATION.get(), "gui_pump_station", be -> {
+                be.fluidTanks().get(0).setStackUnchecked(IhFluidStack.of(InfiniteHorizon.id("ammonia"), 6000));
+                fillEnergy(be, 2);
+            });
             launchPad(context, sp);
 
             // Alle Blöcke nebeneinander in der Welt (Modelle, Texturen, Statuslampe)

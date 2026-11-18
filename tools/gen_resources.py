@@ -1361,7 +1361,8 @@ def main():
             inv_model = lamp_block(name)
         elif shape == "torch":
             inv_model = torch_block(name)
-        elif shape == "layer":
+        elif shape in ("layer", "platform"):
+            # platform: flach wie ein Teppich, droppt sich selbst (Ponton)
             inv_model = layer_block(name)
         elif shape == "farmland":
             inv_model = farmland_block(name, "compost_soil")
@@ -1421,9 +1422,15 @@ def main():
         vals = [f"{NS}:{n}" for n, v in sorted(simple.items()) if v["needs"] == lvl]
         if lvl == "stone":
             # Maschinen, Generatoren, Speicher, Ports, Gehäuse, Kabel, Rohre: Werkzeugstufe wie iron_block (4.1)
-            vals = sorted(vals + [i for i in blocks if short(i) not in simple and blocks[i] not in ("farmland", "window")])
+            vals = sorted(vals + [i for i in blocks if short(i) not in simple
+                                  and blocks[i] not in ("farmland", "window", "platform")])
         if vals:
             write_json(f"data/minecraft/tags/block/needs_{lvl}_tool.json", {"values": vals})
+    # Bohrturm (20.2): Erze der Planeten (planets.json), neben #c:ores
+    planet_ores = sorted({o["block"] for pid in ["minecraft:overworld"] + list(impl.get("dimensions", []))
+                          for o in (spec.planets[pid].get("ores") or [])
+                          if o["block"].startswith("minecraft:") or o["block"] in blocks})
+    write_json(f"data/{NS}/tags/block/planet_ores.json", {"values": planet_ores})
     # 26.3: Die Bewegungs-Heightmaps (MOTION_BLOCKING, OCEAN_FLOOR) zählen nur Blöcke aus diesem Tag; ohne Eintrag
     # gelten Mod-Blöcke dort als Luft (Meeresboden der Europa, Brocken des Vulkanausbruchs). SPEC-GAP #105
     solid_shapes = ("simple_block", "machine", "casing", "port", "hull", "window", "farmland", "lamp")

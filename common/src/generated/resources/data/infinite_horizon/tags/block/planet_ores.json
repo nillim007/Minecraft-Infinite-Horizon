@@ -1,0 +1,23 @@
+{
+  "values": [
+    "infinite_horizon:asteroid_iridium_ore",
+    "infinite_horizon:asteroid_nickel_ore",
+    "infinite_horizon:asteroid_platinum_ore",
+    "infinite_horizon:bauxite_ore",
+    "infinite_horizon:io_sulfur_ore",
+    "infinite_horizon:mars_iron_ore",
+    "infinite_horizon:mars_magnesium_ore",
+    "infinite_horizon:mercury_iron_ore",
+    "infinite_horizon:mercury_lithium_salt",
+    "infinite_horizon:mercury_titanium_ore",
+    "infinite_horizon:moon_aluminum_ore",
+    "infinite_horizon:moon_ice",
+    "infinite_horizon:moon_titanium_ore",
+    "infinite_horizon:pluto_uranium_ore",
+    "infinite_horizon:quartz_sand",
+    "infinite_horizon:titanium_ore",
+    "infinite_horizon:venus_sulfur_ore",
+    "infinite_horizon:venus_tungsten_ore",
+    "minecraft:ice"
+  ]
+}

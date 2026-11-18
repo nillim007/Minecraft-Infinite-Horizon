@@ -1,0 +1,20 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:skimmer_leg",
+      "count": 2
+    },
+    {
+      "ingredient": "infinite_horizon:plastic",
+      "count": 2
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:pontoon",
+      "count": 4,
+      "chance": 1.0
+    }
+  ]
+}

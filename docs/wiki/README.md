@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 8a · Mod-Version 0.1.0
+> Stand: Meilenstein 8b · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -111,6 +111,7 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 
 - [Erste Schritte im Netzwerk](Erste-Schritte-im-Netzwerk.md) – Vom Kernreaktor zum Sternenschiff
 - [Der Kernreaktor](Der-Kernreaktor.md) – Strom aus Uran, Hitze und Notabschaltung
+- [Bohrturm und Pumpstation](Bohrturm-und-Pumpstation.md) – Rohstoffe fördern, ohne die Welt abzubauen
 
 ## Nachschlagen
 

@@ -1,0 +1,22 @@
+{
+  "tier": 5,
+  "branch": "industry",
+  "cost": 120,
+  "requires": [],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:pump_station"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:pontoon"
+    }
+  ],
+  "icon": "infinite_horizon:pump_station",
+  "position": {
+    "column": 0,
+    "row": 5,
+    "slot": 1
+  }
+}

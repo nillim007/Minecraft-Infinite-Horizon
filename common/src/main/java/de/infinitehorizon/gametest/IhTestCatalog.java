@@ -233,7 +233,13 @@ public final class IhTestCatalog {
             new Test("m7_alltargets_equipment", 20, null, null, null, IhGameTestsM7f::allTargets),  // 13.2, 27 M7 (Abnahme)
             new Test("fission_runs_cooled", 40, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM8a::runsCooled),  // 6.3, M8a
             new Test("fission_scram_radiationzone", 40, "infinite_horizon:gametest/empty_large", "infinite_horizon:domes", null, IhGameTestsM8a::scramRadiation),  // 6.3, M8a
-            new Test("fission_needsstructure", 20, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM8a::needsStructure)  // 4.3, M8a
+            new Test("fission_needsstructure", 20, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM8a::needsStructure),  // 4.3, M8a
+            new Test("drillingrig_notearth_tenironore_running", 200, null, null, null, IhGameTestsM8b::drillingRigRuns),  // 20.2, 27 M8 (Abnahme)
+            new Test("drillingrig_earth_error", 20, null, null, null, IhGameTestsM8b::drillingRigEarth),  // 6.1, M8b
+            new Test("drillingrig_noores_error", 20, null, null, "infinite_horizon:asteroid_belt", IhGameTestsM8b::drillingRigNoOres),  // 20.2, M8b
+            new Test("pumpstation_ammoniageyser", 60, null, null, null, IhGameTestsM8b::pumpGeyser),  // 6.1, M8b
+            new Test("pumpstation_pontoon_methanerain", 20, null, null, "infinite_horizon:titan", IhGameTestsM8b::pumpPontoonMethaneRain),  // 6.1, 19, M8b
+            new Test("ammonia_fertilizer_hydroponics", 20, null, null, null, IhGameTestsM8b::fertilizer)  // 17, M8b
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */
