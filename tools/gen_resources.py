@@ -103,6 +103,34 @@ def ingredient(ing):
 
 # ---------------------------------------------------------------- Blöcke
 
+def shipyard_scaffold(spec):
+    """Multipart: Maschinenmodell nach facing/status, dazu je Stufe ein Gerüst (Pfosten an den Ecken, Querstreben)."""
+    name = "shipyard_terminal"
+    stages = len([k for k in (spec.balance.get("shipyard") or {}) if k.isdigit()])
+    tex = "minecraft:block/scaffolding_side"
+    parts = []
+    for facing, rot in MACHINE_FACINGS.items():
+        for status in STATUSES:
+            m = {"model": f"{NS}:block/{name}_{status}"}
+            if rot:
+                m["y"] = rot
+            parts.append({"when": {"facing": facing, "status": status}, "apply": m})
+    face = {d: {"texture": "#bar"} for d in ("north", "south", "east", "west", "up", "down")}
+    corners = [(-6, -6), (20, -6), (-6, 20), (20, 20)]
+    for k in range(1, stages + 1):
+        top = 16 + 2 * k  # bis 2 Blöcke über dem Terminal (Modellgrenze 32)
+        els = [{"from": [x, 16, z], "to": [x + 2, top, z + 2], "faces": face} for x, z in corners]
+        for y in range(20, top + 1, 4):  # Querstreben je 4 px Höhe
+            els.append({"from": [-6, y - 1, -6], "to": [22, y, -5], "faces": face})
+            els.append({"from": [-6, y - 1, 21], "to": [22, y, 22], "faces": face})
+            els.append({"from": [-6, y - 1, -6], "to": [-5, y, 22], "faces": face})
+            els.append({"from": [21, y - 1, -6], "to": [22, y, 22], "faces": face})
+        write_json(f"assets/{NS}/models/block/{name}_scaffold_{k}.json",
+                   {"textures": {"bar": tex, "particle": tex}, "elements": els})
+        parts.append({"when": {"stage": str(k)}, "apply": {"model": f"{NS}:block/{name}_scaffold_{k}"}})
+    write_json(f"assets/{NS}/blockstates/{name}.json", {"multipart": parts})
+
+
 def machine_block(name):
     for status in STATUSES:
         write_json(f"assets/{NS}/models/block/{name}_{status}.json",
@@ -1349,6 +1377,10 @@ def main():
             if fe.get("has_source_block") and fe.get("has_bucket"):
                 data[f"item.{NS}.{f}_bucket"] = spec.items[f"{NS}:{f}_bucket"][field]
         data.update(hb.lang[lang])  # Ingenieurs-Handbuch (24.1, 25.6)
+        if f"{NS}:shipyard_terminal" in blocks:  # Werft-Abschnitte (21.2)
+            for k, sec in (spec.balance.get("shipyard") or {}).items():
+                if k.isdigit():
+                    data[f"gui.{NS}.shipyard.section.{k}"] = sec[field]
         for pid in ["minecraft:overworld"] + list(impl.get("dimensions", [])):
             data[planet_key(pid)] = spec.planets[pid][field]
             # Strukturen der Dimension (Meldung „Erkundungsziel gefunden“, Atlas)
@@ -1432,6 +1464,10 @@ def main():
         write_json(f"assets/{NS}/models/item/{name}.json",
                    {"parent": "minecraft:item/generated", "textures": {"layer0": f"{NS}:item/{name}"}})
         write_json(f"assets/{NS}/items/{name}.json", {"model": {"type": "minecraft:model", "model": f"{NS}:item/{name}"}})
+
+    # Werft-Terminal (21.1): Gerüst wächst je fertigem Abschnitt (Blockzustand stage) über dem Block
+    if f"{NS}:shipyard_terminal" in blocks:
+        shipyard_scaffold(spec)
 
     # Liste der einfachen Items für die Java-Registrierung (Reihenfolge wie in implemented_ids.json)
     special = {k for k in impl.get("item_classes", {}) if not k.startswith("_")}

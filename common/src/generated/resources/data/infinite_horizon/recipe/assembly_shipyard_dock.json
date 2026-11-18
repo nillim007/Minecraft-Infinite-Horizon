@@ -1,0 +1,20 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:lightweight_plate",
+      "count": 32
+    },
+    {
+      "ingredient": "infinite_horizon:iridium_chip",
+      "count": 4
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:shipyard_dock",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

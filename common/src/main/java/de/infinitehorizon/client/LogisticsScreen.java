@@ -171,7 +171,14 @@ public class LogisticsScreen extends Screen {
         int n = Math.max(1, state.terminals().size());
         addRenderableWidget(Button.builder(Component.translatable("gui.infinite_horizon.logistics.start", terminalName(home)), b -> {
             keepText();
-            home = (home + 1) % n;
+            // Start nur Frachtterminals (mit Hangar), Werft-Docks sind nur Ziele
+            for (int k = 0; k < n; k++) {
+                home = (home + 1) % n;
+                LogisticsStatePayload.Terminal h = terminal(home);
+                if (h == null || !h.hangar().isEmpty()) {
+                    break;
+                }
+            }
             rockets.clear();
             rebuildWidgets();
         }).bounds(x0, top + 20, w, 18).build());

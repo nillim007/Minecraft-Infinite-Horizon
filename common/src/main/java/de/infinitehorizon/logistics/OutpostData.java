@@ -54,10 +54,11 @@ public final class OutpostData extends SavedData {
         }
     }
 
-    private record Stored(List<Terminal> terminals, List<Producer> producers) {
+    private record Stored(List<Terminal> terminals, List<Producer> producers, List<Terminal> docks) {
         static final Codec<Stored> CODEC = RecordCodecBuilder.create(i -> i.group(
                 Terminal.CODEC.listOf().fieldOf("terminals").forGetter(Stored::terminals),
-                Producer.CODEC.listOf().fieldOf("producers").forGetter(Stored::producers)
+                Producer.CODEC.listOf().fieldOf("producers").forGetter(Stored::producers),
+                Terminal.CODEC.listOf().optionalFieldOf("docks", List.of()).forGetter(Stored::docks)
         ).apply(i, Stored::new));
     }
 
@@ -65,12 +66,14 @@ public final class OutpostData extends SavedData {
         OutpostData d = new OutpostData();
         s.terminals().forEach(t -> d.terminals.put(key(t.dimension(), t.pos()), t));
         s.producers().forEach(p -> d.producers.put(key(p.dimension(), p.pos()), p));
+        s.docks().forEach(t -> d.docks.put(key(t.dimension(), t.pos()), t));
         return d;
-    }, d -> new Stored(List.copyOf(d.terminals.values()), List.copyOf(d.producers.values())));
+    }, d -> new Stored(List.copyOf(d.terminals.values()), List.copyOf(d.producers.values()), List.copyOf(d.docks.values())));
 
     public static final SavedDataType<OutpostData> TYPE = new SavedDataType<>(InfiniteHorizon.id("outposts"),
             OutpostData::new, CODEC, DataFixTypes.SAVED_DATA_COMMAND_STORAGE);
 
+    private final Map<String, Terminal> docks = new LinkedHashMap<>();
     private final Map<String, Terminal> terminals = new LinkedHashMap<>();
     private final Map<String, Producer> producers = new LinkedHashMap<>();
 
@@ -93,9 +96,21 @@ public final class OutpostData extends SavedData {
     }
 
     /** Entfernt Terminal oder Produzent an dieser Stelle (Block abgebaut). */
+    /** Werft-Dock (21.1): Ziel für Routen, kein Außenposten. */
+    public void addDock(Identifier dimension, BlockPos pos, java.util.@Nullable UUID owner) {
+        Terminal t = new Terminal(dimension, pos.immutable(), java.util.Optional.ofNullable(owner));
+        if (!t.equals(docks.put(key(dimension, pos), t))) {
+            setDirty();
+        }
+    }
+
+    public List<Terminal> docks() {
+        return List.copyOf(docks.values());
+    }
+
     public void remove(Identifier dimension, BlockPos pos) {
         String k = key(dimension, pos);
-        if (terminals.remove(k) != null | producers.remove(k) != null) {
+        if (terminals.remove(k) != null | producers.remove(k) != null | docks.remove(k) != null) {
             setDirty();
         }
     }

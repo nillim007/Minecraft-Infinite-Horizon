@@ -24,3 +24,6 @@ In der letzten Phase verbindest du deine Welten. Außenposten fördern Rohstoffe
 @if infinite_horizon:logistics_computer
 5. **Routen anlegen.** Am [[logistik_computer|Logistik-Computer]] legst du fest, wann welche Rakete was wohin fliegt.
 @endif
+@if infinite_horizon:shipyard_terminal
+6. **Die Werft beliefern.** In der [[werft|Orbitalwerft]] im Erdorbit entsteht in acht Abschnitten dein Sternenschiff.
+@endif

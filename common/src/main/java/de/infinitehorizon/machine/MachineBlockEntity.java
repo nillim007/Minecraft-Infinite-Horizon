@@ -631,6 +631,7 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
         }
         // Außenposten (20.1): Terminal bzw. Produzent aus dem Register nehmen
         if (level instanceof ServerLevel sl && (this instanceof de.infinitehorizon.logistics.CargoTerminalBlockEntity
+                || this instanceof de.infinitehorizon.shipyard.ShipyardDockBlockEntity
                 || de.infinitehorizon.logistics.OutpostManager.isProducer(machineId()))) {
             de.infinitehorizon.logistics.OutpostManager.onRemoved(sl, pos);
             if (this instanceof de.infinitehorizon.logistics.CargoTerminalBlockEntity) {

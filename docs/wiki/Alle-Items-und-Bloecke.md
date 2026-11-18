@@ -266,6 +266,8 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Wasserstoff](Elektrolyseur.md) | Fluid | Maschine |
 | [Weltraumration](Weltraumnahrung.md) | Item | Maschine |
 | [Weltraumwetter-Station](Weltraumwetter-Station.md) | Block | Rezept |
+| [Werft-Andockbucht](Orbitalwerft.md) | Block | Rezept |
+| [Werft-Terminal](Orbitalwerft.md) | Block | Rezept |
 | [Wohnmodul](Stationsmodule.md) | Block | Rezept |
 | [Wolframbarren](Der-Hochtemperaturofen.md) | Item | Maschine |
 | [Wolframplatte](Die-Rakete-T2.md) | Item | Maschine |

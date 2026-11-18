@@ -1,0 +1,183 @@
+{
+  "id": "infinite_horizon:phase_6/werft",
+  "chapter": "infinite_horizon:phase_6",
+  "title": "infinite_horizon.handbook.phase_6.werft.title",
+  "icon": "infinite_horizon:shipyard_terminal",
+  "order": 70,
+  "unlock": "infinite_horizon:research_tier/5",
+  "items": [
+    "infinite_horizon:shipyard_terminal",
+    "infinite_horizon:shipyard_dock"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.werft.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.werft.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_6.werft.e2.0",
+        "infinite_horizon.handbook.phase_6.werft.e2.1",
+        "infinite_horizon.handbook.phase_6.werft.e2.2"
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_6.werft.e3",
+      "style": "warning"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.werft.e4",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.werft.e5"
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_6.werft.e6.0",
+        "infinite_horizon.handbook.phase_6.werft.e6.1"
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_6.werft.e7",
+      "style": "tip"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.werft.e8",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.werft.e9"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.werft.e10"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.phase_6.werft.e11.h0",
+        "infinite_horizon.handbook.phase_6.werft.e11.h1"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_6.werft.e11.r0.0",
+          "infinite_horizon.handbook.phase_6.werft.e11.r0.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.werft.e11.r1.0",
+          "infinite_horizon.handbook.phase_6.werft.e11.r1.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.werft.e11.r2.0",
+          "infinite_horizon.handbook.phase_6.werft.e11.r2.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.werft.e11.r3.0",
+          "infinite_horizon.handbook.phase_6.werft.e11.r3.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.werft.e11.r4.0",
+          "infinite_horizon.handbook.phase_6.werft.e11.r4.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.werft.e11.r5.0",
+          "infinite_horizon.handbook.phase_6.werft.e11.r5.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.werft.e11.r6.0",
+          "infinite_horizon.handbook.phase_6.werft.e11.r6.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.werft.e11.r7.0",
+          "infinite_horizon.handbook.phase_6.werft.e11.r7.1"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.werft.e12",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/shipyard_terminal",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 64
+            },
+            {
+              "items": [
+                "infinite_horizon:iridium_chip"
+              ],
+              "count": 16
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 8
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:shipyard_terminal",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
+          "id": "infinite_horizon:assembly/shipyard_dock",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 32
+            },
+            {
+              "items": [
+                "infinite_horizon:iridium_chip"
+              ],
+              "count": 4
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:shipyard_dock",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    }
+  ]
+}

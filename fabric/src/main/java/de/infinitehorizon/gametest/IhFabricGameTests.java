@@ -1213,4 +1213,29 @@ public class IhFabricGameTests {
     public void logisticsComputerEditRoutes(GameTestHelper helper) {
         IhGameTestsM8e.editRoutes(helper);
     }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:earth_orbit")
+    public void shipyardTerminalStationOnly(GameTestHelper helper) {
+        IhGameTestsM8f.terminalLocation(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:earth_orbit")
+    public void shipyardDockDemandMethane(GameTestHelper helper) {
+        IhGameTestsM8f.dockDemand(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:earth_orbit")
+    public void shipyardStarChartOwnAgency(GameTestHelper helper) {
+        IhGameTestsM8f.starChartOwner(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:earth_orbit")
+    public void shipyardBuildSectionScaffold(GameTestHelper helper) {
+        IhGameTestsM8f.buildSection(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:earth_orbit")
+    public void shipyardRouteUntilDemandMet(GameTestHelper helper) {
+        IhGameTestsM8f.demandRoute(helper);
+    }
 }

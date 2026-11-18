@@ -23,7 +23,7 @@ Am Logistik-Computer legst du Routen für deine [Frachtraketen](Frachtraketen-un
 | wenn voll | sobald die passende Fracht alle Laderäume füllt (alle Item-Slots oder alle Fluid-Laderäume) |
 | alle N Ticks | spätestens N Ticks nach dem letzten Start |
 | wenn Ziel weniger als N von X hat | sobald das Ziel weniger als N Stück (oder mB) von X lagert |
-| bis der Bedarf gedeckt ist | solange die Werft noch etwas von der Fracht braucht; sie lädt nur, was fehlt |
+| bis der Bedarf gedeckt ist | solange die [[werft | Werft]] noch etwas von der Fracht braucht; sie lädt nur, was fehlt |
 
 Ohne passende Fracht im Start-Terminal startet keine Route.
 
@@ -47,4 +47,4 @@ Unter dem Editor siehst du jede Rakete der Route: unterwegs (mit Restzeit), gela
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Frachtraketen und Antriebe](Frachtraketen-und-Antriebe.md)
+← [Frachtraketen und Antriebe](Frachtraketen-und-Antriebe.md) · [Orbitalwerft](Orbitalwerft.md) →

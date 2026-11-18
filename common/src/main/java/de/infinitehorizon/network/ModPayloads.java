@@ -27,6 +27,10 @@ public final class ModPayloads {
         Services.NETWORK.registerClientbound(LogisticsStatePayload.TYPE, LogisticsStatePayload.CODEC,
                 payload -> de.infinitehorizon.client.LogisticsScreen.receive(payload));
         Services.NETWORK.registerServerbound(LogisticsEditPayload.TYPE, LogisticsEditPayload.CODEC, LogisticsEditPayload::handle);
+        Services.NETWORK.registerClientbound(ShipyardStatePayload.TYPE, ShipyardStatePayload.CODEC,
+                payload -> de.infinitehorizon.client.ShipyardScreen.receive(payload));
+        Services.NETWORK.registerServerbound(ShipyardStatePayload.Request.TYPE, ShipyardStatePayload.Request.CODEC,
+                ShipyardStatePayload.Request::handle);
         Services.NETWORK.registerServerbound(MachineConfigPayload.TYPE, MachineConfigPayload.CODEC, MachineConfigPayload::handle);
         Services.NETWORK.registerServerbound(ResearchUnlockPayload.TYPE, ResearchUnlockPayload.CODEC, ResearchUnlockPayload::handle);
         Services.NETWORK.registerServerbound(AgencyActionPayload.TYPE, AgencyActionPayload.CODEC, AgencyActionPayload::handle);

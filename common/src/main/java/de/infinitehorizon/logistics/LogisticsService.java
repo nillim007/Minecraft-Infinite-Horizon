@@ -49,9 +49,18 @@ public final class LogisticsService {
 
     /** Terminals der Agentur (oder ohne Besitzer) aus dem Außenposten-Register. */
     public static List<OutpostData.Terminal> terminalsOf(MinecraftServer server, UUID agency) {
+        return own(server, agency, OutpostData.get(server).terminals());
+    }
+
+    /** Werft-Docks der Agentur (21.1): nur Ziel, nie Start. */
+    public static List<OutpostData.Terminal> docksOf(MinecraftServer server, UUID agency) {
+        return own(server, agency, OutpostData.get(server).docks());
+    }
+
+    private static List<OutpostData.Terminal> own(MinecraftServer server, UUID agency, List<OutpostData.Terminal> all) {
         AgencyData agencies = AgencyData.get(server);
         List<OutpostData.Terminal> out = new ArrayList<>();
-        for (OutpostData.Terminal t : OutpostData.get(server).terminals()) {
+        for (OutpostData.Terminal t : all) {
             if (t.owner().isEmpty() || agencies.resolve(t.owner().get()).equals(agency)) {
                 out.add(t);
             }
@@ -83,6 +92,15 @@ public final class LogisticsService {
                 hangar.add(s.isEmpty() ? "" : BuiltInRegistries.ITEM.getKey(s.getItem()).toString());
             }
             terminals.add(new LogisticsStatePayload.Terminal(t.dimension(), t.pos(), hangar));
+        }
+        for (OutpostData.Terminal d : docksOf(server, agency)) {
+            ServerLevel dl = level(server, d.dimension());
+            if (dl != null) {
+                dl.getChunkAt(d.pos());
+                if (dl.getBlockEntity(d.pos()) instanceof de.infinitehorizon.shipyard.ShipyardDockBlockEntity) {
+                    terminals.add(new LogisticsStatePayload.Terminal(d.dimension(), d.pos(), List.of()));
+                }
+            }
         }
         CargoFlights data = CargoFlights.get(server);
         List<Route> routes = data.routesOf(agency);
@@ -161,7 +179,9 @@ public final class LogisticsService {
         }
         List<OutpostData.Terminal> own = terminalsOf(server, agency);
         boolean homeOk = own.stream().anyMatch(t -> t.dimension().equals(in.homeDimension()) && t.pos().equals(in.home()));
-        boolean targetOk = own.stream().anyMatch(t -> t.dimension().equals(in.targetDimension()) && t.pos().equals(in.target()));
+        List<OutpostData.Terminal> targets = new ArrayList<>(own);
+        targets.addAll(docksOf(server, agency));
+        boolean targetOk = targets.stream().anyMatch(t -> t.dimension().equals(in.targetDimension()) && t.pos().equals(in.target()));
         if (!homeOk || !targetOk || in.homeDimension().equals(in.targetDimension()) && in.home().equals(in.target())) {
             return "gui.infinite_horizon.logistics.bad_terminal";
         }

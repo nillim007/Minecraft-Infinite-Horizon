@@ -106,6 +106,8 @@
     "infinite_horizon:rocket_tank_t1",
     "infinite_horizon:rocket_tank_t2",
     "infinite_horizon:salt_crust",
+    "infinite_horizon:shipyard_dock",
+    "infinite_horizon:shipyard_terminal",
     "infinite_horizon:solar_panel",
     "infinite_horizon:solar_wing",
     "infinite_horizon:space_weather_station",

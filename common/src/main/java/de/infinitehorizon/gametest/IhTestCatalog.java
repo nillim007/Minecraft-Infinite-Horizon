@@ -259,7 +259,12 @@ public final class IhTestCatalog {
             new Test("route_every_n_ticks", 20, null, null, "infinite_horizon:mars", IhGameTestsM8e::everyNTicks),  // 20.4, M8e
             new Test("route_target_below", 20, null, null, "infinite_horizon:mars", IhGameTestsM8e::targetBelow),  // 20.4, M8e
             new Test("route_when_full", 20, null, null, "infinite_horizon:mars", IhGameTestsM8e::whenFull),  // 20.4, M8e
-            new Test("logistics_computer_edit_routes", 40, null, null, "infinite_horizon:mars", IhGameTestsM8e::editRoutes)  // 20.4, 3A.5, M8e
+            new Test("logistics_computer_edit_routes", 40, null, null, "infinite_horizon:mars", IhGameTestsM8e::editRoutes),  // 20.4, 3A.5, M8e
+            new Test("shipyard_terminal_station_only", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM8f::terminalLocation),  // 21.1, M8f
+            new Test("shipyard_dock_demand_methane", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM8f::dockDemand),  // 21.1, 20.1, M8f
+            new Test("shipyard_star_chart_own_agency", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM8f::starChartOwner),  // 18, 21.2, M8f
+            new Test("shipyard_build_section_scaffold", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM8f::buildSection),  // 21.1, M8f
+            new Test("shipyard_route_until_demand_met", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM8f::demandRoute)  // 20.4, 21.1, 27 M8
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

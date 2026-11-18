@@ -247,6 +247,11 @@
     {"name": "route_every_n_ticks", "class": "IhGameTestsM8e", "method": "everyNTicks", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.4, M8e"},
     {"name": "route_target_below", "class": "IhGameTestsM8e", "method": "targetBelow", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.4, M8e"},
     {"name": "route_when_full", "class": "IhGameTestsM8e", "method": "whenFull", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "20.4, M8e"},
-    {"name": "logistics_computer_edit_routes", "class": "IhGameTestsM8e", "method": "editRoutes", "ticks": 40, "dimension": "infinite_horizon:mars", "ref": "20.4, 3A.5, M8e"}
+    {"name": "logistics_computer_edit_routes", "class": "IhGameTestsM8e", "method": "editRoutes", "ticks": 40, "dimension": "infinite_horizon:mars", "ref": "20.4, 3A.5, M8e"},
+    {"name": "shipyard_terminal_station_only", "class": "IhGameTestsM8f", "method": "terminalLocation", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "21.1, M8f"},
+    {"name": "shipyard_dock_demand_methane", "class": "IhGameTestsM8f", "method": "dockDemand", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "21.1, 20.1, M8f"},
+    {"name": "shipyard_star_chart_own_agency", "class": "IhGameTestsM8f", "method": "starChartOwner", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "18, 21.2, M8f"},
+    {"name": "shipyard_build_section_scaffold", "class": "IhGameTestsM8f", "method": "buildSection", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "21.1, M8f"},
+    {"name": "shipyard_route_until_demand_met", "class": "IhGameTestsM8f", "method": "demandRoute", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "20.4, 21.1, 27 M8"}
   ]
 }

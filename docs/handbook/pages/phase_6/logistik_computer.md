@@ -27,7 +27,7 @@ Am <item:infinite_horizon:logistics_computer> legst du Routen für deine [[frach
 | wenn voll | sobald die passende Fracht alle Laderäume füllt (alle Item-Slots oder alle Fluid-Laderäume) |
 | alle N Ticks | spätestens N Ticks nach dem letzten Start |
 | wenn Ziel weniger als N von X hat | sobald das Ziel weniger als N Stück (oder mB) von X lagert |
-| bis der Bedarf gedeckt ist | solange die Werft noch etwas von der Fracht braucht; sie lädt nur, was fehlt |
+| bis der Bedarf gedeckt ist | solange die [[werft|Werft]] noch etwas von der Fracht braucht; sie lädt nur, was fehlt |
 
 Ohne passende Fracht im Start-Terminal startet keine Route.
 

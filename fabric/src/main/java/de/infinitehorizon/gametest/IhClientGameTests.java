@@ -191,6 +191,8 @@ public class IhClientGameTests implements FabricClientGameTest {
             cargoTerminal(context, sp);
             // M8e: Logistik-Computer mit einer Route zwischen zwei Terminals
             logisticsComputer(context, sp);
+            // M8f: Werft-GUI (Abschnitt 1 im Bau, Abschnitt 2 halb beliefert); Ort ungültig in der Overworld
+            shipyard(context, sp);
             // M8b: Bohrturm (in der Overworld: rote Lampe) und Pumpstation
             machine(context, sp, ModBlocks.DRILLING_RIG.get(), "gui_drilling_rig", be -> fillEnergy(be, 2));
             machine(context, sp, ModBlocks.PUMP_STATION.get(), "gui_pump_station", be -> {
@@ -873,6 +875,39 @@ public class IhClientGameTests implements FabricClientGameTest {
         context.waitTicks(10);
         clearChat(context);
         return pos;
+    }
+
+    /** Werft-Terminal (21.1): Abschnitte mit Fortschritt, per Rechtsklick. */
+    private static void shipyard(ClientGameTestContext context, TestSingleplayerContext sp) {
+        BlockPos pos = context.computeOnClient(c -> BlockPos.containing(c.player.position()).east(2).above());
+        setBlock(sp, pos, ModBlocks.SHIPYARD_TERMINAL.get());
+        context.waitFor(c -> c.level.getBlockState(pos).is(ModBlocks.SHIPYARD_TERMINAL.get()));
+        sp.getServer().runOnServer(server -> {
+            ServerLevel level = sp.getConnection().getServerLevel();
+            if (level.getBlockEntity(pos) instanceof de.infinitehorizon.shipyard.ShipyardTerminalBlockEntity be) {
+                de.infinitehorizon.shipyard.ShipyardState data = de.infinitehorizon.shipyard.ShipyardState.get(server);
+                var y = be.update(level);
+                long now = server.overworld().getGameTime();
+                var sections = de.infinitehorizon.shipyard.ShipyardState.sections();
+                for (var m : sections.getFirst().materials()) {
+                    y = data.yard(level.dimension().identifier(), pos);
+                    data.deliver(y, m.id(), m.amount(), now, false);
+                }
+                var second = sections.get(1).materials().getFirst();
+                data.deliver(data.yard(level.dimension().identifier(), pos), second.id(), second.amount() / 2, now, false);
+            }
+        });
+        context.waitTicks(5);
+        context.getInput().lookAt(pos);
+        context.waitTick();
+        context.getInput().pressKey(options -> options.keyUse);
+        context.waitForScreen(de.infinitehorizon.client.ShipyardScreen.class);
+        context.waitTicks(10);
+        clearChat(context);
+        context.takeScreenshot("gui_shipyard_terminal");
+        context.setScreen(() -> null);
+        sp.getServer().runCommand("setblock %d %d %d minecraft:air".formatted(pos.getX(), pos.getY(), pos.getZ()));
+        context.waitTick();
     }
 
     /** Logistik-Computer (20.4): zwei Terminals, eine Route, GUI per Rechtsklick. */

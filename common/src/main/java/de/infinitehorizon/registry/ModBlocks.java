@@ -171,6 +171,13 @@ public final class ModBlocks {
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Supplier<Block> FISSION_CASING = register("fission_casing", MultiblockPartBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Orbitalwerft (21.1): Terminal mit wachsendem Gerüst, Dock als Landeziel der Frachtraketen. */
+    public static final Supplier<Block> SHIPYARD_TERMINAL = register("shipyard_terminal",
+            p -> new de.infinitehorizon.shipyard.ShipyardTerminalBlock(p, () -> ModBlockEntities.SHIPYARD_TERMINAL.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).noOcclusion());
+    public static final Supplier<Block> SHIPYARD_DOCK = register("shipyard_dock",
+            p -> new MachineBlock(p, () -> ModBlockEntities.SHIPYARD_DOCK.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     /** Logistik-Computer (20.4): Routen und Raketen der Agentur. */
     public static final Supplier<Block> LOGISTICS_COMPUTER = register("logistics_computer",
             de.infinitehorizon.logistics.LogisticsComputerBlock::new,

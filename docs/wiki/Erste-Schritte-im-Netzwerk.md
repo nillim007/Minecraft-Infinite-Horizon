@@ -13,6 +13,7 @@ In der letzten Phase verbindest du deine Welten. Außenposten fördern Rohstoffe
 3. **Außenposten gründen.** Ein [Frachtterminal](Aussenposten-und-Frachtterminal.md) sammelt alles, was die Produzenten in seiner Nähe fördern. Auch wenn du fort bist, läuft die Förderung weiter.
 4. **Fracht fliegen.** [Frachtraketen](Frachtraketen-und-Antriebe.md) im Hangar eines Terminals bringen Items und Fluide zu anderen Terminals. Antriebe verkürzen die Flugzeit.
 5. **Routen anlegen.** Am [Logistik-Computer](Logistik-Computer.md) legst du fest, wann welche Rakete was wohin fliegt.
+6. **Die Werft beliefern.** In der [Orbitalwerft](Orbitalwerft.md) im Erdorbit entsteht in acht Abschnitten dein Sternenschiff.
 
 ---
 
