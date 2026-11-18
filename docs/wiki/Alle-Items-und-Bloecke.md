@@ -26,6 +26,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Asteroidengestein](Der-Asteroidenguertel.md) | Block | Weltgenerierung |
 | [Bauxit](Rohstoffe-und-Erze.md) | Item | Abbau |
 | [Bauxiterz](Rohstoffe-und-Erze.md) | Block | Weltgenerierung |
+| [Brennstab](Der-Kernreaktor.md) | Item | Rezept |
 | [Ceres-Gestein](Ceres.md) | Block | Weltgenerierung |
 | [Druckanzug-Brustplatte](Der-Druckanzug.md) | Item | Rezept |
 | [Druckanzug-Helm](Der-Druckanzug.md) | Item | Rezept |
@@ -91,6 +92,8 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Item-Port](Raffinerie.md) | Block | Rezept |
 | [Jetpack](Fernflug-und-Jetpack.md) | Item | Rezept |
 | [Keramikplatte](Der-Hochtemperaturofen.md) | Item | Maschine |
+| [Kernreaktor](Der-Kernreaktor.md) | Block | Rezept |
+| [Kernreaktor-Gehäuse](Der-Kernreaktor.md) | Block | Rezept |
 | [Kerosin](Raffinerie.md) | Fluid | Maschine |
 | [Kerosineimer](Fluide-und-Rohre.md) | Item | Füllslot oder Eimer |
 | [Klon-Kammer](Die-Klon-Kammer.md) | Block | Rezept |

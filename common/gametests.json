@@ -218,6 +218,9 @@
     {"name": "pluto_transmitter_hall", "class": "IhGameTestsM7e2", "method": "transmitterHall", "ticks": 20, "dimension": "infinite_horizon:pluto", "ref": "13.4, M7e"},
     {"name": "sentinel_summon_starchart", "class": "IhGameTestsM7e2", "method": "sentinelChart", "ticks": 20, "dimension": "infinite_horizon:pluto", "ref": "18, Ä4, M7e"},
     {"name": "sentinel_phases_shockwave", "class": "IhGameTestsM7e2", "method": "sentinelPhases", "ticks": 20, "ref": "18, M7e"},
-    {"name": "m7_alltargets_equipment", "class": "IhGameTestsM7f", "method": "allTargets", "ticks": 20, "ref": "13.2, 27 M7 (Abnahme)"}
+    {"name": "m7_alltargets_equipment", "class": "IhGameTestsM7f", "method": "allTargets", "ticks": 20, "ref": "13.2, 27 M7 (Abnahme)"},
+    {"name": "fission_runs_cooled", "class": "IhGameTestsM8a", "method": "runsCooled", "ticks": 40, "structure": "infinite_horizon:gametest/empty_large", "ref": "6.3, M8a"},
+    {"name": "fission_scram_radiationzone", "class": "IhGameTestsM8a", "method": "scramRadiation", "ticks": 40, "structure": "infinite_horizon:gametest/empty_large", "environment": "infinite_horizon:domes", "ref": "6.3, M8a"},
+    {"name": "fission_needsstructure", "class": "IhGameTestsM8a", "method": "needsStructure", "ticks": 20, "structure": "infinite_horizon:gametest/empty_large", "ref": "4.3, M8a"}
   ]
 }

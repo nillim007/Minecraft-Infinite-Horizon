@@ -178,6 +178,12 @@ public class IhClientGameTests implements FabricClientGameTest {
                 be.setItem(0, new ItemStack(ModItems.ANTIMATTER_CELL.get(), 2));
                 fillEnergy(be, 2);
             });
+            // M8a: Kernreaktor (Controller allein: rote Lampe, Brennstäbe, Kühltank)
+            machine(context, sp, ModBlocks.FISSION_REACTOR.get(), "gui_fission_reactor", be -> {
+                be.setItem(be.layout().fuelStart(), new ItemStack(ModItems.simple("fuel_rod").get(), 3));
+                be.fluidTanks().get(0).setStackUnchecked(IhFluidStack.of(
+                        net.minecraft.resources.Identifier.withDefaultNamespace("water"), 12000));
+            });
             launchPad(context, sp);
 
             // Alle Blöcke nebeneinander in der Welt (Modelle, Texturen, Statuslampe)

@@ -74,6 +74,8 @@ public final class ModItems {
     public static final Supplier<Item> LITHIUM_BATTERY_BANK = blockItem("lithium_battery_bank", ModBlocks.LITHIUM_BATTERY_BANK);
     public static final Supplier<Item> FUSION_REACTOR = blockItem("fusion_reactor", ModBlocks.FUSION_REACTOR);
     public static final Supplier<Item> FUSION_CASING = blockItem("fusion_casing", ModBlocks.FUSION_CASING);
+    public static final Supplier<Item> FISSION_REACTOR = blockItem("fission_reactor", ModBlocks.FISSION_REACTOR);
+    public static final Supplier<Item> FISSION_CASING = blockItem("fission_casing", ModBlocks.FISSION_CASING);
     public static final Supplier<Item> SUPERCONDUCTOR_CABLE = blockItem("superconductor_cable", ModBlocks.SUPERCONDUCTOR_CABLE);
     public static final Supplier<Item> GRAVITY_PLATE = blockItem("gravity_plate", ModBlocks.GRAVITY_PLATE);
     public static final Supplier<Item> ZERO_G_FABRICATOR = blockItem("zero_g_fabricator", ModBlocks.ZERO_G_FABRICATOR);

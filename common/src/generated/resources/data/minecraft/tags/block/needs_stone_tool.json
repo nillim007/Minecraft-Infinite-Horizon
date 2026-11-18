@@ -26,6 +26,8 @@
     "infinite_horizon:electrolyzer",
     "infinite_horizon:energy_port",
     "infinite_horizon:extinguished_torch",
+    "infinite_horizon:fission_casing",
+    "infinite_horizon:fission_reactor",
     "infinite_horizon:fluid_port",
     "infinite_horizon:fluid_pump",
     "infinite_horizon:fluid_tank",

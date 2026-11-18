@@ -165,6 +165,12 @@ public final class ModBlocks {
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     public static final Supplier<Block> FUSION_CASING = register("fusion_casing", MultiblockPartBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Kernreaktor (6.3, 4.3): Controller und Gehäuse des 5×5×5-Multiblocks. */
+    public static final Supplier<Block> FISSION_REACTOR = register("fission_reactor",
+            p -> new MachineBlock(p, () -> ModBlockEntities.FISSION_REACTOR.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    public static final Supplier<Block> FISSION_CASING = register("fission_casing", MultiblockPartBlock::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     /** Supraleiterkabel (4.4): Durchsatz aus transport.json. */
     public static final Supplier<Block> SUPERCONDUCTOR_CABLE = register("superconductor_cable", CableBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK).sound(SoundType.METAL).noOcclusion());

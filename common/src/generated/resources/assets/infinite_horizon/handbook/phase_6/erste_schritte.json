@@ -1,0 +1,27 @@
+{
+  "id": "infinite_horizon:phase_6/erste_schritte",
+  "chapter": "infinite_horizon:phase_6",
+  "title": "infinite_horizon.handbook.phase_6.erste_schritte.title",
+  "icon": "infinite_horizon:fission_reactor",
+  "order": 10,
+  "unlock": "infinite_horizon:research_tier/5",
+  "items": [],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.erste_schritte.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.erste_schritte.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_6.erste_schritte.e2.0"
+      ]
+    }
+  ]
+}

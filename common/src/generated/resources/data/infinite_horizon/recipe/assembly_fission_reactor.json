@@ -1,0 +1,28 @@
+{
+  "type": "infinite_horizon:assembly",
+  "ingredients": [
+    {
+      "ingredient": "infinite_horizon:titanium_plate",
+      "count": 96
+    },
+    {
+      "ingredient": "infinite_horizon:tungsten_plate",
+      "count": 32
+    },
+    {
+      "ingredient": "infinite_horizon:iridium_chip",
+      "count": 8
+    },
+    {
+      "ingredient": "infinite_horizon:cooling_system",
+      "count": 8
+    }
+  ],
+  "results": [
+    {
+      "id": "infinite_horizon:fission_reactor",
+      "count": 1,
+      "chance": 1.0
+    }
+  ]
+}

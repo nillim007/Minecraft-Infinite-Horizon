@@ -1068,4 +1068,19 @@ public class IhFabricGameTests {
     public void m7AlltargetsEquipment(GameTestHelper helper) {
         IhGameTestsM7f.allTargets(helper);
     }
+
+    @GameTest(maxTicks = 40, structure = "infinite_horizon:gametest/empty_large")
+    public void fissionRunsCooled(GameTestHelper helper) {
+        IhGameTestsM8a.runsCooled(helper);
+    }
+
+    @GameTest(maxTicks = 40, structure = "infinite_horizon:gametest/empty_large", environment = "infinite_horizon:domes")
+    public void fissionScramRadiationzone(GameTestHelper helper) {
+        IhGameTestsM8a.scramRadiation(helper);
+    }
+
+    @GameTest(maxTicks = 20, structure = "infinite_horizon:gametest/empty_large")
+    public void fissionNeedsstructure(GameTestHelper helper) {
+        IhGameTestsM8a.needsStructure(helper);
+    }
 }

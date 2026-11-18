@@ -1,0 +1,7 @@
+{
+  "id": "infinite_horizon:phase_6",
+  "title": "infinite_horizon.handbook.chapter.phase_6",
+  "icon": "infinite_horizon:cargo_rocket",
+  "order": 60,
+  "unlock": "infinite_horizon:research_tier/5"
+}

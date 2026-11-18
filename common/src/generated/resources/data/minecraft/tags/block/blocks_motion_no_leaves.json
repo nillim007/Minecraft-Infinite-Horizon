@@ -35,6 +35,8 @@
     "infinite_horizon:energy_port",
     "infinite_horizon:europa_ice",
     "infinite_horizon:europa_seabed",
+    "infinite_horizon:fission_casing",
+    "infinite_horizon:fission_reactor",
     "infinite_horizon:fluid_port",
     "infinite_horizon:fluid_pump",
     "infinite_horizon:fluid_tank",

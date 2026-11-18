@@ -201,6 +201,12 @@ public final class ModBlockEntities {
                                     ModBlockEntities.LAUNCH_CONTROL.get(), pos, state),
                             ModBlocks.LAUNCH_CONTROL.get()));
 
+    public static final Supplier<BlockEntityType<de.infinitehorizon.machine.FissionReactorBlockEntity>> FISSION_REACTOR =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "fission_reactor",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.machine.FissionReactorBlockEntity(
+                                    ModBlockEntities.FISSION_REACTOR.get(), pos, state),
+                            ModBlocks.FISSION_REACTOR.get()));
     public static final Supplier<BlockEntityType<de.infinitehorizon.machine.FusionReactorBlockEntity>> FUSION_REACTOR =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "fusion_reactor",
                     () -> Services.REGISTRY.blockEntityType(
@@ -354,7 +360,7 @@ public final class ModBlockEntities {
         Services.FLUID.expose(FLUID_PUMP);
         for (Supplier<? extends BlockEntityType<? extends ProcessingMachineBlockEntity>> t
                 : List.of(ASSEMBLY_TABLE, ELECTROLYZER, REFINERY_CONTROLLER, REGOLITH_HEATER, HIGH_TEMPERATURE_FURNACE,
-                CRYO_LIQUEFIER, FOOD_PACKER, HYDROPONICS_BASIN, GREENHOUSE, ZERO_G_FABRICATOR, SPACE_WEATHER_STATION, FUSION_REACTOR, GRAVITY_PLATE,
+                CRYO_LIQUEFIER, FOOD_PACKER, HYDROPONICS_BASIN, GREENHOUSE, ZERO_G_FABRICATOR, SPACE_WEATHER_STATION, FUSION_REACTOR, FISSION_REACTOR, GRAVITY_PLATE,
                 GAS_COLLECTOR, CLONE_CHAMBER, MAGNETIC_TRAP)) {
             Services.ENERGY.expose(t);
             Services.FLUID.expose(t);

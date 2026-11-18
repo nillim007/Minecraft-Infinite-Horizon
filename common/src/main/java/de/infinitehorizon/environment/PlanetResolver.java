@@ -53,7 +53,29 @@ public final class PlanetResolver {
         }
         List<Planet.Zone> zones = planet == null ? List.of()
                 : zonesAt(planet, pos.getY(), forcedZone, id -> biomeHolder.is(id), id -> nearBlock(level, pos, id));
+        // Strahlungszone nach Notabschaltung eines Kernreaktors (6.3): gilt zuletzt und setzt die Strahlung
+        var reactor = planet == null ? java.util.OptionalInt.empty() : RadiationZones.at(level, pos);
+        if (reactor.isPresent()) {
+            List<Planet.Zone> withZone = new ArrayList<>(zones);
+            withZone.add(new Planet.Zone(REACTOR_ZONE, level.getMinY(), level.getMaxY(), null, null, null, null,
+                    Math.max(reactor.getAsInt(), radiationOf(planet, zones)), null, null, null));
+            zones = withZone;
+        }
         return new Resolved(planet, zones, biome, binding);
+    }
+
+    /** Zonen-ID der Strahlungszone eines notabgeschalteten Kernreaktors. */
+    public static final String REACTOR_ZONE = "reactor_radiation";
+
+    /** Strahlung aus Planet und Zonen (letzte Zone mit Wert gilt). */
+    private static int radiationOf(Planet planet, List<Planet.Zone> zones) {
+        int r = planet.radiation();
+        for (Planet.Zone z : zones) {
+            if (z.radiation() != null) {
+                r = z.radiation();
+            }
+        }
+        return r;
     }
 
     /** Planet einer Dimension; ohne eigenen Eintrag gilt der Eintrag der Overworld (8.1). */

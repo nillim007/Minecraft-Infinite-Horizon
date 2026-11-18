@@ -1,0 +1,28 @@
+{
+  "tier": 5,
+  "branch": "industry",
+  "cost": 120,
+  "requires": [
+    "infinite_horizon:iridium_chips"
+  ],
+  "unlocks": [
+    {
+      "type": "item",
+      "id": "infinite_horizon:fission_reactor"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:fission_casing"
+    },
+    {
+      "type": "item",
+      "id": "infinite_horizon:fuel_rod"
+    }
+  ],
+  "icon": "infinite_horizon:fission_reactor",
+  "position": {
+    "column": 0,
+    "row": 5,
+    "slot": 0
+  }
+}

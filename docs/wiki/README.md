@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 7f · Mod-Version 0.1.0
+> Stand: Meilenstein 8a · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -106,6 +106,11 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Der Tiefraumanzug](Der-Tiefraumanzug.md) – Anzug der Stufe 3 und Heizmodul für die kältesten Ziele
 - [Pluto](Pluto.md) – Der Zwergplanet am Rand mit Herzgletscher und Uran
 - [Der Sender](Der-Sender.md) – Eine fremde Halle unter dem Herzgletscher und ihr Wächter
+
+## Phase 6 · Netzwerk und Finale
+
+- [Erste Schritte im Netzwerk](Erste-Schritte-im-Netzwerk.md) – Vom Kernreaktor zum Sternenschiff
+- [Der Kernreaktor](Der-Kernreaktor.md) – Strom aus Uran, Hitze und Notabschaltung
 
 ## Nachschlagen
 

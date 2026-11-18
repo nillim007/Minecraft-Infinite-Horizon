@@ -92,7 +92,8 @@
     "heating_module",
     "raw_uranium",
     "uranium_dust",
-    "uranium_ingot"
+    "uranium_ingot",
+    "fuel_rod"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,
