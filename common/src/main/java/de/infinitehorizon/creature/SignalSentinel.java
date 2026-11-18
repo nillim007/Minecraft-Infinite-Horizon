@@ -200,6 +200,7 @@ public class SignalSentinel extends PlanetCreature {
             Vec3 push = (away.lengthSqr() < 1e-6 ? new Vec3(1, 0, 0) : away.normalize()).scale(SHOCKWAVE_PUSH);
             p.setDeltaMovement(p.getDeltaMovement().add(push.x, SHOCKWAVE_PUSH / 3, push.z));
             p.needsSync = true;
+            p.syncVelocity = true; // 26.3: nur so erfährt auch der Spieler selbst die neue Geschwindigkeit
         }
         level.sendParticles(ParticleTypes.EXPLOSION, getX(), getY() + 0.5, getZ(), 6, radius / 3, 0.2, radius / 3, 0);
     }

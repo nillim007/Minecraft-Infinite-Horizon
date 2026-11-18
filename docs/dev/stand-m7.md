@@ -24,18 +24,29 @@ Der Test prüft die Umweltrechnung über den Override „Planet + Zone“ (27). 
 
 Screenshots (Branch `ci-screenshots`): alle Welten von Merkur bis Pluto, dazu die GUIs von Gas-Sammler, Klon-Kammer und Magnetfalle.
 
-## Manuell zu prüfen
+## Spieltest im Client
 
-In einer Welt mit Stufe 4 und einer Rakete T2 mit Fernflug-Modul:
+Den Rundgang spielt ein automatischer Spieltest im echten Fabric-Client nach (`fabric/.../gametest/IhClientPlaytestM7.java`, läuft
+in der CI mit dem Client-Test; lokal allein: `./gradlew :fabric:runClientGameTest -PclientTestOnly=playtest_m7`). Ein
+Spieler im Überlebensmodus prüft je Schritt das Ergebnis und macht ein Bild (`play_*`):
 
-1. Erweiterte Sonde zum Merkur; im Hitzeanzug mit Strahlenschild durch die Glutebenen, Lithium abbauen.
-2. Asteroidengürtel: auf dem Spawn-Asteroiden landen, Anker setzen, mit dem Jetpack zwischen Asteroiden fliegen; unter y 0 fallen.
-3. Jupiter-Orbit: Station mit Gas-Sammler; mit der Landefähre nach Io (Vulkanausbruch abwarten) und Europa (Eisbohrer, Tauchmodul, Mikrobenkultur aus einer Quelle, Riffwächter mit Ration beruhigen).
-4. Klon-Kammer mit Kultur und Strom binden, auf einem fremden Mond sterben, in der Kammer erwachen.
-5. Saturn-Orbit betreten (Stufe 5 öffnet), Titan (Gleiten mit Elytren) und Enceladus (Geysirsprung).
-6. Neptun-Orbit, Gas-Sammler auf Wasserstoff umschalten; Triton mit Tiefraumanzug und Heizmodul.
-7. Pluto: Eingang des Senders am Ring finden, Wächter beschwören und besiegen, Sternenkarte aufheben.
-8. Jedes Ziel einmal ohne die nötige Ausrüstung betreten: Warnung im HUD, nach der Aufbauzeit Schaden.
+1. Alle 14 Ziele von Ring 2: mit der vorgesehenen Ausrüstung 5 s ohne Gefahr und ohne Schaden, nicht in einem Block, nicht
+   unter der Welt; ohne Anzug Gefahr und Warnung im HUD; auf Pluto ohne Anzug Schaden nach der Aufbauzeit.
+2. Merkur-Tagseite (Glutebenen) nur mit Hitzeanzug und Strahlenschild.
+3. Asteroidengürtel: Jetpack mit gehaltener Sprungtaste (hebt, verbraucht Energie); Fall unter y 0 zurück auf den
+   Spawn-Asteroiden mit Langsamem Fall.
+4. Europa: im Ozean unter y 80 nur mit Tauchmodul sicher; Eisqualle im Bild.
+5. Titan: Gleiten mit Elytren (Sprungtaste in der Luft) sinkt langsamer als auf der Erde (Client-Physik).
+6. Enceladus: der Ammoniak-Geysir hebt den Spieler.
+7. Klon-Kammer: gebunden in der Overworld, Tod auf Europa, „Wiederbeleben“ im Client, Erwachen an der Kammer.
+8. Pluto: Sender gesetzt, Wächter beschworen (Bossleiste), Phase 2 mit Frostkriechern, besiegt, Sternenkarte aufgehoben.
+
+Was der Spieltest nicht selbst spielt, decken die Server-GameTests ab: erweiterte Sonde, Lithium- und Iridium-Abbau, Anker,
+Gas-Sammler und Magnetfalle, Vulkanausbruch, Eisbohrer, Mikrobenkultur aus der Quelle, Riffwächter mit Ration, Umschalten
+des Gas-Sammlers.
+
+Gefunden und behoben: Geysir und Schockwelle des Wächters bewegten Spieler nicht (26.3 schickt die neue Geschwindigkeit nur
+mit `syncVelocity` an den Spieler selbst; mit Mobs fiel das in den Server-Tests nicht auf).
 
 ## Nebenbei behoben
 

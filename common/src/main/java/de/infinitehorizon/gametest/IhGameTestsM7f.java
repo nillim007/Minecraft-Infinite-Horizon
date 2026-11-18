@@ -30,12 +30,12 @@ import java.util.Set;
  */
 public final class IhGameTestsM7f {
 
-    private static final String T1 = "pressure_suit";
-    private static final String T2 = "heat_suit";
-    private static final String T3 = "deep_space_suit";
-    private static final String SHIELD = "radiation_shield";
-    private static final String HEATING = "heating_module";
-    private static final String DIVING = "diving_module";
+    static final String T1 = "pressure_suit";
+    static final String T2 = "heat_suit";
+    static final String T3 = "deep_space_suit";
+    static final String SHIELD = "radiation_shield";
+    static final String HEATING = "heating_module";
+    static final String DIVING = "diving_module";
     /**
      * Zone, die es nicht gibt: Es gelten nur die Werte des Planeten (Oberfläche). Ohne Angabe würden die Höhenzonen nach
      * der Höhe des Testbereichs greifen (z. B. Tiefsee der Europa unter y 80).

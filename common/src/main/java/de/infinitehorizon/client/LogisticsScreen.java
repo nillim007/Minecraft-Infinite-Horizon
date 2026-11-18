@@ -131,6 +131,10 @@ public class LogisticsScreen extends Screen {
                 .append(" " + t.pos().getX() + " " + t.pos().getZ());
     }
 
+    private static Component planetName(net.minecraft.resources.Identifier dim) {
+        return Component.translatableWithFallback("planet." + dim.getNamespace() + "." + dim.getPath(), dim.getPath());
+    }
+
     private LogisticsStatePayload.@Nullable Terminal terminal(int i) {
         return state.terminals().isEmpty() ? null : state.terminals().get(Math.floorMod(i, state.terminals().size()));
     }
@@ -143,8 +147,9 @@ public class LogisticsScreen extends Screen {
         List<Route> routes = state.routes();
         for (int i = 0; i < Math.min(MAX_ROWS, routes.size()); i++) {
             Route r = routes.get(i);
-            Component label = Component.literal((i + 1) + ": ").append(terminalName(terminalIndex(r.homeDimension(), r.home())))
-                    .append(" → ").append(terminalName(terminalIndex(r.targetDimension(), r.target())));
+            // in der Liste nur die Himmelskörper, die Koordinaten stehen im Editor
+            Component label = Component.literal((i + 1) + ": ").append(planetName(r.homeDimension()))
+                    .append(" → ").append(planetName(r.targetDimension()));
             Button b = Button.builder(label, x -> {
                 keepText();
                 load(r);

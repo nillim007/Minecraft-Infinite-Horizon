@@ -78,6 +78,7 @@ public class AmmoniaGeyserBlock extends BaseEntityBlock {
             if (d.y < v) {
                 e.setDeltaMovement(d.x, v, d.z);
                 e.needsSync = true;
+                e.syncVelocity = true; // 26.3: nur so erfährt auch der Spieler selbst die neue Geschwindigkeit
                 e.resetFallDistance();
             }
         }

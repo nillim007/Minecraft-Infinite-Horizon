@@ -35,6 +35,9 @@ public class IhClientGameTests implements FabricClientGameTest {
 
     @Override
     public void runTest(ClientGameTestContext context) {
+        if (!only("main")) {
+            return;
+        }
         try (TestSingleplayerContext sp = context.worldBuilder()
                 .adjustSettings(c -> {
                     c.setGameMode(WorldCreationUiState.SelectedGameMode.CREATIVE);
@@ -933,6 +936,12 @@ public class IhClientGameTests implements FabricClientGameTest {
         clearChat(context);
         context.takeScreenshot("gui_cargo_terminal");
         closeAndRemove(context, sp, pos);
+    }
+
+    /** Läuft dieser Teil? {@code -Dinfinite_horizon.clienttest.only=<name>} wählt einen Teil aus, leer = alle. */
+    static boolean only(String name) {
+        String only = System.getProperty("infinite_horizon.clienttest.only", "");
+        return only.isEmpty() || only.equals(name);
     }
 
     private static void closeAndRemove(ClientGameTestContext context, TestSingleplayerContext sp, BlockPos pos) {

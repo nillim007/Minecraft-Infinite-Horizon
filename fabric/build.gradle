@@ -58,6 +58,8 @@ loom {
             ideConfigGenerated(false)
             vmArg '-Dfabric.client.gametest'
             vmArg "-Dinfinite_horizon.clienttest.rei=${project.hasProperty('withRei')}"
+            // nur einen Teil laufen lassen, z. B. -PclientTestOnly=playtest_m7 (leer = alle)
+            vmArg "-Dinfinite_horizon.clienttest.only=${project.findProperty('clientTestOnly') ?: ''}"
             runDir('build/clientgametest')
         }
     }
