@@ -44,8 +44,10 @@ public final class IhGameTestsM8b {
     /** Abnahme M8 (27): Mit Override „nicht Erde“ läuft der Bohrturm über 10 Eisenerz-Blöcken und liefert Erz. */
     public static void drillingRigRuns(GameTestHelper h) {
         EnvironmentOverrides.Entry o = EnvironmentOverrides.set(h, InfiniteHorizon.id("moon"), null, null, 300);
-        for (int k = 0; k < 10; k++) {
-            h.setBlock(new BlockPos(k % 5, 1, k / 5), Blocks.IRON_ORE);
+        // in die Säule direkt unter den Turm: sicher im selben Chunk, egal wo der Testbereich liegt
+        BlockPos rig = h.absolutePos(MACHINE);
+        for (int k = 1; k <= 10; k++) {
+            h.getLevel().setBlockAndUpdate(rig.below(k), Blocks.IRON_ORE.defaultBlockState());
         }
         DrillingRigBlockEntity be = machine(h, ModBlocks.DRILLING_RIG.get(), DrillingRigBlockEntity.class);
         h.succeedWhen(() -> {
