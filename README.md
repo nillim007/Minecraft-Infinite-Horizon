@@ -41,6 +41,7 @@ Dazwischen liegt eine Reise durch das echte Sonnensystem: Du baust auf der Erde 
 | 🏭 **Echte Industrie** | Erze zerkleinern und verdoppeln, Metalle pressen, Erdöl raffinieren, Wasser spalten. Maschinen mit Strom, Upgrades, Rohren und Multiblöcken. |
 | 🚀 **Raketen, die man baut** | Raketen aus Einzelteilen auf einer Startrampe. Treibstoff, Schub und Reichweite hängen vom Ziel ab. Proben und Sonden schalten neue Ziele frei. |
 | 🪐 **20 Ziele im Sonnensystem** | Mond, Mars, Venus, Merkur, Asteroidengürtel, Ceres, Io, Europa, Titan, Enceladus, Triton, Pluto und die Orbits der Planeten, jedes mit eigener Schwerkraft, Atmosphäre und Gefahr. |
+| 👾 **Kreaturen und ein Boss** | Jede Welt hat eigene Bewohner, vom Spiegelkäfer auf dem Merkur bis zur Eisqualle unter dem Eis der Europa. Auf Pluto bewacht der Wächter des Senders die Sternenkarte. |
 | 🧑‍🚀 **Überleben im All** | Raumanzüge in drei Stufen, Sauerstoff, Hitze, Kälte und Strahlung. Kuppeln machen fremde Welten bewohnbar. |
 | 🛰️ **Raumstationen** | Eigene Stationen im Orbit mit Schwerelosigkeit, Solarflügeln, Fusionsreaktor und Schwerelos-Fertigung. |
 | 📦 **Logistik-Netz** | Außenposten, Bohrtürme und Frachtraketen versorgen deine Kolonien, auch wenn du nicht vor Ort bist. |
@@ -88,6 +89,12 @@ Der ganze Ablauf mit allen Rezepten steht im Wiki unter [Erste Schritte](docs/wi
 </p>
 
 <p align="center">
+  <img src="docs/images/screenshots/world-io.png" alt="Io: Schwefelkruste und Lavaseen" width="32%">
+  <img src="docs/images/screenshots/world-europa.png" alt="Europa: Eisdecke mit Rissen bis zum Ozean" width="32%">
+  <img src="docs/images/screenshots/world-enceladus.png" alt="Enceladus: Eis mit Ammoniak-Geysiren" width="32%">
+</p>
+
+<p align="center">
   <img src="docs/images/refinery.svg" alt="Bauplan der Raffinerie" width="70%">
 </p>
 
@@ -104,7 +111,7 @@ Infinite Horizon wird Meilenstein für Meilenstein nach einer festen [Spezifikat
 | 4 | Erster Flug: Forschung, Sonde, Rakete T1 · **erste spielbare Version** | ✅ fertig |
 | 5 | Ring 1: Mars, Venus, Rover, Kreaturen | ✅ fertig |
 | 6 | Orbit: Station, Fusion | ✅ fertig |
-| 7 | Ring 2: Merkur bis Pluto | 🔨 in Arbeit (7a–7e fertig, 7f offen) |
+| 7 | Ring 2: Merkur bis Pluto | 🔨 in Arbeit (7a–7f fertig, Abnahme offen) |
 | 8 | Netzwerk und Finale: Logistik, Werft, Sternenschiff | ⏳ geplant |
 | 9 | Feinschliff: Mehrspieler, Erfolge, Klang, Balancing | ⏳ geplant |
 <!-- stand:end -->

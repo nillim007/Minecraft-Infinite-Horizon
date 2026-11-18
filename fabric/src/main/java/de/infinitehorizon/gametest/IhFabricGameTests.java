@@ -1063,4 +1063,9 @@ public class IhFabricGameTests {
     public void sentinelPhasesShockwave(GameTestHelper helper) {
         IhGameTestsM7e2.sentinelPhases(helper);
     }
+
+    @GameTest(maxTicks = 20)
+    public void m7AlltargetsEquipment(GameTestHelper helper) {
+        IhGameTestsM7f.allTargets(helper);
+    }
 }

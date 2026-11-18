@@ -229,7 +229,8 @@ public final class IhTestCatalog {
             new Test("pluto_uraniumore_drops", 20, null, null, null, IhGameTestsM7e2::uraniumOre),  // 13.4, M7e
             new Test("pluto_transmitter_hall", 20, null, null, "infinite_horizon:pluto", IhGameTestsM7e2::transmitterHall),  // 13.4, M7e
             new Test("sentinel_summon_starchart", 20, null, null, "infinite_horizon:pluto", IhGameTestsM7e2::sentinelChart),  // 18, Ä4, M7e
-            new Test("sentinel_phases_shockwave", 20, null, null, null, IhGameTestsM7e2::sentinelPhases)  // 18, M7e
+            new Test("sentinel_phases_shockwave", 20, null, null, null, IhGameTestsM7e2::sentinelPhases),  // 18, M7e
+            new Test("m7_alltargets_equipment", 20, null, null, null, IhGameTestsM7f::allTargets)  // 13.2, 27 M7 (Abnahme)
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

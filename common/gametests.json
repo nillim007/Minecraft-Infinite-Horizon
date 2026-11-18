@@ -217,6 +217,7 @@
     {"name": "pluto_uraniumore_drops", "class": "IhGameTestsM7e2", "method": "uraniumOre", "ticks": 20, "ref": "13.4, M7e"},
     {"name": "pluto_transmitter_hall", "class": "IhGameTestsM7e2", "method": "transmitterHall", "ticks": 20, "dimension": "infinite_horizon:pluto", "ref": "13.4, M7e"},
     {"name": "sentinel_summon_starchart", "class": "IhGameTestsM7e2", "method": "sentinelChart", "ticks": 20, "dimension": "infinite_horizon:pluto", "ref": "18, Ä4, M7e"},
-    {"name": "sentinel_phases_shockwave", "class": "IhGameTestsM7e2", "method": "sentinelPhases", "ticks": 20, "ref": "18, M7e"}
+    {"name": "sentinel_phases_shockwave", "class": "IhGameTestsM7e2", "method": "sentinelPhases", "ticks": 20, "ref": "18, M7e"},
+    {"name": "m7_alltargets_equipment", "class": "IhGameTestsM7f", "method": "allTargets", "ticks": 20, "ref": "13.2, 27 M7 (Abnahme)"}
   ]
 }
