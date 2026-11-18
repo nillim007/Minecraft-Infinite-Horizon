@@ -317,6 +317,12 @@ SIMPLE_BLOCKS = {
     "enceladus_ice": {"copy": "minecraft:packed_ice", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
     # Triton (13.4): rosa-graues Eis
     "triton_ice": {"copy": "minecraft:packed_ice", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
+    # Pluto (13.4)
+    "pluto_nitrogen_ice": {"copy": "minecraft:packed_ice", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
+    "pluto_water_ice": {"copy": "minecraft:packed_ice", "falls": False, "tool": "pickaxe", "needs": None, "ore": None},
+    "pluto_tholin": {"copy": "minecraft:packed_mud", "falls": False, "tool": "shovel", "needs": None, "ore": None},
+    "pluto_uranium_ore": {"copy": "minecraft:deepslate_iron_ore", "falls": False, "tool": "pickaxe", "needs": "iron",
+                          "ore": None, "planet_drops": True},
 }
 
 ORE_DEFAULTS = sd.ORE_DEFAULTS
@@ -609,6 +615,12 @@ def short_id(i):
 def biome_source(p):
     """Biomquelle (13.1): multi_noise, beim Merkur Bänder nach X-Koordinate (x_bands) mit seltenen Einsprengseln."""
     src = (p.get("generator") or {}).get("biome_source") or {}
+    if src.get("type") == "center_radius":
+        # Pluto (13.1): innerer Kreis ein Biom, außerhalb multi_noise über die übrigen Biome
+        rest = [b for b in p["biomes"] if b["id"] != src["inner_biome"]]
+        return {"type": f"{NS}:center_radius", "center": src["center"], "radius": src["radius"],
+                "inner_biome": src["inner_biome"],
+                "outside": {"type": "minecraft:multi_noise", "biomes": biome_parameters(rest)}}
     if src.get("type") == "x_bands":
         bands = []
         for b in src["bands"]:
@@ -991,6 +1003,13 @@ def planet_worldgen(spec, impl, blocks):
                     if key in shape:
                         body[key] = {"type": "minecraft:uniform", "min_inclusive": shape[key][0],
                                      "max_inclusive": shape[key][1]}
+            elif name == "signal_transmitter":
+                hall = prm["hall_size"]
+                pos = st["position"]
+                body.update({"step": "underground_structures", "hall": hall, "y": pos["y"],
+                             "entrance_width": prm["entrance"]["width"], "entrance_height": prm["entrance"]["height"],
+                             "marker_size": prm["surface_marker"]["size"], "wall": prm["surface_marker"]["block"],
+                             "core": f"{NS}:transmitter_core", "tunnel_block": prm["tunnel"]["block"]})
             elif name == "lava_tube":
                 body.update({"step": "underground_structures", "size": prm["cross_section"][0],
                              "length": {"type": "minecraft:uniform", "min_inclusive": prm["length"][0],
@@ -1105,6 +1124,8 @@ def creature_data(spec, impl):
     for eid in ents:
         pools = []
         for dr in creatures[eid].get("drops") or []:
+            if dr.get("components") or dr.get("condition"):
+                continue  # Beute mit Komponenten oder Bedingung setzt der Code (Sternenkarte des Wächters, 18)
             mods = []
             if dr.get("count_max"):
                 mods.append({"type": "minecraft:set_count",

@@ -359,6 +359,27 @@
           "energy_per_tick": 20
         },
         {
+          "id": "infinite_horizon:crushing/uranium_dust",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_uranium"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:uranium_dust",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
           "id": "infinite_horizon:crushing/tungsten_dust",
           "type": "infinite_horizon:crushing",
           "station": "infinite_horizon:crusher",

@@ -1,0 +1,18 @@
+{
+  "type": "infinite_horizon:signal_transmitter",
+  "biomes": "#infinite_horizon:has_structure/signal_transmitter",
+  "spawn_overrides": {},
+  "step": "underground_structures",
+  "hall": [
+    32,
+    32,
+    16
+  ],
+  "y": 30,
+  "entrance_width": 3,
+  "entrance_height": 4,
+  "marker_size": 5,
+  "wall": "infinite_horizon:ancient_alloy",
+  "core": "infinite_horizon:transmitter_core",
+  "tunnel_block": "infinite_horizon:pluto_water_ice"
+}

@@ -1,0 +1,81 @@
+{
+  "type": "infinite_horizon:pluto",
+  "generator": {
+    "type": "minecraft:noise",
+    "settings": "infinite_horizon:pluto",
+    "biome_source": {
+      "type": "infinite_horizon:center_radius",
+      "center": [
+        0,
+        0
+      ],
+      "radius": 400,
+      "inner_biome": "infinite_horizon:pluto_heart_glacier",
+      "outside": {
+        "type": "minecraft:multi_noise",
+        "biomes": [
+          {
+            "biome": "infinite_horizon:pluto_ice_mountains",
+            "parameters": {
+              "temperature": [
+                -1.0,
+                1.0
+              ],
+              "humidity": [
+                -1.0,
+                1.0
+              ],
+              "continentalness": [
+                -1.0,
+                1.0
+              ],
+              "erosion": [
+                -1.0,
+                -0.2
+              ],
+              "depth": [
+                -1.0,
+                1.0
+              ],
+              "weirdness": [
+                -1.0,
+                1.0
+              ],
+              "offset": 0.0
+            }
+          },
+          {
+            "biome": "infinite_horizon:pluto_dark_highlands",
+            "parameters": {
+              "temperature": [
+                -1.0,
+                1.0
+              ],
+              "humidity": [
+                -1.0,
+                1.0
+              ],
+              "continentalness": [
+                -1.0,
+                1.0
+              ],
+              "erosion": [
+                -1.0,
+                -0.2
+              ],
+              "depth": [
+                -1.0,
+                1.0
+              ],
+              "weirdness": [
+                -1.0,
+                1.0
+              ],
+              "offset": 0.0
+            }
+          }
+        ]
+      }
+    }
+  }
+}

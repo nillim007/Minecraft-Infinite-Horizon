@@ -55,6 +55,8 @@ Hier stehen alle Rezepte, die es im aktuellen Stand gibt. Die Werte kommen direk
 | <img src="images/rezepte/electric_smelting_platinum_ingot.svg" alt="Rezept" width="300"> | 1 × [Rohplatin](Weltraumwetter-und-Ereignisse.md) → 1 × [Platinbarren](Der-Asteroidenguertel.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
 | <img src="images/rezepte/electric_smelting_platinum_ingot_from_dust.svg" alt="Rezept" width="300"> | 1 × [Platinstaub](Der-Asteroidenguertel.md) → 1 × [Platinbarren](Der-Asteroidenguertel.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
 | <img src="images/rezepte/electric_smelting_silicon.svg" alt="Rezept" width="300"> | 1 × [Quarzsand](Rohstoffe-und-Erze.md) → 1 × [Silizium](Elektroofen.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
+| <img src="images/rezepte/electric_smelting_uranium_ingot.svg" alt="Rezept" width="300"> | 1 × [Rohuran](Pluto.md) → 1 × [Uranbarren](Pluto.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
+| <img src="images/rezepte/electric_smelting_uranium_ingot_from_dust.svg" alt="Rezept" width="300"> | 1 × [Uranstaub](Pluto.md) → 1 × [Uranbarren](Pluto.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
 
 ## Zerkleinerer
 
@@ -72,6 +74,7 @@ Hier stehen alle Rezepte, die es im aktuellen Stand gibt. Die Werte kommen direk
 | <img src="images/rezepte/crushing_platinum_dust.svg" alt="Rezept" width="300"> | 1 × [Rohplatin](Weltraumwetter-und-Ereignisse.md) → 2 × [Platinstaub](Der-Asteroidenguertel.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_raw_iron_from_meteorite_ore.svg" alt="Rezept" width="300"> | 1 × [Meteoritenerz](Weltraumwetter-und-Ereignisse.md) → 2 × Roheisen, 1 × [Rohnickel](Der-Mars.md), 1 × [Rohplatin](Weltraumwetter-und-Ereignisse.md) (10 %), 1 × [Rohiridium](Weltraumwetter-und-Ereignisse.md) (5 %) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_titanium_dust.svg" alt="Rezept" width="300"> | 1 × [Rohtitan](Rohstoffe-und-Erze.md) → 2 × [Titanstaub](Zerkleinerer.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
+| <img src="images/rezepte/crushing_uranium_dust.svg" alt="Rezept" width="300"> | 1 × [Rohuran](Pluto.md) → 2 × [Uranstaub](Pluto.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_tungsten_dust.svg" alt="Rezept" width="300"> | 1 × [Rohwolfram](Die-Venus.md) → 2 × [Wolframstaub](Die-Venus.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 
 ## Presse

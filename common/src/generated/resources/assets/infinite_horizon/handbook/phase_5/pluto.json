@@ -1,0 +1,133 @@
+{
+  "id": "infinite_horizon:phase_5/pluto",
+  "chapter": "infinite_horizon:phase_5",
+  "title": "infinite_horizon.handbook.phase_5.pluto.title",
+  "icon": "infinite_horizon:pluto_nitrogen_ice",
+  "order": 180,
+  "unlock": "infinite_horizon:research_tier/4",
+  "items": [
+    "infinite_horizon:pluto_nitrogen_ice",
+    "infinite_horizon:pluto_water_ice",
+    "infinite_horizon:pluto_tholin",
+    "infinite_horizon:pluto_uranium_ore",
+    "infinite_horizon:raw_uranium",
+    "infinite_horizon:uranium_dust",
+    "infinite_horizon:uranium_ingot"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.pluto.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.pluto.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.pluto.e2"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.pluto.e3",
+      "style": "warning"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.pluto.e4",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": false,
+      "keys": [
+        "infinite_horizon.handbook.phase_5.pluto.e5.0",
+        "infinite_horizon.handbook.phase_5.pluto.e5.1",
+        "infinite_horizon.handbook.phase_5.pluto.e5.2"
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.pluto.e6",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.pluto.e7"
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:crushing/uranium_dust",
+          "type": "infinite_horizon:crushing",
+          "station": "infinite_horizon:crusher",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_uranium"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:uranium_dust",
+              "count": 2
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:electric_smelting/uranium_ingot",
+          "type": "infinite_horizon:electric_smelting",
+          "station": "infinite_horizon:electric_furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:raw_uranium"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:uranium_ingot",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 20
+        },
+        {
+          "id": "infinite_horizon:electric_smelting/uranium_ingot_from_dust",
+          "type": "infinite_horizon:electric_smelting",
+          "station": "infinite_horizon:electric_furnace",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:uranium_dust"
+              ],
+              "count": 1
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:uranium_ingot",
+              "count": 1
+            }
+          ],
+          "ticks": 100,
+          "energy_per_tick": 20
+        }
+      ]
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.pluto.e9",
+      "style": "tip"
+    }
+  ]
+}

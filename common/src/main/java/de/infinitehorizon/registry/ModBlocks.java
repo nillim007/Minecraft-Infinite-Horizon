@@ -203,6 +203,13 @@ public final class ModBlocks {
     /** Stickstoff-Geysir (13.4, Triton): unzerstörbar; Quelle der Pumpstation (M8). */
     public static final Supplier<Block> NITROGEN_GEYSER = register("nitrogen_geyser", Block::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.PACKED_ICE).strength(-1.0f, 3600000.0f).noLootTable().friction(0.6f));
+    /** Uralte Legierung (13.4, Pluto): Wände des Senders, unzerstörbar wie Grundgestein. */
+    public static final Supplier<Block> ANCIENT_ALLOY = register("ancient_alloy", Block::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.BEDROCK));
+    /** Senderkern (13.4): unzerstörbar, Rechtsklick beschwört den Wächter. */
+    public static final Supplier<Block> TRANSMITTER_CORE = register("transmitter_core",
+            de.infinitehorizon.world.TransmitterCoreBlock::new,
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.BEDROCK).lightLevel(s -> 10));
     public static final Supplier<Block> SPACE_WEATHER_STATION = register("space_weather_station",
             p -> new MachineBlock(p, () -> ModBlockEntities.SPACE_WEATHER_STATION.get()),
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));

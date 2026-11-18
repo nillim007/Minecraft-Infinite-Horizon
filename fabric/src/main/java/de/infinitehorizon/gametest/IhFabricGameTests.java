@@ -1038,4 +1038,29 @@ public class IhFabricGameTests {
     public void landerNeptuneorbitTriton(GameTestHelper helper) {
         IhGameTestsM7e.landerNeptune(helper);
     }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:pluto")
+    public void plutoHeartglacierCenter(GameTestHelper helper) {
+        IhGameTestsM7e2.heartGlacier(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void plutoUraniumoreDrops(GameTestHelper helper) {
+        IhGameTestsM7e2.uraniumOre(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:pluto")
+    public void plutoTransmitterHall(GameTestHelper helper) {
+        IhGameTestsM7e2.transmitterHall(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:pluto")
+    public void sentinelSummonStarchart(GameTestHelper helper) {
+        IhGameTestsM7e2.sentinelChart(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void sentinelPhasesShockwave(GameTestHelper helper) {
+        IhGameTestsM7e2.sentinelPhases(helper);
+    }
 }

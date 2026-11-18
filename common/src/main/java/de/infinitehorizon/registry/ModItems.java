@@ -83,6 +83,8 @@ public final class ModItems {
     public static final Supplier<Item> DOME_GENERATOR_T3 = blockItem("dome_generator_t3", ModBlocks.DOME_GENERATOR_T3);
     public static final Supplier<Item> AMMONIA_GEYSER = blockItem("ammonia_geyser", ModBlocks.AMMONIA_GEYSER);
     public static final Supplier<Item> NITROGEN_GEYSER = blockItem("nitrogen_geyser", ModBlocks.NITROGEN_GEYSER);
+    public static final Supplier<Item> ANCIENT_ALLOY = blockItem("ancient_alloy", ModBlocks.ANCIENT_ALLOY);
+    public static final Supplier<Item> TRANSMITTER_CORE = blockItem("transmitter_core", ModBlocks.TRANSMITTER_CORE);
     public static final Supplier<Item> HYDROTHERMAL_VENT = blockItem("hydrothermal_vent", ModBlocks.HYDROTHERMAL_VENT);
     public static final Supplier<Item> SPACE_WEATHER_STATION = blockItem("space_weather_station", ModBlocks.SPACE_WEATHER_STATION);
     public static final Supplier<Item> DOCKING_BAY = blockItem("docking_bay", ModBlocks.DOCKING_BAY);
@@ -119,6 +121,9 @@ public final class ModItems {
     /** Antimaterie-Zelle (5): leer/gefüllt über die Komponente {@code charge}. */
     public static final Supplier<Item> ANTIMATTER_CELL = register("antimatter_cell",
             p -> new de.infinitehorizon.machine.AntimatterCellItem(p.stacksTo(16)));
+    /** Sternenkarte (18): Komponente {@code chart_owner}, feuerfest. */
+    public static final Supplier<Item> STAR_CHART = register("star_chart",
+            p -> new de.infinitehorizon.item.StarChartItem(p.stacksTo(1).fireResistant()));
     /** Probe (11.2) mit Komponente {@code sample}; gleiche Proben stapeln bis 64. */
     public static final Supplier<Item> SAMPLE = register("sample", de.infinitehorizon.research.SampleTool.SampleItem::new);
 

@@ -4,6 +4,7 @@
     "infinite_horizon:aluminum_cable",
     "infinite_horizon:ammonia_geyser",
     "infinite_horizon:analyzer",
+    "infinite_horizon:ancient_alloy",
     "infinite_horizon:assembly_table",
     "infinite_horizon:asteroid_anchor",
     "infinite_horizon:asteroid_nickel_ore",
@@ -84,6 +85,7 @@
     "infinite_horizon:sulfur_trail",
     "infinite_horizon:superconductor_cable",
     "infinite_horizon:tank_depot",
+    "infinite_horizon:transmitter_core",
     "infinite_horizon:venus_sulfur_ore",
     "infinite_horizon:zero_g_fabricator"
   ]

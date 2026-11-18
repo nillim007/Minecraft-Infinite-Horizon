@@ -17,6 +17,7 @@ Mit Stufe 4 der Forschung öffnet sich das Sonnensystem jenseits von Mond, Mars 
 7. **Zum Saturn.** Mit dem Fernflug-Modul erreichst du den [Saturn-Orbit](Saturn-Orbit.md) und öffnest Stufe 5. Die Landefähre bringt dich nach [Titan](Titan.md) und [Enceladus](Enceladus.md).
 8. **Antimaterie.** Die [Magnetfalle](Magnetfalle-und-Antimaterie.md) im Jupiter-Orbit füllt Antimaterie-Zellen.
 9. **Zu den Eisriesen.** Im [Uranus- und Neptun-Orbit](Uranus-und-Neptun-Orbit.md) sammelst du Methan. Für [Triton](Triton.md) brauchst du den [Tiefraumanzug](Der-Tiefraumanzug.md) mit Heizmodul.
+10. **Pluto und der Sender.** Auf [Pluto](Pluto.md) gibt es Uran. Unter dem Herzgletscher wartet der [Sender](Der-Sender.md) mit seinem Wächter, der die Sternenkarte bewacht.
 
 ![Rezept: Fortgeschrittene Sonde](images/rezepte/assembly_advanced_probe.svg)
 

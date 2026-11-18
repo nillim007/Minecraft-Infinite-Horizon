@@ -33,6 +33,14 @@ public final class ModDataComponents {
                     .networkSynchronized(net.minecraft.network.codec.ByteBufCodecs.VAR_INT)
                     .build());
 
+    /** {@code infinite_horizon:chart_owner} (18): Agentur und Kennung der Sternenkarte. */
+    public static final Supplier<DataComponentType<de.infinitehorizon.item.StarChartItem.ChartOwner>> CHART_OWNER =
+            Services.REGISTRY.register(BuiltInRegistries.DATA_COMPONENT_TYPE, "chart_owner",
+                    () -> DataComponentType.<de.infinitehorizon.item.StarChartItem.ChartOwner>builder()
+                            .persistent(de.infinitehorizon.item.StarChartItem.ChartOwner.CODEC)
+                            .networkSynchronized(de.infinitehorizon.item.StarChartItem.ChartOwner.STREAM_CODEC)
+                            .build());
+
     public static final Supplier<DataComponentType<Long>> ENERGY = Services.REGISTRY.register(
             BuiltInRegistries.DATA_COMPONENT_TYPE, "energy",
             () -> DataComponentType.<Long>builder()

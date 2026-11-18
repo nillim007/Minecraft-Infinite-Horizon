@@ -154,6 +154,10 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Planetenatlas](Der-Planetenatlas.md) | Item | Geschenk beim ersten Betreten, Rezept |
 | [Platinbarren](Der-Asteroidenguertel.md) | Item | Maschine |
 | [Platinstaub](Der-Asteroidenguertel.md) | Item | Maschine |
+| [Pluto-Stickstoffeis](Pluto.md) | Block | Weltgenerierung |
+| [Pluto-Tholin](Pluto.md) | Block | Weltgenerierung |
+| [Pluto-Uranerz](Pluto.md) | Block | Weltgenerierung |
+| [Pluto-Wassereis](Pluto.md) | Block | Weltgenerierung |
 | [Presse](Presse.md) | Block | Rezept |
 | [Pressform (Draht)](Presse.md) | Item | Rezept |
 | [Pressform (Platte)](Presse.md) | Item | Rezept |
@@ -179,6 +183,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Rohnickel](Der-Mars.md) | Item | Abbau, Maschine |
 | [Rohplatin](Weltraumwetter-und-Ereignisse.md) | Item | Abbau, Maschine |
 | [Rohtitan](Rohstoffe-und-Erze.md) | Item | Abbau |
+| [Rohuran](Pluto.md) | Item | Abbau |
 | [Rohwolfram](Die-Venus.md) | Item | Abbau |
 | [Rover-Anhänger](Der-Rover.md) | Item | Rezept |
 | [Rover-Bausatz](Der-Rover.md) | Item | Rezept |
@@ -196,6 +201,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Schwefelspur](Kreaturen-des-inneren-Sonnensystems.md) | Block | not_obtainable |
 | [Schwerelos-Fertigung](Fertigung-im-Orbit.md) | Block | Rezept |
 | [Schwerkraftplatte](Der-Fusionsreaktor.md) | Block | Rezept |
+| [Senderkern](Der-Sender.md) | Block | Weltgenerierung |
 | [Silizium](Elektroofen.md) | Item | Maschine |
 | [Solarflügel](Stationsmodule.md) | Block | Rezept |
 | [Solarpanel](Strom-im-All.md) | Block | Rezept |
@@ -207,6 +213,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Stationsfenster](Die-Raumstation.md) | Block | Rezept |
 | [Stationshülle](Die-Raumstation.md) | Block | Rezept, Füllslot oder Eimer |
 | [Stationskern](Die-Raumstation.md) | Block | Rezept |
+| [Sternenkarte](Der-Sender.md) | Item | Kreatur |
 | [Stickstoff-Geysir](Triton.md) | Block | Weltgenerierung |
 | [Strahlenschild](Der-Merkur.md) | Item | Rezept |
 | [Supraleiterdraht](Fertigung-im-Orbit.md) | Item | Maschine |
@@ -233,6 +240,9 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Triton-Eis](Triton.md) | Block | Weltgenerierung |
 | [Trockeneis](Der-Mars.md) | Item | Abbau |
 | [Trockeneisblock](Der-Mars.md) | Block | Weltgenerierung |
+| [Uralte Legierung](Der-Sender.md) | Block | Weltgenerierung |
+| [Uranbarren](Pluto.md) | Item | Maschine |
+| [Uranstaub](Pluto.md) | Item | Maschine |
 | [Venus-Schwefelerz](Die-Venus.md) | Block | Weltgenerierung |
 | [Venus-Wolframerz](Die-Venus.md) | Block | Weltgenerierung |
 | [Venusgestein](Die-Venus.md) | Block | Weltgenerierung |

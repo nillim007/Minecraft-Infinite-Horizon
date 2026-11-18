@@ -212,6 +212,11 @@
     {"name": "uranusorbit_collector_switch", "class": "IhGameTestsM7e", "method": "uranusCollectorSwitch", "ticks": 60, "dimension": "infinite_horizon:uranus_orbit", "ref": "13.3, M7e"},
     {"name": "triton_frostlurker_emerges", "class": "IhGameTestsM7e", "method": "frostLurker", "ticks": 30, "ref": "18, M7e"},
     {"name": "triton_deepspacesuit_heating", "class": "IhGameTestsM7e", "method": "heatingModule", "ticks": 20, "dimension": "infinite_horizon:triton", "ref": "9.1, 9.2, 13.2, M7e"},
-    {"name": "lander_neptuneorbit_triton", "class": "IhGameTestsM7e", "method": "landerNeptune", "ticks": 20, "dimension": "infinite_horizon:triton", "ref": "12.7, 13.4, M7e"}
+    {"name": "lander_neptuneorbit_triton", "class": "IhGameTestsM7e", "method": "landerNeptune", "ticks": 20, "dimension": "infinite_horizon:triton", "ref": "12.7, 13.4, M7e"},
+    {"name": "pluto_heartglacier_center", "class": "IhGameTestsM7e2", "method": "heartGlacier", "ticks": 20, "dimension": "infinite_horizon:pluto", "ref": "13.1, M7e"},
+    {"name": "pluto_uraniumore_drops", "class": "IhGameTestsM7e2", "method": "uraniumOre", "ticks": 20, "ref": "13.4, M7e"},
+    {"name": "pluto_transmitter_hall", "class": "IhGameTestsM7e2", "method": "transmitterHall", "ticks": 20, "dimension": "infinite_horizon:pluto", "ref": "13.4, M7e"},
+    {"name": "sentinel_summon_starchart", "class": "IhGameTestsM7e2", "method": "sentinelChart", "ticks": 20, "dimension": "infinite_horizon:pluto", "ref": "18, Ä4, M7e"},
+    {"name": "sentinel_phases_shockwave", "class": "IhGameTestsM7e2", "method": "sentinelPhases", "ticks": 20, "ref": "18, M7e"}
   ]
 }

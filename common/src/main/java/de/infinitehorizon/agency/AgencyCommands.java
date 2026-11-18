@@ -47,6 +47,10 @@ public final class AgencyCommands {
                                 .executes(ctx -> info(ctx, ctx.getSource().getPlayerOrException()))
                                 .then(Commands.argument("player", EntityArgument.player())
                                         .executes(ctx -> info(ctx, EntityArgument.getPlayer(ctx, "player")))))
+                        .then(Commands.literal("reset_chart")
+                                .requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
+                                .then(Commands.argument("agency", StringArgumentType.word()).suggests(AGENCIES)
+                                        .executes(AgencyCommands::resetChart)))
                         .then(Commands.literal("transfer")
                                 .requires(Commands.hasPermission(Commands.LEVEL_GAMEMASTERS))
                                 .then(Commands.argument("from", StringArgumentType.word()).suggests(AGENCIES)
@@ -70,6 +74,21 @@ public final class AgencyCommands {
         ctx.getSource().sendSuccess(() -> Component.translatable(KEY + "info.dimensions",
                 ComponentUtils.formatList(dims, Component.literal(", "))), false);
         return members.size();
+    }
+
+    /** 18: Sternenkarte der Agentur zurücksetzen (der Wächter droppt dann wieder eine). */
+    private static int resetChart(CommandContext<CommandSourceStack> ctx) {
+        MinecraftServer server = ctx.getSource().getServer();
+        String arg = StringArgumentType.getString(ctx, "agency");
+        Optional<Agency> agency = find(server, AgencyManager.data(server), arg);
+        if (agency.isEmpty()) {
+            ctx.getSource().sendFailure(Component.translatable(KEY + "unknown", arg));
+            return 0;
+        }
+        de.infinitehorizon.creature.SignalData.get(server).setChart(agency.get().id(), null);
+        Component name = AgencyManager.displayName(server, agency.get());
+        ctx.getSource().sendSuccess(() -> Component.translatable(KEY + "reset_chart.ok", name), true);
+        return 1;
     }
 
     private static int transfer(CommandContext<CommandSourceStack> ctx) throws CommandSyntaxException {

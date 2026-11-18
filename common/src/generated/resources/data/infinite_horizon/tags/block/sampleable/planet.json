@@ -1,6 +1,7 @@
 {
   "values": [
     "infinite_horizon:ammonia_geyser",
+    "infinite_horizon:ancient_alloy",
     "infinite_horizon:asteroid_iridium_ore",
     "infinite_horizon:asteroid_nickel_ore",
     "infinite_horizon:asteroid_platinum_ore",
@@ -31,9 +32,14 @@
     "infinite_horizon:moon_rock",
     "infinite_horizon:moon_titanium_ore",
     "infinite_horizon:nitrogen_geyser",
+    "infinite_horizon:pluto_nitrogen_ice",
+    "infinite_horizon:pluto_tholin",
+    "infinite_horizon:pluto_uranium_ore",
+    "infinite_horizon:pluto_water_ice",
     "infinite_horizon:salt_crust",
     "infinite_horizon:titan_dune_sand",
     "infinite_horizon:titan_ice_rock",
+    "infinite_horizon:transmitter_core",
     "infinite_horizon:triton_ice",
     "infinite_horizon:venus_rock",
     "infinite_horizon:venus_sulfur_ore",

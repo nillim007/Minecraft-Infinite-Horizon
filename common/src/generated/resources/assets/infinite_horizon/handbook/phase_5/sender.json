@@ -1,0 +1,68 @@
+{
+  "id": "infinite_horizon:phase_5/sender",
+  "chapter": "infinite_horizon:phase_5",
+  "title": "infinite_horizon.handbook.phase_5.sender.title",
+  "icon": "infinite_horizon:transmitter_core",
+  "order": 190,
+  "unlock": "infinite_horizon:research_tier/4",
+  "items": [
+    "infinite_horizon:ancient_alloy",
+    "infinite_horizon:transmitter_core",
+    "infinite_horizon:star_chart"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.sender.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.sender.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.sender.e2"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.sender.e3",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.sender.e4"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_5.sender.e5.0",
+        "infinite_horizon.handbook.phase_5.sender.e5.1"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.sender.e6"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.sender.e7",
+      "style": "warning"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_5.sender.e8",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_5.sender.e9"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_5.sender.e10",
+      "style": "tip"
+    }
+  ]
+}

@@ -39,6 +39,8 @@ Der Elektroofen schmilzt alles, was auch der normale Ofen schmilzt, braucht daf�
 | <img src="images/rezepte/electric_smelting_platinum_ingot.svg" alt="Rezept" width="300"> | 1 × [Rohplatin](Weltraumwetter-und-Ereignisse.md) → 1 × [Platinbarren](Der-Asteroidenguertel.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
 | <img src="images/rezepte/electric_smelting_platinum_ingot_from_dust.svg" alt="Rezept" width="300"> | 1 × [Platinstaub](Der-Asteroidenguertel.md) → 1 × [Platinbarren](Der-Asteroidenguertel.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
 | <img src="images/rezepte/electric_smelting_silicon.svg" alt="Rezept" width="300"> | 1 × [Quarzsand](Rohstoffe-und-Erze.md) → 1 × Silizium | Elektroofen | 100 t (5 s)<br>20 J/t |
+| <img src="images/rezepte/electric_smelting_uranium_ingot.svg" alt="Rezept" width="300"> | 1 × [Rohuran](Pluto.md) → 1 × [Uranbarren](Pluto.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
+| <img src="images/rezepte/electric_smelting_uranium_ingot_from_dust.svg" alt="Rezept" width="300"> | 1 × [Uranstaub](Pluto.md) → 1 × [Uranbarren](Pluto.md) | Elektroofen | 100 t (5 s)<br>20 J/t |
 
 ## Alles aus dem normalen Ofen
 

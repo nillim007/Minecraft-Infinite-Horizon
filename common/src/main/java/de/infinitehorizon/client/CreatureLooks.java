@@ -71,4 +71,8 @@ public final class CreatureLooks {
     public static BlockState lurker(de.infinitehorizon.creature.FrostLurker e) {
         return Blocks.BLUE_ICE.defaultBlockState();
     }
+
+    public static BlockState sentinel(de.infinitehorizon.creature.SignalSentinel e) {
+        return Blocks.CRYING_OBSIDIAN.defaultBlockState();
+    }
 }

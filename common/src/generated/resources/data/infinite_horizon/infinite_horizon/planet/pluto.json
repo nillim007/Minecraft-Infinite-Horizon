@@ -1,0 +1,87 @@
+{
+  "dimension": "infinite_horizon:pluto",
+  "type": "surface",
+  "orbit": null,
+  "star_system": "infinite_horizon:sol",
+  "ring": 2,
+  "distance_points": 18,
+  "gravity": 0.06,
+  "atmosphere": "thin",
+  "pressure": "low",
+  "temperature": {
+    "day": -230,
+    "night": -230
+  },
+  "biome_temperature_offsets": {},
+  "biome_temperature_overrides": {},
+  "radiation": 1,
+  "solar_factor": 0.02,
+  "water_behavior": "freeze",
+  "landing_requires_fuel": true,
+  "launch_cost_override": null,
+  "required_rocket_tier": 2,
+  "requires_long_range": true,
+  "lander_connects_to": null,
+  "fixed_time": null,
+  "special": {},
+  "structures": [
+    {
+      "id": "infinite_horizon:signal_transmitter",
+      "exploration_target": true,
+      "biomes": [
+        "infinite_horizon:pluto_heart_glacier"
+      ],
+      "spacing_chunks": null,
+      "count_per_dimension": 1,
+      "position": {
+        "x": 0,
+        "y": 30,
+        "z": 0,
+        "tolerance": 64
+      },
+      "params": {
+        "hall_size": [
+          32,
+          32,
+          16
+        ],
+        "entrance": {
+          "wall": "south",
+          "width": 3,
+          "height": 4
+        },
+        "tunnel": {
+          "width": 3,
+          "height": 4,
+          "block": "infinite_horizon:pluto_water_ice"
+        },
+        "surface_marker": {
+          "size": 5,
+          "block": "infinite_horizon:ancient_alloy"
+        }
+      },
+      "notes": "Halle 32×32×16 aus ancient_alloy, transmitter_core in der Mitte, Öffnung 3×4 in der Südwand, Treppentunnel (3 breit, 4 hoch) aus pluto_water_ice zur Oberfläche, oben 5×5-Ring aus ancient_alloy"
+    }
+  ],
+  "probe": "infinite_horizon:advanced_probe",
+  "sky": {
+    "color": "#10101C",
+    "fog_color": "#1A1A26",
+    "fog_distance": null,
+    "stars_in_daylight": true,
+    "sun_scale": 0.1,
+    "sunset_color": null,
+    "celestial_bodies": []
+  },
+  "gas_collector_output": null,
+  "zones": [],
+  "vanilla_mobs": [
+    {
+      "entity": "minecraft:stray",
+      "rate": 0.5,
+      "y_max": null,
+      "event_rates": {}
+    }
+  ],
+  "name": "planet.infinite_horizon.pluto"
+}

@@ -39,6 +39,7 @@ Der Zerkleinerer ist die erste Maschine, die du bauen solltest. Er mahlt Rohform
 | <img src="images/rezepte/crushing_platinum_dust.svg" alt="Rezept" width="300"> | 1 × [Rohplatin](Weltraumwetter-und-Ereignisse.md) → 2 × [Platinstaub](Der-Asteroidenguertel.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_raw_iron_from_meteorite_ore.svg" alt="Rezept" width="300"> | 1 × [Meteoritenerz](Weltraumwetter-und-Ereignisse.md) → 2 × Roheisen, 1 × [Rohnickel](Der-Mars.md), 1 × [Rohplatin](Weltraumwetter-und-Ereignisse.md) (10 %), 1 × [Rohiridium](Weltraumwetter-und-Ereignisse.md) (5 %) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_titanium_dust.svg" alt="Rezept" width="300"> | 1 × [Rohtitan](Rohstoffe-und-Erze.md) → 2 × Titanstaub | Zerkleinerer | 200 t (10 s)<br>20 J/t |
+| <img src="images/rezepte/crushing_uranium_dust.svg" alt="Rezept" width="300"> | 1 × [Rohuran](Pluto.md) → 2 × [Uranstaub](Pluto.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 | <img src="images/rezepte/crushing_tungsten_dust.svg" alt="Rezept" width="300"> | 1 × [Rohwolfram](Die-Venus.md) → 2 × [Wolframstaub](Die-Venus.md) | Zerkleinerer | 200 t (10 s)<br>20 J/t |
 
 ## Und danach?

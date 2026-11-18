@@ -36,6 +36,13 @@ public final class ModWorldgen {
     /** Quellenfeld der Europa (13.4): Cluster aus hydrothermalen Quellen mit Riffwächter. */
     public static final Supplier<StructureType<de.infinitehorizon.world.SurfaceStructure>> HYDROTHERMAL_FIELD = Services.REGISTRY.register(
             BuiltInRegistries.STRUCTURE_TYPE, "hydrothermal_field", () -> () -> de.infinitehorizon.world.SurfaceStructure.CODEC);
+    /** Sender auf Pluto (13.4): Halle mit Kern, Treppentunnel und Markierung. */
+    public static final Supplier<StructureType<de.infinitehorizon.world.SignalTransmitterStructure>> SIGNAL_TRANSMITTER =
+            Services.REGISTRY.register(BuiltInRegistries.STRUCTURE_TYPE, "signal_transmitter",
+                    () -> () -> de.infinitehorizon.world.SignalTransmitterStructure.CODEC);
+    public static final Supplier<StructurePieceType> SIGNAL_TRANSMITTER_PIECE = Services.REGISTRY.register(
+            BuiltInRegistries.STRUCTURE_PIECE, "signal_transmitter",
+            () -> (StructurePieceType.ContextlessType) de.infinitehorizon.world.SignalTransmitterStructure.Piece::new);
     public static final Supplier<StructurePieceType> ASTEROID_PIECE = Services.REGISTRY.register(
             BuiltInRegistries.STRUCTURE_PIECE, "asteroid",
             () -> (StructurePieceType.ContextlessType) de.infinitehorizon.world.SurfaceStructure.AsteroidPiece::new);
@@ -53,6 +60,9 @@ public final class ModWorldgen {
         Services.REGISTRY.register(BuiltInRegistries.FEATURE_TYPE, "fluid_sphere", () -> FluidSphereFeature.CODEC);
         // Merkur (13.4): Biome nach X-Koordinate
         Services.REGISTRY.register(BuiltInRegistries.BIOME_SOURCE, "x_bands", () -> de.infinitehorizon.world.XBandsBiomeSource.CODEC);
+        // Pluto (13.1): Herzgletscher im Kreis um (0, 0)
+        Services.REGISTRY.register(BuiltInRegistries.BIOME_SOURCE, "center_radius",
+                () -> de.infinitehorizon.world.CenterRadiusBiomeSource.CODEC);
         Services.REGISTRY.register(BuiltInRegistries.FEATURE_TYPE, "crater", () -> CraterFeature.CODEC);
         Services.REGISTRY.register(BuiltInRegistries.FEATURE_TYPE, "asteroid", () -> de.infinitehorizon.world.AsteroidFeature.CODEC);
         // Enceladus (13.4): Geysire in der Oberfläche

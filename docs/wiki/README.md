@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 7d · Mod-Version 0.1.0
+> Stand: Meilenstein 7e · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -104,6 +104,8 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Uranus- und Neptun-Orbit](Uranus-und-Neptun-Orbit.md) – Die Eisriesen, Methan oder Wasserstoff aus dem Gas-Sammler
 - [Triton](Triton.md) – Der eisige Neptunmond mit Stickstoff-Geysiren
 - [Der Tiefraumanzug](Der-Tiefraumanzug.md) – Anzug der Stufe 3 und Heizmodul für die kältesten Ziele
+- [Pluto](Pluto.md) – Der Zwergplanet am Rand mit Herzgletscher und Uran
+- [Der Sender](Der-Sender.md) – Eine fremde Halle unter dem Herzgletscher und ihr Wächter
 
 ## Nachschlagen
 

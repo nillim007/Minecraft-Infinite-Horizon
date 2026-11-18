@@ -28,4 +28,4 @@ Das Heizmodul kommt in die Brustplatte und verschiebt die untere Temperaturgrenz
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Triton](Triton.md)
+← [Triton](Triton.md) · [Pluto](Pluto.md) →

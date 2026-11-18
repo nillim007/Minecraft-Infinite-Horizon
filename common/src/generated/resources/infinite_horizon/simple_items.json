@@ -89,7 +89,10 @@
     "diving_module",
     "skimmer_leg",
     "insulation_fabric",
-    "heating_module"
+    "heating_module",
+    "raw_uranium",
+    "uranium_dust",
+    "uranium_ingot"
   ],
   "max_stack": {
     "efficiency_upgrade": 16,

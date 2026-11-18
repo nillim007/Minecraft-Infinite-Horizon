@@ -12,6 +12,7 @@
     "EntityMixin",
     "GameTestServerMixin",
     "IceBlockMixin",
+    "ItemEntityMixin",
     "LiquidBlockMixin",
     "NaturalSpawnerMixin",
     "PlayerAdvancementsMixin",

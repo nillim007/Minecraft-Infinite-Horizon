@@ -224,7 +224,12 @@ public final class IhTestCatalog {
             new Test("uranusorbit_collector_switch", 60, null, null, "infinite_horizon:uranus_orbit", IhGameTestsM7e::uranusCollectorSwitch),  // 13.3, M7e
             new Test("triton_frostlurker_emerges", 30, null, null, null, IhGameTestsM7e::frostLurker),  // 18, M7e
             new Test("triton_deepspacesuit_heating", 20, null, null, "infinite_horizon:triton", IhGameTestsM7e::heatingModule),  // 9.1, 9.2, 13.2, M7e
-            new Test("lander_neptuneorbit_triton", 20, null, null, "infinite_horizon:triton", IhGameTestsM7e::landerNeptune)  // 12.7, 13.4, M7e
+            new Test("lander_neptuneorbit_triton", 20, null, null, "infinite_horizon:triton", IhGameTestsM7e::landerNeptune),  // 12.7, 13.4, M7e
+            new Test("pluto_heartglacier_center", 20, null, null, "infinite_horizon:pluto", IhGameTestsM7e2::heartGlacier),  // 13.1, M7e
+            new Test("pluto_uraniumore_drops", 20, null, null, null, IhGameTestsM7e2::uraniumOre),  // 13.4, M7e
+            new Test("pluto_transmitter_hall", 20, null, null, "infinite_horizon:pluto", IhGameTestsM7e2::transmitterHall),  // 13.4, M7e
+            new Test("sentinel_summon_starchart", 20, null, null, "infinite_horizon:pluto", IhGameTestsM7e2::sentinelChart),  // 18, Ä4, M7e
+            new Test("sentinel_phases_shockwave", 20, null, null, null, IhGameTestsM7e2::sentinelPhases)  // 18, M7e
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */
