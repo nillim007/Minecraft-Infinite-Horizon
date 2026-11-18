@@ -107,7 +107,7 @@ public class MachineMenu extends AbstractContainerMenu {
             addSlot(new RoleSlot(container, l.upgradeStart() + i, g.upgradeX() - (l.upgrades() - 1 - i) * SLOT, g.upgradeY(),
                     true, openData.upgradeMax()));
         }
-        centered(l.fuel(), INPUT_X, l.fuelStart());
+        fuelGrid(l.fuel(), l.fuelStart());
         for (int i = 0; i < l.fill(); i++) {
             addSlot(new RoleSlot(container, l.fillStart() + i, g.containerX(), g.fillY() + i * SLOT, true, 1));
         }
@@ -125,6 +125,25 @@ public class MachineMenu extends AbstractContainerMenu {
             addSlot(new Slot(inventory, col, 8 + col * SLOT, invY + 58));
         }
         addDataSlots(data);
+    }
+
+    /**
+     * Brennstoff-Slots: bis 3 als Spalte um die Mittelzeile, darüber in 2 Spalten (Kernreaktor: 2 × 2), rechts bündig an
+     * der Eingabespalte, damit sie weder den Titel noch die Inventar-Beschriftung berühren.
+     */
+    private void fuelGrid(int count, int start) {
+        if (count <= 3) {
+            centered(count, INPUT_X, start);
+            return;
+        }
+        int cols = 2;
+        int rows = (count + cols - 1) / cols;
+        for (int i = 0; i < count; i++) {
+            int c = i % cols;
+            int r = i / cols;
+            addSlot(new RoleSlot(container, start + i, INPUT_X - (cols - 1 - c) * SLOT,
+                    ROW_Y - (rows - 1) * SLOT / 2 + r * SLOT, true, 0));
+        }
     }
 
     private void centered(int count, int x, int start) {
