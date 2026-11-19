@@ -50,7 +50,7 @@ Raumfahrt-Mod für Minecraft 26.3 (NeoForge + Fabric) im echten Sonnensystem: In
 | 24 | [24-handbuch-grafik.md](24-handbuch-grafik.md) | Handbuch und Wiki, Atlas, Erfolge, Einstellungen, Grafik, Klang |
 | 25 | [25-datenformate.md](25-datenformate.md) | Formate der Mod-Datenpakete |
 | 26 | [26-registry.md](26-registry.md) | Registry-Übersicht |
-| 27 | [27-meilensteine.md](27-meilensteine.md) | Meilensteine, Abnahmekriterien, Umfang und Teilschritte von M2, M3 und M4, Balancing-Ziele |
+| 27 | [27-meilensteine.md](27-meilensteine.md) | Meilensteine, Abnahmekriterien, Umfang und Teilschritte von M2, M3 und M4, Teilschritte und Balancing-Skript von M9 (27.8), Balancing-Ziele |
 | 28 | [28-offene-punkte.md](28-offene-punkte.md) | Entscheidungen, die nicht bei der KI liegen |
 | A | [anhang-a-namen.md](anhang-a-namen.md) | Namen DE/EN (Verweis auf Daten) |
 | B | [anhang-b-stimmung.md](anhang-b-stimmung.md) | Stimmung (nicht verbindlich) |
@@ -69,7 +69,7 @@ Für einen Meilenstein liest die umsetzende KI **immer** die Kapitel 0, 2, 3, 3A
 | 6 | Orbit | 12.7, 13.1 (Orbits), 13.3, 14, 15 | `planets.json` (Orbits), `balance/stations.json`, `balance/generators.json` (Fusion) |
 | 7 | Ring 2 | 13.4 (Merkur bis Pluto), 18, 19 | `planets.json`, `balance/creatures.json`, `balance/items.json` |
 | 8 | Netzwerk und Finale | 20, 21 | `balance/logistics.json`, `balance/shipyard.json`, `balance/generators.json` (Kernreaktor) |
-| 9 | Feinschliff (Rollenwechsel, Umbenennen, Partner, Handel; Beitritt und Rechte seit M4) | 23, 24, 27 (Balancing) | alle |
+| 9 | Feinschliff (Rollenwechsel, Umbenennen, Partner, Handel; Beitritt und Rechte seit M4; Teilschritte 27.8) | 23, 24, 27 (Balancing, 27.8) | alle |
 
 ## Werkzeuge
 

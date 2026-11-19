@@ -10,7 +10,8 @@
 - **Aus dem Spiel ins Handbuch:** Taste (Standard `H`, änderbar) über einem Item im Inventar oder in JEI/REI/EMI öffnet das Handbuch auf der Seite dieses Items, sofern eine existiert. Item-Tooltips zeigen dann den Hinweis „H: Handbuch“.
 - Seiten sind Ressourcen-Dateien unter `assets/<namespace>/handbook/` (Schema 25.6), damit andere Mods Kapitel und Seiten ergänzen können (Ressourcen aller Namespaces werden zusammengeführt).
 - Suchfeld (filtert Seitentitel und Item-Namen).
-- Planetenseiten füllen sich ab M9 beim ersten Besuch (Atlas-Daten der Agentur).
+- Planetenseiten füllen sich ab M9 beim ersten Besuch (Atlas-Daten der Agentur): Seiten mit `planet: <dimension>` im Kopf zeigen im Spiel oben einen Atlas-Kasten (Status, Entdecker, besuchte Biome, Erkundungsziele); bis zum ersten Besuch der Agentur ist nur der Text vor der ersten Überschrift zu sehen. Das Wiki zeigt immer alles und bleibt deutsch.
+- Blaupausen-Optik (ab M9): Blaupausen-Blau mit hellem Raster, helle Schrift, gelbe Item-Namen, hellblaue Links. Englische Fassungen (`<seite>.en.md`) gibt es für alle Seiten im Spiel; sie folgen Element für Element der deutschen Seite, Zahlen und erzeugte Tabellen stehen dort im englischen Format.
 - **Meilensteine:** Das Buch-GUI mit Kapiteln, Links, Rezeptanzeige, Suche und Taste `H` sowie das Geschenk beim ersten Join kommen mit **M2f**. Ab dann ergänzt **jeder Meilenstein** die Seiten seiner Inhalte (27). Freischaltung nach Forschung kommt mit M4, Blaupausen-Optik und vollständige englische Texte mit M9.
 
 ## 24.2 Planetenatlas
@@ -44,6 +45,8 @@
 | `the_signal` | Der Sender | `signal_sentinel` besiegen |
 | `network` | Netzwerk | 5 Routen der Agentur gleichzeitig aktiv |
 | `starship` | Infinite Horizon | Rakete T3 starten |
+
+Seit M9 stehen alle 14 Erfolge in `misc.json → advancements.by_id` (Elternteile, Symbole und Auslöser; `granted_by: code_player` = nur der Spieler). „Drei Minuten Hölle“ nutzt die Höhen aus `suits.json → venus_heat_timer`, „Netzwerk“ zählt `active_routes`, „Infinite Horizon“ (`starship`) wird beim Start des Finales vergeben (21.3).
 
 Erfolge, die eine Maschine oder ein Ereignis auslöst (`first_signal`, `own_air`, `sun_in_a_bottle`, `network`), bekommen alle Mitglieder der Besitzer-Agentur, wer offline ist beim nächsten Login (gespeichert in `AgencyData.pending_advancements`, 23.1). Eine Route gilt für `network` als aktiv, wenn ihr mindestens 1 Rakete zugewiesen ist und keine davon „ohne Treibstoff“ meldet.
 
@@ -119,3 +122,5 @@ Jeder Erfolg wird mit Zeitstempel in `logs/infinite_horizon-progress.log` geschr
 Im Vakuum ohne Kuppel werden alle Geräusche außer Anzug- und Warntönen mit Lautstärke × 0,15 abgespielt.
 
 **Platzhalter und Meilensteine:** `sounds.json` verweist auf Vanilla-Klangdateien (wie die Musik). M3 registriert nur `warning.oxygen`, `.heat`, `.cold`, `.radiation` und `.dome`; die Gefahr Druck nutzt `warning.oxygen`. M4 registriert `rocket.countdown`, `.launch` und `.landing`, ebenfalls mit Vanilla-Platzhaltern (wie spec-gaps #58). Atem- und Funkschleifen und die Dämpfung im Vakuum kommen mit M9.
+
+**Umsetzung (M9):** Vakuum = Druckstufe `vacuum` im Umweltzustand des Servers (eine Kuppel setzt `normal`). Die Dämpfung lässt außer Anzug- und Warntönen auch Musik und Menütöne unverändert. Maschinengeräusche als Schleife am Block mit gemeinsamem Untertitel; Solarpaneele und Blöcke, die nie `running` werden, bleiben still. Musik je Planet über das Dimensionsattribut `minecraft:audio/background_music` mit dem Ereignis `music.<planet>` (Platzhalter `minecraft:music.game`).

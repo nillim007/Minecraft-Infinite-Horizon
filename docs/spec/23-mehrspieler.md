@@ -44,6 +44,8 @@
 - **Kuppelschutz:** In einer aktiven fremden Kuppel dürfen Nicht-Mitglieder keinen Block setzen oder abbauen, auch keinen ohne Block-Entity (23.2, 10.3).
 - **Forschen** (`ResearchUnlockPayload`) dürfen Mitglieder ab der Rolle `engineer` (11.3).
 
+**Rollen und Name (ab M9):** Nur der Leiter ändert Rollen, und zwar zwischen `engineer` und `guest` (ein Knopf je Mitglied im Reiter „Agentur“). „Leitung übergeben“ macht das Mitglied zum Leiter und den bisherigen Leiter zum `engineer`. Mitglieder mit der Rolle `guest` haben auch an den Blöcken der eigenen Agentur nur Gast-Rechte. Umbenennen darf nur der Leiter: höchstens 32 Zeichen, Leerzeichen am Rand fallen weg, ein leerer Name stellt „Agentur von <Gründer>“ wieder her. Benachrichtigt werden das betroffene Mitglied bzw. alle Mitglieder online.
+
 **Agentur-Felder ab M4:** Alle Felder sind optional mit leerem Standard; `data_version` bleibt 1 (3A.4).
 
 | Feld | Inhalt |
@@ -74,6 +76,11 @@ Dazu oben in `AgencyData` (nicht je Agentur): `discoverers` (Dimension → Entde
 - `trading_post`: Block mit bis zu 8 Angeboten (gib X, erhalte Y) und eigenem Lager (54 Slots). Jeder Spieler kann tauschen, auch Gäste und Nicht-Mitglieder (Ausnahme von den Gast-Rechten in 23.1). Frachtraketen von Partneragenturen können ihn als Ziel nutzen.
 - **Partnerschaft:** Leiter beider Agenturen bestätigen am Terminal. Partner dürfen freigegebene `cargo_terminal`s und Werften beliefern.
 - **Gemeinsame Werft:** Alle Agenturen, die mindestens 1 Item geliefert haben, bekommen beim Start das Advancement.
+- **Umsetzung (M9):**
+  - Partnerschaft im Reiter „Partner“ des `research_terminal`: Der Leiter bietet einer Agentur mit Mitgliedern online an, der Leiter der anderen nimmt an; erst dann gilt sie für beide. Jeder Leiter beendet sie, zieht ein Angebot zurück oder lehnt es ab. Partner bleiben Nicht-Mitglieder mit Gast-Rechten. Gespeichert in der Agentur als `partners` und `partner_requests`.
+  - Freigabe per Knopf „Partner“ am `cargo_terminal` und im Werft-GUI (gilt für alle Docks der Werft), Recht `CONFIGURE`. Partner liefern nur, der Start einer Route ist immer ein eigenes Terminal. Handelsposten sind für Partner immer Ziel, für andere Agenturen nie. Geprüft wird beim Anlegen der Route, vor jedem Start und bei der Landung; ist das Ziel nicht mehr erlaubt, bleibt die Fracht an Bord (kein Tanken am Ziel) und fliegt zurück.
+  - `trading_post`: Muster X/Y je Angebot per Klick (links ganzer Stapel, rechts ±1), Tausch per Knopf; Y geht ins Inventar (Rest fällt zu Boden), X ins Lager. Lager nur für Mitglieder (`USE_SLOTS`), Muster mit `CONFIGURE`; kein Strom, kein Trichterzugriff.
+  - Gemeinsame Werft: „geliefert“ = eine Frachtrakete hat an einem Dock der Werft mindestens 1 Item oder Fluid abgegeben; das zählt für die Agentur des Start-Terminals. Der Besitzer der Werft bekommt das Advancement immer.
 - **Wettrennen:** Die erste Agentur, deren Mitglied ein Ziel betritt, wird serverweit angekündigt und im Atlas als Entdecker eingetragen.
   - Entdecker ist die erste Agentur, deren Mitglied die Dimension ab M4 betritt, auch per `goto` (12.10). Besuche aus M3 zählen nur für das Tor `enter_dimension` (25.3).
   - Die Ankündigung `message.infinite_horizon.discovered` geht an alle Spieler; der Eintrag steht in `AgencyData.discoverers`.

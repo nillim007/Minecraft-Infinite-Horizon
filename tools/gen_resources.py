@@ -1372,12 +1372,6 @@ def advancements(spec, impl, registered):
     """Reiter infinite_horizon:root (24.3): nur die Erfolge aus implemented_ids.json → advancements.
     SPEC-GAP #64: Fehlt der Elternteil, gilt der nächste erzeugte Vorfahr."""
     by_id = dict(spec.balance["misc"]["advancements"]["by_id"])
-    # SPEC-GAP #116: Der Erfolg des Finales (shipyard.json finale.advancement) fehlt in misc.json; seit M9c ergänzt ihn
-    # specdata.py mit den übrigen Erfolgen aus 24.3 (#120), dies bleibt als Rückfall
-    fin = (spec.balance.get("shipyard") or {}).get("finale") or {}
-    if fin.get("advancement") and fin["advancement"] not in by_id:
-        by_id[fin["advancement"]] = {"parent": f"{NS}:own_air", "icon": f"{NS}:shipyard_terminal",
-                                     "trigger": "minecraft:impossible", "granted_by": "code_all_members"}
     wanted = list(impl.get("advancements", []))
     generated = set(wanted)
     for aid in wanted:
@@ -1673,16 +1667,11 @@ def main():
         write_json(f"data/{tns}/tags/item/{tpath}.json", {"values": sorted(vals)})
     damage_types(spec)
 
-    # Balance-Dateien (Kapitel 25.7); Dateien mit Ergänzungen aus Spec-Lücken (specdata.py) mit den ergänzten Einträgen
+    # Balance-Dateien (Kapitel 25.7)
     for p in sorted((sd.DATA / "balance").glob("*.json")):
         target = OUT / "data" / NS / NS / "balance" / p.name
         target.parent.mkdir(parents=True, exist_ok=True)
-        if p.stem in spec.augmented:
-            doc = json.loads(p.read_text(encoding="utf-8"))
-            doc["entries"] = spec.balance[p.stem]
-            target.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
-        else:
-            target.write_bytes(p.read_bytes().replace(b"\r\n", b"\n"))
+        target.write_bytes(p.read_bytes().replace(b"\r\n", b"\n"))
 
     print(f"{len(blocks)} Blöcke, {len(items)} Items, {n_rec} Rezepte, {len(tags)} Tags → {OUT.relative_to(sd.ROOT)}")
 
