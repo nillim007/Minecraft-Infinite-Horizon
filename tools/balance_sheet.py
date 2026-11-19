@@ -14,7 +14,8 @@ rechnet jedes Bauteil auf Rohstoffe herunter. Regeln aus Kapitel 27:
 
 SPEC-GAP #123: Ein Kreis aus Rezepten (A aus B, B aus A) endet beim zweiten Auftreten; das Item gilt dann als Rohstoff.
 Raketen sind die kleinste gültige Bauform je Stufe (rocket_parts.json: Kapsel, Triebwerk, Flossen, Mindestzahl Tanks)
-und die Frachtraketen; Werftabschnitte stehen in shipyard.json.
+und die Frachtraketen; Werftabschnitte stehen in shipyard.json. Am Ende stehen die Verhältnisse für die Grundregeln aus
+Kapitel 27 (T2 ≈ 3× T1, Sternenschiff ≈ 10× T2), getrennt nach Stück und mB; bewertet werden sie im Spieltest.
 
 Aufruf: ``python tools/balance_sheet.py`` (Tabelle), ``--json`` (maschinenlesbar).
 """
@@ -209,6 +210,29 @@ def report(sheet: Sheet, groups: dict) -> dict:
     return out
 
 
+# Grundregeln aus Kapitel 27 (Richtwerte, „≈“): Jede Raketenstufe ≈ 3× Material der vorigen, T3 (Sternenschiff) ≈ 10× T2
+RULES = (("Rakete T2", "Rakete T1", 3), ("Sternenschiff (alle Werftabschnitte)", "Rakete T2", 10))
+
+
+def ratios(rep: dict) -> dict:
+    """Verhältnis der Rohstoffsummen (Stück und mB getrennt) für die Grundregeln; nur Anzeige, keine Bewertung."""
+    def sums(bill):
+        items = sum((v for k, v in bill.items() if not k.endswith("(mB)")), Fraction(0))
+        fluids = sum((v for k, v in bill.items() if k.endswith("(mB)")), Fraction(0))
+        return items, fluids
+
+    out = {}
+    for big, small, target in RULES:
+        if big not in rep or small not in rep:
+            continue
+        (bi, bf), (si, sf) = sums(rep[big]), sums(rep[small])
+        name = f"{big.split(' (')[0]} / {small}"
+        out[f"{name}: Stück"] = bi / si if si else Fraction(0)
+        out[f"{name}: mB"] = bf / sf if sf else Fraction(0)
+        out[f"{name}: Ziel"] = Fraction(target)
+    return out
+
+
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
     ap.add_argument("--json", action="store_true", help="Ausgabe als JSON")
@@ -225,6 +249,7 @@ def main(argv=None) -> int:
             for k, v in bill.items():
                 total[k] = total.get(k, Fraction(0)) + v
     rep["Sternenschiff (alle Werftabschnitte)"] = dict(sorted(total.items()))
+    rep["Grundregeln (Kapitel 27, Verhältnis der Rohstoffsummen)"] = ratios(rep)
     if args.json:
         print(json.dumps({g: {k: float(v) for k, v in b.items()} for g, b in rep.items()}, ensure_ascii=False, indent=2))
         return 0

@@ -71,6 +71,15 @@ class BalanceSheetTest(unittest.TestCase):
         self.assertTrue(any(k.startswith("Werftabschnitt 8") for k in rep))
         self.assertTrue(all(v > 0 for bill in rep.values() for v in bill.values()))
 
+    def test_ratios_split_items_and_fluids(self):
+        rep = {"Rakete T1": {"a (Stück)": Fraction(10), "w (mB)": Fraction(100)},
+               "Rakete T2": {"a (Stück)": Fraction(20), "b (Stück)": Fraction(10), "w (mB)": Fraction(200)}}
+        r = bs.ratios(rep)
+        self.assertEqual(r["Rakete T2 / Rakete T1: Stück"], 3)
+        self.assertEqual(r["Rakete T2 / Rakete T1: mB"], 2)
+        self.assertEqual(r["Rakete T2 / Rakete T1: Ziel"], 3)
+        self.assertFalse(any(k.startswith("Sternenschiff") for k in r))
+
 
 if __name__ == "__main__":
     unittest.main()

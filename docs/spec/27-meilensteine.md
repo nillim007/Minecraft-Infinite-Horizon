@@ -129,7 +129,7 @@ Jeder Teilschritt baut auf dem vorigen auf, endet mit grünem Build auf beiden L
 6. **M9f – Balancing-Skript** (Abnahme, siehe unten).
 7. **M9g – Abnahme** mit Spieltest im Client.
 
-**Balancing-Skript:** `tools/balance_sheet.py` liest die erzeugten Rezept-JSONs der Mod (`common/src/generated/resources/data/*/recipe`); Vanilla-Rezepte zählen nicht, Vanilla-Items ohne Rezept der Mod sind Rohstoffe. „Rakete“ = kleinste gültige Bauform je Stufe aus `rocket_parts.json` (Kapsel, Triebwerk, Flossen, Mindestzahl Tanks) sowie Frachtrakete und Schwerlast-Frachter; dazu jeder Werftabschnitt und ihre Summe. Ein Rezeptkreis endet beim zweiten Auftreten, das Item gilt dann als Rohstoff. Ein Tag ohne Datei in den erzeugten Daten bleibt als `#tag` stehen. Die Chance einer Ausgabe zählt nicht, nur die Menge. Die CI rechnet die Übersicht in jedem Lauf.
+**Balancing-Skript:** `tools/balance_sheet.py` liest die erzeugten Rezept-JSONs der Mod (`common/src/generated/resources/data/*/recipe`); Vanilla-Rezepte zählen nicht, Vanilla-Items ohne Rezept der Mod sind Rohstoffe. „Rakete“ = kleinste gültige Bauform je Stufe aus `rocket_parts.json` (Kapsel, Triebwerk, Flossen, Mindestzahl Tanks) sowie Frachtrakete und Schwerlast-Frachter; dazu jeder Werftabschnitt und ihre Summe. Ein Rezeptkreis endet beim zweiten Auftreten, das Item gilt dann als Rohstoff. Ein Tag ohne Datei in den erzeugten Daten bleibt als `#tag` stehen. Die Chance einer Ausgabe zählt nicht, nur die Menge. Am Ende stehen die Verhältnisse zu den Grundregeln (Rakete T2 / T1 und Sternenschiff / T2, Stück und mB getrennt, mit Zielwert); sie werden nur angezeigt, bewertet wird im Spieltest (Kapitel 28). Die CI rechnet die Übersicht in jedem Lauf.
 
 ## Festlegungen aus der Umsetzung (M1–M8)
 
