@@ -34,6 +34,11 @@ jobs:
           test -z "$(git status --porcelain -- $G)" || (echo "::error::Erzeugte Dateien veraltet – python tools/gen_resources.py und python tools/gen_gametests.py ausführen" && exit 1)
       - name: Wiki und README aktuell, alle Objekte dokumentiert?
         run: python tools/gen_wiki.py --check || (echo "::error::Wiki/README unvollständig oder veraltet – fehlende Objekte in docs/handbook/pages eintragen, dann python tools/gen_wiki.py ausführen" && exit 1)
+      - name: Balancing-Übersicht (Abnahme M9)
+        run: |
+          python -m unittest discover -s tools -p "test_*.py"
+          python tools/balance_sheet.py > balance-sheet.txt
+          { echo "### Balancing-Übersicht"; echo '```'; cat balance-sheet.txt; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
 
   build:
     name: Mod bauen (NeoForge + Fabric)
