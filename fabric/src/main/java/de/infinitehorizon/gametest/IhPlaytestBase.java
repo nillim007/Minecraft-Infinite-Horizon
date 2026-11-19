@@ -146,6 +146,21 @@ public abstract class IhPlaytestBase implements FabricClientGameTest {
         return context.computeOnClient(c -> c.player.getY());
     }
 
+    /** Linksklick als Maus-Ereignis an den offenen Bildschirm an GUI-Koordinaten (Reiter, Slots, Textfelder). */
+    protected boolean clickAt(double x, double y) {
+        return context.computeOnClient(c -> {
+            var screen = c.gui.screen();
+            if (screen == null) {
+                return false;
+            }
+            var ev = new net.minecraft.client.input.MouseButtonEvent(x, y, new net.minecraft.client.input.MouseButtonInfo(
+                    com.mojang.blaze3d.platform.InputConstants.MOUSE_BUTTON_LEFT, 0));
+            boolean hit = screen.mouseClicked(ev, false);
+            screen.mouseReleased(ev);
+            return hit;
+        });
+    }
+
     /**
      * Klickt mit der echten Maus auf den sichtbaren Knopf des offenen GUI, dessen Text {@code text} enthält
      * (Übersetzung im Client). Gibt zurück, ob es ihn gab.

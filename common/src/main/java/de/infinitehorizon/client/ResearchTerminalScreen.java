@@ -84,6 +84,9 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
     private static final int LINE_H = 12;
     private static final int BUTTON_H = 12;
     private static final int INVITE_H = LINE_H + BUTTON_H + 2;
+    private static final int ROLE_W = 52;
+    private static final int LEAD_W = 44;
+    private static final int MEMBER_BUTTONS_W = ROLE_W + LEAD_W + 2;
 
     public ResearchTerminalScreen(ResearchTerminalMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title, MAX_W, MAX_H);
@@ -140,6 +143,11 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
         return font.width(tabLabel(t)) + 12;
     }
 
+    /** Mitte des Reiters {@code t} in GUI-Koordinaten (für Spieltests mit echten Klicks). */
+    public int[] tabCenter(int t) {
+        return new int[]{tabX(t) + tabWidth(t) / 2, topPos + TAB_H / 2};
+    }
+
     /** Linke Kante des Reiters {@code t}. */
     private int tabX(int t) {
         int x = leftPos;
@@ -194,8 +202,8 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
         }
         // Leiter: je anderem Mitglied Rolle wechseln und Leitung übergeben (9a)
         if ("leader".equals(st.ownRole())) {
-            int roleW = 52;
-            int leadW = 44;
+            int roleW = ROLE_W;
+            int leadW = LEAD_W;
             for (int i = 0; i < st.members().size(); i++) {
                 var m = st.members().get(i);
                 if ("leader".equals(m.role())) {
@@ -250,10 +258,11 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
             var m = st.members().get(i);
             Component role = Component.translatable("gui.infinite_horizon.agency.role." + m.role());
             int my = memberRowY(st, i);
-            // Leiter sieht bei den anderen statt der Rolle die Knöpfe
-            Component line = "leader".equals(st.ownRole()) && !"leader".equals(m.role()) ? Component.literal(m.name())
-                    : Component.literal(m.name() + " · ").append(role);
-            g.text(font, line, x, my + 2, TEXT, false);
+            // Leiter sieht bei den anderen statt der Rolle die Knöpfe; der Name endet vor ihnen
+            boolean buttons = "leader".equals(st.ownRole()) && !"leader".equals(m.role());
+            Component line = buttons ? Component.literal(m.name()) : Component.literal(m.name() + " · ").append(role);
+            int room = buttons ? colW - MEMBER_BUTTONS_W - 4 : colW;
+            g.text(font, font.substrByWidth(line, room).getString(), x, my + 2, TEXT, false);
         }
         if ("leader".equals(st.ownRole())) {
             g.text(font, Component.translatable("gui.infinite_horizon.agency.invite_title"), rightX, y, TEXT, false);

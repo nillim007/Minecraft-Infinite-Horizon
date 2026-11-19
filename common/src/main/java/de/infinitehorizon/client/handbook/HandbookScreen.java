@@ -309,7 +309,7 @@ public class HandbookScreen extends Screen {
 
     /** Atlas-Daten einer Planetenseite aus dem Agentur-Stand (24.2): besucht, Entdecker, Biome, Erkundungsziele. */
     public record PlanetAtlas(boolean visited, boolean probe, String discoverer, int biomes, int structures) {
-        static PlanetAtlas of(String planet) {
+        public static PlanetAtlas of(String planet) {
             com.google.gson.JsonObject a = new com.google.gson.JsonObject();
             var st = de.infinitehorizon.client.AgencyClientState.get();
             if (st != null && !st.atlas().isEmpty()) {

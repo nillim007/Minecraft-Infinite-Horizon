@@ -102,6 +102,12 @@ Der ganze Ablauf mit allen Rezepten steht im Wiki unter [Erste Schritte](docs/wi
 </p>
 
 <p align="center">
+  <img src="docs/images/screenshots/handbook-blueprint.png" alt="Ingenieurs-Handbuch in Blaupausen-Optik mit der Mars-Seite und dem Atlas-Kasten" width="32%">
+  <img src="docs/images/screenshots/gui-partners.png" alt="Forschungsterminal, Reiter Partner mit einer Partner-Agentur" width="32%">
+  <img src="docs/images/screenshots/gui-trading-post.png" alt="Handelsposten mit Angeboten, Lager und Inventar" width="32%">
+</p>
+
+<p align="center">
   <img src="docs/images/refinery.svg" alt="Bauplan der Raffinerie" width="70%">
 </p>
 
@@ -120,7 +126,7 @@ Infinite Horizon wird Meilenstein für Meilenstein nach einer festen [Spezifikat
 | 6 | Orbit: Station, Fusion | ✅ fertig |
 | 7 | Ring 2: Merkur bis Pluto | ✅ fertig |
 | 8 | Netzwerk und Finale: Logistik, Werft, Sternenschiff | ✅ fertig |
-| 9 | Feinschliff: Mehrspieler, Erfolge, Klang, Balancing | 🔨 in Arbeit (9a–9f fertig, 9g offen) |
+| 9 | Feinschliff: Mehrspieler, Erfolge, Klang, Balancing | 🔨 in Arbeit (9a–9g fertig, Abnahme offen) |
 <!-- stand:end -->
 
 > [!NOTE]
