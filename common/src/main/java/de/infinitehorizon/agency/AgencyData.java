@@ -116,7 +116,60 @@ public final class AgencyData extends SavedData {
     }
 
     /** Ergebnis von {@link #invite}, {@link #accept}, {@link #decline} und {@link #leave}. */
-    public enum ActionResult { OK, NOT_LEADER, ALREADY_MEMBER, NOT_INVITED, UNKNOWN_AGENCY, ALONE }
+    public enum ActionResult { OK, NOT_LEADER, ALREADY_MEMBER, NOT_INVITED, UNKNOWN_AGENCY, ALONE, NOT_MEMBER, BAD_NAME }
+
+    /** Höchstlänge eines Agenturnamens (SPEC-GAP #118). */
+    public static final int MAX_NAME = 32;
+
+    /** Leiter der Agentur von {@code leader}, sonst null. */
+    private @org.jspecify.annotations.Nullable Agency ledBy(UUID leader) {
+        Agency a = agencyOf(leader).orElse(null);
+        return a != null && a.roleOf(leader).orElse(null) == Role.LEADER ? a : null;
+    }
+
+    /** Rolle eines anderen Mitglieds setzen (23.1, ab M9): nur der Leiter, nur Ingenieur oder Gast. */
+    public ActionResult setRole(UUID leader, UUID target, Role role) {
+        Agency a = ledBy(leader);
+        if (a == null) {
+            return ActionResult.NOT_LEADER;
+        }
+        if (leader.equals(target) || role == Role.LEADER || !a.isMember(target)) {
+            return ActionResult.NOT_MEMBER;
+        }
+        a.setRole(target, role);
+        setDirty();
+        return ActionResult.OK;
+    }
+
+    /** Leitung übergeben: {@code target} wird Leiter, der bisherige Leiter Ingenieur. */
+    public ActionResult transferLeader(UUID leader, UUID target) {
+        Agency a = ledBy(leader);
+        if (a == null) {
+            return ActionResult.NOT_LEADER;
+        }
+        if (leader.equals(target) || !a.isMember(target)) {
+            return ActionResult.NOT_MEMBER;
+        }
+        a.setRole(target, Role.LEADER);
+        a.setRole(leader, Role.ENGINEER);
+        setDirty();
+        return ActionResult.OK;
+    }
+
+    /** Umbenennen (nur Leiter): getrimmt, höchstens {@link #MAX_NAME} Zeichen, leer = Standardname. */
+    public ActionResult rename(UUID leader, String name) {
+        Agency a = ledBy(leader);
+        if (a == null) {
+            return ActionResult.NOT_LEADER;
+        }
+        String n = name == null ? "" : name.strip();
+        if (n.length() > MAX_NAME || n.chars().anyMatch(Character::isISOControl)) {
+            return ActionResult.BAD_NAME;
+        }
+        a.setName(n.isEmpty() ? null : n);
+        setDirty();
+        return ActionResult.OK;
+    }
 
     /** Der Leiter {@code leader} lädt {@code target} in seine Agentur ein (23.1). */
     public ActionResult invite(UUID leader, UUID target) {

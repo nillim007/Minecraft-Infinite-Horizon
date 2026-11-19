@@ -48,6 +48,9 @@ public final class StarshipService {
                 out.add(p.dimension());
             }
         }
+        // nach Entfernung von der Sonne (distance_points), sonst nach ID
+        out.sort(java.util.Comparator.comparingDouble((Identifier d) -> de.infinitehorizon.logistics.CargoFlights.dp(d))
+                .thenComparing(Identifier::toString));
         return out;
     }
 

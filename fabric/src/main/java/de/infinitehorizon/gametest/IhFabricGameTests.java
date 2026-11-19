@@ -1248,4 +1248,9 @@ public class IhFabricGameTests {
     public void starshipJumpOrbits(GameTestHelper helper) {
         IhGameTestsM8g.starshipJump(helper);
     }
+
+    @GameTest(maxTicks = 20)
+    public void agencyGuestRoleRights(GameTestHelper helper) {
+        IhGameTestsM9a.guestRole(helper);
+    }
 }

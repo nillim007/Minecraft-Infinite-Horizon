@@ -163,6 +163,36 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
                     de.infinitehorizon.agency.AgencyActions.DECLINE, inv.agency());
             jy += INVITE_H;
         }
+        // Leiter: je anderem Mitglied Rolle wechseln und Leitung übergeben (9a)
+        if ("leader".equals(st.ownRole())) {
+            int roleW = 52;
+            int leadW = 44;
+            for (int i = 0; i < st.members().size(); i++) {
+                var m = st.members().get(i);
+                if ("leader".equals(m.role())) {
+                    continue;
+                }
+                int ry = memberRowY(st, i);
+                addAgencyButton(x + colW - roleW - leadW - 2, ry, roleW,
+                        Component.translatable("gui.infinite_horizon.agency.role." + m.role()),
+                        de.infinitehorizon.agency.AgencyActions.ROLE, m.player());
+                addAgencyButton(x + colW - leadW, ry, leadW, Component.translatable("gui.infinite_horizon.agency.make_leader"),
+                        de.infinitehorizon.agency.AgencyActions.LEADER, m.player());
+            }
+            // Umbenennen über dem Austreten
+            int ny = topPos + panelH - MARGIN - 2 * BUTTON_H - 6;
+            int renameW = 60;
+            var box = new net.minecraft.client.gui.components.EditBox(font, x, ny, colW - renameW - 4, BUTTON_H,
+                    Component.translatable("gui.infinite_horizon.agency.name"));
+            box.setMaxLength(de.infinitehorizon.agency.AgencyData.MAX_NAME);
+            box.setValue(st.name());
+            box.setHint(Component.translatable("gui.infinite_horizon.agency.name"));
+            agencyWidgets.add(addRenderableWidget(box));
+            var rename = net.minecraft.client.gui.components.Button.builder(Component.translatable("gui.infinite_horizon.agency.rename"),
+                    b -> Services.NETWORK.sendToServer(new de.infinitehorizon.network.AgencyRenamePayload(box.getValue())))
+                    .bounds(x + colW - renameW, ny, renameW, BUTTON_H).build();
+            agencyWidgets.add(addRenderableWidget(rename));
+        }
         // Austreten (nicht allein)
         if (st.members().size() > 1) {
             addAgencyButton(x, topPos + panelH - MARGIN - BUTTON_H, colW, Component.translatable("gui.infinite_horizon.agency.leave"),
@@ -187,11 +217,14 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
         if (st == null) {
             return;
         }
-        int my = y + LINE_H;
-        for (var m : st.members()) {
+        for (int i = 0; i < st.members().size(); i++) {
+            var m = st.members().get(i);
             Component role = Component.translatable("gui.infinite_horizon.agency.role." + m.role());
-            g.text(font, Component.literal(m.name() + " · ").append(role), x, my, TEXT, false);
-            my += LINE_H;
+            int my = memberRowY(st, i);
+            // Leiter sieht bei den anderen statt der Rolle die Knöpfe
+            Component line = "leader".equals(st.ownRole()) && !"leader".equals(m.role()) ? Component.literal(m.name())
+                    : Component.literal(m.name() + " · ").append(role);
+            g.text(font, line, x, my + 2, TEXT, false);
         }
         if ("leader".equals(st.ownRole())) {
             g.text(font, Component.translatable("gui.infinite_horizon.agency.invite_title"), rightX, y, TEXT, false);
@@ -215,6 +248,12 @@ public class ResearchTerminalScreen extends AbstractContainerScreen<ResearchTerm
                 jy += INVITE_H;
             }
         }
+    }
+
+    /** Zeile eines Mitglieds: beim Leiter höher (Knöpfe), sonst Textzeilen. */
+    private int memberRowY(de.infinitehorizon.network.AgencyStatePayload st, int i) {
+        int rowH = "leader".equals(st.ownRole()) ? BUTTON_H + 2 : LINE_H;
+        return topPos + TAB_H + HEADER_H + LINE_H + i * rowH;
     }
 
     /** Oberkante des Einladungs-Blocks (unten rechts, über dem Rand). */

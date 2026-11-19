@@ -254,6 +254,7 @@
     {"name": "shipyard_build_section_scaffold", "class": "IhGameTestsM8f", "method": "buildSection", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "21.1, M8f"},
     {"name": "shipyard_route_until_demand_met", "class": "IhGameTestsM8f", "method": "demandRoute", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "20.4, 21.1, 27 M8"},
     {"name": "finale_start_after_section_8", "class": "IhGameTestsM8g", "method": "finaleStart", "ticks": 40, "dimension": "infinite_horizon:earth_orbit", "ref": "21.3, M8g"},
-    {"name": "starship_jump_orbits", "class": "IhGameTestsM8g", "method": "starshipJump", "ticks": 40, "dimension": "infinite_horizon:earth_orbit", "ref": "21.3, M8g"}
+    {"name": "starship_jump_orbits", "class": "IhGameTestsM8g", "method": "starshipJump", "ticks": 40, "dimension": "infinite_horizon:earth_orbit", "ref": "21.3, M8g"},
+    {"name": "agency_guest_role_rights", "class": "IhGameTestsM9a", "method": "guestRole", "ticks": 20, "ref": "23.1, M9a"}
   ]
 }

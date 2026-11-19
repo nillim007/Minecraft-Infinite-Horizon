@@ -20,6 +20,10 @@ public final class AgencyActions {
     public static final String ACCEPT = "accept";
     public static final String DECLINE = "decline";
     public static final String LEAVE = "leave";
+    /** Rolle des Ziels wechseln: Ingenieur ↔ Gast (nur Leiter, ab M9). */
+    public static final String ROLE = "role";
+    /** Leitung an das Ziel übergeben (ab M9). */
+    public static final String LEADER = "leader";
 
     private static final String MSG = "message." + InfiniteHorizon.MOD_ID + ".agency.";
 
@@ -38,6 +42,11 @@ public final class AgencyActions {
             case ACCEPT -> data.accept(player.getUUID(), target, tick);
             case DECLINE -> data.decline(player.getUUID(), target);
             case LEAVE -> data.leave(player.getUUID(), tick);
+            case ROLE -> {
+                Role current = before == null ? null : before.roleOf(target).orElse(null);
+                yield data.setRole(player.getUUID(), target, current == Role.GUEST ? Role.ENGINEER : Role.GUEST);
+            }
+            case LEADER -> data.transferLeader(player.getUUID(), target);
             default -> AgencyData.ActionResult.UNKNOWN_AGENCY;
         };
         if (r != AgencyData.ActionResult.OK) {
@@ -52,6 +61,14 @@ public final class AgencyActions {
                     Component msg = Component.translatable(MSG + "joined", player.getGameProfile().name(),
                             AgencyManager.displayName(server, after));
                     forEachOnline(server, after, sp -> sp.sendSystemMessage(msg));
+                }
+            }
+            case ROLE, LEADER -> {
+                ServerPlayer t = server.getPlayerList().getPlayer(target);
+                Role now = after == null ? null : after.roleOf(target).orElse(null);
+                if (t != null && now != null) {
+                    t.sendSystemMessage(Component.translatable(MSG + "role_changed",
+                            Component.translatable("gui.infinite_horizon.agency.role." + now.getSerializedName())));
                 }
             }
             case LEAVE -> {
@@ -69,6 +86,26 @@ public final class AgencyActions {
         }
         if (after != null && after != before) {
             ResearchService.syncAgency(server, after);
+        }
+        ResearchService.sendState(player);
+        return r;
+    }
+
+    /** Umbenennen (23.1, ab M9); alle Mitglieder online erfahren den neuen Namen. */
+    public static AgencyData.ActionResult rename(ServerPlayer player, String name) {
+        MinecraftServer server = player.level().getServer();
+        AgencyData data = AgencyData.get(server);
+        AgencyData.ActionResult r = data.rename(player.getUUID(), name);
+        if (r != AgencyData.ActionResult.OK) {
+            player.sendOverlayMessage(Component.translatable(MSG + "denied." + r.name().toLowerCase(java.util.Locale.ROOT))
+                    .withStyle(ChatFormatting.RED));
+            return r;
+        }
+        Agency a = data.agencyOf(player.getUUID()).orElse(null);
+        if (a != null) {
+            Component msg = Component.translatable(MSG + "renamed", AgencyManager.displayName(server, a));
+            forEachOnline(server, a, sp -> sp.sendSystemMessage(msg));
+            ResearchService.syncAgency(server, a);
         }
         ResearchService.sendState(player);
         return r;

@@ -37,14 +37,23 @@ Tritt der Leiter aus, wird der Ingenieur Leiter, der am längsten dabei ist.
 
 | Rolle | Darf |
 | --- | --- |
-| Leiter | alles, dazu einladen |
-| Ingenieur | bauen, Maschinen bedienen und einstellen, forschen, später Raketen starten |
-| Nicht-Mitglied | fremde Maschinen und Behälter öffnen und ansehen, aber nichts herausnehmen, hineinlegen, einstellen oder abbauen |
+| Leiter | alles, dazu einladen, Rollen vergeben und umbenennen |
+| Ingenieur | bauen, Maschinen bedienen und einstellen, forschen, Raketen starten, Routen ändern |
+| Gast | Maschinen und Behälter der Agentur öffnen und ansehen, aber nichts herausnehmen, hineinlegen, einstellen oder abbauen |
+| Nicht-Mitglied | wie ein Gast, bei fremden Agenturen |
 
 - **Kuppelschutz:** In einer aktiven fremden [[kuppel|Kuppel]] setzen und bauen Nicht-Mitglieder keinen Block ab, auch keine Erde oder Steine. Atmen darf dort jeder.
 - **Operatoren** des Servers sind von diesen Regeln ausgenommen, wie beim Spawnschutz.
 
-@note Rollen wechseln, die Agentur umbenennen und Partnerschaften kommen in einer späteren Version.
+## Rollen und Name
+
+Der Leiter verwaltet die Agentur im Reiter **Agentur**:
+
+- **Rolle wechseln:** Neben jedem Mitglied steht ein Knopf mit seiner Rolle. Ein Klick wechselt zwischen Ingenieur und Gast. Das Mitglied bekommt eine Nachricht.
+- **Leitung übergeben:** Der Knopf „Leiter“ macht das Mitglied zum Leiter. Du selbst wirst dann Ingenieur.
+- **Umbenennen:** Trag unten links einen Namen ein und klick auf „Umbenennen“. Ein leerer Name stellt wieder „Agentur von <Gründer>“ her.
+
+@tip Gib Mitspielern, die nur zuschauen sollen, die Rolle Gast. Sie können dann nichts aus Versehen abbauen.
 
 ## Befehle
 

@@ -119,8 +119,8 @@ Infinite Horizon wird Meilenstein für Meilenstein nach einer festen [Spezifikat
 | 5 | Ring 1: Mars, Venus, Rover, Kreaturen | ✅ fertig |
 | 6 | Orbit: Station, Fusion | ✅ fertig |
 | 7 | Ring 2: Merkur bis Pluto | ✅ fertig |
-| 8 | Netzwerk und Finale: Logistik, Werft, Sternenschiff | 🔨 in Arbeit (8a–8h fertig, Abnahme offen) |
-| 9 | Feinschliff: Mehrspieler, Erfolge, Klang, Balancing | ⏳ geplant |
+| 8 | Netzwerk und Finale: Logistik, Werft, Sternenschiff | ✅ fertig |
+| 9 | Feinschliff: Mehrspieler, Erfolge, Klang, Balancing | 🔨 in Arbeit (9a fertig, 9b–9g offen) |
 <!-- stand:end -->
 
 > [!NOTE]

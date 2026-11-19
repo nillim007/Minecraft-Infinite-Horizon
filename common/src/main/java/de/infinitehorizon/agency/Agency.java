@@ -97,6 +97,18 @@ public final class Agency {
         members.add(m);
     }
 
+    /** Rolle eines Mitglieds setzen (Beitritts-Tick bleibt); false, wenn es kein Mitglied ist. */
+    boolean setRole(UUID player, Role role) {
+        for (int i = 0; i < members.size(); i++) {
+            Member m = members.get(i);
+            if (m.player().equals(player)) {
+                members.set(i, new Member(m.player(), role, m.joinedTick()));
+                return true;
+            }
+        }
+        return false;
+    }
+
     void clearMembers() {
         members.clear();
     }

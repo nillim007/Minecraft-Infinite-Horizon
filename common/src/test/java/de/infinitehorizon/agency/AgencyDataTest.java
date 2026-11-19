@@ -208,4 +208,38 @@ class AgencyDataTest {
         assertTrue(d.invitesFor(other).isEmpty());
         assertEquals(a.id(), d.resolve(b.id()));
     }
+
+    @Test
+    void leaderChangesRolesAndHandsOver() {
+        UUID leader = UUID.randomUUID(), engineer = UUID.randomUUID();
+        AgencyData d = new AgencyData();
+        Agency a = d.ensureFor(leader, 0L);
+        a.addMember(new Agency.Member(engineer, Role.ENGINEER, 5L));
+        assertEquals(AgencyData.ActionResult.NOT_LEADER, d.setRole(engineer, leader, Role.GUEST));
+        assertEquals(AgencyData.ActionResult.NOT_MEMBER, d.setRole(leader, leader, Role.GUEST), "eigene Rolle");
+        assertEquals(AgencyData.ActionResult.NOT_MEMBER, d.setRole(leader, UUID.randomUUID(), Role.GUEST), "Fremder");
+        assertEquals(AgencyData.ActionResult.NOT_MEMBER, d.setRole(leader, engineer, Role.LEADER), "Leiter nur per Übergabe");
+        assertEquals(AgencyData.ActionResult.OK, d.setRole(leader, engineer, Role.GUEST));
+        assertEquals(Role.GUEST, a.roleOf(engineer).orElseThrow());
+        assertEquals(5L, a.members().stream().filter(m -> m.player().equals(engineer)).findFirst().orElseThrow().joinedTick());
+        assertEquals(AgencyData.ActionResult.OK, d.transferLeader(leader, engineer));
+        assertEquals(Role.LEADER, a.roleOf(engineer).orElseThrow());
+        assertEquals(Role.ENGINEER, a.roleOf(leader).orElseThrow());
+        assertEquals(AgencyData.ActionResult.NOT_LEADER, d.transferLeader(leader, engineer), "alter Leiter");
+    }
+
+    @Test
+    void leaderRenames() {
+        UUID leader = UUID.randomUUID(), engineer = UUID.randomUUID();
+        AgencyData d = new AgencyData();
+        Agency a = d.ensureFor(leader, 0L);
+        a.addMember(new Agency.Member(engineer, Role.ENGINEER, 5L));
+        assertEquals(AgencyData.ActionResult.OK, d.rename(leader, "  Pluto-Expedition  "));
+        assertEquals("Pluto-Expedition", a.name());
+        assertEquals(AgencyData.ActionResult.NOT_LEADER, d.rename(engineer, "Meuterei"));
+        assertEquals(AgencyData.ActionResult.BAD_NAME, d.rename(leader, "x".repeat(AgencyData.MAX_NAME + 1)));
+        assertEquals("Pluto-Expedition", a.name());
+        assertEquals(AgencyData.ActionResult.OK, d.rename(leader, "   "));
+        assertNull(a.name(), "leer = Standardname");
+    }
 }
