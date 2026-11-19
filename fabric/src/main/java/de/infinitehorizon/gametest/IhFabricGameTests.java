@@ -1273,4 +1273,24 @@ public class IhFabricGameTests {
     public void shipyardJointContributors(GameTestHelper helper) {
         IhGameTestsM9b.jointShipyard(helper);
     }
+
+    @GameTest(maxTicks = 20)
+    public void advancementsAllLoaded(GameTestHelper helper) {
+        IhGameTestsM9c.allLoaded(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:venus")
+    public void advancementVenusReturn(GameTestHelper helper) {
+        IhGameTestsM9c.venusReturn(helper);
+    }
+
+    @GameTest(maxTicks = 200, structure = "infinite_horizon:gametest/empty_large")
+    public void advancementSunInABottle(GameTestHelper helper) {
+        IhGameTestsM9c.sunInABottle(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void advancementNetworkRoutes(GameTestHelper helper) {
+        IhGameTestsM9c.network(helper);
+    }
 }

@@ -1,5 +1,5 @@
 {
-  "parent": "infinite_horizon:own_air",
+  "parent": "infinite_horizon:the_signal",
   "criteria": {
     "done": {
       "trigger": "minecraft:impossible"

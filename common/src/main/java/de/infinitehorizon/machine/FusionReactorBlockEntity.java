@@ -30,6 +30,8 @@ import java.util.List;
 public class FusionReactorBlockEntity extends MultiblockControllerBlockEntity {
 
     private ReactorSafety safety = ReactorSafety.START;
+    /** Erfolg „Sonne in der Flasche“ seit dem Laden schon vergeben (nicht gespeichert). */
+    private boolean awarded;
     private int cycleTicks;
 
     public FusionReactorBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
@@ -168,6 +170,12 @@ public class FusionReactorBlockEntity extends MultiblockControllerBlockEntity {
             try (Transaction tx = Transaction.open()) {
                 energy.produceInternal(c.get("output_per_tick").getAsLong(), tx);
                 tx.commit();
+            }
+            // Erfolg „Sonne in der Flasche“ (24.3) an alle Mitglieder der Besitzer-Agentur, einmal je Laden des Blocks
+            if (!awarded && owner() != null) {
+                awarded = true;
+                de.infinitehorizon.agency.AgencyAdvancements.awardToAgency(level.getServer(), owner(),
+                        de.infinitehorizon.agency.AgencyAdvancements.SUN_IN_A_BOTTLE);
             }
         }
         pushEnergy(level);

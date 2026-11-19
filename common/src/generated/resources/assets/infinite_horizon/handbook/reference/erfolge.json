@@ -1,0 +1,100 @@
+{
+  "id": "infinite_horizon:reference/erfolge",
+  "chapter": "infinite_horizon:reference",
+  "title": "infinite_horizon.handbook.reference.erfolge.title",
+  "icon": "infinite_horizon:engineers_handbook",
+  "order": 27,
+  "unlock": null,
+  "items": [],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.erfolge.e0"
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.reference.erfolge.e1.h0",
+        "infinite_horizon.handbook.reference.erfolge.e1.h1"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.reference.erfolge.e1.r0.0",
+          "infinite_horizon.handbook.reference.erfolge.e1.r0.1"
+        ],
+        [
+          "infinite_horizon.handbook.reference.erfolge.e1.r1.0",
+          "infinite_horizon.handbook.reference.erfolge.e1.r1.1"
+        ],
+        [
+          "infinite_horizon.handbook.reference.erfolge.e1.r2.0",
+          "infinite_horizon.handbook.reference.erfolge.e1.r2.1"
+        ],
+        [
+          "infinite_horizon.handbook.reference.erfolge.e1.r3.0",
+          "infinite_horizon.handbook.reference.erfolge.e1.r3.1"
+        ],
+        [
+          "infinite_horizon.handbook.reference.erfolge.e1.r4.0",
+          "infinite_horizon.handbook.reference.erfolge.e1.r4.1"
+        ],
+        [
+          "infinite_horizon.handbook.reference.erfolge.e1.r5.0",
+          "infinite_horizon.handbook.reference.erfolge.e1.r5.1"
+        ],
+        [
+          "infinite_horizon.handbook.reference.erfolge.e1.r6.0",
+          "infinite_horizon.handbook.reference.erfolge.e1.r6.1"
+        ],
+        [
+          "infinite_horizon.handbook.reference.erfolge.e1.r7.0",
+          "infinite_horizon.handbook.reference.erfolge.e1.r7.1"
+        ],
+        [
+          "infinite_horizon.handbook.reference.erfolge.e1.r8.0",
+          "infinite_horizon.handbook.reference.erfolge.e1.r8.1",
+          "infinite_horizon.handbook.reference.erfolge.e1.r8.2"
+        ],
+        [
+          "infinite_horizon.handbook.reference.erfolge.e1.r9.0",
+          "infinite_horizon.handbook.reference.erfolge.e1.r9.1"
+        ],
+        [
+          "infinite_horizon.handbook.reference.erfolge.e1.r10.0",
+          "infinite_horizon.handbook.reference.erfolge.e1.r10.1"
+        ],
+        [
+          "infinite_horizon.handbook.reference.erfolge.e1.r11.0",
+          "infinite_horizon.handbook.reference.erfolge.e1.r11.1"
+        ],
+        [
+          "infinite_horizon.handbook.reference.erfolge.e1.r12.0",
+          "infinite_horizon.handbook.reference.erfolge.e1.r12.1"
+        ],
+        [
+          "infinite_horizon.handbook.reference.erfolge.e1.r13.0",
+          "infinite_horizon.handbook.reference.erfolge.e1.r13.1",
+          "infinite_horizon.handbook.reference.erfolge.e1.r13.2"
+        ]
+      ]
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.reference.erfolge.e2",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.erfolge.e3"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.erfolge.e4"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.reference.erfolge.e5",
+      "style": "tip"
+    }
+  ]
+}

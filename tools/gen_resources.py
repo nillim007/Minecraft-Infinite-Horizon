@@ -1313,6 +1313,13 @@ def advancement_criterion(a):
         return {"trigger": trigger, "conditions": {"to": a["to"]}}
     if trigger == "minecraft:impossible":
         return {"trigger": trigger}
+    if trigger == "minecraft:location":
+        # 26.3: eine Loot-Bedingung (Schlüssel „type“), das Entity-Prädikat mit Komponenten-Schlüsseln wie Vanilla
+        return {"trigger": trigger, "conditions": {"player": {
+            "type": "minecraft:entity_properties", "entity": "this", "predicate": {"minecraft:location": a["location"]}}}}
+    if trigger == "minecraft:player_killed_entity":
+        return {"trigger": trigger, "conditions": {"entity": {
+            "type": "minecraft:entity_properties", "entity": "this", "predicate": {"minecraft:entity_type": a["entity"]}}}}
     sys.exit(f"Unbekannter Erfolgs-Auslöser {trigger}")
 
 
@@ -1320,8 +1327,8 @@ def advancements(spec, impl, registered):
     """Reiter infinite_horizon:root (24.3): nur die Erfolge aus implemented_ids.json → advancements.
     SPEC-GAP #64: Fehlt der Elternteil, gilt der nächste erzeugte Vorfahr."""
     by_id = dict(spec.balance["misc"]["advancements"]["by_id"])
-    # SPEC-GAP #116: Der Erfolg des Finales (shipyard.json finale.advancement) fehlt in misc.json; Vater ist der letzte
-    # Erfolg der Kette, vergeben vom Code an alle Mitglieder
+    # SPEC-GAP #116: Der Erfolg des Finales (shipyard.json finale.advancement) fehlt in misc.json; seit M9c ergänzt ihn
+    # specdata.py mit den übrigen Erfolgen aus 24.3 (#120), dies bleibt als Rückfall
     fin = (spec.balance.get("shipyard") or {}).get("finale") or {}
     if fin.get("advancement") and fin["advancement"] not in by_id:
         by_id[fin["advancement"]] = {"parent": f"{NS}:own_air", "icon": f"{NS}:shipyard_terminal",
@@ -1340,6 +1347,8 @@ def advancements(spec, impl, registered):
         display = {"icon": {"id": a["icon"]},
                    "title": {"translate": f"advancements.{ns}.{path}.title"},
                    "description": {"translate": f"advancements.{ns}.{path}.description"}}
+        if a.get("active_routes"):  # „network“: Zahl aus den Daten in den Text
+            display["description"]["with"] = [str(a["active_routes"])]
         if parent is None:
             display.update({"background": ADVANCEMENT_BACKGROUND, "show_toast": False, "announce_to_chat": False})
         doc = {}
@@ -1619,11 +1628,16 @@ def main():
         write_json(f"data/{tns}/tags/item/{tpath}.json", {"values": sorted(vals)})
     damage_types(spec)
 
-    # Balance-Dateien (Kapitel 25.7)
+    # Balance-Dateien (Kapitel 25.7); Dateien mit Ergänzungen aus Spec-Lücken (specdata.py) mit den ergänzten Einträgen
     for p in sorted((sd.DATA / "balance").glob("*.json")):
         target = OUT / "data" / NS / NS / "balance" / p.name
         target.parent.mkdir(parents=True, exist_ok=True)
-        target.write_bytes(p.read_bytes().replace(b"\r\n", b"\n"))
+        if p.stem in spec.augmented:
+            doc = json.loads(p.read_text(encoding="utf-8"))
+            doc["entries"] = spec.balance[p.stem]
+            target.write_text(json.dumps(doc, ensure_ascii=False, indent=2) + "\n", encoding="utf-8", newline="\n")
+        else:
+            target.write_bytes(p.read_bytes().replace(b"\r\n", b"\n"))
 
     print(f"{len(blocks)} Blöcke, {len(items)} Items, {n_rec} Rezepte, {len(tags)} Tags → {OUT.relative_to(sd.ROOT)}")
 

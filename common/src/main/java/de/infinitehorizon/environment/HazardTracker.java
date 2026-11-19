@@ -239,6 +239,7 @@ public final class HazardTracker {
     private static void check(ServerPlayer player, Timers t, EnvironmentRules r) {
         HazardState state = Services.ATTACHMENTS.hazardState(player);
         stepVenusHeat(player, state, r.intervalTicks());
+        venusDescent(player, state);
         EnvironmentResult result = evaluate(player, r);
         t.last = result;
         boolean exempt = player.isCreative() || player.isSpectator();
@@ -308,6 +309,20 @@ public final class HazardTracker {
                 && heat.running(res.planet() == null ? null : res.planet().dimension(), player.getBlockY())
                 && !player.isCreative() && !player.isSpectator();
         state.setVenusHeat(heat.step(state.venusHeat(), running, ticks));
+    }
+
+    /** Erfolg „Drei Minuten Hölle“ (24.3): unter die Wolkenschicht der Venus und wieder hinauf. */
+    public static void venusDescent(ServerPlayer player, HazardState state) {
+        VenusHeat heat = VenusHeat.rules();
+        if (heat == null || player.isSpectator()) {
+            return;
+        }
+        VenusHeat.Descent d = heat.descent(state.venusDescent(), player.level().dimension().identifier(), player.getBlockY());
+        state.setVenusDescent(d == VenusHeat.Descent.BELOW);
+        if (d == VenusHeat.Descent.RETURNED) {
+            de.infinitehorizon.agency.AgencyAdvancements.award(player,
+                    de.infinitehorizon.agency.AgencyAdvancements.THREE_MINUTES_OF_HELL);
+        }
     }
 
     /** Restliche Hitzezeit für das HUD in Ticks; −1 = Leiste ausblenden. */

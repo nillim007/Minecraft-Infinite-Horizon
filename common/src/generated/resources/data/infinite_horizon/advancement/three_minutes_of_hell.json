@@ -1,0 +1,24 @@
+{
+  "parent": "infinite_horizon:red_earth",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "infinite_horizon:venus_rock"
+    },
+    "title": {
+      "translate": "advancements.infinite_horizon.three_minutes_of_hell.title"
+    },
+    "description": {
+      "translate": "advancements.infinite_horizon.three_minutes_of_hell.description"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

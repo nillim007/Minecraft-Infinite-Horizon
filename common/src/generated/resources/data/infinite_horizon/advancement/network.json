@@ -1,0 +1,27 @@
+{
+  "parent": "infinite_horizon:own_air",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "infinite_horizon:logistics_computer"
+    },
+    "title": {
+      "translate": "advancements.infinite_horizon.network.title"
+    },
+    "description": {
+      "translate": "advancements.infinite_horizon.network.description",
+      "with": [
+        "5"
+      ]
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

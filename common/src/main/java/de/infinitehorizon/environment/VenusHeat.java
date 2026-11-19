@@ -53,4 +53,21 @@ public record VenusHeat(Identifier dimension, int belowY, int duration, int refi
     public boolean expired(int used) {
         return used >= duration;
     }
+
+    /** Fortschritt zum Erfolg „Drei Minuten Hölle“ (24.3). */
+    public enum Descent { NONE, BELOW, RETURNED }
+
+    /**
+     * Reine Regel für „Drei Minuten Hölle“: in der Venus unter {@code applies_below_y} = {@link Descent#BELOW}; war der
+     * Spieler unten und ist jetzt mindestens auf {@code refill_above_y} = {@link Descent#RETURNED}.
+     */
+    public Descent descent(boolean wasBelow, @Nullable Identifier planet, int y) {
+        if (!dimension.equals(planet)) {
+            return wasBelow ? Descent.BELOW : Descent.NONE;
+        }
+        if (y < belowY) {
+            return Descent.BELOW;
+        }
+        return wasBelow && y >= refillAboveY ? Descent.RETURNED : wasBelow ? Descent.BELOW : Descent.NONE;
+    }
 }

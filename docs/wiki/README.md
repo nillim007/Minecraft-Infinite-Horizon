@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 9b · Mod-Version 0.1.0
+> Stand: Meilenstein 9c · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -124,6 +124,7 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Alle Rezepte](Alle-Rezepte.md) – Jedes Rezept des aktuellen Stands, nach Maschine sortiert
 - [Alle Items und Blöcke](Alle-Items-und-Bloecke.md) – Alles, was es gibt, und wo es herkommt
 - [Deine Agentur](Deine-Agentur.md) – Agentur, Beitritt, Rechte, Besitz von Maschinen und die Befehle dazu
+- [Erfolge](Erfolge.md) – Alle Erfolge der Reise und wie du sie bekommst
 - [Tipps und häufige Fragen](Tipps-und-haeufige-Fragen.md) – Kniffe, Fehlersuche und Antworten
 
 ---

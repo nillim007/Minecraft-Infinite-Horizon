@@ -1,0 +1,33 @@
+{
+  "parent": "infinite_horizon:at_the_edge",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:player_killed_entity",
+      "conditions": {
+        "entity": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:entity_type": "infinite_horizon:signal_sentinel"
+          }
+        }
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "infinite_horizon:transmitter_core"
+    },
+    "title": {
+      "translate": "advancements.infinite_horizon.the_signal.title"
+    },
+    "description": {
+      "translate": "advancements.infinite_horizon.the_signal.description"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

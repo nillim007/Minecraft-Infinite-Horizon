@@ -259,6 +259,10 @@
     {"name": "agency_partner_both_leaders", "class": "IhGameTestsM9b", "method": "partnership", "ticks": 20, "ref": "23.3, M9b"},
     {"name": "trading_post_trade_anyone", "class": "IhGameTestsM9b", "method": "trade", "ticks": 20, "ref": "23.3, M9b"},
     {"name": "cargoflight_partner_delivery", "class": "IhGameTestsM9b", "method": "partnerDelivery", "ticks": 20, "dimension": "infinite_horizon:mars", "ref": "23.3, 20.4, M9b"},
-    {"name": "shipyard_joint_contributors", "class": "IhGameTestsM9b", "method": "jointShipyard", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "23.3, 21.3, M9b"}
+    {"name": "shipyard_joint_contributors", "class": "IhGameTestsM9b", "method": "jointShipyard", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "23.3, 21.3, M9b"},
+    {"name": "advancements_all_loaded", "class": "IhGameTestsM9c", "method": "allLoaded", "ticks": 20, "ref": "24.3, M9c"},
+    {"name": "advancement_venus_return", "class": "IhGameTestsM9c", "method": "venusReturn", "ticks": 20, "dimension": "infinite_horizon:venus", "ref": "24.3, M9c"},
+    {"name": "advancement_sun_in_a_bottle", "class": "IhGameTestsM9c", "method": "sunInABottle", "ticks": 200, "structure": "infinite_horizon:gametest/empty_large", "ref": "24.3, M9c"},
+    {"name": "advancement_network_routes", "class": "IhGameTestsM9c", "method": "network", "ticks": 20, "ref": "24.3, M9c"}
   ]
 }

@@ -1,0 +1,43 @@
+{
+  "parent": "infinite_horizon:red_earth",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "player": {
+          "type": "minecraft:entity_properties",
+          "entity": "this",
+          "predicate": {
+            "minecraft:location": {
+              "dimension": "infinite_horizon:europa",
+              "position": {
+                "y": {
+                  "max": 112
+                }
+              },
+              "fluid": {
+                "fluids": "#minecraft:water"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "infinite_horizon:europa_ice"
+    },
+    "title": {
+      "translate": "advancements.infinite_horizon.under_the_ice.title"
+    },
+    "description": {
+      "translate": "advancements.infinite_horizon.under_the_ice.description"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

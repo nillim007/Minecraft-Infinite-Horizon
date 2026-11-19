@@ -6,6 +6,19 @@ package de.infinitehorizon.logistics;
 public final class RouteRules {
 
     /** Startbedingung; {@code id} wie in {@code logistics_computer.start_conditions}. */
+    /**
+     * Erfolg „Netzwerk“ (24.3): Eine Route ist aktiv, wenn ihr mindestens 1 Rakete zugewiesen ist und keine davon „ohne
+     * Treibstoff“ meldet. {@code outOfFuel} = Zahl der Raketen mit diesem Status.
+     */
+    public static boolean active(int rockets, int outOfFuel) {
+        return rockets > 0 && outOfFuel == 0;
+    }
+
+    /** Hat die Agentur genug aktive Routen gleichzeitig ({@code needed} > 0)? */
+    public static boolean network(long activeRoutes, int needed) {
+        return needed > 0 && activeRoutes >= needed;
+    }
+
     public enum Condition {
         WHEN_FULL("when_full"),
         EVERY_N_TICKS("every_n_ticks"),

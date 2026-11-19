@@ -44,4 +44,14 @@ class RouteRulesTest {
         assertTrue(RouteRules.fuelWarning(33000, 33000, 64000, false));
         assertFalse(RouteRules.fuelWarning(33000, 33000, 64000, true));
     }
+
+    @Test
+    void networkCountsRoutesWithRocketsAndFuel() {
+        assertTrue(RouteRules.active(2, 0));
+        assertFalse(RouteRules.active(0, 0), "ohne Rakete");
+        assertFalse(RouteRules.active(3, 1), "eine Rakete ohne Treibstoff");
+        assertFalse(RouteRules.network(4, 5));
+        assertTrue(RouteRules.network(5, 5));
+        assertFalse(RouteRules.network(9, 0), "Erfolg ohne Wert");
+    }
 }

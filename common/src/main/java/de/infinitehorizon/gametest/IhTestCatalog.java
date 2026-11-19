@@ -271,7 +271,11 @@ public final class IhTestCatalog {
             new Test("agency_partner_both_leaders", 20, null, null, null, IhGameTestsM9b::partnership),  // 23.3, M9b
             new Test("trading_post_trade_anyone", 20, null, null, null, IhGameTestsM9b::trade),  // 23.3, M9b
             new Test("cargoflight_partner_delivery", 20, null, null, "infinite_horizon:mars", IhGameTestsM9b::partnerDelivery),  // 23.3, 20.4, M9b
-            new Test("shipyard_joint_contributors", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM9b::jointShipyard)  // 23.3, 21.3, M9b
+            new Test("shipyard_joint_contributors", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM9b::jointShipyard),  // 23.3, 21.3, M9b
+            new Test("advancements_all_loaded", 20, null, null, null, IhGameTestsM9c::allLoaded),  // 24.3, M9c
+            new Test("advancement_venus_return", 20, null, null, "infinite_horizon:venus", IhGameTestsM9c::venusReturn),  // 24.3, M9c
+            new Test("advancement_sun_in_a_bottle", 200, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM9c::sunInABottle),  // 24.3, M9c
+            new Test("advancement_network_routes", 20, null, null, null, IhGameTestsM9c::network)  // 24.3, M9c
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

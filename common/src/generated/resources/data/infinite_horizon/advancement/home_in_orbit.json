@@ -1,0 +1,30 @@
+{
+  "parent": "infinite_horizon:small_step",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:placed_block",
+      "conditions": {
+        "location": {
+          "type": "minecraft:match_block",
+          "blocks": "infinite_horizon:station_core"
+        }
+      }
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "infinite_horizon:station_core"
+    },
+    "title": {
+      "translate": "advancements.infinite_horizon.home_in_orbit.title"
+    },
+    "description": {
+      "translate": "advancements.infinite_horizon.home_in_orbit.description"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

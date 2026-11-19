@@ -1,0 +1,24 @@
+{
+  "parent": "infinite_horizon:home_in_orbit",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "infinite_horizon:fusion_reactor"
+    },
+    "title": {
+      "translate": "advancements.infinite_horizon.sun_in_a_bottle.title"
+    },
+    "description": {
+      "translate": "advancements.infinite_horizon.sun_in_a_bottle.description"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

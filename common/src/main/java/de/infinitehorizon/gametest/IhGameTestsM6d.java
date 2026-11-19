@@ -28,7 +28,7 @@ public final class IhGameTestsM6d {
     }
 
     /** Baut den 5×5×5-Fusionsreaktor (hohle Hülle aus {@code fusion_casing}) und gibt den Controller zurück. */
-    static FusionReactorBlockEntity buildFusion(GameTestHelper h) {
+    public static FusionReactorBlockEntity buildFusion(GameTestHelper h) {
         for (int r = -2; r <= 2; r++) {
             for (int up = -2; up <= 2; up++) {
                 for (int back = 0; back <= 4; back++) {

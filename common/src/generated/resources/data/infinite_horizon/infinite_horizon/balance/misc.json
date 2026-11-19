@@ -227,6 +227,82 @@
           "icon": "infinite_horizon:dome_generator_t1",
           "trigger": "minecraft:impossible",
           "granted_by": "code_all_members"
+        },
+        "infinite_horizon:red_earth": {
+          "parent": "infinite_horizon:small_step",
+          "icon": "infinite_horizon:mars_sand",
+          "trigger": "minecraft:changed_dimension",
+          "to": "infinite_horizon:mars",
+          "spec_gap": 120
+        },
+        "infinite_horizon:three_minutes_of_hell": {
+          "parent": "infinite_horizon:red_earth",
+          "icon": "infinite_horizon:venus_rock",
+          "trigger": "minecraft:impossible",
+          "granted_by": "code_player",
+          "below_y_from": "suits.venus_heat_timer.applies_below_y",
+          "return_y_from": "suits.venus_heat_timer.refill_above_y",
+          "spec_gap": 120
+        },
+        "infinite_horizon:home_in_orbit": {
+          "parent": "infinite_horizon:small_step",
+          "icon": "infinite_horizon:station_core",
+          "trigger": "minecraft:placed_block",
+          "block": "infinite_horizon:station_core",
+          "spec_gap": 120
+        },
+        "infinite_horizon:sun_in_a_bottle": {
+          "parent": "infinite_horizon:home_in_orbit",
+          "icon": "infinite_horizon:fusion_reactor",
+          "trigger": "minecraft:impossible",
+          "granted_by": "code_all_members",
+          "spec_gap": 120
+        },
+        "infinite_horizon:network": {
+          "parent": "infinite_horizon:own_air",
+          "icon": "infinite_horizon:logistics_computer",
+          "trigger": "minecraft:impossible",
+          "granted_by": "code_all_members",
+          "active_routes": 5,
+          "spec_gap": 120
+        },
+        "infinite_horizon:at_the_edge": {
+          "parent": "infinite_horizon:under_the_ice",
+          "icon": "infinite_horizon:pluto_nitrogen_ice",
+          "trigger": "minecraft:changed_dimension",
+          "to": "infinite_horizon:pluto",
+          "spec_gap": 120
+        },
+        "infinite_horizon:the_signal": {
+          "parent": "infinite_horizon:at_the_edge",
+          "icon": "infinite_horizon:transmitter_core",
+          "trigger": "minecraft:player_killed_entity",
+          "entity": "infinite_horizon:signal_sentinel",
+          "spec_gap": 120
+        },
+        "infinite_horizon:starship": {
+          "parent": "infinite_horizon:the_signal",
+          "icon": "infinite_horizon:shipyard_terminal",
+          "trigger": "minecraft:impossible",
+          "granted_by": "code_all_members",
+          "spec_gap": 120
+        },
+        "infinite_horizon:under_the_ice": {
+          "parent": "infinite_horizon:red_earth",
+          "icon": "infinite_horizon:europa_ice",
+          "trigger": "minecraft:location",
+          "location": {
+            "dimension": "infinite_horizon:europa",
+            "position": {
+              "y": {
+                "max": 112
+              }
+            },
+            "fluid": {
+              "fluids": "#minecraft:water"
+            }
+          },
+          "spec_gap": 120
         }
       },
       "spec_ref": "24.3",

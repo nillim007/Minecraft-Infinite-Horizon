@@ -363,7 +363,23 @@
     "gui.infinite_horizon.logistics.kind.trading_post": "Handelsposten: %s",
     "gui.infinite_horizon.logistics.kind.partner_terminal": "Partner: %s",
     "gui.infinite_horizon.logistics.kind.partner_dock": "Partner-Werft: %s",
-    "gui.infinite_horizon.logistics.kind.partner_trading_post": "Partner-Handel: %s"
+    "gui.infinite_horizon.logistics.kind.partner_trading_post": "Partner-Handel: %s",
+    "advancements.infinite_horizon.red_earth.title": "Rote Erde",
+    "advancements.infinite_horizon.red_earth.description": "Betritt den Mars",
+    "advancements.infinite_horizon.three_minutes_of_hell.title": "Drei Minuten Hölle",
+    "advancements.infinite_horizon.three_minutes_of_hell.description": "Steig auf der Venus unter die Wolkenschicht und kehre wieder hinauf zurück",
+    "advancements.infinite_horizon.home_in_orbit.title": "Zuhause im Orbit",
+    "advancements.infinite_horizon.home_in_orbit.description": "Setze einen Stationskern",
+    "advancements.infinite_horizon.sun_in_a_bottle.title": "Sonne in der Flasche",
+    "advancements.infinite_horizon.sun_in_a_bottle.description": "Ein Fusionsreaktor deiner Agentur erzeugt Strom",
+    "advancements.infinite_horizon.under_the_ice.title": "Unter dem Eis",
+    "advancements.infinite_horizon.under_the_ice.description": "Tauche auf Europa unter die Eisdecke",
+    "advancements.infinite_horizon.at_the_edge.title": "Am Rand",
+    "advancements.infinite_horizon.at_the_edge.description": "Betritt Pluto",
+    "advancements.infinite_horizon.the_signal.title": "Der Sender",
+    "advancements.infinite_horizon.the_signal.description": "Besiege den Wächter des Senders",
+    "advancements.infinite_horizon.network.title": "Netzwerk",
+    "advancements.infinite_horizon.network.description": "%s Routen deiner Agentur sind gleichzeitig aktiv"
   },
   "en_us": {
     "itemGroup.infinite_horizon": "Infinite Horizon",
@@ -728,6 +744,22 @@
     "gui.infinite_horizon.logistics.kind.trading_post": "Trading post: %s",
     "gui.infinite_horizon.logistics.kind.partner_terminal": "Partner: %s",
     "gui.infinite_horizon.logistics.kind.partner_dock": "Partner yard: %s",
-    "gui.infinite_horizon.logistics.kind.partner_trading_post": "Partner post: %s"
+    "gui.infinite_horizon.logistics.kind.partner_trading_post": "Partner post: %s",
+    "advancements.infinite_horizon.red_earth.title": "Red Earth",
+    "advancements.infinite_horizon.red_earth.description": "Set foot on Mars",
+    "advancements.infinite_horizon.three_minutes_of_hell.title": "Three Minutes of Hell",
+    "advancements.infinite_horizon.three_minutes_of_hell.description": "Descend below the clouds of Venus and make it back up",
+    "advancements.infinite_horizon.home_in_orbit.title": "Home in Orbit",
+    "advancements.infinite_horizon.home_in_orbit.description": "Place a station core",
+    "advancements.infinite_horizon.sun_in_a_bottle.title": "Sun in a Bottle",
+    "advancements.infinite_horizon.sun_in_a_bottle.description": "A fusion reactor of your agency generates power",
+    "advancements.infinite_horizon.under_the_ice.title": "Under the Ice",
+    "advancements.infinite_horizon.under_the_ice.description": "Dive below the ice shell of Europa",
+    "advancements.infinite_horizon.at_the_edge.title": "At the Edge",
+    "advancements.infinite_horizon.at_the_edge.description": "Set foot on Pluto",
+    "advancements.infinite_horizon.the_signal.title": "The Transmitter",
+    "advancements.infinite_horizon.the_signal.description": "Defeat the signal sentinel",
+    "advancements.infinite_horizon.network.title": "Network",
+    "advancements.infinite_horizon.network.description": "%s routes of your agency are active at the same time"
   }
 }

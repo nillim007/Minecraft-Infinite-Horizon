@@ -56,6 +56,7 @@ class Spec:
     planets: dict = field(default_factory=dict)        # id -> entry
     rocket: dict = field(default_factory=dict)
     balance: dict = field(default_factory=dict)        # dateiname ohne .json -> entries
+    augmented: set = field(default_factory=set)       # Balance-Dateien mit ergänzten Einträgen (Spec-Lücken)
     load_errors: list = field(default_factory=list)
     files: list = field(default_factory=list)
 
@@ -118,7 +119,54 @@ def load(data_dir: Path = DATA) -> Spec:
             doc = read(f"balance/{p.name}")
             if doc:
                 spec.balance[p.stem] = doc.get("entries", {})
+    _advancement_gaps(spec)
     return spec
+
+
+# SPEC-GAP #120: 24.3 nennt 14 Erfolge, misc.json → advancements.by_id enthält nur die 5 aus M4. Die übrigen entstehen hier
+# aus der Tabelle in 24.3 und den Daten (Europa: Unterkante der Eisdecke, Venus-Werte liest der Code aus suits.json). Elternteile
+# und Symbole sind gewählt; „network“ = 5 Routen steht nur im Text von 24.3. Der Erfolg des Finales („starship“, #116) hängt
+# am Ende der Kette.
+def _advancement_gaps(spec: "Spec") -> None:
+    adv = spec.balance.get("misc", {}).get("advancements")
+    if not isinstance(adv, dict) or not isinstance(adv.get("by_id"), dict):
+        return
+    ns = "infinite_horizon"
+    europa_ice = None
+    for f in (spec.planets.get(f"{ns}:europa") or {}).get("features", []) or []:
+        if f.get("type") == "ice_shell":
+            europa_ice = (f.get("params") or {}).get("y_min")
+    europa_fluid = (spec.planets.get(f"{ns}:europa") or {}).get("default_fluid") or "minecraft:water"
+    fluid_tag = "#minecraft:water" if europa_fluid == "minecraft:water" else europa_fluid
+    gaps = {
+        f"{ns}:red_earth": {"parent": f"{ns}:small_step", "icon": f"{ns}:mars_sand",
+                            "trigger": "minecraft:changed_dimension", "to": f"{ns}:mars"},
+        f"{ns}:three_minutes_of_hell": {"parent": f"{ns}:red_earth", "icon": f"{ns}:venus_rock",
+                                        "trigger": "minecraft:impossible", "granted_by": "code_player",
+                                        "below_y_from": "suits.venus_heat_timer.applies_below_y",
+                                        "return_y_from": "suits.venus_heat_timer.refill_above_y"},
+        f"{ns}:home_in_orbit": {"parent": f"{ns}:small_step", "icon": f"{ns}:station_core",
+                                "trigger": "minecraft:placed_block", "block": f"{ns}:station_core"},
+        f"{ns}:sun_in_a_bottle": {"parent": f"{ns}:home_in_orbit", "icon": f"{ns}:fusion_reactor",
+                                  "trigger": "minecraft:impossible", "granted_by": "code_all_members"},
+        f"{ns}:network": {"parent": f"{ns}:own_air", "icon": f"{ns}:logistics_computer",
+                          "trigger": "minecraft:impossible", "granted_by": "code_all_members", "active_routes": 5},
+        f"{ns}:at_the_edge": {"parent": f"{ns}:under_the_ice", "icon": f"{ns}:pluto_nitrogen_ice",
+                              "trigger": "minecraft:changed_dimension", "to": f"{ns}:pluto"},
+        f"{ns}:the_signal": {"parent": f"{ns}:at_the_edge", "icon": f"{ns}:transmitter_core",
+                             "trigger": "minecraft:player_killed_entity", "entity": f"{ns}:signal_sentinel"},
+        f"{ns}:starship": {"parent": f"{ns}:the_signal", "icon": f"{ns}:shipyard_terminal",
+                           "trigger": "minecraft:impossible", "granted_by": "code_all_members"},
+    }
+    if europa_ice is not None:
+        gaps[f"{ns}:under_the_ice"] = {
+            "parent": f"{ns}:red_earth", "icon": f"{ns}:europa_ice", "trigger": "minecraft:location",
+            "location": {"dimension": f"{ns}:europa", "position": {"y": {"max": europa_ice}},
+                         "fluid": {"fluids": fluid_tag}}}
+    for aid, a in gaps.items():
+        if aid not in adv["by_id"]:
+            adv["by_id"][aid] = {**a, "spec_gap": 120}
+            spec.augmented.add("misc")
 
 
 # ---------------------------------------------------------------- Hilfen

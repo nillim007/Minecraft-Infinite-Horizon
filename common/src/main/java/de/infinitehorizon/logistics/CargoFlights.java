@@ -283,6 +283,7 @@ public final class CargoFlights extends SavedData {
         }
         long now = server.overworld().getGameTime();
         runRoutes(server, data, now);
+        checkNetwork(server, data);
         for (Flight f : List.copyOf(data.flights.values())) {
             if (f.arrival() <= now) {
                 if (f.returning()) {
@@ -377,6 +378,38 @@ public final class CargoFlights extends SavedData {
                 }
             }
         }
+    }
+
+    /** Agenturen, die den Erfolg „Netzwerk“ seit dem Serverstart schon bekommen haben. */
+    private static final java.util.Set<UUID> NETWORK_AWARDED = java.util.concurrent.ConcurrentHashMap.newKeySet();
+
+    /** Erfolg „Netzwerk“ (24.3): genug Routen einer Agentur gleichzeitig aktiv; alle Mitglieder bekommen ihn. */
+    public static void checkNetwork(MinecraftServer server, CargoFlights data) {
+        int needed = de.infinitehorizon.agency.AgencyAdvancements.networkRoutes();
+        if (needed <= 0 || data.routes.size() < needed) {
+            return;
+        }
+        java.util.Map<UUID, Long> active = new java.util.HashMap<>();
+        for (Route r : data.routes.values()) {
+            if (NETWORK_AWARDED.contains(r.agency())) {
+                continue;
+            }
+            int outOfFuel = 0;
+            for (int slot : r.rockets()) {
+                if (OUT_OF_FUEL.equals(status(server, r, slot).status())) {
+                    outOfFuel++;
+                }
+            }
+            if (RouteRules.active(r.rockets().size(), outOfFuel)) {
+                active.merge(r.agency(), 1L, Long::sum);
+            }
+        }
+        active.forEach((agency, n) -> {
+            if (RouteRules.network(n, needed) && NETWORK_AWARDED.add(agency)) {
+                de.infinitehorizon.agency.AgencyAdvancements.awardToAgency(server, agency,
+                        de.infinitehorizon.agency.AgencyAdvancements.NETWORK);
+            }
+        });
     }
 
     /** Status einer Rakete der Route (20.4): unterwegs, geladen, wartend, ohne Treibstoff; dazu die Restzeit. */

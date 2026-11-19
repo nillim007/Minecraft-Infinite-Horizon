@@ -18,11 +18,13 @@ public final class HazardState {
     public static final MapCodec<HazardState> MAP_CODEC = RecordCodecBuilder.mapCodec(i -> i.group(
             Codec.unboundedMap(Codec.STRING, Codec.INT).optionalFieldOf("buildup", Map.of()).forGetter(HazardState::encode),
             Codec.LONG.optionalFieldOf("suit_oxygen_counter", 0L).forGetter(HazardState::suitOxygenCounter),
-            Codec.INT.optionalFieldOf("venus_heat", 0).forGetter(HazardState::venusHeat)
-    ).apply(i, (map, counter, heat) -> {
+            Codec.INT.optionalFieldOf("venus_heat", 0).forGetter(HazardState::venusHeat),
+            Codec.BOOL.optionalFieldOf("venus_descent", false).forGetter(HazardState::venusDescent)
+    ).apply(i, (map, counter, heat, descent) -> {
         HazardState s = decode(map);
         s.suitOxygenCounter = counter;
         s.venusHeat = heat;
+        s.venusDescent = descent;
         return s;
     }));
     public static final Codec<HazardState> CODEC = MAP_CODEC.codec();
@@ -32,6 +34,16 @@ public final class HazardState {
     private long suitOxygenCounter;
     /** Verbrauchte Hitzezeit der Venus-Oberfläche in Ticks (9.1). */
     private int venusHeat;
+    /** War unter der Venus-Wolkenschicht (Erfolg {@code three_minutes_of_hell}, 24.3). */
+    private boolean venusDescent;
+
+    public boolean venusDescent() {
+        return venusDescent;
+    }
+
+    public void setVenusDescent(boolean value) {
+        venusDescent = value;
+    }
 
     public int venusHeat() {
         return venusHeat;
