@@ -115,7 +115,8 @@ def shipyard_scaffold(spec):
             if rot:
                 m["y"] = rot
             parts.append({"when": {"facing": facing, "status": status}, "apply": m})
-    face = {d: {"texture": "#bar"} for d in ("north", "south", "east", "west", "up", "down")}
+    # feste UV: die Teile ragen über den Block hinaus, automatische UV läge außerhalb der Textur
+    face = {d: {"texture": "#bar", "uv": [0, 0, 16, 16]} for d in ("north", "south", "east", "west", "up", "down")}
     corners = [(-6, -6), (20, -6), (-6, 20), (20, 20)]
     for k in range(1, stages + 1):
         top = 16 + 2 * k  # bis 2 Blöcke über dem Terminal (Modellgrenze 32)

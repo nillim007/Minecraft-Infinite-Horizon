@@ -12,7 +12,7 @@ import net.minecraft.resources.Identifier;
 /** Sprungziele des Sternenschiffs (21.3): je Orbit ein Knopf; ein Sprung kostet eine gefüllte Antimaterie-Zelle. */
 public class StarshipJumpScreen extends Screen {
 
-    private static final int W = 200;
+    private static final int W = 260;
     private static final int ROW = 22;
     private static final int PANEL = 0xFFC6C6C6;
     private static final int TEXT = 0xFF404040;

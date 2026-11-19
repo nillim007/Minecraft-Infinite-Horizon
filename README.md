@@ -44,7 +44,8 @@ Dazwischen liegt eine Reise durch das echte Sonnensystem: Du baust auf der Erde 
 | 👾 **Kreaturen und ein Boss** | Jede Welt hat eigene Bewohner, vom Spiegelkäfer auf dem Merkur bis zur Eisqualle unter dem Eis der Europa. Auf Pluto bewacht der Wächter des Senders die Sternenkarte. |
 | 🧑‍🚀 **Überleben im All** | Raumanzüge in drei Stufen, Sauerstoff, Hitze, Kälte und Strahlung. Kuppeln machen fremde Welten bewohnbar. |
 | 🛰️ **Raumstationen** | Eigene Stationen im Orbit mit Schwerelosigkeit, Solarflügeln, Fusionsreaktor und Schwerelos-Fertigung. |
-| 📦 **Logistik-Netz** | Außenposten, Bohrtürme und Frachtraketen versorgen deine Kolonien, auch wenn du nicht vor Ort bist. |
+| 📦 **Logistik-Netz** | Außenposten, Bohrtürme und Frachtraketen versorgen deine Kolonien, auch wenn du nicht vor Ort bist. Am Logistik-Computer legst du Routen mit Startbedingungen an. |
+| 🌌 **Das Sternenschiff** | In der Orbitalwerft entsteht Abschnitt für Abschnitt das Sternenschiff. Sein Start beendet die Reise durch das Sonnensystem, danach springt es zwischen den Orbits. |
 | 🤝 **Mehrspieler** | Agenturen teilen Forschung, Atlas und Frachtnetz. Handel zwischen Agenturen. |
 | 📖 **Handbuch im Spiel** | Das Ingenieurs-Handbuch erklärt jede Maschine mit Rezepten und Links. Es ist dasselbe wie das [Wiki](docs/wiki/README.md). Taste **H** über einem Item öffnet seine Seite. Alle Maschinenrezepte stehen auch in **JEI** und **REI**. |
 
@@ -95,6 +96,12 @@ Der ganze Ablauf mit allen Rezepten steht im Wiki unter [Erste Schritte](docs/wi
 </p>
 
 <p align="center">
+  <img src="docs/images/screenshots/gui-logistics-computer.png" alt="Logistik-Computer mit einer Route und dem Status der Rakete" width="32%">
+  <img src="docs/images/screenshots/gui-shipyard.png" alt="Orbitalwerft mit allen acht Bauabschnitten und dem Knopf Start" width="32%">
+  <img src="docs/images/screenshots/finale.png" alt="Startsequenz des Sternenschiffs" width="32%">
+</p>
+
+<p align="center">
   <img src="docs/images/refinery.svg" alt="Bauplan der Raffinerie" width="70%">
 </p>
 
@@ -112,7 +119,7 @@ Infinite Horizon wird Meilenstein für Meilenstein nach einer festen [Spezifikat
 | 5 | Ring 1: Mars, Venus, Rover, Kreaturen | ✅ fertig |
 | 6 | Orbit: Station, Fusion | ✅ fertig |
 | 7 | Ring 2: Merkur bis Pluto | ✅ fertig |
-| 8 | Netzwerk und Finale: Logistik, Werft, Sternenschiff | 🔨 in Arbeit (8a–8g fertig, 8h offen) |
+| 8 | Netzwerk und Finale: Logistik, Werft, Sternenschiff | 🔨 in Arbeit (8a–8h fertig, Abnahme offen) |
 | 9 | Feinschliff: Mehrspieler, Erfolge, Klang, Balancing | ⏳ geplant |
 <!-- stand:end -->
 

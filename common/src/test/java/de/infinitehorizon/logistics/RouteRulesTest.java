@@ -27,8 +27,9 @@ class RouteRulesTest {
 
     @Test
     void conditions() {
-        assertTrue(RouteRules.shouldStart(RouteRules.Condition.EVERY_N_TICKS, ctx(1200, 0, 1200, 1, 0, 0, 0)));
-        assertFalse(RouteRules.shouldStart(RouteRules.Condition.EVERY_N_TICKS, ctx(1199, 0, 1200, 1, 0, 0, 0)));
+        assertTrue(RouteRules.shouldStart(RouteRules.Condition.EVERY_N_TICKS, ctx(1300, 100, 1200, 1, 0, 0, 0)));
+        assertFalse(RouteRules.shouldStart(RouteRules.Condition.EVERY_N_TICKS, ctx(1299, 100, 1200, 1, 0, 0, 0)));
+        assertTrue(RouteRules.shouldStart(RouteRules.Condition.EVERY_N_TICKS, ctx(5, 0, 1200, 1, 0, 0, 0)), "neue Route sofort");
         assertTrue(RouteRules.shouldStart(RouteRules.Condition.WHEN_TARGET_BELOW, ctx(0, 0, 20, 1, 0, 10, 0)));
         assertFalse(RouteRules.shouldStart(RouteRules.Condition.WHEN_TARGET_BELOW, ctx(0, 0, 10, 1, 0, 10, 0)));
         assertFalse(RouteRules.shouldStart(RouteRules.Condition.WHEN_FULL, ctx(0, 0, 0, 107, 3, 0, 0)));

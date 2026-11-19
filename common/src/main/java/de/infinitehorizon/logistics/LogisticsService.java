@@ -208,7 +208,8 @@ public final class LogisticsService {
         }
         Identifier item = in.item().isBlank() ? null : Identifier.tryParse(in.item().trim());
         RouteRules.Condition c = RouteRules.Condition.byId(in.condition());
-        UUID id = old != null ? old.id() : UUID.randomUUID();
+        // neue Route: die ID des Clients übernehmen (sein Editor bleibt dann auf der gespeicherten Route), falls frei
+        UUID id = old != null ? old.id() : data.route(in.id()).isEmpty() ? in.id() : UUID.randomUUID();
         data.putRoute(new Route(id, agency, in.homeDimension(), in.home(), in.targetDimension(), in.target(), filter, c.id(),
                 Math.max(0, in.amount()), item == null ? "" : item.toString(), slots.stream().sorted().toList(),
                 old != null ? old.lastStart() : 0));

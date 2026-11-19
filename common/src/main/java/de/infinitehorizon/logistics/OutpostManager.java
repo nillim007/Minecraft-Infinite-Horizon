@@ -183,10 +183,18 @@ public final class OutpostManager {
         private boolean assigned;
         private int waited;
         private @Nullable BlockPos terminal;
+        /** Letzter eigener Tick (Overworld-Zeit); 0 = noch keiner. */
+        private long lastSeen;
 
         public void tick(ServerLevel level, ProcessingMachineBlockEntity p) {
             BlockPos pos = p.getBlockPos();
             long now = now(level);
+            // Chunk geladen, aber ohne Spieler nicht mehr getickt (bis er entladen wird): Pause wie offline nachrechnen
+            if (caughtUp && lastSeen > 0 && now - lastSeen > 2L * SNAPSHOT_INTERVAL) {
+                caughtUp = false;
+                waited = 0;
+            }
+            lastSeen = now;
             if (!caughtUp) {
                 OutpostData.Producer snap = data(level).producer(dimension(level), pos);
                 if (snap != null && snap.token() == p.outpostToken() && now - snap.lastTick() > 2L * SNAPSHOT_INTERVAL) {

@@ -1,16 +1,10 @@
 package de.infinitehorizon.gametest;
 
 import de.infinitehorizon.InfiniteHorizon;
-import de.infinitehorizon.environment.HazardTracker;
 import de.infinitehorizon.registry.ModBlocks;
 import de.infinitehorizon.registry.ModDataComponents;
 import de.infinitehorizon.registry.ModItems;
-import net.fabricmc.fabric.api.client.gametest.v1.FabricClientGameTest;
-import net.fabricmc.fabric.api.client.gametest.v1.context.ClientGameTestContext;
-import net.fabricmc.fabric.api.client.gametest.v1.context.TestSingleplayerContext;
-import net.minecraft.client.gui.screens.worldselection.WorldCreationUiState;
 import net.minecraft.core.BlockPos;
-import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.effect.MobEffects;
@@ -19,9 +13,7 @@ import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Blocks;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.function.Function;
 
 /**
  * Spieltest M7 im echten Client (Rundgang aus {@code docs/dev/stand-m7.md}): ein Spieler reist zu allen Zielen von Ring 2,
@@ -29,133 +21,23 @@ import java.util.function.Function;
  * im Ozean der Europa, gleitet auf Titan, lässt sich vom Geysir heben, stirbt und erwacht in der Klon-Kammer und besiegt
  * den Wächter des Senders. Jeder Schritt prüft das Ergebnis und macht ein Bild; alle Fehler werden gesammelt gemeldet.
  */
-public class IhClientPlaytestM7 implements FabricClientGameTest {
-
-    private ClientGameTestContext context;
-    private TestSingleplayerContext sp;
-    private final List<String> problems = new ArrayList<>();
+public class IhClientPlaytestM7 extends IhPlaytestBase {
 
     @Override
-    public void runTest(ClientGameTestContext context) {
-        if (!IhClientGameTests.only("playtest_m7")) {
-            return;
-        }
-        this.context = context;
-        try (TestSingleplayerContext sp = context.worldBuilder()
-                .adjustSettings(c -> {
-                    c.setGameMode(WorldCreationUiState.SelectedGameMode.CREATIVE);
-                    c.setGenerateStructures(true);
-                }).create()) {
-            this.sp = sp;
-            sp.getConnection().waitForChunksRender();
-            cmd("time set 6000");
-            step("Ziele mit und ohne Ausrüstung", this::arrivals);
-            step("Merkur Tagseite", this::mercuryDaySide);
-            step("Asteroidengürtel: Jetpack und Fall unter y 0", this::asteroidBelt);
-            step("Europa: Tauchen", this::europaDive);
-            step("Titan: Gleiten", this::titanGlide);
-            step("Enceladus: Geysir", this::enceladusGeyser);
-            step("Klon-Kammer", this::cloneChamber);
-            step("Pluto: Wächter des Senders", this::plutoSentinel);
-        }
-        if (!problems.isEmpty()) {
-            throw new AssertionError("Spieltest M7: " + String.join(" | ", problems));
-        }
+    protected String name() {
+        return "playtest_m7";
     }
 
-    // ------------------------------------------------------------------ Werkzeuge
-
-    /** Teleport in der Dimension des Spielers ({@code tp} von der Konsole ginge in die Overworld). */
-    private void tpHere(double x, double y, double z, float yaw, float pitch) {
-        cmd(String.format(java.util.Locale.ROOT, "execute as @p at @s run tp @s %.2f %.2f %.2f %.1f %.1f", x, y, z, yaw, pitch));
-    }
-
-    private void step(String name, Runnable r) {
-        // ein toter Spieler aus dem vorigen Schritt wird erst wiederbelebt
-        if (context.computeOnClient(c -> c.player.isDeadOrDying())) {
-            context.runOnClient(c -> c.player.respawn());
-            context.waitTicks(20);
-            context.setScreen(() -> null);
-        }
-        int before = problems.size();
-        try {
-            r.run();
-        } catch (RuntimeException | AssertionError e) {
-            problems.add(name + ": " + e.getMessage());
-        }
-        InfiniteHorizon.LOG.info("SPIELTEST {} {}", problems.size() == before ? "OK" : "FEHLER", name);
-        try {
-            cmd("gamemode creative @p");
-            cmd("effect clear @p");
-        } catch (RuntimeException ignored) {
-            // nächster Schritt setzt neu auf
-        }
-    }
-
-    private void check(boolean ok, String what) {
-        if (!ok) {
-            problems.add(what);
-            InfiniteHorizon.LOG.warn("SPIELTEST Befund: {}", what);
-        }
-    }
-
-    private void cmd(String c) {
-        sp.getServer().runCommand(c);
-    }
-
-    private static ServerPlayer player(MinecraftServer s) {
-        return s.getPlayerList().getPlayers().getFirst();
-    }
-
-    private <T> T server(Function<ServerPlayer, T> f) {
-        return sp.getServer().computeOnServer(s -> f.apply(player(s)));
-    }
-
-    private void go(String planet) {
-        go(planet, null);
-    }
-
-    private void go(String planet, int[] xz) {
-        String id = planet.contains(":") ? planet : "infinite_horizon:" + planet;
-        cmd("execute as @p run infinite_horizon goto " + id + (xz == null ? "" : " " + xz[0] + " " + xz[1]));
-        context.waitTicks(40);
-        sp.getConnection().waitForChunksRender();
-        String dim = context.computeOnClient(c -> c.level.dimension().identifier().toString());
-        if (!id.equals(dim)) {
-            throw new AssertionError("goto " + planet + " landet in " + dim);
-        }
-        cmd("effect give @p minecraft:night_vision infinite 0 true");
-    }
-
-    private void equip(String suit, String... modules) {
-        sp.getServer().runOnServer(s -> IhGameTestsM7f.equip(player(s), suit, List.of(modules)));
-    }
-
-    /** Gefahren am echten Ort des Spielers (Server, 8.2). */
-    private String hazards() {
-        return server(p -> HazardTracker.evaluate(p, HazardTracker.rules()).hazards().toString());
-    }
-
-    /** Höchste Belastung, die das HUD gerade zeigt (0–100). */
-    private int hudMax() {
-        return context.computeOnClient(c -> {
-            var st = de.infinitehorizon.client.HazardHud.state();
-            int max = 0;
-            for (int i = 0; st != null && i < st.percent().length; i++) {
-                max = Math.max(max, st.percentOf(i));
-            }
-            return max;
-        });
-    }
-
-    private void shot(String name) {
-        context.runOnClient(c -> c.gui.hud.getChat().clearMessages(false));
-        context.waitTick();
-        context.takeScreenshot(name);
-    }
-
-    private double clientY() {
-        return context.computeOnClient(c -> c.player.getY());
+    @Override
+    protected void steps() {
+        step("Ziele mit und ohne Ausrüstung", this::arrivals);
+        step("Merkur Tagseite", this::mercuryDaySide);
+        step("Asteroidengürtel: Jetpack und Fall unter y 0", this::asteroidBelt);
+        step("Europa: Tauchen", this::europaDive);
+        step("Titan: Gleiten", this::titanGlide);
+        step("Enceladus: Geysir", this::enceladusGeyser);
+        step("Klon-Kammer", this::cloneChamber);
+        step("Pluto: Wächter des Senders", this::plutoSentinel);
     }
 
     // ------------------------------------------------------------------ Schritte

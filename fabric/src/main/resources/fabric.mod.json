@@ -25,7 +25,8 @@
     ],
     "fabric-client-gametest": [
       "de.infinitehorizon.gametest.IhClientGameTests",
-      "de.infinitehorizon.gametest.IhClientPlaytestM7"
+      "de.infinitehorizon.gametest.IhClientPlaytestM7",
+      "de.infinitehorizon.gametest.IhClientPlaytestM8"
     ],
     "jei_mod_plugin": [
       "de.infinitehorizon.compat.jei.IhJeiPlugin"

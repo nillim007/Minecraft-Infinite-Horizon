@@ -265,6 +265,9 @@ public class LogisticsScreen extends Screen {
         } catch (NumberFormatException e) {
             n = 0;
         }
+        if (routeId == null && action == LogisticsEditPayload.SAVE) {
+            routeId = UUID.randomUUID(); // der Server übernimmt sie; lehnt er ab, setzt update() sie zurück
+        }
         Route r = new Route(routeId != null ? routeId : UUID.randomUUID(), new UUID(0, 0), h.dimension(), h.pos(),
                 t.dimension(), t.pos(), f, RouteRules.Condition.values()[condition].id(), n, item.trim(),
                 List.copyOf(rockets), 0);

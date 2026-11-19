@@ -61,7 +61,8 @@ public final class RouteRules {
             // „wenn voll“: die Fracht füllt alle Item- oder alle Fluid-Laderäume der Rakete
             case WHEN_FULL -> x.rocketSlots() > 0 && x.cargoStacks() >= x.rocketSlots()
                     || x.rocketFluidHolds() > 0 && x.cargoFluidHolds() >= x.rocketFluidHolds();
-            case EVERY_N_TICKS -> x.now() - x.lastStart() >= Math.max(1, x.amount());
+            // eine Route, die noch nie gestartet ist (lastStart 0), startet sofort
+            case EVERY_N_TICKS -> x.lastStart() <= 0 || x.now() - x.lastStart() >= Math.max(1, x.amount());
             case WHEN_TARGET_BELOW -> x.targetCount() < x.amount();
             // Abnahme 27: „bis der Bedarf gedeckt ist“ stoppt bei 0 Bedarf
             case UNTIL_DEMAND_MET -> x.demand() > 0;

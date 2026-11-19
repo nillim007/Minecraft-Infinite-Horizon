@@ -32,6 +32,8 @@ public class FinaleScreen extends Screen {
     private static final int TEXT = 0xFFFFFFFF;
     private static final int DIM = 0xFFA0A0C0;
     private static final int SUN = 0xFFFFF4D6;
+    /** Seitenrand für umbrochene Textzeilen. */
+    private static final int MARGIN = 20;
 
     private final List<Identifier> bodies;
     private final int sequenceTicks;
@@ -173,9 +175,14 @@ public class FinaleScreen extends Screen {
         disc(g, cx, height / 4, 2, SUN);
         float rt = t - sequenceTicks;
         if (rt < REPLY_TICKS) {
+            // Zeilen umbrechen, damit nichts über den Rand läuft
             int shown = (int) Math.min(reply.size(), rt / 20 + 1);
+            List<net.minecraft.util.FormattedCharSequence> lines = new ArrayList<>();
             for (int k = 0; k < shown; k++) {
-                g.centeredText(font, Component.literal(reply.get(k)), cx, cy - reply.size() * LINE / 2 + k * LINE, TEXT);
+                lines.addAll(font.split(Component.literal(reply.get(k)), Math.max(40, width - 2 * MARGIN)));
+            }
+            for (int k = 0; k < lines.size(); k++) {
+                g.centeredText(font, lines.get(k), cx, cy - lines.size() * LINE / 2 + k * LINE, TEXT);
             }
             return;
         }
