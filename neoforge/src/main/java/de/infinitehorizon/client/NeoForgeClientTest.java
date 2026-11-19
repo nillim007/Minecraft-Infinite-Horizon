@@ -223,8 +223,201 @@ public final class NeoForgeClientTest {
             half(be);
             be.setItem(0, new ItemStack(ModItems.BATTERY.get()));
         }, null);
+        laterMilestones();
         handbook();
+        planetPage();
         recipeViewer();
+    }
+
+    // ------------------------------------------------------------------ M3–M9
+
+    /** GUIs ab M3 (Fabric prüft sie im Client-Test ebenso): Maschinen, Terminals mit eigenem Bildschirm, echte Klicks. */
+    private static void laterMilestones() {
+        Block[] machines = {ModBlocks.OXYGEN_GENERATOR.get(), ModBlocks.ANALYZER.get(), ModBlocks.HIGH_TEMPERATURE_FURNACE.get(),
+                ModBlocks.CRYO_LIQUEFIER.get(), ModBlocks.HYDROPONICS_BASIN.get(), ModBlocks.ZERO_G_FABRICATOR.get(),
+                ModBlocks.FUSION_REACTOR.get(), ModBlocks.FISSION_REACTOR.get(), ModBlocks.DRILLING_RIG.get(),
+                ModBlocks.PUMP_STATION.get()};
+        for (Block b : machines) {
+            String id = net.minecraft.core.registries.BuiltInRegistries.BLOCK.getKey(b).getPath();
+            openMachine(b, "neoforge_gui_" + id, NeoForgeClientTest::half, null);
+        }
+        // Forschungsterminal: Reiter mit echten Mausklicks (26.3: linke Taste = 1)
+        openBlock(ModBlocks.RESEARCH_TERMINAL.get(), "neoforge_gui_research_terminal", be -> { },
+                de.infinitehorizon.client.ResearchTerminalScreen.class, (mc, t) -> {
+                    var screen = (de.infinitehorizon.client.ResearchTerminalScreen) mc.gui.screen();
+                    if (t == 0) {
+                        int[] c = screen.tabCenter(de.infinitehorizon.client.ResearchTerminalScreen.TAB_AGENCY);
+                        clickAt(screen, c[0], c[1]);
+                    } else if (t == 10) {
+                        check("research_tab_agency", screen.tab() == de.infinitehorizon.client.ResearchTerminalScreen.TAB_AGENCY,
+                                "Reiter " + screen.tab());
+                        grab(mc, "neoforge_gui_research_agency");
+                        int[] c = screen.tabCenter(de.infinitehorizon.client.ResearchTerminalScreen.TAB_PARTNERS);
+                        clickAt(screen, c[0], c[1]);
+                    } else if (t == 20) {
+                        check("research_tab_partners", screen.tab() == de.infinitehorizon.client.ResearchTerminalScreen.TAB_PARTNERS,
+                                "Reiter " + screen.tab());
+                        grab(mc, "neoforge_gui_research_partners");
+                        return true;
+                    }
+                    return false;
+                });
+        // Frachtterminal: Freigabe für Partner per Knopf
+        openBlock(ModBlocks.CARGO_TERMINAL.get(), "neoforge_gui_cargo_terminal", be -> {
+            if (be instanceof MachineBlockEntity m) {
+                m.refreshLayout();
+            }
+        }, de.infinitehorizon.client.CargoTerminalScreen.class, (mc, t) -> {
+            if (t == 0) {
+                clickLabel(mc.gui.screen(), Component.translatable("gui.infinite_horizon.cargo_terminal.partners.off"));
+                return false;
+            }
+            if (t < 10) {
+                return false;
+            }
+            boolean shared = onServer(mc, level -> level.getBlockEntity(POS.get())
+                    instanceof de.infinitehorizon.logistics.CargoTerminalBlockEntity c && c.shared());
+            check("cargo_terminal_partners", shared, "nach dem Klick nicht freigegeben");
+            return true;
+        });
+        // Handelsposten: Tausch per Knopf
+        openBlock(ModBlocks.TRADING_POST.get(), "neoforge_gui_trading_post", be -> {
+            if (be instanceof de.infinitehorizon.logistics.TradingPostBlockEntity tp) {
+                tp.setOffer(0, new ItemStack(Items.IRON_INGOT, 4));
+                tp.setOffer(1, new ItemStack(Items.EMERALD, 1));
+                tp.insertItem(new ItemStack(Items.EMERALD, 2), false);
+                be.getLevel().players().forEach(pl -> pl.getInventory().add(new ItemStack(Items.IRON_INGOT, 4)));
+            }
+        }, de.infinitehorizon.client.TradingPostScreen.class, (mc, t) -> {
+            if (t == 0) {
+                clickLabel(mc.gui.screen(), Component.translatable("gui.infinite_horizon.trading_post.trade"));
+                return false;
+            }
+            if (t < 10) {
+                return false;
+            }
+            int emeralds = mc.player.getInventory().countItem(Items.EMERALD);
+            check("trading_post_trade", emeralds == 1, "Smaragde " + emeralds);
+            onServer(mc, level -> {
+                level.players().forEach(pl -> pl.getInventory().clearContent());
+                if (level.getBlockEntity(POS.get()) instanceof de.infinitehorizon.logistics.TradingPostBlockEntity tp) {
+                    tp.clearContent();
+                }
+                return null;
+            });
+            return true;
+        });
+        // Logistik-Computer und Werft-Terminal öffnen eigene Bildschirme über das Netzwerk
+        openBlock(ModBlocks.LOGISTICS_COMPUTER.get(), "neoforge_gui_logistics_computer", be -> { },
+                de.infinitehorizon.client.LogisticsScreen.class, null);
+        openBlock(ModBlocks.SHIPYARD_TERMINAL.get(), "neoforge_gui_shipyard_terminal", be -> { },
+                de.infinitehorizon.client.ShipyardScreen.class, null);
+    }
+
+    /** Handbuch: Planetenseite in Blaupausen-Optik mit Atlas-Kasten (24.1, M9e). */
+    private static void planetPage() {
+        STEPS.add((mc, t) -> {
+            HandbookClient.open("infinite_horizon:phase_2/mond");
+            return true;
+        });
+        STEPS.add((mc, t) -> mc.gui.screen() instanceof HandbookScreen && t > 10);
+        STEPS.add((mc, t) -> {
+            HandbookScreen s = (HandbookScreen) mc.gui.screen();
+            check("handbook_planet_page", "infinite_horizon:phase_2/mond".equals(s.currentPage()), "offen " + s.currentPage());
+            grab(mc, "neoforge_gui_handbook_planet");
+            mc.setScreenAndShow(null);
+            return true;
+        });
+        STEPS.add((mc, t) -> t > 5);
+    }
+
+    private static void grab(Minecraft mc, String name) {
+        Screenshot.grab(mc.gameDirectory, name + ".png", mc.gameRenderer.mainRenderTarget(), 1, msg -> { });
+    }
+
+    /** Linksklick als Maus-Ereignis an den Bildschirm (GUI-Koordinaten). */
+    private static boolean clickAt(Screen screen, double x, double y) {
+        var ev = new net.minecraft.client.input.MouseButtonEvent(x, y, new MouseButtonInfo(InputConstants.MOUSE_BUTTON_LEFT, 0));
+        boolean hit = screen.mouseClicked(ev, false);
+        screen.mouseReleased(ev);
+        return hit;
+    }
+
+    /** Klickt auf den sichtbaren, aktiven Knopf, dessen Text {@code label} enthält. */
+    private static boolean clickLabel(Screen screen, Component label) {
+        String want = label.getString();
+        for (GuiEventListener child : screen.children()) {
+            if (child instanceof AbstractWidget w && w.visible && w.active && w.getMessage().getString().contains(want)) {
+                return clickAt(screen, w.getX() + w.getWidth() / 2.0, w.getY() + w.getHeight() / 2.0);
+            }
+        }
+        fail("klick_" + want, "Knopf nicht gefunden");
+        return false;
+    }
+
+    /**
+     * Wie {@link #openMachine}, aber für Blöcke mit eigenem Bildschirm ({@code screen}): setzen, einrichten, per
+     * Rechtsklick öffnen, fotografieren, {@code extra} ausführen, schließen und entfernen.
+     */
+    private static void openBlock(Block block, String name, Consumer<net.minecraft.world.level.block.entity.BlockEntity> setup,
+                                  Class<? extends Screen> screen, Step extra) {
+        STEPS.add((mc, t) -> {
+            BlockPos pos = mc.player.blockPosition().east(2);
+            POS.set(pos);
+            onServer(mc, level -> {
+                var state = block.defaultBlockState();
+                if (state.hasProperty(MachineBlock.FACING)) {
+                    state = state.setValue(MachineBlock.FACING, Direction.WEST);
+                }
+                level.setBlockAndUpdate(pos, state);
+                var be = level.getBlockEntity(pos);
+                if (be != null) {
+                    setup.accept(be);
+                }
+                return null;
+            });
+            return true;
+        });
+        STEPS.add((mc, t) -> t > 10);
+        STEPS.add((mc, t) -> {
+            BlockPos pos = POS.get();
+            mc.gameMode.useItemOn(mc.player, InteractionHand.MAIN_HAND,
+                    new BlockHitResult(Vec3.atCenterOf(pos), Direction.WEST, pos, false));
+            return true;
+        });
+        STEPS.add((mc, t) -> {
+            if (screen.isInstance(mc.gui.screen())) {
+                return t > 15;
+            }
+            if (t > 100) {
+                fail(name + "_open", "Bildschirm hat sich nicht geöffnet (Screen: " + mc.gui.screen() + ")");
+                return true;
+            }
+            return false;
+        });
+        STEPS.add((mc, t) -> {
+            if (screen.isInstance(mc.gui.screen())) {
+                grab(mc, name);
+                pass(name + "_open");
+            }
+            return true;
+        });
+        STEPS.add((mc, t) -> t > 5);
+        if (extra != null) {
+            STEPS.add((mc, t) -> !screen.isInstance(mc.gui.screen()) || extra.run(mc, t));
+        }
+        STEPS.add((mc, t) -> {
+            if (mc.player != null) {
+                mc.player.closeContainer();
+            }
+            mc.setScreenAndShow(null);
+            onServer(mc, level -> {
+                level.setBlockAndUpdate(POS.get(), Blocks.AIR.defaultBlockState());
+                return null;
+            });
+            return true;
+        });
+        STEPS.add((mc, t) -> t > 5);
     }
 
     /**
