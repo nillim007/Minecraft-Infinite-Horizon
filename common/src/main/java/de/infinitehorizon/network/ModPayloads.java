@@ -31,6 +31,13 @@ public final class ModPayloads {
                 payload -> de.infinitehorizon.client.ShipyardScreen.receive(payload));
         Services.NETWORK.registerServerbound(ShipyardStatePayload.Request.TYPE, ShipyardStatePayload.Request.CODEC,
                 ShipyardStatePayload.Request::handle);
+        Services.NETWORK.registerServerbound(ShipyardStatePayload.Start.TYPE, ShipyardStatePayload.Start.CODEC,
+                ShipyardStatePayload.Start::handle);
+        Services.NETWORK.registerClientbound(FinalePayload.TYPE, FinalePayload.CODEC,
+                payload -> de.infinitehorizon.client.FinaleScreen.receive(payload));
+        Services.NETWORK.registerClientbound(StarshipPayload.Targets.TYPE, StarshipPayload.Targets.CODEC,
+                payload -> de.infinitehorizon.client.StarshipJumpScreen.receive(payload));
+        Services.NETWORK.registerServerbound(StarshipPayload.Jump.TYPE, StarshipPayload.Jump.CODEC, StarshipPayload.Jump::handle);
         Services.NETWORK.registerServerbound(MachineConfigPayload.TYPE, MachineConfigPayload.CODEC, MachineConfigPayload::handle);
         Services.NETWORK.registerServerbound(ResearchUnlockPayload.TYPE, ResearchUnlockPayload.CODEC, ResearchUnlockPayload::handle);
         Services.NETWORK.registerServerbound(AgencyActionPayload.TYPE, AgencyActionPayload.CODEC, AgencyActionPayload::handle);

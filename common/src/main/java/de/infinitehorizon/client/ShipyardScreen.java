@@ -17,7 +17,7 @@ import java.util.List;
  */
 public class ShipyardScreen extends Screen {
 
-    private static final int W = 300;
+    private static final int W = 370;
     private static final int ROW = 22;
     private static final int PANEL = 0xFFC6C6C6;
     private static final int TEXT = 0xFF404040;
@@ -26,8 +26,8 @@ public class ShipyardScreen extends Screen {
     private static final int BAR = 0xFF4A90D0;
     private static final int DONE = 0xFF40B040;
     private static final int BUILDING = 0xFFE0A020;
-    private static final int BAR_X = 120;
-    private static final int BAR_W = 100;
+    private static final int BAR_X = 150;
+    private static final int BAR_W = 80;
     private static final int BAR_H = 8;
     private static final int REFRESH_TICKS = 40;
     private static final int TICKS_PER_SECOND = 20;
@@ -45,7 +45,11 @@ public class ShipyardScreen extends Screen {
     public static void receive(ShipyardStatePayload p) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.gui.screen() instanceof ShipyardScreen s && s.state.terminal().equals(p.terminal())) {
+            boolean rebuild = s.state.canStart() != p.canStart();
             s.state = p;
+            if (rebuild) {
+                s.rebuildWidgets();
+            }
         } else {
             mc.setScreenAndShow(new ShipyardScreen(p));
         }
@@ -63,6 +67,13 @@ public class ShipyardScreen extends Screen {
     protected void init() {
         left = (width - W) / 2;
         top = (height - panelHeight()) / 2;
+        // 21.3: nach Abschnitt 8 erscheint „Start“
+        net.minecraft.client.gui.components.Button start = net.minecraft.client.gui.components.Button.builder(
+                Component.translatable("gui.infinite_horizon.shipyard.start"),
+                b -> Services.NETWORK.sendToServer(new ShipyardStatePayload.Start(state.terminal())))
+                .bounds(left + W - 88, top + 4, 80, 16).build();
+        start.visible = state.canStart();
+        addRenderableWidget(start);
     }
 
     @Override

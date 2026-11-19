@@ -34,6 +34,7 @@ public class ShipyardTerminalBlockEntity extends IhBlockEntity {
         ShipyardState data = ShipyardState.get(level.getServer());
         ShipyardState.Yard y = data.register(level.dimension().identifier(), worldPosition, storedOwner());
         y = data.advance(y, level.getServer().overworld().getGameTime());
+        y = Finale.onComplete(level, y);
         boolean valid = ShipyardService.terminalAllowed(level, worldPosition);
         MachineStatus status = !valid ? MachineStatus.ERROR : y.buildEnd() > 0 ? MachineStatus.RUNNING : MachineStatus.IDLE;
         int stage = Math.min(8, y.built());

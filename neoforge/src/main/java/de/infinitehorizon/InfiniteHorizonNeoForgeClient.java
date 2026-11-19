@@ -41,6 +41,7 @@ public class InfiniteHorizonNeoForgeClient {
             e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.SEAT.get(), net.minecraft.client.renderer.entity.NoopRenderer::new);
             e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.ROCKET.get(), de.infinitehorizon.client.RocketRenderer::new);
             e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.LANDER.get(), de.infinitehorizon.client.RocketRenderer::new);
+            e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.STARSHIP.get(), de.infinitehorizon.client.StarshipRenderer::new);
             e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.ROVER.get(), de.infinitehorizon.client.RoverRenderer::new);
             e.registerEntityRenderer(de.infinitehorizon.registry.ModEntities.RUBBLE_CRAWLER.get(),
                     ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::crawler));

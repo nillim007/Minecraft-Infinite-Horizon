@@ -37,6 +37,13 @@ public final class ModEntities {
                     .sized(1.0f, 1.0f).clientTrackingRange(16).updateInterval(1).noSummon().fireImmune()
                     .build(key("rocket")));
 
+    /** Sternenschiff (21.3): 8 Sitze, springt zwischen Orbit-Dimensionen. */
+    public static final Supplier<EntityType<de.infinitehorizon.vehicle.StarshipEntity>> STARSHIP = Services.REGISTRY.register(
+            BuiltInRegistries.ENTITY_TYPE, "starship", () -> EntityType.Builder.<de.infinitehorizon.vehicle.StarshipEntity>of(
+                            de.infinitehorizon.vehicle.StarshipEntity::new, MobCategory.MISC)
+                    .sized(3.0f, 2.0f).clientTrackingRange(16).updateInterval(1).noSummon().fireImmune()
+                    .build(key("starship")));
+
     /** Landefähre (12.7): Raketen-Entity mit eigenem Tank und eigenen Zielen; Hitbox wie eine Rakete. */
     public static final Supplier<EntityType<de.infinitehorizon.space.LanderEntity>> LANDER = Services.REGISTRY.register(
             BuiltInRegistries.ENTITY_TYPE, "lander", () -> EntityType.Builder.<de.infinitehorizon.space.LanderEntity>of(

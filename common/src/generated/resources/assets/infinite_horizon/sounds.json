@@ -46,5 +46,11 @@
     "sounds": [
       "minecraft:random/anvil_land"
     ]
+  },
+  "finale.signal_reply": {
+    "subtitle": "subtitles.infinite_horizon.finale.signal_reply",
+    "sounds": [
+      "minecraft:block/beacon/activate"
+    ]
   }
 }

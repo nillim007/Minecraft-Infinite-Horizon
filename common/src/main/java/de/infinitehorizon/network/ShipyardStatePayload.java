@@ -15,7 +15,7 @@ import java.util.List;
  * Baus, ob der Ort gültig ist und ob ein Dock in der Station steht. C→S {@link Request} holt den Stand neu.
  */
 public record ShipyardStatePayload(BlockPos terminal, int built, long remaining, List<Section> sections, boolean valid,
-                                   boolean hasDock) implements CustomPacketPayload {
+                                   boolean hasDock, boolean launched) implements CustomPacketPayload {
 
     public record Material(String id, long needed, long delivered, boolean fluid) {
         public static final StreamCodec<ByteBuf, Material> STREAM_CODEC = StreamCodec.composite(
@@ -50,7 +50,36 @@ public record ShipyardStatePayload(BlockPos terminal, int built, long remaining,
             Section.STREAM_CODEC.apply(ByteBufCodecs.list()), ShipyardStatePayload::sections,
             ByteBufCodecs.BOOL, ShipyardStatePayload::valid,
             ByteBufCodecs.BOOL, ShipyardStatePayload::hasDock,
+            ByteBufCodecs.BOOL, ShipyardStatePayload::launched,
             ShipyardStatePayload::new);
+
+    /** Alle Abschnitte gebaut und noch nicht gestartet: Knopf „Start“ (21.3). */
+    public boolean canStart() {
+        return valid && !launched && built >= sections.size() && !sections.isEmpty();
+    }
+
+    /** C→S (21.3): Finale am Werft-Terminal starten. */
+    public record Start(BlockPos terminal) implements CustomPacketPayload {
+        public static final Type<Start> TYPE = new Type<>(InfiniteHorizon.id("shipyard_start"));
+        public static final StreamCodec<ByteBuf, Start> CODEC = BlockPos.STREAM_CODEC.map(Start::new, Start::terminal);
+
+        @Override
+        public Type<Start> type() {
+            return TYPE;
+        }
+
+        public static void handle(Start s, ServerPlayer player) {
+            if (player.distanceToSqr(net.minecraft.world.phys.Vec3.atCenterOf(s.terminal())) > 8 * 8) {
+                return;
+            }
+            de.infinitehorizon.shipyard.Finale.Start r = de.infinitehorizon.shipyard.Finale.start(player, s.terminal());
+            if (r != de.infinitehorizon.shipyard.Finale.Start.OK) {
+                player.sendOverlayMessage(net.minecraft.network.chat.Component.translatable("message.infinite_horizon.finale."
+                        + r.name().toLowerCase(java.util.Locale.ROOT)));
+                de.infinitehorizon.shipyard.ShipyardService.send(player, s.terminal());
+            }
+        }
+    }
 
     @Override
     public Type<ShipyardStatePayload> type() {

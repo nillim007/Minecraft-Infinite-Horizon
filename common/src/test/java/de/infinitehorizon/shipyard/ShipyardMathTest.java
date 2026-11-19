@@ -70,4 +70,10 @@ class ShipyardMathTest {
         assertEquals(1, st.built());
         assertEquals(2 * BUILD, st.buildEnd(), "Abschnitt 2 beginnt mit dem Ende von Abschnitt 1");
     }
+
+    @Test
+    void finaleSplitsSequenceAcrossVisitedPlanets() {
+        assertEquals(100, Finale.perBodyTicks(1200, 12));
+        assertEquals(1200, Finale.perBodyTicks(1200, 0));
+    }
 }

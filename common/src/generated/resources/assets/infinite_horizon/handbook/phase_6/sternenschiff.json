@@ -1,0 +1,51 @@
+{
+  "id": "infinite_horizon:phase_6/sternenschiff",
+  "chapter": "infinite_horizon:phase_6",
+  "title": "infinite_horizon.handbook.phase_6.sternenschiff.title",
+  "icon": "infinite_horizon:shipyard_terminal",
+  "order": 80,
+  "unlock": "infinite_horizon:research_tier/5",
+  "items": [],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.sternenschiff.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.sternenschiff.e1",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.sternenschiff.e2"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.sternenschiff.e3"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_6.sternenschiff.e4",
+      "style": "tip"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.sternenschiff.e5",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.sternenschiff.e6"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.sternenschiff.e7"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_6.sternenschiff.e8",
+      "style": "warning"
+    }
+  ]
+}

@@ -26,4 +26,5 @@ In der letzten Phase verbindest du deine Welten. Außenposten fördern Rohstoffe
 @endif
 @if infinite_horizon:shipyard_terminal
 6. **Die Werft beliefern.** In der [[werft|Orbitalwerft]] im Erdorbit entsteht in acht Abschnitten dein Sternenschiff.
+7. **Starten.** Nach dem achten Abschnitt startest du am Werft-Terminal das [[sternenschiff|Sternenschiff]].
 @endif

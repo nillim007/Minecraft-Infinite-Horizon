@@ -29,6 +29,8 @@ Was an der Andockbucht ankommt, wandert sofort ins Werftlager. Das Lager ist unb
 
 Das Terminal zeigt alle acht Abschnitte mit Fortschrittsbalken. Fährst du mit der Maus über einen Balken, siehst du, was noch fehlt. Lieferungen nimmt die Werft für alle offenen Abschnitte an, die frühesten zuerst.
 
+Nach dem achten Abschnitt erscheint am Terminal der Knopf „Start“ ([Start und Sternenschiff](Start-und-Sternenschiff.md)).
+
 Ist ein Abschnitt voll beliefert, baut die Werft ihn in 48.000 t (2.400 s). Gebaut wird der Reihe nach, von 1 bis 8, und die Zeit läuft auch weiter, wenn du nicht in der Nähe bist. Mit jedem fertigen Abschnitt wächst das Gerüst über dem Terminal.
 
 | Abschnitt | Wichtigste Materialien |
@@ -56,4 +58,4 @@ Ist ein Abschnitt voll beliefert, baut die Werft ihn in 48.000 t (2.400 s). Geba
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Logistik-Computer](Logistik-Computer.md)
+← [Logistik-Computer](Logistik-Computer.md) · [Start und Sternenschiff](Start-und-Sternenschiff.md) →

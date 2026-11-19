@@ -193,6 +193,8 @@ public class IhClientGameTests implements FabricClientGameTest {
             logisticsComputer(context, sp);
             // M8f: Werft-GUI (Abschnitt 1 im Bau, Abschnitt 2 halb beliefert); Ort ungültig in der Overworld
             shipyard(context, sp);
+            // M8g: Startsequenz, Antwort des Senders, Abspann, Sternenschiff und Sprungziele
+            finale(context, sp);
             // M8b: Bohrturm (in der Overworld: rote Lampe) und Pumpstation
             machine(context, sp, ModBlocks.DRILLING_RIG.get(), "gui_drilling_rig", be -> fillEnergy(be, 2));
             machine(context, sp, ModBlocks.PUMP_STATION.get(), "gui_pump_station", be -> {
@@ -875,6 +877,46 @@ public class IhClientGameTests implements FabricClientGameTest {
         context.waitTicks(10);
         clearChat(context);
         return pos;
+    }
+
+    /** Finale (21.3): die drei Phasen der Sequenz, das Sternenschiff und seine Sprungziele. */
+    private static void finale(ClientGameTestContext context, TestSingleplayerContext sp) {
+        java.util.List<net.minecraft.resources.Identifier> visited = java.util.List.of(
+                net.minecraft.resources.Identifier.withDefaultNamespace("overworld"),
+                de.infinitehorizon.InfiniteHorizon.id("moon"), de.infinitehorizon.InfiniteHorizon.id("mars"),
+                de.infinitehorizon.InfiniteHorizon.id("jupiter_orbit"));
+        context.runOnClient(c -> de.infinitehorizon.client.FinaleScreen.receive(
+                new de.infinitehorizon.network.FinalePayload(visited, 1200)));
+        context.waitForScreen(de.infinitehorizon.client.FinaleScreen.class);
+        context.waitTicks(40);
+        context.takeScreenshot("finale_planet");
+        context.runOnClient(c -> ((de.infinitehorizon.client.FinaleScreen) c.gui.screen()).skipTo(1200 + 120));
+        context.waitTicks(2);
+        context.takeScreenshot("finale_reply");
+        context.runOnClient(c -> ((de.infinitehorizon.client.FinaleScreen) c.gui.screen())
+                .skipTo(1200 + de.infinitehorizon.client.FinaleScreen.replyTicks() + 300));
+        context.waitTicks(2);
+        context.takeScreenshot("finale_credits");
+        context.setScreen(() -> null);
+        // Sternenschiff vor dem Spieler und die Sprungziele
+        int id = sp.getServer().computeOnServer(server -> {
+            var p = server.getPlayerList().getPlayers().getFirst();
+            var ship = de.infinitehorizon.vehicle.StarshipService.spawn((ServerLevel) p.level(),
+                    p.blockPosition().relative(p.getDirection(), 8).above(2), null);
+            return ship == null ? -1 : ship.getId();
+        });
+        context.waitTicks(20);
+        clearChat(context);
+        context.takeScreenshot("world_starship");
+        context.runOnClient(c -> de.infinitehorizon.client.StarshipJumpScreen.receive(
+                new de.infinitehorizon.network.StarshipPayload.Targets(id,
+                        de.infinitehorizon.vehicle.StarshipService.targets(net.minecraft.resources.Identifier.withDefaultNamespace("overworld")))));
+        context.waitForScreen(de.infinitehorizon.client.StarshipJumpScreen.class);
+        context.waitTicks(5);
+        context.takeScreenshot("gui_starship_jump");
+        context.setScreen(() -> null);
+        sp.getServer().runCommand("kill @e[type=infinite_horizon:starship]");
+        context.waitTick();
     }
 
     /** Werft-Terminal (21.1): Abschnitte mit Fortschritt, per Rechtsklick. */

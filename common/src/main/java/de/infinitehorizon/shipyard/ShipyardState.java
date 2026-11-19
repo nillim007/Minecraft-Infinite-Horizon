@@ -31,7 +31,8 @@ public final class ShipyardState extends SavedData {
 
     /** Eine Werft; Abschnitte mit Index ab 0 (Schlüssel als Text für den Speicher). */
     public record Yard(Identifier dimension, BlockPos pos, Optional<UUID> owner, int built, long buildEnd, long lastEnd,
-                       Map<String, Map<String, Long>> delivered, Map<String, Long> completedAt) {
+                       Map<String, Map<String, Long>> delivered, Map<String, Long> completedAt, boolean notified,
+                       boolean launched) {
         static final Codec<Yard> CODEC = RecordCodecBuilder.create(i -> i.group(
                 Identifier.CODEC.fieldOf("dimension").forGetter(Yard::dimension),
                 BlockPos.CODEC.fieldOf("pos").forGetter(Yard::pos),
@@ -41,7 +42,9 @@ public final class ShipyardState extends SavedData {
                 Codec.LONG.fieldOf("last_end").forGetter(Yard::lastEnd),
                 Codec.unboundedMap(Codec.STRING, Codec.unboundedMap(Codec.STRING, Codec.LONG)).fieldOf("delivered")
                         .forGetter(Yard::delivered),
-                Codec.unboundedMap(Codec.STRING, Codec.LONG).fieldOf("completed_at").forGetter(Yard::completedAt)
+                Codec.unboundedMap(Codec.STRING, Codec.LONG).fieldOf("completed_at").forGetter(Yard::completedAt),
+                Codec.BOOL.optionalFieldOf("notified", false).forGetter(Yard::notified),
+                Codec.BOOL.optionalFieldOf("launched", false).forGetter(Yard::launched)
         ).apply(i, Yard::new));
 
         public ShipyardMath.State state() {
@@ -57,11 +60,21 @@ public final class ShipyardState extends SavedData {
             s.delivered().forEach((k, v) -> d.put(Integer.toString(k), new LinkedHashMap<>(v)));
             Map<String, Long> c = new LinkedHashMap<>();
             s.completedAt().forEach((k, v) -> c.put(Integer.toString(k), v));
-            return new Yard(dimension, pos, owner, s.built(), s.buildEnd(), s.lastEnd(), d, c);
+            return new Yard(dimension, pos, owner, s.built(), s.buildEnd(), s.lastEnd(), d, c, notified, launched);
         }
 
         Yard withOwner(@Nullable UUID o) {
-            return new Yard(dimension, pos, Optional.ofNullable(o), built, buildEnd, lastEnd, delivered, completedAt);
+            return new Yard(dimension, pos, Optional.ofNullable(o), built, buildEnd, lastEnd, delivered, completedAt, notified,
+                    launched);
+        }
+
+        Yard withFlags(boolean n, boolean l) {
+            return new Yard(dimension, pos, owner, built, buildEnd, lastEnd, delivered, completedAt, n, l);
+        }
+
+        /** Alle Abschnitte gebaut (21.3: „Start“ erscheint)? */
+        public boolean complete() {
+            return built >= sections().size();
         }
     }
 
@@ -99,7 +112,7 @@ public final class ShipyardState extends SavedData {
     public Yard register(Identifier dimension, BlockPos pos, @Nullable UUID owner) {
         Yard y = yards.get(key(dimension, pos));
         if (y == null) {
-            y = new Yard(dimension, pos.immutable(), Optional.ofNullable(owner), 0, 0, 0, Map.of(), Map.of());
+            y = new Yard(dimension, pos.immutable(), Optional.ofNullable(owner), 0, 0, 0, Map.of(), Map.of(), false, false);
         } else if (!y.owner().equals(Optional.ofNullable(owner))) {
             y = y.withOwner(owner);
         } else {
@@ -114,6 +127,23 @@ public final class ShipyardState extends SavedData {
         if (yards.remove(key(dimension, pos)) != null) {
             setDirty();
         }
+    }
+
+    /** Merker „Fertig gemeldet“ und „Finale gestartet“ (21.3) setzen. */
+    public Yard setFlags(Yard y, boolean notified, boolean launched) {
+        Yard n = y.withFlags(notified, launched);
+        yards.put(key(y.dimension(), y.pos()), n);
+        setDirty();
+        return n;
+    }
+
+    /** Nur für Tests: Abschnitte als gebaut setzen. */
+    public Yard forceBuilt(Yard y, int built) {
+        Yard n = new Yard(y.dimension(), y.pos(), y.owner(), built, 0, 0, y.delivered(), y.completedAt(), y.notified(),
+                y.launched());
+        yards.put(key(y.dimension(), y.pos()), n);
+        setDirty();
+        return n;
     }
 
     // ------------------------------------------------------------------ Regeln aus shipyard.json

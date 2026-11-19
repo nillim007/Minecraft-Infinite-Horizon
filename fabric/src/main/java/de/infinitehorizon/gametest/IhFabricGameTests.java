@@ -1238,4 +1238,14 @@ public class IhFabricGameTests {
     public void shipyardRouteUntilDemandMet(GameTestHelper helper) {
         IhGameTestsM8f.demandRoute(helper);
     }
+
+    @GameTest(maxTicks = 40, dimension = "infinite_horizon:earth_orbit")
+    public void finaleStartAfterSection8(GameTestHelper helper) {
+        IhGameTestsM8g.finaleStart(helper);
+    }
+
+    @GameTest(maxTicks = 40, dimension = "infinite_horizon:earth_orbit")
+    public void starshipJumpOrbits(GameTestHelper helper) {
+        IhGameTestsM8g.starshipJump(helper);
+    }
 }

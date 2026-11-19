@@ -34,6 +34,8 @@ public class InfiniteHorizonFabricClient implements ClientModInitializer {
         net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(
                 de.infinitehorizon.registry.ModEntities.LANDER.get(), de.infinitehorizon.client.RocketRenderer::new);
         net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(
+                de.infinitehorizon.registry.ModEntities.STARSHIP.get(), de.infinitehorizon.client.StarshipRenderer::new);
+        net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(
                 de.infinitehorizon.registry.ModEntities.ROVER.get(), de.infinitehorizon.client.RoverRenderer::new);
         net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(de.infinitehorizon.registry.ModEntities.RUBBLE_CRAWLER.get(),
                 ctx -> new de.infinitehorizon.client.CreatureRenderer<>(ctx, de.infinitehorizon.client.CreatureLooks::crawler));

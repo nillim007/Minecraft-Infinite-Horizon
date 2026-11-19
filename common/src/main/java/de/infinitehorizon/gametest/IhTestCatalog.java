@@ -264,7 +264,9 @@ public final class IhTestCatalog {
             new Test("shipyard_dock_demand_methane", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM8f::dockDemand),  // 21.1, 20.1, M8f
             new Test("shipyard_star_chart_own_agency", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM8f::starChartOwner),  // 18, 21.2, M8f
             new Test("shipyard_build_section_scaffold", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM8f::buildSection),  // 21.1, M8f
-            new Test("shipyard_route_until_demand_met", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM8f::demandRoute)  // 20.4, 21.1, 27 M8
+            new Test("shipyard_route_until_demand_met", 20, null, null, "infinite_horizon:earth_orbit", IhGameTestsM8f::demandRoute),  // 20.4, 21.1, 27 M8
+            new Test("finale_start_after_section_8", 40, null, null, "infinite_horizon:earth_orbit", IhGameTestsM8g::finaleStart),  // 21.3, M8g
+            new Test("starship_jump_orbits", 40, null, null, "infinite_horizon:earth_orbit", IhGameTestsM8g::starshipJump)  // 21.3, M8g
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

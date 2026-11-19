@@ -252,6 +252,8 @@
     {"name": "shipyard_dock_demand_methane", "class": "IhGameTestsM8f", "method": "dockDemand", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "21.1, 20.1, M8f"},
     {"name": "shipyard_star_chart_own_agency", "class": "IhGameTestsM8f", "method": "starChartOwner", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "18, 21.2, M8f"},
     {"name": "shipyard_build_section_scaffold", "class": "IhGameTestsM8f", "method": "buildSection", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "21.1, M8f"},
-    {"name": "shipyard_route_until_demand_met", "class": "IhGameTestsM8f", "method": "demandRoute", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "20.4, 21.1, 27 M8"}
+    {"name": "shipyard_route_until_demand_met", "class": "IhGameTestsM8f", "method": "demandRoute", "ticks": 20, "dimension": "infinite_horizon:earth_orbit", "ref": "20.4, 21.1, 27 M8"},
+    {"name": "finale_start_after_section_8", "class": "IhGameTestsM8g", "method": "finaleStart", "ticks": 40, "dimension": "infinite_horizon:earth_orbit", "ref": "21.3, M8g"},
+    {"name": "starship_jump_orbits", "class": "IhGameTestsM8g", "method": "starshipJump", "ticks": 40, "dimension": "infinite_horizon:earth_orbit", "ref": "21.3, M8g"}
   ]
 }

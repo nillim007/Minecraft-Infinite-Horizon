@@ -1,0 +1,24 @@
+{
+  "parent": "infinite_horizon:own_air",
+  "criteria": {
+    "done": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "display": {
+    "icon": {
+      "id": "infinite_horizon:shipyard_terminal"
+    },
+    "title": {
+      "translate": "advancements.infinite_horizon.starship.title"
+    },
+    "description": {
+      "translate": "advancements.infinite_horizon.starship.description"
+    }
+  },
+  "requirements": [
+    [
+      "done"
+    ]
+  ]
+}

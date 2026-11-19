@@ -103,7 +103,7 @@ public final class ShipyardService {
         }
         boolean valid = y != null && terminalAllowed(level, terminal);
         return new ShipyardStatePayload(terminal, st.built(), st.buildEnd() > 0 ? Math.max(0, st.buildEnd() - now) : 0,
-                sections, valid, y != null && hasDock(level, y));
+                sections, valid, y != null && hasDock(level, y), y != null && y.launched());
     }
 
     public static void send(ServerPlayer player, BlockPos terminal) {

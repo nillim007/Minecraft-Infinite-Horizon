@@ -14,6 +14,7 @@ In der letzten Phase verbindest du deine Welten. Außenposten fördern Rohstoffe
 4. **Fracht fliegen.** [Frachtraketen](Frachtraketen-und-Antriebe.md) im Hangar eines Terminals bringen Items und Fluide zu anderen Terminals. Antriebe verkürzen die Flugzeit.
 5. **Routen anlegen.** Am [Logistik-Computer](Logistik-Computer.md) legst du fest, wann welche Rakete was wohin fliegt.
 6. **Die Werft beliefern.** In der [Orbitalwerft](Orbitalwerft.md) im Erdorbit entsteht in acht Abschnitten dein Sternenschiff.
+7. **Starten.** Nach dem achten Abschnitt startest du am Werft-Terminal das [Sternenschiff](Start-und-Sternenschiff.md).
 
 ---
 

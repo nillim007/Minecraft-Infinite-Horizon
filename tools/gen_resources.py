@@ -1106,12 +1106,16 @@ WARNING_SOUNDS = {"warning.oxygen": "minecraft:note/pling", "warning.heat": "min
 # Raketen (24.6): M4 registriert rocket.countdown/launch/landing, Platzhalter wie oben (spec-gaps #58)
 ROCKET_SOUNDS = {"rocket.countdown": "minecraft:note/hat", "rocket.launch": "minecraft:random/explode1",
                  "rocket.landing": "minecraft:random/anvil_land"}
+# Finale (21.3): Antwort des Senders, Platzhalter = Vanilla-Klang (SPEC-GAP #116)
+FINALE_SOUNDS = {"finale.signal_reply": "minecraft:block/beacon/activate"}
 
 
 def sounds(impl):
     all_sounds = dict(WARNING_SOUNDS)
     if f"{NS}:rocket" in impl.get("entities", []):
         all_sounds.update(ROCKET_SOUNDS)
+    if f"{NS}:starship" in impl.get("entities", []):
+        all_sounds.update(FINALE_SOUNDS)
     write_json(f"assets/{NS}/sounds.json", {name: {"subtitle": f"subtitles.{NS}.{name}", "sounds": [file]}
                                             for name, file in all_sounds.items()})
     write_json(f"{NS}/sound_events.json", {"events": sorted(all_sounds)})
@@ -1314,7 +1318,13 @@ def advancement_criterion(a):
 def advancements(spec, impl, registered):
     """Reiter infinite_horizon:root (24.3): nur die Erfolge aus implemented_ids.json → advancements.
     SPEC-GAP #64: Fehlt der Elternteil, gilt der nächste erzeugte Vorfahr."""
-    by_id = spec.balance["misc"]["advancements"]["by_id"]
+    by_id = dict(spec.balance["misc"]["advancements"]["by_id"])
+    # SPEC-GAP #116: Der Erfolg des Finales (shipyard.json finale.advancement) fehlt in misc.json; Vater ist der letzte
+    # Erfolg der Kette, vergeben vom Code an alle Mitglieder
+    fin = (spec.balance.get("shipyard") or {}).get("finale") or {}
+    if fin.get("advancement") and fin["advancement"] not in by_id:
+        by_id[fin["advancement"]] = {"parent": f"{NS}:own_air", "icon": f"{NS}:shipyard_terminal",
+                                     "trigger": "minecraft:impossible", "granted_by": "code_all_members"}
     wanted = list(impl.get("advancements", []))
     generated = set(wanted)
     for aid in wanted:
