@@ -102,3 +102,11 @@ Erzeugt werden: Block-/Item-Modelle, Blockstates, Loot-Tables, Rezepte, Tags, Ü
 - Keine Worldgen- oder Multiblock-Seiten in M2.
 - Test: Ein JUnit-Test prüft, dass die Kategorienliste aus den Rezepttypen aufgebaut wird (ohne die Anzeige-Mod zu laden). Die Darstellung wird manuell geprüft.
 - Gibt es JEI, REI oder EMI nicht für 26.3, fällt das Plugin weg und der Eintrag kommt in `docs/spec-gaps.md` (siehe 3.1).
+
+## Festlegungen aus der Umsetzung (M1–M8)
+
+Annahmen aus der Umsetzung, die übernommen wurden. Die Nummer verweist auf den Eintrag in `docs/spec-gaps.md`, dort steht auch die Code-Stelle.
+
+- **#33 (M2f, 3.1, 3.9):** EMI gibt es nicht für 26.3 (neueste Version auf maven.terraformersmc.com: 1.1.0+1.20.4) → Nur JEI (31.17.0.109) und REI (26.3.824) als `compileOnly`; das EMI-Plugin entfällt, bis es EMI für 26.3 gibt
+- **#34 (M2f, 3.9):** Der Client kennt seit 1.21.2 nicht alle Rezepte; die Spezifikation sagt nicht, woher JEI/REI sie bekommen → Der Server schickt die eigenen Rezeptarten mit (NeoForge `OnDatapackSyncEvent#sendRecipes`, Fabric `RecipeSynchronization`); `ClientRecipes` stellt sie den Plugins bereit
+- **#35 (M2f, 3.9):** Darstellung „wird manuell geprüft“ → JEI läuft im NeoForge-Client-Test mit (`-PwithJei`, nur dort) und wird fotografiert. REI ist nur übersetzt, nicht im Spiel geprüft (es braucht Architectury und Cloth Config zur Laufzeit)

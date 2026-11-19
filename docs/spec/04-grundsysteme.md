@@ -106,3 +106,16 @@ Kabel und Rohre verbinden sich automatisch mit Nachbarn, die Energie bzw. Fluide
 - Ein Rohrnetz führt nur ein Fluid gleichzeitig. Es wechselt erst, wenn es leer ist.
 - **Kein Puffer:** Kabel und Rohre speichern nichts. Ausgaben gehen im selben Tick an die Empfänger, höchstens mit dem Durchsatz der Sorte (J/t bzw. mB/t). „Leer“ heißt: In den letzten 20 t wurde nichts übertragen.
 - **Abgabeseiten:** Generatoren schieben Energie in alle Seiten. Fluid-Ausgaben von Maschinen, Controllern und Speichern gehen nur über die Ausgangsseite (4.1). Ein Port gibt nach seinem Modus ab (4.3).
+
+## Festlegungen aus der Umsetzung (M1–M8)
+
+Annahmen aus der Umsetzung, die übernommen wurden. Die Nummer verweist auf den Eintrag in `docs/spec-gaps.md`, dort steht auch die Code-Stelle.
+
+- **#9 (M1, 4.1):** Zahl der Ausgabeslots des Zerkleinerers nicht genannt → 4 (aus `balance/machines.json`)
+- **#19 (M2a, 4.1, 24.5):** Für das Maschinen-GUI ist keine Textur vorgegeben → Das GUI wird aus Rechtecken gezeichnet (Hintergrund, Slots, Energieleiste, Pfeil) nach den Maßen aus 4.1; keine Bilddatei nötig
+- **#22 (M2c, 4.4, 5.3):** „leer = 20 t ohne Übertragung“ (4.4) und die Fließwerte von Erdöl (5.3) stehen nicht in spec/data → Werte aus dem Text: 20 t als Konstante `FluidGrid.EMPTY_AFTER_TICKS`, Fließwerte in `fluids.json` (gen_resources)
+- **#24 (M2d, 4.3):** Der Meldeabstand der Gehäuse- und Port-Blöcke („höchstens 5 Blöcke“) steht nicht in spec/data (`multiblock_rules` in misc.json hat nur Prüfabstand und Projektionsdauer) → Konstante `MultiblockRegistry.NOTIFY_RADIUS = 5`, gemessen als Würfel um den geänderten Block
+- **#25 (M2d, 4.1):** Knopf „Tank“: Unklar, ob er alle Tanks oder nur Ausgangstanks durchschaltet → Er wählt unter den Tanks, aus denen der Füllslot füllt: die Ausgangstanks (bei Speichern ohne Ausgangstank die Eingangstanks). Der Knopf erscheint nur bei mehr als einem solchen Tank (Elektrolyseur). Ein leerer Behälter im Füllslot nimmt nur aus dem gewählten Tank.
+- **#27 (M2d, 4.1):** Lage der Fluidleisten bei mehreren Tanks, Platz für die Knöpfe → Leisten ab y 18 (unter der Kopfzeile mit „Tank“ und „Seite“), Reihenfolge wie `fluidTanks()`: Eingänge links, Ausgänge rechts außen; Füll-/Leerslot, Ausgaben, Pfeil und Upgrades rücken mit (`MachineGeometry`). Statuslampe links oben im GUI mit Tooltip. Montagetisch: Raster 3 × 3, 3 Ausgaben, GUI 18 px höher
+- **#28 (M2d, 4.1):** Geisterprojektion: Darstellung offen; der Client kennt die Balance-Werte des Servers nicht → Rote Partikel an jedem falschen Platz, alle 4 t, für `ghost_projection_ticks`. Das Muster liest der Client aus den Daten im Mod-Jar (`BalanceManager.bundled`); im Einzelspieler aus den geladenen Werten. Datapack-Änderungen am Muster sieht ein Client auf einem Server deshalb nicht
+- **#29 (M2d, 4.3):** Item-Port: welche Slots er anbietet → `input`: Eingaben, Formslot, Brennstoff, Füll- und Leerslot (nach den Trichterregeln 4.1); `output`: Ausgaben, dazu volle Behälter aus dem Füllslot und leere aus dem Leerslot. Upgrade-Slots nie. Fluid- und Energie-Ports im Modus `output` schieben selbst in Nachbarn außerhalb des Aufbaus

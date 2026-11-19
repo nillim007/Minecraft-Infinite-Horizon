@@ -14,7 +14,7 @@ Raumfahrt-Mod für Minecraft 26.3 (NeoForge + Fabric) im echten Sonnensystem: In
 | `docs/spec/generated/` | Lesefassungen der Daten als Tabellen | erzeugt, nie von Hand ändern |
 | `tools/validate_spec.py` | prüft Daten auf Vollständigkeit und Widersprüche | vor jedem Commit an `spec/data` |
 | `tools/render_docs.py` | erzeugt `docs/spec/generated/` | nach jeder Änderung an `spec/data` |
-| `docs/spec-gaps.md` | Annahmen und offene Fragen aus der Umsetzung | wird während der Umsetzung gefüllt |
+| `docs/spec-gaps.md` | Annahmen und offene Fragen aus der Umsetzung | wird während der Umsetzung gefüllt; übernommene Einträge stehen am Ende des jeweiligen Kapitels unter „Festlegungen aus der Umsetzung“ |
 | `docs/handbook/` | Quelle für Ingenieurs-Handbuch und Spieler-Wiki (24.1) | bei jedem Meilenstein ergänzen |
 | `docs/wiki/` | Spieler-Wiki, erzeugt von `tools/gen_wiki.py` | nie von Hand ändern |
 

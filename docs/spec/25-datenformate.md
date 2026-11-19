@@ -236,3 +236,11 @@ Beispiel `machines.json`:
 
 - **Zusammenführen:** Gleiche Dateien aus mehreren Datenpaketen werden pro Schlüssel zusammengeführt; bei gleichem Schlüssel gewinnt das Paket mit höherer Priorität.
 - **`misc.json`** enthält alle übrigen Einzelwerte, z. B. Wartezeit des Wolkenaufzugs (100 t, 12.8), Schwerkraftformel (12.9), Langsamer Fall nach Sturz (400 t, 14.3), Vakuum-Dämpfung (0,15, 24.6), Regeln für Welten ohne Atmosphäre (8.5), Monster auf Planeten (13.5), Befehle (12.10, 23.1), Agentur-Regeln (`agency_rules`, 23.1) und Erfolge (`advancements`, 24.3). Die Belastungszeit (200 t) steht in `environment.json`.
+
+## Festlegungen aus der Umsetzung (M1–M8)
+
+Annahmen aus der Umsetzung, die übernommen wurden. Die Nummer verweist auf den Eintrag in `docs/spec-gaps.md`, dort steht auch die Code-Stelle.
+
+- **#42 (M3b, 25.1, 27):** Umkreis von `near_block` (4 Blöcke) steht nur im Text; der Override nennt eine „Zonen-ID“, die Laufzeitdatei aus 25.1 hat aber kein Feld `id` → Konstante `PlanetResolver.NEAR_BLOCK_RADIUS = 4` (Würfel). Die Zonen in `planet/*.json` behalten ihr `id` aus `planets.json`; ein Override mit Zonen-ID setzt genau diese Zone, ohne Biom- und Blockprüfung
+- **#52 (M3c, 25.1, 24.5):** Himmelskörper: `texture` nennt `textures/sky/earth.png`; 26.3 zeichnet Sonne und Mond aber aus dem Atlas `celestials` (Ordner `textures/environment/celestial`), und Fabric hat keinen Himmel-Hook → Sprite-ID = Namespace + Dateiname ohne Endung (`infinite_horizon:earth`), Datei unter `textures/environment/celestial/earth.png`. Gezeichnet über einen gemeinsamen Mixin auf `SkyRenderer#renderSunMoonAndStars` wie die Vanilla-Sonne (Höhe `SUN_HEIGHT`, Größe aus `size`), fest nach Azimut und Höhe
+- **#72 (M4d, 25.5, 12.4):** Wo die Regeln je Stufe (`rules` in rocket_parts.json) zur Laufzeit stehen; was mit dem Inhalt eines abgebauten Raketentanks passiert → Eigener Ordner `rocket_rules/tier_<n>.json` neben `rocket_part/` (gleiche Zusammenführung über `tier`), erzeugt für Stufen mit mindestens einem registrierten Teil. Ein abgebauter `rocket_tank_t1` verliert seinen Inhalt (wie beim Zerlegen der Rakete, 12.5). Die Planeten-Laufzeitdatei bekommt `launch_cost_override`

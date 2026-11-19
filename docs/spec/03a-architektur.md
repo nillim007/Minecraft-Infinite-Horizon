@@ -171,3 +171,11 @@ Laufzeit: Reload-Listener ─▶ BalanceManager / Registries ─▶ SyncDataPayl
 - Einstellwerte stehen in Daten (25.7), nicht im Code.
 - Addons erweitern die Basisklassen, statt sie zu kopieren.
 - Details: `docs/dev/addon-api.md`.
+
+## Festlegungen aus der Umsetzung (M1–M8)
+
+Annahmen aus der Umsetzung, die übernommen wurden. Die Nummer verweist auf den Eintrag in `docs/spec-gaps.md`, dort steht auch die Code-Stelle.
+
+- **#20 (M2a, 3A.2, 26):** Einfache Items (Materialien, Upgrades, Pressformen) einzeln in Java aufzulisten verdoppelt `implemented_ids.json` → `gen_resources.py` schreibt `infinite_horizon/simple_items.json`; `ModItems` registriert daraus alle Items ohne eigenes Verhalten
+- **#40 (M3a, 3A.4):** `SavedDataType` verlangt in 26.3 einen `DataFixTypes`-Wert, `null` stürzt beim Laden ab → `DataFixTypes.SAVED_DATA_COMMAND_STORAGE` (dessen Fixes berühren unsere Felder nicht); eigener Datenfix erst mit `data_version` 2. `data_version` wird immer geschrieben. Beitritts-Tick = Spielzeit der Overworld
+- **#41 (M3b, 3A.5):** `SyncDataPayload` soll komprimiert und ggf. geteilt werden; in M3 enthält es nur die Planeten → JSON-Text ohne Kompression, Grenze 1 MiB (`SyncDataPayload.MAX_LENGTH`). Gesendet bei jedem Datenpaket-Sync (Join und `/reload`; NeoForge `OnDatapackSyncEvent`, Fabric `SYNC_DATA_PACK_CONTENTS`). Kompression, wenn Balance und Forschung dazukommen

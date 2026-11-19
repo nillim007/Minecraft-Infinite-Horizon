@@ -23,3 +23,10 @@ Pro Dimension prüft der Server alle 1.200 t mit der angegebenen Wahrscheinlichk
 | Ringtrümmer | `saturn_orbit` | 2 % | 600 t | wie Meteoritenschauer, ohne Erz | `dome_shield_module` | – |
 
 **Vorwarnung:** Mit `space_weather_station` der Agentur in derselben Dimension kommt die Warnung 2.400 t vorher, sonst 400 t vorher (Chat-Nachricht + Ton + HUD-Symbol).
+
+## Festlegungen aus der Umsetzung (M1–M8)
+
+Annahmen aus der Umsetzung, die übernommen wurden. Die Nummer verweist auf den Eintrag in `docs/spec-gaps.md`, dort steht auch die Code-Stelle.
+
+- **#6 (Datenaufbau, 19):** Ereignis-IDs nicht genannt → `solar_storm`, `meteor_shower`, `dust_storm`, `acid_rain`, `volcanic_eruption`, `methane_rain`, `ring_debris`
+- **#93 (M5g, 19):** Ereignisse: Wetterstation, Meteor-Entity, Schildmodul, Nebel, Staubgeister, Spielzeit → Vorwarnung immer `warning_ticks_without_station` (die `space_weather_station` kommt mit ihrem Knoten der Stufe 3). Meteoriten schlagen direkt ein (kein fliegendes `meteor`-Entity), `dome_shield_module` und Kuppel T2/T3 als Schutz greifen, sobald es sie gibt. Nebel des Staubsturms folgt mit dem grafischen Feinschliff. Im Staubsturm erscheint je Prüftakt ein Staubgeist bei jedem Spieler (Umkreis 8). Zeit = Spielzeit der Dimension; Warnton `warning.radiation`, HUD-Symbol als Textzeile über den Leisten. `raw_platinum` und `raw_iridium` sind registriert, damit das Meteoritenerz-Rezept vollständig ist

@@ -39,3 +39,12 @@ Hinweis Balance: Der Elektrolyseur (6.1) liefert O₂ deutlich günstiger als de
 - Fackeln, Feuer und Pflanzen funktionieren nur in einer aktiven Kuppel (siehe 8.5).
 - Vanilla-Monster mit Atemmaske können die Kuppel betreten.
 - Unter einer aktiven Kuppel dürfen nur Mitglieder der besitzenden Agentur Blöcke abbauen oder setzen, auch Blöcke ohne Block-Entity; Operatoren sind ausgenommen (23.2; wirkt ab M4, M3 speichert nur den Besitz).
+
+## Festlegungen aus der Umsetzung (M1–M8)
+
+Annahmen aus der Umsetzung, die übernommen wurden. Die Nummer verweist auf den Eintrag in `docs/spec-gaps.md`, dort steht auch die Code-Stelle.
+
+- **#55 (M3d, 10.2, 4.1):** Der Sauerstoffgenerator hat laut machines.json einen Leerslot, aber keinen Eingangstank → Der Leerslot nimmt nur Flaschen mit Inhalt an und tut nichts (kein Eingangstank, „Ausgangstank nimmt von außen nichts an“)
+- **#59 (M3e, 10.1):** Modulslots vor M5; Zähler für den O₂-Verbrauch der Kuppel → Die 3 Modulslots erscheinen wie Upgrade-Slots im GUI und nehmen nichts an. Der Verbrauchszähler rechnet in 1/1.200 mB (je Tick `oxygen_per_1200`), damit T1 genau alle 24 t 1 mB abzieht; mit 1/1.000 mB und ganzzahligem Tickanteil wären es 25 t. Radius steht im Handbuch-Steckbrief statt im GUI
+- **#60 (M3e, 10.1, 24.5):** Darstellung der Kuppel: halbtransparente Halbkugel mit Sechseckmuster → Vorerst Lichtpunkte (Staubpartikel) auf der Halbkugel-Hülle, T1 weißlich, T2 blau, T3 violett, beim Ausfall rot pulsierend, innerhalb von `render_distance`; Daten über `DomeStatePayload`. Die Hülle mit Textur folgt mit dem grafischen Feinschliff
+- **#95 (M5i, 10.1, 9.2, 27.4):** Kuppel T2, Kuppel- und Anzugmodule fehlten in den Teilschritten von M5 (#86, #89), obwohl 27.4 sie M5 zuordnet → Neuer Teilschritt 5i. Jedes Kuppelmodul passt höchstens einmal je Generator; die Faktoren mehrerer Module werden multipliziert, der Radius abgerundet. Schutz vor Ereignissen über `protection` in events.json: Kuppel T2 (Staubsturm: kein Solarabschlag und keine Staubgeister darin; Säureregen), Schildmodul fängt Meteoriten in der Kuppel ab (Kuppel mit der höchsten Stufe an der Stelle; der Monster-Spawnfaktor des Staubsturms gilt weiter je Dimension). Kühlmodul hebt die obere Temperaturgrenze nur mit vollständigem Anzug; Panzerung wirkt als Attribut-Modifikator `infinite_horizon:suit_module_armor` je Tick. `cooling_module_alt` kommt mit `heat_scale`

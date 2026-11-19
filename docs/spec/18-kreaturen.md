@@ -20,3 +20,9 @@ Der Boss `signal_sentinel` hat eine Bossleiste und zwei Phasen (Details in `crea
 `pontoon`: Block, wie Seerose auf Flüssigkeiten setzbar, trägt Maschinen (z. B. `pump_station` auf Methanseen).
 
 `sulfur_trail`: dekorative, nicht feste Schicht (wie eine Schneeschicht), droppt nichts und verschwindet nach 6.000 t.
+
+## Festlegungen aus der Umsetzung (M1–M8)
+
+Annahmen aus der Umsetzung, die übernommen wurden. Die Nummer verweist auf den Eintrag in `docs/spec-gaps.md`, dort steht auch die Code-Stelle.
+
+- **#92 (M5f, 18):** Kreaturen: Modelle, Inhalt der Tags, Verhalten ohne Zahlen → Platzhalter-Darstellung als Blockmodell in Hitbox-Größe (getarnter Krabbler als Mondgestein, eingegrabener Gräber unsichtbar); eigene Modelle folgen. `crawler_food` = Kupfer- und Aluminiumkabel, Eisen- und Kupferblock; `vibrating` = Vibrationsquellen aus creatures.json, soweit registriert; `analyzable` = alle registrierten Kreaturen; `wraith_guide` = guide_structures. Der Krabbler kriecht auch getarnt zur Nahrung, wandert aber nur enttarnt. Schattenläufer: „Folgen“ = Spieler im doppelten Fluchtabstand. Staubgeist reagiert auf Spieler im Umkreis 6 und sucht Strukturen bis 50 Chunks. Geschwindigkeitsfaktoren der KI-Ziele wie Vanilla. Analyse zählt im Probenzähler unter `creature:<id>`

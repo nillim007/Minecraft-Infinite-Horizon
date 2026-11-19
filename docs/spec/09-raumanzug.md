@@ -43,3 +43,11 @@ Module, die Komponente `suit_modules` und die Rezepttypen `suit_module_install`/
 | `diving_module` | Hose | 4 | Schutz gegen Tiefseedruck (Europa unter y 80), Schwimmtempo +50 % |
 | `armor_plating` | Hose/Stiefel | 2 | +3 Rüstung |
 | `magnet_boots` | Stiefel | 3 | in Schwerelosigkeit 1 g, solange ein Block direkt unter dem Spieler ist |
+
+## Festlegungen aus der Umsetzung (M1–M8)
+
+Annahmen aus der Umsetzung, die übernommen wurden. Die Nummer verweist auf den Eintrag in `docs/spec-gaps.md`, dort steht auch die Code-Stelle.
+
+- **#57 (M3d, 9.1):** Takt von O₂-Verbrauch und Nachfüllen → Verbrauch und Nachfüllen bei jeder Umweltprüfung (alle `interval_ticks`): Verbrauch = `interval_ticks × amount / per_ticks × oxygen_consumption` in Tausendstel mB (Zähler im Attachment `hazard_state`). Der Luftvorrat unter Wasser wird jeden Tick aufgefüllt. Anzug-Rüstungswerte wie `armor_like` (Vanilla-Material), Reparatur über den Item-Tag `infinite_horizon:repairs_<anzug>` aus `repair_item`
+- **#83 (M4f, 9.2, 25.4, 3.9):** Feste Rezepttypen `suit_module_install`/`suit_module_remove` haben keine Dauer (`ticks: null`); JEI/REI-Beispiele je Modul → Dauer und Verbrauch der Maschine (`assembly_table` in machines.json); geprüft werden sie, wenn kein `assembly`-Rezept passt (`AssemblyTableBlockEntity`). Ergebnisse als fertige Stacks (`Plan.stacks`), Hauptergebnis zuerst. Eingebaute Module im Tooltip. Die JEI/REI-Beispiele folgen mit dem Feinschliff der Rezeptanzeige
+- **#84 (M4f, 9.2):** Helmlampe: Kopfposition, Wasser, Takt → Kopfposition = Block der Augenhöhe. Wasser nur als Quelle (sonst entstünde neues Wasser), dann `light` mit `waterlogged`; beim Entfernen wird daraus wieder Wasser. Alle `update_interval_ticks` prüft der Server alle Spieler; Abmelden und Dimensionswechsel entfernen sofort, Tod und Absetzen beim nächsten Takt

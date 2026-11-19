@@ -25,3 +25,9 @@ Nur Phase-1-Objekte, die vor dem Montagetisch gebraucht werden, sowie Handbuch u
 - **Mengen-Multiplikator:** `recipe_amount_multiplier` (24.4) gilt ab M2 im Rezept-Matcher: Menge = max(1, aufgerundet(Menge × Multiplikator)), höchstens so weit, dass die Zutaten in 9 Slots passen. Der Abgleich nutzt die vergrößerten Mengen. JUnit-Beispiel: Multiplikator 2,0 bei 4 `iron_plate` → 8.
 - **Mehrere passende Rezepte (ab M4):** Passt mehr als ein Rezept, gilt das erste freie in der Reihenfolge der Rezept-ID (Rezeptsperre, 11.3). Bei Multiplikator 1,0 gibt es unter den 39 Montagetisch-Rezepten von M4 kein zutatengleiches Paar. Bei 0,25 werden Mengen bis 4 zu 1, dann sind `analyzer`/`launch_control`, `refinery_casing`/`fluid_port` und `oxygen_canister`/`pressure_bottle` zutatengleich. `validate_spec.py` warnt für die Multiplikatoren 0,25 und 0,5 (ab M4). Ob Multiplikatoren unter 1 solche Paare trennen sollen, steht in Kapitel 28.
 - **Zutatengleiche Rezepte** sind getrennt (Ä25): `research_terminal` braucht zusätzlich 1 `minecraft:book`, `landing_beacon` nimmt `minecraft:redstone_lamp` statt Glowstone-Staub, `rocket_fin_t2` braucht 3 statt 2 `lightweight_plate`.
+
+## Festlegungen aus der Umsetzung (M1–M8)
+
+Annahmen aus der Umsetzung, die übernommen wurden. Die Nummer verweist auf den Eintrag in `docs/spec-gaps.md`, dort steht auch die Code-Stelle.
+
+- **#26 (M2d, 22.3):** Der exakte Abgleich nennt nur die Eingabeslots, nicht das Fluid → Für das Fluid reicht „mindestens die Rezeptmenge im Eingangstank“; ein Rezept ohne Fluid ignoriert den Tank
