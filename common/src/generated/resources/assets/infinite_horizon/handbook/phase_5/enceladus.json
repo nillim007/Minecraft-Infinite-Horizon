@@ -56,5 +56,6 @@
       "type": "text",
       "key": "infinite_horizon.handbook.phase_5.enceladus.e8"
     }
-  ]
+  ],
+  "planet": "infinite_horizon:enceladus"
 }

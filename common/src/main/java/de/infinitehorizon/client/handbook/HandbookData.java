@@ -26,8 +26,9 @@ public final class HandbookData {
     public record Chapter(String id, String titleKey, String icon, int order, String unlock) {
     }
 
+    /** {@code planet}: Dimension einer Planetenseite (ab M9 füllt sie sich beim ersten Besuch, 24.1), sonst leer. */
     public record Page(String id, String chapter, String titleKey, String icon, int order, List<String> items,
-                       JsonArray elements, String unlock) {
+                       JsonArray elements, String unlock, String planet) {
     }
 
     /** Geladenes Handbuch: Kapitel in Reihenfolge, Seiten je Kapitel, Seite je ID, Seite je Item. */
@@ -76,7 +77,8 @@ public final class HandbookData {
                     }
                     pages.add(new Page(o.get("id").getAsString(), o.get("chapter").getAsString(), o.get("title").getAsString(),
                             str(o, "icon"), o.has("order") ? o.get("order").getAsInt() : 0, List.copyOf(items),
-                            o.has("elements") ? o.getAsJsonArray("elements") : new JsonArray(), str(o, "unlock")));
+                            o.has("elements") ? o.getAsJsonArray("elements") : new JsonArray(), str(o, "unlock"),
+                            str(o, "planet")));
                 }
             } catch (Exception ex) {
                 InfiniteHorizon.LOG.warn("Handbuchdatei {} nicht lesbar: {}", e.getKey(), ex.getMessage());

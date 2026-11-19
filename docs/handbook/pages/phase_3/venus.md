@@ -7,6 +7,7 @@ requires: ["infinite_horizon:venus_rock"]
 icon: infinite_horizon:venus_rock
 items: ["infinite_horizon:venus_rock", "infinite_horizon:venus_tungsten_ore", "infinite_horizon:venus_sulfur_ore", "infinite_horizon:raw_tungsten", "infinite_horizon:sulfur", "infinite_horizon:tungsten_dust", "infinite_horizon:aerostat_platform", "infinite_horizon:cloud_elevator"]
 summary: Glühende Hölle unter giftigen Wolken: Wolfram und Schwefel
+planet: infinite_horizon:venus
 ---
 Die Venus ist der heißeste Ort im inneren Sonnensystem. Unter einer dichten, giftigen Wolkendecke liegen Lavaseen und Vulkane, aber auch Wolfram und Schwefel.
 

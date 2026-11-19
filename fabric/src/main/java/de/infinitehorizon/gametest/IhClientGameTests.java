@@ -475,6 +475,14 @@ public class IhClientGameTests implements FabricClientGameTest {
         context.runOnClient(c -> ((HandbookScreen) c.gui.screen()).openPage(crusherPage));
         context.waitTicks(5);
         context.takeScreenshot("gui_handbook_crusher");
+        // Planetenseite (24.1, M9e): Atlas-Kasten, vor dem ersten Besuch nur die Einleitung
+        context.runOnClient(c -> ((HandbookScreen) c.gui.screen()).openPage("infinite_horizon:phase_2/mond"));
+        context.waitTicks(5);
+        String planetPage = context.computeOnClient(c -> ((HandbookScreen) c.gui.screen()).currentPage());
+        if (!"infinite_horizon:phase_2/mond".equals(planetPage)) {
+            throw new AssertionError("Handbuch: Mondseite nicht geöffnet (" + planetPage + ")");
+        }
+        context.takeScreenshot("gui_handbook_planet");
         context.setScreen(() -> null);
         context.waitTick();
         if (link == null || !link.equals(now) || crusherPage == null) {

@@ -94,5 +94,6 @@
       "key": "infinite_horizon.handbook.phase_5.titan.e10",
       "style": "warning"
     }
-  ]
+  ],
+  "planet": "infinite_horizon:titan"
 }

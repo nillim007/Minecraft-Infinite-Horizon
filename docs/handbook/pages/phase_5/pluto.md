@@ -7,6 +7,7 @@ requires: ["infinite_horizon:pluto_water_ice"]
 icon: infinite_horizon:pluto_nitrogen_ice
 items: ["infinite_horizon:pluto_nitrogen_ice", "infinite_horizon:pluto_water_ice", "infinite_horizon:pluto_tholin", "infinite_horizon:pluto_uranium_ore", "infinite_horizon:raw_uranium", "infinite_horizon:uranium_dust", "infinite_horizon:uranium_ingot"]
 summary: Der Zwergplanet am Rand mit Herzgletscher und Uran
+planet: infinite_horizon:pluto
 ---
 Pluto ist das fernste Ziel im Sonnensystem. Die Rakete braucht das [[fernflug|Fernflug-Modul]] und landet direkt auf der Oberfläche. Es ist {{value:planet:pluto.temperature.day}} °C kalt, die Schwerkraft beträgt {{value:planet:pluto.gravity}} g.
 

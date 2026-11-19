@@ -232,5 +232,6 @@
       "key": "infinite_horizon.handbook.phase_5.triton.e9",
       "style": "tip"
     }
-  ]
+  ],
+  "planet": "infinite_horizon:triton"
 }

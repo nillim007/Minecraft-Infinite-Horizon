@@ -7,6 +7,7 @@ requires: ["infinite_horizon:triton_ice"]
 icon: infinite_horizon:triton_ice
 items: ["infinite_horizon:triton_ice", "infinite_horizon:nitrogen_geyser", "infinite_horizon:insulation_fabric"]
 summary: Der eisige Neptunmond mit Stickstoff-Geysiren
+planet: infinite_horizon:triton
 ---
 Triton ist der kälteste Ort, den du erreichen kannst: {{value:planet:triton.temperature.day}} °C. Seine dünne Luft kannst du nicht atmen. Die Schwerkraft beträgt {{value:planet:triton.gravity}} g.
 

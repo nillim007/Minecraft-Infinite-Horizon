@@ -7,6 +7,7 @@ requires: ["infinite_horizon:ceres_rock"]
 icon: infinite_horizon:salt_crust
 items: ["infinite_horizon:ceres_rock", "infinite_horizon:salt_crust"]
 summary: Der Zwergplanet mit Salzebenen und einem Eisvulkan
+planet: infinite_horizon:ceres
 ---
 Ceres ist der größte Körper im Asteroidengürtel: ein Zwergplanet mit {{value:planet:ceres.gravity}} g, kalt ({{value:planet:ceres.temperature.night}} bis {{value:planet:ceres.temperature.day}} °C) und ohne Luft. Ein Druckanzug genügt.
 

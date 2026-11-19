@@ -120,5 +120,6 @@
       "key": "infinite_horizon.handbook.phase_2.mond.e12",
       "style": "tip"
     }
-  ]
+  ],
+  "planet": "infinite_horizon:moon"
 }

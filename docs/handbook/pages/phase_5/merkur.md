@@ -7,6 +7,7 @@ requires: ["infinite_horizon:mercury_rock"]
 icon: infinite_horizon:mercury_rock
 items: ["infinite_horizon:mercury_rock", "infinite_horizon:mercury_lithium_salt", "infinite_horizon:mercury_iron_ore", "infinite_horizon:mercury_titanium_ore", "infinite_horizon:mirror_shell", "infinite_horizon:heat_reflector", "infinite_horizon:radiation_shield"]
 summary: Glut auf der Tagseite, Frost auf der Nachtseite, Lithium dazwischen
+planet: infinite_horizon:mercury
 ---
 Der Merkur dreht sich so langsam, dass eine Seite immer glüht und die andere immer friert. Wo du landest, hängt von der X-Koordinate ab:
 

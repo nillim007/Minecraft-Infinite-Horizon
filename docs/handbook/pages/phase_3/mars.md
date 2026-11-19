@@ -7,6 +7,7 @@ requires: ["infinite_horizon:mars_rock"]
 icon: infinite_horizon:mars_sand
 items: ["infinite_horizon:mars_sand", "infinite_horizon:mars_rock", "infinite_horizon:mars_magnesium_ore", "infinite_horizon:mars_iron_ore", "infinite_horizon:gypsum_block", "infinite_horizon:dry_ice_block", "infinite_horizon:iron_nickel_meteorite", "infinite_horizon:raw_magnesium", "infinite_horizon:raw_nickel", "infinite_horizon:gypsum", "infinite_horizon:dry_ice", "infinite_horizon:magnesium_dust", "infinite_horizon:magnesium_ingot", "infinite_horizon:nickel_dust", "infinite_horizon:nickel_ingot"]
 summary: Der rote Planet: Canyons, Vulkane, Magnesium und Nickel
+planet: infinite_horizon:mars
 ---
 Der Mars ist kälter und weiter weg als der Mond, aber er hat eine dünne Atmosphäre und Rohstoffe, die es auf dem Mond nicht gibt: Magnesium, Nickel und Gips.
 

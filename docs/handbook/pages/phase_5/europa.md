@@ -7,6 +7,7 @@ requires: ["infinite_horizon:europa_ice"]
 icon: infinite_horizon:europa_ice
 items: ["infinite_horizon:europa_ice", "infinite_horizon:europa_seabed", "infinite_horizon:hydrothermal_vent", "infinite_horizon:microbe_culture", "infinite_horizon:ice_drill", "infinite_horizon:diving_module"]
 summary: Ein Ozean unter dem Eis, hydrothermale Quellen und Mikroben
+planet: infinite_horizon:europa
 ---
 Europa ist von einer dicken Eisdecke umhüllt. Darunter liegt ein Ozean, auf dessen Grund warme Quellen sprudeln. Die Schwerkraft beträgt {{value:planet:europa.gravity}} g, an der Oberfläche ist es {{value:planet:europa.temperature.day}} °C kalt, und die Strahlung des Jupiter hat Stufe {{value:planet:europa.radiation}}.
 

@@ -7,6 +7,7 @@ requires: ["infinite_horizon:moon_rock"]
 icon: infinite_horizon:moon_regolith
 items: ["infinite_horizon:moon_rock", "infinite_horizon:moon_regolith", "infinite_horizon:moon_basalt", "infinite_horizon:moon_ice", "infinite_horizon:moon_aluminum_ore", "infinite_horizon:moon_titanium_ore"]
 summary: Die erste fremde Welt: Gelände, Erze, Gefahren
+planet: infinite_horizon:moon
 ---
 Der Mond ist das erste Ziel deines Raumfahrtprogramms. Er ist nah, aber lebensfeindlich: keine Luft, Vakuum und starke Temperaturschwankungen zwischen Tag und Nacht. Dafür liegen hier Aluminium und Titan in großen Mengen.
 

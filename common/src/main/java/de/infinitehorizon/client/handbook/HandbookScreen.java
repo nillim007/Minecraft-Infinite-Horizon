@@ -38,18 +38,23 @@ import java.util.Locale;
 public class HandbookScreen extends Screen {
 
     // Platzhalter-Optik (Notizbuch): Papier, Linien, Schrift
-    private static final int PAPER = 0xFFF4EBD0;
-    private static final int PAPER_DARK = 0xFFE6D9B4;
-    private static final int EDGE = 0xFF6B5532;
-    private static final int TEXT = 0xFF2B2B2B;
-    private static final int MUTED = 0xFF6E6656;
-    private static final int HEADING = 0xFF1D3B6A;
-    private static final int LINK = 0xFF1F5FBF;
-    private static final int ITEM = 0xFF2E7D32;
-    private static final int SELECTED = 0xFFD8C99A;
-    private static final int TIP = 0xFFDCEBD0;
-    private static final int NOTE = 0xFFD7E4F2;
-    private static final int WARNING = 0xFFF5DCC0;
+    // Blaupausen-Optik (24.1, ab M9): Blaupausen-Blau mit hellem Raster, helle Schrift, weiße Linien
+    private static final int PAPER = 0xFF1C4A80;
+    private static final int PAPER_DARK = 0xFF163C69;
+    private static final int GRID = 0x22FFFFFF;
+    private static final int GRID_MAJOR = 0x3CFFFFFF;
+    private static final int GRID_STEP = 8;
+    private static final int GRID_MAJOR_EVERY = 5;
+    private static final int EDGE = 0xFFD8E6F5;
+    private static final int TEXT = 0xFFE8F0FA;
+    private static final int MUTED = 0xFFA4BCD8;
+    private static final int HEADING = 0xFFFFFFFF;
+    private static final int LINK = 0xFF8ED8FF;
+    private static final int ITEM = 0xFFFFE08A;
+    private static final int SELECTED = 0xFF2F6AAE;
+    private static final int TIP = 0xFF1F5E58;
+    private static final int NOTE = 0xFF2A5A93;
+    private static final int WARNING = 0xFF7A4322;
     private static final int MAX_W = 420;
     private static final int MAX_H = 260;
     private static final int TOC_W = 120;
@@ -238,12 +243,25 @@ public class HandbookScreen extends Screen {
         }
         int w = contentW() - 4;
         int y = 0;
+        // Planetenseite (24.1, ab M9): Atlas-Kasten; bis zum ersten Besuch nur die Einleitung
+        PlanetAtlas atlas = page.planet() == null || page.planet().isEmpty() ? null : PlanetAtlas.of(page.planet());
+        if (atlas != null) {
+            y = atlasBox(atlas, y, w) + 4;
+        }
         for (JsonElement el : page.elements()) {
             if (!el.isJsonObject()) {
                 continue;
             }
             JsonObject e = el.getAsJsonObject();
             String type = e.has("type") ? e.get("type").getAsString() : "";
+            if (atlas != null && !atlas.visited() && "heading".equals(type)) {
+                int start = y;
+                y = text(Component.translatable("gui.infinite_horizon.handbook.planet_locked",
+                        Component.translatable("planet." + page.planet().replace(':', '.'))).getString(),
+                        6, y + 3, w - 10, MUTED, false) + 3;
+                boxes.add(new Box(0, start, w, y, NOTE));
+                break;
+            }
             switch (type) {
                 case "heading" -> {
                     y += 4;
@@ -287,6 +305,67 @@ public class HandbookScreen extends Screen {
             }
         }
         contentH = y;
+    }
+
+    /** Atlas-Daten einer Planetenseite aus dem Agentur-Stand (24.2): besucht, Entdecker, Biome, Erkundungsziele. */
+    public record PlanetAtlas(boolean visited, boolean probe, String discoverer, int biomes, int structures) {
+        static PlanetAtlas of(String planet) {
+            com.google.gson.JsonObject a = new com.google.gson.JsonObject();
+            var st = de.infinitehorizon.client.AgencyClientState.get();
+            if (st != null && !st.atlas().isEmpty()) {
+                try {
+                    a = com.google.gson.JsonParser.parseString(st.atlas()).getAsJsonObject();
+                } catch (RuntimeException ignored) {
+                    // leerer Atlas
+                }
+            }
+            boolean visited = contains(a, "visited", planet);
+            boolean probe = contains(a, "probe", planet);
+            String disc = a.has("discoverers") && a.getAsJsonObject("discoverers").has(planet)
+                    ? a.getAsJsonObject("discoverers").get(planet).getAsString() : "";
+            int biomes = a.has("biomes") && a.getAsJsonObject("biomes").has(planet)
+                    ? a.getAsJsonObject("biomes").getAsJsonArray(planet).size() : 0;
+            int structures = 0;
+            if (a.has("structures")) {
+                for (JsonElement s : a.getAsJsonArray("structures")) {
+                    if (s.getAsJsonObject().get("dimension").getAsString().equals(planet)) {
+                        structures++;
+                    }
+                }
+            }
+            return new PlanetAtlas(visited, probe, disc, biomes, structures);
+        }
+
+        private static boolean contains(com.google.gson.JsonObject a, String key, String id) {
+            if (!a.has(key)) {
+                return false;
+            }
+            for (JsonElement e : a.getAsJsonArray(key)) {
+                if (e.getAsString().equals(id)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+    }
+
+    /** Kasten „Atlas“ oben auf einer Planetenseite. */
+    private int atlasBox(PlanetAtlas a, int y, int w) {
+        int start = y;
+        String status = Component.translatable("gui.infinite_horizon.atlas.status." + (a.visited() ? "visited"
+                : a.probe() ? "probe" : "unknown")).getString();
+        y = text("**" + Component.translatable("gui.infinite_horizon.handbook.atlas").getString() + "** – " + status,
+                6, y + 3, w - 10, TEXT, false);
+        if (!a.discoverer().isEmpty()) {
+            y = text(Component.translatable("gui.infinite_horizon.atlas.discoverer", a.discoverer()).getString(),
+                    6, y, w - 10, TEXT, false);
+        }
+        if (a.visited()) {
+            y = text(Component.translatable("gui.infinite_horizon.handbook.atlas_counts", a.biomes(), a.structures()).getString(),
+                    6, y, w - 10, TEXT, false);
+        }
+        boxes.add(new Box(0, start, w, y + 3, PAPER_DARK));
+        return y + 3;
     }
 
     private static String tr(JsonObject e, String key) {
@@ -524,6 +603,13 @@ public class HandbookScreen extends Screen {
     public void extractRenderState(GuiGraphicsExtractor g, int mouseX, int mouseY, float partialTick) {
         g.fill(left - 2, top - 2, left + panelW + 2, top + panelH + 2, EDGE);
         g.fill(left, top, left + panelW, top + panelH, PAPER);
+        // Raster der Blaupause, jede fünfte Linie kräftiger
+        for (int k = 1; k * GRID_STEP < panelW; k++) {
+            g.fill(left + k * GRID_STEP, top, left + k * GRID_STEP + 1, top + panelH, k % GRID_MAJOR_EVERY == 0 ? GRID_MAJOR : GRID);
+        }
+        for (int k = 1; k * GRID_STEP < panelH; k++) {
+            g.fill(left, top + k * GRID_STEP, left + panelW, top + k * GRID_STEP + 1, k % GRID_MAJOR_EVERY == 0 ? GRID_MAJOR : GRID);
+        }
         g.fill(left + TOC_W, top + 2, left + TOC_W + 1, top + panelH - 2, EDGE);
 
         // Inhaltsverzeichnis

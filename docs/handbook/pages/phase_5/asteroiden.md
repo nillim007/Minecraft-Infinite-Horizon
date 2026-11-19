@@ -7,6 +7,7 @@ requires: ["infinite_horizon:asteroid_rock"]
 icon: infinite_horizon:asteroid_platinum_ore
 items: ["infinite_horizon:asteroid_rock", "infinite_horizon:asteroid_platinum_ore", "infinite_horizon:asteroid_iridium_ore", "infinite_horizon:asteroid_nickel_ore", "infinite_horizon:asteroid_anchor", "infinite_horizon:platinum_dust", "infinite_horizon:platinum_ingot", "infinite_horizon:iridium_dust", "infinite_horizon:iridium_ingot", "infinite_horizon:iridium_chip"]
 summary: Schwebende Felsbrocken voller Platin, Iridium und Nickel
+planet: infinite_horizon:asteroid_belt
 ---
 Im Asteroidengürtel gibt es keinen Boden, nur Felsbrocken im leeren Raum. Die Schwerkraft beträgt {{value:planet:asteroid_belt.gravity}} g: Ein Sprung trägt dich weit, und wer danebenspringt, treibt davon.
 

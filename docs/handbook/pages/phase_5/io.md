@@ -7,6 +7,7 @@ requires: ["infinite_horizon:io_crust"]
 icon: infinite_horizon:io_sulfur_ore
 items: ["infinite_horizon:io_crust", "infinite_horizon:io_sulfur_ore", "infinite_horizon:heat_scale"]
 summary: Der Vulkanmond des Jupiter mit Schwefel und Lavaseen
+planet: infinite_horizon:io
 ---
 Io ist der innerste große Mond des Jupiter und voller Vulkane. Die Oberfläche aus <item:infinite_horizon:io_crust> ist kalt ({{value:planet:io.temperature.day}} °C), aber überall gibt es Lava. Die Schwerkraft beträgt {{value:planet:io.gravity}} g, und die Strahlung des Jupiter hat Stufe {{value:planet:io.radiation}}.
 

@@ -208,5 +208,6 @@
       "key": "infinite_horizon.handbook.phase_3.venus.e14",
       "style": "tip"
     }
-  ]
+  ],
+  "planet": "infinite_horizon:venus"
 }

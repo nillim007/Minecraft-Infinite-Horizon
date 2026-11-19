@@ -241,5 +241,6 @@
       "key": "infinite_horizon.handbook.phase_5.asteroiden.e14",
       "style": "tip"
     }
-  ]
+  ],
+  "planet": "infinite_horizon:asteroid_belt"
 }

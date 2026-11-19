@@ -35,13 +35,22 @@ INLINE_VALUE = re.compile(r"\{\{value:([a-z_]+):([^}]+)\}\}")
 
 # ---------------------------------------------------------------- Zahlen und Namen
 
+# Sprache der gerade erzeugten Texte (M9e): Zahlen, Steckbriefe und Tabellen auf Deutsch oder Englisch
+_LANG = ["de"]
+
+
+def L(de: str, en: str) -> str:
+    return en if _LANG[0] == "en" else de
+
+
 def num(v) -> str:
     if isinstance(v, float) and v.is_integer():
         v = int(v)
+    en = _LANG[0] == "en"
     if isinstance(v, int):
-        return f"{v:,}".replace(",", ".")
+        return f"{v:,}" if en else f"{v:,}".replace(",", ".")
     if isinstance(v, float):
-        return f"{v:g}".replace(".", ",")
+        return f"{v:g}" if en else f"{v:g}".replace(".", ",")
     return str(v)
 
 
@@ -381,30 +390,37 @@ def ores_table(ctx: Ctx, planet: str) -> dict:
             continue
         o = sd.ore_with_defaults(o)
         if o["placement"] == "vein":
-            where = f"y {num(o['y_min'])} bis {num(o['y_max'])}"
-            amount = f"{num(o['per_chunk'])} Adern je Chunk, je bis {num(o['vein_size'])} Blöcke"
+            where = f"y {num(o['y_min'])} {L('bis', 'to')} {num(o['y_max'])}"
+            amount = L(f"{num(o['per_chunk'])} Adern je Chunk, je bis {num(o['vein_size'])} Blöcke",
+                       f"{num(o['per_chunk'])} veins per chunk, up to {num(o['vein_size'])} blocks each")
         else:
             r = o.get("radius") or [0, 0]
-            where = "Oberfläche (Scheibe wie Ton)" if o["placement"] == "disk" else "Oberflächenkruste (Scheibe im Gestein)"
-            amount = f"{num(o['per_chunk'])} je Chunk, Radius {num(r[0])}–{num(r[1])}"
+            where = (L("Oberfläche (Scheibe wie Ton)", "surface (disk like clay)") if o["placement"] == "disk"
+                     else L("Oberflächenkruste (Scheibe im Gestein)", "surface crust (disk in the rock)"))
+            amount = L(f"{num(o['per_chunk'])} je Chunk, Radius {num(r[0])}–{num(r[1])}",
+                       f"{num(o['per_chunk'])} per chunk, radius {num(r[0])}–{num(r[1])}")
         biomes = ", ".join(f"<item:{b}>" for b in o.get("biomes", []))
         drops = o.get("drops")
-        drop = ", ".join(f"{d['count']} <item:{d['id']}>" for d in drops) if isinstance(drops, list) else "der Block selbst"
+        drop = (", ".join(f"{d['count']} <item:{d['id']}>" for d in drops) if isinstance(drops, list)
+                else L("der Block selbst", "the block itself"))
         if o.get("deepslate_block"):
-            where += " (darunter als Tiefenschiefer-Variante)"
+            where += L(" (darunter als Tiefenschiefer-Variante)", " (deepslate variant below)")
         rows.append([f"<item:{o['block']}>", drop, where, biomes, amount])
-    return {"type": "table", "headers": ["Block", "Ergibt", "Höhe", "Biome", "Menge"], "rows": rows}
+    return {"type": "table", "headers": [L("Block", "Block"), L("Ergibt", "Drops"), L("Höhe", "Height"),
+                                         L("Biome", "Biomes"), L("Menge", "Amount")], "rows": rows}
 
 
 def items_table(ctx: Ctx) -> dict:
-    how = {"recipe": "Rezept", "worldgen": "Weltgenerierung", "machine_output": "Maschine", "block_drop": "Abbau",
-           "join_gift": "Geschenk beim ersten Betreten", "generated": "Füllslot oder Eimer", "mob_drop": "Kreatur"}
+    how = {"recipe": L("Rezept", "recipe"), "worldgen": L("Weltgenerierung", "world generation"),
+           "machine_output": L("Maschine", "machine"), "block_drop": L("Abbau", "mining"),
+           "join_gift": L("Geschenk beim ersten Betreten", "gift on first join"),
+           "generated": L("Füllslot oder Eimer", "fill slot or bucket"), "mob_drop": L("Kreatur", "creature")}
     rows = []
     entries = [e for e in ctx.spec.all_entries if e["id"] in ctx.registered and e["kind"] in ("item", "block", "fluid")]
     for e in sorted(entries, key=lambda e: e["name_de"]):
         rows.append([f"<item:{e['id']}>", e["kind"].replace("block", "Block").replace("item", "Item").replace("fluid", "Fluid"),
                      ", ".join(how.get(o, o) for o in e.get("obtained_by") or [])])
-    return {"type": "table", "headers": ["Name", "Art", "Herkunft"], "rows": rows}
+    return {"type": "table", "headers": [L("Name", "Name"), L("Art", "Kind"), L("Herkunft", "Source")], "rows": rows}
 
 
 # ---------------------------------------------------------------- Inline-Markup
@@ -581,62 +597,71 @@ def md_table(headers, rows) -> str:
 
 # ---------------------------------------------------------------- Maschinen-Steckbrief
 
-def machine_rows(ctx: Ctx, block: str) -> list:
+def machine_rows(ctx: Ctx, block: str, lang: str = "de") -> list:
+    old = _LANG[0]
+    _LANG[0] = lang
+    try:
+        return _machine_rows(ctx, block)
+    finally:
+        _LANG[0] = old
+
+
+def _machine_rows(ctx: Ctx, block: str) -> list:
     rows = []
     # Startrampe (4.3): Werte aus machines.json → launch_pad_t1_multiblock (27.6)
     if block == f"{NS}:launch_pad":
         m = ctx.spec.balance.get("machines", {}).get("launch_pad_t1_multiblock", {})
         size = m.get("platform", {}).get("size", [0, 0])
-        rows.append(["Plattform", f"{size[0]} × {size[1]} <item:{NS}:launch_pad>"])
-        rows.append(["Turm", f"<item:{NS}:launch_tower> neben dem Rand, mindestens so hoch wie die Rakete"])
-        rows.append(["Pumpe", f"mindestens eine <item:{NS}:fuel_pump> an Plattform oder Turm"])
-        rows.append(["Steuerpult", f"<item:{NS}:launch_control> höchstens {num(m.get('control_radius', 0))} Blöcke von der Mitte"])
+        rows.append([L("Plattform", "Platform"), f"{size[0]} × {size[1]} <item:{NS}:launch_pad>"])
+        rows.append([L("Turm", "Tower"), L(f"<item:{NS}:launch_tower> neben dem Rand, mindestens so hoch wie die Rakete", f"<item:{NS}:launch_tower> next to the edge, at least as tall as the rocket")])
+        rows.append([L("Pumpe", "Pump"), L(f"mindestens eine <item:{NS}:fuel_pump> an Plattform oder Turm", f"at least one <item:{NS}:fuel_pump> at the platform or tower")])
+        rows.append([L("Steuerpult", "Control"), L(f"<item:{NS}:launch_control> höchstens {num(m.get('control_radius', 0))} Blöcke von der Mitte", f"<item:{NS}:launch_control> at most {num(m.get('control_radius', 0))} blocks from the centre")])
         return rows
     v = ctx.machine_values(block)
     if not v:
         return rows
     if "energy_per_tick" in v and v["energy_per_tick"]:
-        rows.append(["Verbrauch", f"{num(v['energy_per_tick'])} J/t"])
+        rows.append([L("Verbrauch", "Consumption"), f"{num(v['energy_per_tick'])} J/t"])
     if v.get("ticks"):
-        rows.append(["Dauer je Vorgang", ticks_text(v["ticks"])])
+        rows.append([L("Dauer je Vorgang", "Time per operation"), ticks_text(v["ticks"])])
     if "output_per_tick" in v and not isinstance(v["output_per_tick"], dict):
-        rows.append(["Leistung", f"{num(v['output_per_tick'])} J/t"])
+        rows.append([L("Leistung", "Output"), f"{num(v['output_per_tick'])} J/t"])
     if v.get("throughput"):
-        rows.append(["Durchsatz", f"{num(v['throughput'])} {v.get('unit', '')}"])
+        rows.append([L("Durchsatz", "Throughput"), f"{num(v['throughput'])} {v.get('unit', '')}"])
     if v.get("capacity"):
-        rows.append(["Speicher", f"{num(v['capacity'])} {v.get('unit', '')}"])
+        rows.append([L("Speicher", "Capacity"), f"{num(v['capacity'])} {v.get('unit', '')}"])
     if v.get("io_per_tick"):
-        rows.append(["Ein/Aus", f"{num(v['io_per_tick'])} J/t"])
+        rows.append([L("Ein/Aus", "In/out"), f"{num(v['io_per_tick'])} J/t"])
     if isinstance(v.get("buffer"), int):
-        rows.append(["Energiepuffer", f"{num(v['buffer'])} J"])
+        rows.append([L("Energiepuffer", "Energy buffer"), f"{num(v['buffer'])} J"])
     slots = v.get("item_slots") or {}
     if slots.get("input"):
-        rows.append(["Slots", f"{slots['input']} Eingabe, {slots.get('output', 0)} Ausgabe"])
+        rows.append(["Slots", L(f"{slots['input']} Eingabe, {slots.get('output', 0)} Ausgabe", f"{slots['input']} input, {slots.get('output', 0)} output")])
     tanks = v.get("fluid_tanks") or []
     if tanks:
-        rows.append(["Tanks", ", ".join(f"{num(t.get('capacity', 0))} mB" for t in tanks)])
+        rows.append([L("Tanks", "Tanks"), ", ".join(f"{num(t.get('capacity', 0))} mB" for t in tanks)])
     if v.get("upgrade_slots"):
-        rows.append(["Upgrade-Slots", str(v["upgrade_slots"])])
+        rows.append([L("Upgrade-Slots", "Upgrade slots"), str(v["upgrade_slots"])])
     if v.get("transfer_per_tick"):
-        rows.append(["Abgabe", f"{num(v['transfer_per_tick'])} mB/t je Komponente"])
+        rows.append([L("Abgabe", "Transfer"), L(f"{num(v['transfer_per_tick'])} mB/t je Komponente", f"{num(v['transfer_per_tick'])} mB/t per component")])
     # Kuppelgeneratoren (domes.json, 10.1)
     if v.get("radius"):
-        rows.append(["Radius", f"{num(v['radius'])} Blöcke"])
+        rows.append(["Radius", L(f"{num(v['radius'])} Blöcke", f"{num(v['radius'])} blocks")])
     if v.get("oxygen_per_1200"):
-        rows.append(["O₂-Verbrauch", f"{num(v['oxygen_per_1200'])} mB je {ticks_text(1200)}"])
+        rows.append([L("O₂-Verbrauch", "O₂ use"), L(f"{num(v['oxygen_per_1200'])} mB je {ticks_text(1200)}", f"{num(v['oxygen_per_1200'])} mB per {ticks_text(1200)}")])
     if v.get("o2_tank"):
-        rows.append(["O₂-Tank", f"{num(v['o2_tank'])} mB"])
+        rows.append([L("O₂-Tank", "O₂ tank"), f"{num(v['o2_tank'])} mB"])
     if "temp_min" in v and "temp_max" in v:
-        rows.append(["Außentemperatur", f"{num(v['temp_min'])} bis {num(v['temp_max'])} °C"])
+        rows.append([L("Außentemperatur", "Outside temperature"), L(f"{num(v['temp_min'])} bis {num(v['temp_max'])} °C", f"{num(v['temp_min'])} to {num(v['temp_max'])} °C")])
     if v.get("module_slots"):
-        rows.append(["Modul-Slots", str(v["module_slots"])])
+        rows.append([L("Modul-Slots", "Module slots"), str(v["module_slots"])])
     if v.get("location"):
-        rows.append(["Ort", json.dumps(v["location"], ensure_ascii=False)])
+        rows.append([L("Ort", "Location"), json.dumps(v["location"], ensure_ascii=False)])
     for f in v.get("fuel") or []:
         if f.get("fluid"):
-            rows.append(["Brennstoff", f"1 mB <item:{f['fluid']}> je {num(f['per_ticks'])} t"])
+            rows.append([L("Brennstoff", "Fuel"), L(f"1 mB <item:{f['fluid']}> je {num(f['per_ticks'])} t", f"1 mB <item:{f['fluid']}> per {num(f['per_ticks'])} t")])
         elif f.get("example"):
-            rows.append(["Brennstoff", f"alles, was im Ofen brennt (z. B. <item:{f['example']['item']}>: {ticks_text(f['example']['per_ticks'])})"])
+            rows.append([L("Brennstoff", "Fuel"), L(f"alles, was im Ofen brennt (z. B. <item:{f['example']['item']}>: {ticks_text(f['example']['per_ticks'])})", f"anything that burns in a furnace (e.g. <item:{f['example']['item']}>: {ticks_text(f['example']['per_ticks'])})")])
     return rows
 
 
@@ -776,12 +801,21 @@ def build_game(ctx: Ctx, chapters: list):
                                                            for rid in el["recipes"]]})
             elif t == "machine":
                 rows = machine_rows(ctx, el["block"])
+                rows_en = machine_rows(ctx, el["block"], "en")
                 out.append({"type": "machine", "block": el["block"], "rows": [
-                    [key(f"{k}.{i}.label", both(a)), key(f"{k}.{i}.value", both(b))] for i, (a, b) in enumerate(rows)]})
+                    [key(f"{k}.{i}.label", both(a, rows_en[i][0] if i < len(rows_en) else None)),
+                     key(f"{k}.{i}.value", both(b, rows_en[i][1] if i < len(rows_en) else None))]
+                    for i, (a, b) in enumerate(rows)]})
             elif t == "table":
+                en_h = en.get("headers") or []
+                en_r = en.get("rows") or []
+
+                def en_cell(ri, ci):
+                    return en_r[ri][ci] if ri < len(en_r) and ci < len(en_r[ri]) else None
                 out.append({"type": "table",
-                            "headers": [key(f"{k}.h{i}", both(h)) for i, h in enumerate(el["headers"])],
-                            "rows": [[key(f"{k}.r{ri}.{ci}", both(c)) for ci, c in enumerate(row)]
+                            "headers": [key(f"{k}.h{i}", both(h, en_h[i] if i < len(en_h) else None))
+                                        for i, h in enumerate(el["headers"])],
+                            "rows": [[key(f"{k}.r{ri}.{ci}", both(c, en_cell(ri, ci))) for ci, c in enumerate(row)]
                                      for ri, row in enumerate(el["rows"])]})
             elif t == "image" and el.get("texture"):
                 out.append({"type": "image", "texture": el["texture"], "width": el["width"], "height": el["height"]})
@@ -790,7 +824,8 @@ def build_game(ctx: Ctx, chapters: list):
             "id": p.id, "chapter": f"{NS}:{p.chapter}", "title": title, "icon": p.meta.get("icon"),
             "order": p.meta.get("order", 100),
             "unlock": p.meta["unlock"] if "unlock" in p.meta else chapter_unlock[p.chapter],
-            "items": p.meta.get("items") or [], "elements": out}
+            "items": p.meta.get("items") or [], "elements": out,
+            **({"planet": p.meta["planet"]} if p.meta.get("planet") else {})}
     return files, lang
 
 
@@ -822,7 +857,11 @@ def build(spec=None, impl=None) -> Handbook:
             if ctx.known(i):
                 ctx.item_page.setdefault(i, p)
     for p in visible:
-        p.elements = {l: parse_body(ctx, p, b) for l, b in p.body.items()}
+        p.elements = {}
+        for l, b in p.body.items():
+            _LANG[0] = l
+            p.elements[l] = parse_body(ctx, p, b)
+        _LANG[0] = "de"
 
     chapters = [c for c in sorted(config["chapters"], key=lambda c: c["order"]) if any(p.chapter == c["id"] for p in visible)]
     files, lang = build_game(ctx, chapters)

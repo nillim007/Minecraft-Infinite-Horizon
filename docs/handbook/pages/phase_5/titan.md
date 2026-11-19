@@ -7,6 +7,7 @@ requires: ["infinite_horizon:titan_ice_rock"]
 icon: infinite_horizon:titan_dune_sand
 items: ["infinite_horizon:titan_dune_sand", "infinite_horizon:titan_ice_rock", "infinite_horizon:methane", "infinite_horizon:skimmer_leg"]
 summary: Der größte Saturnmond mit Methanseen und dichter Luft
+planet: infinite_horizon:titan
 ---
 Titan hat als einziger Mond eine dichte Atmosphäre. Atmen kannst du sie nicht, aber der Druck ist normal, und es ist {{value:planet:titan.temperature.day}} °C kalt. Die Schwerkraft beträgt {{value:planet:titan.gravity}} g. Ein Druckanzug genügt.
 

@@ -7,6 +7,7 @@ requires: ["infinite_horizon:enceladus_ice"]
 icon: infinite_horizon:enceladus_snow
 items: ["infinite_horizon:enceladus_snow", "infinite_horizon:enceladus_ice", "infinite_horizon:ammonia_geyser"]
 summary: Ein Eismond mit Ammoniak-Geysiren
+planet: infinite_horizon:enceladus
 ---
 Enceladus ist ein kleiner, eisiger Saturnmond ohne Luft. Mit {{value:planet:enceladus.temperature.day}} °C ist er so kalt, dass du einen [[hitzeanzug|Anzug der Stufe 2]] brauchst. Die Schwerkraft ist mit {{value:planet:enceladus.gravity}} g fast null.
 

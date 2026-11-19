@@ -223,5 +223,6 @@
       "key": "infinite_horizon.handbook.phase_5.europa.e16",
       "style": "tip"
     }
-  ]
+  ],
+  "planet": "infinite_horizon:europa"
 }

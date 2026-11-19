@@ -48,6 +48,7 @@ summary: Dein erster Multiblock
 | `unlock` | `null` oder Stufen-Tor/Forschungsknoten (25.6). Ohne Angabe gilt das `unlock` des Kapitels |
 | `targets` | `wiki`, `game` oder beides (Standard) |
 | `summary` | Kurzbeschreibung auf der Wiki-Startseite |
+| `planet` | Dimension einer Planetenseite (ab M9): Im Spiel steht oben der Atlas-Kasten der Agentur, und bis zum ersten Besuch ist nur der Text vor der ersten Überschrift zu sehen. Das Wiki zeigt immer alles |
 
 ## Text
 
@@ -61,6 +62,10 @@ Normales Markdown in einfacher Form: Absätze, `##`-Überschriften, Listen (`-`,
 | `{{value:planet:overworld.ores.0.y_min}}` | Wert aus `planets.json` |
 
 **Zahlen im Text immer über `{{value:…}}`**, damit Wiki und Buch bei Balance-Änderungen stimmen.
+
+## Englische Fassung
+
+`<seite>.en.md` neben der deutschen Seite, mit eigenem Kopf (nur `title`, die übrigen Felder kommen von der deutschen Seite). Der Text muss **Element für Element** zur deutschen Seite passen: gleiche Überschriften, Absätze, Listen, Tabellen, Hinweise und Befehle in derselben Reihenfolge, Listen und Tabellen mit gleich vielen Einträgen. Sonst nimmt das Spiel die deutsche Fassung und `gen_resources.py` warnt. Werte (`{{value:…}}`), Item-Namen und erzeugte Tabellen (`@ores`, Steckbriefe) erscheinen dort auf Englisch. Das Wiki bleibt deutsch.
 
 ## Befehle (eigene Zeile)
 
