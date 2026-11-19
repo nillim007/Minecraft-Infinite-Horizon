@@ -42,6 +42,9 @@ public final class ModPayloads {
         Services.NETWORK.registerServerbound(ResearchUnlockPayload.TYPE, ResearchUnlockPayload.CODEC, ResearchUnlockPayload::handle);
         Services.NETWORK.registerServerbound(AgencyActionPayload.TYPE, AgencyActionPayload.CODEC, AgencyActionPayload::handle);
         Services.NETWORK.registerServerbound(AgencyRenamePayload.TYPE, AgencyRenamePayload.CODEC, AgencyRenamePayload::handle);
+        Services.NETWORK.registerServerbound(TradingPostEditPayload.TYPE, TradingPostEditPayload.CODEC, TradingPostEditPayload::handle);
+        Services.NETWORK.registerServerbound(ShipyardStatePayload.Share.TYPE, ShipyardStatePayload.Share.CODEC,
+                ShipyardStatePayload.Share::handle);
         Services.NETWORK.registerServerbound(LaunchRequestPayload.TYPE, LaunchRequestPayload.CODEC, LaunchRequestPayload::handle);
         Services.NETWORK.registerClientbound(LaunchStatePayload.TYPE, LaunchStatePayload.CODEC,
                 payload -> de.infinitehorizon.client.LaunchControlScreen.receive(payload));

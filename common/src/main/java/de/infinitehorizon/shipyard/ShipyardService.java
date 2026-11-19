@@ -103,7 +103,24 @@ public final class ShipyardService {
         }
         boolean valid = y != null && terminalAllowed(level, terminal);
         return new ShipyardStatePayload(terminal, st.built(), st.buildEnd() > 0 ? Math.max(0, st.buildEnd() - now) : 0,
-                sections, valid, y != null && hasDock(level, y), y != null && y.launched());
+                sections, valid, y != null && hasDock(level, y), y != null && y.launched(), y != null && y.shared());
+    }
+
+    /** Werft für Partner freigeben bzw. sperren (23.3); nur mit {@code CONFIGURE} an der Werft. */
+    public static void share(ServerPlayer player, BlockPos terminal, boolean shared) {
+        ServerLevel level = (ServerLevel) player.level();
+        ShipyardState data = ShipyardState.get(level.getServer());
+        ShipyardState.Yard y = data.yard(level.dimension().identifier(), terminal);
+        if (y == null) {
+            return;
+        }
+        if (!de.infinitehorizon.agency.Permissions.can(player, y.owner().orElse(null),
+                de.infinitehorizon.agency.Permissions.Action.CONFIGURE)) {
+            player.sendOverlayMessage(net.minecraft.network.chat.Component.translatable("message.infinite_horizon.shipyard.denied"));
+        } else {
+            data.setShared(y, shared);
+        }
+        send(player, terminal);
     }
 
     public static void send(ServerPlayer player, BlockPos terminal) {

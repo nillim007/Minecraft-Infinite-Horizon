@@ -189,6 +189,7 @@ public class IhClientGameTests implements FabricClientGameTest {
             });
             // M8c: Frachtterminal mit Methan im Treibstofftank und etwas Fracht
             cargoTerminal(context, sp);
+            tradingPost(context, sp);
             // M8e: Logistik-Computer mit einer Route zwischen zwei Terminals
             logisticsComputer(context, sp);
             // M8f: Werft-GUI (Abschnitt 1 im Bau, Abschnitt 2 halb beliefert); Ort ungültig in der Overworld
@@ -561,12 +562,44 @@ public class IhClientGameTests implements FabricClientGameTest {
         context.waitTicks(5);
         int invites = context.computeOnClient(c -> {
             var st = de.infinitehorizon.client.AgencyClientState.get();
-            return st == null ? -1 : st.invites().size();
+            return st == null ? -1 : st.related(de.infinitehorizon.network.AgencyStatePayload.Invite.INVITE).size();
         });
         if (invites != 1) {
             throw new AssertionError("Agentur-Reiter: Einladungen auf dem Client " + invites + ", erwartet 1");
         }
         context.takeScreenshot("gui_research_agency");
+
+        // Reiter „Partner“ (M9b): ein Angebot an den Spieler und eine bestehende Partnerschaft
+        sp.getServer().runOnServer(server -> {
+            var player = server.getPlayerList().getPlayers().getFirst();
+            var data = de.infinitehorizon.agency.AgencyData.get(server);
+            var own = data.agencyOf(player.getUUID()).orElseThrow();
+            java.util.UUID offering = java.util.UUID.randomUUID();
+            data.ensureFor(offering, 0L).setName("Venus-Wolkenstadt");
+            data.requestPartner(offering, own.id());
+            java.util.UUID partner = java.util.UUID.randomUUID();
+            var titan = data.ensureFor(partner, 0L);
+            titan.setName("Titan-Kolonie");
+            data.requestPartner(partner, own.id());
+            data.requestPartner(player.getUUID(), titan.id());
+            de.infinitehorizon.research.ResearchService.sendState(player);
+        });
+        context.waitTicks(5);
+        context.runOnClient(c -> {
+            if (c.gui.screen() instanceof de.infinitehorizon.client.ResearchTerminalScreen r) {
+                r.selectTab(de.infinitehorizon.client.ResearchTerminalScreen.TAB_PARTNERS);
+            }
+        });
+        context.waitTicks(5);
+        int partners = context.computeOnClient(c -> {
+            var st = de.infinitehorizon.client.AgencyClientState.get();
+            return st == null ? -1 : st.related(de.infinitehorizon.network.AgencyStatePayload.Invite.PARTNER).size() * 10
+                    + st.related(de.infinitehorizon.network.AgencyStatePayload.Invite.PARTNER_IN).size();
+        });
+        if (partners != 11) {
+            throw new AssertionError("Partner-Reiter: Partner*10+Angebote auf dem Client " + partners + ", erwartet 11");
+        }
+        context.takeScreenshot("gui_research_partners");
         closeAndRemove(context, sp, pos);
     }
 
@@ -1012,6 +1045,62 @@ public class IhClientGameTests implements FabricClientGameTest {
         context.waitTicks(10);
         clearChat(context);
         context.takeScreenshot("gui_cargo_terminal");
+        closeAndRemove(context, sp, pos);
+    }
+
+    /** Handelsposten (23.3): Angebote mit Vorrat, Lager und Inventar; ein Tausch über den Knopf. */
+    private static void tradingPost(ClientGameTestContext context, TestSingleplayerContext sp) {
+        BlockPos pos = context.computeOnClient(c -> BlockPos.containing(c.player.position()).east(2).above());
+        setBlock(sp, pos, ModBlocks.TRADING_POST.get());
+        context.waitFor(c -> c.level.getBlockState(pos).is(ModBlocks.TRADING_POST.get()));
+        sp.getServer().runOnServer(server -> {
+            if (sp.getConnection().getServerLevel().getBlockEntity(pos)
+                    instanceof de.infinitehorizon.logistics.TradingPostBlockEntity t) {
+                t.setOffer(0, new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.IRON_INGOT, 8));
+                t.setOffer(1, new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.DIAMOND, 1));
+                t.setOffer(2, new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.WHEAT, 16));
+                t.setOffer(3, new net.minecraft.world.item.ItemStack(ModItems.CARGO_ROCKET.get(), 1));
+                t.insertItem(new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.DIAMOND, 5), false);
+                var player = server.getPlayerList().getPlayers().getFirst();
+                player.getInventory().add(new net.minecraft.world.item.ItemStack(net.minecraft.world.item.Items.IRON_INGOT, 16));
+            }
+        });
+        context.waitTicks(10);
+        context.getInput().lookAt(pos);
+        context.waitTick();
+        context.getInput().pressKey(options -> options.keyUse);
+        context.waitForScreen(de.infinitehorizon.client.TradingPostScreen.class);
+        context.waitTicks(10);
+        context.runOnClient(c -> {
+            if (c.gui.screen() instanceof de.infinitehorizon.client.TradingPostScreen s) {
+                s.trade(0);
+            }
+        });
+        context.waitTicks(10);
+        int diamonds = context.computeOnClient(c -> c.player.getInventory().countItem(net.minecraft.world.item.Items.DIAMOND));
+        if (diamonds != 1) {
+            throw new AssertionError("Handelsposten: Diamanten nach dem Tausch " + diamonds + ", erwartet 1");
+        }
+        clearChat(context);
+        context.runOnClient(c -> c.gui.toastManager().clear());
+        context.waitTick();
+        context.takeScreenshot("gui_trading_post");
+        // Erfolgs- und Rezept-Einblendungen vom Tausch würden die nächsten Bilder verdecken
+        context.runOnClient(c -> c.gui.toastManager().clear());
+        // Lager und Tauschware wegräumen, damit nichts herumliegt
+        sp.getServer().runOnServer(server -> {
+            if (sp.getConnection().getServerLevel().getBlockEntity(pos)
+                    instanceof de.infinitehorizon.logistics.TradingPostBlockEntity t) {
+                t.clearContent();
+            }
+            var inv = server.getPlayerList().getPlayers().getFirst().getInventory();
+            for (int i = 0; i < inv.getContainerSize(); i++) {
+                var st = inv.getItem(i);
+                if (st.is(net.minecraft.world.item.Items.IRON_INGOT) || st.is(net.minecraft.world.item.Items.DIAMOND)) {
+                    inv.setItem(i, net.minecraft.world.item.ItemStack.EMPTY);
+                }
+            }
+        });
         closeAndRemove(context, sp, pos);
     }
 

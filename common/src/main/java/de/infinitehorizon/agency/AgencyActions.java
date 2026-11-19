@@ -24,6 +24,10 @@ public final class AgencyActions {
     public static final String ROLE = "role";
     /** Leitung an das Ziel übergeben (ab M9). */
     public static final String LEADER = "leader";
+    /** Partnerschaft anbieten oder bestätigen ({@code target} = Agentur, 23.3). */
+    public static final String PARTNER = "partner";
+    /** Partnerschaft beenden, Anfrage zurückziehen oder ablehnen ({@code target} = Agentur). */
+    public static final String UNPARTNER = "unpartner";
 
     private static final String MSG = "message." + InfiniteHorizon.MOD_ID + ".agency.";
 
@@ -37,6 +41,7 @@ public final class AgencyActions {
         long tick = server.overworld().getGameTime();
         AgencyManager.ensureFor(player);
         Agency before = data.agencyOf(player.getUUID()).orElse(null);
+        boolean wasPartner = before != null && before.relations().isPartner(target);
         AgencyData.ActionResult r = switch (action) {
             case INVITE -> invite(server, data, player, target);
             case ACCEPT -> data.accept(player.getUUID(), target, tick);
@@ -47,6 +52,8 @@ public final class AgencyActions {
                 yield data.setRole(player.getUUID(), target, current == Role.GUEST ? Role.ENGINEER : Role.GUEST);
             }
             case LEADER -> data.transferLeader(player.getUUID(), target);
+            case PARTNER -> data.requestPartner(player.getUUID(), target);
+            case UNPARTNER -> data.endPartner(player.getUUID(), target);
             default -> AgencyData.ActionResult.UNKNOWN_AGENCY;
         };
         if (r != AgencyData.ActionResult.OK) {
@@ -71,6 +78,7 @@ public final class AgencyActions {
                             Component.translatable("gui.infinite_horizon.agency.role." + now.getSerializedName())));
                 }
             }
+            case PARTNER, UNPARTNER -> partnerMessages(server, data, player, action, before, target, wasPartner);
             case LEAVE -> {
                 player.sendSystemMessage(Component.translatable(MSG + "left", before == null ? Component.empty()
                         : AgencyManager.displayName(server, before)));
@@ -86,6 +94,9 @@ public final class AgencyActions {
         }
         if (after != null && after != before) {
             ResearchService.syncAgency(server, after);
+        }
+        if (action.equals(PARTNER) || action.equals(UNPARTNER)) {
+            data.byId(target).ifPresent(other -> ResearchService.syncAgency(server, other));
         }
         ResearchService.sendState(player);
         return r;
@@ -109,6 +120,30 @@ public final class AgencyActions {
         }
         ResearchService.sendState(player);
         return r;
+    }
+
+    /** Nachrichten zu Partnerschaften: Anfrage an die andere Agentur, Bestätigung bzw. Ende an beide. */
+    private static void partnerMessages(MinecraftServer server, AgencyData data, ServerPlayer player, String action,
+                                        @org.jspecify.annotations.Nullable Agency own, UUID target, boolean wasPartner) {
+        Agency other = data.byId(target).orElse(null);
+        if (own == null || other == null) {
+            return;
+        }
+        Component ownName = AgencyManager.displayName(server, own);
+        Component otherName = AgencyManager.displayName(server, other);
+        if (action.equals(PARTNER) && !own.relations().isPartner(other.id())) {
+            forEachOnline(server, other, sp -> sp.sendSystemMessage(Component.translatable(MSG + "partner_request", ownName)
+                    .withStyle(ChatFormatting.AQUA)));
+            player.sendOverlayMessage(Component.translatable(MSG + "partner_sent", otherName));
+            return;
+        }
+        if (action.equals(UNPARTNER) && !wasPartner) {
+            player.sendOverlayMessage(Component.translatable(MSG + "partner_withdrawn", otherName));
+            return;
+        }
+        String key = action.equals(PARTNER) ? "partner_confirmed" : "partner_ended";
+        forEachOnline(server, own, sp -> sp.sendSystemMessage(Component.translatable(MSG + key, otherName)));
+        forEachOnline(server, other, sp -> sp.sendSystemMessage(Component.translatable(MSG + key, ownName)));
     }
 
     private static AgencyData.ActionResult invite(MinecraftServer server, AgencyData data, ServerPlayer leader, UUID target) {

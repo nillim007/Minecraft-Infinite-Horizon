@@ -127,8 +127,11 @@ public class LogisticsScreen extends Screen {
         }
         LogisticsStatePayload.Terminal t = state.terminals().get(Math.floorMod(i, state.terminals().size()));
         String path = t.dimension().getPath();
-        return Component.translatableWithFallback("planet." + t.dimension().getNamespace() + "." + path, path)
+        Component base = Component.translatableWithFallback("planet." + t.dimension().getNamespace() + "." + path, path)
                 .append(" " + t.pos().getX() + " " + t.pos().getZ());
+        // Werft, Handelsposten und Partner-Ziele (23.3) mit Vorsatz
+        return LogisticsStatePayload.Terminal.TERMINAL.equals(t.kind()) ? base
+                : Component.translatable("gui.infinite_horizon.logistics.kind." + t.kind(), base);
     }
 
     private static Component planetName(net.minecraft.resources.Identifier dim) {

@@ -203,7 +203,9 @@ public class ShipyardDockBlockEntity extends MachineBlockEntity implements Cargo
             return;
         }
         if (Math.floorMod(level.getGameTime() + worldPosition.asLong(), INTERVAL) == 0) {
-            OutpostManager.data(level).addDock(level.dimension().identifier(), worldPosition, storedOwner());
+            ShipyardState.Yard y = yard();
+            OutpostManager.data(level).addDock(level.dimension().identifier(), worldPosition, storedOwner(),
+                    y != null && y.shared());
         }
         ItemStack in = items.isEmpty() ? ItemStack.EMPTY : items.get(0);
         if (!in.isEmpty()) {

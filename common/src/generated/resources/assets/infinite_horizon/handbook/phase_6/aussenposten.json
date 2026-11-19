@@ -37,30 +37,34 @@
       "style": "tip"
     },
     {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.aussenposten.e5"
+    },
+    {
       "type": "heading",
-      "key": "infinite_horizon.handbook.phase_6.aussenposten.e5",
+      "key": "infinite_horizon.handbook.phase_6.aussenposten.e6",
       "level": 2
     },
     {
       "type": "text",
-      "key": "infinite_horizon.handbook.phase_6.aussenposten.e6"
+      "key": "infinite_horizon.handbook.phase_6.aussenposten.e7"
     },
     {
       "type": "list",
       "ordered": false,
       "keys": [
-        "infinite_horizon.handbook.phase_6.aussenposten.e7.0",
-        "infinite_horizon.handbook.phase_6.aussenposten.e7.1"
+        "infinite_horizon.handbook.phase_6.aussenposten.e8.0",
+        "infinite_horizon.handbook.phase_6.aussenposten.e8.1"
       ]
     },
     {
       "type": "callout",
-      "key": "infinite_horizon.handbook.phase_6.aussenposten.e8",
+      "key": "infinite_horizon.handbook.phase_6.aussenposten.e9",
       "style": "warning"
     },
     {
       "type": "heading",
-      "key": "infinite_horizon.handbook.phase_6.aussenposten.e9",
+      "key": "infinite_horizon.handbook.phase_6.aussenposten.e10",
       "level": 2
     },
     {

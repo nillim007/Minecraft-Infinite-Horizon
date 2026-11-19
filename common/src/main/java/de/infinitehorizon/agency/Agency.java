@@ -36,9 +36,11 @@ public final class Agency {
             UUIDUtil.CODEC.optionalFieldOf("merged_into").forGetter(a -> Optional.ofNullable(a.mergedInto)),
             Identifier.CODEC.listOf().optionalFieldOf("visited_dimensions", List.of()).forGetter(a -> List.copyOf(a.visitedDimensions)),
             // Felder ab M4 (23.1) flach daneben, alle optional
-            AgencyProgress.MAP_CODEC.forGetter(Agency::progress)
-    ).apply(i, (id, name, members, merged, visited, progress) ->
-            new Agency(id, name.orElse(null), members, merged.orElse(null), visited, progress)));
+            AgencyProgress.MAP_CODEC.forGetter(Agency::progress),
+            // Partner ab M9 (23.3)
+            AgencyRelations.MAP_CODEC.forGetter(Agency::relations)
+    ).apply(i, (id, name, members, merged, visited, progress, relations) ->
+            new Agency(id, name.orElse(null), members, merged.orElse(null), visited, progress, relations)));
 
     private final UUID id;
     private @Nullable String name;
@@ -46,6 +48,7 @@ public final class Agency {
     private @Nullable UUID mergedInto;
     private final Set<Identifier> visitedDimensions;
     private final AgencyProgress progress;
+    private final AgencyRelations relations;
 
     public Agency(UUID id, @Nullable String name, List<Member> members, @Nullable UUID mergedInto, List<Identifier> visited) {
         this(id, name, members, mergedInto, visited, new AgencyProgress());
@@ -53,12 +56,23 @@ public final class Agency {
 
     public Agency(UUID id, @Nullable String name, List<Member> members, @Nullable UUID mergedInto, List<Identifier> visited,
                   AgencyProgress progress) {
+        this(id, name, members, mergedInto, visited, progress, new AgencyRelations());
+    }
+
+    public Agency(UUID id, @Nullable String name, List<Member> members, @Nullable UUID mergedInto, List<Identifier> visited,
+                  AgencyProgress progress, AgencyRelations relations) {
         this.id = id;
         this.name = name;
         this.members = new ArrayList<>(members);
         this.mergedInto = mergedInto;
         this.visitedDimensions = new LinkedHashSet<>(visited);
         this.progress = progress;
+        this.relations = relations;
+    }
+
+    /** Partner und offene Partner-Anfragen (23.3, ab M9). */
+    public AgencyRelations relations() {
+        return relations;
     }
 
     /** FP, Forschung, offene Stufen, Sondenziele, ausstehende Erfolge (ab M4, 23.1). */

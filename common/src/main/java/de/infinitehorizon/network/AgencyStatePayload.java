@@ -23,13 +23,28 @@ public record AgencyStatePayload(UUID agency, String name, String founder, List<
                                  List<Identifier> researched, List<Integer> openTiers, List<Identifier> probeTargets,
                                  List<Identifier> probeReached, List<Invite> invites, String atlas) implements CustomPacketPayload {
 
-    /** Offene Einladung an den Spieler: Agentur, eigener Name (oder leer) und Gründer. */
-    public record Invite(UUID agency, String name, String founder) {
+    /**
+     * Eine andere Agentur mit Bezug zum Spieler: Agentur, eigener Name (oder leer), Gründer und Art: {@link #INVITE}
+     * (Einladung an den Spieler), ab M9 {@link #PARTNER}, {@link #PARTNER_IN} (bietet an), {@link #PARTNER_OUT}
+     * (eigenes Angebot) und {@link #CANDIDATE} (Agentur mit Mitgliedern online, 23.3).
+     */
+    public record Invite(UUID agency, String name, String founder, String kind) {
+        public static final String INVITE = "invite";
+        public static final String PARTNER = "partner";
+        public static final String PARTNER_IN = "partner_in";
+        public static final String PARTNER_OUT = "partner_out";
+        public static final String CANDIDATE = "candidate";
         public static final StreamCodec<ByteBuf, Invite> CODEC = StreamCodec.composite(
                 UUIDUtil.STREAM_CODEC, Invite::agency,
                 ByteBufCodecs.STRING_UTF8, Invite::name,
                 ByteBufCodecs.STRING_UTF8, Invite::founder,
+                ByteBufCodecs.stringUtf8(16), Invite::kind,
                 Invite::new);
+    }
+
+    /** Einträge einer Art aus {@link #invites()}. */
+    public List<Invite> related(String kind) {
+        return invites.stream().filter(i -> i.kind().equals(kind)).toList();
     }
 
     /** Ein Mitglied mit Anzeigename und Rolle ({@code leader}, {@code engineer}, {@code guest}). */

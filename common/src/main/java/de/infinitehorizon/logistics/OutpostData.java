@@ -22,12 +22,16 @@ import java.util.Map;
  */
 public final class OutpostData extends SavedData {
 
-    /** Ein Frachtterminal mit Besitzer-Agentur (leer = ohne Besitzer). */
-    public record Terminal(Identifier dimension, BlockPos pos, java.util.Optional<java.util.UUID> owner) {
+    /**
+     * Ein Frachtterminal, Werft-Dock oder Handelsposten mit Besitzer-Agentur (leer = ohne Besitzer); {@code shared} =
+     * für Partner freigegeben (23.3, ab M9).
+     */
+    public record Terminal(Identifier dimension, BlockPos pos, java.util.Optional<java.util.UUID> owner, boolean shared) {
         static final Codec<Terminal> CODEC = RecordCodecBuilder.create(i -> i.group(
                 Identifier.CODEC.fieldOf("dimension").forGetter(Terminal::dimension),
                 BlockPos.CODEC.fieldOf("pos").forGetter(Terminal::pos),
-                net.minecraft.core.UUIDUtil.CODEC.optionalFieldOf("owner").forGetter(Terminal::owner)
+                net.minecraft.core.UUIDUtil.CODEC.optionalFieldOf("owner").forGetter(Terminal::owner),
+                Codec.BOOL.optionalFieldOf("shared", false).forGetter(Terminal::shared)
         ).apply(i, Terminal::new));
     }
 
@@ -54,11 +58,13 @@ public final class OutpostData extends SavedData {
         }
     }
 
-    private record Stored(List<Terminal> terminals, List<Producer> producers, List<Terminal> docks) {
+    private record Stored(List<Terminal> terminals, List<Producer> producers, List<Terminal> docks,
+                          List<Terminal> tradingPosts) {
         static final Codec<Stored> CODEC = RecordCodecBuilder.create(i -> i.group(
                 Terminal.CODEC.listOf().fieldOf("terminals").forGetter(Stored::terminals),
                 Producer.CODEC.listOf().fieldOf("producers").forGetter(Stored::producers),
-                Terminal.CODEC.listOf().optionalFieldOf("docks", List.of()).forGetter(Stored::docks)
+                Terminal.CODEC.listOf().optionalFieldOf("docks", List.of()).forGetter(Stored::docks),
+                Terminal.CODEC.listOf().optionalFieldOf("trading_posts", List.of()).forGetter(Stored::tradingPosts)
         ).apply(i, Stored::new));
     }
 
@@ -67,13 +73,16 @@ public final class OutpostData extends SavedData {
         s.terminals().forEach(t -> d.terminals.put(key(t.dimension(), t.pos()), t));
         s.producers().forEach(p -> d.producers.put(key(p.dimension(), p.pos()), p));
         s.docks().forEach(t -> d.docks.put(key(t.dimension(), t.pos()), t));
+        s.tradingPosts().forEach(t -> d.tradingPosts.put(key(t.dimension(), t.pos()), t));
         return d;
-    }, d -> new Stored(List.copyOf(d.terminals.values()), List.copyOf(d.producers.values()), List.copyOf(d.docks.values())));
+    }, d -> new Stored(List.copyOf(d.terminals.values()), List.copyOf(d.producers.values()), List.copyOf(d.docks.values()),
+            List.copyOf(d.tradingPosts.values())));
 
     public static final SavedDataType<OutpostData> TYPE = new SavedDataType<>(InfiniteHorizon.id("outposts"),
             OutpostData::new, CODEC, DataFixTypes.SAVED_DATA_COMMAND_STORAGE);
 
     private final Map<String, Terminal> docks = new LinkedHashMap<>();
+    private final Map<String, Terminal> tradingPosts = new LinkedHashMap<>();
     private final Map<String, Terminal> terminals = new LinkedHashMap<>();
     private final Map<String, Producer> producers = new LinkedHashMap<>();
 
@@ -89,17 +98,32 @@ public final class OutpostData extends SavedData {
     }
 
     public void addTerminal(Identifier dimension, BlockPos pos, java.util.@Nullable UUID owner) {
-        Terminal t = new Terminal(dimension, pos.immutable(), java.util.Optional.ofNullable(owner));
-        if (!t.equals(terminals.put(key(dimension, pos), t))) {
-            setDirty();
-        }
+        addTerminal(dimension, pos, owner, false);
     }
 
-    /** Entfernt Terminal oder Produzent an dieser Stelle (Block abgebaut). */
-    /** Werft-Dock (21.1): Ziel für Routen, kein Außenposten. */
+    /** Frachtterminal eintragen; {@code shared} = für Partner freigegeben (23.3). */
+    public void addTerminal(Identifier dimension, BlockPos pos, java.util.@Nullable UUID owner, boolean shared) {
+        put(terminals, dimension, pos, owner, shared);
+    }
+
+    /** Werft-Dock (21.1): Ziel für Routen, kein Außenposten; {@code shared} = Werft für Partner freigegeben. */
     public void addDock(Identifier dimension, BlockPos pos, java.util.@Nullable UUID owner) {
-        Terminal t = new Terminal(dimension, pos.immutable(), java.util.Optional.ofNullable(owner));
-        if (!t.equals(docks.put(key(dimension, pos), t))) {
+        addDock(dimension, pos, owner, false);
+    }
+
+    public void addDock(Identifier dimension, BlockPos pos, java.util.@Nullable UUID owner, boolean shared) {
+        put(docks, dimension, pos, owner, shared);
+    }
+
+    /** Handelsposten (23.3): Ziel für Routen der eigenen und der Partner-Agenturen. */
+    public void addTradingPost(Identifier dimension, BlockPos pos, java.util.@Nullable UUID owner) {
+        put(tradingPosts, dimension, pos, owner, true);
+    }
+
+    private void put(Map<String, Terminal> map, Identifier dimension, BlockPos pos, java.util.@Nullable UUID owner,
+                     boolean shared) {
+        Terminal t = new Terminal(dimension, pos.immutable(), java.util.Optional.ofNullable(owner), shared);
+        if (!t.equals(map.put(key(dimension, pos), t))) {
             setDirty();
         }
     }
@@ -108,9 +132,30 @@ public final class OutpostData extends SavedData {
         return List.copyOf(docks.values());
     }
 
+    public List<Terminal> tradingPosts() {
+        return List.copyOf(tradingPosts.values());
+    }
+
+    /** Eintrag (Terminal, Dock oder Handelsposten) an dieser Stelle oder null. */
+    public @Nullable Terminal entry(Identifier dimension, BlockPos pos) {
+        String k = key(dimension, pos);
+        Terminal t = terminals.get(k);
+        if (t == null) {
+            t = docks.get(k);
+        }
+        return t != null ? t : tradingPosts.get(k);
+    }
+
+    /** Ist an dieser Stelle ein Handelsposten eingetragen? */
+    public boolean isTradingPost(Identifier dimension, BlockPos pos) {
+        return tradingPosts.containsKey(key(dimension, pos));
+    }
+
+    /** Entfernt Terminal, Dock, Handelsposten oder Produzent an dieser Stelle (Block abgebaut). */
     public void remove(Identifier dimension, BlockPos pos) {
         String k = key(dimension, pos);
-        if (terminals.remove(k) != null | producers.remove(k) != null | docks.remove(k) != null) {
+        if (terminals.remove(k) != null | producers.remove(k) != null | docks.remove(k) != null
+                | tradingPosts.remove(k) != null) {
             setDirty();
         }
     }

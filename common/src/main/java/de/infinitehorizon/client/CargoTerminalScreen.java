@@ -38,11 +38,45 @@ public class CargoTerminalScreen extends AbstractContainerScreen<CargoTerminalMe
     private static final int TANK_Y = CargoTerminalMenu.GRID_Y;
     private static final int TANK_H = 74;
 
+    private static final int SHARE_X = 172;
+    private static final int SHARE_Y = 140;
+    private static final int SHARE_W = 84;
+    private static final int SHARE_H = 14;
+
     private boolean dragging;
+    private net.minecraft.client.gui.components.@org.jspecify.annotations.Nullable Button share;
 
     public CargoTerminalScreen(CargoTerminalMenu menu, Inventory inventory, Component title) {
         super(menu, inventory, title, W, H);
         this.inventoryLabelY = CargoTerminalMenu.INVENTORY_Y - 11;
+    }
+
+    @Override
+    protected void init() {
+        super.init();
+        // Freigabe für Partner (23.3); der Server prüft das Recht CONFIGURE
+        share = addRenderableWidget(net.minecraft.client.gui.components.Button.builder(shareLabel(), b -> toggleShared())
+                .bounds(leftPos + SHARE_X, topPos + SHARE_Y, SHARE_W, SHARE_H).build());
+    }
+
+    private Component shareLabel() {
+        return Component.translatable("gui.infinite_horizon.cargo_terminal.partners."
+                + (menu.shared() ? "on" : "off"));
+    }
+
+    /** Für Tests: Freigabe umschalten wie mit dem Knopf. */
+    public void toggleShared() {
+        if (minecraft != null && minecraft.gameMode != null) {
+            minecraft.gameMode.handleInventoryButtonClick(menu.containerId, CargoTerminalMenu.TOGGLE_SHARED);
+        }
+    }
+
+    @Override
+    protected void containerTick() {
+        super.containerTick();
+        if (share != null) {
+            share.setMessage(shareLabel());
+        }
     }
 
     private int tankX(int t) {
@@ -75,7 +109,7 @@ public class CargoTerminalScreen extends AbstractContainerScreen<CargoTerminalMe
 
     @Override
     public boolean mouseClicked(MouseButtonEvent event, boolean doubleClick) {
-        if (event.button() == 0) {
+        if (event.button() == com.mojang.blaze3d.platform.InputConstants.MOUSE_BUTTON_LEFT) {
             double mx = event.x() - leftPos;
             double my = event.y() - topPos;
             if (menu.maxRow() > 0 && inside(mx, my, SCROLL_X, CargoTerminalMenu.GRID_Y, SCROLL_W, SCROLL_H)) {

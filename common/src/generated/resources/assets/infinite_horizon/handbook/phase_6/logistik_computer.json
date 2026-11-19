@@ -37,57 +37,66 @@
       "level": 2
     },
     {
-      "type": "table",
-      "headers": [
-        "infinite_horizon.handbook.phase_6.logistik_computer.e4.h0",
-        "infinite_horizon.handbook.phase_6.logistik_computer.e4.h1"
-      ],
-      "rows": [
-        [
-          "infinite_horizon.handbook.phase_6.logistik_computer.e4.r0.0",
-          "infinite_horizon.handbook.phase_6.logistik_computer.e4.r0.1"
-        ],
-        [
-          "infinite_horizon.handbook.phase_6.logistik_computer.e4.r1.0",
-          "infinite_horizon.handbook.phase_6.logistik_computer.e4.r1.1"
-        ],
-        [
-          "infinite_horizon.handbook.phase_6.logistik_computer.e4.r2.0",
-          "infinite_horizon.handbook.phase_6.logistik_computer.e4.r2.1"
-        ],
-        [
-          "infinite_horizon.handbook.phase_6.logistik_computer.e4.r3.0",
-          "infinite_horizon.handbook.phase_6.logistik_computer.e4.r3.1",
-          "infinite_horizon.handbook.phase_6.logistik_computer.e4.r3.2"
-        ]
-      ]
-    },
-    {
       "type": "text",
-      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e5"
+      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e4"
     },
     {
       "type": "heading",
-      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e6",
+      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e5",
       "level": 2
+    },
+    {
+      "type": "table",
+      "headers": [
+        "infinite_horizon.handbook.phase_6.logistik_computer.e6.h0",
+        "infinite_horizon.handbook.phase_6.logistik_computer.e6.h1"
+      ],
+      "rows": [
+        [
+          "infinite_horizon.handbook.phase_6.logistik_computer.e6.r0.0",
+          "infinite_horizon.handbook.phase_6.logistik_computer.e6.r0.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.logistik_computer.e6.r1.0",
+          "infinite_horizon.handbook.phase_6.logistik_computer.e6.r1.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.logistik_computer.e6.r2.0",
+          "infinite_horizon.handbook.phase_6.logistik_computer.e6.r2.1"
+        ],
+        [
+          "infinite_horizon.handbook.phase_6.logistik_computer.e6.r3.0",
+          "infinite_horizon.handbook.phase_6.logistik_computer.e6.r3.1",
+          "infinite_horizon.handbook.phase_6.logistik_computer.e6.r3.2"
+        ]
+      ]
     },
     {
       "type": "text",
       "key": "infinite_horizon.handbook.phase_6.logistik_computer.e7"
     },
     {
-      "type": "callout",
+      "type": "heading",
       "key": "infinite_horizon.handbook.phase_6.logistik_computer.e8",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e9"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e10",
       "style": "warning"
     },
     {
       "type": "callout",
-      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e9",
+      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e11",
       "style": "tip"
     },
     {
       "type": "heading",
-      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e10",
+      "key": "infinite_horizon.handbook.phase_6.logistik_computer.e12",
       "level": 2
     },
     {

@@ -20,6 +20,12 @@ Am <item:infinite_horizon:logistics_computer> legst du Routen für deine [[frach
 6. Wähle unter „Raketen“ die Hangar-Slots, deren Raketen auf dieser Route fliegen. Eine Rakete gehört immer nur zu einer Route.
 7. Klick auf „Speichern“.
 
+@if infinite_horizon:trading_post
+## Ziele bei Partnern
+
+Als Ziel stehen auch deine [[handelsposten|Handelsposten]] zur Wahl und, mit dem Vorsatz „Partner“, die freigegebenen Terminals, Werften und Handelsposten deiner [[agentur|Partner]]. Endet die Partnerschaft oder nimmt der Partner die Freigabe zurück, starten die Raketen dieser Route nicht mehr. Eine Rakete, die schon unterwegs ist, bringt ihre Fracht wieder mit.
+
+@endif
 ## Startbedingungen
 
 | Bedingung | Die Rakete startet … |

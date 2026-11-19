@@ -39,6 +39,8 @@ import java.util.Set;
 public class CargoTerminalBlockEntity extends MachineBlockEntity implements CargoSink {
 
     private final IhFluidTank fuel = new IhFluidTank(0, null, this::setChanged);
+    /** Für Partner freigegeben (23.3): Partner-Raketen dürfen hierher liefern. */
+    private boolean shared;
     private final List<IhFluidTank> cargo = new ArrayList<>();
     private final ContainerData terminalData = new ContainerData() {
         @Override
@@ -407,7 +409,7 @@ public class CargoTerminalBlockEntity extends MachineBlockEntity implements Carg
         }
         if (Math.floorMod(level.getGameTime() + getBlockPos().asLong(), OutpostManager.SNAPSHOT_INTERVAL) == 0
                 || !OutpostManager.data(level).hasTerminal(level.dimension().identifier(), getBlockPos())) {
-            OutpostManager.registerTerminal(level, getBlockPos(), storedOwner());
+            OutpostManager.registerTerminal(level, getBlockPos(), storedOwner(), shared);
         }
         handleContainers();
         pushFluids(level);
@@ -424,8 +426,8 @@ public class CargoTerminalBlockEntity extends MachineBlockEntity implements Carg
             if (index == tanks.size() * 3) {
                 return selectedTank();
             }
-            // gesperrte Hangar-Slots als Bitmaske
-            long mask = 0;
+            // gesperrte Hangar-Slots als Bitmaske, Bit SHARED_BIT = für Partner freigegeben
+            long mask = shared ? 1L << CargoTerminalMenu.SHARED_BIT : 0;
             for (int h = 0; h < hangarSlots(); h++) {
                 if (hangarLocked(h)) {
                     mask |= 1L << h;
@@ -439,6 +441,33 @@ public class CargoTerminalBlockEntity extends MachineBlockEntity implements Carg
             case 1 -> tank.stack().amount();
             default -> tank.capacity();
         };
+    }
+
+    public boolean shared() {
+        return shared;
+    }
+
+    /** Freigabe für Partner setzen (23.3) und sofort im Register vermerken. */
+    public void setShared(boolean value) {
+        shared = value;
+        setChanged();
+        if (level instanceof ServerLevel sl) {
+            OutpostManager.registerTerminal(sl, getBlockPos(), storedOwner(), shared);
+        }
+    }
+
+    @Override
+    protected void saveAdditional(net.minecraft.world.level.storage.ValueOutput output) {
+        super.saveAdditional(output);
+        if (shared) {
+            output.putBoolean("shared", true);
+        }
+    }
+
+    @Override
+    public void loadAdditional(net.minecraft.world.level.storage.ValueInput input) {
+        super.loadAdditional(input);
+        shared = input.getBooleanOr("shared", false);
     }
 
     public ContainerData terminalData() {

@@ -36,7 +36,7 @@ Tritt der Leiter aus, wird der Ingenieur Leiter, der am längsten dabei ist.
 
 | Rolle | Darf |
 | --- | --- |
-| Leiter | alles, dazu einladen, Rollen vergeben und umbenennen |
+| Leiter | alles, dazu einladen, Rollen vergeben, umbenennen und Partnerschaften schließen |
 | Ingenieur | bauen, Maschinen bedienen und einstellen, forschen, Raketen starten, Routen ändern |
 | Gast | Maschinen und Behälter der Agentur öffnen und ansehen, aber nichts herausnehmen, hineinlegen, einstellen oder abbauen |
 | Nicht-Mitglied | wie ein Gast, bei fremden Agenturen |
@@ -54,6 +54,20 @@ Der Leiter verwaltet die Agentur im Reiter **Agentur**:
 
 > [!TIP]
 > Gib Mitspielern, die nur zuschauen sollen, die Rolle Gast. Sie können dann nichts aus Versehen abbauen.
+
+## Partner
+
+Zwei Agenturen können **Partner** werden. Dann dürfen ihre Frachtraketen einander beliefern: freigegebene [Frachtterminals](Aussenposten-und-Frachtterminal.md), freigegebene [Werften](Orbitalwerft.md) und jeden [Handelsposten](Handelsposten.md).
+
+1. Der Leiter öffnet am [Forschungsterminal](Forschung.md) den Reiter **Partner**. Rechts stehen die Agenturen, von denen gerade jemand online ist.
+2. Er klickt bei einer Agentur auf „Anbieten“. Ihre Mitglieder bekommen eine Nachricht.
+3. Der Leiter der anderen Agentur sieht das Angebot links unter „Angebote an euch“ und klickt auf „Annehmen“.
+4. Erst wenn beide Leiter bestätigt haben, gilt die Partnerschaft. Jeder Leiter kann sie mit „Beenden“ wieder lösen.
+
+Partner sind keine Mitglieder: In fremden Kuppeln und an fremden Maschinen haben sie weiter nur Gast-Rechte.
+
+> [!TIP]
+> Was ein Partner beliefern darf, entscheidest du selbst: Am Frachtterminal und an der Werft schaltet der Knopf „Partner“ die Freigabe an oder aus. Handelsposten sind für Partner immer offen.
 
 ## Befehle
 

@@ -114,8 +114,16 @@ public final class Finale {
             Services.NETWORK.sendToPlayer(p, payload);
         }
         JsonObject r = rules();
-        if (r.has("advancement") && agencyId != null) {
-            AgencyAdvancements.awardToAgency(level.getServer(), agencyId, Identifier.parse(r.get("advancement").getAsString()));
+        if (r.has("advancement")) {
+            // 23.3 „Gemeinsame Werft“: der Besitzer und alle Agenturen, die mindestens 1 Item geliefert haben
+            java.util.Set<UUID> award = new java.util.LinkedHashSet<>();
+            if (agencyId != null) {
+                award.add(agencyId);
+            }
+            AgencyData agencies = AgencyData.get(level.getServer());
+            y.contributors().forEach(c -> award.add(agencies.resolve(c)));
+            Identifier adv = Identifier.parse(r.get("advancement").getAsString());
+            award.forEach(id -> AgencyAdvancements.awardToAgency(level.getServer(), id, adv));
         }
         Direction facing = level.getBlockState(terminal).hasProperty(MachineBlock.FACING)
                 ? level.getBlockState(terminal).getValue(MachineBlock.FACING) : Direction.NORTH;

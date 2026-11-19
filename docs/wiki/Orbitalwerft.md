@@ -25,6 +25,10 @@ Was an der Andockbucht ankommt, wandert sofort ins Werftlager. Das Lager ist unb
 > [!TIP]
 > Leg am [Logistik-Computer](Logistik-Computer.md) Routen mit der Bedingung „bis der Bedarf gedeckt ist“ zur Andockbucht an. Die Raketen laden dann nur, was die Werft noch braucht, und hören von selbst auf.
 
+## Gemeinsam bauen
+
+Der Knopf „Partner“ im Werft-GUI gibt die Werft für deine [Partner](Deine-Agentur.md) frei. Ihre Frachtraketen dürfen dann die Andockbuchten beliefern. Jede Agentur, die mindestens ein Item oder Fluid geliefert hat, bekommt beim Start des Sternenschiffs den Erfolg mit.
+
 ## Die Bauabschnitte
 
 Das Terminal zeigt alle acht Abschnitte mit Fortschrittsbalken. Fährst du mit der Maus über einen Balken, siehst du, was noch fehlt. Lieferungen nimmt die Werft für alle offenen Abschnitte an, die frühesten zuerst.
@@ -58,4 +62,4 @@ Ist ein Abschnitt voll beliefert, baut die Werft ihn in 48.000 t (2.400 s). Geba
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Logistik-Computer](Logistik-Computer.md) · [Start und Sternenschiff](Start-und-Sternenschiff.md) →
+← [Handelsposten](Handelsposten.md) · [Start und Sternenschiff](Start-und-Sternenschiff.md) →

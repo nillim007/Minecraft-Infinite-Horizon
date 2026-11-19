@@ -77,6 +77,7 @@ Alle Items, Blöcke und Fluide des aktuellen Stands. Ein Klick auf den Namen fü
 | [Golddraht](Presse.md) | Item | Maschine |
 | [Goldstaub](Zerkleinerer.md) | Item | Maschine |
 | [Große Sauerstoffflasche](Sauerstoff-speichern.md) | Item | Rezept |
+| [Handelsposten](Handelsposten.md) | Block | Rezept |
 | [Heizmodul](Der-Tiefraumanzug.md) | Item | Rezept |
 | [Helium](Helium-und-Kryotechnik.md) | Fluid | Maschine |
 | [Helmlampe](Der-Druckanzug.md) | Item | Rezept |

@@ -132,21 +132,49 @@
       "level": 2
     },
     {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.agentur.e20"
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.reference.agentur.e21.0",
+        "infinite_horizon.handbook.reference.agentur.e21.1",
+        "infinite_horizon.handbook.reference.agentur.e21.2",
+        "infinite_horizon.handbook.reference.agentur.e21.3"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.reference.agentur.e22"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.reference.agentur.e23",
+      "style": "tip"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.reference.agentur.e24",
+      "level": 2
+    },
+    {
       "type": "list",
       "ordered": false,
       "keys": [
-        "infinite_horizon.handbook.reference.agentur.e20.0",
-        "infinite_horizon.handbook.reference.agentur.e20.1"
+        "infinite_horizon.handbook.reference.agentur.e25.0",
+        "infinite_horizon.handbook.reference.agentur.e25.1"
       ]
     },
     {
       "type": "callout",
-      "key": "infinite_horizon.handbook.reference.agentur.e21",
+      "key": "infinite_horizon.handbook.reference.agentur.e26",
       "style": "tip"
     },
     {
       "type": "callout",
-      "key": "infinite_horizon.handbook.reference.agentur.e22",
+      "key": "infinite_horizon.handbook.reference.agentur.e27",
       "style": "warning"
     }
   ]

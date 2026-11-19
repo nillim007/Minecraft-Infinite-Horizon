@@ -1,0 +1,108 @@
+{
+  "id": "infinite_horizon:phase_6/handelsposten",
+  "chapter": "infinite_horizon:phase_6",
+  "title": "infinite_horizon.handbook.phase_6.handelsposten.title",
+  "icon": "infinite_horizon:trading_post",
+  "order": 65,
+  "unlock": "infinite_horizon:research_tier/5",
+  "items": [
+    "infinite_horizon:trading_post"
+  ],
+  "elements": [
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.handelsposten.e0"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.handelsposten.e1",
+      "level": 2
+    },
+    {
+      "type": "list",
+      "ordered": true,
+      "keys": [
+        "infinite_horizon.handbook.phase_6.handelsposten.e2.0",
+        "infinite_horizon.handbook.phase_6.handelsposten.e2.1",
+        "infinite_horizon.handbook.phase_6.handelsposten.e2.2",
+        "infinite_horizon.handbook.phase_6.handelsposten.e2.3",
+        "infinite_horizon.handbook.phase_6.handelsposten.e2.4"
+      ]
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.handelsposten.e3"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_6.handelsposten.e4",
+      "style": "tip"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.handelsposten.e5",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.handelsposten.e6"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.handelsposten.e7",
+      "level": 2
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.handelsposten.e8"
+    },
+    {
+      "type": "callout",
+      "key": "infinite_horizon.handbook.phase_6.handelsposten.e9",
+      "style": "warning"
+    },
+    {
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.handelsposten.e10",
+      "level": 2
+    },
+    {
+      "type": "recipes",
+      "recipes": [
+        {
+          "id": "infinite_horizon:assembly/trading_post",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "minecraft:chest"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:trading_post",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        }
+      ]
+    }
+  ]
+}

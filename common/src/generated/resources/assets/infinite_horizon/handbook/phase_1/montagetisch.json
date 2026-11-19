@@ -1441,6 +1441,39 @@
           "energy_per_tick": 30
         },
         {
+          "id": "infinite_horizon:assembly/trading_post",
+          "type": "infinite_horizon:assembly",
+          "station": "infinite_horizon:assembly_table",
+          "ingredients": [
+            {
+              "items": [
+                "infinite_horizon:lightweight_plate"
+              ],
+              "count": 4
+            },
+            {
+              "items": [
+                "minecraft:chest"
+              ],
+              "count": 1
+            },
+            {
+              "items": [
+                "infinite_horizon:advanced_circuit"
+              ],
+              "count": 2
+            }
+          ],
+          "results": [
+            {
+              "item": "infinite_horizon:trading_post",
+              "count": 1
+            }
+          ],
+          "ticks": 200,
+          "energy_per_tick": 30
+        },
+        {
           "id": "infinite_horizon:assembly/heating_module",
           "type": "infinite_horizon:assembly",
           "station": "infinite_horizon:assembly_table",

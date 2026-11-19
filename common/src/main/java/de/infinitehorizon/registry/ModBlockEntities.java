@@ -217,6 +217,11 @@ public final class ModBlockEntities {
                     () -> Services.REGISTRY.blockEntityType(
                             (pos, state) -> new de.infinitehorizon.shipyard.ShipyardDockBlockEntity(ModBlockEntities.SHIPYARD_DOCK.get(), pos, state),
                             ModBlocks.SHIPYARD_DOCK.get()));
+    public static final Supplier<BlockEntityType<de.infinitehorizon.logistics.TradingPostBlockEntity>> TRADING_POST =
+            Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "trading_post",
+                    () -> Services.REGISTRY.blockEntityType(
+                            (pos, state) -> new de.infinitehorizon.logistics.TradingPostBlockEntity(ModBlockEntities.TRADING_POST.get(), pos, state),
+                            ModBlocks.TRADING_POST.get()));
     public static final Supplier<BlockEntityType<de.infinitehorizon.logistics.CargoTerminalBlockEntity>> CARGO_TERMINAL =
             Services.REGISTRY.register(BuiltInRegistries.BLOCK_ENTITY_TYPE, "cargo_terminal",
                     () -> Services.REGISTRY.blockEntityType(

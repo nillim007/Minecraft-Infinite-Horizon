@@ -85,7 +85,12 @@ public final class OutpostManager {
     }
 
     public static void registerTerminal(ServerLevel level, BlockPos pos, java.util.@Nullable UUID owner) {
-        data(level).addTerminal(dimension(level), pos, owner);
+        registerTerminal(level, pos, owner, false);
+    }
+
+    /** Terminal eintragen; {@code shared} = für Partner freigegeben (23.3). */
+    public static void registerTerminal(ServerLevel level, BlockPos pos, java.util.@Nullable UUID owner, boolean shared) {
+        data(level).addTerminal(dimension(level), pos, owner, shared);
     }
 
     /** Block abgebaut: Terminal bzw. Produzent aus dem Register nehmen. */

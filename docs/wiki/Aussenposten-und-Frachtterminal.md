@@ -17,6 +17,8 @@ Das Terminal hat 216 Lagerslots. Mit dem Mausrad oder der Leiste neben dem Lager
 > [!TIP]
 > Gehört ein Produzent zu zwei Terminals, liefert er immer an das nähere.
 
+Der Knopf „Partner“ im Terminal gibt es für deine [Partner](Deine-Agentur.md) frei. Dann dürfen deren Frachtraketen hierher liefern. Abholen können sie nichts.
+
 ## Produktion, während du fort bist
 
 Ist der Außenposten nicht geladen, weil du auf einem anderen Planeten bist, rechnet das Spiel die Förderung nach, sobald du zurückkommst. Du bekommst dann das 0,5-Fache der normalen Menge für die vergangene Zeit.

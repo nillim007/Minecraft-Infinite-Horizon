@@ -65,57 +65,66 @@
       "key": "infinite_horizon.handbook.phase_6.werft.e9"
     },
     {
-      "type": "text",
-      "key": "infinite_horizon.handbook.phase_6.werft.e10"
+      "type": "heading",
+      "key": "infinite_horizon.handbook.phase_6.werft.e10",
+      "level": 2
     },
     {
       "type": "text",
       "key": "infinite_horizon.handbook.phase_6.werft.e11"
     },
     {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.werft.e12"
+    },
+    {
+      "type": "text",
+      "key": "infinite_horizon.handbook.phase_6.werft.e13"
+    },
+    {
       "type": "table",
       "headers": [
-        "infinite_horizon.handbook.phase_6.werft.e12.h0",
-        "infinite_horizon.handbook.phase_6.werft.e12.h1"
+        "infinite_horizon.handbook.phase_6.werft.e14.h0",
+        "infinite_horizon.handbook.phase_6.werft.e14.h1"
       ],
       "rows": [
         [
-          "infinite_horizon.handbook.phase_6.werft.e12.r0.0",
-          "infinite_horizon.handbook.phase_6.werft.e12.r0.1"
+          "infinite_horizon.handbook.phase_6.werft.e14.r0.0",
+          "infinite_horizon.handbook.phase_6.werft.e14.r0.1"
         ],
         [
-          "infinite_horizon.handbook.phase_6.werft.e12.r1.0",
-          "infinite_horizon.handbook.phase_6.werft.e12.r1.1"
+          "infinite_horizon.handbook.phase_6.werft.e14.r1.0",
+          "infinite_horizon.handbook.phase_6.werft.e14.r1.1"
         ],
         [
-          "infinite_horizon.handbook.phase_6.werft.e12.r2.0",
-          "infinite_horizon.handbook.phase_6.werft.e12.r2.1"
+          "infinite_horizon.handbook.phase_6.werft.e14.r2.0",
+          "infinite_horizon.handbook.phase_6.werft.e14.r2.1"
         ],
         [
-          "infinite_horizon.handbook.phase_6.werft.e12.r3.0",
-          "infinite_horizon.handbook.phase_6.werft.e12.r3.1"
+          "infinite_horizon.handbook.phase_6.werft.e14.r3.0",
+          "infinite_horizon.handbook.phase_6.werft.e14.r3.1"
         ],
         [
-          "infinite_horizon.handbook.phase_6.werft.e12.r4.0",
-          "infinite_horizon.handbook.phase_6.werft.e12.r4.1"
+          "infinite_horizon.handbook.phase_6.werft.e14.r4.0",
+          "infinite_horizon.handbook.phase_6.werft.e14.r4.1"
         ],
         [
-          "infinite_horizon.handbook.phase_6.werft.e12.r5.0",
-          "infinite_horizon.handbook.phase_6.werft.e12.r5.1"
+          "infinite_horizon.handbook.phase_6.werft.e14.r5.0",
+          "infinite_horizon.handbook.phase_6.werft.e14.r5.1"
         ],
         [
-          "infinite_horizon.handbook.phase_6.werft.e12.r6.0",
-          "infinite_horizon.handbook.phase_6.werft.e12.r6.1"
+          "infinite_horizon.handbook.phase_6.werft.e14.r6.0",
+          "infinite_horizon.handbook.phase_6.werft.e14.r6.1"
         ],
         [
-          "infinite_horizon.handbook.phase_6.werft.e12.r7.0",
-          "infinite_horizon.handbook.phase_6.werft.e12.r7.1"
+          "infinite_horizon.handbook.phase_6.werft.e14.r7.0",
+          "infinite_horizon.handbook.phase_6.werft.e14.r7.1"
         ]
       ]
     },
     {
       "type": "heading",
-      "key": "infinite_horizon.handbook.phase_6.werft.e13",
+      "key": "infinite_horizon.handbook.phase_6.werft.e15",
       "level": 2
     },
     {

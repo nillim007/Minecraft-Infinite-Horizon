@@ -20,6 +20,10 @@ Das Terminal hat {{value:machines:infinite_horizon:cargo_terminal.item_slots.sto
 
 @tip Gehört ein Produzent zu zwei Terminals, liefert er immer an das nähere.
 
+@if infinite_horizon:trading_post
+Der Knopf „Partner“ im Terminal gibt es für deine [[agentur|Partner]] frei. Dann dürfen deren Frachtraketen hierher liefern. Abholen können sie nichts.
+@endif
+
 ## Produktion, während du fort bist
 
 Ist der Außenposten nicht geladen, weil du auf einem anderen Planeten bist, rechnet das Spiel die Förderung nach, sobald du zurückkommst. Du bekommst dann das {{value:logistics:offline_production.factor}}-Fache der normalen Menge für die vergangene Zeit.

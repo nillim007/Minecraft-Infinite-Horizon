@@ -349,7 +349,8 @@ public final class CargoFlights extends SavedData {
                 }
                 ServerLevel targetLevel = level(server, r.targetDimension());
                 CargoSink sink = sinkAt(targetLevel, r.target());
-                if (sink == null) {
+                // 23.3: Partner-Ziel nicht mehr freigegeben oder Partnerschaft beendet: nicht starten
+                if (sink == null || !LogisticsService.mayDeliver(server, r.agency(), r.targetDimension(), r.target())) {
                     continue;
                 }
                 OutpostManager.catchUpOutpost(home, r.home());
@@ -407,6 +408,11 @@ public final class CargoFlights extends SavedData {
     private static Flight atTarget(MinecraftServer server, Flight f, long now) {
         ServerLevel level = level(server, f.targetDimension());
         CargoSink sink = sinkAt(level, f.target());
+        // 23.3: liefert nur, wenn das Ziel (noch) erlaubt ist; sonst bleibt die Fracht an Bord und fliegt zurück
+        UUID agency = LogisticsService.ownerOf(server, f.homeDimension(), f.home());
+        if (sink != null && !LogisticsService.mayDeliver(server, agency, f.targetDimension(), f.target())) {
+            sink = null;
+        }
         if (sink instanceof CargoTerminalBlockEntity && level != null) {
             OutpostManager.catchUpOutpost(level, f.target()); // 20.1: Frachtlandung rechnet den Außenposten nach
         }
@@ -438,6 +444,8 @@ public final class CargoFlights extends SavedData {
                     restItems.add(rest);
                 }
             }
+            boolean delivered = restItems.size() < items.size()
+                    || restItems.stream().mapToInt(ItemStack::getCount).sum() < items.stream().mapToInt(ItemStack::getCount).sum();
             items = restItems;
             List<IhFluidStack> restFluids = new ArrayList<>();
             for (IhFluidStack c : fluids) {
@@ -449,7 +457,16 @@ public final class CargoFlights extends SavedData {
                     restFluids.add(c.withAmount(c.amount() - moved));
                 }
             }
+            delivered |= restFluids.stream().mapToLong(IhFluidStack::amount).sum()
+                    < fluids.stream().filter(c -> !c.isEmpty()).mapToLong(IhFluidStack::amount).sum();
             fluids = restFluids;
+            // 23.3 „Gemeinsame Werft“: liefernde Agentur merken
+            if (delivered && agency != null && sink instanceof de.infinitehorizon.shipyard.ShipyardDockBlockEntity dock) {
+                var yard = dock.yard();
+                if (yard != null) {
+                    de.infinitehorizon.shipyard.ShipyardState.get(server).addContributor(yard, agency);
+                }
+            }
             if (tank != null && fuel < need) {
                 fuel += drawFuel(sink.fuelTank(), need - fuel);
             }

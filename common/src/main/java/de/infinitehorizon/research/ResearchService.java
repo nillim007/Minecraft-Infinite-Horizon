@@ -216,14 +216,42 @@ public final class ResearchService {
         String founder = agency.founder().map(m -> AgencyManager.playerName(server, m.player())).orElse("?");
         AgencyProgress p = agency.progress();
         List<AgencyStatePayload.Invite> invites = new ArrayList<>();
-        for (Agency inviting : AgencyData.get(server).invitesFor(viewer)) {
-            invites.add(new AgencyStatePayload.Invite(inviting.id(), inviting.name() == null ? "" : inviting.name(),
-                    inviting.founder().map(m -> AgencyManager.playerName(server, m.player())).orElse("?")));
+        AgencyData data = AgencyData.get(server);
+        for (Agency inviting : data.invitesFor(viewer)) {
+            invites.add(ref(server, inviting, AgencyStatePayload.Invite.INVITE));
+        }
+        // Partner (23.3): bestehende, Angebote an uns, eigene Angebote, Agenturen mit Mitgliedern online
+        java.util.Set<UUID> listed = new java.util.HashSet<>();
+        for (UUID id : agency.relations().partners()) {
+            data.byId(id).filter(o -> o.mergedInto() == null).ifPresent(o -> {
+                invites.add(ref(server, o, AgencyStatePayload.Invite.PARTNER));
+                listed.add(o.id());
+            });
+        }
+        for (Agency o : data.partnerRequestsTo(agency.id())) {
+            if (listed.add(o.id())) {
+                invites.add(ref(server, o, AgencyStatePayload.Invite.PARTNER_IN));
+            }
+        }
+        for (UUID id : agency.relations().requests()) {
+            data.byId(id).filter(o -> o.mergedInto() == null && listed.add(o.id()))
+                    .ifPresent(o -> invites.add(ref(server, o, AgencyStatePayload.Invite.PARTNER_OUT)));
+        }
+        for (Agency o : data.all()) {
+            if (o != agency && o.mergedInto() == null && !listed.contains(o.id()) && o.members().stream()
+                    .anyMatch(m -> server.getPlayerList().getPlayer(m.player()) != null)) {
+                invites.add(ref(server, o, AgencyStatePayload.Invite.CANDIDATE));
+            }
         }
         return new AgencyStatePayload(agency.id(), agency.name() == null ? "" : agency.name(), founder, members,
                 agency.roleOf(viewer).map(Role::getSerializedName).orElse(Role.GUEST.getSerializedName()), p.fp(),
                 List.copyOf(p.researched()), List.copyOf(p.openTiers()), List.copyOf(p.probeTargets()),
                 List.copyOf(p.probeReached()), invites, de.infinitehorizon.agency.AtlasService.json(server, agency));
+    }
+
+    private static AgencyStatePayload.Invite ref(MinecraftServer server, Agency a, String kind) {
+        return new AgencyStatePayload.Invite(a.id(), a.name() == null ? "" : a.name(),
+                a.founder().map(m -> AgencyManager.playerName(server, m.player())).orElse("?"), kind);
     }
 
     /** Schickt dem Spieler den Stand seiner Agentur. */

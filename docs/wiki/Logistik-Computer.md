@@ -16,6 +16,10 @@ Am Logistik-Computer legst du Routen für deine [Frachtraketen](Frachtraketen-un
 6. Wähle unter „Raketen“ die Hangar-Slots, deren Raketen auf dieser Route fliegen. Eine Rakete gehört immer nur zu einer Route.
 7. Klick auf „Speichern“.
 
+## Ziele bei Partnern
+
+Als Ziel stehen auch deine [Handelsposten](Handelsposten.md) zur Wahl und, mit dem Vorsatz „Partner“, die freigegebenen Terminals, Werften und Handelsposten deiner [Partner](Deine-Agentur.md). Endet die Partnerschaft oder nimmt der Partner die Freigabe zurück, starten die Raketen dieser Route nicht mehr. Eine Rakete, die schon unterwegs ist, bringt ihre Fracht wieder mit.
+
 ## Startbedingungen
 
 | Bedingung | Die Rakete startet … |
@@ -47,4 +51,4 @@ Unter dem Editor siehst du jede Rakete der Route: unterwegs (mit Restzeit), gela
 
 _Diese Seite steht auch im Spiel im **Ingenieurs-Handbuch**._
 
-← [Frachtraketen und Antriebe](Frachtraketen-und-Antriebe.md) · [Orbitalwerft](Orbitalwerft.md) →
+← [Frachtraketen und Antriebe](Frachtraketen-und-Antriebe.md) · [Handelsposten](Handelsposten.md) →

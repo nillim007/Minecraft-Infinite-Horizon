@@ -116,7 +116,8 @@ public final class AgencyData extends SavedData {
     }
 
     /** Ergebnis von {@link #invite}, {@link #accept}, {@link #decline} und {@link #leave}. */
-    public enum ActionResult { OK, NOT_LEADER, ALREADY_MEMBER, NOT_INVITED, UNKNOWN_AGENCY, ALONE, NOT_MEMBER, BAD_NAME }
+    public enum ActionResult { OK, NOT_LEADER, ALREADY_MEMBER, NOT_INVITED, UNKNOWN_AGENCY, ALONE, NOT_MEMBER, BAD_NAME,
+        ALREADY_PARTNER }
 
     /** Höchstlänge eines Agenturnamens (SPEC-GAP #118). */
     public static final int MAX_NAME = 32;
@@ -169,6 +170,77 @@ public final class AgencyData extends SavedData {
         a.setName(n.isEmpty() ? null : n);
         setDirty();
         return ActionResult.OK;
+    }
+
+    /** Aktive Agentur (nicht aufgegangen, mindestens ein Mitglied) zu einer ID, sonst null. */
+    private @org.jspecify.annotations.Nullable Agency active(UUID id) {
+        Agency a = agencies.get(id);
+        return a != null && a.mergedInto() == null && !a.members().isEmpty() ? a : null;
+    }
+
+    /**
+     * Partnerschaft anbieten bzw. bestätigen (23.3): Der Leiter von {@code leader} bietet {@code other} an. Hat
+     * {@code other} schon angeboten, gilt die Partnerschaft ab jetzt für beide.
+     */
+    public ActionResult requestPartner(UUID leader, UUID other) {
+        Agency a = ledBy(leader);
+        if (a == null) {
+            return ActionResult.NOT_LEADER;
+        }
+        Agency b = active(other);
+        if (b == null || b == a) {
+            return ActionResult.UNKNOWN_AGENCY;
+        }
+        if (a.relations().isPartner(b.id())) {
+            return ActionResult.ALREADY_PARTNER;
+        }
+        if (b.relations().hasRequested(a.id())) {
+            a.relations().addPartner(b.id());
+            b.relations().addPartner(a.id());
+        } else {
+            a.relations().addRequest(b.id());
+        }
+        setDirty();
+        return ActionResult.OK;
+    }
+
+    /**
+     * Partnerschaft beenden, eigene Anfrage zurückziehen oder fremde Anfrage ablehnen (nur der Leiter von
+     * {@code leader}).
+     */
+    public ActionResult endPartner(UUID leader, UUID other) {
+        Agency a = ledBy(leader);
+        if (a == null) {
+            return ActionResult.NOT_LEADER;
+        }
+        Agency b = agencies.get(other);
+        boolean changed = a.relations().removePartner(other) | a.relations().removeRequest(other);
+        if (b != null) {
+            changed |= b.relations().removePartner(a.id()) | b.relations().removeRequest(a.id());
+        }
+        if (!changed) {
+            return ActionResult.UNKNOWN_AGENCY;
+        }
+        setDirty();
+        return ActionResult.OK;
+    }
+
+    /** Sind die (aktuellen) Agenturen zu {@code a} und {@code b} Partner? Gleiche Agentur zählt nicht. */
+    public boolean arePartners(UUID a, UUID b) {
+        UUID ra = resolve(a);
+        UUID rb = resolve(b);
+        if (ra.equals(rb)) {
+            return false;
+        }
+        Agency x = agencies.get(ra);
+        Agency y = agencies.get(rb);
+        return x != null && y != null && x.relations().isPartner(rb) && y.relations().isPartner(ra);
+    }
+
+    /** Agenturen, die {@code agency} eine Partnerschaft angeboten haben (noch offen). */
+    public List<Agency> partnerRequestsTo(UUID agency) {
+        return agencies.values().stream().filter(x -> x.mergedInto() == null && x.relations().hasRequested(agency)
+                && !x.relations().isPartner(agency)).toList();
     }
 
     /** Der Leiter {@code leader} lädt {@code target} in seine Agentur ein (23.1). */

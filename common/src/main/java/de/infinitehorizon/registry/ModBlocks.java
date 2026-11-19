@@ -182,6 +182,10 @@ public final class ModBlocks {
     public static final Supplier<Block> LOGISTICS_COMPUTER = register("logistics_computer",
             de.infinitehorizon.logistics.LogisticsComputerBlock::new,
             () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
+    /** Handelsposten (23.3): Angebote „gib X, erhalte Y“ mit eigenem Lager. */
+    public static final Supplier<Block> TRADING_POST = register("trading_post",
+            p -> new de.infinitehorizon.logistics.TradingPostBlock(p, () -> ModBlockEntities.TRADING_POST.get()),
+            () -> BlockBehaviour.Properties.ofFullCopy(Blocks.IRON_BLOCK));
     /** Frachtterminal (20.1): Mittelpunkt eines Außenpostens. */
     public static final Supplier<Block> CARGO_TERMINAL = register("cargo_terminal",
             p -> new MachineBlock(p, () -> ModBlockEntities.CARGO_TERMINAL.get()),

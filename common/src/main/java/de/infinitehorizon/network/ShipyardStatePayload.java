@@ -15,7 +15,7 @@ import java.util.List;
  * Baus, ob der Ort gültig ist und ob ein Dock in der Station steht. C→S {@link Request} holt den Stand neu.
  */
 public record ShipyardStatePayload(BlockPos terminal, int built, long remaining, List<Section> sections, boolean valid,
-                                   boolean hasDock, boolean launched) implements CustomPacketPayload {
+                                   boolean hasDock, boolean launched, boolean shared) implements CustomPacketPayload {
 
     public record Material(String id, long needed, long delivered, boolean fluid) {
         public static final StreamCodec<ByteBuf, Material> STREAM_CODEC = StreamCodec.composite(
@@ -51,6 +51,7 @@ public record ShipyardStatePayload(BlockPos terminal, int built, long remaining,
             ByteBufCodecs.BOOL, ShipyardStatePayload::valid,
             ByteBufCodecs.BOOL, ShipyardStatePayload::hasDock,
             ByteBufCodecs.BOOL, ShipyardStatePayload::launched,
+            ByteBufCodecs.BOOL, ShipyardStatePayload::shared,
             ShipyardStatePayload::new);
 
     /** Alle Abschnitte gebaut und noch nicht gestartet: Knopf „Start“ (21.3). */
@@ -84,6 +85,27 @@ public record ShipyardStatePayload(BlockPos terminal, int built, long remaining,
     @Override
     public Type<ShipyardStatePayload> type() {
         return TYPE;
+    }
+
+    /** C→S (23.3): Werft für Partner freigeben oder sperren (Mitglieder mit {@code CONFIGURE}). */
+    public record Share(BlockPos terminal, boolean shared) implements CustomPacketPayload {
+        public static final Type<Share> TYPE = new Type<>(InfiniteHorizon.id("shipyard_share"));
+        public static final StreamCodec<ByteBuf, Share> CODEC = StreamCodec.composite(
+                BlockPos.STREAM_CODEC, Share::terminal,
+                ByteBufCodecs.BOOL, Share::shared,
+                Share::new);
+
+        @Override
+        public Type<Share> type() {
+            return TYPE;
+        }
+
+        public static void handle(Share s, ServerPlayer player) {
+            if (player.distanceToSqr(net.minecraft.world.phys.Vec3.atCenterOf(s.terminal())) > 8 * 8) {
+                return;
+            }
+            de.infinitehorizon.shipyard.ShipyardService.share(player, s.terminal(), s.shared());
+        }
     }
 
     /** C→S: Stand der Werft neu anfordern (offenes GUI, Restzeit). */

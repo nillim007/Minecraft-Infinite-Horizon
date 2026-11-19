@@ -17,7 +17,7 @@ Alle Rezepte auf einen Blick stehen unter [Alle Rezepte](Alle-Rezepte.md), Hilfe
 
 Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spiel im **Ingenieurs-Handbuch**; Rezepte und Werte kommen direkt aus den Daten der Mod und sind damit immer aktuell.
 
-> Stand: Meilenstein 9a · Mod-Version 0.1.0
+> Stand: Meilenstein 9b · Mod-Version 0.1.0
 
 ## Willkommen
 
@@ -115,6 +115,7 @@ Das Wiki zur Raumfahrt-Mod **Infinite Horizon**. Alle Inhalte stehen auch im Spi
 - [Außenposten und Frachtterminal](Aussenposten-und-Frachtterminal.md) – Ein Terminal sammelt, was deine Produzenten fördern, auch wenn du weit weg bist
 - [Frachtraketen und Antriebe](Frachtraketen-und-Antriebe.md) – Fracht zwischen deinen Außenposten fliegen lassen
 - [Logistik-Computer](Logistik-Computer.md) – Routen für deine Frachtraketen anlegen
+- [Handelsposten](Handelsposten.md) – Tauschen mit anderen Agenturen, auch wenn niemand online ist
 - [Orbitalwerft](Orbitalwerft.md) – Abschnitt für Abschnitt zum Sternenschiff
 - [Start und Sternenschiff](Start-und-Sternenschiff.md) – Der Start des Sternenschiffs und Sprünge zwischen den Orbits
 

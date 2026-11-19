@@ -45,7 +45,7 @@ public class ShipyardScreen extends Screen {
     public static void receive(ShipyardStatePayload p) {
         Minecraft mc = Minecraft.getInstance();
         if (mc.gui.screen() instanceof ShipyardScreen s && s.state.terminal().equals(p.terminal())) {
-            boolean rebuild = s.state.canStart() != p.canStart();
+            boolean rebuild = s.state.canStart() != p.canStart() || s.state.shared() != p.shared();
             s.state = p;
             if (rebuild) {
                 s.rebuildWidgets();
@@ -59,9 +59,12 @@ public class ShipyardScreen extends Screen {
         return state;
     }
 
+    /** Höhe: Kopf, Abschnitte und unten eine Zeile für den Knopf „Partner“. */
     private int panelHeight() {
-        return 40 + state.sections().size() * ROW;
+        return 40 + state.sections().size() * ROW + SHARE_ROW;
     }
+
+    private static final int SHARE_ROW = 20;
 
     @Override
     protected void init() {
@@ -74,6 +77,11 @@ public class ShipyardScreen extends Screen {
                 .bounds(left + W - 88, top + 4, 80, 16).build();
         start.visible = state.canStart();
         addRenderableWidget(start);
+        // 23.3: Werft für Partner freigeben (Server prüft CONFIGURE)
+        addRenderableWidget(net.minecraft.client.gui.components.Button.builder(
+                Component.translatable("gui.infinite_horizon.cargo_terminal.partners." + (state.shared() ? "on" : "off")),
+                b -> Services.NETWORK.sendToServer(new ShipyardStatePayload.Share(state.terminal(), !state.shared())))
+                .bounds(left + W - 88, top + panelHeight() - SHARE_ROW - 2, 80, 16).build());
     }
 
     @Override

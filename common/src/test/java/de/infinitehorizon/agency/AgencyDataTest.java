@@ -7,11 +7,13 @@ import net.minecraft.nbt.Tag;
 import net.minecraft.resources.Identifier;
 import org.junit.jupiter.api.Test;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -241,5 +243,27 @@ class AgencyDataTest {
         assertEquals("Pluto-Expedition", a.name());
         assertEquals(AgencyData.ActionResult.OK, d.rename(leader, "   "));
         assertNull(a.name(), "leer = Standardname");
+    }
+
+    @Test
+    void partnershipNeedsBothLeadersAndSurvivesSaving() {
+        UUID la = UUID.randomUUID(), lb = UUID.randomUUID();
+        AgencyData d = new AgencyData();
+        Agency a = d.ensureFor(la, 0L);
+        Agency b = d.ensureFor(lb, 0L);
+        assertEquals(AgencyData.ActionResult.OK, d.requestPartner(la, b.id()));
+        assertFalse(d.arePartners(a.id(), b.id()));
+        assertEquals(List.of(a), d.partnerRequestsTo(b.id()));
+        assertEquals(AgencyData.ActionResult.OK, d.requestPartner(lb, a.id()));
+        assertTrue(d.arePartners(a.id(), b.id()));
+        assertTrue(d.partnerRequestsTo(b.id()).isEmpty());
+        // gespeichert und wieder geladen
+        var json = AgencyData.CODEC.encodeStart(com.mojang.serialization.JsonOps.INSTANCE, d).getOrThrow();
+        AgencyData back = AgencyData.CODEC.parse(com.mojang.serialization.JsonOps.INSTANCE, json).getOrThrow();
+        assertTrue(back.arePartners(a.id(), b.id()));
+        // Anfrage zurückziehen bzw. Partnerschaft beenden
+        assertEquals(AgencyData.ActionResult.OK, back.endPartner(lb, a.id()));
+        assertFalse(back.arePartners(a.id(), b.id()));
+        assertEquals(AgencyData.ActionResult.UNKNOWN_AGENCY, back.endPartner(lb, a.id()));
     }
 }

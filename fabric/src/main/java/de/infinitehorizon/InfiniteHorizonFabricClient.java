@@ -23,6 +23,7 @@ public class InfiniteHorizonFabricClient implements ClientModInitializer {
         MenuScreens.register(ModMenus.STAR_MAP.get(), de.infinitehorizon.client.StarMapScreen::new);
         MenuScreens.register(ModMenus.ROCKET.get(), de.infinitehorizon.client.RocketScreen::new);
         MenuScreens.register(ModMenus.CARGO_TERMINAL.get(), de.infinitehorizon.client.CargoTerminalScreen::new);
+        MenuScreens.register(ModMenus.TRADING_POST.get(), de.infinitehorizon.client.TradingPostScreen::new);
         // Entities (M4): Sonde als Block, Sitz unsichtbar
         net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry.register(
                 de.infinitehorizon.registry.ModEntities.PROBE_ENTITY.get(), de.infinitehorizon.client.ProbeRenderer::new);

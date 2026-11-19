@@ -1253,4 +1253,24 @@ public class IhFabricGameTests {
     public void agencyGuestRoleRights(GameTestHelper helper) {
         IhGameTestsM9a.guestRole(helper);
     }
+
+    @GameTest(maxTicks = 20)
+    public void agencyPartnerBothLeaders(GameTestHelper helper) {
+        IhGameTestsM9b.partnership(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void tradingPostTradeAnyone(GameTestHelper helper) {
+        IhGameTestsM9b.trade(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:mars")
+    public void cargoflightPartnerDelivery(GameTestHelper helper) {
+        IhGameTestsM9b.partnerDelivery(helper);
+    }
+
+    @GameTest(maxTicks = 20, dimension = "infinite_horizon:earth_orbit")
+    public void shipyardJointContributors(GameTestHelper helper) {
+        IhGameTestsM9b.jointShipyard(helper);
+    }
 }

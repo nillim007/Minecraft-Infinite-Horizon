@@ -51,6 +51,10 @@ public class CargoTerminalMenu extends AbstractContainerMenu {
     public static final int HANGAR_Y = 116;
     public static final int INVENTORY_Y = 140;
     public static final int SELECT_TANK = 1000;
+    /** Knopf-ID: Freigabe für Partner umschalten (23.3, {@code CONFIGURE}). */
+    public static final int TOGGLE_SHARED = 2000;
+    /** Bit der Freigabe im Wert der gesperrten Hangar-Slots. */
+    public static final int SHARED_BIT = 62;
 
     private final Data data;
     private final @Nullable CargoTerminalBlockEntity terminal;
@@ -115,6 +119,11 @@ public class CargoTerminalMenu extends AbstractContainerMenu {
         return data;
     }
 
+    /** Für Partner freigegeben (23.3)? */
+    public boolean shared() {
+        return terminal != null ? terminal.shared() : (value(data.tanks() * 3 + 1) >> SHARED_BIT & 1) != 0;
+    }
+
     /** Synchronisierter Wert ({@code 3t} Fluid, {@code 3t+1} Menge, {@code 3t+2} Kapazität, danach gewählter Tank). */
     public long value(int index) {
         long v = 0;
@@ -147,6 +156,13 @@ public class CargoTerminalMenu extends AbstractContainerMenu {
         if (id >= 0 && id <= maxRow()) {
             view.row = id;
             sendAllDataToRemote();
+            return true;
+        }
+        if (id == TOGGLE_SHARED) {
+            if (terminal == null || !Permissions.can(player, terminal.storedOwner(), Permissions.Action.CONFIGURE)) {
+                return false;
+            }
+            terminal.setShared(!terminal.shared());
             return true;
         }
         int tank = id - SELECT_TANK;

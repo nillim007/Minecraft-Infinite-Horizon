@@ -57,6 +57,44 @@ public final class LogisticsService {
         return own(server, agency, OutpostData.get(server).docks());
     }
 
+    /** Handelsposten der Agentur (23.3): nur Ziel. */
+    public static List<OutpostData.Terminal> tradingPostsOf(MinecraftServer server, UUID agency) {
+        return own(server, agency, OutpostData.get(server).tradingPosts());
+    }
+
+    /** Ziele bei Partnern (23.3): freigegebene Terminals und Werft-Docks, alle Handelsposten. */
+    public static List<OutpostData.Terminal> partnerTargets(MinecraftServer server, UUID agency, List<OutpostData.Terminal> all) {
+        AgencyData agencies = AgencyData.get(server);
+        List<OutpostData.Terminal> out = new ArrayList<>();
+        for (OutpostData.Terminal t : all) {
+            if (t.owner().isPresent() && t.shared() && agencies.arePartners(agency, t.owner().get())) {
+                out.add(t);
+            }
+        }
+        return out;
+    }
+
+    /**
+     * Darf eine Rakete der Agentur {@code agency} an {@code pos} liefern (20.4, 23.3)? Eigene Ziele und Ziele ohne
+     * Besitzer immer; fremde nur, wenn sie freigegeben sind (Handelsposten immer) und die Agenturen Partner sind. Ein
+     * Ziel, das (noch) nicht im Register steht, gilt als erlaubt; {@code agency} null (Terminal ohne Besitzer) ebenso.
+     */
+    public static boolean mayDeliver(MinecraftServer server, @Nullable UUID agency, Identifier dimension, BlockPos pos) {
+        OutpostData.Terminal t = OutpostData.get(server).entry(dimension, pos);
+        if (agency == null || t == null || t.owner().isEmpty()) {
+            return true;
+        }
+        AgencyData agencies = AgencyData.get(server);
+        UUID owner = agencies.resolve(t.owner().get());
+        return owner.equals(agencies.resolve(agency)) || t.shared() && agencies.arePartners(agency, owner);
+    }
+
+    /** Besitzer-Agentur eines eingetragenen Terminals (aufgelöst) oder null. */
+    public static @Nullable UUID ownerOf(MinecraftServer server, Identifier dimension, BlockPos pos) {
+        OutpostData.Terminal t = OutpostData.get(server).entry(dimension, pos);
+        return t == null || t.owner().isEmpty() ? null : AgencyData.get(server).resolve(t.owner().get());
+    }
+
     private static List<OutpostData.Terminal> own(MinecraftServer server, UUID agency, List<OutpostData.Terminal> all) {
         AgencyData agencies = AgencyData.get(server);
         List<OutpostData.Terminal> out = new ArrayList<>();
@@ -91,17 +129,30 @@ public final class LogisticsService {
                 ItemStack s = be.hangar(i);
                 hangar.add(s.isEmpty() ? "" : BuiltInRegistries.ITEM.getKey(s.getItem()).toString());
             }
-            terminals.add(new LogisticsStatePayload.Terminal(t.dimension(), t.pos(), hangar));
+            terminals.add(new LogisticsStatePayload.Terminal(t.dimension(), t.pos(), hangar,
+                    LogisticsStatePayload.Terminal.TERMINAL));
         }
         for (OutpostData.Terminal d : docksOf(server, agency)) {
             ServerLevel dl = level(server, d.dimension());
             if (dl != null) {
                 dl.getChunkAt(d.pos());
                 if (dl.getBlockEntity(d.pos()) instanceof de.infinitehorizon.shipyard.ShipyardDockBlockEntity) {
-                    terminals.add(new LogisticsStatePayload.Terminal(d.dimension(), d.pos(), List.of()));
+                    terminals.add(new LogisticsStatePayload.Terminal(d.dimension(), d.pos(), List.of(),
+                            LogisticsStatePayload.Terminal.DOCK));
                 }
             }
         }
+        // Handelsposten (eigene) und Partner-Ziele (23.3) aus dem Register, ohne Chunks zu laden
+        OutpostData outposts = OutpostData.get(server);
+        tradingPostsOf(server, agency).forEach(t -> terminals.add(new LogisticsStatePayload.Terminal(t.dimension(), t.pos(),
+                List.of(), LogisticsStatePayload.Terminal.TRADING_POST)));
+        String p = LogisticsStatePayload.Terminal.PARTNER;
+        partnerTargets(server, agency, outposts.terminals()).forEach(t -> terminals.add(new LogisticsStatePayload.Terminal(
+                t.dimension(), t.pos(), List.of(), p + LogisticsStatePayload.Terminal.TERMINAL)));
+        partnerTargets(server, agency, outposts.docks()).forEach(t -> terminals.add(new LogisticsStatePayload.Terminal(
+                t.dimension(), t.pos(), List.of(), p + LogisticsStatePayload.Terminal.DOCK)));
+        partnerTargets(server, agency, outposts.tradingPosts()).forEach(t -> terminals.add(new LogisticsStatePayload.Terminal(
+                t.dimension(), t.pos(), List.of(), p + LogisticsStatePayload.Terminal.TRADING_POST)));
         CargoFlights data = CargoFlights.get(server);
         List<Route> routes = data.routesOf(agency);
         List<CargoFlights.RocketStatus> statuses = new ArrayList<>();
@@ -179,9 +230,9 @@ public final class LogisticsService {
         }
         List<OutpostData.Terminal> own = terminalsOf(server, agency);
         boolean homeOk = own.stream().anyMatch(t -> t.dimension().equals(in.homeDimension()) && t.pos().equals(in.home()));
-        List<OutpostData.Terminal> targets = new ArrayList<>(own);
-        targets.addAll(docksOf(server, agency));
-        boolean targetOk = targets.stream().anyMatch(t -> t.dimension().equals(in.targetDimension()) && t.pos().equals(in.target()));
+        // Ziel: eingetragen und erlaubt (eigen oder freigegeben bei einem Partner, 23.3)
+        boolean targetOk = OutpostData.get(server).entry(in.targetDimension(), in.target()) != null
+                && mayDeliver(server, agency, in.targetDimension(), in.target());
         if (!homeOk || !targetOk || in.homeDimension().equals(in.targetDimension()) && in.home().equals(in.target())) {
             return "gui.infinite_horizon.logistics.bad_terminal";
         }

@@ -39,6 +39,12 @@ public final class ModMenus {
                     () -> Services.REGISTRY.menuType(de.infinitehorizon.logistics.CargoTerminalMenu::new,
                             de.infinitehorizon.logistics.CargoTerminalMenu.Data.STREAM_CODEC));
 
+    /** Handelsposten (23.3); Daten = Position, Lagerslots, Angebote. */
+    public static final Supplier<MenuType<de.infinitehorizon.logistics.TradingPostMenu>> TRADING_POST =
+            Services.REGISTRY.register(BuiltInRegistries.MENU, "trading_post",
+                    () -> Services.REGISTRY.menuType(de.infinitehorizon.logistics.TradingPostMenu::new,
+                            de.infinitehorizon.logistics.TradingPostMenu.Data.STREAM_CODEC));
+
     private ModMenus() {
     }
 
