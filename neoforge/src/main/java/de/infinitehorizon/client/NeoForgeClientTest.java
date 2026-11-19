@@ -102,6 +102,8 @@ public final class NeoForgeClientTest {
             finish(mc);
             return;
         }
+        // Toasts (Rezepte, Erfolge) verdecken sonst die Bildschirme auf den Fotos
+        mc.gui.toastManager().clear();
         boolean done;
         try {
             done = STEPS.get(stepIndex).run(mc, stepTick++);
