@@ -1,6 +1,6 @@
 {
   "_comment": "IDs, die im Code registriert sind. tools/gen_resources.py erzeugt nur für diese Ressourcen. Mit jedem Meilenstein erweitern.",
-  "milestone": 9,
+  "milestone": 10,
   "blocks": {
     "infinite_horizon:crusher": "machine",
     "infinite_horizon:combustion_generator": "machine",
