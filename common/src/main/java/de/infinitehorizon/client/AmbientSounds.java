@@ -56,7 +56,15 @@ public final class AmbientSounds {
         if (suitActive()) {
             breath = ensure(breath, BREATH);
             radio = ensure(radio, RADIO);
+        } else {
+            if (breath != null) {
+                breath.update();
+            }
+            if (radio != null) {
+                radio.update();
+            }
         }
+        MACHINES.values().forEach(LoopSound::update);
         MACHINES.values().removeIf(LoopSound::isStopped);
     }
 

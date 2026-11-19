@@ -44,7 +44,15 @@ public final class LoopSound extends AbstractTickableSoundInstance {
 
     @Override
     public void tick() {
-        if (!keep.getAsBoolean()) {
+        update();
+    }
+
+    /**
+     * Beendet die Schleife, wenn die Bedingung nicht mehr gilt. Auch von {@code AmbientSounds} jeden Tick aufgerufen: Die
+     * Klang-Engine tickt nur Klänge, die sie wirklich spielt (ohne Audiogerät oder nach dem Verwerfen gar keine).
+     */
+    public void update() {
+        if (!isStopped() && !keep.getAsBoolean()) {
             stop();
         }
     }
