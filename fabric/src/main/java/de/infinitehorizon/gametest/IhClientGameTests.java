@@ -346,6 +346,13 @@ public class IhClientGameTests implements FabricClientGameTest {
         }
         clearChat(context);
         context.takeScreenshot("hud_suit");
+        // Klang (24.6, M9d): im Vakuum ohne Kuppel Atem- und Funkschleife, andere Geräusche gedämpft
+        boolean[] sound = context.computeOnClient(c -> new boolean[]{
+                de.infinitehorizon.client.SoundDamping.vacuum(),
+                de.infinitehorizon.client.AmbientSounds.suitLoopsRequested()});
+        if (!sound[0] || !sound[1]) {
+            throw new AssertionError("Klang im Vakuum: Vakuum erkannt " + sound[0] + ", Anzug-Schleifen " + sound[1]);
+        }
         sp.getServer().runCommand("gamemode creative @p");
         // Kuppel (27.5 M3e): Generator mit Strom und Sauerstoff vor dem Spieler, Lichtpunkte auf der Hülle
         sp.getServer().runOnServer(server -> {
@@ -366,6 +373,14 @@ public class IhClientGameTests implements FabricClientGameTest {
         }
         clearChat(context);
         context.takeScreenshot("world_moon_dome");
+        // in der Kuppel: keine Dämpfung, Anzug-Schleifen enden
+        context.waitTicks(20);
+        boolean[] dome = context.computeOnClient(c -> new boolean[]{
+                de.infinitehorizon.client.SoundDamping.vacuum(),
+                de.infinitehorizon.client.AmbientSounds.suitLoopsRequested()});
+        if (dome[0] || dome[1]) {
+            throw new AssertionError("Klang in der Kuppel: noch Vakuum " + dome[0] + ", Anzug-Schleifen " + dome[1]);
+        }
         // Gelände von oben, dann der Himmel mit der Erde (frei von Hängen und Wänden)
         context.runOnClient(c -> {
             c.player.getAbilities().flying = true;

@@ -34,6 +34,12 @@ Die Brustplatte trägt bis zu {{value:suits:oxygen_supply.chestplate_capacity}} 
 @warning Ist der Sauerstoff aufgebraucht, schützt der Anzug weiter vor Druck und Temperatur, aber du erstickst. Behalte die Anzeige im Blick.
 
 @if infinite_horizon:helmet_lamp
+## Stille im Vakuum
+
+Im Vakuum ohne Kuppel hörst du deinen Atem und leises Funkrauschen. Alle anderen Geräusche klingen gedämpft, nur noch mit {{value:misc:vacuum_sound.volume_multiplier|%}} der Lautstärke: Schritte, Maschinen, Kreaturen. Warntöne des Anzugs bleiben laut.
+
+@tip Wird es plötzlich laut um dich, bist du in eine Kuppel getreten. Dort atmest du frei, und der Anzug füllt sich auf.
+
 ## Module
 
 Jedes Anzugteil hat {{value:suits:suit_rules.module_slots_per_piece}} Modulslots. Module bauen sich im <item:infinite_horizon:assembly_table> ein und aus, Strom braucht er dafür wie für jedes andere Rezept:

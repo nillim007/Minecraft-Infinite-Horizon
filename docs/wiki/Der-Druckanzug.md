@@ -30,6 +30,13 @@ Die Brustplatte trägt bis zu 1.200 mB Sauerstoff. Eine neue Brustplatte ist lee
 > [!WARNING]
 > Ist der Sauerstoff aufgebraucht, schützt der Anzug weiter vor Druck und Temperatur, aber du erstickst. Behalte die Anzeige im Blick.
 
+## Stille im Vakuum
+
+Im Vakuum ohne Kuppel hörst du deinen Atem und leises Funkrauschen. Alle anderen Geräusche klingen gedämpft, nur noch mit 15 % der Lautstärke: Schritte, Maschinen, Kreaturen. Warntöne des Anzugs bleiben laut.
+
+> [!TIP]
+> Wird es plötzlich laut um dich, bist du in eine Kuppel getreten. Dort atmest du frei, und der Anzug füllt sich auf.
+
 ## Module
 
 Jedes Anzugteil hat 2 Modulslots. Module bauen sich im [Montagetisch](Montagetisch.md) ein und aus, Strom braucht er dafür wie für jedes andere Rezept:

@@ -765,7 +765,8 @@ def orbit_dimension(dim, p, defaults):
     gen = p.get("generator") or {}
     dt = dict(OVERWORLD_DIMENSION_TYPE)
     dt.update({"min_y": defaults["min_y"], "height": defaults["height"], "logical_height": defaults["height"],
-               "attributes": dimension_attributes(defaults, p.get("sky") or {})})
+               "attributes": {**dimension_attributes(defaults, p.get("sky") or {}),
+                              "minecraft:audio/background_music": music_attribute(dim)}})
     write_json(f"data/{ns}/dimension_type/{path}.json", dt)
     # SPEC-GAP #96: Vanilla the_void setzt eine blaue Himmelsfarbe; eigenes leeres Biom, damit sky_color des Orbits gilt
     write_json(f"data/{NS}/worldgen/biome/orbit_void.json", {
@@ -784,7 +785,8 @@ def asteroid_dimension(spec, impl, dim, p, defaults, moon_tube):
     ns, path = dim.split(":", 1)
     dt = dict(OVERWORLD_DIMENSION_TYPE)
     dt.update({"min_y": defaults["min_y"], "height": defaults["height"], "logical_height": defaults["height"],
-               "attributes": dimension_attributes(defaults, p.get("sky") or {})})
+               "attributes": {**dimension_attributes(defaults, p.get("sky") or {}),
+                              "minecraft:audio/background_music": music_attribute(dim)}})
     write_json(f"data/{ns}/dimension_type/{path}.json", dt)
     ores = [{"block": o["block"], "fraction": o["fraction"]} for o in p.get("ores", []) if o.get("placement") == "host_fraction"]
     feats = []
@@ -892,6 +894,8 @@ def planet_worldgen(spec, impl, blocks):
             attrs["minecraft:visual/fog_color"] = sky["fog_color"]
         if sky.get("stars_in_daylight"):
             attrs["minecraft:visual/star_brightness"] = 1.0
+        # Musik je Planet (24.6), Platzhalter music.game
+        attrs["minecraft:audio/background_music"] = music_attribute(dim)
         dt = dict(OVERWORLD_DIMENSION_TYPE)
         dt.update({"min_y": defaults["min_y"], "height": defaults["height"], "logical_height": defaults["height"],
                    "attributes": attrs})
@@ -1109,17 +1113,58 @@ ROCKET_SOUNDS = {"rocket.countdown": "minecraft:note/hat", "rocket.launch": "min
                  "rocket.landing": "minecraft:random/anvil_land"}
 # Finale (21.3): Antwort des Senders, Platzhalter = Vanilla-Klang (SPEC-GAP #116)
 FINALE_SOUNDS = {"finale.signal_reply": "minecraft:block/beacon/activate"}
+# Anzug (24.6, M9d): Atem und leises Funkrauschen im Vakuum, Platzhalter = Vanilla-Klangdateien (SPEC-GAP #121)
+SUIT_SOUNDS = {"suit.breath": {"name": "minecraft:random/breath", "volume": 0.6},
+               "suit.radio_static": {"name": "minecraft:fire/fire", "volume": 0.15}}
+# Maschinen (24.6): Schleife bei running; Platzhalter nach Art der Maschine, sonst ein Summen (SPEC-GAP #121)
+MACHINE_SOUND_BY_WORD = [
+    (("crusher", "press", "drilling"), [f"minecraft:block/grindstone/grindstone{i}" for i in (1, 2, 3)]),
+    (("furnace", "heater"), [f"minecraft:block/blastfurnace/blastfurnace{i}" for i in (1, 2, 3, 4)]),
+    (("combustion", "fuel_generator"), [f"minecraft:block/furnace/fire_crackle{i}" for i in (1, 2, 3, 4)]),
+    (("pump", "electrolyzer", "refinery", "liquefier", "collector", "oxygen", "hydroponics"),
+     [f"minecraft:block/bubble_column/upwards_ambient{i}" for i in (1, 2, 3, 4)]),
+]
+MACHINE_SOUND_DEFAULT = ["minecraft:block/beacon/ambient"]
+# leise Geräte ohne eigenes Geräusch und Blöcke, die nie „running“ werden
+MACHINE_SOUND_SKIP = {"solar_panel", "solar_wing", "research_terminal", "cargo_terminal", "shipyard_dock"}
+MACHINE_SOUND_VOLUME = 0.4
+# Musik je Planet (24.6): Platzhalter = Vanilla-Ereignis music.game, Pausen wie Vanilla Musics.GAME
+MUSIC_PLACEHOLDER = "minecraft:music.game"
+MUSIC_DELAY = {"min_delay": 12000, "max_delay": 24000}
 
 
-def sounds(impl):
-    all_sounds = dict(WARNING_SOUNDS)
+def machine_sound_ids(spec, impl):
+    """Maschinen und Generatoren (machines.json, generators.json) mit Blockform „machine“."""
+    out = []
+    for b, shape in impl.get("blocks", {}).items():
+        if shape != "machine" or short(b) in MACHINE_SOUND_SKIP:
+            continue
+        if b in spec.balance.get("machines", {}) or b in spec.balance.get("generators", {}):
+            out.append(short(b))
+    return sorted(out)
+
+
+def music_attribute(dim):
+    """Attribut minecraft:audio/background_music (26.3) für eine Planeten-Dimension."""
+    return {"default": {"sound": f"{NS}:music.{dim.split(':', 1)[1]}", **MUSIC_DELAY}}
+
+
+def sounds(spec, impl):
+    entries = {name: {"subtitle": f"subtitles.{NS}.{name}", "sounds": [file]} for name, file in WARNING_SOUNDS.items()}
     if f"{NS}:rocket" in impl.get("entities", []):
-        all_sounds.update(ROCKET_SOUNDS)
+        entries.update({n: {"subtitle": f"subtitles.{NS}.{n}", "sounds": [f]} for n, f in ROCKET_SOUNDS.items()})
     if f"{NS}:starship" in impl.get("entities", []):
-        all_sounds.update(FINALE_SOUNDS)
-    write_json(f"assets/{NS}/sounds.json", {name: {"subtitle": f"subtitles.{NS}.{name}", "sounds": [file]}
-                                            for name, file in all_sounds.items()})
-    write_json(f"{NS}/sound_events.json", {"events": sorted(all_sounds)})
+        entries.update({n: {"subtitle": f"subtitles.{NS}.{n}", "sounds": [f]} for n, f in FINALE_SOUNDS.items()})
+    for n, snd in SUIT_SOUNDS.items():
+        entries[n] = {"subtitle": f"subtitles.{NS}.{n}", "sounds": [snd]}
+    for m in machine_sound_ids(spec, impl):
+        files = next((f for words, f in MACHINE_SOUND_BY_WORD if any(w in m for w in words)), MACHINE_SOUND_DEFAULT)
+        entries[f"machine.{m}"] = {"subtitle": f"subtitles.{NS}.machine",
+                                   "sounds": [{"name": f, "volume": MACHINE_SOUND_VOLUME} for f in files]}
+    for dim in impl.get("dimensions", []):
+        entries[f"music.{dim.split(':', 1)[1]}"] = {"sounds": [{"name": MUSIC_PLACEHOLDER, "type": "event"}]}
+    write_json(f"assets/{NS}/sounds.json", entries)
+    write_json(f"{NS}/sound_events.json", {"events": sorted(entries)})
 
 
 def suits(spec, items):
@@ -1604,7 +1649,7 @@ def main():
 
     # Warntöne (24.6), Anzüge (9.1), Welt ohne Atmosphäre (8.5)
     atmosphere_tag(spec)
-    sounds(impl)
+    sounds(spec, impl)
     creature_data(spec, impl)
     suits(spec, items)
 

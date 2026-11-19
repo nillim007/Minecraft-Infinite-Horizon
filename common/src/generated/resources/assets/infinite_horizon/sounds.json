@@ -52,5 +52,618 @@
     "sounds": [
       "minecraft:block/beacon/activate"
     ]
+  },
+  "suit.breath": {
+    "subtitle": "subtitles.infinite_horizon.suit.breath",
+    "sounds": [
+      {
+        "name": "minecraft:random/breath",
+        "volume": 0.6
+      }
+    ]
+  },
+  "suit.radio_static": {
+    "subtitle": "subtitles.infinite_horizon.suit.radio_static",
+    "sounds": [
+      {
+        "name": "minecraft:fire/fire",
+        "volume": 0.15
+      }
+    ]
+  },
+  "machine.analyzer": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/beacon/ambient",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.assembly_table": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/beacon/ambient",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.clone_chamber": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/beacon/ambient",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.combustion_generator": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/furnace/fire_crackle1",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/furnace/fire_crackle2",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/furnace/fire_crackle3",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/furnace/fire_crackle4",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.crusher": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/grindstone/grindstone1",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/grindstone/grindstone2",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/grindstone/grindstone3",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.cryo_liquefier": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient1",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient2",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient3",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient4",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.drilling_rig": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/grindstone/grindstone1",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/grindstone/grindstone2",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/grindstone/grindstone3",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.electric_furnace": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/blastfurnace/blastfurnace1",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/blastfurnace/blastfurnace2",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/blastfurnace/blastfurnace3",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/blastfurnace/blastfurnace4",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.electrolyzer": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient1",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient2",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient3",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient4",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.fission_reactor": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/beacon/ambient",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.fluid_pump": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient1",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient2",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient3",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient4",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.food_packer": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/beacon/ambient",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.fuel_generator": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/furnace/fire_crackle1",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/furnace/fire_crackle2",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/furnace/fire_crackle3",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/furnace/fire_crackle4",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.fuel_pump": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient1",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient2",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient3",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient4",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.fusion_reactor": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/beacon/ambient",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.gas_collector": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient1",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient2",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient3",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient4",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.gravity_plate": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/beacon/ambient",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.high_temperature_furnace": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/blastfurnace/blastfurnace1",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/blastfurnace/blastfurnace2",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/blastfurnace/blastfurnace3",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/blastfurnace/blastfurnace4",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.hydroponics_basin": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient1",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient2",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient3",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient4",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.magnetic_trap": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/beacon/ambient",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.oxygen_generator": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient1",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient2",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient3",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient4",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.press": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/grindstone/grindstone1",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/grindstone/grindstone2",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/grindstone/grindstone3",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.pump_station": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient1",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient2",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient3",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient4",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.refinery_controller": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient1",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient2",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient3",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/bubble_column/upwards_ambient4",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.regolith_heater": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/blastfurnace/blastfurnace1",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/blastfurnace/blastfurnace2",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/blastfurnace/blastfurnace3",
+        "volume": 0.4
+      },
+      {
+        "name": "minecraft:block/blastfurnace/blastfurnace4",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.space_weather_station": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/beacon/ambient",
+        "volume": 0.4
+      }
+    ]
+  },
+  "machine.zero_g_fabricator": {
+    "subtitle": "subtitles.infinite_horizon.machine",
+    "sounds": [
+      {
+        "name": "minecraft:block/beacon/ambient",
+        "volume": 0.4
+      }
+    ]
+  },
+  "music.moon": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.mars": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.venus": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.earth_orbit": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.mars_orbit": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.venus_orbit": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.mercury": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.mercury_orbit": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.asteroid_belt": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.ceres": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.jupiter_orbit": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.io": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.europa": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.saturn_orbit": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.titan": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.enceladus": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.uranus_orbit": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.neptune_orbit": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.triton": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
+  },
+  "music.pluto": {
+    "sounds": [
+      {
+        "name": "minecraft:music.game",
+        "type": "event"
+      }
+    ]
   }
 }

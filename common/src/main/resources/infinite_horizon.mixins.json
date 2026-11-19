@@ -23,7 +23,8 @@
   ],
   "client": [
     "LivingEntityRendererAccessor",
-    "SkyRendererMixin"
+    "SkyRendererMixin",
+    "SoundEngineMixin"
   ],
   "server": [],
   "injectors": {

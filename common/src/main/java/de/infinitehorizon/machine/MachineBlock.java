@@ -100,6 +100,8 @@ public class MachineBlock extends BaseEntityBlock implements de.infinitehorizon.
                 if (be instanceof de.infinitehorizon.multiblock.MultiblockController) {
                     de.infinitehorizon.multiblock.GhostPreview.clientTick(lvl, pos, st);
                 }
+                // Maschinengeräusch bei running (24.6)
+                de.infinitehorizon.client.AmbientSounds.machineTick(lvl, pos, st);
             };
         }
         return (lvl, pos, st, be) -> ((MachineBlockEntity) be).serverTick((ServerLevel) lvl);

@@ -28,6 +28,13 @@
       }
     },
     "minecraft:visual/sky_color": "#C8A27A",
-    "minecraft:visual/fog_color": "#B5835A"
+    "minecraft:visual/fog_color": "#B5835A",
+    "minecraft:audio/background_music": {
+      "default": {
+        "sound": "infinite_horizon:music.mars",
+        "min_delay": 12000,
+        "max_delay": 24000
+      }
+    }
   }
 }

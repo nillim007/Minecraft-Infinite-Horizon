@@ -76,6 +76,8 @@ public class InfiniteHorizonFabricClient implements ClientModInitializer {
                 client -> de.infinitehorizon.client.DomeVisuals.tick());
         net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents.END_CLIENT_TICK.register(
                 client -> de.infinitehorizon.client.JetpackClient.tick());
+        net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents.END_CLIENT_TICK.register(
+                client -> de.infinitehorizon.client.AmbientSounds.tick());
         // Umwelt-HUD (8.4) über der Hungerleiste
         net.fabricmc.fabric.api.client.rendering.v1.hud.HudElementRegistry.attachElementAfter(
                 net.fabricmc.fabric.api.client.rendering.v1.hud.VanillaHudElements.FOOD_BAR,

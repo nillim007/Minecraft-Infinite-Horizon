@@ -379,7 +379,10 @@
     "advancements.infinite_horizon.the_signal.title": "Der Sender",
     "advancements.infinite_horizon.the_signal.description": "Besiege den Wächter des Senders",
     "advancements.infinite_horizon.network.title": "Netzwerk",
-    "advancements.infinite_horizon.network.description": "%s Routen deiner Agentur sind gleichzeitig aktiv"
+    "advancements.infinite_horizon.network.description": "%s Routen deiner Agentur sind gleichzeitig aktiv",
+    "subtitles.infinite_horizon.suit.breath": "Atmen im Anzug",
+    "subtitles.infinite_horizon.suit.radio_static": "Funkrauschen",
+    "subtitles.infinite_horizon.machine": "Maschine läuft"
   },
   "en_us": {
     "itemGroup.infinite_horizon": "Infinite Horizon",
@@ -760,6 +763,9 @@
     "advancements.infinite_horizon.the_signal.title": "The Transmitter",
     "advancements.infinite_horizon.the_signal.description": "Defeat the signal sentinel",
     "advancements.infinite_horizon.network.title": "Network",
-    "advancements.infinite_horizon.network.description": "%s routes of your agency are active at the same time"
+    "advancements.infinite_horizon.network.description": "%s routes of your agency are active at the same time",
+    "subtitles.infinite_horizon.suit.breath": "Breathing in the suit",
+    "subtitles.infinite_horizon.suit.radio_static": "Radio static",
+    "subtitles.infinite_horizon.machine": "Machine running"
   }
 }
