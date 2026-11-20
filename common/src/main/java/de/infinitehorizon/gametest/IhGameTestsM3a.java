@@ -13,6 +13,7 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.GameType;
 import net.minecraft.world.phys.Vec3;
 
 import java.util.Optional;
@@ -28,9 +29,9 @@ public final class IhGameTestsM3a {
         return AgencyManager.data(h.getLevel().getServer());
     }
 
-    /** Ein Mock-Spieler setzt einen Zerkleinerer: Besitzer ist seine Agentur; der Login legte sie an (23.1). */
+    /** Ein Testspieler setzt einen Zerkleinerer: Besitzer ist seine Agentur; der Login legte sie an (23.1). */
     public static void placedCrusherHasOwner(GameTestHelper h) {
-        ServerPlayer player = h.makeMockServerPlayerInLevel();
+        ServerPlayer player = IhTestPlayers.inList(h, GameType.CREATIVE, new Vec3(1.5, 4, 1.5));
         AgencyManager.onLogin(player);
         Optional<Agency> agency = data(h).agencyOf(player.getUUID());
         h.assertTrue(agency.isPresent(), "Login hat keine Agentur angelegt");
@@ -47,6 +48,7 @@ public final class IhGameTestsM3a {
         MachineBlockEntity be = h.getBlockEntity(pos, MachineBlockEntity.class);
         h.assertTrue(agency.get().id().equals(be.owner()),
                 "owner_agency " + be.storedOwner() + ", erwartet " + agency.get().id());
+        IhTestPlayers.remove(player);
         h.succeed();
     }
 

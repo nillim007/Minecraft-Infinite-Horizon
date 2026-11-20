@@ -13,7 +13,6 @@ import mezz.jei.api.recipe.IFocusGroup;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import mezz.jei.api.recipe.types.IRecipeHolderType;
 import mezz.jei.api.recipe.types.IRecipeType;
-import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeHolder;
@@ -100,7 +99,7 @@ public class MachineRecipeCategory implements IRecipeCategory<RecipeHolder<Proce
     }
 
     private void fluidSlot(IRecipeSlotBuilder slot, IhFluidStack f) {
-        slot.setStandardSlotBackground().addFluidStack(RecipeView.fluid(f.fluid()), platformAmount(f), DataComponentPatch.EMPTY)
+        slot.setStandardSlotBackground().add(RecipeView.fluid(f.fluid()), platformAmount(f))
                 .setFluidRenderer(platformAmount(f), false, 16, 16);
     }
 
