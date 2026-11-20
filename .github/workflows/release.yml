@@ -1,0 +1,41 @@
+name: Release
+
+# Ein Tag „v<version>“ baut beide Loader mit dieser Version und legt ein GitHub-Release mit den Jars an.
+# Tags mit Bindestrich (z. B. v0.1.0-beta.1) werden als Vorabversion markiert. Text: .github/release-notes.md
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: Release bauen und veröffentlichen
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "25"
+      - uses: gradle/actions/setup-gradle@v5
+      - name: Jars bauen
+        shell: bash
+        run: |
+          set -o pipefail
+          V="${GITHUB_REF_NAME#v}"
+          ./gradlew :neoforge:build :fabric:build -Pversion="$V" --stacktrace --no-daemon
+          mkdir dist
+          cp neoforge/build/libs/infinite_horizon-neoforge-*-"$V".jar fabric/build/libs/infinite_horizon-fabric-*-"$V".jar dist/
+          ls -l dist
+      - name: Release anlegen
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          PRE=""
+          case "$GITHUB_REF_NAME" in *-*) PRE="--prerelease" ;; esac
+          gh release create "$GITHUB_REF_NAME" dist/*.jar --verify-tag $PRE \
+            --title "Infinite Horizon ${GITHUB_REF_NAME#v}" --notes-file .github/release-notes.md
