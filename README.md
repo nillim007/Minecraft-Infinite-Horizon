@@ -13,6 +13,8 @@
   <img alt="Java 25" src="https://img.shields.io/badge/Java-25-4FB3E8">
   <img alt="Lizenz MIT" src="https://img.shields.io/badge/Lizenz-MIT-9B4FE8">
   <img alt="Status" src="https://img.shields.io/badge/Status-in%20Entwicklung-orange">
+  <br>
+  <a href="https://github.com/nillim007/Minecraft-Infinite-Horizon/releases"><img alt="Download (Beta)" src="https://img.shields.io/github/v/release/nillim007/Minecraft-Infinite-Horizon?include_prereleases&amp;label=Download&amp;color=2EA44F"></a>
 </p>
 
 <p align="center">
