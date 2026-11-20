@@ -4,6 +4,8 @@ Ziel: prüfen, ob die Balancing-Ziele aus Kapitel 27 (Zielzeit und Strombedarf j
 stimmen, und die offenen Balancing-Punkte aus Kapitel 28 entscheiden. Automatisch geprüft ist schon, dass alles
 funktioniert (GameTests, Client-Spieltests M4–M9); hier geht es nur um Mengen, Zeiten und Spielgefühl.
 
+Die Route Schritt für Schritt mit Mengen und Notiz-Hinweisen: [durchspielanleitung.md](durchspielanleitung.md).
+
 ## Aufbau
 
 - **3–5 Tester**, jeder spielt eine eigene neue Welt im Einzelspieler, ohne Befehle und ohne Kreativmodus.
