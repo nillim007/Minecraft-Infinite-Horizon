@@ -102,6 +102,7 @@
               "count": 2
             }
           ],
+          "min_multiplier": 0.2604166666666667,
           "results": [
             {
               "item": "infinite_horizon:heat_shield",
@@ -222,6 +223,7 @@
               "count": 3
             }
           ],
+          "min_multiplier": 0.671875,
           "results": [
             {
               "item": "infinite_horizon:rocket_fin_t2",

@@ -12,5 +12,6 @@
       "count": 1,
       "chance": 1.0
     }
-  ]
+  ],
+  "min_multiplier": 0.671875
 }

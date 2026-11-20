@@ -143,6 +143,7 @@ Maschinenrezepte haben zusätzlich `fluid_inputs` und `fluid_outputs` (`{ "fluid
 **Komponenten in Rezepten:**
 - Eine Zutat darf `"components": { … }` tragen; dann passt nur ein Item mit genau diesen Werten (z. B. `antimatter_cell` mit `"infinite_horizon:charge": 1`).
 - Ein Ergebnis darf `"copy_components_from": <Zutat-Index>` tragen; dann übernimmt es alle Data Components dieser Zutat (Anzug aufwerten: `suit_modules`, `oxygen`; Antrieb nachrüsten: Ladung der Rakete; `heavy_freighter` aus `cargo_rocket`).
+- Montagetisch-Rezepte dürfen `"min_multiplier": <Faktor>` tragen (Standard 0): Unter diesen Faktor verkleinert `recipe_amount_multiplier` das Rezept nicht (22.3, Ä29). Die Mod-Rezepte bekommen ihn von `gen_resources.py`; Addon-Rezepte setzen ihn selbst, wenn sie mit anderen zusammenfallen könnten.
 - Die Sondertypen `suit_module_install` (Anzugteil + Modul → Anzugteil mit Modul) und `suit_module_remove` (Anzugteil → Anzugteil ohne Module + Module in die Nebenausgaben) brauchen keine JSON-Einträge je Kombination; sie sind fest im Code und gelten für alle Anzugteile und Module aus 9.2.
 
 ## 25.5 Raketenteil (Ordner `rocket_part/`)
@@ -195,7 +196,7 @@ Erzeugt von `tools/gen_resources.py` aus `docs/handbook/` (24.1). Andere Mods le
 
 - **Elemente:** `heading` (`level` 2–3), `text`, `list`, `callout` (`style`: `tip`, `note`, `warning`), `machine` (Steckbrief als Zeilen), `table`, `recipes`, `image`. Unbekannte Typen überspringt das GUI.
 - **Texte** sind Übersetzungsschlüssel. Sie dürfen Inline-Markup enthalten: `[[<seiten-id>|Text]]` (Link), `<item:<id>>` (übersetzter Item-Name, anklickbar), `**fett**`.
-- **Rezepte** sind als Anzeige-Daten eingebettet, weil der Client nicht alle Rezepte kennt. Werkbank-Rezepte haben `pattern` und `key` (Zeichen → Liste von IDs) statt `ingredients`; dazu optional `fluid`, `mold`, `fluid_results`, `chance`. `recipe_amount_multiplier` (24.4) wendet das GUI beim Anzeigen auf Montagetisch-Zutaten an (Wert aus der synchronisierten Config).
+- **Rezepte** sind als Anzeige-Daten eingebettet, weil der Client nicht alle Rezepte kennt. Werkbank-Rezepte haben `pattern` und `key` (Zeichen → Liste von IDs) statt `ingredients`; dazu optional `fluid`, `mold`, `fluid_results`, `chance`, `min_multiplier`. `recipe_amount_multiplier` (24.4) wendet das GUI beim Anzeigen auf Montagetisch-Zutaten an (Wert aus der synchronisierten Config, nicht unter `min_multiplier`).
 - **Werte** in Texten und Steckbriefen sind die Standardwerte aus `spec/data` beim Erzeugen. Datapack-Änderungen an Balance-Dateien erscheinen dort nicht.
 
 ---

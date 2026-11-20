@@ -524,6 +524,8 @@ def recipe_display(ctx: Ctx, r) -> dict:
         d["fluid"] = {"fluid": r["fluid"]["fluid"], "amount": r["fluid"]["amount"]}
     if r.get("mold"):
         d["mold"] = r["mold"]
+    if r["id"] in sd.min_multipliers(ctx.spec):
+        d["min_multiplier"] = sd.min_multipliers(ctx.spec)[r["id"]]
     d["results"] = [{"item": x["id"], "count": x["count"], **({"chance": x["chance"]} if x.get("chance", 1) != 1 else {})}
                     for x in r["results"]]
     if r.get("fluid_results"):

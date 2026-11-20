@@ -505,7 +505,8 @@ public class HandbookScreen extends Screen {
             }
             // Mengen-Multiplikator (22.3) beim Anzeigen von Montagetisch-Zutaten, Wert aus der synchronisierten Config
             if (multiplier > 0 && multiplier != 1.0) {
-                counts = AmountMultiplier.scale(counts, stacks, multiplier, 9);
+                counts = AmountMultiplier.scale(counts, stacks, multiplier,
+                        r.has("min_multiplier") ? r.get("min_multiplier").getAsDouble() : 0.0, 9);
             }
             for (int i = 0; i < ids.length; i++) {
                 if (x + ICON > w - 3 * ICON) {

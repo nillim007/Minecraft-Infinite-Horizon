@@ -4,6 +4,8 @@ package de.infinitehorizon.recipe;
  * Mengen-Multiplikator für Montagetisch-Rezepte (22.3, 24.4 {@code recipe_amount_multiplier}) als reine Funktion:
  * Menge = max(1, aufgerundet(Menge × Faktor)), nur für stapelbare Zutaten (Stapelgröße > 1). Vergrößert wird höchstens so
  * weit, dass alle Zutaten noch in die Eingabeslots passen; sonst wird der Faktor schrittweise bis 1 verkleinert.
+ * Verkleinert wird ein Rezept höchstens bis zu seinem Mindestfaktor ({@code min_multiplier}, von gen_resources.py
+ * berechnet), damit keine zwei Montagetisch-Rezepte zutatengleich werden (Entscheidung zu Kapitel 28, 19.11.2026).
  */
 public final class AmountMultiplier {
 
@@ -21,6 +23,18 @@ public final class AmountMultiplier {
      * @return neue Mengen (gleiche Reihenfolge)
      */
     public static int[] scale(int[] counts, int[] maxStacks, double multiplier, int slots) {
+        return scale(counts, maxStacks, multiplier, 0.0, slots);
+    }
+
+    /**
+     * Wie {@link #scale(int[], int[], double, int)}, aber unter 1 nie kleiner als {@code minMultiplier}.
+     *
+     * @param minMultiplier Mindestfaktor des Rezepts (0 = keiner)
+     */
+    public static int[] scale(int[] counts, int[] maxStacks, double multiplier, double minMultiplier, int slots) {
+        if (multiplier > 0 && multiplier < 1.0) {
+            multiplier = Math.min(1.0, Math.max(multiplier, minMultiplier));
+        }
         if (multiplier <= 0 || multiplier == 1.0) {
             return counts.clone();
         }

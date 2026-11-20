@@ -177,6 +177,88 @@ def ingredient_ids(ing) -> list[str]:
     return []
 
 
+def _find_key(obj, key):
+    if isinstance(obj, dict):
+        if key in obj:
+            return obj[key]
+        for v in obj.values():
+            found = _find_key(v, key)
+            if found is not None:
+                return found
+    elif isinstance(obj, list):
+        for v in obj:
+            found = _find_key(v, key)
+            if found is not None:
+                return found
+    return None
+
+
+_MIN_MULTIPLIERS: dict = {}
+
+
+def min_multipliers(spec: Spec) -> dict:
+    """Kleinster Mengen-Multiplikator je Montagetisch-Rezept (22.3, Entscheidung zu Kapitel 28 vom 19.11.2026).
+
+    Unter 1 macht das Aufrunden (``max(1, aufgerundet(Menge × Faktor))``) manche Rezepte zutatengleich; dann wäre nur
+    noch das erste herstellbar. Für jeden Faktor zwischen ``min`` aus ``misc.json → recipe_amount_multiplier`` und 1
+    wird geprüft, welche Rezepte gleich würden; jedes außer dem mit der kleinsten Rezept-ID bekommt als Mindestfaktor
+    den nächsten Knickpunkt darüber (Mengen sind zwischen den Knickpunkten k/n gleich). Wiederholt, bis nichts mehr
+    zusammenfällt. Ergebnis: Rezept-ID -> Mindestfaktor (nur Rezepte, die einen brauchen).
+    """
+    key = id(spec)
+    if key in _MIN_MULTIPLIERS:
+        return _MIN_MULTIPLIERS[key]
+    cfg = _find_key(spec.balance.get("misc") or {}, "recipe_amount_multiplier") or {}
+    lo = float(cfg.get("min", 1.0))
+    asm = sorted((r for r in spec.recipes if r.get("type") == "assembly"), key=lambda r: r["id"])
+    by_id = {r["id"]: r for r in asm}
+
+    def stackable(ing):
+        ids = ingredient_ids(ing)
+        e = spec.items.get(ids[0]) if ids else None
+        return not (e and e.get("max_stack") == 1)
+
+    counts = {i.get("count", 1) for r in asm for i in r.get("ingredients") or [] if stackable(i)}
+    points = sorted({lo} | {k / n for n in counts for k in range(1, n + 1) if lo <= k / n < 1})
+
+    def sig(r, f):
+        parts = []
+        for i in r.get("ingredients") or []:
+            n = i.get("count", 1)
+            if stackable(i):
+                n = max(1, math.ceil(n * f - 1e-9))
+            parts.append((json.dumps({k: v for k, v in i.items() if k != "count"}, sort_keys=True), n))
+        return (tuple(sorted(parts)), json.dumps(r.get("fluid"), sort_keys=True), r.get("mold"))
+
+    out: dict = {}
+    changed = True
+    while changed:
+        changed = False
+        for f in points:
+            groups: dict = {}
+            for r in asm:
+                groups.setdefault(sig(r, max(f, out.get(r["id"], 0.0))), []).append(r["id"])
+            for ids in groups.values():
+                if len(ids) < 2:
+                    continue
+                # Ein Rezept anheben: das, dessen Mengen sich beim kleinsten Faktor ändern (bei Gleichstand die
+                # spätere ID); wer schon unskaliert ist (1,0), bleibt. Weitere Gleiche folgen im nächsten Durchlauf.
+                best = None
+                for pos, rid in enumerate(ids):
+                    e = max(f, out.get(rid, 0.0))
+                    if e >= 1.0:
+                        continue
+                    here = sig(by_id[rid], e)
+                    nxt = next((p for p in points if p > e and sig(by_id[rid], p) != here), 1.0)
+                    if best is None or (nxt, -pos) < (best[0], -best[1]):
+                        best = (nxt, pos, rid)
+                if best:
+                    out[best[2]] = best[0]
+                    changed = True
+    _MIN_MULTIPLIERS[key] = out
+    return out
+
+
 def recipe_results(r) -> list[str]:
     out = [x.get("id") for x in r.get("results") or []]
     out += [x.get("fluid") for x in r.get("fluid_results") or []]

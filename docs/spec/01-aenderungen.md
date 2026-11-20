@@ -32,6 +32,7 @@ Diese Entscheidungen lösen Widersprüche und Sackgassen. **Bitte prüfen**, bev
 | Ä26 | Handbuch-GUI erst in M9, kein Spieler-Wiki (11.11.2026) | Wiki und Ingenieurs-Handbuch aus einer Quelle `docs/handbook/` (24.1, 25.6). Buch-GUI mit Links, Rezeptanzeige, Suche und Taste `H` sowie Join-Geschenk vorgezogen nach M2f; jeder Meilenstein ergänzt seine Seiten (27). |
 | Ä27 | Lückentest Meilenstein 3 (`docs/dev/lueckentest-m3.md`, 11.11.2026): 34 Lücken, die bei M3 zu Rückfragen geführt hätten | In die Kapitel 3, 3A, 4, 5, 6, 8, 9, 10, 12, 13, 14.4, 23, 24, 25, 26, 27 und 28 eingearbeitet; Mondwerte in `planets.json` und Regeln in `domes.json`, `suits.json`, `environment.json`, `misc.json`, `machines.json` und `stations.json` ergänzt (Stichpunkte unten). Die Sauerstoff-Balance bleibt in Kapitel 28 offen. |
 | Ä28 | Lückentest Meilenstein 4 (`docs/dev/lueckentest-m4.md`, 12.11.2026): 26 Lücken, die bei M4 zu Rückfragen geführt hätten | In die Kapitel 3, 3A, 4, 6, 9, 10, 11, 12, 13, 22, 23, 24, 25, 26, 27 und 28 eingearbeitet; Rampenmuster und `fuel_pump` in `machines.json`, Flug-, Rundungs- und Landefeuerwerte in `spaceflight.json`, Probenregeln in `balance/research.json`, Agentur-Regeln und Erfolge in `misc.json` sowie Regeln in `storage.json`, `balance/items.json` und `suits.json` ergänzt (Stichpunkte unten). Ob Mengen-Multiplikatoren unter 1 zutatengleiche Rezepte trennen, bleibt in Kapitel 28 offen. |
+| Ä29 | Entscheidungen zu Kapitel 28 (19.11.2026, nach Empfehlung) | Ä1–Ä28 und Basispaket bestätigt; Sauerstoff-Balance bleibt; Mindestfaktor `min_multiplier` gegen zutatengleiche Rezepte unter Multiplikator 1 (22.3, 25.4) |
 
 **Ä24: Lückentest Meilenstein 2**
 
@@ -81,3 +82,13 @@ Diese Entscheidungen lösen Widersprüche und Sackgassen. **Bitte prüfen**, bev
 - Landefeuer mit Speicher in `AgencyData`, Name, Strahl bis `beam_top_y` und Landung (12.6). Atlas mit Aufbau, Status, Geschenk und Entdecker; Erfolge mit Auslösern und Protokoll; „Planetenseiten füllen sich“ nach M9 (24.1–24.3, 23.3, `misc.json` `advancements`).
 - `transport_tank` in allen Füll- und Leerslots (4.1, 12.2). Anzugmodule: Format von `suit_modules`, Abgleich, Lichtblock der Helmlampe (9.2). Mehrere passende Rezepte und Multiplikator (22.3). Handbuch-Kapitel `phase_2` ohne `unlock` und neue Seiten (24.1, 27.6). Darstellung der Entities, Raketenklänge (24.5, 24.6). Paketnamen `space/` (3A.2). Spickzettel `api-entities-26.3.md` zu Beginn von M4 (3.1). Schlüssel für Oberflächentexte (6.4).
 - Offen (Kapitel 28): Mengen-Multiplikatoren unter 1.
+
+**Ä29: Entscheidungen zu Kapitel 28 (19.11.2026)**
+
+Der Auftraggeber hat die Entscheidung an die Empfehlung der umsetzenden KI übergeben („nimm immer das Empfohlene“).
+
+- Änderungen Ä1–Ä28 bestätigt; alle sind umgesetzt und durch Tests abgedeckt.
+- Gruppen-ID und Basispaket `de.infinitehorizon` bestätigt (3A.2).
+- Sauerstoff-Balance bleibt: Der Sauerstoffgenerator ist die langsame Lösung ohne Wasser, der Elektrolyseur die schnelle mit Wasserversorgung (10.2, `machines.json` unverändert).
+- Mengen-Multiplikator unter 1: Montagetisch-Rezepte tragen einen Mindestfaktor `min_multiplier`, den `tools/gen_resources.py` aus allen Montagetisch-Rezepten berechnet. Darunter wird das Rezept nicht verkleinert, so bleibt jedes Rezept herstellbar (22.3, 25.4). Betroffen sind derzeit 7 Rezepte, die meisten nur knapp über 0,25.
+- Offen bleiben die Punkte, die Menschen brauchen (Spieltest, Texturen, Musik, englische Namen), die Prüfung von 26.4 (noch Snapshot) und der Befund „Sternenschiff ≈ 42× T2“.

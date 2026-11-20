@@ -1924,6 +1924,7 @@
               "count": 2
             }
           ],
+          "min_multiplier": 0.34375,
           "results": [
             {
               "item": "infinite_horizon:pressure_suit_leggings",
@@ -1951,6 +1952,7 @@
               "count": 2
             }
           ],
+          "min_multiplier": 0.2604166666666667,
           "results": [
             {
               "item": "infinite_horizon:pressure_suit_boots",
@@ -1978,6 +1980,7 @@
               "count": 1
             }
           ],
+          "min_multiplier": 0.2604166666666667,
           "results": [
             {
               "item": "infinite_horizon:pressure_bottle",
@@ -2287,6 +2290,7 @@
               "count": 1
             }
           ],
+          "min_multiplier": 0.2604166666666667,
           "results": [
             {
               "item": "infinite_horizon:fluid_port",
@@ -3029,6 +3033,7 @@
               "count": 2
             }
           ],
+          "min_multiplier": 0.2604166666666667,
           "results": [
             {
               "item": "infinite_horizon:heat_shield",
@@ -4289,6 +4294,7 @@
               "count": 3
             }
           ],
+          "min_multiplier": 0.671875,
           "results": [
             {
               "item": "infinite_horizon:rocket_fin_t2",
@@ -5103,6 +5109,7 @@
               "count": 2
             }
           ],
+          "min_multiplier": 0.2604166666666667,
           "results": [
             {
               "item": "infinite_horizon:launch_control",

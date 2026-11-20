@@ -58,4 +58,15 @@ class M2fRulesTest {
         assertTrue(AmountMultiplier.slotsNeeded(big, new int[]{64, 64}) <= 9, "passt nicht: " + big[0] + ", " + big[1]);
         assertTrue(big[0] >= 128 && big[1] >= 64, "kleiner als das Original");
     }
+
+    @Test
+    void minMultiplierKeepsRecipesApart() {
+        // Kapitel 28 (19.11.2026): 2 und 3 Platten wären bei 0,25 beide 1; Mindestfaktor 43/64 hält 3 bei 3
+        double min = 43.0 / 64;
+        assertArrayEquals(new int[]{1}, AmountMultiplier.scale(new int[]{2}, new int[]{64}, 0.25, 9));
+        assertArrayEquals(new int[]{3}, AmountMultiplier.scale(new int[]{3}, new int[]{64}, 0.25, min, 9));
+        // über dem Mindestfaktor und über 1 wirkt er nicht
+        assertArrayEquals(new int[]{2}, AmountMultiplier.scale(new int[]{3}, new int[]{64}, 0.5, 0.26, 9));
+        assertArrayEquals(new int[]{6}, AmountMultiplier.scale(new int[]{3}, new int[]{64}, 2.0, min, 9));
+    }
 }

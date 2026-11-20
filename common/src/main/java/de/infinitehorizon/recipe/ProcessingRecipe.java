@@ -116,8 +116,9 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
                     ExtraCodecs.POSITIVE_INT.optionalFieldOf("ticks").forGetter(ProcessingRecipe::ticks),
                     Codec.LONG.optionalFieldOf("energy_per_tick").forGetter(ProcessingRecipe::energyPerTick),
                     BuiltInRegistries.ITEM.byNameCodec().optionalFieldOf("mold").forGetter(ProcessingRecipe::mold),
-                    Codec.INT.optionalFieldOf("copy_components_from").forGetter(ProcessingRecipe::copyComponentsFrom)
-            ).apply(i, (ing, res, f, fr, t, e, m, c) -> new ProcessingRecipe(this, ing, res, f, fr, t, e, m, c)));
+                    Codec.INT.optionalFieldOf("copy_components_from").forGetter(ProcessingRecipe::copyComponentsFrom),
+                    Codec.DOUBLE.optionalFieldOf("min_multiplier", 0.0).forGetter(ProcessingRecipe::minMultiplier)
+            ).apply(i, (ing, res, f, fr, t, e, m, c, mm) -> new ProcessingRecipe(this, ing, res, f, fr, t, e, m, c, mm)));
             this.serializer = new RecipeSerializer<>(codec, ByteBufCodecs.fromCodecWithRegistries(codec.codec()));
         }
 
@@ -147,6 +148,7 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
     private final Optional<Long> energyPerTick;
     private final Optional<Item> mold;
     private final Optional<Integer> copyComponentsFrom;
+    private final double minMultiplier;
 
     public ProcessingRecipe(Kind kind, List<CountedIngredient> ingredients, List<ChanceResult> results,
                             Optional<Integer> ticks, Optional<Long> energyPerTick, Optional<Item> mold) {
@@ -163,6 +165,14 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
                             Optional<IhFluidStack> fluid, List<IhFluidStack> fluidResults,
                             Optional<Integer> ticks, Optional<Long> energyPerTick, Optional<Item> mold,
                             Optional<Integer> copyComponentsFrom) {
+        this(kind, ingredients, results, fluid, fluidResults, ticks, energyPerTick, mold, copyComponentsFrom, 0.0);
+    }
+
+    public ProcessingRecipe(Kind kind, List<CountedIngredient> ingredients, List<ChanceResult> results,
+                            Optional<IhFluidStack> fluid, List<IhFluidStack> fluidResults,
+                            Optional<Integer> ticks, Optional<Long> energyPerTick, Optional<Item> mold,
+                            Optional<Integer> copyComponentsFrom, double minMultiplier) {
+        this.minMultiplier = minMultiplier;
         this.copyComponentsFrom = copyComponentsFrom;
         this.kind = kind;
         this.ingredients = List.copyOf(ingredients);
@@ -181,6 +191,11 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
 
     public Kind kind() {
         return kind;
+    }
+
+    /** Mindestfaktor für den Mengen-Multiplikator (22.3, {@code min_multiplier}); 0 = keiner. */
+    public double minMultiplier() {
+        return minMultiplier;
     }
 
     /** Index der Zutat, deren Komponenten das Ergebnis übernimmt (25.4, z. B. Frachtrakete + Antrieb). */
@@ -279,7 +294,7 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
             counts[i] = ci.count();
             stacks[i] = ci.ingredient().items().findFirst().map(h -> h.value().getDefaultMaxStackSize()).orElse(64);
         }
-        int[] scaled = AmountMultiplier.scale(counts, stacks, multiplier, slots);
+        int[] scaled = AmountMultiplier.scale(counts, stacks, multiplier, minMultiplier, slots);
         List<CountedIngredient> out = new java.util.ArrayList<>();
         for (int i = 0; i < counts.length; i++) {
             out.add(new CountedIngredient(ingredients.get(i).ingredient(), scaled[i], ingredients.get(i).components()));

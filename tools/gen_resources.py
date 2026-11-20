@@ -508,7 +508,7 @@ def recipe_json(r, registered):
     if r.get("copy_components_from") is not None:
         out["copy_components_from"] = r["copy_components_from"]
     defaults = machine_defaults(typ)
-    for k in ("fluid", "fluid_results", "ticks", "energy_per_tick", "mold"):
+    for k in ("fluid", "fluid_results", "ticks", "energy_per_tick", "mold", "min_multiplier"):
         if r.get(k) not in (None, []):
             if k in ("ticks", "energy_per_tick") and defaults.get(k) == r[k]:
                 continue  # gleich dem Maschinenwert: weglassen, damit machines.json wirkt
@@ -1616,6 +1616,7 @@ def main():
     # Rezepte: nur wenn alle eigenen IDs registriert sind
     n_rec = 0
     with_fluids = registered | {f"{NS}:{f}" for f in fluids}
+    min_mul = sd.min_multipliers(spec)
     for r in spec.recipes:
         if not recipe_ids(r) or not recipe_ids(r) <= with_fluids:
             continue
@@ -1623,6 +1624,8 @@ def main():
                              "refining", "electrolysis", "assembly", "high_temp_smelting", "cryo",
                              "regolith_heating", "zero_g"):
             continue  # weitere Typen folgen mit ihren Maschinen
+        if r["id"] in min_mul:
+            r = dict(r, min_multiplier=min_mul[r["id"]])  # 22.3: nicht weiter verkleinern (Kapitel 28, 19.11.2026)
         write_json(f"data/{NS}/recipe/{r['id'].split(':', 1)[1].replace('/', '_')}.json", recipe_json(r, registered))
         n_rec += 1
     for r in retrofit_recipes(spec, registered):
