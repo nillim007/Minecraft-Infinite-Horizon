@@ -38,6 +38,9 @@ jobs:
         run: |
           PRE=""
           case "$GITHUB_REF_NAME" in *-*) PRE="--prerelease" ;; esac
+          # Ein neu gesetzter Tag (git push -f) ersetzt ein vorhandenes Release gleichen Namens
+          gh api "repos/$GITHUB_REPOSITORY/releases" --paginate -q ".[] | select(.tag_name == \"$GITHUB_REF_NAME\") | .id" \
+            | while read -r id; do gh api -X DELETE "repos/$GITHUB_REPOSITORY/releases/$id"; echo "altes Release $id gelöscht"; done
           gh release create "$GITHUB_REF_NAME" dist/*.jar --verify-tag $PRE \
             --title "Infinite Horizon ${GITHUB_REF_NAME#v}" --notes-file .github/release-notes.md
       - name: Release-Liste in der README aktualisieren
