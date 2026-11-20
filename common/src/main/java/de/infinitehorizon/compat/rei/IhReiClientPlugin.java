@@ -57,9 +57,8 @@ public class IhReiClientPlugin implements REIClientPlugin {
             if (!c.catalysts().isEmpty()) {
                 registry.addWorkstations(MachineRecipeDisplay.categoryOf(c.type()), EntryStacks.of(RecipeView.catalystItem(c)));
             }
-            // Maschinenrezepte lassen sich nicht ins Fenster übertragen: kein „+“/„!“-Knopf
-            // (wie das veraltete removePlusButton: Knopf-Bereich ohne Rechteck)
-            registry.configure(MachineRecipeDisplay.categoryOf(c.type()), cfg -> cfg.setPlusButtonArea(bounds -> null));
+            // Maschinenrezepte lassen sich nicht ins Fenster übertragen. REI 26.3 zeigt den Knopf trotzdem immer (als „!“
+            // ohne Transfer-Handler): ein leerer Knopf-Bereich fällt auf den Standard zurück, removePlusButton ist veraltet.
         }
         try {
             // Vanilla-Schmelzrezepte laufen über die Vanilla-Kategorie (3.9); fehlt das REI-Standard-Plugin, entfällt das

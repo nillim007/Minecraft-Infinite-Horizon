@@ -41,4 +41,4 @@ Gefunden und behoben in M9:
 
 ## Nicht enthalten
 
-Echte Klänge und Musik (Platzhalter aus Vanilla, Lücke #121, offene Punkte in Kapitel 28), Modelle für Sternenschiff und Gerüst, weitere Sternensysteme. Offene Annahmen: `docs/spec-gaps.md` #117–#123.
+Echte Klänge und Musik (Platzhalter aus Vanilla, Lücke #121, offene Punkte in Kapitel 28), Modelle für Sternenschiff und Gerüst, weitere Sternensysteme. Die Annahmen #117–#123 (und alle früheren) sind seit 19.11.2026 in die Spezifikation übernommen; offen bleiben nur die Punkte in Kapitel 28, die Menschen brauchen (Spieltest nach `docs/dev/testplan-balancing.md`, Grafik, Klang, Gegenlesen der englischen Namen).

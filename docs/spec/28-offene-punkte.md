@@ -4,7 +4,7 @@
 - [ ] Direkt vor dem Entwicklungsstart prüfen: Ist 26.4 inzwischen stabil und von NeoForge und Fabric stabil unterstützt? Wenn ja, Kapitel 3.1 auf 26.4 anheben und dessen Änderungsliste (Fabric-Blogpost, NeoForge-Primer) einarbeiten. Sonst bei 26.3 bleiben. Stand 19.11.2026: 26.4 gibt es nur als Snapshot (26.4-snapshot-10), neueste stabile Version ist 26.3; die Mod bleibt bei 26.3.
 - [ ] Mengen und Zeiten nach Testplan im Spiel prüfen (3–5 Tester, Multiplikator 1,0 und 0,5). Testplan mit Messpunkten und Bogen: `docs/dev/testplan-balancing.md`.
 - [ ] Echte Texturen, Modelle und Kreaturen in Blockbench nach 24.5 erstellen (ersetzt die Platzhalter).
-- [ ] Englische Namen von einem Muttersprachler gegenlesen lassen.
+- [ ] Englische Namen von einem Muttersprachler gegenlesen lassen. Vorab-Durchsicht 20.11.2026: 373 Namen und 385 Oberflächentexte ohne deutsche Reste; vier Namen korrigiert (`iron_nickel_meteorite`, `sample_tool`, `probe_entity`, `linked_pos`).
 - [ ] Musik komponieren oder lizenzieren.
 - [x] Gruppen-ID und Basispaket `de.infinitehorizon` bestätigt (19.11.2026, Ä29).
 - [x] Lizenz der Mod festlegen: **MIT** (siehe `LICENSE`; in `neoforge.mods.toml` und `fabric.mod.json` eintragen).
