@@ -1280,7 +1280,7 @@
       "kind": "block",
       "category": "ore",
       "name_de": "Eisen-Nickel-Meteorit",
-      "name_en": "Iron Nickel Meteorite",
+      "name_en": "Iron-Nickel Meteorite",
       "max_stack": 64,
       "phase": 3,
       "obtained_by": [
@@ -2515,7 +2515,7 @@
       "kind": "data_component",
       "category": "special",
       "name_de": "Verknüpfte Position",
-      "name_en": "Linked Pos",
+      "name_en": "Linked Position",
       "max_stack": null,
       "phase": null,
       "obtained_by": [
@@ -3117,7 +3117,7 @@
       "kind": "entity",
       "category": "special",
       "name_de": "Sonde",
-      "name_en": "Probe Entity",
+      "name_en": "Probe",
       "max_stack": null,
       "phase": null,
       "obtained_by": [
@@ -5168,7 +5168,7 @@
       "kind": "item",
       "category": "tool",
       "name_de": "Probenzange",
-      "name_en": "Sample Tool",
+      "name_en": "Sampling Tool",
       "max_stack": 1,
       "phase": 2,
       "obtained_by": [

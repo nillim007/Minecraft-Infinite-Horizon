@@ -132,7 +132,7 @@
 | `bauxite_ore` | Bauxiterz | Bauxite Ore | 1 | worldgen | 13.4 |
 | `deepslate_titanium_ore` | Tiefenschiefer-Titanerz | Deepslate Titanium Ore | 1 | worldgen | 13.4 |
 | `io_sulfur_ore` | Io-Schwefelerz | Io Sulfur Ore | 5 | worldgen | 13.4 |
-| `iron_nickel_meteorite` | Eisen-Nickel-Meteorit | Iron Nickel Meteorite | 3 | worldgen | 13.4 |
+| `iron_nickel_meteorite` | Eisen-Nickel-Meteorit | Iron-Nickel Meteorite | 3 | worldgen | 13.4 |
 | `mars_iron_ore` | Mars-Eisenerz | Mars Iron Ore | 3 | worldgen | 13.4 |
 | `mars_magnesium_ore` | Mars-Magnesiumerz | Mars Magnesium Ore | 3 | worldgen | 13.4 |
 | `mercury_iron_ore` | Merkur-Eisenerz | Mercury Iron Ore | 5 | worldgen | 13.4 |
@@ -260,7 +260,7 @@
 | `energy` | Energie | Energy | – | none | 26 |
 | `flights_left` | Verbleibende Flüge | Flights Left | – | none | 26 |
 | `fluid` | Fluid | Fluid | – | none | 26 |
-| `linked_pos` | Verknüpfte Position | Linked Pos | – | none | 26 |
+| `linked_pos` | Verknüpfte Position | Linked Position | – | none | 26 |
 | `nutrition` | Nährwert | Nutrition | – | none | 26 |
 | `oxygen` | Sauerstoffvorrat | Oxygen | – | none | 26 |
 | `rover_data` | Rover-Daten | Rover Data | – | none | 26 |
@@ -323,7 +323,7 @@
 
 | ID | Deutsch | Englisch | Phase | Herkunft | Kapitel |
 | --- | --- | --- | --- | --- | --- |
-| `probe_entity` | Sonde | Probe Entity | – | none | 12.3 |
+| `probe_entity` | Sonde | Probe | – | none | 12.3 |
 | `seat` | Sitz | Seat | – | none | 12.5 |
 
 ## entity · vehicle
@@ -536,7 +536,7 @@
 | `press_mold_plate` | Pressform (Platte) | Press Mold Plate | 1 | recipe | 5.2 |
 | `press_mold_rod` | Pressform (Stange) | Press Mold Rod | 1 | recipe | 5.2 |
 | `press_mold_wire` | Pressform (Draht) | Press Mold Wire | 1 | recipe | 5.2 |
-| `sample_tool` | Probenzange | Sample Tool | 2 | recipe | 11.2 |
+| `sample_tool` | Probenzange | Sampling Tool | 2 | recipe | 11.2 |
 
 ## item · vehicle
 
