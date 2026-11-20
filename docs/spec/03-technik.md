@@ -15,7 +15,7 @@
 | Mappings | **keine.** Ab 26.1 ist Minecraft nicht mehr obfuskiert und enthält Mojangs Namen inklusive Parameternamen. Kein Yarn, kein Parchment, kein Intermediary. |
 | Vorlage | `jaredlll08/MultiLoader-Template`, neuester 26.x-Branch. Versionen in `gradle.properties` auf die Werte dieser Tabelle setzen. Ab NeoForge 26.3 sind `modLoader` und `loaderVersion` in `neoforge.mods.toml` optional. |
 | Team Reborn Energy (Fabric) | neueste Version für 26.x (verlangt Minecraft ≥ 26.1, Java 25, `fabric-transfer-api-v1` ≥ 5.1.0), **jar-in-jar eingebettet** (`include`), damit Spieler nichts extra installieren |
-| JEI / REI / EMI | optionale Abhängigkeiten. Plugins nur laden, wenn die jeweilige Mod für 26.3 vorhanden ist. Fehlt eine davon für 26.3, Plugin weglassen und mit `// SPEC-GAP` markieren. |
+| JEI / REI / EMI | optionale Abhängigkeiten. Plugins nur laden, wenn die jeweilige Mod für 26.3 vorhanden ist. Fehlt eine davon für 26.3, Plugin weglassen und mit `// SPEC-GAP` markieren. Ausnahme seit Ä30: JEI (neueste offizielle Version) steckt als Jar-in-Jar im NeoForge-Jar. |
 
 Begründung: 26.3 ist die neueste stabile Version und wird von NeoForge und Fabric stabil unterstützt. 26.4 ist nur als Snapshot verfügbar und wird **nicht** verwendet.
 

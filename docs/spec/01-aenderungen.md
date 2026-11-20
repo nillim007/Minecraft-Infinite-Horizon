@@ -33,6 +33,7 @@ Diese Entscheidungen lösen Widersprüche und Sackgassen. **Bitte prüfen**, bev
 | Ä27 | Lückentest Meilenstein 3 (`docs/dev/lueckentest-m3.md`, 11.11.2026): 34 Lücken, die bei M3 zu Rückfragen geführt hätten | In die Kapitel 3, 3A, 4, 5, 6, 8, 9, 10, 12, 13, 14.4, 23, 24, 25, 26, 27 und 28 eingearbeitet; Mondwerte in `planets.json` und Regeln in `domes.json`, `suits.json`, `environment.json`, `misc.json`, `machines.json` und `stations.json` ergänzt (Stichpunkte unten). Die Sauerstoff-Balance bleibt in Kapitel 28 offen. |
 | Ä28 | Lückentest Meilenstein 4 (`docs/dev/lueckentest-m4.md`, 12.11.2026): 26 Lücken, die bei M4 zu Rückfragen geführt hätten | In die Kapitel 3, 3A, 4, 6, 9, 10, 11, 12, 13, 22, 23, 24, 25, 26, 27 und 28 eingearbeitet; Rampenmuster und `fuel_pump` in `machines.json`, Flug-, Rundungs- und Landefeuerwerte in `spaceflight.json`, Probenregeln in `balance/research.json`, Agentur-Regeln und Erfolge in `misc.json` sowie Regeln in `storage.json`, `balance/items.json` und `suits.json` ergänzt (Stichpunkte unten). Ob Mengen-Multiplikatoren unter 1 zutatengleiche Rezepte trennen, bleibt in Kapitel 28 offen. |
 | Ä29 | Entscheidungen zu Kapitel 28 (19.11.2026, nach Empfehlung) | Ä1–Ä28 und Basispaket bestätigt; Sauerstoff-Balance bleibt; Mindestfaktor `min_multiplier` gegen zutatengleiche Rezepte unter Multiplikator 1 (22.3, 25.4) |
+| Ä30 | JEI im NeoForge-Jar (20.11.2026, Auftraggeber) | JEI als Jar-in-Jar, damit LAN-Host und Gast dasselbe JEI haben; LAN-Test mit zwei Clients in der CI (3.9) |
 
 **Ä24: Lückentest Meilenstein 2**
 
@@ -92,3 +93,11 @@ Der Auftraggeber hat die Entscheidung an die Empfehlung der umsetzenden KI über
 - Sauerstoff-Balance bleibt: Der Sauerstoffgenerator ist die langsame Lösung ohne Wasser, der Elektrolyseur die schnelle mit Wasserversorgung (10.2, `machines.json` unverändert).
 - Mengen-Multiplikator unter 1: Montagetisch-Rezepte tragen einen Mindestfaktor `min_multiplier`, den `tools/gen_resources.py` aus allen Montagetisch-Rezepten berechnet. Darunter wird das Rezept nicht verkleinert, so bleibt jedes Rezept herstellbar (22.3, 25.4). Betroffen sind derzeit 7 Rezepte, die meisten nur knapp über 0,25.
 - Offen bleiben die Punkte, die Menschen brauchen (Spieltest, Texturen, Musik, englische Namen), die Prüfung von 26.4 (noch Snapshot) und der Befund „Sternenschiff ≈ 42× T2“.
+
+**Ä30: JEI im NeoForge-Jar (20.11.2026)**
+
+Anlass: Ein Gast ohne JEI wurde von einem LAN-Host mit JEI abgewiesen („The server sent registries with unknown keys: … jei:jei_shaped, jei:jei_smelting“). JEI registriert auf dem Client Rezept-Serializer; beim LAN-Host laufen Client und Server im selben Prozess, also landen sie in den Registries, die an alle Mitspieler gehen.
+
+- Das NeoForge-Jar enthält JEI (neueste offizielle Version, `jei_version` in `gradle.properties`) als Jar-in-Jar; Host und Gast haben damit immer dasselbe JEI. Ein neueres JEI im mods-Ordner gewinnt.
+- CI-Job „LAN-Test (NeoForge)“: zwei echte Clients, der Host öffnet seine Welt im LAN, der Gast tritt bei; geprüft werden Beitritt ohne Trennung, Mod-Inhalte und Config beim Gast sowie JEI im Jar.
+- Fabric bleibt unverändert (JEI/REI nur `compileOnly`).

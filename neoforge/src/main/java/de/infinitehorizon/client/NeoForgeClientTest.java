@@ -637,7 +637,8 @@ public final class NeoForgeClientTest {
         return server.submit(() -> fn.apply(level)).join();
     }
 
-    private static boolean pressButton(Screen screen, String translationKey) {
+    /** Drückt den Knopf mit diesem Text (auch in Layouts); auch für {@link NeoForgeLanTest}. */
+    static boolean pressButton(Screen screen, String translationKey) {
         String text = Component.translatable(translationKey).getString();
         MouseButtonInfo click = new MouseButtonInfo(InputConstants.MOUSE_BUTTON_LEFT, 0);
         for (GuiEventListener child : screen.children()) {

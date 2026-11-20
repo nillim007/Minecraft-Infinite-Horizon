@@ -42,6 +42,22 @@ neoForge {
             systemProperty 'infinite_horizon.clienttest', 'true'
             systemProperty 'infinite_horizon.clienttest.jei', project.hasProperty('withJei') ? 'true' : 'false'
         }
+        // LAN-Test (de.infinitehorizon.client.NeoForgeLanTest): der Host öffnet seine Welt im LAN, der Gast tritt bei.
+        // Beide laufen gleichzeitig; die CI startet sie direkt aus den Dateien von prepareLanHostRun/prepareLanGuestRun.
+        lanHost {
+            client()
+            gameDirectory = this.mkdir(this.file('runs/lanhost'))
+            systemProperty 'infinite_horizon.lantest', 'host'
+            systemProperty 'infinite_horizon.lantest.port', '25599'
+            programArguments.addAll '--username', 'Host'
+        }
+        lanGuest {
+            client()
+            gameDirectory = this.mkdir(this.file('runs/languest'))
+            systemProperty 'infinite_horizon.lantest', 'guest'
+            systemProperty 'infinite_horizon.lantest.port', '25599'
+            programArguments.addAll '--username', 'Gast', '--quickPlayMultiplayer', '127.0.0.1:25599'
+        }
     }
     mods {
         "${mod_id}" {
@@ -75,8 +91,14 @@ sourceSets.configureEach {
 dependencies {
     compileOnly("me.shedaniel:RoughlyEnoughItems-api-neoforge:${rei_version}")
 }
-// JEI zur Laufzeit nur mit -PwithJei (CI-Job des NeoForge-Client-Tests), damit das JEI-Plugin im echten Spiel geprüft
-// und fotografiert wird. Normale Builds und Server-GameTests laufen ohne JEI.
+// JEI steckt als Jar-in-Jar im NeoForge-Jar: JEI registriert auf dem Client Rezept-Serializer, die ein LAN-Host an
+// alle Mitspieler schickt; ein Mitspieler ohne JEI wird sonst abgewiesen („unknown keys … jei:jei_shaped“). Mit JEI im
+// Jar haben Host und Gast immer dasselbe JEI. Ein neueres JEI im mods-Ordner gewinnt (NeoForge wählt die höchste Version).
+dependencies {
+    jarJar("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")
+}
+// JEI zur Laufzeit in den Entwicklungsläufen nur mit -PwithJei (CI-Jobs des NeoForge-Client-Tests und des LAN-Tests).
+// Normale Builds und Server-GameTests laufen ohne JEI.
 if (project.hasProperty('withJei')) {
     dependencies {
         runtimeOnly("mezz.jei:jei-${minecraft_version}-neoforge:${jei_version}")

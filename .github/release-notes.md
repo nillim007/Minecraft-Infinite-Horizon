@@ -10,8 +10,9 @@ Musik sind Platzhalter. Welten aus einer Beta laufen nicht unbedingt mit später
 - **NeoForge** 26.3.0.114 oder neuer → `infinite_horizon-neoforge-…jar`
 - **oder Fabric**: Fabric Loader 0.20.1 oder neuer und [Fabric API](https://modrinth.com/mod/fabric-api) für 26.3 →
   `infinite_horizon-fabric-…jar` (Team Reborn Energy ist enthalten)
-- Optional: [JEI](https://modrinth.com/mod/jei) oder [REI](https://modrinth.com/mod/rei) für die Rezeptanzeige; das
-  Ingenieurs-Handbuch im Spiel (Taste `H`) zeigt die Rezepte auch
+- **JEI ist im NeoForge-Jar enthalten** (Rezeptanzeige; Host und Mitspieler im LAN haben damit dasselbe JEI). Auf
+  Fabric optional [JEI](https://modrinth.com/mod/jei) oder [REI](https://modrinth.com/mod/rei); das Ingenieurs-Handbuch
+  im Spiel (Taste `H`) zeigt die Rezepte auch
 
 ## Installation
 
@@ -40,5 +41,5 @@ ersten Betreten einer Welt.
 
 **English:** Beta test of Infinite Horizon for Minecraft 26.3 (NeoForge 26.3.0.114+ or Fabric Loader 0.20.1+ with
 Fabric API). Playable from Earth industry to the starship launch; balancing is not final, graphics and sounds are
-placeholders. Put the one jar for your loader into the `mods` folder. JEI or REI are optional; the in-game
-Engineer's Handbook (`H`) shows all recipes.
+placeholders. Put the one jar for your loader into the `mods` folder. The NeoForge jar includes JEI (so LAN host and
+guests always match); on Fabric, JEI or REI are optional. The in-game Engineer's Handbook (`H`) shows all recipes.

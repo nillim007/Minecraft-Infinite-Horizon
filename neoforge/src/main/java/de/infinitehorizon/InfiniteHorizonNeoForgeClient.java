@@ -114,6 +114,9 @@ public class InfiniteHorizonNeoForgeClient {
         if (NeoForgeClientTest.enabled()) {
             NeoForge.EVENT_BUS.addListener((ClientTickEvent.Post e) -> NeoForgeClientTest.tick());
         }
+        if (de.infinitehorizon.client.NeoForgeLanTest.enabled()) {
+            NeoForge.EVENT_BUS.addListener((ClientTickEvent.Post e) -> de.infinitehorizon.client.NeoForgeLanTest.tick());
+        }
         // Fluid-Texturen (26.3: FluidModel statt Client-Extensions), Farbe aus fluids.json
         modBus.addListener((RegisterFluidModelsEvent e) -> ModFluids.handles().forEach((id, h) -> e.register(
                 new FluidModel.Unbaked(new Material(InfiniteHorizon.id("block/" + id + "_still")),
