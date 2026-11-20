@@ -2,6 +2,7 @@ name: Release
 
 # Ein Tag „v<version>“ baut beide Loader mit dieser Version und legt ein GitHub-Release mit den Jars an.
 # Tags mit Bindestrich (z. B. v0.1.0-beta.1) werden als Vorabversion markiert. Text: .github/release-notes.md
+# Danach schreibt .github/scripts/release_list.py die Release-Liste der README neu und committet sie auf main.
 
 on:
   push:
@@ -39,3 +40,16 @@ jobs:
           case "$GITHUB_REF_NAME" in *-*) PRE="--prerelease" ;; esac
           gh release create "$GITHUB_REF_NAME" dist/*.jar --verify-tag $PRE \
             --title "Infinite Horizon ${GITHUB_REF_NAME#v}" --notes-file .github/release-notes.md
+      - name: Release-Liste in der README aktualisieren
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git fetch --depth 1 origin main
+          git checkout -B main FETCH_HEAD
+          python3 .github/scripts/release_list.py
+          if git diff --quiet README.md; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -q -m "README: Release-Liste (${GITHUB_REF_NAME})" README.md
+          git push origin main

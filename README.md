@@ -36,6 +36,21 @@ Dazwischen liegt eine Reise durch das echte Sonnensystem: Du baust auf der Erde 
   <img src="docs/images/journey.svg" alt="Die Reise in sechs Phasen" width="100%">
 </p>
 
+## Releases
+
+Fertige Versionen zum Herunterladen. Leg das **eine** Jar zu deinem Loader in den `mods`-Ordner: NeoForge
+26.3.0.114 oder neuer, oder Fabric Loader 0.20.1 oder neuer mit Fabric API. **Beta** heißt Testversion: Mengen und
+Zeiten sind noch nicht abgestimmt, Grafik und Klang sind Platzhalter. Die Route zum Durchspielen steht in der
+[Durchspielanleitung](docs/dev/durchspielanleitung.md).
+
+<!-- releases:start (erzeugt von .github/scripts/release_list.py aus den GitHub-Releases) -->
+
+| Version | Datum | Art | NeoForge | Fabric |
+| --- | --- | --- | --- | --- |
+| [v0.1.0-beta.1](https://github.com/nillim007/Minecraft-Infinite-Horizon/releases/tag/v0.1.0-beta.1) | 20.11.2026 | Beta | [NeoForge-Jar](https://github.com/nillim007/Minecraft-Infinite-Horizon/releases/download/v0.1.0-beta.1/infinite_horizon-neoforge-26.3-0.1.0-beta.1.jar) (2,9 MB) | [Fabric-Jar](https://github.com/nillim007/Minecraft-Infinite-Horizon/releases/download/v0.1.0-beta.1/infinite_horizon-fabric-26.3-0.1.0-beta.1.jar) (3,0 MB) |
+
+<!-- releases:end -->
+
 ## Was dich erwartet
 
 | | |
