@@ -47,7 +47,7 @@ Zeiten sind noch nicht abgestimmt, Grafik und Klang sind Platzhalter. Die Route 
 
 | Version | Datum | Art | NeoForge | Fabric |
 | --- | --- | --- | --- | --- |
-| [v0.1.0-beta.1](https://github.com/nillim007/Minecraft-Infinite-Horizon/releases/tag/v0.1.0-beta.1) | 20.11.2026 | Beta | [NeoForge-Jar](https://github.com/nillim007/Minecraft-Infinite-Horizon/releases/download/v0.1.0-beta.1/infinite_horizon-neoforge-26.3-0.1.0-beta.1.jar) (2,9 MB) | [Fabric-Jar](https://github.com/nillim007/Minecraft-Infinite-Horizon/releases/download/v0.1.0-beta.1/infinite_horizon-fabric-26.3-0.1.0-beta.1.jar) (3,0 MB) |
+| [v0.1.0-beta.1](https://github.com/nillim007/Minecraft-Infinite-Horizon/releases/tag/v0.1.0-beta.1) | 20.11.2026 | Beta | [NeoForge-Jar](https://github.com/nillim007/Minecraft-Infinite-Horizon/releases/download/v0.1.0-beta.1/infinite_horizon-neoforge-26.3-0.1.0-beta.1.jar) (5,1 MB) | [Fabric-Jar](https://github.com/nillim007/Minecraft-Infinite-Horizon/releases/download/v0.1.0-beta.1/infinite_horizon-fabric-26.3-0.1.0-beta.1.jar) (3,0 MB) |
 
 <!-- releases:end -->
 
