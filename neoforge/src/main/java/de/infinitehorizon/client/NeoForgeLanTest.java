@@ -106,6 +106,9 @@ public final class NeoForgeLanTest {
             }
             case 3 -> {
                 IntegratedServer server = mc.getSingleplayerServer();
+                // Die Test-Clients sind nicht bei Microsoft angemeldet; ohne das scheitert der Gast an „Invalid session“,
+                // bevor überhaupt Registries abgeglichen werden. Echte Spieler sind angemeldet (nur im Test).
+                server.setUsesAuthentication(false);
                 boolean published = server.publishServer(MinecraftServer.MultiplayerScope.LAN, false, port());
                 check("lan_publish", published && server.isPublished(), "Port " + port());
                 Files.writeString(mc.gameDirectory.toPath().resolve("lan-ready.txt"), Integer.toString(port()), StandardCharsets.UTF_8);
