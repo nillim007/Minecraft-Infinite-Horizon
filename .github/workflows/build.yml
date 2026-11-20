@@ -264,11 +264,19 @@ jobs:
         if: always()
         shell: bash
         run: |
-          grep -h "Client disconnected with reason" lan-guest.log lan-host.log 2>/dev/null | while read -r l; do echo "::error title=LAN-Test Trennung::$l"; done
+          # Bash läuft hier mit -e -o pipefail: grep ohne Treffer darf den Schritt nicht beenden
+          if grep -q "Client disconnected with reason" lan-guest.log lan-host.log 2>/dev/null; then
+            grep -h "Client disconnected with reason" lan-guest.log lan-host.log | while read -r l; do echo "::error title=LAN-Test Trennung::$l"; done
+          fi
           rc=0
           for role in lanhost languest; do
             f=neoforge/runs/$role/infinite_horizon-lantest.txt
-            if [ ! -f "$f" ]; then echo "::error title=LAN-Test $role::keine Ergebnisdatei"; rc=1; continue; fi
+            log=lan-${role#lan}.log
+            if [ ! -f "$f" ]; then
+              echo "::error title=LAN-Test $role::keine Ergebnisdatei"
+              [ -f "$log" ] && python3 .github/scripts/annotate_log.py "$log" || true
+              rc=1; continue
+            fi
             echo "::notice title=LAN-Test $role::$(tr '\n' ' ' < "$f")"
             grep -q '^DONE' "$f" || { echo "::error title=LAN-Test $role::nicht bis zum Ende gelaufen"; rc=1; }
             if grep -q '^FAIL' "$f"; then grep '^FAIL' "$f" | while read -r l; do echo "::error title=LAN-Test $role::$l"; done; rc=1; fi
