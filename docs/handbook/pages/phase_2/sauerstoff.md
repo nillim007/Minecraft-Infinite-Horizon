@@ -25,7 +25,7 @@ Den Inhalt zeigt der Tooltip. Flaschen nehmen nur Sauerstoff.
 
 ## Die Druckflasche
 
-Die <item:infinite_horizon:pressure_bottle> ist ein Tank nur für Gase und fasst {{value:storage:pressure_bottle.capacity}} mB. Sie hat wie der Fluidtank eine Ausgangsseite und Füll- und Leerslots. Abgebaut behält sie ihren Inhalt.
+Die <item:infinite_horizon:pressure_bottle> ist ein Tank nur für Gase und fasst {{value:storage:pressure_bottle.capacity}} mB. Sie nimmt wie der Fluidtank an allen Seiten an und gibt an allen ab, nie an andere Speicher, und hat Füll- und Leerslots. Abgebaut behält sie ihren Inhalt.
 
 @machine infinite_horizon:pressure_bottle
 

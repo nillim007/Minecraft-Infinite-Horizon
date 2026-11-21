@@ -32,8 +32,8 @@ Der Elektrolyseur spaltet Wasser mit Strom in **Wasserstoff** und **Sauerstoff**
 ## So schließt du ihn an
 
 1. Stell eine [Pumpe](Fluide-und-Rohre.md) über Wasser, oder leg Wassereimer in den Leerslot.
-2. Führe das Wasser mit einem [Kupferrohr](Fluide-und-Rohre.md) an eine beliebige Seite des Elektrolyseurs.
-3. Die Gase kommen über die **Ausgangsseite** heraus. Mit dem Knopf „Tank“ wählst du, welches Gas der Füllslot nimmt.
+2. Führe das Wasser mit einem [Kupferrohr](Fluide-und-Rohre.md) an eine Seite des Elektrolyseurs, die keine Ausgangsseite ist.
+3. Jedes Gas hat eine eigene **Ausgangsseite**: Wasserstoff vorn, Sauerstoff rechts. Mit dem Knopf „Tank“ wählst du das Gas, mit „Seite“ stellst du seine Seite um. Druckflaschen direkt an diesen Seiten sammeln die Gase.
 
 > [!NOTE]
 > Gase passen nicht in den normalen Tank und nicht in Eimer. Vorerst sammeln sie sich im Elektrolyseur selbst. Druckflaschen und Kanister kommen in einer späteren Phase.

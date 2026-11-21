@@ -20,13 +20,13 @@ Der Montagetisch hat **9 Eingabeslots** ohne festes Muster, einen Fluidtank und 
 
 @recipes_for infinite_horizon:assembly_table
 
-## Genau abmessen
+## Genug hineinlegen
 
-Der Montagetisch ist pingelig: Ein Rezept startet nur, wenn in den Slots **genau** die Zutaten in **genau** der richtigen Menge liegen. Liegt etwas zu viel oder etwas anderes in einem Slot, passiert nichts.
+Ein Rezept startet, sobald jede Zutat **mindestens** in der Rezeptmenge da ist. Mehr ist erlaubt; fremde Items in den Slots verhindern den Start.
 
 - Eine Zutat darf mehrere Slots belegen. Die Mengen werden zusammengezählt.
-- Verbraucht wird genau die Menge aus dem Rezept.
-- Beispiel: 4 <item:infinite_horizon:iron_plate> und 1 <item:infinite_horizon:copper_pipe> ergeben einen <item:infinite_horizon:fluid_port>. Mit 2 Platten und 1 Rohr bekommst du dagegen <item:infinite_horizon:refinery_casing>.
+- Verbraucht wird genau die Menge aus dem Rezept, der Rest bleibt liegen.
+- Passen mehrere Rezepte, nimmt der Tisch das, das am meisten verbraucht. Beispiel: 4 <item:infinite_horizon:iron_plate> und 1 <item:infinite_horizon:copper_pipe> ergeben einen <item:infinite_horizon:fluid_port>, 2 oder 3 Platten und 1 Rohr <item:infinite_horizon:refinery_casing>.
 
 ## Der Schaltkreis
 
@@ -38,4 +38,4 @@ Der <item:infinite_horizon:circuit> steckt in fast jeder Maschine ab Phase 2. Ba
 
 @recipes_type assembly
 
-@tip Wenn der Pfeil nicht losläuft, obwohl alles da zu sein scheint: Nimm alles heraus und lege die Zutaten in genau der Rezeptmenge wieder hinein.
+@tip Wenn der Pfeil nicht losläuft, obwohl alles da zu sein scheint: Prüfe, ob ein fremdes Item in einem Slot liegt und ob die Energieleiste für den ganzen Vorgang reicht.

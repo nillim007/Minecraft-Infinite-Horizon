@@ -8,7 +8,14 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "infinite_horizon:lithium_battery_bank"
+          "name": "infinite_horizon:lithium_battery_bank",
+          "modifier": {
+            "type": "minecraft:copy_components",
+            "include": [
+              "infinite_horizon:energy"
+            ],
+            "source": "block_entity"
+          }
         }
       ],
       "rolls": 1

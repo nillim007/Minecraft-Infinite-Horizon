@@ -30,6 +30,14 @@ public interface FluidNode {
     /** Gibt der Block über diese Seite Fluid ab (Ausgangsseite, 4.1)? */
     boolean providesFluidTo(@Nullable Direction side);
 
+    /**
+     * Speicherblock (Tank, Druckflasche, Gastank, Ä31): nimmt an allen Seiten an und gibt an allen ab, aber nie an
+     * andere Speicher, damit kein Inhalt zwischen zwei Speichern hin- und herwandert.
+     */
+    default boolean isFluidStorage() {
+        return false;
+    }
+
     /** Nach einer bestätigten Änderung von außen (Speichern markieren). */
     void onFluidChanged();
 

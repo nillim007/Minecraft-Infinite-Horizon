@@ -257,7 +257,8 @@ def oil_bubble_worldgen():
 
 
 # Blöcke, deren Inhalt beim Abbauen als Komponente am Item bleibt (4.1: fluid_tank, später battery)
-COPY_COMPONENTS = {"fluid_tank": [f"{NS}:fluid"], "pressure_bottle": [f"{NS}:fluid"], "battery": [f"{NS}:energy"]}
+COPY_COMPONENTS = {"fluid_tank": [f"{NS}:fluid"], "pressure_bottle": [f"{NS}:fluid"], "gas_tank": [f"{NS}:fluid"],
+                   "tank_depot": [f"{NS}:fluid"], "battery": [f"{NS}:energy"], "lithium_battery_bank": [f"{NS}:energy"]}
 
 
 def block_loot(name, drop=None):

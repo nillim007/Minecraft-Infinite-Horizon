@@ -21,7 +21,7 @@
 
 ## 11.2 Proben
 
-- `sample_tool`: Rechtsklick auf einen Block → 1 `sample` mit `block` = Block-ID und `dimension`. Der Block bleibt. 40 t Abklingzeit als Vanilla-Item-Abklingzeit. Pro Block-Position nur einmal (gespeichert in Chunk-Daten).
+- `sample_tool`: Rechtsklick auf einen Block → 1 `sample` mit `block` = Block-ID und `dimension`. Der Block verschwindet dabei ohne Drop (Ä31; vorher blieb er stehen). 40 t Abklingzeit als Vanilla-Item-Abklingzeit. Pro Block-Position nur einmal (gespeichert in Chunk-Daten).
 - **Probenart** = Block-ID + Dimension. `deepslate_`-Varianten zählen als dieselbe Art wie die normale Variante.
 - **Stapeln:** Gleiche Proben (gleiche Komponente `sample`) stapeln bis 64. Der Tooltip nennt Block und Dimension.
 - **Von Spielern gesetzte Blöcke** sind nie beprobbar: Beim Setzen wird die Position in den Chunk-Daten als „beprobt“ markiert.

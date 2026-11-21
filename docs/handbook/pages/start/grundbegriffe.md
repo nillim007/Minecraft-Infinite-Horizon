@@ -36,7 +36,7 @@ Jede Maschine hat eine kleine Lampe:
 ## Ein- und Ausgänge
 
 - Maschinen nehmen Items und Fluide **von allen Seiten** an. Trichter und Rohre kannst du also anschließen, wo du willst.
-- Fluide und gespeicherten Strom geben Maschinen und Speicher nur über **eine Seite** ab, die **Ausgangsseite**. Du wählst sie im Fenster mit dem Knopf „Seite“.
+- Fluide und gespeicherten Strom geben Maschinen und Akkus über ihre **Ausgangsseite** ab. Du wählst sie im Fenster mit dem Knopf „Seite“. Tanks geben an allen Seiten ab, die Pumpe überall außer vorn.
 
 ## Multiblöcke
 

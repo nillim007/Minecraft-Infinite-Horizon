@@ -36,8 +36,8 @@ public final class IhGameTests {
     /** Struktur unter data/infinite_horizon/structure/gametest/empty.nbt (leer, 8×8×8). */
     public static final String STRUCTURE = "infinite_horizon:gametest/empty";
 
-    public static final String CRUSHER_CHAIN = "crusher_rawiron_twodustwithin220ticks";
-    public static final int CRUSHER_CHAIN_TICKS = 220;
+    public static final String CRUSHER_CHAIN = "crusher_rawiron_twodustwithin440ticks";
+    public static final int CRUSHER_CHAIN_TICKS = 440; // Ä31: erst laden, dann zerkleinern
     public static final String BALANCE_RELOAD = "crusher_balancechange_changesduration";
     public static final int BALANCE_RELOAD_TICKS = 20;
     public static final String PLATFORM_CONSUMER = "cable_platformconsumer_receivesenergy";
@@ -185,7 +185,8 @@ public final class IhGameTests {
     public static void pumpCrudeOilIntoTank(GameTestHelper helper) {
         BlockPos pump = new BlockPos(2, 5, 2);
         helper.setBlock(new BlockPos(2, 1, 2), ModFluids.get("crude_oil").source().get().defaultFluidState().createLegacyBlock());
-        FluidPumpBlockEntity p = placeFacing(helper, pump, ModBlocks.FLUID_PUMP.get(), Direction.EAST, FluidPumpBlockEntity.class);
+        // Ä31: Die Pumpe gibt an allen Seiten außer vorn ab; das Rohr liegt im Osten, die Front zeigt nach Westen
+        FluidPumpBlockEntity p = placeFacing(helper, pump, ModBlocks.FLUID_PUMP.get(), Direction.WEST, FluidPumpBlockEntity.class);
         p.energyStorage().setAmountUnchecked(p.energyStorage().getCapacity());
         helper.setBlock(new BlockPos(3, 5, 2), ModBlocks.COPPER_PIPE.get());
         FluidTankBlockEntity tank = placeFacing(helper, new BlockPos(4, 5, 2), ModBlocks.FLUID_TANK.get(), Direction.NORTH,
@@ -195,28 +196,30 @@ public final class IhGameTests {
                 "Tank: " + tank.tank().stack() + ", Pumpe " + p.status()));
     }
 
-    /** M2c: Zwei Quellen mit Wasser und Erdöl an einem Rohrnetz; beide Empfänger bekommen dasselbe Fluid. */
+    /**
+     * M2c: Zwei Quellen mit Wasser und Erdöl an einem Rohrnetz; beide Empfänger bekommen dasselbe Fluid. Seit Ä31
+     * geben Speicher nicht an Speicher ab, darum speisen zwei Pumpen (Front nach Norden) das Netz.
+     */
     public static void pipesNeverMix(GameTestHelper helper) {
-        FluidTankBlockEntity water = placeFacing(helper, new BlockPos(1, 1, 1), ModBlocks.FLUID_TANK.get(), Direction.EAST,
-                FluidTankBlockEntity.class);
-        FluidTankBlockEntity oil = placeFacing(helper, new BlockPos(5, 1, 1), ModBlocks.FLUID_TANK.get(), Direction.WEST,
-                FluidTankBlockEntity.class);
-        for (int x = 2; x <= 4; x++) {
-            helper.setBlock(new BlockPos(x, 1, 1), ModBlocks.COPPER_PIPE.get());
+        helper.setBlock(new BlockPos(1, 1, 1), Blocks.WATER);
+        helper.setBlock(new BlockPos(5, 1, 1), ModFluids.get("crude_oil").source().get().defaultFluidState().createLegacyBlock());
+        for (int x : new int[]{1, 5}) {
+            FluidPumpBlockEntity p = placeFacing(helper, new BlockPos(x, 3, 1), ModBlocks.FLUID_PUMP.get(), Direction.NORTH,
+                    FluidPumpBlockEntity.class);
+            p.energyStorage().setAmountUnchecked(p.energyStorage().getCapacity());
         }
-        FluidTankBlockEntity a = placeFacing(helper, new BlockPos(2, 1, 2), ModBlocks.FLUID_TANK.get(), Direction.SOUTH,
+        for (int x = 2; x <= 4; x++) {
+            helper.setBlock(new BlockPos(x, 3, 1), ModBlocks.COPPER_PIPE.get());
+        }
+        FluidTankBlockEntity a = placeFacing(helper, new BlockPos(2, 3, 2), ModBlocks.FLUID_TANK.get(), Direction.SOUTH,
                 FluidTankBlockEntity.class);
-        FluidTankBlockEntity b = placeFacing(helper, new BlockPos(4, 1, 2), ModBlocks.FLUID_TANK.get(), Direction.SOUTH,
+        FluidTankBlockEntity b = placeFacing(helper, new BlockPos(4, 3, 2), ModBlocks.FLUID_TANK.get(), Direction.SOUTH,
                 FluidTankBlockEntity.class);
-        water.tank().setStackUnchecked(IhFluidStack.of(Identifier.withDefaultNamespace("water"), 4000));
-        oil.tank().setStackUnchecked(IhFluidStack.of(InfiniteHorizon.id("crude_oil"), 4000));
         helper.runAfterDelay(PIPES_NO_MIX_TICKS - 10, () -> {
             IhFluidStack sa = a.tank().stack();
             IhFluidStack sb = b.tank().stack();
             helper.assertTrue(!sa.isEmpty() && !sb.isEmpty(), "Empfänger leer: " + sa + " / " + sb);
             helper.assertTrue(sa.fluid().equals(sb.fluid()), "Fluide gemischt: " + sa + " / " + sb);
-            helper.assertTrue(water.tank().stack().amount() == 4000 || oil.tank().stack().amount() == 4000,
-                    "Beide Quellen haben abgegeben: " + water.tank().stack() + " / " + oil.tank().stack());
             helper.succeed();
         });
     }

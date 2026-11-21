@@ -19,8 +19,8 @@ import org.jspecify.annotations.Nullable;
 import java.util.List;
 
 /**
- * Fluid-Speicher (6.3, 4.4): ein Tank, Ausgabe nur über die Ausgangsseite (Standard {@code facing}), alle anderen
- * Seiten nehmen an; Füll- und Leerslot (4.1). Werte aus {@code storage.json} per Block-ID.
+ * Fluid-Speicher (6.3, 4.4): ein Tank; nimmt an allen Seiten an und gibt an allen ab, aber nie an andere Speicher
+ * (Ä31); Füll- und Leerslot (4.1). Werte aus {@code storage.json} per Block-ID.
  */
 public class FluidTankBlockEntity extends MachineBlockEntity {
 
@@ -67,6 +67,23 @@ public class FluidTankBlockEntity extends MachineBlockEntity {
     @Override
     protected List<IhFluidTank> outputTanks() {
         return List.of(tank);
+    }
+
+    @Override
+    public boolean isFluidStorage() {
+        return true;
+    }
+
+    /** Alle Seiten geben ab (Ä31). */
+    @Override
+    protected java.util.Set<Direction> fluidOutputSides(int k) {
+        return java.util.EnumSet.allOf(Direction.class);
+    }
+
+    /** Kein Knopf „Seite“: Speicher geben überall ab. */
+    @Override
+    protected boolean hasOutputSide() {
+        return false;
     }
 
     @Override

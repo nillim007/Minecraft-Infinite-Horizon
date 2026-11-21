@@ -25,7 +25,7 @@ Every machine has a small lamp on top. It tells you at a glance what is going on
 
 - Items and fluids enter the input **from every side**. Hoppers always fill the first matching slot.
 - From every side you can extract **only the results**. That makes chaining machines easy.
-- A machine outputs fluids only through its **output side** (button "Side"). That side accepts nothing itself, so nothing flows back into the pipe that feeds the machine.
+- A machine outputs fluids only through its **output side** (button "Side"; with several output tanks each has its own). That side accepts nothing itself. Exceptions: the pump outputs on every side except its front, tanks and gas storage on every side, but never into other storage.
 - Shift-clicking in the window puts upgrades into the upgrade slots and molds into the mold slot, everything else into the input.
 
 ## Breaking

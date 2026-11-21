@@ -60,6 +60,32 @@ class M2dRulesTest {
         assertNull(match(List.of(new Stack("iron_plate", 3), new Stack("copper_pipe", 1)), FLUID_PORT), "zu wenig");
     }
 
+    private static int[] atLeast(List<Stack> slots, List<Need> needs) {
+        return ExactMatch.assignAtLeast(slots, needs, s -> s == null || s.count() == 0,
+                (n, s) -> n.item().equals(s.item()), Stack::count, Need::count);
+    }
+
+    @Test
+    void atLeastAcceptsSurplusButNoForeignItems() {
+        // Spieltest Phase 1 (Ä31): Überschuss ist erlaubt, fremde Items und zu wenig nicht
+        assertNotNull(atLeast(List.of(new Stack("titanium_plate", 64), new Stack("titanium_plate", 33)),
+                List.of(new Need("titanium_plate", 96))), "Überschuss");
+        assertNotNull(atLeast(List.of(new Stack("iron_plate", 9), new Stack("copper_pipe", 3)), CASING), "mehr als nötig");
+        assertNull(atLeast(List.of(new Stack("iron_plate", 4), new Stack("copper_pipe", 1), new Stack("stone", 1)), FLUID_PORT),
+                "fremdes Item");
+        assertNull(atLeast(List.of(new Stack("iron_plate", 3), new Stack("copper_pipe", 1)), FLUID_PORT), "zu wenig");
+        assertNull(atLeast(List.of(new Stack("iron_plate", 4)), FLUID_PORT), "Zutat fehlt");
+    }
+
+    @Test
+    void machinesStartOnlyWithEnergyForTheWholeProcess() {
+        var eff = new de.infinitehorizon.machine.ProcessingMath.Effective(100, 20);
+        assertTrue(!de.infinitehorizon.machine.ProcessingMath.canStart(1999, 20000, eff), "1.999 J < 2.000 J");
+        assertTrue(de.infinitehorizon.machine.ProcessingMath.canStart(2000, 20000, eff), "genau genug");
+        // Speicher kleiner als der Bedarf: ein voller Speicher reicht
+        assertTrue(de.infinitehorizon.machine.ProcessingMath.canStart(1000, 1000, eff), "voller kleiner Speicher");
+    }
+
     @Test
     void refineryPatternHas44PartsWithinNotifyRadius() {
         MultiblockPattern p = MultiblockPattern.forMachine(balance, "infinite_horizon:refinery_controller").orElseThrow();

@@ -60,6 +60,11 @@ public final class FluidGrid {
 
     /** Schiebt bis zu {@code offer.amount()} mB aus {@code source} ins Netz; gibt die verteilte Menge zurück. */
     public long push(Level level, BlockPos source, IhFluidStack offer) {
+        return push(level, source, offer, false);
+    }
+
+    /** Wie {@link #push(Level, BlockPos, IhFluidStack)}; {@code skipStorage}: Speicherblöcke im Netz nehmen nichts an (Ä31). */
+    public long push(Level level, BlockPos source, IhFluidStack offer, boolean skipStorage) {
         if (offer.isEmpty()) {
             return 0;
         }
@@ -79,6 +84,10 @@ public final class FluidGrid {
         targets.clear();
         for (EnergyGrid.Endpoint ep : endpoints) {
             if (ep.pos().equals(source)) {
+                continue;
+            }
+            if (skipStorage && level.getBlockEntity(ep.pos()) instanceof de.infinitehorizon.api.fluid.FluidNode node
+                    && node.isFluidStorage()) {
                 continue;
             }
             FluidTarget t = resolve(level, ep);

@@ -26,13 +26,13 @@ Der Montagetisch hat **9 Eingabeslots** ohne festes Muster, einen Fluidtank und 
 
 <sub>2 × Kupferbarren, 4 × Eisenbarren, 1 × [Maschinenrahmen](Erste-Schritte.md), 1 × Redstone-Staub, 1 × Werkbank → 1 × Montagetisch</sub>
 
-## Genau abmessen
+## Genug hineinlegen
 
-Der Montagetisch ist pingelig: Ein Rezept startet nur, wenn in den Slots **genau** die Zutaten in **genau** der richtigen Menge liegen. Liegt etwas zu viel oder etwas anderes in einem Slot, passiert nichts.
+Ein Rezept startet, sobald jede Zutat **mindestens** in der Rezeptmenge da ist. Mehr ist erlaubt; fremde Items in den Slots verhindern den Start.
 
 - Eine Zutat darf mehrere Slots belegen. Die Mengen werden zusammengezählt.
-- Verbraucht wird genau die Menge aus dem Rezept.
-- Beispiel: 4 [Eisenplatte](Presse.md) und 1 [Kupferrohr](Fluide-und-Rohre.md) ergeben einen [Fluid-Port](Raffinerie.md). Mit 2 Platten und 1 Rohr bekommst du dagegen [Raffinerie-Gehäuse](Raffinerie.md).
+- Verbraucht wird genau die Menge aus dem Rezept, der Rest bleibt liegen.
+- Passen mehrere Rezepte, nimmt der Tisch das, das am meisten verbraucht. Beispiel: 4 [Eisenplatte](Presse.md) und 1 [Kupferrohr](Fluide-und-Rohre.md) ergeben einen [Fluid-Port](Raffinerie.md), 2 oder 3 Platten und 1 Rohr [Raffinerie-Gehäuse](Raffinerie.md).
 
 ## Der Schaltkreis
 
@@ -179,7 +179,7 @@ Der Schaltkreis steckt in fast jeder Maschine ab Phase 2. Bau dir früh eine kle
 | <img src="images/rezepte/assembly_cloud_elevator.svg" alt="Rezept" width="300"> | 8 × [Aluminiumplatte](Presse.md), 4 × [Titanplatte](Presse.md), 2 × Schaltkreis, 1 × [Kunststoff](Raffinerie.md) → 1 × [Wolkenaufzug](Die-Venus.md) | Montagetisch | 200 t (10 s)<br>30 J/t |
 
 > [!TIP]
-> Wenn der Pfeil nicht losläuft, obwohl alles da zu sein scheint: Nimm alles heraus und lege die Zutaten in genau der Rezeptmenge wieder hinein.
+> Wenn der Pfeil nicht losläuft, obwohl alles da zu sein scheint: Prüfe, ob ein fremdes Item in einem Slot liegt und ob die Energieleiste für den ganzen Vorgang reicht.
 
 ---
 

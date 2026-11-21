@@ -114,12 +114,14 @@ public final class HandbookClient {
 
     /** Hinweis „H: Handbuch“ an Items mit eigener Seite. */
     public static void appendTooltip(ItemStack stack, List<Component> lines) {
+        de.infinitehorizon.client.ContentTooltips.append(stack, lines);
         oxygenTooltip(stack, lines);
         for (net.minecraft.resources.Identifier m : de.infinitehorizon.suit.SuitModules.modules(stack)) {
             lines.add(Component.translatable("tooltip." + InfiniteHorizon.MOD_ID + ".suit_module",
                     net.minecraft.core.registries.BuiltInRegistries.ITEM.getValue(m).getDefaultInstance().getHoverName()).withStyle(ChatFormatting.AQUA));
         }
-        if (pageFor(stack) != null) {
+        // Spieltest Phase 1 (Ä31): der Hinweis auf die Taste erscheint nur mit gedrückter Umschalttaste
+        if (pageFor(stack) != null && net.minecraft.client.Minecraft.getInstance().hasShiftDown()) {
             lines.add(Component.translatable("gui." + InfiniteHorizon.MOD_ID + ".handbook.hint", KEY.getTranslatedKeyMessage())
                     .withStyle(ChatFormatting.GRAY));
         }

@@ -18,10 +18,10 @@ The machine is waiting for material or power. Check whether the energy bar is em
 The output is full, or a block is missing in the refinery. Hover over the lamp in the window; it shows the reason.
 
 **The assembly table does not start.**
-It needs the ingredients in exactly the right amount. Take out the surplus. See [[montagetisch|Assembly Table]].
+It needs every ingredient in at least the recipe amount and no foreign items in the slots. See [[montagetisch|Assembly Table]].
 
 **The pipe transports nothing.**
-A pipe network carries only one fluid. If another one is still inside, it waits until the network is empty. Also check the output side of the source ("Side" button).
+A pipe network carries only one fluid. If another one is still inside, it waits until the network is empty. Also check that the source outputs on that side: the pump not at its front, machines only through their output side ("Side" button).
 
 **My machines run slowly although the generator is full.**
 A copper cable carries only {{value:transport:copper_cable.throughput}} J/t. If too many machines hang on one network, split it.

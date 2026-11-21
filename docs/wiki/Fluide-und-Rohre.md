@@ -17,9 +17,9 @@ Die Pumpe saugt Quellblöcke unter sich ab: Wasser, Lava oder Erdöl, bis zu 8 B
 | Tanks | 16.000 mB |
 | Upgrade-Slots | 2 |
 
-![Das Fenster der Pumpe: Tank und Eimerslots, Knopf „Seite“ für die Ausgangsseite.](../images/screenshots/gui-fluid-pump.png)
+![Das Fenster der Pumpe: Tank und Eimerslots. Die Pumpe gibt an allen Seiten außer vorn ab.](../images/screenshots/gui-fluid-pump.png)
 
-<sub>Das Fenster der Pumpe: Tank und Eimerslots, Knopf „Seite“ für die Ausgangsseite.</sub>
+<sub>Das Fenster der Pumpe: Tank und Eimerslots. Die Pumpe gibt an allen Seiten außer vorn ab.</sub>
 
 ![Rezept: Pumpe](images/rezepte/crafting_shaped_fluid_pump.svg)
 
@@ -30,7 +30,7 @@ Die Pumpe saugt Quellblöcke unter sich ab: Wasser, Lava oder Erdöl, bis zu 8 B
 Das Kupferrohr transportiert Flüssigkeiten und Gase, 200 mB pro Tick. Zwei wichtige Regeln:
 
 - Ein Rohrnetz führt **immer nur ein Fluid**. Erst wenn es leer ist, kann ein anderes hinein. Für Wasser und Erdöl brauchst du also getrennte Rohre.
-- Rohre ziehen nie selbst. Maschinen und Tanks **schieben** ihre Ausgabe über ihre Ausgangsseite hinein.
+- Rohre ziehen nie selbst. Maschinen und Tanks **schieben** ihre Ausgabe hinein: die Pumpe an allen Seiten außer vorn, Tanks an allen Seiten, andere Maschinen über ihre Ausgangsseite.
 
 ![Rezept: Kupferrohr](images/rezepte/crafting_shaped_copper_pipe.svg)
 
@@ -38,7 +38,7 @@ Das Kupferrohr transportiert Flüssigkeiten und Gase, 200 mB pro Tick. Zwei wich
 
 ## Tank
 
-Der Tank fasst 16.000 mB einer Flüssigkeit. Er gibt nur über seine Ausgangsseite ab und behält seinen Inhalt, wenn du ihn abbaust. Gase passen nicht hinein; sie bleiben vorerst im Tank der Maschine.
+Der Tank fasst 16.000 mB einer Flüssigkeit. Er nimmt an allen Seiten an und gibt an allen ab, aber nie an einen anderen Tank. Abgebaut behält er seinen Inhalt; der Tooltip zeigt ihn an. Gase passen nicht hinein; sie bleiben vorerst im Tank der Maschine.
 
 | Steckbrief: Tank |  |
 | --- | --- |

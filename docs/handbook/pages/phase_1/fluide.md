@@ -16,7 +16,7 @@ Die <item:infinite_horizon:fluid_pump> saugt Quellblöcke unter sich ab: Wasser,
 
 @machine infinite_horizon:fluid_pump
 
-@image ../images/screenshots/gui-fluid-pump.png | Das Fenster der Pumpe: Tank und Eimerslots, Knopf „Seite“ für die Ausgangsseite.
+@image ../images/screenshots/gui-fluid-pump.png | Das Fenster der Pumpe: Tank und Eimerslots. Die Pumpe gibt an allen Seiten außer vorn ab.
 @recipes_for infinite_horizon:fluid_pump
 
 ## Kupferrohr
@@ -24,13 +24,13 @@ Die <item:infinite_horizon:fluid_pump> saugt Quellblöcke unter sich ab: Wasser,
 Das <item:infinite_horizon:copper_pipe> transportiert Flüssigkeiten und Gase, {{value:transport:copper_pipe.throughput}} mB pro Tick. Zwei wichtige Regeln:
 
 - Ein Rohrnetz führt **immer nur ein Fluid**. Erst wenn es leer ist, kann ein anderes hinein. Für Wasser und Erdöl brauchst du also getrennte Rohre.
-- Rohre ziehen nie selbst. Maschinen und Tanks **schieben** ihre Ausgabe über ihre Ausgangsseite hinein.
+- Rohre ziehen nie selbst. Maschinen und Tanks **schieben** ihre Ausgabe hinein: die Pumpe an allen Seiten außer vorn, Tanks an allen Seiten, andere Maschinen über ihre Ausgangsseite.
 
 @recipes_for infinite_horizon:copper_pipe
 
 ## Tank
 
-Der <item:infinite_horizon:fluid_tank> fasst {{value:storage:fluid_tank.capacity}} mB einer Flüssigkeit. Er gibt nur über seine Ausgangsseite ab und behält seinen Inhalt, wenn du ihn abbaust. Gase passen nicht hinein; sie bleiben vorerst im Tank der Maschine.
+Der <item:infinite_horizon:fluid_tank> fasst {{value:storage:fluid_tank.capacity}} mB einer Flüssigkeit. Er nimmt an allen Seiten an und gibt an allen ab, aber nie an einen anderen Tank. Abgebaut behält er seinen Inhalt; der Tooltip zeigt ihn an. Gase passen nicht hinein; sie bleiben vorerst im Tank der Maschine.
 
 @machine infinite_horizon:fluid_tank
 

@@ -324,12 +324,14 @@ public final class IhGameTestsExtended {
 
     /** Kupferrohr begrenzt auf 200 mB/t (transport.json). */
     public static void pipeThroughputLimit(GameTestHelper h) {
-        FluidTankBlockEntity a = place(h, new BlockPos(1, 1, 1), ModBlocks.FLUID_TANK.get(), Direction.EAST, FluidTankBlockEntity.class);
+        FluidTankBlockEntity a = place(h, new BlockPos(1, 1, 1), ModBlocks.FLUID_TANK.get(), Direction.NORTH, FluidTankBlockEntity.class);
         a.tank().setStackUnchecked(IhFluidStack.of(WATER, 8000));
         h.setBlock(new BlockPos(2, 1, 1), ModBlocks.COPPER_PIPE.get());
-        FluidTankBlockEntity b = place(h, new BlockPos(3, 1, 1), ModBlocks.FLUID_TANK.get(), Direction.SOUTH, FluidTankBlockEntity.class);
+        // Ä31: Speicher geben nicht an Speicher ab; Empfänger ist der Eingangstank eines Elektrolyseurs (Westseite)
+        ProcessingMachineBlockEntity b = place(h, new BlockPos(3, 1, 1), ModBlocks.ELECTROLYZER.get(), Direction.NORTH,
+                ProcessingMachineBlockEntity.class);
         h.runAfterDelay(5, () -> {
-            long got = b.tank().stack().amount();
+            long got = b.fluidTanks().getFirst().stack().amount();
             h.assertTrue(got > 0 && got <= 6 * 200, "Nach 5 t angekommen: " + got + " mB (höchstens 6 × 200)");
             h.succeed();
         });
@@ -348,7 +350,7 @@ public final class IhGameTestsExtended {
         h.succeed();
     }
 
-    /** Fluid über die Loader-API in den Tank; an der Ausgangsseite nimmt er nichts an. */
+    /** Fluid über die Loader-API in den Tank; seit Ä31 nimmt ein Speicher an jeder Seite an, auch vorn. */
     public static void fluidPlatformApiInsert(GameTestHelper h) {
         BlockPos pos = new BlockPos(1, 1, 1);
         FluidTankBlockEntity t = place(h, pos, ModBlocks.FLUID_TANK.get(), Direction.NORTH, FluidTankBlockEntity.class);
@@ -356,9 +358,9 @@ public final class IhGameTestsExtended {
         h.assertTrue(side != null, "Keine Fluid-Schnittstelle an der Westseite");
         long in = side.insert(IhFluidStack.of(WATER, 1000), false);
         h.assertTrue(in == 1000 && t.tank().stack().amount() == 1000, "Eingefügt " + in + ", Tank " + t.tank().stack());
-        FluidTarget out = Services.FLUID.findTarget(h.getLevel(), h.absolutePos(pos), Direction.NORTH);
-        long rejected = out == null ? 0 : out.insert(IhFluidStack.of(WATER, 1000), false);
-        h.assertTrue(rejected == 0 && t.tank().stack().amount() == 1000, "Ausgangsseite nahm " + rejected + " mB an");
+        FluidTarget front = Services.FLUID.findTarget(h.getLevel(), h.absolutePos(pos), Direction.NORTH);
+        long more = front == null ? 0 : front.insert(IhFluidStack.of(WATER, 1000), false);
+        h.assertTrue(more == 1000 && t.tank().stack().amount() == 2000, "Vorderseite nahm " + more + " mB an");
         h.succeed();
     }
 

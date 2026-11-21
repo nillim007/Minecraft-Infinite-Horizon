@@ -9,7 +9,7 @@ The <item:infinite_horizon:fluid_pump> drains source blocks below it: water, lav
 
 @machine infinite_horizon:fluid_pump
 
-@image ../images/screenshots/gui-fluid-pump.png | The pump window: tank and bucket slots, "Side" button for the output side.
+@image ../images/screenshots/gui-fluid-pump.png | The pump window: tank and bucket slots. The pump outputs on every side except its front.
 @recipes_for infinite_horizon:fluid_pump
 
 ## Copper pipe
@@ -17,13 +17,13 @@ The <item:infinite_horizon:fluid_pump> drains source blocks below it: water, lav
 The <item:infinite_horizon:copper_pipe> carries liquids and gases, {{value:transport:copper_pipe.throughput}} mB per tick. Two important rules:
 
 - A pipe network always carries **only one fluid**. Only once it is empty can another one enter. So water and crude oil need separate pipes.
-- Pipes never pull by themselves. Machines and tanks **push** their output in through their output side.
+- Pipes never pull by themselves. Machines and tanks **push** their output in: the pump on every side except its front, tanks on every side, other machines through their output side.
 
 @recipes_for infinite_horizon:copper_pipe
 
 ## Tank
 
-The <item:infinite_horizon:fluid_tank> holds {{value:storage:fluid_tank.capacity}} mB of one liquid. It outputs only through its output side and keeps its contents when you break it. Gases do not fit; for now they stay in the machine's tank.
+The <item:infinite_horizon:fluid_tank> holds {{value:storage:fluid_tank.capacity}} mB of one liquid. It accepts and outputs on every side, but never into another tank. When broken it keeps its contents; the tooltip shows them. Gases do not fit; for now they stay in the machine's tank.
 
 @machine infinite_horizon:fluid_tank
 

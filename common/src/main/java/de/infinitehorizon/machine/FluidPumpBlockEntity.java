@@ -105,6 +105,22 @@ public class FluidPumpBlockEntity extends MachineBlockEntity {
         };
     }
 
+    /** Die Pumpe gibt an allen Seiten außer vorn ab (Ä31). */
+    @Override
+    protected java.util.Set<Direction> fluidOutputSides(int k) {
+        java.util.Set<Direction> sides = java.util.EnumSet.allOf(Direction.class);
+        if (getBlockState().hasProperty(MachineBlock.FACING)) {
+            sides.remove(getBlockState().getValue(MachineBlock.FACING));
+        }
+        return sides;
+    }
+
+    /** Kein Knopf „Seite“: Ausgabe überall außer vorn. */
+    @Override
+    protected boolean hasOutputSide() {
+        return false;
+    }
+
     /** Nächste Quelle im Suchquader (4.1/6.1): bevorzugt das Fluid im Tank, sonst die nächste überhaupt. */
     public @Nullable BlockPos findSource(ServerLevel level) {
         JsonObject p = process();
@@ -164,6 +180,10 @@ public class FluidPumpBlockEntity extends MachineBlockEntity {
             return;
         }
         ProcessingMath.Effective eff = ProcessingMath.effective(stats(), installedUpgrades());
+        if (progress <= 0 && !ProcessingMath.canStart(energy.getAmount(), energy.getCapacity(), eff)) {
+            setStatus(MachineStatus.IDLE);
+            return;
+        }
         try (Transaction tx = Transaction.open()) {
             if (!energy.consumeInternal(eff.energyPerTick(), tx)) {
                 setStatus(MachineStatus.IDLE);

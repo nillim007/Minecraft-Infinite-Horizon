@@ -19,7 +19,7 @@ public final class IhTestCatalog {
     }
 
     public static final List<Test> ALL = List.of(
-            new Test("crusher_rawiron_twodustwithin220ticks", 220, null, null, null, IhGameTests::crusherRawIronTwoDust),  // 27 M1
+            new Test("crusher_rawiron_twodustwithin440ticks", 440, null, null, null, IhGameTests::crusherRawIronTwoDust),  // 27 M1, Ä31 (Start erst mit Strom für den ganzen Vorgang)
             new Test("crusher_balancechange_changesduration", 20, null, null, null, IhGameTests::crusherBalanceChangesDuration),  // 27 M1
             new Test("cable_platformconsumer_receivesenergy", 100, null, null, null, IhGameTests::cablePlatformConsumerReceivesEnergy),  // 27 M1
             new Test("machines_rawtitanium_platewithin440ticks", 440, null, null, null, IhGameTests::machinesRawTitaniumToPlate),  // 27.3 M2a
@@ -275,7 +275,16 @@ public final class IhTestCatalog {
             new Test("advancements_all_loaded", 20, null, null, null, IhGameTestsM9c::allLoaded),  // 24.3, M9c
             new Test("advancement_venus_return", 20, null, null, "infinite_horizon:venus", IhGameTestsM9c::venusReturn),  // 24.3, M9c
             new Test("advancement_sun_in_a_bottle", 200, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM9c::sunInABottle),  // 24.3, M9c
-            new Test("advancement_network_routes", 20, null, null, null, IhGameTestsM9c::network)  // 24.3, M9c
+            new Test("advancement_network_routes", 20, null, null, null, IhGameTestsM9c::network),  // 24.3, M9c
+            new Test("p1_pump_outputs_all_sides_except_front", 120, null, null, null, IhGameTestsP1::pumpOutputsAllSidesExceptFront),  // Spieltest Phase 1, Ä31
+            new Test("p1_storage_feeds_machines_not_storage", 60, null, null, null, IhGameTestsP1::storageFeedsMachinesNotStorage),  // Spieltest Phase 1, Ä31
+            new Test("p1_storage_accepts_every_side", 20, null, null, null, IhGameTestsP1::storageAcceptsEverySide),  // Spieltest Phase 1, Ä31
+            new Test("p1_electrolyzer_gases_two_sides", 120, null, null, null, IhGameTestsP1::electrolyzerGasesTwoSides),  // Spieltest Phase 1, Ä31
+            new Test("p1_pipe_reconnects_after_side_change", 20, null, null, null, IhGameTestsP1::pipeReconnectsAfterSideChange),  // Spieltest Phase 1, Ä31
+            new Test("p1_assembly_accepts_surplus", 300, null, null, null, IhGameTestsP1::assemblyAcceptsSurplus),  // Spieltest Phase 1, Ä31
+            new Test("p1_machine_waits_for_energy", 40, null, null, null, IhGameTestsP1::machineWaitsForEnergy),  // Spieltest Phase 1, Ä31
+            new Test("p1_tank_keeps_fluid_when_broken", 40, null, null, null, IhGameTestsP1::tankKeepsFluidWhenBroken),  // Spieltest Phase 1, Ä31
+            new Test("p1_sample_removes_block", 20, null, null, null, IhGameTestsP1::sampleRemovesBlock)  // Spieltest Phase 1, Ä31
     );
 
     /** Testumgebung: ID und Setup-Funktion (null = leer). Fabric liest dieselben Werte als JSON. */

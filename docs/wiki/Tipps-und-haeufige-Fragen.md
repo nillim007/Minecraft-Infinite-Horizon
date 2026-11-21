@@ -18,9 +18,9 @@
 
 **Die Lampe ist rot.** Die Ausgabe ist voll, oder bei der Raffinerie fehlt ein Block. Fahr im Fenster mit der Maus über die Lampe, dort steht der Grund.
 
-**Der Montagetisch startet nicht.** Er braucht die Zutaten in genau der richtigen Menge. Nimm Überschuss heraus. Siehe [Montagetisch](Montagetisch.md).
+**Der Montagetisch startet nicht.** Er braucht jede Zutat mindestens in der Rezeptmenge und keine fremden Items in den Slots. Siehe [Montagetisch](Montagetisch.md).
 
-**Das Rohr transportiert nichts.** Ein Rohrnetz führt nur ein Fluid. Steckt noch ein anderes darin, wartet es, bis das Netz leer ist. Prüfe auch die Ausgangsseite der Quelle (Knopf „Seite“).
+**Das Rohr transportiert nichts.** Ein Rohrnetz führt nur ein Fluid. Steckt noch ein anderes darin, wartet es, bis das Netz leer ist. Prüfe auch, ob die Quelle zu dieser Seite abgibt: die Pumpe nicht vorn, Maschinen nur über ihre Ausgangsseite (Knopf „Seite“).
 
 **Meine Maschinen laufen langsam, obwohl der Generator voll ist.** Ein Kupferkabel trägt nur 256 J/t. Hängen zu viele Maschinen an einem Netz, teile es auf.
 

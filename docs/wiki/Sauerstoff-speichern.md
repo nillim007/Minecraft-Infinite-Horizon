@@ -21,7 +21,7 @@ Den Inhalt zeigt der Tooltip. Flaschen nehmen nur Sauerstoff.
 
 ## Die Druckflasche
 
-Die Druckflasche ist ein Tank nur für Gase und fasst 8.000 mB. Sie hat wie der Fluidtank eine Ausgangsseite und Füll- und Leerslots. Abgebaut behält sie ihren Inhalt.
+Die Druckflasche ist ein Tank nur für Gase und fasst 8.000 mB. Sie nimmt wie der Fluidtank an allen Seiten an und gibt an allen ab, nie an andere Speicher, und hat Füll- und Leerslots. Abgebaut behält sie ihren Inhalt.
 
 | Steckbrief: Druckflasche |  |
 | --- | --- |

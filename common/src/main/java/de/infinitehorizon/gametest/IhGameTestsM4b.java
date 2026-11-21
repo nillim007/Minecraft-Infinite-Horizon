@@ -83,11 +83,10 @@ public final class IhGameTestsM4b {
         }
         h.assertTrue(data != null && data.block().equals(BAUXITE) && data.dimension().equals(OVERWORLD),
                 "Komponente sample: " + data);
-        h.assertBlockPresent(ModBlocks.simple("bauxite_ore").get(), natural);
+        // Ä31: Die Probe ersetzt den Block; ein zweiter Klick findet nichts mehr
+        h.assertBlockPresent(net.minecraft.world.level.block.Blocks.AIR, natural);
         useTool(h, p, tool, natural);
         h.assertTrue(samples(p) == 1, "zweiter Klick gab eine Probe");
-        h.assertTrue(SampleTool.sample(h.getLevel(), h.absolutePos(natural), p) == SampleTool.Result.ALREADY_SAMPLED,
-                "zweiter Klick nicht als „schon beprobt“ erkannt");
 
         // vom Spieler gesetzt: nie beprobbar
         BlockPos placed = new BlockPos(4, 1, 1);

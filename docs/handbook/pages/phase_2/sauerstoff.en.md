@@ -18,7 +18,7 @@ The tooltip shows the contents. Canisters only take oxygen.
 
 ## The pressure bottle
 
-The <item:infinite_horizon:pressure_bottle> is a tank for gases only and holds {{value:storage:pressure_bottle.capacity}} mB. Like the fluid tank it has an output side and fill and drain slots. When broken, it keeps its contents.
+The <item:infinite_horizon:pressure_bottle> is a tank for gases only and holds {{value:storage:pressure_bottle.capacity}} mB. Like the fluid tank it accepts and outputs on every side, never into other storage, and has fill and drain slots. When broken, it keeps its contents.
 
 @machine infinite_horizon:pressure_bottle
 

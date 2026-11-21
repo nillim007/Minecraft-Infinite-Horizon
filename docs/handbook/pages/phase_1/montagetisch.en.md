@@ -13,13 +13,13 @@ The assembly table has **9 input slots** without a fixed pattern, a fluid tank a
 
 @recipes_for infinite_horizon:assembly_table
 
-## Measure exactly
+## Put in enough
 
-The assembly table is picky: a recipe only starts if the slots hold **exactly** the ingredients in **exactly** the right amount. If a slot holds a little too much or something else, nothing happens.
+A recipe starts as soon as every ingredient is there in **at least** the recipe amount. More is fine; foreign items in the slots prevent the start.
 
 - One ingredient may occupy several slots. The amounts are added up.
-- Exactly the amount from the recipe is used.
-- Example: 4 <item:infinite_horizon:iron_plate> and 1 <item:infinite_horizon:copper_pipe> give a <item:infinite_horizon:fluid_port>. With 2 plates and 1 pipe you get <item:infinite_horizon:refinery_casing> instead.
+- Exactly the recipe amount is used; the rest stays.
+- If several recipes fit, the table takes the one that uses the most. Example: 4 <item:infinite_horizon:iron_plate> and 1 <item:infinite_horizon:copper_pipe> give a <item:infinite_horizon:fluid_port>, 2 or 3 plates and 1 pipe give <item:infinite_horizon:refinery_casing>.
 
 ## The circuit
 
@@ -31,4 +31,4 @@ The <item:infinite_horizon:circuit> goes into almost every machine from phase 2 
 
 @recipes_type assembly
 
-@tip If the arrow does not start although everything seems to be there: take everything out and put the ingredients back in exactly the recipe amounts.
+@tip If the arrow does not start although everything seems to be there: check for a foreign item in a slot and whether the energy bar holds enough for the whole process.

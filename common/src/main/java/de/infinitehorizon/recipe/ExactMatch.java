@@ -80,4 +80,55 @@ public final class ExactMatch {
         }
         return false;
     }
+
+    /**
+     * Abgleich „mindestens“ (Montagetisch, Ä31): Jeder belegte Slot wird einer passenden Zutat zugeordnet, und jede
+     * Zutat bekommt zusammen mindestens ihre Menge. Fremde Items in einem Slot verhindern den Abgleich.
+     *
+     * @return Zutat-Index je Slot (-1 = leerer Slot) oder null
+     */
+    public static <S, R> int @Nullable [] assignAtLeast(List<S> slots, List<R> required, Predicate<S> isEmpty,
+                                                         BiPredicate<R, S> matches, ToIntFunction<S> count, ToIntFunction<R> amount) {
+        int[] result = new int[slots.size()];
+        Arrays.fill(result, -1);
+        List<Integer> used = new ArrayList<>();
+        for (int i = 0; i < slots.size(); i++) {
+            if (!isEmpty.test(slots.get(i))) {
+                used.add(i);
+            }
+        }
+        if (used.isEmpty()) {
+            return required.isEmpty() ? result : null;
+        }
+        long[] have = new long[required.size()];
+        return placeAtLeast(0, used, slots, required, matches, count, amount, have, result) ? result : null;
+    }
+
+    private static <S, R> boolean placeAtLeast(int k, List<Integer> used, List<S> slots, List<R> required,
+                                               BiPredicate<R, S> matches, ToIntFunction<S> count, ToIntFunction<R> amount,
+                                               long[] have, int[] result) {
+        if (k == used.size()) {
+            for (int r = 0; r < required.size(); r++) {
+                if (have[r] < amount.applyAsInt(required.get(r))) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        int slot = used.get(k);
+        S s = slots.get(slot);
+        int c = count.applyAsInt(s);
+        for (int r = 0; r < required.size(); r++) {
+            if (matches.test(required.get(r), s)) {
+                have[r] += c;
+                result[slot] = r;
+                if (placeAtLeast(k + 1, used, slots, required, matches, count, amount, have, result)) {
+                    return true;
+                }
+                have[r] -= c;
+                result[slot] = -1;
+            }
+        }
+        return false;
+    }
 }

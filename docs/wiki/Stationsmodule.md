@@ -12,7 +12,7 @@ Die Andockbucht ist ein Landeplatz für Raketen. Sie erscheint wie ein Landefeue
 
 ## Tankdepot
 
-Das Tankdepot fasst 256.000 mB eines Fluids. Es gibt nur über seine Ausgangsseite ab, alle anderen Seiten nehmen auf. Neben der Andockbucht ist es der Treibstoffspeicher deiner Station.
+Das Tankdepot fasst 256.000 mB eines Fluids. Es nimmt an allen Seiten an und gibt an allen ab, aber nie an andere Speicher. Neben der Andockbucht ist es der Treibstoffspeicher deiner Station.
 
 | Steckbrief: Tankdepot |  |
 | --- | --- |

@@ -7,7 +7,7 @@
     "infinite_horizon:domes": {}
   },
   "tests": [
-    {"name": "crusher_rawiron_twodustwithin220ticks", "class": "IhGameTests", "method": "crusherRawIronTwoDust", "ticks": 220, "ref": "27 M1"},
+    {"name": "crusher_rawiron_twodustwithin440ticks", "class": "IhGameTests", "method": "crusherRawIronTwoDust", "ticks": 440, "ref": "27 M1, Ä31 (Start erst mit Strom für den ganzen Vorgang)"},
     {"name": "crusher_balancechange_changesduration", "class": "IhGameTests", "method": "crusherBalanceChangesDuration", "ticks": 20, "ref": "27 M1"},
     {"name": "cable_platformconsumer_receivesenergy", "class": "IhGameTests", "method": "cablePlatformConsumerReceivesEnergy", "ticks": 100, "ref": "27 M1"},
     {"name": "machines_rawtitanium_platewithin440ticks", "class": "IhGameTests", "method": "machinesRawTitaniumToPlate", "ticks": 440, "ref": "27.3 M2a"},
@@ -263,6 +263,15 @@
     {"name": "advancements_all_loaded", "class": "IhGameTestsM9c", "method": "allLoaded", "ticks": 20, "ref": "24.3, M9c"},
     {"name": "advancement_venus_return", "class": "IhGameTestsM9c", "method": "venusReturn", "ticks": 20, "dimension": "infinite_horizon:venus", "ref": "24.3, M9c"},
     {"name": "advancement_sun_in_a_bottle", "class": "IhGameTestsM9c", "method": "sunInABottle", "ticks": 200, "structure": "infinite_horizon:gametest/empty_large", "ref": "24.3, M9c"},
-    {"name": "advancement_network_routes", "class": "IhGameTestsM9c", "method": "network", "ticks": 20, "ref": "24.3, M9c"}
+    {"name": "advancement_network_routes", "class": "IhGameTestsM9c", "method": "network", "ticks": 20, "ref": "24.3, M9c"},
+    {"name": "p1_pump_outputs_all_sides_except_front", "class": "IhGameTestsP1", "method": "pumpOutputsAllSidesExceptFront", "ticks": 120, "ref": "Spieltest Phase 1, Ä31"},
+    {"name": "p1_storage_feeds_machines_not_storage", "class": "IhGameTestsP1", "method": "storageFeedsMachinesNotStorage", "ticks": 60, "ref": "Spieltest Phase 1, Ä31"},
+    {"name": "p1_storage_accepts_every_side", "class": "IhGameTestsP1", "method": "storageAcceptsEverySide", "ticks": 20, "ref": "Spieltest Phase 1, Ä31"},
+    {"name": "p1_electrolyzer_gases_two_sides", "class": "IhGameTestsP1", "method": "electrolyzerGasesTwoSides", "ticks": 120, "ref": "Spieltest Phase 1, Ä31"},
+    {"name": "p1_pipe_reconnects_after_side_change", "class": "IhGameTestsP1", "method": "pipeReconnectsAfterSideChange", "ticks": 20, "ref": "Spieltest Phase 1, Ä31"},
+    {"name": "p1_assembly_accepts_surplus", "class": "IhGameTestsP1", "method": "assemblyAcceptsSurplus", "ticks": 300, "ref": "Spieltest Phase 1, Ä31"},
+    {"name": "p1_machine_waits_for_energy", "class": "IhGameTestsP1", "method": "machineWaitsForEnergy", "ticks": 40, "ref": "Spieltest Phase 1, Ä31"},
+    {"name": "p1_tank_keeps_fluid_when_broken", "class": "IhGameTestsP1", "method": "tankKeepsFluidWhenBroken", "ticks": 40, "ref": "Spieltest Phase 1, Ä31"},
+    {"name": "p1_sample_removes_block", "class": "IhGameTestsP1", "method": "sampleRemovesBlock", "ticks": 20, "ref": "Spieltest Phase 1, Ä31"}
   ]
 }

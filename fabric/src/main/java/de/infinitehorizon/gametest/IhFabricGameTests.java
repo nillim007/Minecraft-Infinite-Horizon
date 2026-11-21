@@ -9,8 +9,8 @@ import net.minecraft.gametest.framework.GameTestHelper;
  */
 public class IhFabricGameTests {
 
-    @GameTest(maxTicks = 220)
-    public void crusherRawironTwodustwithin220ticks(GameTestHelper helper) {
+    @GameTest(maxTicks = 440)
+    public void crusherRawironTwodustwithin440ticks(GameTestHelper helper) {
         IhGameTests.crusherRawIronTwoDust(helper);
     }
 
@@ -1292,5 +1292,50 @@ public class IhFabricGameTests {
     @GameTest(maxTicks = 20)
     public void advancementNetworkRoutes(GameTestHelper helper) {
         IhGameTestsM9c.network(helper);
+    }
+
+    @GameTest(maxTicks = 120)
+    public void p1PumpOutputsAllSidesExceptFront(GameTestHelper helper) {
+        IhGameTestsP1.pumpOutputsAllSidesExceptFront(helper);
+    }
+
+    @GameTest(maxTicks = 60)
+    public void p1StorageFeedsMachinesNotStorage(GameTestHelper helper) {
+        IhGameTestsP1.storageFeedsMachinesNotStorage(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void p1StorageAcceptsEverySide(GameTestHelper helper) {
+        IhGameTestsP1.storageAcceptsEverySide(helper);
+    }
+
+    @GameTest(maxTicks = 120)
+    public void p1ElectrolyzerGasesTwoSides(GameTestHelper helper) {
+        IhGameTestsP1.electrolyzerGasesTwoSides(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void p1PipeReconnectsAfterSideChange(GameTestHelper helper) {
+        IhGameTestsP1.pipeReconnectsAfterSideChange(helper);
+    }
+
+    @GameTest(maxTicks = 300)
+    public void p1AssemblyAcceptsSurplus(GameTestHelper helper) {
+        IhGameTestsP1.assemblyAcceptsSurplus(helper);
+    }
+
+    @GameTest(maxTicks = 40)
+    public void p1MachineWaitsForEnergy(GameTestHelper helper) {
+        IhGameTestsP1.machineWaitsForEnergy(helper);
+    }
+
+    @GameTest(maxTicks = 40)
+    public void p1TankKeepsFluidWhenBroken(GameTestHelper helper) {
+        IhGameTestsP1.tankKeepsFluidWhenBroken(helper);
+    }
+
+    @GameTest(maxTicks = 20)
+    public void p1SampleRemovesBlock(GameTestHelper helper) {
+        IhGameTestsP1.sampleRemovesBlock(helper);
     }
 }

@@ -226,8 +226,9 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
             lastRecipeSource = level.recipeAccess();
         }
         java.util.UUID owner = owner();
-        // zuerst das zuletzt passende Rezept (spart die Suche über alle Rezepte, Leistungstest 27.2)
-        if (lastRecipe != null) {
+        // zuerst das zuletzt passende Rezept (spart die Suche über alle Rezepte, Leistungstest 27.2); beim Montagetisch
+        // nicht, dort gewinnt das größte passende Rezept (Ä31)
+        if (lastRecipe != null && !lastRecipe.kind().exact()) {
             ProcessingRecipe.Match m = lastRecipe.match(input);
             if (m != null && ResearchRecipeLock.isUnlocked(lastRecipe, owner, level.getServer())) {
                 recipeLocked = false;
@@ -236,6 +237,9 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         }
         // SPEC-GAP #65: nach ID sortierte Liste je Rezeptart, gesperrt meldet SYNC_HINT
         boolean locked = false;
+        ProcessingRecipe best = null;
+        ProcessingRecipe.Match bestMatch = null;
+        long bestWeight = -1;
         for (ProcessingRecipe.Kind kind : kinds.get()) {
             for (RecipeHolder<ProcessingRecipe> holder : ResearchRecipeLock.sorted(level, kind.type())) {
                 ProcessingRecipe r = holder.value();
@@ -247,10 +251,25 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
                     locked = true;
                     continue;
                 }
-                lastRecipe = r;
-                recipeLocked = false;
-                return Optional.of(planOf(r, m));
+                if (!kind.exact()) {
+                    lastRecipe = r;
+                    recipeLocked = false;
+                    return Optional.of(planOf(r, m));
+                }
+                // Montagetisch (Ä31): mehr Material als nötig ist erlaubt; es gewinnt das Rezept, das am meisten
+                // verbraucht, bei Gleichstand das erste nach Rezept-ID
+                long w = m.weight();
+                if (w > bestWeight) {
+                    best = r;
+                    bestMatch = m;
+                    bestWeight = w;
+                }
             }
+        }
+        if (best != null) {
+            lastRecipe = best;
+            recipeLocked = false;
+            return Optional.of(planOf(best, bestMatch));
         }
         recipeLocked = locked;
         return Optional.empty();
@@ -515,6 +534,10 @@ public class ProcessingMachineBlockEntity extends MachineBlockEntity {
         }
         ProcessingMath.Effective eff = effective(plan);
         currentTicks = eff.ticks();
+        if (progress <= 0 && !ProcessingMath.canStart(energy.getAmount(), energy.getCapacity(), eff)) {
+            setStatus(MachineStatus.IDLE);
+            return;
+        }
         if (!energy.useInternal(eff.energyPerTick())) {
             setStatus(MachineStatus.IDLE);
             return;

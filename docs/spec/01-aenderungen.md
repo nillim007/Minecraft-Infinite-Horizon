@@ -34,6 +34,7 @@ Diese Entscheidungen lösen Widersprüche und Sackgassen. **Bitte prüfen**, bev
 | Ä28 | Lückentest Meilenstein 4 (`docs/dev/lueckentest-m4.md`, 12.11.2026): 26 Lücken, die bei M4 zu Rückfragen geführt hätten | In die Kapitel 3, 3A, 4, 6, 9, 10, 11, 12, 13, 22, 23, 24, 25, 26, 27 und 28 eingearbeitet; Rampenmuster und `fuel_pump` in `machines.json`, Flug-, Rundungs- und Landefeuerwerte in `spaceflight.json`, Probenregeln in `balance/research.json`, Agentur-Regeln und Erfolge in `misc.json` sowie Regeln in `storage.json`, `balance/items.json` und `suits.json` ergänzt (Stichpunkte unten). Ob Mengen-Multiplikatoren unter 1 zutatengleiche Rezepte trennen, bleibt in Kapitel 28 offen. |
 | Ä29 | Entscheidungen zu Kapitel 28 (19.11.2026, nach Empfehlung) | Ä1–Ä28 und Basispaket bestätigt; Sauerstoff-Balance bleibt; Mindestfaktor `min_multiplier` gegen zutatengleiche Rezepte unter Multiplikator 1 (22.3, 25.4) |
 | Ä30 | JEI im NeoForge-Jar (20.11.2026, Auftraggeber) | JEI als Jar-in-Jar, damit LAN-Host und Gast dasselbe JEI haben; LAN-Test mit zwei Clients in der CI (3.9) |
+| Ä31 | Spieltest Phase 1 (21.11.2026, Auftraggeber) | Ausgangsseiten von Pumpe, Speichern und Maschinen mit mehreren Gasen; Montagetisch mit Überschuss; Start erst mit Strom für den ganzen Vorgang; Probe ersetzt den Block; Inhalt im Tooltip, vorgefüllte Tanks (4, 11, 22, 27). Liste: `docs/dev/spieltest-phase1.md` |
 
 **Ä24: Lückentest Meilenstein 2**
 
@@ -101,3 +102,15 @@ Anlass: Ein Gast ohne JEI wurde von einem LAN-Host mit JEI abgewiesen („The se
 - Das NeoForge-Jar enthält JEI (neueste offizielle Version, `jei_version` in `gradle.properties`) als Jar-in-Jar; Host und Gast haben damit immer dasselbe JEI. Ein neueres JEI im mods-Ordner gewinnt.
 - CI-Job „LAN-Test (NeoForge)“: zwei echte Clients, der Host öffnet seine Welt im LAN, der Gast tritt bei; geprüft werden Beitritt ohne Trennung, Mod-Inhalte und Config beim Gast sowie JEI im Jar.
 - Fabric bleibt unverändert (JEI/REI nur `compileOnly`).
+
+**Ä31: Spieltest Phase 1 (21.11.2026)**
+
+Änderungswünsche des Auftraggebers nach dem Durchspielen von Phase 1; vollständige Liste mit Status in `docs/dev/spieltest-phase1.md`.
+
+- Ausgangsseiten (4.1, 4.4): Die Pumpe gibt an allen Seiten außer vorn ab. Fluid-Speicher nehmen an allen Seiten an und geben an allen ab, aber nie an andere Fluid-Speicher. Maschinen mit mehreren Ausgangstanks (Elektrolyseur) haben je Tank eine Ausgangsseite, sodass beide Gase in Druckflaschen abfließen. Rohre verbinden sich sofort neu, wenn eine Seite umgestellt wird.
+- Montagetisch (22.3): Überschuss ist erlaubt; es gilt das passende Rezept mit der größten verbrauchten Menge.
+- Strom (4.1): Ein Vorgang startet erst, wenn Strom für den ganzen Vorgang im Speicher ist (ein voller Speicher reicht, wenn er kleiner ist). Die M1-Abnahme gilt darum mit 440 statt 220 t.
+- Probenzange (11.2): Die Probe ersetzt den Block, er verschwindet ohne Drop.
+- Tooltips: Tanks, Druckflaschen, Gastanks und Tankdepots zeigen ihren Inhalt, Akkus ihre Ladung; auch Gastank, Tankdepot und Lithium-Akkubank behalten ihn beim Abbauen. Der Hinweis auf die Handbuch-Taste erscheint nur mit gedrückter Umschalttaste.
+- Kreativ-Tab: vorgefüllte Flüssigkeitstanks (Erdöl, Kerosin, Wasser); per Befehl mit der Komponente `infinite_horizon:fluid`.
+- Shift-Klick in ein Maschinenfenster wird nicht mehr auf dem Client vorhergesagt (keine Geister-Items).

@@ -16,7 +16,7 @@ Die <item:infinite_horizon:docking_bay> ist ein Landeplatz für Raketen. Sie ers
 
 ## Tankdepot
 
-Das <item:infinite_horizon:tank_depot> fasst {{value:storage:infinite_horizon:tank_depot.capacity}} mB eines Fluids. Es gibt nur über seine Ausgangsseite ab, alle anderen Seiten nehmen auf. Neben der Andockbucht ist es der Treibstoffspeicher deiner Station.
+Das <item:infinite_horizon:tank_depot> fasst {{value:storage:infinite_horizon:tank_depot.capacity}} mB eines Fluids. Es nimmt an allen Seiten an und gibt an allen ab, aber nie an andere Speicher. Neben der Andockbucht ist es der Treibstoffspeicher deiner Station.
 
 @machine infinite_horizon:tank_depot
 

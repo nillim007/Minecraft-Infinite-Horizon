@@ -266,7 +266,8 @@ public final class IhGameTestsM2d {
         h.assertTrue("refinery_casing".equals(r3), "2 Platten + 1 Rohr ergeben " + r3 + ", erwartet refinery_casing");
         t.setItem(0, new ItemStack(plate, 5));
         String r4 = resultOf(assemblyRecipe(h, t));
-        h.assertTrue("-".equals(r4), "5 Platten + 1 Rohr ergeben " + r4 + ", erwartet nichts (Überschuss)");
+        // Ä31: Überschuss ist erlaubt; das größere passende Rezept gewinnt
+        h.assertTrue("fluid_port".equals(r4), "5 Platten + 1 Rohr ergeben " + r4 + ", erwartet fluid_port (Überschuss bleibt)");
         t.setItem(0, new ItemStack(plate, 4));
         t.setItem(2, new ItemStack(Items.STONE));
         String r5 = resultOf(assemblyRecipe(h, t));
@@ -300,7 +301,8 @@ public final class IhGameTestsM2d {
         ProcessingMachineBlockEntity e = machine(h, new BlockPos(1, 1, 1), ModBlocks.ELECTROLYZER.get(),
                 ProcessingMachineBlockEntity.class);
         fullEnergy(e);
-        FluidTarget in = e.fluidInput(Direction.EAST);
+        // Ä31: Front (Norden) gibt Wasserstoff ab, rechts (Osten) Sauerstoff; Westen nimmt Wasser an
+        FluidTarget in = e.fluidInput(Direction.WEST);
         h.assertTrue(in != null, "Elektrolyseur hat keinen Eingang");
         h.assertTrue(in.insert(IhFluidStack.of(OIL, 100), false) == 0, "Elektrolyseur nahm Erdöl an");
         h.assertTrue(in.insert(IhFluidStack.of(WATER, 200), false) == 200, "Elektrolyseur nahm kein Wasser an");

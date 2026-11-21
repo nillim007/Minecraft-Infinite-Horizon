@@ -199,6 +199,11 @@ public class MachineMenu extends AbstractContainerMenu {
                 return ItemStack.EMPTY;
             }
         } else {
+            // Der Client kennt die Slotregeln nicht (einfacher Container): ohne Vorhersage verschiebt nur der Server und
+            // schickt die geänderten Slots; sonst blieben Geister-Items in Form- oder Upgrade-Slots stehen (Ä31)
+            if (player.level().isClientSide()) {
+                return ItemStack.EMPTY;
+            }
             // Upgrade → Upgrade-Slot, Pressform → Formslot, sonst Eingabe (4.1): Ziel-Slots nach Vorrang der Rolle
             boolean moved = false;
             MachineLayout l = openData.layout();

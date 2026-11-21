@@ -9,7 +9,7 @@ The <item:infinite_horizon:docking_bay> is a landing pad for rockets. Like a lan
 
 ## Tank depot
 
-The <item:infinite_horizon:tank_depot> holds {{value:storage:infinite_horizon:tank_depot.capacity}} mB of one fluid. It outputs only through its output side; all other sides accept. Next to the docking bay it is your station's fuel store.
+The <item:infinite_horizon:tank_depot> holds {{value:storage:infinite_horizon:tank_depot.capacity}} mB of one fluid. It accepts and outputs on every side, but never into other storage. Next to the docking bay it is your station's fuel store.
 
 @machine infinite_horizon:tank_depot
 

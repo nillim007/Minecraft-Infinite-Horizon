@@ -100,6 +100,10 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
     private @Nullable Object platformFluid;
     /** Gewählte Ausgangsseite für Fluide (4.1); null = {@code facing}. */
     private @Nullable Direction outputSide;
+    /** Eigene Ausgangsseite je weiterem Ausgangstank (Index 1 …; null = Standard), Ä31. */
+    private final Direction[] tankSides = new Direction[MAX_TANKS];
+    /** Angrenzende Rohre nach dem Laden einmal neu verbunden (Seitenregeln können sich geändert haben). */
+    private boolean conduitsChecked;
     /** Im GUI gewählter Tank für leere Behälter im Füllslot (4.1, Standard Tank 1). */
     private int selectedTank;
     /** Gewählte Betriebsart (Knopf „Modus“), siehe {@link #modeCount()}. */
@@ -153,7 +157,7 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
      */
     protected long syncValue(int index) {
         if (index == SYNC_SIDE) {
-            return hasOutputSide() ? outputSide().ordinal() + 1 : 0;
+            return hasOutputSide() ? outputSideOf(selectedOutputIndex()).ordinal() + 1 : 0;
         }
         if (index == SYNC_TANK) {
             List<IhFluidTank> sources = fillSources();
@@ -208,6 +212,10 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
         BalanceManager balance = BalanceManager.get();
         if (balance.isEmpty()) {
             return false;
+        }
+        if (!conduitsChecked && level != null && !level.isClientSide()) {
+            conduitsChecked = true;
+            de.infinitehorizon.block.ConduitBlock.refreshAround(level, worldPosition);
         }
         if (balance == configuredFor) {
             return true;
@@ -367,17 +375,69 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
         setChanged();
     }
 
+    /**
+     * Stellt die Ausgangsseite um. Bei mehreren Ausgangstanks (Elektrolyseur) gilt sie für den mit dem Knopf „Tank“
+     * gewählten Tank (Ä31). Angrenzende Rohre verbinden sich sofort neu.
+     */
     public void setOutputSide(@Nullable Direction side) {
-        outputSide = side;
+        int k = selectedOutputIndex();
+        if (k > 0 && k < tankSides.length) {
+            tankSides[k] = side;
+        } else {
+            outputSide = side;
+        }
         setChanged();
-        if (level instanceof LevelAccessor accessor) {
+        if (level != null && !level.isClientSide()) {
+            de.infinitehorizon.block.ConduitBlock.refreshAround(level, worldPosition);
+        } else if (level instanceof LevelAccessor accessor) {
             GridManager.invalidate(accessor);
         }
     }
 
+    /** Index des gewählten Ausgangstanks (0, wenn es keine oder nur einen gibt). */
+    protected int selectedOutputIndex() {
+        return outputTanks().size() > 1 ? Math.min(selectedTank, outputTanks().size() - 1) : 0;
+    }
+
+    /**
+     * Ausgangsseite des Ausgangstanks {@code k}: Tank 1 wie bisher {@link #outputSide()}, jeder weitere ohne eigene
+     * Einstellung um k Vierteldrehungen im Uhrzeigersinn daneben (Ä31: zwei Gase, zwei Seiten).
+     */
+    public Direction outputSideOf(int k) {
+        if (k <= 0) {
+            return outputSide();
+        }
+        if (k < tankSides.length && tankSides[k] != null) {
+            return tankSides[k];
+        }
+        Direction d = outputSide().getAxis().isVertical() ? Direction.NORTH : outputSide();
+        for (int i = 0; i < k; i++) {
+            d = d.getClockWise();
+        }
+        return d;
+    }
+
+    /** Seiten, über die Ausgangstank {@code k} abgibt. Pumpe und Speicher überschreiben das (Ä31). */
+    protected java.util.Set<Direction> fluidOutputSides(int k) {
+        return java.util.EnumSet.of(outputSideOf(k));
+    }
+
+    /** Gibt irgendein Ausgangstank über {@code side} ab? */
+    protected boolean outputsFluidOn(@Nullable Direction side) {
+        if (side == null) {
+            return false;
+        }
+        for (int k = 0; k < outputTanks().size(); k++) {
+            if (fluidOutputSides(k).contains(side)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public @Nullable FluidTarget fluidInput(@Nullable Direction side) {
-        if (inputTanks().isEmpty() || (side != null && side == outputSide() && !outputTanks().isEmpty())) {
+        if (inputTanks().isEmpty() || (!isFluidStorage() && side != null && !outputTanks().isEmpty() && outputsFluidOn(side))) {
             return null;
         }
         return (offer, simulate) -> {
@@ -403,7 +463,12 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
             return IhFluidStack.EMPTY;
         }
         try (Transaction tx = Transaction.open()) {
-            for (IhFluidTank t : outputTanks()) {
+            List<IhFluidTank> outs = outputTanks();
+            for (int k = 0; k < outs.size(); k++) {
+                if (side != null && !fluidOutputSides(k).contains(side)) {
+                    continue;
+                }
+                IhFluidTank t = outs.get(k);
                 IhFluidStack out = t.extract(fluid, max, tx);
                 if (!out.isEmpty()) {
                     if (!simulate) {
@@ -418,7 +483,7 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
 
     @Override
     public boolean providesFluidTo(@Nullable Direction side) {
-        return !outputTanks().isEmpty() && side == outputSide();
+        return outputsFluidOn(side);
     }
 
     @Override
@@ -434,19 +499,23 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
         return platformFluid;
     }
 
-    /** Schiebt den Inhalt der Ausgangstanks über die Ausgangsseite (Rohrnetz oder Nachbar). */
+    /** Schiebt den Inhalt jedes Ausgangstanks über seine Ausgangsseiten (Rohrnetz oder Nachbar). */
     protected void pushFluids(ServerLevel level) {
-        Direction side = outputSide();
-        for (IhFluidTank tank : outputTanks()) {
-            IhFluidStack offer = tank.stack();
-            if (offer.isEmpty()) {
-                continue;
-            }
-            long moved = pushFluidTo(level, worldPosition, side, offer);
-            if (moved > 0) {
-                try (Transaction tx = Transaction.open()) {
-                    tank.extract(offer.fluid(), moved, tx);
-                    tx.commit();
+        List<IhFluidTank> outs = outputTanks();
+        boolean storage = isFluidStorage();
+        for (int k = 0; k < outs.size(); k++) {
+            IhFluidTank tank = outs.get(k);
+            for (Direction side : fluidOutputSides(k)) {
+                IhFluidStack offer = tank.stack();
+                if (offer.isEmpty()) {
+                    break;
+                }
+                long moved = pushFluidTo(level, worldPosition, side, offer, storage);
+                if (moved > 0) {
+                    try (Transaction tx = Transaction.open()) {
+                        tank.extract(offer.fluid(), moved, tx);
+                        tx.commit();
+                    }
                 }
             }
         }
@@ -457,12 +526,20 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
      * Loader-API) und gibt die angenommene Menge in mB zurück. Der Aufrufer zieht sie aus seinem Tank ab.
      */
     public static long pushFluidTo(ServerLevel level, BlockPos from, Direction side, IhFluidStack offer) {
+        return pushFluidTo(level, from, side, offer, false);
+    }
+
+    /** Wie oben; {@code fromStorage}: ein Speicher gibt nie an andere Speicher ab (Ä31). */
+    public static long pushFluidTo(ServerLevel level, BlockPos from, Direction side, IhFluidStack offer, boolean fromStorage) {
         BlockPos n = from.relative(side);
         if (level.getBlockState(n).getBlock() instanceof FluidPipeBlock) {
             FluidGrid grid = GridManager.get(level).fluidGridAt(level, n);
-            return grid == null ? 0 : grid.push(level, from, offer);
+            return grid == null ? 0 : grid.push(level, from, offer, fromStorage);
         }
         BlockEntity be = level.getBlockEntity(n);
+        if (fromStorage && be instanceof FluidNode node && node.isFluidStorage()) {
+            return 0;
+        }
         FluidTarget target = be instanceof FluidNode node ? node.fluidInput(side.getOpposite())
                 : Services.FLUID.findTarget(level, n, side.getOpposite());
         return target == null ? 0 : target.insert(offer, false);
@@ -591,6 +668,11 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
         super.saveAdditional(output);
         ContainerHelper.saveAllItems(output, items);
         output.putLong("energy", energy.getAmount());
+        for (int k = 1; k < tankSides.length; k++) {
+            if (tankSides[k] != null) {
+                output.putString("output_side_" + k, tankSides[k].getSerializedName());
+            }
+        }
         if (outputSide != null) {
             output.putString("output_side", outputSide.getSerializedName());
         }
@@ -615,6 +697,9 @@ public abstract class MachineBlockEntity extends de.infinitehorizon.block.IhBloc
         ContainerHelper.loadAllItems(input, items);
         energy.setAmountUnchecked(input.getLongOr("energy", 0L));
         outputSide = input.getString("output_side").map(Direction::byName).orElse(null);
+        for (int k = 1; k < tankSides.length; k++) {
+            tankSides[k] = input.getString("output_side_" + k).map(Direction::byName).orElse(null);
+        }
         selectedTank = input.getIntOr("selected_tank", 0);
         mode = input.getIntOr("mode", 0);
         List<IhFluidTank> tanks = fluidTanks();

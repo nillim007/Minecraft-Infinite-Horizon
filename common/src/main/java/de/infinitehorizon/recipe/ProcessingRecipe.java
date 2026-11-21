@@ -85,6 +85,15 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
 
     /** Zuordnung der Zutaten zu Slots: welche Slots wie viel verbrauchen. */
     public record Match(int[] slots, int[] counts) {
+
+        /** Verbrauchte Menge insgesamt (Auswahl beim Montagetisch: das größte passende Rezept, Ä31). */
+        public long weight() {
+            long w = 0;
+            for (int c : counts) {
+                w += c;
+            }
+            return w;
+        }
     }
 
     /** Eine Rezeptart (z. B. {@code crushing}) mit eigenem RecipeType und Serializer. */
@@ -249,27 +258,31 @@ public final class ProcessingRecipe implements Recipe<MachineRecipeInput> {
             return null;
         }
         if (kind.exact()) {
+            // Montagetisch (22.3, Ä31): jeder belegte Slot gehört zu einer Zutat, jede Zutat ist mindestens in der
+            // Rezeptmenge da; verbraucht wird genau die Rezeptmenge, der Rest bleibt liegen
             List<CountedIngredient> need = scaledIngredients(
                     de.infinitehorizon.data.ServerConfig.get().getDouble("recipe_amount_multiplier"), input.size());
-            int[] owner = ExactMatch.assign(input.inputs(), need, ItemStack::isEmpty,
+            int[] owner = ExactMatch.assignAtLeast(input.inputs(), need, ItemStack::isEmpty,
                     (ci, stack) -> ci.test(stack), ItemStack::getCount, CountedIngredient::count);
             if (owner == null) {
                 return null;
             }
-            int n = 0;
-            for (int o : owner) {
-                n += o >= 0 ? 1 : 0;
+            int[] left = new int[need.size()];
+            for (int r = 0; r < left.length; r++) {
+                left[r] = need.get(r).count();
             }
-            int[] slots = new int[n];
-            int[] counts = new int[n];
-            int k = 0;
+            List<Integer> slots = new java.util.ArrayList<>();
+            List<Integer> counts = new java.util.ArrayList<>();
             for (int s = 0; s < owner.length; s++) {
-                if (owner[s] >= 0) {
-                    slots[k] = s;
-                    counts[k++] = input.getItem(s).getCount();
+                if (owner[s] >= 0 && left[owner[s]] > 0) {
+                    int take = Math.min(input.getItem(s).getCount(), left[owner[s]]);
+                    left[owner[s]] -= take;
+                    slots.add(s);
+                    counts.add(take);
                 }
             }
-            return new Match(slots, counts);
+            return new Match(slots.stream().mapToInt(Integer::intValue).toArray(),
+                    counts.stream().mapToInt(Integer::intValue).toArray());
         }
         if (ingredients.isEmpty()) {
             return fluid.isPresent() ? new Match(new int[0], new int[0]) : null;

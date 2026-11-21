@@ -28,7 +28,7 @@ Jede Maschine hat oben eine kleine Lampe. Sie verrät dir auf einen Blick, was l
 
 - Items und Fluide kommen **von jeder Seite** in die Eingabe. Trichter füllen immer den ersten passenden Slot.
 - Herausnehmen lassen sich von jeder Seite **nur die Ergebnisse**. So kannst du Maschinen einfach hintereinanderschalten.
-- Fluide gibt eine Maschine nur über ihre **Ausgangsseite** ab (Knopf „Seite“). Diese Seite nimmt selbst nichts an. So fließt nichts zurück in das Rohr, das die Maschine versorgt.
+- Fluide gibt eine Maschine nur über ihre **Ausgangsseite** ab (Knopf „Seite“; bei mehreren Ausgangstanks hat jeder eine eigene). Diese Seite nimmt selbst nichts an. Ausnahmen: Die Pumpe gibt an allen Seiten außer vorn ab, Tanks und Gasspeicher an allen Seiten, aber nie an andere Speicher.
 - Shift-Klick im Fenster legt Upgrades in die Upgrade-Slots und Pressformen in den Formslot, alles andere in die Eingabe.
 
 ## Abbauen

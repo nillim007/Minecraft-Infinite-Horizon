@@ -91,9 +91,15 @@ public final class SampleTool {
         if (marks.isSampled(packed)) {
             return Result.ALREADY_SAMPLED;
         }
+        if (player instanceof net.minecraft.server.level.ServerPlayer sp
+                && !de.infinitehorizon.agency.Permissions.mayBreak(sp, level, pos)) {
+            return Result.NOT_SAMPLEABLE;
+        }
         marks.markSampled(packed);
         chunk.markUnsaved();
         ItemStack sample = create(BuiltInRegistries.BLOCK.getKey(state.getBlock()), dimension);
+        // Ä31: Die Probe ersetzt den Block; er verschwindet ohne Drop
+        level.destroyBlock(pos, false, player);
         if (!player.getInventory().add(sample)) {
             player.spawnAtLocation(level, sample);
         }

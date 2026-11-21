@@ -30,4 +30,13 @@ public final class ProcessingMath {
         map.put(efficiency, efficiencyCount);
         return effective(machine, map);
     }
+
+    /**
+     * Darf ein Vorgang starten? Erst wenn Strom für den ganzen Vorgang im Speicher ist; ist der Speicher kleiner als
+     * der Bedarf, reicht ein voller Speicher (Ä31).
+     */
+    public static boolean canStart(long stored, long capacity, Effective eff) {
+        long need = eff.energyPerTick() * (long) eff.ticks();
+        return stored >= Math.min(need, capacity);
+    }
 }

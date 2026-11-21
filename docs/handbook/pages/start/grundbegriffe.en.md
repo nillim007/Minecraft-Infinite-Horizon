@@ -31,7 +31,7 @@ Every machine has a small lamp:
 ## Inputs and outputs
 
 - Machines accept items and fluids **from all sides**. You can connect hoppers and pipes wherever you like.
-- Machines and storage blocks output fluids and stored power through **one side** only, the **output side**. You choose it in the window with the "Side" button.
+- Machines and batteries output fluids and stored power through their **output side**. You choose it in the window with the "Side" button. Tanks output on every side, the pump everywhere except its front.
 
 ## Multiblocks
 

@@ -61,6 +61,25 @@ public abstract class ConduitBlock extends Block {
         }
     }
 
+    /**
+     * Verbindet die Leitungen rund um {@code pos} neu, z. B. nachdem dort eine Ausgangsseite umgestellt wurde; die
+     * Blockzustände (Arme) und die Netze passen danach wieder zu den Seitenregeln.
+     */
+    public static void refreshAround(Level level, BlockPos pos) {
+        for (Direction d : Direction.values()) {
+            BlockPos n = pos.relative(d);
+            BlockState s = level.getBlockState(n);
+            if (s.getBlock() instanceof ConduitBlock conduit) {
+                BooleanProperty prop = CONNECTIONS.get(d.getOpposite());
+                boolean connected = conduit.connects(level, pos, d.getOpposite());
+                if (s.getValue(prop) != connected) {
+                    level.setBlock(n, s.setValue(prop, connected), Block.UPDATE_CLIENTS);
+                }
+            }
+        }
+        GridManager.invalidate(level);
+    }
+
     /** Verbindet sich die Leitung mit diesem (fremden) Nachbarn über dessen Seite {@code side}? */
     protected abstract boolean connectsToEndpoint(LevelReader level, BlockPos neighbor, Direction side);
 

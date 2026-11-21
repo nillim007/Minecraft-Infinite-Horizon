@@ -25,7 +25,7 @@ Der <item:infinite_horizon:electrolyzer> spaltet Wasser mit Strom in **Wassersto
 ## So schließt du ihn an
 
 1. Stell eine <item:infinite_horizon:fluid_pump> über Wasser, oder leg Wassereimer in den Leerslot.
-2. Führe das Wasser mit einem <item:infinite_horizon:copper_pipe> an eine beliebige Seite des Elektrolyseurs.
-3. Die Gase kommen über die **Ausgangsseite** heraus. Mit dem Knopf „Tank“ wählst du, welches Gas der Füllslot nimmt.
+2. Führe das Wasser mit einem <item:infinite_horizon:copper_pipe> an eine Seite des Elektrolyseurs, die keine Ausgangsseite ist.
+3. Jedes Gas hat eine eigene **Ausgangsseite**: Wasserstoff vorn, Sauerstoff rechts. Mit dem Knopf „Tank“ wählst du das Gas, mit „Seite“ stellst du seine Seite um. Druckflaschen direkt an diesen Seiten sammeln die Gase.
 
 @note Gase passen nicht in den normalen Tank und nicht in Eimer. Vorerst sammeln sie sich im Elektrolyseur selbst. Druckflaschen und Kanister kommen in einer späteren Phase.
