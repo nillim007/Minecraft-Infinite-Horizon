@@ -26,7 +26,7 @@
 
 **Ich finde kein Titan.** Titan liegt unter y 0. Ohne Eisenspitzhacke droppt das Erz nichts.
 
-**Ich finde kein Erdöl.** Ölblasen gibt es nur unter Wüsten und Ozeanen. Erkunde Höhlen in diesen Biomen. Siehe [Rohstoffe und Erze](Rohstoffe-und-Erze.md).
+**Ich finde kein Erdöl.** Ölpfützen gibt es nur an der Oberfläche von Wüsten und Tafelbergen. Halte nach schwarz glänzenden Mulden Ausschau. Siehe [Rohstoffe und Erze](Rohstoffe-und-Erze.md).
 
 ## Für Modpacks und Server
 

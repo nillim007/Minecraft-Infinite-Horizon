@@ -16,8 +16,8 @@
       "step": "underground_ores"
     },
     {
-      "feature": "infinite_horizon:oil_bubble",
-      "biomes": "infinite_horizon:has_oil_bubble",
+      "feature": "infinite_horizon:oil_pool",
+      "biomes": "infinite_horizon:has_oil_pool",
       "step": "lakes"
     }
   ]

@@ -1,0 +1,14 @@
+{
+  "type": "infinite_horizon:fluid_pool",
+  "fluid": "infinite_horizon:crude_oil",
+  "radius": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 2,
+    "max_inclusive": 3
+  },
+  "depth": {
+    "type": "minecraft:uniform",
+    "min_inclusive": 1,
+    "max_inclusive": 2
+  }
+}

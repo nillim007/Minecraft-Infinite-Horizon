@@ -170,7 +170,7 @@
     },
     "infinite_horizon:fluid_pump": {
       "energy_per_tick": 20,
-      "ticks": 40,
+      "ticks": 160,
       "buffer": null,
       "location": null,
       "upgrade_slots": 2,
@@ -197,7 +197,7 @@
         "output_per_cycle": 1000,
         "consumes_source": true,
         "source_consume_chance": {
-          "infinite_horizon:crude_oil": 0.1
+          "infinite_horizon:crude_oil": 0.6
         },
         "source_selection": "nächste Quelle mit dem Fluid, das schon im Tank ist; bei leerem Tank die nächste Quelle überhaupt"
       },

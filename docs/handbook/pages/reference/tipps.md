@@ -35,7 +35,7 @@ Ein Kupferkabel trägt nur {{value:transport:copper_cable.throughput}} J/t. Hän
 Titan liegt unter y 0. Ohne Eisenspitzhacke droppt das Erz nichts.
 
 **Ich finde kein Erdöl.**
-Ölblasen gibt es nur unter Wüsten und Ozeanen. Erkunde Höhlen in diesen Biomen. Siehe [[rohstoffe|Rohstoffe und Erze]].
+Ölpfützen gibt es nur an der Oberfläche von Wüsten und Tafelbergen. Halte nach schwarz glänzenden Mulden Ausschau. Siehe [[rohstoffe|Rohstoffe und Erze]].
 
 ## Für Modpacks und Server
 

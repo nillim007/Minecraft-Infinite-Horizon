@@ -34,12 +34,12 @@ public class IhFabricGameTests {
         IhGameTests.oresNeedCorrectTool(helper);
     }
 
-    @GameTest(maxTicks = 50)
-    public void pumpCrudeoilTank1000within50ticks(GameTestHelper helper) {
+    @GameTest(maxTicks = 200)
+    public void pumpCrudeoilTank1000within200ticks(GameTestHelper helper) {
         IhGameTests.pumpCrudeOilIntoTank(helper);
     }
 
-    @GameTest(maxTicks = 60)
+    @GameTest(maxTicks = 200)
     public void pipesTwofluidsNevermixed(GameTestHelper helper) {
         IhGameTests.pipesNeverMix(helper);
     }
@@ -144,14 +144,14 @@ public class IhFabricGameTests {
         IhGameTestsExtended.fluidPlatformApiInsert(helper);
     }
 
-    @GameTest(maxTicks = 60)
+    @GameTest(maxTicks = 200)
     public void pumpWaterRemovessource(GameTestHelper helper) {
         IhGameTestsExtended.pumpWaterRemovesSource(helper);
     }
 
     @GameTest(maxTicks = 20)
-    public void worldgenOilbubbleFeature(GameTestHelper helper) {
-        IhGameTestsExtended.oilBubbleFeature(helper);
+    public void worldgenOilpoolFeature(GameTestHelper helper) {
+        IhGameTestsExtended.oilPoolFeature(helper);
     }
 
     @GameTest(maxTicks = 20)
@@ -1294,7 +1294,7 @@ public class IhFabricGameTests {
         IhGameTestsM9c.network(helper);
     }
 
-    @GameTest(maxTicks = 120)
+    @GameTest(maxTicks = 220)
     public void p1PumpOutputsAllSidesExceptFront(GameTestHelper helper) {
         IhGameTestsP1.pumpOutputsAllSidesExceptFront(helper);
     }

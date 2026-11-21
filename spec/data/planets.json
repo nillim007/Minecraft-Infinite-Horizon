@@ -121,8 +121,8 @@
           "vein_size": null,
           "per_chunk": 2,
           "radius": [
-            2,
-            4
+            1,
+            1
           ],
           "fraction": null,
           "host_block": null,
@@ -132,7 +132,8 @@
           ],
           "drops": "self",
           "deepslate_block": null,
-          "notes": "Scheibe wie Ton (Strand und Flussufer)"
+          "notes": "Ä31 (Spieltest Phase 1): Ader höchstens 5 Blöcke = Scheibe mit Radius 1 in einer Schicht (Mitte und 4 Nachbarn); Häufigkeit unverändert.",
+          "half_height": 0
         }
       ],
       "blocks": [
@@ -188,23 +189,25 @@
       "features": [
         {
           "id": null,
-          "type": "fluid_sphere",
+          "type": "fluid_pool",
           "block": null,
           "fluid": "infinite_horizon:crude_oil",
           "biomes": [
             "minecraft:desert",
-            "#minecraft:is_ocean"
+            "#minecraft:is_badlands"
           ],
           "params": {
             "radius": [
-              3,
-              5
+              2,
+              3
             ],
-            "y_min": -20,
-            "y_max": 40,
+            "depth": [
+              1,
+              2
+            ],
             "rarity_chunks": 8
           },
-          "notes": "Ölblase: Kugel aus crude_oil-Quellblöcken, 1 je 8 Chunks (Wüste und Ozeanboden)"
+          "notes": "Ä31 (Spieltest Phase 1): Ölpfütze an der Oberfläche statt Ölblase; runde Mulde, innen bis 2 Blöcke tief, 1 je 8 Chunks in Wüste und Tafelbergen (im Ozean ergibt eine Pfütze keinen Sinn)."
         }
       ],
       "vanilla_mobs": [],

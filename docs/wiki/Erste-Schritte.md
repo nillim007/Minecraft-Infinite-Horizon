@@ -17,7 +17,7 @@ In der ersten Phase baust du auf der Erde eine kleine Industrie auf. Am Ende has
 5. **Platten, Stangen und Draht pressen.** Die [Presse](Presse.md) formt Barren mit einer Pressform um. Kupferdraht und Eisenplatten brauchst du ständig. Siehe [Presse](Presse.md).
 6. **Silizium schmelzen.** [Quarzsand](Rohstoffe-und-Erze.md) vom Strand oder Flussufer wird im Elektroofen zu [Silizium](Elektroofen.md).
 7. **Den Montagetisch bauen.** Ab jetzt entstehen alle wichtigen Bauteile im [Montagetisch](Montagetisch.md). Siehe [Montagetisch](Montagetisch.md).
-8. **Erdöl fördern.** Unter Wüsten und Ozeanen liegen Ölblasen. Eine [Pumpe](Fluide-und-Rohre.md) saugt das Erdöl in einen [Tank](Fluide-und-Rohre.md). Siehe [Fluide und Rohre](Fluide-und-Rohre.md).
+8. **Erdöl fördern.** In Wüsten und Tafelbergen liegen Ölpfützen an der Oberfläche. Eine [Pumpe](Fluide-und-Rohre.md) saugt das Erdöl in einen [Tank](Fluide-und-Rohre.md). Siehe [Fluide und Rohre](Fluide-und-Rohre.md).
 9. **Die Raffinerie bauen.** Der erste Multiblock macht aus Erdöl Kerosin und Kunststoff. Siehe [Raffinerie](Raffinerie.md).
 10. **Schaltkreise herstellen.** Silizium, Kupferdraht und Kunststoff ergeben im Montagetisch den [Schaltkreis](Montagetisch.md), das wichtigste Bauteil der Mod.
 11. **Wasser spalten.** Der [Elektrolyseur](Elektrolyseur.md) macht aus Wasser Wasserstoff und Sauerstoff. Siehe [Elektrolyseur](Elektrolyseur.md).

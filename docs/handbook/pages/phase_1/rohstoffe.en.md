@@ -22,7 +22,7 @@ Besides the vanilla ores, Infinite Horizon brings three new resources to Earth. 
 ## Crude oil
 
 @if infinite_horizon:crude_oil
-Crude oil sits in **oil pockets** under deserts and oceans, between y {{value:planet:overworld.features.0.params.y_min}} and {{value:planet:overworld.features.0.params.y_max}}. About one in {{value:planet:overworld.features.0.params.rarity_chunks}} chunks has one. You see nothing of it at the surface; you often find one when a cave suddenly gleams black. How to pump crude oil is explained under [[fluide|Fluids and Pipes]].
+Crude oil lies in **oil puddles** on the surface of deserts and badlands: round, shiny black hollows with a radius of {{value:planet:overworld.features.0.params.radius.0}} to {{value:planet:overworld.features.0.params.radius.1}} blocks, up to {{value:planet:overworld.features.0.params.depth.1}} blocks deep in the middle. About one in {{value:planet:overworld.features.0.params.rarity_chunks}} chunks has one. How to pump crude oil is explained under [[fluide|Fluids and Pipes]].
 @endif
 
 @tip You can smelt bauxite directly in a furnace. If you crush it first, though, you get twice as much aluminium.

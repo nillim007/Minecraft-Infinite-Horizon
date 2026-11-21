@@ -12,7 +12,7 @@ Neben den Vanilla-Erzen bringt Infinite Horizon drei neue Rohstoffe auf die Erde
 | --- | --- | --- | --- | --- |
 | Bauxiterz | 1 Bauxit | y 50 bis 120 | Savanne, Wüste, Tafelberge | 6 Adern je Chunk, je bis 12 Blöcke |
 | Titanerz | 1 Rohtitan | y -64 bis 0 (darunter als Tiefenschiefer-Variante) | überall in der Oberwelt | 4 Adern je Chunk, je bis 6 Blöcke |
-| Quarzsand | der Block selbst | Oberfläche (Scheibe wie Ton) | Strand, Fluss | 2 je Chunk, Radius 2–4 |
+| Quarzsand | der Block selbst | Oberfläche (Scheibe wie Ton) | Strand, Fluss | 2 je Chunk, Radius 1–1 |
 
 ## Bauxit – das Aluminium der Erde
 
@@ -28,7 +28,7 @@ Quarzsand liegt in kleinen Scheiben am Strand und an Flussufern, ähnlich wie To
 
 ## Erdöl
 
-Erdöl liegt in **Ölblasen** unter Wüsten und Ozeanen, zwischen y -20 und 40. Etwa eine von 8 Chunks hat eine. An der Oberfläche siehst du nichts davon; oft findest du sie, wenn eine Höhle plötzlich schwarz glänzt. Wie du Erdöl förderst, steht unter [Fluide und Rohre](Fluide-und-Rohre.md).
+Erdöl liegt in **Ölpfützen** an der Oberfläche von Wüsten und Tafelbergen: runde, schwarz glänzende Mulden mit 2 bis 3 Blöcken Radius, in der Mitte bis 2 Blöcke tief. Etwa eine von 8 Chunks hat eine. Wie du Erdöl förderst, steht unter [Fluide und Rohre](Fluide-und-Rohre.md).
 
 > [!TIP]
 > Bauxit kannst du auch direkt im Ofen schmelzen. Zerkleinerst du es vorher, bekommst du aber doppelt so viel Aluminium.

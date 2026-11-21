@@ -21,7 +21,6 @@ import de.infinitehorizon.registry.ModBlocks;
 import de.infinitehorizon.registry.ModDataComponents;
 import de.infinitehorizon.registry.ModFluids;
 import de.infinitehorizon.registry.ModItems;
-import de.infinitehorizon.world.FluidSphereFeature;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.Holder;
@@ -387,37 +386,41 @@ public final class IhGameTestsExtended {
 
     // ------------------------------------------------------------------ Worldgen und Config
 
-    /** Fluidkugel ersetzt Gestein durch Quellen, lässt Grundgestein und Luft unverändert; oil_bubble ist registriert. */
-    public static void oilBubbleFeature(GameTestHelper h) {
-        for (int x = 1; x <= 6; x++) {
-            for (int y = 1; y <= 6; y++) {
-                for (int z = 1; z <= 6; z++) {
+    /**
+     * Ölpfütze (13.4, Ä31): runde Mulde an der Oberfläche, innen tiefer; ohne festen Boden entsteht nichts; oil_pool
+     * ist registriert.
+     */
+    public static void oilPoolFeature(GameTestHelper h) {
+        for (int x = 0; x <= 6; x++) {
+            for (int y = 1; y <= 3; y++) {
+                for (int z = 0; z <= 6; z++) {
                     h.setBlock(new BlockPos(x, y, z), Blocks.STONE);
                 }
             }
         }
-        BlockPos center = new BlockPos(3, 3, 3);
-        h.setBlock(center.east(), Blocks.BEDROCK);
-        h.setBlock(center.west(), Blocks.AIR);
         BlockState oil = ModFluids.get("crude_oil").source().get().defaultFluidState().createLegacyBlock();
         ServerLevel level = h.getLevel();
-        new FluidSphereFeature(oil, ConstantInt.of(2)).place(level, level.getChunkSource().getGenerator(), level.getRandom(),
-                h.absolutePos(center));
+        BlockPos origin = new BlockPos(3, 4, 3);
+        boolean placed = new de.infinitehorizon.world.FluidPoolFeature(oil, ConstantInt.of(2), ConstantInt.of(2))
+                .place(level, level.getChunkSource().getGenerator(), level.getRandom(), h.absolutePos(origin));
         int sources = 0;
-        for (int x = -2; x <= 2; x++) {
-            for (int y = -2; y <= 2; y++) {
-                for (int z = -2; z <= 2; z++) {
-                    if (x * x + y * y + z * z <= 4 && level.getFluidState(h.absolutePos(center.offset(x, y, z))).isSource()) {
+        for (int x = 0; x <= 6; x++) {
+            for (int y = 1; y <= 4; y++) {
+                for (int z = 0; z <= 6; z++) {
+                    if (level.getFluidState(h.absolutePos(new BlockPos(x, y, z))).isSource()) {
                         sources++;
                     }
                 }
             }
         }
-        // Kugel mit r = 2 hat 33 Positionen; Grundgestein und Luft werden nicht ersetzt
-        h.assertTrue(sources == 31, "Quellen in der Kugel: " + sources + ", erwartet 31");
-        h.assertTrue(h.getBlockState(center.east()).is(Blocks.BEDROCK), "Grundgestein ersetzt");
-        Feature registered = level.registryAccess().lookupOrThrow(Registries.FEATURE).getValue(InfiniteHorizon.id("oil_bubble"));
-        h.assertTrue(registered instanceof FluidSphereFeature, "Feature oil_bubble: " + registered);
+        // r = 2: 13 Felder, die 5 inneren 2 tief
+        h.assertTrue(placed && sources == 18, "Quellen in der Pfütze: " + sources + ", erwartet 18");
+        // in der Luft (kein Boden) entsteht nichts
+        boolean floating = new de.infinitehorizon.world.FluidPoolFeature(oil, ConstantInt.of(1), ConstantInt.of(1))
+                .place(level, level.getChunkSource().getGenerator(), level.getRandom(), h.absolutePos(new BlockPos(3, 7, 3)));
+        h.assertTrue(!floating && level.getFluidState(h.absolutePos(new BlockPos(3, 6, 3))).isEmpty(), "Pfütze in der Luft");
+        Feature registered = level.registryAccess().lookupOrThrow(Registries.FEATURE).getValue(InfiniteHorizon.id("oil_pool"));
+        h.assertTrue(registered instanceof de.infinitehorizon.world.FluidPoolFeature, "Feature oil_pool: " + registered);
         h.succeed();
     }
 
@@ -442,8 +445,9 @@ public final class IhGameTestsExtended {
         h.assertFalse(biomeHas(l, Biomes.PLAINS, "bauxite_ore"), "Ebene mit bauxite_ore");
         h.assertTrue(biomeHas(l, Biomes.PLAINS, "titanium_ore"), "Ebene ohne titanium_ore");
         h.assertTrue(biomeHas(l, Biomes.BEACH, "quartz_sand"), "Strand ohne quartz_sand");
-        h.assertTrue(biomeHas(l, Biomes.DESERT, "oil_bubble"), "Wüste ohne oil_bubble");
-        h.assertFalse(biomeHas(l, Biomes.PLAINS, "oil_bubble"), "Ebene mit oil_bubble");
+        h.assertTrue(biomeHas(l, Biomes.DESERT, "oil_pool"), "Wüste ohne oil_pool");
+        h.assertTrue(biomeHas(l, Biomes.BADLANDS, "oil_pool"), "Tafelberge ohne oil_pool");
+        h.assertFalse(biomeHas(l, Biomes.PLAINS, "oil_pool"), "Ebene mit oil_pool");
         h.succeed();
     }
 

@@ -46,6 +46,6 @@ Jede Maschine mit Tank hat zwei besondere Slots:
 
 Ein <item:infinite_horizon:crude_oil_bucket> entsteht auch, wenn du mit einem leeren Eimer auf einen Erdöl-Quellblock klickst. Einen <item:infinite_horizon:kerosene_bucket> füllst du nur im Füllslot der Raffinerie oder eines Tanks.
 
-@tip Stell die Pumpe direkt über eine Ölblase und den Tank daneben. Mit einem Kupferrohr dazwischen läuft das Erdöl von allein.
+@tip Stell die Pumpe direkt über eine Ölpfütze und den Tank daneben. Mit einem Kupferrohr dazwischen läuft das Erdöl von allein.
 
 @warning Ein Rohr, das schon Wasser führt, nimmt kein Erdöl an. Wenn nichts fließt, prüfe, ob noch ein altes Fluid im Netz steckt.

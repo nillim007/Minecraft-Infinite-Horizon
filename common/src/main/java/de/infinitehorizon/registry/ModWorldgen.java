@@ -58,6 +58,8 @@ public final class ModWorldgen {
 
     static {
         Services.REGISTRY.register(BuiltInRegistries.FEATURE_TYPE, "fluid_sphere", () -> FluidSphereFeature.CODEC);
+        // Ä31: Ölpfütze an der Oberfläche (die Ölblase der Erde nutzt sie statt fluid_sphere)
+        Services.REGISTRY.register(BuiltInRegistries.FEATURE_TYPE, "fluid_pool", () -> de.infinitehorizon.world.FluidPoolFeature.CODEC);
         // Merkur (13.4): Biome nach X-Koordinate
         Services.REGISTRY.register(BuiltInRegistries.BIOME_SOURCE, "x_bands", () -> de.infinitehorizon.world.XBandsBiomeSource.CODEC);
         // Pluto (13.1): Herzgletscher im Kreis um (0, 0)

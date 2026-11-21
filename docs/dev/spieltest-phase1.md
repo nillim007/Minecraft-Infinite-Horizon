@@ -15,12 +15,12 @@ Spezifikation stehen als Ä31 in Kapitel 1.
 | 7 | A | Tank verliert Inhalt beim Abbauen | Inhalt bleibt im Item, Tooltip „Gefüllt mit Erdöl, X mB“ | erledigt (Paket A) |
 | 8 | A | Elektrolyse: beide Gase in Druckflaschen | Eigene Ausgangsseite je Ausgangstank (Tank-Knopf wählt, Seiten-Knopf stellt ein) | erledigt (Paket A) |
 | 9 | A | Vorgefüllte Öltanks (Kreativ, Befehl) | Gefüllter Tank im Kreativ-Tab und per `/give` mit Inhalt | erledigt (Paket A) |
-| 10 | B | Kohle füllt ganzen Verbrennungsgenerator | Speicher so, dass eine Kohle ihn zur Hälfte füllt | offen |
-| 11 | B | Pumpe zu schnell | Vorgang 4-mal so lang | offen |
-| 12 | B | Ölblock beim Abpumpen | Wird mit 60 % Wahrscheinlichkeit verbraucht | offen |
-| 13 | B | Quarzsand-Adern zu groß | Höchstens 5 Blöcke je Ader, Häufigkeit gleich | offen |
-| 14 | B | Öl unterirdisch | Kleine Ölpfützen an der Oberfläche statt Blasen | offen |
-| 15 | B | Maschinen zu laut | Maschinenklänge halb so laut | offen |
+| 10 | B | Kohle füllt ganzen Verbrennungsgenerator | Speicher so, dass eine Kohle ihn zur Hälfte füllt | erledigt (Paket B) |
+| 11 | B | Pumpe zu schnell | Vorgang 4-mal so lang | erledigt (Paket B) |
+| 12 | B | Ölblock beim Abpumpen | Wird mit 60 % Wahrscheinlichkeit verbraucht | erledigt (Paket B) |
+| 13 | B | Quarzsand-Adern zu groß | Höchstens 5 Blöcke je Ader, Häufigkeit gleich | erledigt (Paket B) |
+| 14 | B | Öl unterirdisch | Kleine Ölpfützen an der Oberfläche statt Blasen | erledigt (Paket B) |
+| 15 | B | Maschinen zu laut | Maschinenklänge halb so laut | erledigt (Paket B) |
 | 16 | C | Planetenatlas zu groß | Scrollbare Liste, passt auf den Bildschirm | offen |
 | 17 | C | „H-Handbook“ oben bei besonderen Items | Tooltip zeigt nur den Namen und Inhalte; der Hinweis auf die Taste H erscheint nur mit gedrückter Umschalttaste | erledigt (Paket A) |
 | 18 | C | Akku-Item ohne Füllstand | Tooltip mit Ladung | erledigt (Paket A) |

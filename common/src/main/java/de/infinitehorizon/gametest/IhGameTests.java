@@ -163,14 +163,14 @@ public final class IhGameTests {
         helper.succeed();
     }
 
-    public static final String PUMP_TANK = "pump_crudeoil_tank1000within50ticks";
+    public static final String PUMP_TANK = "pump_crudeoil_tank1000within200ticks";
     /**
      * 27.2 nennt 44 t (40 t × 1,1), übersieht aber den Rohrdurchsatz: 1.000 mB bei 200 mB/t brauchen 5 t mehr.
      * SPEC-GAP (#23): (40 + 5) × 1,1 ≈ 50 t.
      */
-    public static final int PUMP_TANK_TICKS = 50;
+    public static final int PUMP_TANK_TICKS = 200; // Ä31: Pumpvorgang 160 t
     public static final String PIPES_NO_MIX = "pipes_twofluids_nevermixed";
-    public static final int PIPES_NO_MIX_TICKS = 60;
+    public static final int PIPES_NO_MIX_TICKS = 200; // Ä31: Pumpvorgang 160 t
     public static final String BUCKET_FILL = "tank_fillslot_bucketbecomescrudeoilbucket";
     public static final int BUCKET_FILL_TICKS = 20;
 

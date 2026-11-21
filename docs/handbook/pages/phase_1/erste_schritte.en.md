@@ -14,7 +14,7 @@ In the first phase you build a small industry on Earth. By the end you have powe
 5. **Press plates, rods and wire.** The <item:infinite_horizon:press> reshapes ingots with a mold. You will constantly need copper wire and iron plates. See [[presse|Press]].
 6. **Smelt silicon.** <item:infinite_horizon:quartz_sand> from beaches or river banks becomes <item:infinite_horizon:silicon> in the electric furnace.
 7. **Build the assembly table.** From now on all important components come out of the <item:infinite_horizon:assembly_table>. See [[montagetisch|Assembly Table]].
-8. **Pump crude oil.** Oil pockets lie under deserts and oceans. A <item:infinite_horizon:fluid_pump> sucks the crude oil into a <item:infinite_horizon:fluid_tank>. See [[fluide|Fluids and Pipes]].
+8. **Pump crude oil.** Oil puddles lie on the surface of deserts and badlands. A <item:infinite_horizon:fluid_pump> sucks the crude oil into a <item:infinite_horizon:fluid_tank>. See [[fluide|Fluids and Pipes]].
 9. **Build the refinery.** The first multiblock turns crude oil into kerosene and plastic. See [[raffinerie|Refinery]].
 10. **Make circuits.** Silicon, copper wire and plastic give the <item:infinite_horizon:circuit> in the assembly table, the most important component of the mod.
 11. **Split water.** The <item:infinite_horizon:electrolyzer> turns water into hydrogen and oxygen. See [[elektrolyseur|Electrolyzer]].

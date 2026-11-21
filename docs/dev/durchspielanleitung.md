@@ -34,9 +34,9 @@ Schritt für Schritt vom ersten Eisen bis zum Start des Sternenschiffs. Gedacht 
 5. **Presse + 3 Pressformen** (Platte, Stange, Draht): Kupferdraht und Eisenplatten auf Vorrat.
 6. **Silizium** aus Quarzsand im Elektroofen.
 7. **Montagetisch** bauen.
-8. **Erdöl:** Ölblase unter Wüste oder Ozean suchen, Flüssigkeitspumpe + 2 Flüssigkeitstanks + 16 Kupferrohre.
+8. **Erdöl:** Ölpfütze an der Oberfläche von Wüste oder Tafelbergen suchen (schwarz glänzende Mulde), Flüssigkeitspumpe direkt darüber, Tank daneben (die Pumpe gibt an allen Seiten außer vorn ab). Jede Quelle liefert im Schnitt knapp 2 Eimer, bevor sie verschwindet; nimm mehrere Pfützen mit.
    Ziel bis zum Mondflug: rund **110.000 mB Erdöl** (110 Eimer).
-   **[Notiz: Wie lange hat die Suche nach der Ölblase gedauert? Hat das Handbuch gereicht?]**
+   **[Notiz: Wie lange hat die Suche nach einer Ölpfütze gedauert? Hat das Handbuch gereicht?]**
 9. **Raffinerie** (3 × 3 × 5): Controller, 40 Gehäuse, 1 Item-Port, 2 Fluid-Ports, 1 Energie-Port. 1.000 mB Erdöl
    ergeben 600 mB Kerosin **und** 1 Kunststoff.
    **[Notiz: Aufbau verständlich? Hat die Geisterprojektion geholfen?]**

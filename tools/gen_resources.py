@@ -230,30 +230,30 @@ def fluid_resources(spec, fluids, items):
     write_json("infinite_horizon/fluid_containers.json", {"containers": containers})
 
 
-def oil_bubble_worldgen():
-    """Ölblase der Erde (13.4): Feature fluid_sphere, Placed Feature, Biom-Tag; NeoForge-Modifier und Fabric-Eintrag."""
+def oil_pool_worldgen():
+    """Ölpfütze der Erde (13.4, Ä31): Feature fluid_pool an der Oberfläche, Placed Feature, Biom-Tag; NeoForge-Modifier
+    und Fabric-Eintrag."""
     planets = json.loads((sd.DATA / "planets.json").read_text(encoding="utf-8"))["entries"]
     earth = next(p for p in planets if p["id"] == "minecraft:overworld")
-    f = next((x for x in earth["features"] if x["type"] == "fluid_sphere"), None)
+    f = next((x for x in earth["features"] if x["type"] == "fluid_pool"), None)
     if not f:
         return None
     pr = f["params"]
-    write_json(f"data/{NS}/worldgen/feature/oil_bubble.json", {
-        "type": f"{NS}:fluid_sphere", "fluid": f["fluid"],
-        "radius": {"type": "minecraft:uniform", "min_inclusive": pr["radius"][0], "max_inclusive": pr["radius"][1]}})
-    write_json(f"data/{NS}/worldgen/placed_feature/oil_bubble.json", {
-        "feature": f"{NS}:oil_bubble",
+    write_json(f"data/{NS}/worldgen/feature/oil_pool.json", {
+        "type": f"{NS}:fluid_pool", "fluid": f["fluid"],
+        "radius": {"type": "minecraft:uniform", "min_inclusive": pr["radius"][0], "max_inclusive": pr["radius"][1]},
+        "depth": {"type": "minecraft:uniform", "min_inclusive": pr["depth"][0], "max_inclusive": pr["depth"][1]}})
+    write_json(f"data/{NS}/worldgen/placed_feature/oil_pool.json", {
+        "feature": f"{NS}:oil_pool",
         "placement": [{"type": "minecraft:rarity_filter", "chance": pr["rarity_chunks"]},
                       {"type": "minecraft:in_square"},
-                      {"type": "minecraft:height_range", "height": {
-                          "type": "minecraft:uniform", "min_inclusive": {"absolute": pr["y_min"]},
-                          "max_inclusive": {"absolute": pr["y_max"]}}},
+                      {"type": "minecraft:heightmap", "heightmap": "WORLD_SURFACE_WG"},
                       {"type": "minecraft:biome"}]})
-    write_json(f"data/{NS}/tags/worldgen/biome/has_oil_bubble.json", {"values": f["biomes"]})
-    write_json(f"data/{NS}/neoforge/biome_modifier/oil_bubble.json",
-               {"type": "neoforge:add_features", "biomes": f"#{NS}:has_oil_bubble",
-                "features": f"{NS}:oil_bubble", "step": "lakes"})
-    return {"feature": f"{NS}:oil_bubble", "biomes": f"{NS}:has_oil_bubble", "step": "lakes"}
+    write_json(f"data/{NS}/tags/worldgen/biome/has_oil_pool.json", {"values": f["biomes"]})
+    write_json(f"data/{NS}/neoforge/biome_modifier/oil_pool.json",
+               {"type": "neoforge:add_features", "biomes": f"#{NS}:has_oil_pool",
+                "features": f"{NS}:oil_pool", "step": "lakes"})
+    return {"feature": f"{NS}:oil_pool", "biomes": f"{NS}:has_oil_pool", "step": "lakes"}
 
 
 # Blöcke, deren Inhalt beim Abbauen als Komponente am Item bleibt (4.1: fluid_tank, später battery)
@@ -447,7 +447,7 @@ def earth_worldgen(blocks):
                 "state_provider": {"type": "minecraft:simple", "state": bid},  # 26.3: Typ heißt "simple"
                 "target": {"type": "minecraft:matching_blocks", "blocks": ["minecraft:sand", "minecraft:dirt", "minecraft:clay"]},
                 "radius": {"type": "minecraft:uniform", "min_inclusive": ore["radius"][0], "max_inclusive": ore["radius"][1]},
-                "half_height": 1}
+                "half_height": ore.get("half_height", 1)}
             mods = [{"type": "minecraft:count", "count": ore["per_chunk"]}, {"type": "minecraft:in_square"},
                     {"type": "minecraft:heightmap", "heightmap": "OCEAN_FLOOR_WG"}, {"type": "minecraft:biome"}]
         else:
@@ -1128,7 +1128,7 @@ MACHINE_SOUND_BY_WORD = [
 MACHINE_SOUND_DEFAULT = ["minecraft:block/beacon/ambient"]
 # leise Geräte ohne eigenes Geräusch und Blöcke, die nie „running“ werden
 MACHINE_SOUND_SKIP = {"solar_panel", "solar_wing", "research_terminal", "cargo_terminal", "shipyard_dock"}
-MACHINE_SOUND_VOLUME = 0.4
+MACHINE_SOUND_VOLUME = 0.2  # Ä31 (Spieltest Phase 1): halb so laut wie vorher
 # Musik je Planet (24.6): Platzhalter = Vanilla-Ereignis music.game, Pausen wie Vanilla Musics.GAME
 MUSIC_PLACEHOLDER = "minecraft:music.game"
 MUSIC_DELAY = {"min_delay": 12000, "max_delay": 24000}
@@ -1595,7 +1595,7 @@ def main():
                     "features": f"{NS}:{name}", "step": "underground_ores"})
         fabric.append({"feature": f"{NS}:{name}", "biomes": f"{NS}:has_{name}", "step": "underground_ores"})
     if "crude_oil" in impl.get("fluids", []):
-        oil = oil_bubble_worldgen()
+        oil = oil_pool_worldgen()
         if oil:
             fabric.append(oil)
     if fabric:

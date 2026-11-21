@@ -76,7 +76,7 @@
     "sounds": [
       {
         "name": "minecraft:block/beacon/ambient",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -85,7 +85,7 @@
     "sounds": [
       {
         "name": "minecraft:block/beacon/ambient",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -94,7 +94,7 @@
     "sounds": [
       {
         "name": "minecraft:block/beacon/ambient",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -103,19 +103,19 @@
     "sounds": [
       {
         "name": "minecraft:block/furnace/fire_crackle1",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/furnace/fire_crackle2",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/furnace/fire_crackle3",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/furnace/fire_crackle4",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -124,15 +124,15 @@
     "sounds": [
       {
         "name": "minecraft:block/grindstone/grindstone1",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/grindstone/grindstone2",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/grindstone/grindstone3",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -141,19 +141,19 @@
     "sounds": [
       {
         "name": "minecraft:block/bubble_column/upwards_ambient1",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient2",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient3",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient4",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -162,15 +162,15 @@
     "sounds": [
       {
         "name": "minecraft:block/grindstone/grindstone1",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/grindstone/grindstone2",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/grindstone/grindstone3",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -179,19 +179,19 @@
     "sounds": [
       {
         "name": "minecraft:block/blastfurnace/blastfurnace1",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/blastfurnace/blastfurnace2",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/blastfurnace/blastfurnace3",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/blastfurnace/blastfurnace4",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -200,19 +200,19 @@
     "sounds": [
       {
         "name": "minecraft:block/bubble_column/upwards_ambient1",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient2",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient3",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient4",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -221,7 +221,7 @@
     "sounds": [
       {
         "name": "minecraft:block/beacon/ambient",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -230,19 +230,19 @@
     "sounds": [
       {
         "name": "minecraft:block/bubble_column/upwards_ambient1",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient2",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient3",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient4",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -251,7 +251,7 @@
     "sounds": [
       {
         "name": "minecraft:block/beacon/ambient",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -260,19 +260,19 @@
     "sounds": [
       {
         "name": "minecraft:block/furnace/fire_crackle1",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/furnace/fire_crackle2",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/furnace/fire_crackle3",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/furnace/fire_crackle4",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -281,19 +281,19 @@
     "sounds": [
       {
         "name": "minecraft:block/bubble_column/upwards_ambient1",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient2",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient3",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient4",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -302,7 +302,7 @@
     "sounds": [
       {
         "name": "minecraft:block/beacon/ambient",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -311,19 +311,19 @@
     "sounds": [
       {
         "name": "minecraft:block/bubble_column/upwards_ambient1",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient2",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient3",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient4",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -332,7 +332,7 @@
     "sounds": [
       {
         "name": "minecraft:block/beacon/ambient",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -341,19 +341,19 @@
     "sounds": [
       {
         "name": "minecraft:block/blastfurnace/blastfurnace1",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/blastfurnace/blastfurnace2",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/blastfurnace/blastfurnace3",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/blastfurnace/blastfurnace4",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -362,19 +362,19 @@
     "sounds": [
       {
         "name": "minecraft:block/bubble_column/upwards_ambient1",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient2",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient3",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient4",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -383,7 +383,7 @@
     "sounds": [
       {
         "name": "minecraft:block/beacon/ambient",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -392,19 +392,19 @@
     "sounds": [
       {
         "name": "minecraft:block/bubble_column/upwards_ambient1",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient2",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient3",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient4",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -413,15 +413,15 @@
     "sounds": [
       {
         "name": "minecraft:block/grindstone/grindstone1",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/grindstone/grindstone2",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/grindstone/grindstone3",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -430,19 +430,19 @@
     "sounds": [
       {
         "name": "minecraft:block/bubble_column/upwards_ambient1",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient2",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient3",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient4",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -451,19 +451,19 @@
     "sounds": [
       {
         "name": "minecraft:block/bubble_column/upwards_ambient1",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient2",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient3",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/bubble_column/upwards_ambient4",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -472,19 +472,19 @@
     "sounds": [
       {
         "name": "minecraft:block/blastfurnace/blastfurnace1",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/blastfurnace/blastfurnace2",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/blastfurnace/blastfurnace3",
-        "volume": 0.4
+        "volume": 0.2
       },
       {
         "name": "minecraft:block/blastfurnace/blastfurnace4",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -493,7 +493,7 @@
     "sounds": [
       {
         "name": "minecraft:block/beacon/ambient",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },
@@ -502,7 +502,7 @@
     "sounds": [
       {
         "name": "minecraft:block/beacon/ambient",
-        "volume": 0.4
+        "volume": 0.2
       }
     ]
   },

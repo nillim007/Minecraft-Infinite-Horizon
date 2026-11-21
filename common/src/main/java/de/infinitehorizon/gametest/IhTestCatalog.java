@@ -24,8 +24,8 @@ public final class IhTestCatalog {
             new Test("cable_platformconsumer_receivesenergy", 100, null, null, null, IhGameTests::cablePlatformConsumerReceivesEnergy),  // 27 M1
             new Test("machines_rawtitanium_platewithin440ticks", 440, null, null, null, IhGameTests::machinesRawTitaniumToPlate),  // 27.3 M2a
             new Test("ores_tooltier_dropsonlywithcorrecttool", 20, null, null, null, IhGameTests::oresNeedCorrectTool),  // 27.3 M2b
-            new Test("pump_crudeoil_tank1000within50ticks", 50, null, null, null, IhGameTests::pumpCrudeOilIntoTank),  // 27.3 M2c, spec-gaps #23
-            new Test("pipes_twofluids_nevermixed", 60, null, null, null, IhGameTests::pipesNeverMix),  // 27.3 M2c
+            new Test("pump_crudeoil_tank1000within200ticks", 200, null, null, null, IhGameTests::pumpCrudeOilIntoTank),  // 27.3 M2c, spec-gaps #23, Ä31 (Pumpe 160 t)
+            new Test("pipes_twofluids_nevermixed", 200, null, null, null, IhGameTests::pipesNeverMix),  // 27.3 M2c, Ä31
             new Test("tank_fillslot_bucketbecomescrudeoilbucket", 20, null, null, null, IhGameTests::bucketFill),  // 27.3 M2c
             new Test("generator_coal_burns1600ticks", 20, null, null, null, IhGameTestsExtended::generatorCoalBurnTime),  // 6.3
             new Test("generator_lavabucket_keepsbucket", 20, null, null, null, IhGameTestsExtended::generatorLavaBucketKeepsBucket),  // 6.3
@@ -46,8 +46,8 @@ public final class IhTestCatalog {
             new Test("pipe_throughput_200mbt", 20, null, null, null, IhGameTestsExtended::pipeThroughputLimit),  // 4.4
             new Test("platformapi_energy_insertsintocrusher", 20, null, null, null, IhGameTestsExtended::energyPlatformApiInsert),  // 3.3
             new Test("platformapi_fluid_respectsoutputside", 20, null, null, null, IhGameTestsExtended::fluidPlatformApiInsert),  // 3.3, 4.1
-            new Test("pump_water_removessource", 60, null, null, null, IhGameTestsExtended::pumpWaterRemovesSource),  // 6.1
-            new Test("worldgen_oilbubble_feature", 20, null, null, null, IhGameTestsExtended::oilBubbleFeature),  // 13.4
+            new Test("pump_water_removessource", 200, null, null, null, IhGameTestsExtended::pumpWaterRemovesSource),  // 6.1, Ä31
+            new Test("worldgen_oilpool_feature", 20, null, null, null, IhGameTestsExtended::oilPoolFeature),  // 13.4
             new Test("worldgen_biomes_containfeatures", 20, null, null, null, IhGameTestsExtended::worldgenBiomeFeatures),  // 13.4, 27.3 M2b
             new Test("config_defaults_loaded", 20, null, null, null, IhGameTestsExtended::configDefaults),  // 24.4
             new Test("refinery_crudeoil_kerosene600plastic1within220ticks", 220, null, null, null, IhGameTestsM2d::refineryCrudeOilToKerosene),  // 27.2, 27.3 M2d
@@ -276,7 +276,7 @@ public final class IhTestCatalog {
             new Test("advancement_venus_return", 20, null, null, "infinite_horizon:venus", IhGameTestsM9c::venusReturn),  // 24.3, M9c
             new Test("advancement_sun_in_a_bottle", 200, "infinite_horizon:gametest/empty_large", null, null, IhGameTestsM9c::sunInABottle),  // 24.3, M9c
             new Test("advancement_network_routes", 20, null, null, null, IhGameTestsM9c::network),  // 24.3, M9c
-            new Test("p1_pump_outputs_all_sides_except_front", 120, null, null, null, IhGameTestsP1::pumpOutputsAllSidesExceptFront),  // Spieltest Phase 1, Ä31
+            new Test("p1_pump_outputs_all_sides_except_front", 220, null, null, null, IhGameTestsP1::pumpOutputsAllSidesExceptFront),  // Spieltest Phase 1, Ä31
             new Test("p1_storage_feeds_machines_not_storage", 60, null, null, null, IhGameTestsP1::storageFeedsMachinesNotStorage),  // Spieltest Phase 1, Ä31
             new Test("p1_storage_accepts_every_side", 20, null, null, null, IhGameTestsP1::storageAcceptsEverySide),  // Spieltest Phase 1, Ä31
             new Test("p1_electrolyzer_gases_two_sides", 120, null, null, null, IhGameTestsP1::electrolyzerGasesTwoSides),  // Spieltest Phase 1, Ä31

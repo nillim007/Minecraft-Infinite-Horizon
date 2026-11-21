@@ -30,7 +30,7 @@ A copper cable carries only {{value:transport:copper_cable.throughput}} J/t. If 
 Titanium lies below y 0. Without an iron pickaxe the ore drops nothing.
 
 **I cannot find crude oil.**
-Oil pockets only exist under deserts and oceans. Explore caves in those biomes. See [[rohstoffe|Resources and Ores]].
+Oil puddles only exist on the surface of deserts and badlands. Look out for shiny black hollows. See [[rohstoffe|Resources and Ores]].
 
 ## For modpacks and servers
 

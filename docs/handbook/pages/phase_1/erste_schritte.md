@@ -20,7 +20,7 @@ In der ersten Phase baust du auf der Erde eine kleine Industrie auf. Am Ende has
 5. **Platten, Stangen und Draht pressen.** Die <item:infinite_horizon:press> formt Barren mit einer Pressform um. Kupferdraht und Eisenplatten brauchst du ständig. Siehe [[presse|Presse]].
 6. **Silizium schmelzen.** <item:infinite_horizon:quartz_sand> vom Strand oder Flussufer wird im Elektroofen zu <item:infinite_horizon:silicon>.
 7. **Den Montagetisch bauen.** Ab jetzt entstehen alle wichtigen Bauteile im <item:infinite_horizon:assembly_table>. Siehe [[montagetisch|Montagetisch]].
-8. **Erdöl fördern.** Unter Wüsten und Ozeanen liegen Ölblasen. Eine <item:infinite_horizon:fluid_pump> saugt das Erdöl in einen <item:infinite_horizon:fluid_tank>. Siehe [[fluide|Fluide und Rohre]].
+8. **Erdöl fördern.** In Wüsten und Tafelbergen liegen Ölpfützen an der Oberfläche. Eine <item:infinite_horizon:fluid_pump> saugt das Erdöl in einen <item:infinite_horizon:fluid_tank>. Siehe [[fluide|Fluide und Rohre]].
 9. **Die Raffinerie bauen.** Der erste Multiblock macht aus Erdöl Kerosin und Kunststoff. Siehe [[raffinerie|Raffinerie]].
 10. **Schaltkreise herstellen.** Silizium, Kupferdraht und Kunststoff ergeben im Montagetisch den <item:infinite_horizon:circuit>, das wichtigste Bauteil der Mod.
 11. **Wasser spalten.** Der <item:infinite_horizon:electrolyzer> macht aus Wasser Wasserstoff und Sauerstoff. Siehe [[elektrolyseur|Elektrolyseur]].

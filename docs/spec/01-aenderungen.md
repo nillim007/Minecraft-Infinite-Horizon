@@ -114,3 +114,5 @@ Anlass: Ein Gast ohne JEI wurde von einem LAN-Host mit JEI abgewiesen („The se
 - Tooltips: Tanks, Druckflaschen, Gastanks und Tankdepots zeigen ihren Inhalt, Akkus ihre Ladung; auch Gastank, Tankdepot und Lithium-Akkubank behalten ihn beim Abbauen. Der Hinweis auf die Handbuch-Taste erscheint nur mit gedrückter Umschalttaste.
 - Kreativ-Tab: vorgefüllte Flüssigkeitstanks (Erdöl, Kerosin, Wasser); per Befehl mit der Komponente `infinite_horizon:fluid`.
 - Shift-Klick in ein Maschinenfenster wird nicht mehr auf dem Client vorhergesagt (keine Geister-Items).
+- Balancing (Paket B, Werte in `spec/data`): Verbrennungsgenerator speichert 64.000 J (eine Kohle füllt ihn zur Hälfte); Pumpvorgang 160 statt 40 t; eine Erdöl-Quelle wird beim Abpumpen zu 60 % verbraucht (vorher 10 %); Maschinenklänge halb so laut.
+- Weltgenerierung (13.4): Quarzsand-Adern haben höchstens 5 Blöcke (Scheibe mit Radius 1 in einer Schicht); Erdöl liegt in kleinen Pfützen an der Oberfläche von Wüste und Tafelbergen statt in Blasen im Untergrund.

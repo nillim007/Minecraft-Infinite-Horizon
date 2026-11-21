@@ -9,7 +9,7 @@
 | `press` | Presse | – | 30 J/t | 100 t | Barren + Pressform → Produkt (6.2) | überall |
 | `refinery_controller` | Raffinerie (Multiblock `refinery`) | – | 40 J/t | 200 t | 1.000 mB `crude_oil` → 600 mB `kerosene` + 1 `plastic` | überall |
 | `electrolyzer` | Elektrolyseur | – | 40 J/t | 40 t | 200 mB Wasser → 200 mB `hydrogen` + 100 mB `oxygen` | überall mit Wasser |
-| `fluid_pump` | Pumpe | – | 20 J/t | 40 t | saugt einen Fluid-Quellblock im Umkreis von 8 Blöcken unterhalb ab → 1.000 mB; der Quellblock wird entfernt, bei `crude_oil` nur mit 10 % Wahrscheinlichkeit (`source_consume_chance` in `machines.json`); wählt die nächste Quelle mit dem Fluid, das schon im Tank ist (bei leerem Tank die nächste überhaupt) | überall |
+| `fluid_pump` | Pumpe | – | 20 J/t | 160 t (Ä31; vorher 40 t) | saugt einen Fluid-Quellblock im Umkreis von 8 Blöcken unterhalb ab → 1.000 mB; der Quellblock wird entfernt, bei `crude_oil` nur mit 10 % Wahrscheinlichkeit (`source_consume_chance` in `machines.json`); wählt die nächste Quelle mit dem Fluid, das schon im Tank ist (bei leerem Tank die nächste überhaupt) | überall |
 | `assembly_table` | Montagetisch | – | 30 J/t | 200 t | Rezepttyp `assembly`, `suit_module_install`, `suit_module_remove`: 9 Eingabeslots + 1 Fluid-Eingang (16.000 mB) → 3 Ausgabeslots (Hauptergebnis + Nebenausgaben, z. B. ausgebaute Module) | überall |
 | `analyzer` | Analysator | – | 20 J/t | 100 t | 1 `sample` → FP (Kapitel 11) | überall |
 | `high_temperature_furnace` | Hochtemperaturofen | 2 | 80 J/t | 400 t | Rezepttyp `high_temp_smelting`, 2 Eingabeslots | überall |
@@ -32,7 +32,7 @@
 - **`crusher`:** Er verarbeitet `raw_*`-Items und `bauxite`. Erzblöcke zu zerkleinern ist kein Ziel von M2; „Erz/Raw“ in der Tabelle ist als „Rohform“ zu lesen.
 - **`electric_furnace`:** „Alle Vanilla-Schmelzrezepte“ heißt nur `minecraft:smelting`, nicht Hochofen (`blasting`) oder Räucherofen (`smoking`). Die Dauer ist immer die der Maschine (100 t); die `cookingtime` des Rezepts wird ignoriert. Es gibt keine Erfahrungspunkte.
 - **`analyzer` (ab M4):** Die FP gehen am Ende des Vorgangs an die Agentur `OwnershipResolver.current(owner)` (11.1). Ohne Besitzer steht er auf `error` (Tooltip `gui.infinite_horizon.status.no_owner`) und macht keinen Fortschritt; wer das GUI zuerst öffnet, wird Besitzer (23.1). Der Eingangsslot nimmt nur Proben an, die FP geben (Ring aus `PlanetRegistry` zur `dimension` der Probe, 11.1). Er hat keinen Ausgabeslot; die Probe wird verbraucht.
-- **`fluid_pump`:** Suchbereich: Radius 8 horizontal um die Pumpe, 1 bis 8 Blöcke darunter. Es zählen nur Quellblöcke (`isSource`) von Wasser, Lava und `crude_oil`; Fließblöcke zählen nicht. Die nächste Quelle (euklidischer Abstand) kommt zuerst, bei Gleichstand die mit der kleineren Koordinate (x, dann y, dann z). Das Auffüllen der Quelle bleibt wie in Vanilla (Wasser ist unendlich; Erdöl verbraucht seinen Quellblock nur mit der Wahrscheinlichkeit `source_consume_chance`, also wird eine Ölblase etwa zehnmal so ergiebig). Ohne Quelle steht die Pumpe auf `idle`.
+- **`fluid_pump`:** Suchbereich: Radius 8 horizontal um die Pumpe, 1 bis 8 Blöcke darunter. Es zählen nur Quellblöcke (`isSource`) von Wasser, Lava und `crude_oil`; Fließblöcke zählen nicht. Die nächste Quelle (euklidischer Abstand) kommt zuerst, bei Gleichstand die mit der kleineren Koordinate (x, dann y, dann z). Das Auffüllen der Quelle bleibt wie in Vanilla (Wasser ist unendlich; Erdöl verbraucht seinen Quellblock nur mit der Wahrscheinlichkeit `source_consume_chance`, also wird eine Ölblase etwa zehnmal so ergiebig). Ohne Quelle steht die Pumpe auf `idle`. Seit Ä31 verbraucht die Pumpe eine `crude_oil`-Quelle mit 60 % Wahrscheinlichkeit (vorher 10 %).
 
 ## 6.2 Pressen
 
@@ -47,7 +47,7 @@
 
 | ID | Name DE | Stufe | Leistung | Brennstoff / Bedingung | Speicher |
 | --- | --- | --- | --- | --- | --- |
-| `combustion_generator` | Verbrennungsgenerator | – | 20 J/t | Vanilla-Brennwert in Ticks (Kohle 1.600 t) | 20.000 J |
+| `combustion_generator` | Verbrennungsgenerator | – | 20 J/t | Vanilla-Brennwert in Ticks (Kohle 1.600 t) | 64.000 J (Ä31: eine Kohle füllt ihn zur Hälfte) |
 | `fuel_generator` | Treibstoffgenerator | – | 80 J/t | 1 mB `kerosene` pro 4 t | 80.000 J |
 | `solar_panel` | Solarpanel | 1 | 5 J/t × Solarfaktor × Tageslicht (Oberfläche); 20 J/t × Solarfaktor (Orbit) | Himmel sichtbar | 5.000 J |
 | `solar_wing` | Solarflügel | 3 | wie Solarpanel im Orbit | nur Orbit | 5.000 J |

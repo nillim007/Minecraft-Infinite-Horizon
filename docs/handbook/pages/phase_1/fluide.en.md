@@ -39,6 +39,6 @@ Every machine with a tank has two special slots:
 
 You also get a <item:infinite_horizon:crude_oil_bucket> by clicking a crude oil source block with an empty bucket. A <item:infinite_horizon:kerosene_bucket> can only be filled in the fill slot of the refinery or a tank.
 
-@tip Put the pump directly above an oil pocket and the tank next to it. With a copper pipe in between, the crude oil flows by itself.
+@tip Put the pump directly above an oil puddle and the tank next to it. With a copper pipe in between, the crude oil flows by itself.
 
 @warning A pipe that already carries water does not accept crude oil. If nothing flows, check whether an old fluid is still stuck in the network.

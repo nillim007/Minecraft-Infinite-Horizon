@@ -52,7 +52,7 @@ Jede Maschine verarbeitet ihr Beispielrezept innerhalb der Zeitgrenze. Grenze = 
 | `electrolyzer` | 200 mB Wasser → 200 mB `hydrogen` + 100 mB `oxygen` (`electrolysis/hydrogen`) | 44 t (Dauer 40 t) |
 | `refinery_controller` | fertiger Aufbau; 1.000 mB `crude_oil` → 600 mB `kerosene` + 1 `plastic` (`refining/kerosene`) | 220 t (Dauer 200 t) |
 | `assembly_table` | 2 `silicon` + 4 `copper_wire` + 1 `plastic` → 1 `circuit` (`assembly/circuit`) | 220 t (Dauer 200 t) |
-| `fluid_pump` | ein `crude_oil`-Quellblock 4 Blöcke unter der Pumpe → 1.000 mB im Tank | 44 t (Dauer 40 t) |
+| `fluid_pump` | ein `crude_oil`-Quellblock 4 Blöcke unter der Pumpe → 1.000 mB im Tank | 44 t (Dauer 40 t); seit Ä31 200 t (Dauer 160 t) |
 | `fuel_generator` | 4 mB `kerosene` → 80 J/t | 16 t Laufzeit |
 | `battery` | nimmt bis 512 J/t an und gibt nur über die Ausgangsseite ab | je Tick geprüft |
 | `copper_pipe` | schiebt 200 mB/t | je Tick geprüft |

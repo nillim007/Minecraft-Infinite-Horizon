@@ -16,7 +16,7 @@
           }
         }
       ],
-      "buffer": 20000,
+      "buffer": 64000,
       "coolant": [],
       "safety": null,
       "location": null,

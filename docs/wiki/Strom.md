@@ -13,7 +13,7 @@ Der Verbrennungsgenerator ist dein erstes Kraftwerk. Er verbrennt alles, was auc
 | Steckbrief: Verbrennungsgenerator |  |
 | --- | --- |
 | Leistung | 20 J/t |
-| Energiepuffer | 20.000 J |
+| Energiepuffer | 64.000 J |
 | Brennstoff | alles, was im Ofen brennt (z. B. Kohle: 1.600 t (80 s)) |
 
 ![Das Fenster des Verbrennungsgenerators: Brennstoffslot und Restbrennzeit.](../images/screenshots/gui-combustion-generator.png)

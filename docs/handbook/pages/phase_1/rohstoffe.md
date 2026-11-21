@@ -29,7 +29,7 @@ Neben den Vanilla-Erzen bringt Infinite Horizon drei neue Rohstoffe auf die Erde
 ## Erdöl
 
 @if infinite_horizon:crude_oil
-Erdöl liegt in **Ölblasen** unter Wüsten und Ozeanen, zwischen y {{value:planet:overworld.features.0.params.y_min}} und {{value:planet:overworld.features.0.params.y_max}}. Etwa eine von {{value:planet:overworld.features.0.params.rarity_chunks}} Chunks hat eine. An der Oberfläche siehst du nichts davon; oft findest du sie, wenn eine Höhle plötzlich schwarz glänzt. Wie du Erdöl förderst, steht unter [[fluide|Fluide und Rohre]].
+Erdöl liegt in **Ölpfützen** an der Oberfläche von Wüsten und Tafelbergen: runde, schwarz glänzende Mulden mit {{value:planet:overworld.features.0.params.radius.0}} bis {{value:planet:overworld.features.0.params.radius.1}} Blöcken Radius, in der Mitte bis {{value:planet:overworld.features.0.params.depth.1}} Blöcke tief. Etwa eine von {{value:planet:overworld.features.0.params.rarity_chunks}} Chunks hat eine. Wie du Erdöl förderst, steht unter [[fluide|Fluide und Rohre]].
 @endif
 
 @tip Bauxit kannst du auch direkt im Ofen schmelzen. Zerkleinerst du es vorher, bekommst du aber doppelt so viel Aluminium.

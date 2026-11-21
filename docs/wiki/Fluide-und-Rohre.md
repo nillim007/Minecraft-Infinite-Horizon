@@ -8,12 +8,12 @@ Erdöl, Kerosin, Wasserstoff und Sauerstoff sind **Fluide**. Sie werden in Milli
 
 ## Pumpe
 
-Die Pumpe saugt Quellblöcke unter sich ab: Wasser, Lava oder Erdöl, bis zu 8 Blöcke tief und im gleichen Umkreis zur Seite. Jeder Vorgang bringt 1.000 mB. Bei Erdöl verschwindet der Quellblock nur mit 10 % Wahrscheinlichkeit. Eine Ölblase hält also sehr lange.
+Die Pumpe saugt Quellblöcke unter sich ab: Wasser, Lava oder Erdöl, bis zu 8 Blöcke tief und im gleichen Umkreis zur Seite. Jeder Vorgang bringt 1.000 mB. Bei Erdöl verschwindet der Quellblock nur mit 60 % Wahrscheinlichkeit. Eine Ölblase hält also sehr lange.
 
 | Steckbrief: Pumpe |  |
 | --- | --- |
 | Verbrauch | 20 J/t |
-| Dauer je Vorgang | 40 t (2 s) |
+| Dauer je Vorgang | 160 t (8 s) |
 | Tanks | 16.000 mB |
 | Upgrade-Slots | 2 |
 
@@ -62,7 +62,7 @@ Jede Maschine mit Tank hat zwei besondere Slots:
 Ein Erdöleimer entsteht auch, wenn du mit einem leeren Eimer auf einen Erdöl-Quellblock klickst. Einen Kerosineimer füllst du nur im Füllslot der Raffinerie oder eines Tanks.
 
 > [!TIP]
-> Stell die Pumpe direkt über eine Ölblase und den Tank daneben. Mit einem Kupferrohr dazwischen läuft das Erdöl von allein.
+> Stell die Pumpe direkt über eine Ölpfütze und den Tank daneben. Mit einem Kupferrohr dazwischen läuft das Erdöl von allein.
 
 > [!WARNING]
 > Ein Rohr, das schon Wasser führt, nimmt kein Erdöl an. Wenn nichts fließt, prüfe, ob noch ein altes Fluid im Netz steckt.
